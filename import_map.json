@@ -1,5 +1,7 @@
 {
   "imports": {
+    "deco-sites/otica-isabela/": "./",
+
     "deco-sites/fashion/": "./",
     "$store/": "./",
     "deco-sites/std/": "https://denopkg.com/deco-sites/std@1.12.16/",
