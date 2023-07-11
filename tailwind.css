@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Allow changing font family via CMS */
+  html {
+    font-family: var(--font-family);
+  }
+
+  /** Remove default styles from input[type=number] */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@layer components {
+
+  /** Prevent scroll when modal is open */
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+
+@layer utilities {
+
+  /** Remove scrollbar from overflow-auto */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes slide-left-frame {
+    0% {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-right-frame {
+    0% {
+      transform: translateX(-100%)
+    }
+
+    to {
+      transform: translateX(0)
+    }
+  }
+
+  @keyframes slide-bottom-frame {
+    0% {
+      transform: translateY(100%)
+    }
+
+    to {
+      transform: translateY(0)
+    }
+  }
+
+  .animate-slide-left {
+    animation: slide-left-frame 0.4s ease normal;
+  }
+
+  .animate-slide-right {
+    animation: slide-right-frame 0.4s ease normal;
+  }
+
+  .animate-slide-bottom {
+    animation: slide-bottom-frame 0.4s ease normal;
+  }
+}
+
+.group:disabled .group-disabled\:animate-progress {
+  animation: progress-frame ease normal
+}
+
+@keyframes progress-frame {
+  0% {
+    --dot-progress: 0%
+  }
+
+  to {
+    --dot-progress: 100%
+  }
+}
