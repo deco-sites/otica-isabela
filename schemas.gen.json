@@ -9311,6 +9311,10 @@
           },
           "title": "Alerts"
         },
+        "text": {
+          "type": "string",
+          "title": "Text"
+        },
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
           "title": "Search Bar"
@@ -9331,7 +9335,8 @@
         }
       },
       "required": [
-        "alerts"
+        "alerts",
+        "text"
       ],
       "title": "deco-sites/otica-isabela/components/header/Header.tsx@Props"
     },

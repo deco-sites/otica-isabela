@@ -1,10 +1,10 @@
-import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import Searchbar from "$store/components/search/Searchbar.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];
@@ -42,11 +42,9 @@ function Navbar({ items, searchbar }: {
           </a>
         </div>
         <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
+          <Searchbar {...searchbar} />
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <Buttons variant="search" />
-          <Searchbar searchbar={searchbar} />
           <a
             class="btn btn-circle btn-sm btn-ghost"
             href="/login"
