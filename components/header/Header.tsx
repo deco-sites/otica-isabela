@@ -4,7 +4,8 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import NavItem from "./NavItem.tsx";
-
+import Buttons from "$store/islands/HeaderButton.tsx";
+import MainMenu from "$store/islands/MainMenu.tsx";
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
@@ -62,16 +63,23 @@ function Header({
   return (
     <>
       <header style={{ height: headerHeight }}>
-        <div class="bg-base-100 fixed w-full z-50">
-          <Alert alerts={alerts} />
+        <div class="bg-base-100 fixed w-full z-20">
           <Navbar items={navItems} searchbar={searchbar} />
 
-          <div class="flex-auto flex justify-center  bg-black">
-            {navItems.map((item) => <NavItem item={item} />)}
-          </div>
+          <div class=" flex flex-col justify-center items-center  align-content-cente  bg-black w-full ">
+            <div class="flex flex-row">
+              {navItems.map((item) => (
+                <MainMenu
+                  text={item.label}
+                  children={item.children}
+                  image={item.image}
+                />
+              ))}
+            </div>
 
-          <div class="font-medium static flex flex-row justify-center items-center align-content-center text-white bg-black z-2 w-full h-10 text-center m-0 p-0">
-            {text}
+            <div class="text-white  font-semibold ">
+              {text}
+            </div>
           </div>
         </div>
 
