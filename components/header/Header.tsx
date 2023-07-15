@@ -1,15 +1,12 @@
-import Modals from "$store/islands/HeaderModals.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
 import NavItem from "./NavItem.tsx";
-import Buttons from "$store/islands/HeaderButton.tsx";
 import MainMenu from "$store/islands/MainMenu.tsx";
-import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import { useMemo } from "preact/compat";
 
 export interface NavItem {
   label: string;
@@ -43,8 +40,15 @@ export interface NewNavItem {
 
 export interface Props {
   alerts: string[];
-  text: string;
-  /** @title Search Bar */
+  giftValueReachInfos?: {
+    baseValue?: number;
+    beforeText?: string;
+    afterText?: string;
+  };
+  /**
+   * @title Highlight Ttext
+   * @description Texto de destaque no Header
+   */
   searchbar?: SearchbarProps;
   /**
    * @title Navigation items
@@ -63,35 +67,36 @@ export interface Props {
    */
   suggestions?: LoaderReturnType<Suggestion | null>;
 
-     menuItems?: Array<NewNavItem>;
-  
+  mainMenuItems?: Array<NewNavItem>;
+
   /**
    * @title Menu Principal
    * @description Itens de navegação usados ​​em menus móveis e de desktop
    */
-
 }
 
 function Header({
-  alerts,
-  searchbar: _searchbar,
-  products,
-  menuItems = [],
-  navItems = [],
-  suggestions,
-  text = "Subtitulo",
+  searchbar,
+  mainMenuItems = [],
+  giftValueReachInfos,
 }: Props) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const { afterText, baseValue, beforeText } = useMemo(() => {
+    if (!giftValueReachInfos) {
+      return {};
+    }
+
+    return { ...giftValueReachInfos };
+  }, [giftValueReachInfos]);
 
   return (
     <>
-      <header  style={{ height: headerHeight }}>
+      <header style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-20">
-          <Navbar items={[]} searchbar={searchbar} />
+          <Navbar items={[]} searchbar={searchbar ?? {}} />
 
           <div class=" flex flex-col justify-center items-center  align-content-cente  bg-black w-full ">
             <div class="flex flex-row">
-              {menuItems.map((item,index) => (
+              {mainMenuItems.map((item, index) => (
                 <MainMenu
                   text={item.label}
                   children={item.children}
@@ -100,13 +105,13 @@ function Header({
               ))}
             </div>
 
-            <div class="text-white  font-semibold ">
-              {text}
-            </div>
+            {(!!beforeText || !!afterText) && !!baseValue && (
+              <div class="text-white  font-semibold ">
+                <p>{`${beforeText} ${baseValue} ${afterText}`}</p>
+              </div>
+            )}
           </div>
         </div>
-
-    
       </header>
     </>
   );
