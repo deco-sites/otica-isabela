@@ -1,13 +1,19 @@
 import Button from "$store/components/ui/Button.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { Suspense, useState } from "preact/compat";
-import type { INavItem } from "../header/NavItem.tsx";
+import type { Image as imageType } from "deco-sites/std/components/types.ts";
 
 function MainMenu(
-  { text, children, image }: {
+  { text, children }: {
     text: string;
-    children?: INavItem["children"];
-    image?: { src?: string; alt?: string };
+    children?: Array<{
+      label: string;
+      href: string;
+      image?: {
+        src?: imageType;
+        alt?: string;
+      };
+    }>;
   },
 ) {
   const [showOptions, setShowOptions] = useState(false);
@@ -42,15 +48,17 @@ function MainMenu(
                   onMouseLeave={closeModal}
                   class=" rounded-xl absolute  border- hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 "
                 >
-                  {image?.src && (
-                    <Image
-                      class="p-6"
-                      src={image.src}
-                      alt={image.alt}
-                      width={300}
-                      height={332}
-                      loading="lazy"
-                    />
+                  {children.map(({ image, href }) =>
+                    image?.src && (
+                      <Image
+                        class="p-6"
+                        src={image.src}
+                        alt={image.alt}
+                        width={300}
+                        height={332}
+                        loading="lazy"
+                      />
+                    )
                   )}
                 </div>
               )}
