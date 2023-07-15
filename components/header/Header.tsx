@@ -1,9 +1,8 @@
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import NavItem from "./NavItem.tsx";
 import MainMenu from "$store/islands/MainMenu.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 import { useMemo } from "preact/compat";
@@ -25,7 +24,7 @@ export interface NavItem {
   };
 }
 
-export interface NewNavItem {
+export interface mainMenuItem {
   label: string;
   href: string;
   children?: Array<{
@@ -39,40 +38,30 @@ export interface NewNavItem {
 }
 
 export interface Props {
-  alerts: string[];
+  /**
+   * @title  Gift Value Reach Infos
+   * @description Configure o valor base e o textos a ser exibido
+   */
+
   giftValueReachInfos?: {
     baseValue?: number;
     beforeText?: string;
     afterText?: string;
   };
+
   /**
-   * @title Highlight Ttext
-   * @description Texto de destaque no Header
+   * @title  Search Settings
+   * @description Configuração da search
    */
+
   searchbar?: SearchbarProps;
-  /**
-   * @title Navigation items
-   * @description Navigation items used both on mobile and desktop menus
-   */
-  navItems?: NavItem[];
 
   /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
+   * @title Main Menu Items
+   * @description Main Menu Items items used both on mobile and desktop menus
    */
-  products?: LoaderReturnType<Product[] | null>;
 
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
-
-  mainMenuItems?: Array<NewNavItem>;
-
-  /**
-   * @title Menu Principal
-   * @description Itens de navegação usados ​​em menus móveis e de desktop
-   */
+  mainMenuItems?: Array<mainMenuItem>;
 }
 
 function Header({
@@ -107,7 +96,11 @@ function Header({
 
             {(!!beforeText || !!afterText) && !!baseValue && (
               <div class="text-white  font-semibold ">
-                <p>{`${beforeText} ${baseValue} ${afterText}`}</p>
+                <p>
+                  {`${beforeText ?? ""} ${formatPrice(baseValue)} ${
+                    afterText ?? ""
+                  }`}
+                </p>
               </div>
             )}
           </div>
