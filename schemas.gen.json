@@ -9391,12 +9391,12 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Enable Top Search terms"
         },
-        "newNavItems": {
+        "menuItems": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NewNavItem"
           },
-          "title": "New Nav Items"
+          "title": "Menu Items"
         }
       },
       "required": [

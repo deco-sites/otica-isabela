@@ -63,14 +63,20 @@ export interface Props {
    */
   suggestions?: LoaderReturnType<Suggestion | null>;
 
-  newNavItems?: Array<NewNavItem>;
+     menuItems?: Array<NewNavItem>;
+  
+  /**
+   * @title Menu Principal
+   * @description Itens de navegação usados ​​em menus móveis e de desktop
+   */
+
 }
 
 function Header({
   alerts,
   searchbar: _searchbar,
   products,
-  newNavItems = [],
+  menuItems = [],
   navItems = [],
   suggestions,
   text = "Subtitulo",
@@ -81,11 +87,11 @@ function Header({
     <>
       <header  style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-20">
-          <Navbar items={navItems} searchbar={searchbar} />
+          <Navbar items={[]} searchbar={searchbar} />
 
           <div class=" flex flex-col justify-center items-center  align-content-cente  bg-black w-full ">
             <div class="flex flex-row">
-              {newNavItems.map((item,index) => (
+              {menuItems.map((item,index) => (
                 <MainMenu
                   text={item.label}
                   children={item.children}
