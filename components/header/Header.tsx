@@ -79,16 +79,17 @@ function Header({
 
   return (
     <>
-      <header style={{ height: headerHeight }}>
+      <header  style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-20">
           <Navbar items={navItems} searchbar={searchbar} />
 
           <div class=" flex flex-col justify-center items-center  align-content-cente  bg-black w-full ">
             <div class="flex flex-row">
-              {newNavItems.map((item) => (
+              {newNavItems.map((item,index) => (
                 <MainMenu
                   text={item.label}
                   children={item.children}
+                  index={index}
                 />
               ))}
             </div>
