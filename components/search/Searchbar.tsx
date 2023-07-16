@@ -62,17 +62,17 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
-      <div class="flex items-center gap-4">
+    <div class="flex bg-white w-full h-10  rounded-lg">
+      <div class="flex items-center w-full ">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
+          class="flex flex-row justify-center items-center border border-none w-full"
         >
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex  outline-none placeholder-shown:sibling:hidden w-5/6"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -92,19 +92,13 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <Button
-            class="btn-ghost"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-base-300"
-              id="MagnifyingGlass"
-              size={20}
-              strokeWidth={0.01}
-            />
-          </Button>
+
+          <Icon
+            class="text-base-300"
+            id="MagnifyingGlass"
+            size={20}
+            strokeWidth={0.01}
+          />
         </form>
       </div>
     </div>

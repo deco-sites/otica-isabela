@@ -37,18 +37,6 @@ function MenuButton() {
   );
 }
 
-function DefaultButton(onClick?: string) {
-  return (
-    <Button
-      class="btn btn-sm btn-ghost"
-      onClick={() => {
-        console.log(`cliclouuuuuuuuuuuuuuuuuuu`);
-      }}
-    >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
-    </Button>
-  );
-}
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
@@ -118,8 +106,9 @@ function Buttons(
       <Button
         class="btn btn-sm btn-ghost"
         onClick={() => {
-          console.log("ola mundo")
-          onclick?.()}}
+          console.log("ola mundo");
+          onclick?.();
+        }}
       >
         <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
       </Button>

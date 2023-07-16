@@ -55,11 +55,11 @@ export const MainMenuItem = (
       <div>
         <Button
           id={`menu-item-button-${index}`}
-          class="bg-transparent border-none  hover:bg-transparent"
+          class="bg-transparent border-none  hover:bg-transparent  "
           onMouseEnter={openModal}
-         onMouseLeave={closeModal}
+          onMouseLeave={closeModal}
         >
-          <span class="text-white hover:text-primary  text-16 font-semibold ">
+          <span class="text-white hover:text-primary  text-16 font-semibold text-lg font-sans ">
             {text}
           </span>
         </Button>
@@ -72,25 +72,27 @@ export const MainMenuItem = (
                   style={{ ...modalAlignment, maxWidth: "1260px" }}
                   onMouseEnter={openModal}
                   onMouseLeave={closeModal}
-                  class=" rounded-xl absolute    flex flex-row  border- hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 "
+                  class=" rounded-xl absolute flex flex-row  border- hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 "
                 >
                   {children.map(({ image, href, label }) =>
                     image?.src && (
-                      <div class="p-6  flex flex-col justify-center gap-y-4   ">
-                        <Image
-                          class="rounded-xl p-0"
-                          src={image.src}
-                          alt={image.alt}
-                          width={300}
-                          height={332}
-                          loading="lazy"
-                        />
-                        <div class="w-full text-center">
-                          <span class="font-medium text-lg  text-primary-200 font-sans  ">
-                            {label}
-                          </span>
+                      <a href={href} class="m-0 p-0">
+                        <div class="p-6  flex flex-col justify-center gap-y-4   ">
+                          <Image
+                            class="rounded-xl p-0"
+                            src={image.src}
+                            alt={image.alt}
+                            width={280}
+                            height={250}
+                            loading="lazy"
+                          />
+                          <div class="w-full text-center">
+                            <span class="font-medium text-lg  text-primary-200 font-sans  ">
+                              {label}
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      </a>
                     )
                   )}
                 </div>

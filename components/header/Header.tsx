@@ -1,11 +1,11 @@
-import type { Image } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import NavItem from "./NavItem.tsx";
+import Searchbar from "$store/components/search/Searchbar.tsx";
 import MainMenuItem from "$store/islands/MainMenuItem.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import Navbar from "./Navbar.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import { useUI } from "$store/sdk/useUI.ts";
 import { headerHeight } from "./constants.ts";
 import { useMemo } from "preact/compat";
 
@@ -21,7 +21,7 @@ export interface NavItem {
     }>;
   }>;
   image?: {
-    src?: Image;
+    src?: ImageType;
     alt?: string;
   };
 }
@@ -33,7 +33,7 @@ export interface mainMenuItem {
     label: string;
     href: string;
     image?: {
-      src?: Image;
+      src?: ImageType;
       alt?: string;
     };
   }>;
@@ -64,13 +64,25 @@ export interface Props {
    */
 
   mainMenuItems?: Array<mainMenuItem>;
+
+  /**
+   * @title Site logo
+   * @description Logo used in header
+   */
+
+  siteLogo?: {
+    src?: ImageType;
+    alt?: string;
+  };
 }
 
 function Header({
   searchbar,
   mainMenuItems = [],
   giftValueReachInfos,
+  siteLogo,
 }: Props) {
+  const { displayCart } = useUI();
   const { afterText, baseValue, beforeText } = useMemo(() => {
     if (!giftValueReachInfos) {
       return {};
@@ -82,31 +94,34 @@ function Header({
   return (
     <>
       <header style={{ height: headerHeight }}>
-        <div class="fixed w-full  bg-black z-20">
-          <div class="container" style={{ maxWidth: "1140px" }}>
-            {/* <Navbar items={[]} searchbar={searchbar ?? {}} /> */}
-
-            <div class="w-full flex flex-row justify-center items-center ">
-              <div class="flex-none w-44">
+        <div class="fixed w-full pt-8  bg-black z-50">
+          <div class="container" style={{ maxWidth: "1280px" }}>
+            <div class="w-full flex flex-row justify-center items-center mb-4 ">
+              <div class=" w-64">
                 <a
                   href="/"
                   aria-label="Store logo"
-                  class="block px-4 py-3 w-[160px]"
+                  class="w-full"
                 >
-                  <Icon id="Logo" width={126} height={16} />
+                  {siteLogo && (
+                    <Image
+                      src={siteLogo.src ?? ""}
+                      alt={siteLogo.src ?? ""}
+                      width={400}
+                    />
+                  )}
                 </a>
               </div>
 
-              <div class="w-1/3">
-                <input class="w-full"></input>
+              <div class=" hidden lg:flex  w-1/3">
+                <Searchbar {...searchbar} />
               </div>
-
               <div>
               </div>
             </div>
 
             <div class=" flex flex-col justify-center items-center  align-content-cente   w-full ">
-              <div class="flex flex-row mb-2">
+              <div class=" hidden lg:flex flex-row mb-2">
                 {mainMenuItems.reverse().map((item, index) => (
                   <MainMenuItem
                     text={item.label}

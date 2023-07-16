@@ -1,5 +1,5 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import { NewNavItem } from "deco-sites/otica-isabela/components/header/Header.tsx";
+import type { NewNavItem } from "deco-sites/otica-isabela/components/header/Header.tsx";
 
 function NavItem({ item }: { item: NewNavItem }) {
   const { href, label, children } = item;
