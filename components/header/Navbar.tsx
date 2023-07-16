@@ -34,7 +34,7 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
+      <div class="hidden md:flex flex-row justify-between items-center w-full pl-2 pr-6">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Icon id="Logo" width={126} height={16} />

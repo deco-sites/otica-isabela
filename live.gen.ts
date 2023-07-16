@@ -9,7 +9,7 @@ import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
 import * as $$$$$3 from "./islands/HeaderSearchbar.tsx";
-import * as $$$$$4 from "./islands/MainMenu.tsx";
+import * as $$$$$4 from "./islands/MainMenuItem.tsx";
 import * as $$$$$5 from "./islands/Newsletter.tsx";
 import * as $$$$$6 from "./islands/OutOfStock.tsx";
 import * as $$$$$7 from "./islands/ProductImageZoom.tsx";
@@ -189,7 +189,7 @@ const manifest = {
     "./islands/HeaderButton.tsx": $$$$$1,
     "./islands/HeaderModals.tsx": $$$$$2,
     "./islands/HeaderSearchbar.tsx": $$$$$3,
-    "./islands/MainMenu.tsx": $$$$$4,
+    "./islands/MainMenuItem.tsx": $$$$$4,
     "./islands/Newsletter.tsx": $$$$$5,
     "./islands/OutOfStock.tsx": $$$$$6,
     "./islands/ProductImageZoom.tsx": $$$$$7,
