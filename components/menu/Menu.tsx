@@ -1,7 +1,7 @@
 import Button from "$store/components/ui/Button.tsx";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import Image from "deco-sites/std/components/Image.tsx";
-import { Suspense, useEffect, useMemo, useState } from "preact/compat";
+import { Suspense, useMemo, useState } from "preact/compat";
 import type { Image as imageType } from "deco-sites/std/components/types.ts";
 
 export const MainMenuItem = (
@@ -19,9 +19,8 @@ export const MainMenuItem = (
   },
 ) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [elementPosition, setElementPosition] = useState<
-    { [key: string]: string }
-  >({});
+
+  const MODAL_BASE_SIZE = 300;
 
   const closeModal = () => {
     setShowOptions(false);
@@ -31,49 +30,25 @@ export const MainMenuItem = (
     setShowOptions(true);
   };
 
+  const modalAlignment = useMemo(() => {
+    if (!IS_BROWSER) {
+      return {};
+    }
 
-  // refatorar e melhorar essa estrutura 
+    const alignment: { [key: string]: string } = {};
+    const childrenLenght = children?.length ?? 0;
+    const modalWidth = childrenLenght * MODAL_BASE_SIZE;
+    const screenWidth = window?.innerWidth ?? 0;
 
-  useEffect(() => {
-    const getleftlenght = (elementId: string) => {
-      if (!IS_BROWSER) {
-        return;
-      }
+    if (childrenLenght >= 2) {
+      alignment["left"] = `${(screenWidth - modalWidth) / 2}px`;
+    }
 
-      const posicaoElemento =
-        document.getElementById(elementId)?.getBoundingClientRect()
-          .left ?? 0;
-      const tamanhoDoElemento =
-        document.getElementById(elementId)?.getBoundingClientRect()
-          .width ?? 0;
-
-      const larguraJanela = window.innerWidth;
-      const distanciaDireita = larguraJanela - posicaoElemento;
-      const distanciaEsquerda = posicaoElemento;
-
-      const childrenQty = children ? children.length : 0;
-
-      if (childrenQty > 2) {
-        if (distanciaDireita < distanciaEsquerda) {
-          setElementPosition({
-            "right": `${(larguraJanela - distanciaEsquerda) / 2}px`,
-          });
-        } else {
-          setElementPosition({
-            "left": `${(larguraJanela - distanciaDireita) / 2}px`,
-          });
-        }
-
-        return;
-      }
-
-      setElementPosition({
-        "left": `${distanciaEsquerda - tamanhoDoElemento / 2}px`,
-      });
+    return {
+      ...alignment,
+      "width": `${modalWidth}px`,
     };
-
-    getleftlenght(`menu-item-button-${index}`);
-  }, [!IS_BROWSER, index]);
+  }, [index]);
 
   return (
     <>
@@ -82,7 +57,7 @@ export const MainMenuItem = (
           id={`menu-item-button-${index}`}
           class="bg-transparent border-none  hover:bg-transparent"
           onMouseEnter={openModal}
-          onMouseLeave={closeModal}
+         onMouseLeave={closeModal}
         >
           <span class="text-white hover:text-primary  text-16 font-semibold ">
             {text}
@@ -94,16 +69,16 @@ export const MainMenuItem = (
             {children && children.length > 0 &&
               (
                 <div
-                  style={elementPosition}
+                  style={{ ...modalAlignment, maxWidth: "1260px" }}
                   onMouseEnter={openModal}
                   onMouseLeave={closeModal}
-                  class=" rounded-xl absolute   flex flex-row  border- hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 "
+                  class=" rounded-xl absolute    flex flex-row  border- hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 "
                 >
                   {children.map(({ image, href, label }) =>
                     image?.src && (
-                      <div>
+                      <div class="p-6  flex flex-col justify-center gap-y-4   ">
                         <Image
-                          class="p-6  rounded-xl"
+                          class="rounded-xl p-0"
                           src={image.src}
                           alt={image.alt}
                           width={300}
@@ -111,7 +86,7 @@ export const MainMenuItem = (
                           loading="lazy"
                         />
                         <div class="w-full text-center">
-                          <span class="text-primary   ">
+                          <span class="font-medium text-lg  text-primary-200 font-sans  ">
                             {label}
                           </span>
                         </div>

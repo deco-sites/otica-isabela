@@ -86,7 +86,7 @@ function Header({
           <div class="container" style={{ maxWidth: "1140px" }}>
             {/* <Navbar items={[]} searchbar={searchbar ?? {}} /> */}
 
-            <div class="w-full flex flex-row justify-center items-center "  >
+            <div class="w-full flex flex-row justify-center items-center ">
               <div class="flex-none w-44">
                 <a
                   href="/"
@@ -97,12 +97,11 @@ function Header({
                 </a>
               </div>
 
-              <div  class="w-1/3" >
-                <input  class='w-full'></input>
+              <div class="w-1/3">
+                <input class="w-full"></input>
               </div>
 
               <div>
-                
               </div>
             </div>
 
