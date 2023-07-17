@@ -1,6 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import NavItem from "./NavItem.tsx";
+
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import MainMenuItem from "$store/islands/MainMenuItem.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
