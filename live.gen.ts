@@ -216,8 +216,10 @@ const manifest = {
     "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$3,
     "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$20,
     "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$21,
-    "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$$$15,
-    "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx": $$$$$$$$16,
+    "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx":
+      $$$$$$$$15,
+    "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
+      $$$$$$$$16,
     "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$22,
     "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$14,
     "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$13,
