@@ -1,41 +1,65 @@
-import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
-import { navbarHeight } from "./constants.ts";
+import Searchbar from "$store/components/search/Searchbar.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import type { BasicImage } from "./Header.tsx";
 
-function Navbar({ items, searchbar }: {
+function Navbar({ items, searchbar, siteLogo }: {
   items: INavItem[];
-  searchbar: SearchbarProps;
+  searchbar?: SearchbarProps;
+  siteLogo?: BasicImage;
 }) {
   return (
     <>
       {/* Mobile Version */}
-      <div
-        style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2"
-      >
-        <Buttons variant="menu" />
+      <div class="md:hidden flex flex-col justify-center items-center w-full p-6  ">
+        <div class="flex flex-row justify-between items-center  w-full  gap-2 mb-4">
+          <Buttons variant="menu" />
 
-        <a
-          href="/"
-          class="flex-grow inline-flex items-center"
-          style={{ minHeight: navbarHeight }}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={126} height={16} />
-        </a>
+          <a
+            href="/"
+            aria-label="Store logo"
+            class="w-full"
+          >
+            {siteLogo && (
+              <Image
+                src={siteLogo.src ?? ""}
+                alt={siteLogo.src ?? ""}
+                width={192}
+              />
+            )}
+          </a>
 
-        <div class="flex gap-1">
-          <Buttons variant="search" />
-          <Buttons variant="cart" />
+          <div class="flex gap-1">
+            <a
+              class="btn btn-circle btn-sm btn-ghost"
+              href="/link dinamico"
+              aria-label="Log in"
+            >
+              <Icon id="User" width={20} height={20} strokeWidth={0.4} />
+            </a>
+            <a
+              class="btn btn-circle btn-sm btn-ghost"
+              href="/link dinamico"
+              aria-label="Log in"
+            >
+              <Icon id="Heart" width={20} height={20} strokeWidth={0.4} />
+            </a>
+
+            <Buttons variant="cart" />
+          </div>
+        </div>
+        <div class="w-full">
+          <Searchbar {...searchbar} />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
+      <div class="hidden md:flex flex-row justify-between items-center w-full p-6">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Icon id="Logo" width={126} height={16} />
@@ -45,8 +69,6 @@ function Navbar({ items, searchbar }: {
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <Buttons variant="search" />
-          <Searchbar searchbar={searchbar} />
           <a
             class="btn btn-circle btn-sm btn-ghost"
             href="/login"

@@ -9227,48 +9227,6 @@
           "type": "string",
           "title": "Href"
         },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
         "image": {
           "type": "object",
           "properties": {
@@ -9286,6 +9244,45 @@
           },
           "required": [],
           "title": "Image"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "title": "Label"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Src"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
+                  }
+                },
+                "required": [],
+                "title": "Image"
+              }
+            },
+            "required": [
+              "label",
+              "href"
+            ]
+          },
+          "title": "Children"
         }
       },
       "required": [
@@ -9300,6 +9297,24 @@
         "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
       },
       "title": "NavItem[]"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@BasicImage": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src"
+        },
+        "alt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Alt"
+        }
+      },
+      "required": [],
+      "title": "BasicImage"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
@@ -9328,6 +9343,47 @@
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Enable Top Search terms"
+        },
+        "giftValueReachInfos": {
+          "type": "object",
+          "properties": {
+            "baseValue": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Base Value"
+            },
+            "beforeText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Before Text"
+            },
+            "afterText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "After Text"
+            },
+            "sucessText": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Sucess Text"
+            }
+          },
+          "required": [],
+          "title": " Gift Value Reach Infos",
+          "description": "Configure o valor base e o textos a ser exibido"
+        },
+        "siteLogo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@BasicImage",
+          "title": "Site logo",
+          "description": "Logo used in header"
         }
       },
       "required": [
