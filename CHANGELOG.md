@@ -10,7 +10,7 @@ and this project adheres to
 
 ### Added
 
-- Customize Theme
+- [Customize Theme](https://www.notion.so/Personalizar-Theme-e8cd9479810b49a281aab9f9e39be9a8)
 
 ## Tags
 
