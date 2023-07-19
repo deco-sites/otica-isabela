@@ -4,8 +4,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { IS_BROWSER } from "$fresh/runtime.ts";
-import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
+
 
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
