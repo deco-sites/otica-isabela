@@ -1,11 +1,16 @@
-import Modals from "$store/islands/HeaderModals.tsx";
-
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-import Alert from "./Alert.tsx";
+import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Navbar from "./Navbar.tsx";
+
+export interface IconLinks {
+  title: string;
+  href: string;
+  icon: AvailableIcons;
+  mobileVibility?: boolean;
+}
 
 export interface NavItem {
   label: string;
@@ -67,34 +72,38 @@ export interface Props {
    * @description Logo used in header
    */
 
-  siteLogo?: BasicImage;
+  storeLogo?: BasicImage;
+
+  /**
+   * @title icon Links
+   * @description icon Links used in header
+   */
+
+  iconLinks?: IconLinks[];
 }
 
 function Header({
-  alerts,
-  siteLogo,
+  storeLogo,
   searchbar,
-  products,
   navItems = [],
-  suggestions,
+  iconLinks,
 }: Props) {
   return (
     <>
       <header>
-        <div class="bg-black fixed w-full z-50  ">
-          <div class="container ">
+        <div class="bg-black fixed w-full z-50 flex flex-row justify-center items-center  ">
+          <div
+            style={{ maxWidth: "1140px" }}
+            class=" flex flex-row justify-center items-center w-full "
+          >
             <Navbar
-              siteLogo={siteLogo}
+              iconLinks={iconLinks}
+              storeLogo={storeLogo}
               items={navItems}
               searchbar={searchbar}
             />
           </div>
         </div>
-
-        <Modals
-          menu={{ items: navItems }}
-          searchbar={searchbar}
-        />
       </header>
     </>
   );

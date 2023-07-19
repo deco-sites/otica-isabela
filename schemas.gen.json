@@ -8276,6 +8276,41 @@
                     "type": "string",
                     "const": "Zoom",
                     "default": "Zoom"
+                  },
+                  {
+                    "type": "string",
+                    "const": "RatingStar",
+                    "default": "RatingStar"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Youtube",
+                    "default": "Youtube"
+                  },
+                  {
+                    "type": "string",
+                    "const": "MenGlassesLg",
+                    "default": "MenGlassesLg"
+                  },
+                  {
+                    "type": "string",
+                    "const": "BalloonsDoubt",
+                    "default": "BalloonsDoubt"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Balloons",
+                    "default": "Balloons"
+                  },
+                  {
+                    "type": "string",
+                    "const": "MenGlasses",
+                    "default": "MenGlasses"
+                  },
+                  {
+                    "type": "string",
+                    "const": "QuestionBox",
+                    "default": "QuestionBox"
                   }
                 ],
                 "type": "string",
@@ -9316,6 +9351,280 @@
       "required": [],
       "title": "BasicImage"
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut",
+              "default": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Bars3",
+              "default": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "ChevronLeft",
+              "default": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight",
+              "default": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp",
+              "default": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown",
+              "default": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard",
+              "default": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco",
+              "default": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Diners",
+              "default": "Diners"
+            },
+            {
+              "type": "string",
+              "const": "Discord",
+              "default": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Discount",
+              "default": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Elo",
+              "default": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "FilterList",
+              "default": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "Heart",
+              "default": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Logo",
+              "default": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Minus",
+              "default": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin",
+              "default": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass",
+              "default": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard",
+              "default": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Message",
+              "default": "Message"
+            },
+            {
+              "type": "string",
+              "const": "Phone",
+              "default": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Pix",
+              "default": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Plus",
+              "default": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle",
+              "default": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Return",
+              "default": "Return"
+            },
+            {
+              "type": "string",
+              "const": "Ruler",
+              "default": "Ruler"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart",
+              "default": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Star",
+              "default": "Star"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Trash",
+              "default": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "Truck",
+              "default": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Twitter",
+              "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "User",
+              "default": "User"
+            },
+            {
+              "type": "string",
+              "const": "Visa",
+              "default": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "XMark",
+              "default": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Zoom",
+              "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "RatingStar",
+              "default": "RatingStar"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "MenGlassesLg",
+              "default": "MenGlassesLg"
+            },
+            {
+              "type": "string",
+              "const": "BalloonsDoubt",
+              "default": "BalloonsDoubt"
+            },
+            {
+              "type": "string",
+              "const": "Balloons",
+              "default": "Balloons"
+            },
+            {
+              "type": "string",
+              "const": "MenGlasses",
+              "default": "MenGlasses"
+            },
+            {
+              "type": "string",
+              "const": "QuestionBox",
+              "default": "QuestionBox"
+            }
+          ],
+          "type": "string",
+          "title": "Icon"
+        },
+        "mobileVibility": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Mobile Vibility"
+        }
+      },
+      "required": [
+        "title",
+        "href",
+        "icon"
+      ],
+      "title": "IconLinks"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks"
+      },
+      "title": "IconLinks[]"
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -9380,10 +9689,15 @@
           "title": " Gift Value Reach Infos",
           "description": "Configure o valor base e o textos a ser exibido"
         },
-        "siteLogo": {
+        "storeLogo": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@BasicImage",
           "title": "Site logo",
           "description": "Logo used in header"
+        },
+        "iconLinks": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks[]",
+          "title": "icon Links",
+          "description": "icon Links used in header"
         }
       },
       "required": [
@@ -10352,6 +10666,41 @@
               "type": "string",
               "const": "Zoom",
               "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "RatingStar",
+              "default": "RatingStar"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "MenGlassesLg",
+              "default": "MenGlassesLg"
+            },
+            {
+              "type": "string",
+              "const": "BalloonsDoubt",
+              "default": "BalloonsDoubt"
+            },
+            {
+              "type": "string",
+              "const": "Balloons",
+              "default": "Balloons"
+            },
+            {
+              "type": "string",
+              "const": "MenGlasses",
+              "default": "MenGlasses"
+            },
+            {
+              "type": "string",
+              "const": "QuestionBox",
+              "default": "QuestionBox"
             }
           ],
           "type": "string",
