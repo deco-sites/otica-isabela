@@ -5,7 +5,6 @@ import NavItem from "./NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
-
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { BasicImage } from "./Header.tsx";
