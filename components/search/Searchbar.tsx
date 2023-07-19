@@ -72,7 +72,7 @@ function Searchbar({
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex  outline-none placeholder-shown:sibling:hidden font-extralight text-xs text-start p-2 w-11/12"
+            class="flex  outline-none placeholder-shown:sibling:hidden font-extralight text-xs text-start p-2 w-10/12"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -95,8 +95,8 @@ function Searchbar({
 
           <Icon
             class="text-black"
-            id="MagnifyingGlass"
-            size={20}
+            id="Magnifier"
+            size={25}
             strokeWidth={0.01}
           />
         </form>

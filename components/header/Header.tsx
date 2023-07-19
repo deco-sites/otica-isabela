@@ -3,6 +3,8 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
+
 import Navbar from "./Navbar.tsx";
 
 export interface IconLinks {
@@ -65,6 +67,7 @@ export interface Props {
     beforeText?: string;
     afterText?: string;
     sucessText?: string;
+    activate?: boolean;
   };
 
   /**
@@ -80,6 +83,13 @@ export interface Props {
    */
 
   iconLinks?: IconLinks[];
+
+  /**
+   * @title Link to Login
+   * @description (Optional) dafault value "/login"
+   */
+
+  loginLink?: string;
 }
 
 function Header({
@@ -87,23 +97,44 @@ function Header({
   searchbar,
   navItems = [],
   iconLinks,
+  giftValueReachInfos,
+  loginLink,
 }: Props) {
+  const { afterText, baseValue, beforeText, activate } = giftValueReachInfos ??
+    {};
+
+  const CART_VALUE_MOCK = 40;
+
+  const porcentWidthValue = baseValue ?? 0 / CART_VALUE_MOCK;
+
   return (
     <>
       <header>
-        <div class="bg-black fixed w-full z-50 flex flex-row justify-center items-center  ">
-          <div
-            style={{ maxWidth: "1140px" }}
-            class=" flex flex-row justify-center items-center w-full "
-          >
-            <Navbar
-              iconLinks={iconLinks}
-              storeLogo={storeLogo}
-              items={navItems}
-              searchbar={searchbar}
-            />
+        <Navbar
+          iconLinks={iconLinks}
+          storeLogo={storeLogo}
+          items={navItems}
+          searchbar={searchbar}
+          loginLink={loginLink}
+        />
+
+        {!activate && (
+          <div class="flex flex-col bg-black  justify-center items-center w-full">
+            <p class="  pb-2 text-white  font-semibold font-sans">
+              {`${beforeText ?? ""} ${
+                baseValue &&
+                formatPrice(baseValue - CART_VALUE_MOCK)
+              } ${afterText ?? ""}`}
+            </p>
+            <div class="w-full h-2 bg-secondary ">
+              <div
+                class="w-full bg-success h-full "
+                style={{ maxWidth: `${porcentWidthValue}%` }}
+              >
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </header>
     </>
   );

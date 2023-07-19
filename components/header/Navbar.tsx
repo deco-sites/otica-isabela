@@ -11,15 +11,19 @@ import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { BasicImage } from "./Header.tsx";
 
-function Navbar({ items, searchbar, storeLogo, iconLinks }: {
+function Navbar({ items, searchbar, storeLogo, iconLinks, loginLink }: {
   items: INavItem[];
   searchbar?: SearchbarProps;
   storeLogo?: BasicImage;
   iconLinks?: IconLinks[];
+  loginLink?: string;
 }) {
   return (
-    <>
-      <div class=" flex flex-col justify-center items-center w-full p-6  ">
+    <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
+      <div
+        style={{ maxWidth: "1140px" }}
+        class=" flex flex-col justify-center items-center w-full p-6   "
+      >
         <div class="flex flex-row justify-center items-center  w-full  gap-2 mb-4">
           <div class=" flex md:hidden">
             <Buttons variant="menu" />
@@ -44,7 +48,7 @@ function Navbar({ items, searchbar, storeLogo, iconLinks }: {
 
           <div class="flex flex-row  gap-x-4  justify-center items-center ">
             <a
-              href="/link dinamico"
+              href={loginLink ?? "/login"}
               aria-label="Log in"
             >
               <div class="flex  gap-x-2 items-center pt-[7px] ">
@@ -97,7 +101,7 @@ function Navbar({ items, searchbar, storeLogo, iconLinks }: {
           {items.map((item) => <NavItem item={item} />)}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

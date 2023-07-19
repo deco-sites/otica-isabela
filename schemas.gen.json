@@ -8311,6 +8311,11 @@
                     "type": "string",
                     "const": "QuestionBox",
                     "default": "QuestionBox"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Magnifier",
+                    "default": "Magnifier"
                   }
                 ],
                 "type": "string",
@@ -9598,6 +9603,11 @@
               "type": "string",
               "const": "QuestionBox",
               "default": "QuestionBox"
+            },
+            {
+              "type": "string",
+              "const": "Magnifier",
+              "default": "Magnifier"
             }
           ],
           "type": "string",
@@ -9683,6 +9693,13 @@
                 "null"
               ],
               "title": "Sucess Text"
+            },
+            "activate": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Activate"
             }
           },
           "required": [],
@@ -9698,6 +9715,14 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks[]",
           "title": "icon Links",
           "description": "icon Links used in header"
+        },
+        "loginLink": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Link to Login",
+          "description": "(Optional) dafault value \"/login\""
         }
       },
       "required": [
@@ -10701,6 +10726,11 @@
               "type": "string",
               "const": "QuestionBox",
               "default": "QuestionBox"
+            },
+            {
+              "type": "string",
+              "const": "Magnifier",
+              "default": "Magnifier"
             }
           ],
           "type": "string",
