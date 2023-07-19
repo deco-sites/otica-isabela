@@ -11,13 +11,12 @@ import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { BasicImage } from "./Header.tsx";
 
-function Navbar({ items, searchbar, storeLogo,iconLinks}: {
+function Navbar({ items, searchbar, storeLogo, iconLinks }: {
   items: INavItem[];
   searchbar?: SearchbarProps;
   storeLogo?: BasicImage;
   iconLinks?: IconLinks[];
 }) {
- 
   return (
     <>
       <div class=" flex flex-col justify-center items-center w-full p-6  ">
