@@ -15,24 +15,27 @@ interface Props {
 export const PromotionalBar = (
   { giftValueReachInfos }: Props,
 ) => {
-  const { activate, afterText, baseValue, beforeText } = giftValueReachInfos ??
-    {};
+  const { activate, afterText, baseValue, beforeText, sucessText } =
+    giftValueReachInfos ??
+      {};
 
-  const CART_VALUE_MOCK = 40;
+  const CART_VALUE_MOCK = 100;
 
-  const porcentWidthValue = baseValue ?? 0 / CART_VALUE_MOCK;
-
-  if (!activate) {
+  if (!activate || !baseValue || baseValue <= 0) {
     return null;
   }
+
+  const porcentWidthValue = CART_VALUE_MOCK * 100 / baseValue;
+
+  const warningText = `${beforeText ?? ""} ${
+    baseValue &&
+    formatPrice(baseValue - CART_VALUE_MOCK)
+  } ${afterText ?? ""}`;
 
   return (
     <div class="flex flex-col bg-black  justify-center items-center w-full">
       <p class="  pb-2 text-white  font-semibold font-sans">
-        {`${beforeText ?? ""} ${
-          baseValue &&
-          formatPrice(baseValue - CART_VALUE_MOCK)
-        } ${afterText ?? ""}`}
+        {porcentWidthValue >= 100 ? sucessText : warningText}
       </p>
       <div class="w-full h-2 bg-secondary ">
         <div
