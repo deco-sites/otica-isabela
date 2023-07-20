@@ -19,7 +19,7 @@ export const PromotionalBar = (
     giftValueReachInfos ??
       {};
 
-  const CART_VALUE_MOCK = 100;
+  const CART_VALUE_MOCK = 40;
 
   if (!activate || !baseValue || baseValue <= 0) {
     return null;
