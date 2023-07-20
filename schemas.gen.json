@@ -8276,6 +8276,46 @@
                     "type": "string",
                     "const": "Zoom",
                     "default": "Zoom"
+                  },
+                  {
+                    "type": "string",
+                    "const": "RatingStar",
+                    "default": "RatingStar"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Youtube",
+                    "default": "Youtube"
+                  },
+                  {
+                    "type": "string",
+                    "const": "MenGlassesLg",
+                    "default": "MenGlassesLg"
+                  },
+                  {
+                    "type": "string",
+                    "const": "BalloonsDoubt",
+                    "default": "BalloonsDoubt"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Balloons",
+                    "default": "Balloons"
+                  },
+                  {
+                    "type": "string",
+                    "const": "MenGlasses",
+                    "default": "MenGlasses"
+                  },
+                  {
+                    "type": "string",
+                    "const": "QuestionBox",
+                    "default": "QuestionBox"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Magnifier",
+                    "default": "Magnifier"
                   }
                 ],
                 "type": "string",
@@ -10296,6 +10336,46 @@
               "type": "string",
               "const": "Zoom",
               "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "RatingStar",
+              "default": "RatingStar"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "MenGlassesLg",
+              "default": "MenGlassesLg"
+            },
+            {
+              "type": "string",
+              "const": "BalloonsDoubt",
+              "default": "BalloonsDoubt"
+            },
+            {
+              "type": "string",
+              "const": "Balloons",
+              "default": "Balloons"
+            },
+            {
+              "type": "string",
+              "const": "MenGlasses",
+              "default": "MenGlasses"
+            },
+            {
+              "type": "string",
+              "const": "QuestionBox",
+              "default": "QuestionBox"
+            },
+            {
+              "type": "string",
+              "const": "Magnifier",
+              "default": "Magnifier"
             }
           ],
           "type": "string",
