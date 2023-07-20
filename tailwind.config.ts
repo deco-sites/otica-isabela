@@ -8,7 +8,7 @@ export default {
     container: { center: true },
     extend: {
       colors: {
-        "bg-blue-200": "#42c3ff",
+        "blue-200": "#42c3ff",
         "success": " #00ff2a",
       },
     },
