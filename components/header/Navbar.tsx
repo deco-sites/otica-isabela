@@ -1,91 +1,48 @@
 import Buttons from "$store/islands/HeaderButton.tsx";
-import type { IconLinks } from "./Header.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
+
 import NavItem from "./NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-
-import type { INavItem } from "./NavItem.tsx";
+import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
+import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
+import type { NavItemProps } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import type { BasicImage } from "./Header.tsx";
+import { maxWidthContainer } from "$store/components/header/constants.ts";
+import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
+import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
+import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
+import { IconLoginLink } from "./IconLoginLink.tsx";
 
-function Navbar({ items, searchbar, storeLogo, iconLinks, loginLink }: {
-  items: INavItem[];
-  searchbar?: SearchbarProps;
-  storeLogo?: BasicImage;
-  iconLinks?: IconLinks[];
-  loginLink?: string;
-}) {
+function Navbar(
+  { items, searchbar, storeLogo, IconNavigationItems, loginLink }: {
+    items?: NavItemProps[];
+    searchbar?: SearchbarProps;
+    storeLogo?: BasicImageAndLinkProps;
+    IconNavigationItems?: IconNavigationType[];
+    loginLink?: IconLoginLinkProps;
+  },
+) {
   return (
     <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
       <div
-        style={{ maxWidth: "1140px" }}
+        style={{ maxWidth: maxWidthContainer }}
         class=" flex flex-col justify-center items-center w-full p-6   "
       >
         <div class="flex flex-row justify-center items-center  w-full  gap-2 mb-4">
-          <div class=" flex md:hidden">
+          <div class=" flex pb-4 lg:hidden">
             <Buttons variant="menu" />
           </div>
 
-          {storeLogo && (
-            <a
-              href="/"
-              aria-label="Store logo"
-            >
-              <Image
-                src={storeLogo.src ?? ""}
-                alt={storeLogo.src ?? ""}
-                width={256}
-              />
-            </a>
-          )}
+          {!!storeLogo && <BasicImageAndLink {...storeLogo} />}
 
           <div class=" hidden md:flex  w-full max-w-[33.33%] pr-6   ">
             <Searchbar {...searchbar} />
           </div>
 
-          <div class="flex flex-row  gap-x-4  justify-center items-center ">
-            <a
-              href={loginLink ?? "/login"}
-              aria-label="Log in"
-            >
-              <div class="flex  gap-x-2 items-center pt-[7px] ">
-                <Icon id="User" width={26} height={24} strokeWidth={0.4} />
+          <div class="flex flex-row  gap-x-4  justify-center items-baseline  lg:items-center ">
+            <IconLoginLink {...loginLink} />
 
-                <div class="hidden lg:flex flex-col font-sans  items-start text-white text-xs  ">
-                  <span class="hover:text-blue-200 font-normal ">
-                    Ola, bem vindo!
-                  </span>
-                  <span class="hover:text-blue-200 font-semibold ">
-                    Login ou cadastre-se
-                  </span>
-                </div>
-              </div>
-            </a>
-
-            {!!iconLinks &&
-              iconLinks?.map(({ href, icon, title, mobileVibility }) => {
-                return (
-                  <a
-                    href={href}
-                    aria-label={`${title}-${href}`}
-                    class={` ${mobileVibility ? "" : " hidden md:flex"} `}
-                  >
-                    <div class="flex flex-col justify-center items-center ">
-                      <Icon
-                        id={icon}
-                        fill="none"
-                        width={26}
-                        height={24}
-                        strokeWidth={0.4}
-                      />
-                      <span class=" hidden lg:flex  text-white text-xs font-sans  hover:text-blue-200 font-normal">
-                        {title}
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
+            <IconNavigationComponent items={IconNavigationItems} />
 
             <Buttons variant="cart" />
           </div>
@@ -95,8 +52,8 @@ function Navbar({ items, searchbar, storeLogo, iconLinks, loginLink }: {
           <Searchbar {...searchbar} />
         </div>
 
-        <div class="hidden md:flex flex-row justify-center items-center">
-          {items.map((item) => <NavItem item={item} />)}
+        <div class="hidden lg:flex flex-row justify-center items-center">
+          <NavItem items={items} />
         </div>
       </div>
     </div>

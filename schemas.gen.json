@@ -9215,6 +9215,31 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/footer/Footer.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src"
+        },
+        "alt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Alt"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        }
+      },
+      "required": [],
+      "title": "BasicImageAndLinkProps"
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
       "type": "object",
       "properties": {
@@ -9256,7 +9281,7 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps": {
       "type": "object",
       "properties": {
         "label": {
@@ -9267,11 +9292,21 @@
           "type": "string",
           "title": "Href"
         },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps"
+          },
+          "title": "Children"
+        },
         "image": {
           "type": "object",
           "properties": {
             "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Src"
             },
             "alt": {
@@ -9284,79 +9319,50 @@
           },
           "required": [],
           "title": "Image"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "image": {
-                "type": "object",
-                "properties": {
-                  "src": {
-                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                    "title": "Src"
-                  },
-                  "alt": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "title": "Alt"
-                  }
-                },
-                "required": [],
-                "title": "Image"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
         }
       },
       "required": [
         "label",
         "href"
       ],
-      "title": "NavItem"
+      "title": "NavItemProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps"
       },
-      "title": "NavItem[]"
+      "title": "NavItemProps[]"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@BasicImage": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps": {
       "type": "object",
       "properties": {
-        "src": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src"
-        },
-        "alt": {
+        "loginLink": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Alt"
+          "title": "Login Link"
+        },
+        "primaryText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Primary Text"
+        },
+        "secondary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Secondary"
         }
       },
       "required": [],
-      "title": "BasicImage"
+      "title": "IconLoginLinkProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation": {
       "type": "object",
       "properties": {
         "title": {
@@ -9613,12 +9619,12 @@
           "type": "string",
           "title": "Icon"
         },
-        "mobileVibility": {
+        "mobileVisibility": {
           "type": [
             "boolean",
             "null"
           ],
-          "title": "Mobile Vibility"
+          "title": "Mobile Visibility"
         }
       },
       "required": [
@@ -9626,108 +9632,91 @@
         "href",
         "icon"
       ],
-      "title": "IconLinks"
+      "title": "IconNavigation"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks[]": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation"
       },
-      "title": "IconLinks[]"
+      "title": "IconNavigation[]"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL1Byb21vdGlvbmFsQmFyLnRzeA==@GiftValueReachInfosProps": {
+      "type": "object",
+      "properties": {
+        "baseValue": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Base Value"
+        },
+        "beforeText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Before Text"
+        },
+        "afterText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "After Text"
+        },
+        "sucessText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Sucess Text"
+        },
+        "activate": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Activate"
+        }
+      },
+      "required": [],
+      "title": "GiftValueReachInfosProps"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
-        "alerts": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Alerts"
+        "storeLogo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
+          "title": "Store logo",
+          "description": "Logo used on header"
         },
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
           "title": "Search Bar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps[]",
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Product suggestions",
-          "description": "Product suggestions displayed on search"
-        },
-        "suggestions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
-          "title": "Enable Top Search terms"
-        },
-        "giftValueReachInfos": {
-          "type": "object",
-          "properties": {
-            "baseValue": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "title": "Base Value"
-            },
-            "beforeText": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Before Text"
-            },
-            "afterText": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "After Text"
-            },
-            "sucessText": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Sucess Text"
-            },
-            "activate": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Activate"
-            }
-          },
-          "required": [],
-          "title": " Gift Value Reach Infos",
-          "description": "Configure o valor base e o textos a ser exibido"
-        },
-        "storeLogo": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@BasicImage",
-          "title": "Site logo",
-          "description": "Logo used in header"
-        },
-        "iconLinks": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconLinks[]",
-          "title": "icon Links",
-          "description": "icon Links used in header"
-        },
         "loginLink": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps",
           "title": "Link to Login",
           "description": "(Optional) dafault value \"/login\""
+        },
+        "IconNavigation": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation[]",
+          "title": " Icon Navigation",
+          "description": "Navigation with icons"
+        },
+        "giftValueReachInfos": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL1Byb21vdGlvbmFsQmFyLnRzeA==@GiftValueReachInfosProps",
+          "title": " Gift Value Reach Infos",
+          "description": "Configure the base value for comparison and the texts to be displayed"
         }
       },
-      "required": [
-        "alerts"
-      ],
+      "required": [],
       "title": "deco-sites/otica-isabela/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {
