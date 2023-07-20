@@ -9337,26 +9337,19 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps": {
       "type": "object",
       "properties": {
-        "loginLink": {
+        "greetingText": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Login Link"
+          "title": "Greeting Text"
         },
-        "primaryText": {
+        "callToActionText": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Primary Text"
-        },
-        "secondary": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Secondary"
+          "title": "Call To Action Text"
         }
       },
       "required": [],

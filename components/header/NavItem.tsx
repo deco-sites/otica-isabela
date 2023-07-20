@@ -17,12 +17,12 @@ export const NavItem = ({ items }: Props) => {
   }
 
   return (
-    <div class="hidden lg:flex flex-row justify-center items-center">
+    <div class="hidden lg:flex flex-row justify-center items-center gap-x-5">
       {items?.map(({ href, label, children, image }) => {
         return (
           <li class="group flex items-center">
-            <a href={href} class="px-4 py-3">
-              <span class="text-white hover:text-primary  text-16 font-semibold text-lg font-sans ">
+            <a href={href} >
+              <span class="text-white hover:text-blue-200  text-base font-medium ">
                 {label}
               </span>
             </a>

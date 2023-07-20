@@ -33,8 +33,8 @@ export const PromotionalBar = (
   } ${afterText ?? ""}`;
 
   return (
-    <div class="flex flex-col bg-black   justify-center items-center w-full">
-      <p class="  pb-2 text-white  font-semibold font-sans">
+    <div class="flex flex-col bg-black   justify-center items-center w-full   ">
+      <p class="  pb-1 text-white  font-semibold">
         {porcentWidthValue >= 100 ? sucessText : warningText}
       </p>
       <div class="w-full h-2 bg-secondary ">

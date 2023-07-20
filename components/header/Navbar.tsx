@@ -24,18 +24,15 @@ function Navbar(
 ) {
   return (
     <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
-      <div
-        style={{ maxWidth: maxWidthContainer }}
-        class=" flex flex-col justify-center items-center w-full p-6   "
-      >
-        <div class="flex flex-row justify-center items-center  w-full  gap-2 mb-4">
+      <div class="container flex flex-col justify-center items-center w-full p-6   ">
+        <div class="flex flex-row justify-between items-center  w-full  gap-2 mb-4">
           <div class=" flex pb-4 lg:hidden">
             <Buttons variant="menu" />
           </div>
 
-          {!!storeLogo && <BasicImageAndLink {...storeLogo} />}
+          {!!storeLogo && <BasicImageAndLink {...storeLogo} width={256} />}
 
-          <div class=" hidden md:flex  w-full max-w-[33.33%] pr-6   ">
+          <div class=" hidden lg:flex  w-full max-w-[33.33%] pr-6   ">
             <Searchbar {...searchbar} />
           </div>
 
@@ -48,11 +45,11 @@ function Navbar(
           </div>
         </div>
 
-        <div class="flex md:hidden  w-full ">
+        <div class="flex lg:hidden  w-full ">
           <Searchbar {...searchbar} />
         </div>
 
-        <div class="hidden lg:flex flex-row justify-center items-center">
+        <div class="hidden lg:flex flex-row justify-center items-center gap-x-4  ">
           <NavItem items={items} />
         </div>
       </div>

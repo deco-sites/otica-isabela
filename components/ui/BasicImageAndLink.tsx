@@ -4,21 +4,25 @@ import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 export interface BasicImageAndLinkProps {
   src?: ImageType;
   alt?: string;
-  href?: string;
+  href?: string; 
+}
+
+interface Props extends BasicImageAndLinkProps{
+  width?: number;
 }
 
 export const BasicImageAndLink = (
-  { alt, href, src }: BasicImageAndLinkProps,
+  { alt, href, src, width }: Props,
 ) => {
   return (
     <a
       href={href ?? "/"}
-      aria-label="Store logo"
+      aria-label="Basic image and link"
     >
       <Image
         src={src ?? ""}
         alt={alt ?? ""}
-        width={256}
+        width={width ?? 0}
       />
     </a>
   );
