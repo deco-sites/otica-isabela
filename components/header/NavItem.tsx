@@ -21,7 +21,7 @@ export const NavItem = ({ items }: Props) => {
       {items?.map(({ href, label, children, image }) => {
         return (
           <li class="group flex items-center">
-            <a href={href} >
+            <a href={href}>
               <span class="text-white hover:text-blue-200  text-base font-medium ">
                 {label}
               </span>

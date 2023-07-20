@@ -4,10 +4,10 @@ import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 export interface BasicImageAndLinkProps {
   src?: ImageType;
   alt?: string;
-  href?: string; 
+  href?: string;
 }
 
-interface Props extends BasicImageAndLinkProps{
+interface Props extends BasicImageAndLinkProps {
   width?: number;
 }
 
