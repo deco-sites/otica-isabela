@@ -47,7 +47,6 @@ export interface Props {
 
   /**
    * @title  Promotional Top Banner
-   * @description Promotional banner fixed in top
    */
 
   promotionalTopBanner?: {
