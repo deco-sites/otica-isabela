@@ -9,10 +9,11 @@ export default {
       center: true,
     },
     screens: {
-      sm: "576px",
+      sm: "600px",
       md: "728px",
-      lg: "992px",
+      lg: "984px",
       xl: "1140px",
+      "2xl": "1140px",
     },
     extend: {
       colors: {

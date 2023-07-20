@@ -2,7 +2,6 @@ import Buttons from "$store/islands/HeaderButton.tsx";
 
 import NavItem from "./NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
 import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
@@ -30,7 +29,12 @@ function Navbar(
             <Buttons variant="menu" />
           </div>
 
-          {!!storeLogo && <BasicImageAndLink {...storeLogo} width={256} />}
+          {!!storeLogo && (
+            <BasicImageAndLink
+              {...storeLogo}
+              width={{ desktop: 240, mobile: 200 }}
+            />
+          )}
 
           <div class=" hidden lg:flex  w-full max-w-[33.33%] pr-6   ">
             <Searchbar {...searchbar} />
