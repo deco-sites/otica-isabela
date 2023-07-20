@@ -9709,8 +9709,7 @@
         },
         "loginLink": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps",
-          "title": "Link to Login",
-          "description": "(Optional) dafault value \"/login\""
+          "title": "Link to Login"
         },
         "IconNavigation": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation[]",
@@ -9721,6 +9720,39 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL1Byb21vdGlvbmFsQmFyLnRzeA==@GiftValueReachInfosProps",
           "title": " Gift Value Reach Infos",
           "description": "Configure the base value for comparison and the texts to be displayed"
+        },
+        "promotionalTopBanner": {
+          "type": "object",
+          "properties": {
+            "activate": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Activate"
+            },
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Image"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            },
+            "link": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Link"
+            }
+          },
+          "required": [],
+          "title": " Promotional Top Banner",
+          "description": "Promotional banner fixed in top"
         }
       },
       "required": [],

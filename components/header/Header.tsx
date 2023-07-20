@@ -6,6 +6,7 @@ import PromotionalBar from "$store/islands/PromotionalBar.tsx";
 import type { GiftValueReachInfosProps } from "./PromotionalBar.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 
 export interface Props {
   /**
@@ -26,7 +27,6 @@ export interface Props {
 
   /**
    * @title Link to Login
-   * @description (Optional) dafault value "/login"
    */
 
   loginLink?: IconLoginLinkProps;
@@ -44,6 +44,18 @@ export interface Props {
    */
 
   giftValueReachInfos?: GiftValueReachInfosProps;
+
+  /**
+   * @title  Promotional Top Banner
+   * @description Promotional banner fixed in top
+   */
+
+  promotionalTopBanner?: {
+    activate?: boolean;
+    image?: ImageType;
+    alt?: string;
+    link?: string;
+  };
 }
 
 function Header({
@@ -53,10 +65,17 @@ function Header({
   IconNavigation,
   giftValueReachInfos,
   loginLink,
+  promotionalTopBanner,
 }: Props) {
+  const { alt, image, link, activate } = promotionalTopBanner ?? {};
   return (
     <>
       <header class="bg-black">
+        {activate && (
+          <a class=" hidden md:flex w-full" href={link ?? "/"}>
+            <image src={image ?? ""} alt={alt ?? ""} />
+          </a>
+        )}
         <Navbar
           IconNavigationItems={IconNavigation}
           storeLogo={storeLogo}
