@@ -25,7 +25,7 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn  btn-sm btn-ghost "
+      class="btn-sm btn-ghost px-0"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
