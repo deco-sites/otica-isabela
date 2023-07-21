@@ -1,11 +1,11 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import type { INavItem } from "./NavItem.tsx";
+import type { NavItemProps } from "./NavItem.tsx";
 
 export interface Props {
-  items: INavItem[];
+  items: NavItemProps[];
 }
 
-function MenuItem({ item }: { item: INavItem }) {
+function MenuItem({ item }: { item: NavItemProps }) {
   return (
     <div class="collapse collapse-plus">
       <input type="checkbox" />

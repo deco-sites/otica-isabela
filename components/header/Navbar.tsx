@@ -1,75 +1,63 @@
-import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
+
 import NavItem from "./NavItem.tsx";
-import { navbarHeight } from "./constants.ts";
-import type { INavItem } from "./NavItem.tsx";
+import Searchbar from "$store/components/search/Searchbar.tsx";
+import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
+import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
+import type { NavItemProps } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import { maxWidthContainer } from "$store/components/header/constants.ts";
+import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
+import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
+import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
+import { IconLoginLink } from "./IconLoginLink.tsx";
 
-function Navbar({ items, searchbar }: {
-  items: INavItem[];
-  searchbar: SearchbarProps;
-}) {
+function Navbar(
+  { items, searchbar, storeLogo, IconNavigationItems, loginLink }: {
+    items?: NavItemProps[];
+    searchbar?: SearchbarProps;
+    storeLogo?: BasicImageAndLinkProps;
+    IconNavigationItems?: IconNavigationType[];
+    loginLink?: IconLoginLinkProps;
+  },
+) {
   return (
-    <>
-      {/* Mobile Version */}
-      <div
-        style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2"
-      >
-        <Buttons variant="menu" />
+    <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
+      <div class="container flex flex-col justify-center items-center w-full p-6   ">
+        <div class="flex flex-row justify-between items-center  w-full  gap-2 mb-4">
+          <div class=" flex pb-4 lg:hidden">
+            <Buttons variant="menu" />
+          </div>
 
-        <a
-          href="/"
-          class="flex-grow inline-flex items-center"
-          style={{ minHeight: navbarHeight }}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={126} height={16} />
-        </a>
-
-        <div class="flex gap-1">
-          <Buttons variant="search" />
-          <Buttons variant="cart" />
-        </div>
-      </div>
-
-      {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
-          </a>
-        </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <Buttons variant="search" />
-          <Searchbar searchbar={searchbar} />
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </a>
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
-            <Icon
-              id="Heart"
-              size={20}
-              strokeWidth={2}
-              fill="none"
+          {!!storeLogo && (
+            <BasicImageAndLink
+              {...storeLogo}
+              width={{ desktop: 240, mobile: 200 }}
             />
-          </a>
-          <Buttons variant="cart" />
+          )}
+
+          <div class=" hidden lg:flex  w-full max-w-[33.33%] pr-6   ">
+            <Searchbar {...searchbar} />
+          </div>
+
+          <div class="flex flex-row  gap-x-4  justify-center items-baseline  lg:items-center ">
+            <IconLoginLink {...loginLink} />
+
+            <IconNavigationComponent items={IconNavigationItems} />
+
+            <Buttons variant="cart" />
+          </div>
+        </div>
+
+        <div class="flex lg:hidden  w-full ">
+          <Searchbar {...searchbar} />
+        </div>
+
+        <div class="hidden lg:flex flex-row justify-center items-center gap-x-4  ">
+          <NavItem items={items} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

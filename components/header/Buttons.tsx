@@ -3,7 +3,6 @@ import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
-import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -26,13 +25,13 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn btn-circle btn-sm btn-ghost"
+      class="btn-sm btn-ghost px-0"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={35} height={42} strokeWidth={0.01} />
     </Button>
   );
 }
@@ -72,12 +71,12 @@ function CartButton() {
     >
       <div class="indicator">
         {totalItems && (
-          <span class="indicator-item badge badge-secondary badge-sm">
+          <span class="-top-3.5 absolute indicator-item badge badge-secondary badge-lg h-6 w-6 pa  bg-white text-black border-none font-extralight">
             {totalItems > 9 ? "9+" : totalItems}
           </span>
         )}
         {!loading.value && (
-          <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+          <Icon id="ShoppingCart" width={26} height={25} strokeWidth={2} />
         )}
       </div>
     </Button>

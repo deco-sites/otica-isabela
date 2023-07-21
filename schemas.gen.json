@@ -9215,6 +9215,42 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/footer/Footer.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Mobile"
+            }
+          },
+          "required": [],
+          "title": "Src"
+        },
+        "alt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Alt"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        }
+      },
+      "required": [],
+      "title": "BasicImageAndLinkProps"
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
       "type": "object",
       "properties": {
@@ -9256,7 +9292,7 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps": {
       "type": "object",
       "properties": {
         "label": {
@@ -9270,42 +9306,7 @@
         "children": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
+            "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps"
           },
           "title": "Children"
         },
@@ -9313,7 +9314,10 @@
           "type": "object",
           "properties": {
             "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Src"
             },
             "alt": {
@@ -9332,47 +9336,408 @@
         "label",
         "href"
       ],
-      "title": "NavItem"
+      "title": "NavItemProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps"
       },
-      "title": "NavItem[]"
+      "title": "NavItemProps[]"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps": {
+      "type": "object",
+      "properties": {
+        "greetingText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Greeting Text"
+        },
+        "callToActionText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Call To Action Text"
+        }
+      },
+      "required": [],
+      "title": "IconLoginLinkProps"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut",
+              "default": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Bars3",
+              "default": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "ChevronLeft",
+              "default": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight",
+              "default": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp",
+              "default": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown",
+              "default": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard",
+              "default": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco",
+              "default": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Diners",
+              "default": "Diners"
+            },
+            {
+              "type": "string",
+              "const": "Discord",
+              "default": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Discount",
+              "default": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Elo",
+              "default": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "FilterList",
+              "default": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "Heart",
+              "default": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Logo",
+              "default": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Minus",
+              "default": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin",
+              "default": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass",
+              "default": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard",
+              "default": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Message",
+              "default": "Message"
+            },
+            {
+              "type": "string",
+              "const": "Phone",
+              "default": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Pix",
+              "default": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Plus",
+              "default": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle",
+              "default": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Return",
+              "default": "Return"
+            },
+            {
+              "type": "string",
+              "const": "Ruler",
+              "default": "Ruler"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart",
+              "default": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Star",
+              "default": "Star"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Trash",
+              "default": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "Truck",
+              "default": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Twitter",
+              "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "User",
+              "default": "User"
+            },
+            {
+              "type": "string",
+              "const": "Visa",
+              "default": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "XMark",
+              "default": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Zoom",
+              "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "RatingStar",
+              "default": "RatingStar"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "MenGlassesLg",
+              "default": "MenGlassesLg"
+            },
+            {
+              "type": "string",
+              "const": "BalloonsDoubt",
+              "default": "BalloonsDoubt"
+            },
+            {
+              "type": "string",
+              "const": "Balloons",
+              "default": "Balloons"
+            },
+            {
+              "type": "string",
+              "const": "MenGlasses",
+              "default": "MenGlasses"
+            },
+            {
+              "type": "string",
+              "const": "QuestionBox",
+              "default": "QuestionBox"
+            },
+            {
+              "type": "string",
+              "const": "Magnifier",
+              "default": "Magnifier"
+            }
+          ],
+          "type": "string",
+          "title": "Icon"
+        },
+        "mobileVisibility": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Mobile Visibility"
+        }
+      },
+      "required": [
+        "title",
+        "href",
+        "icon"
+      ],
+      "title": "IconNavigation"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation"
+      },
+      "title": "IconNavigation[]"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL1Byb21vdGlvbmFsQmFyLnRzeA==@GiftValueReachInfosProps": {
+      "type": "object",
+      "properties": {
+        "baseValue": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Base Value"
+        },
+        "beforeText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Before Text"
+        },
+        "afterText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "After Text"
+        },
+        "sucessText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Sucess Text"
+        },
+        "activate": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Activate"
+        }
+      },
+      "required": [],
+      "title": "GiftValueReachInfosProps"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
-        "alerts": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Alerts"
+        "storeLogo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
+          "title": "Store logo",
+          "description": "Logo used on header"
         },
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
           "title": "Search Bar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps[]",
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Product suggestions",
-          "description": "Product suggestions displayed on search"
+        "loginLink": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25Mb2dpbkxpbmsudHN4@IconLoginLinkProps",
+          "title": "Link to Login"
         },
-        "suggestions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
-          "title": "Enable Top Search terms"
+        "IconNavigation": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL0ljb25OYXZpZ2F0aW9uLnRzeA==@IconNavigation[]",
+          "title": " Icon Navigation",
+          "description": "Navigation with icons"
+        },
+        "giftValueReachInfos": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL1Byb21vdGlvbmFsQmFyLnRzeA==@GiftValueReachInfosProps",
+          "title": " Gift Value Reach Infos",
+          "description": "Configure the base value for comparison and the texts to be displayed"
+        },
+        "promotionalTopBanner": {
+          "type": "object",
+          "properties": {
+            "activate": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Activate"
+            },
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
+              "title": "Image"
+            }
+          },
+          "required": [],
+          "title": " Promotional Top Banner"
         }
       },
-      "required": [
-        "alerts"
-      ],
+      "required": [],
       "title": "deco-sites/otica-isabela/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {

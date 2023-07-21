@@ -35,7 +35,6 @@ function Banner({ banner }: SectionProps<ReturnType<typeof loader>>) {
         <Source
           src={image.mobile}
           width={360}
-          height={120}
           media="(max-width: 767px)"
         />
         <Source
