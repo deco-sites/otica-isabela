@@ -9230,10 +9230,7 @@
               "title": "Mobile"
             }
           },
-          "required": [
-            "desktop",
-            "mobile"
-          ],
+          "required": [],
           "title": "Src"
         },
         "alt": {
@@ -9732,27 +9729,12 @@
               "title": "Activate"
             },
             "image": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
               "title": "Image"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            },
-            "link": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Link"
             }
           },
           "required": [],
-          "title": " Promotional Top Banner",
-          "description": "Promotional banner fixed in top"
+          "title": " Promotional Top Banner"
         }
       },
       "required": [],
