@@ -6,14 +6,19 @@ export interface Props {
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
+  const { mobile: mobileImage } = item?.image ?? {};
+
   return (
-    <div class="collapse collapse-plus">
+    <div class="collapse collapse-plus p-0">
       <input type="checkbox" />
-      <div class="collapse-title">{item.label}</div>
+      <div class="collapse-title items-center after:text-3xl text-slate-600 flex gap-x-2">
+        {mobileImage && <img width={55} height={29} src={mobileImage} />}
+        <span>{item.label}</span>
+      </div>
       <div class="collapse-content">
         <ul>
           <li>
-            <a class="underline text-sm" href={item.href}>Ver todos</a>
+            <a class=" text-sm text-slate-600" href={item.href}>Ver todos</a>
           </li>
           {item.children?.map((node) => (
             <li>
@@ -29,51 +34,12 @@ function MenuItem({ item }: { item: NavItemProps }) {
 function Menu({ items }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200">
+      <ul class="pr-4 flex-grow flex flex-col divide-y divide-base-200">
         {items.map((item) => (
           <li>
             <MenuItem item={item} />
           </li>
         ))}
-      </ul>
-
-      <ul class="flex flex-col py-2 bg-base-200">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="/wishlist"
-          >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Lista de desejos</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Nossas lojas</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Fale conosco</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Minha conta</span>
-          </a>
-        </li>
       </ul>
     </>
   );

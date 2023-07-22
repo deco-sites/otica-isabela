@@ -25,8 +25,9 @@ function Navbar(
     <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
       <div class="container flex flex-col justify-center items-center w-full p-6   ">
         <div class="flex flex-row justify-between items-center  w-full  gap-2 mb-4">
-          <div class=" flex pb-4 lg:hidden">
-            <Buttons variant="menu" />
+        
+          <div class=" flex lg:hidden">
+            <Buttons variant="menu" menuModalData={items} />
           </div>
 
           {!!storeLogo && (

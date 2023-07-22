@@ -9313,12 +9313,13 @@
         "image": {
           "type": "object",
           "properties": {
-            "src": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Src"
+            "desktop": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Mobile"
             },
             "alt": {
               "type": [

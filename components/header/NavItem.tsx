@@ -1,10 +1,10 @@
 import Image from "deco-sites/std/components/Image.tsx";
-
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 export interface NavItemProps {
   label: string;
   href: string;
   children?: NavItemProps[];
-  image?: { src?: string; alt?: string };
+  image?: { desktop?: ImageType; mobile?: ImageType; alt?: string };
 }
 
 interface Props {
@@ -33,10 +33,10 @@ export const NavItem = ({ items }: Props) => {
                   class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
                   style={{ top: "0px", left: "0px", marginTop: "180px" }}
                 >
-                  {image?.src && (
+                  {image?.desktop && (
                     <Image
                       class="p-6"
-                      src={image.src}
+                      src={image.desktop}
                       alt={image.alt}
                       width={300}
                       height={332}

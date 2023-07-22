@@ -3,6 +3,8 @@ import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
+import { lazy, Suspense } from "preact/compat";
+import type { NavItemProps } from "./NavItem.tsx";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -20,19 +22,37 @@ function SearchButton() {
   );
 }
 
-function MenuButton() {
+function MenuButton({ items }: { items?: NavItemProps[] }) {
   const { displayMenu } = useUI();
+  const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 
   return (
-    <Button
-      class="btn-sm btn-ghost px-0"
-      aria-label="open menu"
-      onClick={() => {
-        displayMenu.value = true;
-      }}
-    >
-      <Icon id="Bars3" width={35} height={42} strokeWidth={0.01} />
-    </Button>
+    <div>
+      <Button
+        class="btn-sm btn-ghost px-0"
+        aria-label="open menu"
+        onClick={() => {
+          displayMenu.value = !displayMenu.value;
+        }}
+      >
+        {
+          <Icon
+            id={!displayMenu.value ? "Bars3" : "XMark"}
+            width={35}
+            height={42}
+            fill={displayMenu.value ? "white" : ""}
+            strokeWidth={0.01}
+          />
+        }
+      </Button>
+      {displayMenu.value && items?.length && (
+        <Suspense fallback={null}>
+          <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl">
+            <Menu items={items} />
+          </div>
+        </Suspense>
+      )}
+    </div>
   );
 }
 
@@ -83,7 +103,12 @@ function CartButton() {
   );
 }
 
-function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
+function Buttons(
+  { variant, menuModalData }: {
+    variant: "cart" | "search" | "menu";
+    menuModalData?: NavItemProps[];
+  },
+) {
   if (variant === "cart") {
     return <CartButton />;
   }
@@ -93,7 +118,7 @@ function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
   }
 
   if (variant === "menu") {
-    return <MenuButton />;
+    return <MenuButton items={menuModalData} />;
   }
 
   return null;
