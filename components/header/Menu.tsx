@@ -6,27 +6,40 @@ export interface Props {
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
-  const { mobile: mobileImage } = item?.image ?? {};
+  const { href, label, children, image } = item ?? {};
+  const { mobile: mobileImage } = image ?? {};
+
+  if (!children?.length) {
+    return <a href={href ?? "/"}>{label}</a>;
+  }
 
   return (
-    <div class="collapse collapse-plus p-0">
-      <input type="checkbox" />
-      <div class="collapse-title items-center after:text-3xl text-slate-600 flex gap-x-2">
-        {mobileImage && <img width={55} height={29} src={mobileImage} />}
-        <span>{item.label}</span>
+    <div
+      class={`collapse p-0 ${children?.length ? "collapse-plus" : ""}`}
+    >
+      <input frameBorder="none" type="checkbox" />
+      <div class="collapse-title items-center after:text-3xl text-slate-600 flex">
+        {mobileImage && (
+          <img class="max-w-" width={55} height={29} src={mobileImage} />
+        )}
+        <span class="text-base font-light w-full text-center text-secondary ">
+          {label}
+        </span>
       </div>
-      <div class="collapse-content">
-        <ul>
-          <li>
-            <a class=" text-sm text-slate-600" href={item.href}>Ver todos</a>
-          </li>
-          {item.children?.map((node) => (
+      {!!item.children?.length && (
+        <div class="collapse-content flex flex-col text-secondary text-xs flex-wrap items-end  gap-y-3 w-full ">
+          <ul class="w-4/5 flex flex-col gap-y-3">
             <li>
-              <MenuItem item={node} />
+              <a href={item.href} class="font-medium ">Ver todos</a>
             </li>
-          ))}
-        </ul>
-      </div>
+            {item.children?.map(({ label, href }) => (
+              <li>
+                <a class="font-semibold " href={href}>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
