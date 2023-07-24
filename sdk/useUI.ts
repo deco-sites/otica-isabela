@@ -12,7 +12,7 @@ const displaySearchbar = signal(false);
 const state = {
   displayCart,
   displayMenu,
-  displaySearchbar
+  displaySearchbar,
 };
 
 export const useUI = () => state;
