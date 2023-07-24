@@ -1,8 +1,10 @@
-import Icon from "$store/components/ui/Icon.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
+import { useEffect } from "preact/compat";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export interface Props {
   items: NavItemProps[];
+  menuClosed?: () => void;
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
@@ -10,31 +12,39 @@ function MenuItem({ item }: { item: NavItemProps }) {
   const { mobile: mobileImage } = image ?? {};
 
   if (!children?.length) {
-    return <a href={href ?? "/"}>{label}</a>;
+    return (
+      <div class="collapse-title items-center after:text-3xl text-secondary flex gap-x-4">
+        <div class=" w-1/4 ">
+          {mobileImage && <img width={55} height={29} src={mobileImage} />}
+        </div>
+        <a href={href ?? "/"}>{label}</a>
+      </div>
+    );
   }
 
   return (
     <div
-      class={`collapse p-0 ${children?.length ? "collapse-plus" : ""}`}
+      class={"collapse p-0 collapse-plus"}
     >
       <input frameBorder="none" type="checkbox" />
-      <div class="collapse-title items-center after:text-3xl text-slate-600 flex">
-        {mobileImage && (
-          <img class="max-w-" width={55} height={29} src={mobileImage} />
-        )}
-        <span class="text-base font-light w-full text-center text-secondary ">
+      <div class="collapse-title items-center after:text-3xl text-secondary flex gap-x-4">
+        <div class=" w-1/4 ">
+          {mobileImage && <img width={55} height={29} src={mobileImage} />}
+        </div>
+
+        <span class="text-base font-normal w-full text-start text-secondary ">
           {label}
         </span>
       </div>
       {!!item.children?.length && (
         <div class="collapse-content flex flex-col text-secondary text-xs flex-wrap items-end  gap-y-3 w-full ">
-          <ul class="w-4/5 flex flex-col gap-y-3">
+          <ul class="w-4/5 flex flex-col gap-y-3 font-semibold text-secondary text-base line leading-5 ">
             <li>
-              <a href={item.href} class="font-medium ">Ver todos</a>
+              <a href={item.href}>Ver todos</a>
             </li>
             {item.children?.map(({ label, href }) => (
               <li>
-                <a class="font-semibold " href={href}>{label}</a>
+                <a href={href}>{label}</a>
               </li>
             ))}
           </ul>
@@ -44,17 +54,27 @@ function MenuItem({ item }: { item: NavItemProps }) {
   );
 }
 
-function Menu({ items }: Props) {
+function Menu({ items, menuClosed }: Props) {
+  useEffect(() => {
+    if (!IS_BROWSER) {
+      return;
+    }
+    document?.getElementById("overlayHeader")?.addEventListener(
+      "click",
+      () => menuClosed?.(),
+    );
+  }, []);
+
   return (
-    <>
-      <ul class="pr-4 flex-grow flex flex-col divide-y divide-base-200">
+    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl">
+      <ul class="pr-4 flex-grow flex flex-col ">
         {items.map((item) => (
           <li>
             <MenuItem item={item} />
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
