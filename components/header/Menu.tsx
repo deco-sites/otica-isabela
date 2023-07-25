@@ -4,18 +4,18 @@ import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export interface Props {
   items: NavItemProps[];
-  menuClosed?: () => void;
+  menuClosed: () => void;
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
-  const { href, label, children, image } = item ?? {};
-  const { mobile: mobileImage } = image ?? {};
+  const { href, label, children, mobileMenuImage } = item ?? {};
+  const { src, alt } = mobileMenuImage ?? {};
 
   if (!children?.length) {
     return (
       <div class="collapse-title items-center after:text-3xl text-secondary flex gap-x-4">
         <div class=" w-1/4 ">
-          {mobileImage && <img width={55} height={29} src={mobileImage} />}
+          {src && <img width={55} height={29} src={src} />}
         </div>
         <a href={href ?? "/"}>{label}</a>
       </div>
@@ -29,7 +29,7 @@ function MenuItem({ item }: { item: NavItemProps }) {
       <input frameBorder="none" type="checkbox" />
       <div class="collapse-title items-center after:text-3xl text-secondary flex gap-x-4">
         <div class=" w-1/4 ">
-          {mobileImage && <img width={55} height={29} src={mobileImage} />}
+          {src && <img alt={alt} width={55} height={29} src={src} />}
         </div>
 
         <span class="text-base font-normal w-full text-start text-secondary ">
@@ -61,13 +61,13 @@ function Menu({ items, menuClosed }: Props) {
     }
     document?.getElementById("overlayHeader")?.addEventListener(
       "click",
-      () => menuClosed?.(),
+      menuClosed,
     );
   }, []);
 
   return (
     <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl">
-      <ul class="pr-4 flex-grow flex flex-col ">
+      <ul class="pr-4 flex-grow flex flex-col">
         {items.map((item) => (
           <li>
             <MenuItem item={item} />

@@ -1,6 +1,6 @@
 import Buttons from "$store/islands/HeaderButton.tsx";
 
-import NavItem from "./NavItem.tsx";
+import NavItem from "../../islands/NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
