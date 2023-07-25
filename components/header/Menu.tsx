@@ -1,5 +1,6 @@
 import { NavItemProps } from "./NavItem.tsx";
 import { useEffect } from "preact/hooks";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export interface Props {
   items: NavItemProps[];
@@ -12,15 +13,13 @@ function MenuItem({ item }: { item: NavItemProps }) {
 
   if (!children?.length) {
     return (
-      <div class="collapse-title items-center flex gap-x-4">
-        <div class="w-4/12">
-          {src && <img width={55} height={29} src={src} />}
-        </div>
+      <div class="collapse-title ">
         <a
-          class="text-base font-normal w-full text-start text-secondary pl-5"
+          class="items-center flex gap-x-4 text-base font-normal w-full text-start text-secondary "
           href={href}
         >
-          {label}
+          {src && <img width={55} height={29} src={src} />}
+          <span class="pl-5">{label}</span>
         </a>
       </div>
     );
@@ -58,6 +57,9 @@ function MenuItem({ item }: { item: NavItemProps }) {
 
 function Menu({ items, menuClosed }: Props) {
   useEffect(() => {
+    if (!IS_BROWSER) {
+      return;
+    }
     document.getElementById("overlayHeader")?.addEventListener(
       "click",
       menuClosed,

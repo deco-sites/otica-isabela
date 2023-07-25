@@ -3,6 +3,7 @@ import type { Image as imageType } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import { useSignal } from "@preact/signals";
 import { navbarModalBaseWidth } from "./constants.ts";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export interface NavItemProps {
   label: string;
@@ -31,6 +32,10 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
   };
 
   const modalAlignment = useMemo(() => {
+    if (!IS_BROWSER) {
+      return {};
+    }
+
     const alignment: { [key: string]: string } = {};
     const childrenLength = children?.length ?? 0;
     const modalWidth = childrenLength * navbarModalBaseWidth;
