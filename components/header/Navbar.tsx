@@ -1,12 +1,10 @@
 import Buttons from "$store/islands/HeaderButton.tsx";
-
 import NavItem from "../../islands/NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import { maxWidthContainer } from "$store/components/header/constants.ts";
 import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
@@ -54,7 +52,15 @@ function Navbar(
         </div>
 
         <div class="hidden lg:flex flex-row justify-center items-center gap-x-4  ">
-          <NavItem items={items} />
+          {items?.filter(({ mobileOnly }) => mobileOnly !== true)?.map((
+            { href, label, children },
+          ) => (
+            <NavItem
+              label={label}
+              href={href}
+              children={children}
+            />
+          ))}
         </div>
       </div>
     </div>

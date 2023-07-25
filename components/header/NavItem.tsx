@@ -1,110 +1,94 @@
-import Image from "deco-sites/std/components/Image.tsx";
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import { Suspense, useMemo, useState } from "preact/compat";
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import type { Image as imageType } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
+import { useSignal } from "@preact/signals";
+import { navbarModalBaseWidth } from "./constants.ts";
 
 export interface NavItemProps {
   label: string;
   href: string;
-  mobileMenuImage?: { src?: ImageType; alt?: string };
-  children?: {
-    label: string;
-    href: string;
-    desktopMenuImage?: { src?: ImageType; alt?: string };
-  }[];
-}
-
-interface Props {
-  items?: NavItemProps[];
-}
-
-export const NavItem = ({ items }: Props) => {
-  const [showOptions, setShowOptions] = useState(false);
-
-  const closeModal = () => {
-    setShowOptions(false);
+  mobileOnly?: boolean;
+  mobileMenuImage?: {
+    src?: imageType;
+    alt?: string;
   };
+  children?: Array<{
+    label?: string;
+    href?: string;
+    desktopMenuImage?: {
+      src?: imageType;
+      alt?: string;
+    };
+  }>;
+}
 
-  const openModal = () => {
-    setShowOptions(true);
+export const NavItem = ({ label, children, href }: NavItemProps) => {
+  const displayDropDownMenu = useSignal(false);
+
+  const mouseInteraction = {
+    onMouseEnter: () => displayDropDownMenu.value = true,
+    onMouseLeave: () => displayDropDownMenu.value = false,
   };
 
   const modalAlignment = useMemo(() => {
-    if (!IS_BROWSER) {
-      return {};
-    }
-
-    const screenWidth = window?.innerWidth ?? 0;
-    const MODAL_BASE_SIZE = screenWidth / 4;
     const alignment: { [key: string]: string } = {};
-    const childrenLenght = 1;
-    const modalWidth = childrenLenght * MODAL_BASE_SIZE;
+    const childrenLength = children?.length ?? 0;
+    const modalWidth = childrenLength * navbarModalBaseWidth;
+    const screenWidth = window?.innerWidth ?? 0;
 
-    if (childrenLenght >= 2) {
+    if (childrenLength >= 2) {
       alignment["left"] = `${(screenWidth - modalWidth) / 2}px`;
+    } else {
+      alignment["marginLeft"] = `-${navbarModalBaseWidth / 3}px`;
     }
 
     return {
       ...alignment,
-      "width": `${modalWidth}px`,
+      maxWidth: `${modalWidth}px`,
     };
-  }, []);
-
-  if (!items?.length) {
-    return null;
-  }
-
-  console.log("items", items);
+  }, [children]);
 
   return (
-    <div class="hidden lg:flex flex-row justify-center items-center gap-x-5">
-      {items?.map(({ href, label, children }) => {
-        return (
-          <div>
-            <a href={href} onMouseEnter={openModal} onMouseLeave={closeModal}>
-              <span class="text-white hover:text-blue-200  text-base font-medium ">
-                {label}
-              </span>
-            </a>
+    <div>
+      <a
+        href={href}
+        class="text-white hover:text-blue-200 text-base font-semibold uppercase pb-9"
+        {...mouseInteraction}
+      >
+        {label}
+      </a>
 
-            {children && children.length > 0 && showOptions &&
-              (
-                <Suspense fallback={null}>
-                  <div
-                    style={{ ...modalAlignment, maxWidth: "1260px" }}
-                    onMouseEnter={openModal}
-                    onMouseLeave={closeModal}
-                    class=" rounded-xl absolute flex flex-row bg-base-100 z-50 items-start justify-center gap-6 "
-                  >
-                    {children.map(({ href, label, desktopMenuImage }) =>
-                      desktopMenuImage?.src && (
-                        <a href={href} class="m-0 p-0">
-                          <div class="p-6  flex flex-col justify-center gap-y-4   ">
-                            <Image
-                              class="rounded-xl p-0"
-                              src={desktopMenuImage.src}
-                              alt={desktopMenuImage.alt}
-                              width={280}
-                              height={250}
-                              loading="lazy"
-                            />
-                            <div class="w-full text-center">
-                              <span class="font-medium text-lg  text-blue-200 font-sans  ">
-                                {label}
-                              </span>
-                            </div>
-                          </div>
-                        </a>
-                      )
-                    )}
+      {displayDropDownMenu.value && children?.length && (
+        <Suspense fallback={null}>
+          <div
+            style={{ ...modalAlignment }}
+            {...mouseInteraction}
+            class="w-full absolute flex flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-4"
+          >
+            {children.map(({ desktopMenuImage, href, label }) =>
+              desktopMenuImage?.src && (
+                <a href={href} class="m-0 p-0">
+                  <div class="p-6 flex flex-col justify-center gap-y-4">
+                    <Image
+                      class="rounded-xl p-0"
+                      src={desktopMenuImage?.src}
+                      alt={desktopMenuImage?.alt}
+                      width={280}
+                      height={280}
+                      loading="lazy"
+                    />
+                    <div class="w-full text-center">
+                      <span class="font-medium text-lg text-blue-200 uppercase">
+                        {label}
+                      </span>
+                    </div>
                   </div>
-                </Suspense>
-              )}
+                </a>
+              )
+            )}
           </div>
-        );
-      })}
+        </Suspense>
+      )}
     </div>
   );
 };
-
-export default NavItem;

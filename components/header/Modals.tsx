@@ -15,7 +15,7 @@ interface Props {
 }
 
 function Modals({ menu, searchbar }: Props) {
-  const { displayCart, displayMenu, displaySearchbar } = useUI();
+  const { displayCart, displaySearchbar } = useUI();
 
   const fallback = (
     <div class="flex justify-center items-center w-full h-full">
@@ -25,20 +25,6 @@ function Modals({ menu, searchbar }: Props) {
 
   return (
     <>
-      <Modal
-        title="Menu"
-        mode="sidebar-left"
-        loading="lazy"
-        open={displayMenu.value}
-        onClose={() => {
-          displayMenu.value = false;
-        }}
-      >
-        <Suspense fallback={fallback}>
-          <Menu {...menu} />
-        </Suspense>
-      </Modal>
-
       <Modal
         title="Buscar"
         mode="sidebar-right"

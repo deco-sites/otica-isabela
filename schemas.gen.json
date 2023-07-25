@@ -9303,6 +9303,13 @@
           "type": "string",
           "title": "Href"
         },
+        "mobileOnly": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Mobile Only"
+        },
         "mobileMenuImage": {
           "type": "object",
           "properties": {
@@ -9327,11 +9334,17 @@
             "type": "object",
             "properties": {
               "label": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "title": "Label"
               },
               "href": {
-                "type": "string",
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "title": "Href"
               },
               "desktopMenuImage": {
@@ -9353,10 +9366,7 @@
                 "title": "Desktop Menu Image"
               }
             },
-            "required": [
-              "label",
-              "href"
-            ]
+            "required": []
           },
           "title": "Children"
         }

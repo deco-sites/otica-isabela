@@ -45,7 +45,7 @@ function SearchButton() {
 }
 
 function MenuButton({ items }: { items?: NavItemProps[] }) {
-  const { displayMenu } = useUI();
+  const { displayMobileMenu } = useUI();
   const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 
   return (
@@ -60,26 +60,26 @@ function MenuButton({ items }: { items?: NavItemProps[] }) {
         aria-label="open menu"
         onClick={() =>
           handleOverlayHeader(
-            displayMenu.value,
-            () => displayMenu.value = !displayMenu.value,
+            displayMobileMenu.value,
+            () => displayMobileMenu.value = !displayMobileMenu.value,
           )}
       >
         {
           <Icon
-            id={!displayMenu.value ? "Bars3" : "XMark"}
+            id={!displayMobileMenu.value ? "Bars3" : "XMark"}
             width={35}
             height={42}
-            fill={displayMenu.value ? "white" : ""}
+            fill={displayMobileMenu.value ? "white" : ""}
             strokeWidth={0.01}
           />
         }
       </Button>
-      {displayMenu.value && items?.length && (
+      {displayMobileMenu.value && items?.length && (
         <Suspense fallback={null}>
           <Menu
             items={items}
             menuClosed={() =>
-              handleOverlayHeader(true, () => displayMenu.value = false)}
+              handleOverlayHeader(true, () => displayMobileMenu.value = false)}
           />
         </Suspense>
       )}
