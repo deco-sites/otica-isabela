@@ -50,7 +50,7 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
     <div class="group flex">
       <a
         href={href}
-        class="text-white hover:text-blue-200 text-base font-semibold uppercase pb-9"
+        class="text-white hover:text-blue-200 text-base font-semibold uppercase pb-8"
       >
         {label}
       </a>

@@ -10,12 +10,12 @@ const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
-  menu: MenuProps;
+  menuItems?: MenuProps["items"];
   searchbar?: SearchbarProps;
 }
 
-function Modals({ menu, searchbar }: Props) {
-  const { displayCart, displaySearchbar } = useUI();
+function Modals({ menuItems, searchbar }: Props) {
+  const { displayCart, displaySearchbar, displayMobileMenu } = useUI();
 
   const fallback = (
     <div class="flex justify-center items-center w-full h-full">
@@ -25,6 +25,15 @@ function Modals({ menu, searchbar }: Props) {
 
   return (
     <>
+      {displayMobileMenu.value && !!menuItems?.length && (
+        <Suspense fallback={null}>
+          <Menu
+            closeMenu={() =>
+              displayMobileMenu.value = false}
+            items={menuItems}
+          />
+        </Suspense>
+      )}
       <Modal
         title="Buscar"
         mode="sidebar-right"

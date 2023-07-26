@@ -1,10 +1,11 @@
 import { NavItemProps } from "./NavItem.tsx";
-import { useEffect } from "preact/hooks";
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { ModalOverlay } from "../ui/ModalOverlay.tsx";
+
+
 
 export interface Props {
   items: NavItemProps[];
-  menuClosed: () => void;
+  closeMenu?: () => void;
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
@@ -50,19 +51,13 @@ function MenuItem({ item }: { item: NavItemProps }) {
   );
 }
 
-function Menu({ items, menuClosed }: Props) {
-  useEffect(() => {
-    if (!IS_BROWSER) {
-      return;
-    }
-    document.getElementById("overlayHeader")?.addEventListener(
-      "click",
-      menuClosed,
-    );
-  }, []);
-
+function Menu({ items, closeMenu }: Props) {
   return (
-    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4">
+    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4 top-20">
+      <ModalOverlay
+        ariaLabel="Mobile Menu Overlay"
+        backDropAction={closeMenu}
+      />
       <ul class="pr-4 flex-grow flex flex-col">
         {items.map((item, index) => (
           <li key={index} class="-mb-4">
