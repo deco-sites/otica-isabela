@@ -38,9 +38,9 @@ function MenuItem({ item }: { item: NavItemProps }) {
       </div>
 
       {!!children?.length && (
-        <ul class=" collapse-content  w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 ml-5 p-0">
+        <ul class=" collapse-content  w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 p-0 ">
           {children.map(({ label, href }) => (
-            <li>
+            <li class="pl-9">
               <a href={href}>{label}</a>
             </li>
           ))}
