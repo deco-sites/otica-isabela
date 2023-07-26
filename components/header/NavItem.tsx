@@ -14,6 +14,7 @@ export interface NavItemProps {
     alt?: string;
   };
   children?: Array<{
+    mobileOnly?: boolean;
     label?: string;
     href?: string;
     desktopMenuImage?: {
@@ -24,13 +25,17 @@ export interface NavItemProps {
 }
 
 export const NavItem = ({ label, children, href }: NavItemProps) => {
+  const filteredChildren = useMemo(() => {
+    return children?.filter((item) => item.mobileOnly !== true);
+  }, [children]);
+
   const modalAlignment = useMemo(() => {
     if (!IS_BROWSER) {
       return {};
     }
 
     const alignment: Record<string, string> = {};
-    const childrenLength = children?.length ?? 0;
+    const childrenLength = filteredChildren?.length ?? 0;
     const modalWidth = childrenLength * navbarModalBaseWidth;
     const screenWidth = window?.innerWidth ?? 0;
 
@@ -58,7 +63,9 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
         style={{ ...modalAlignment }}
         class=" hidden hover:flex group-hover:flex w-full absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-8"
       >
-        {children?.map(({ desktopMenuImage, href, label }) =>
+        {filteredChildren?.map((
+          { desktopMenuImage, href, label },
+        ) =>
           desktopMenuImage?.src && (
             <a href={href} class="m-0 p-0">
               <div class="p-6 flex flex-col justify-center gap-y-4">

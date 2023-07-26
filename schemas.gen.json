@@ -9333,6 +9333,13 @@
           "items": {
             "type": "object",
             "properties": {
+              "mobileOnly": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "title": "Mobile Only"
+              },
               "label": {
                 "type": [
                   "string",
