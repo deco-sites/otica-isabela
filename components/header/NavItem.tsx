@@ -36,7 +36,7 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
       return {};
     }
 
-    const alignment: { [key: string]: string } = {};
+    const alignment: Record<string, string> = {};
     const childrenLength = children?.length ?? 0;
     const modalWidth = childrenLength * navbarModalBaseWidth;
     const screenWidth = window?.innerWidth ?? 0;
