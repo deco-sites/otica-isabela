@@ -13,22 +13,22 @@ function MenuItem({ item }: { item: NavItemProps }) {
 
   if (!children?.length) {
     return (
-      <div class="collapse-title ">
+      <div class="collapse-title  ">
         <a
-          class="items-center flex gap-x-4 text-base font-normal w-full text-start text-secondary "
+          class="items-center flex  text-base font-normal w-full text-start text-secondary gap-x-4 "
           href={href}
         >
           {src && <img width={55} height={29} src={src} />}
-          <span class="pl-5">{label}</span>
+          <span class="pl-2">{label}</span>
         </a>
       </div>
     );
   }
 
   return (
-    <div class="collapse p-0 collapse-plus">
+    <div class=" collapse collapse-plus transition-none  ">
       <input frameBorder="none" type="checkbox" />
-      <div class="collapse-title items-center after:text-3xl text-secondary flex gap-x-4">
+      <div class="collapse-title  items-center after:text-3xl  after:h-full text-secondary flex ">
         <div class="w-4/12">
           {src && <img alt={alt} width={55} height={29} src={src} />}
         </div>
@@ -38,18 +38,13 @@ function MenuItem({ item }: { item: NavItemProps }) {
       </div>
 
       {!!children?.length && (
-        <div class="collapse-content flex flex-col text-secondary text-xs flex-wrap items-start gap-y-3 w-full">
-          <ul class="w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 ml-5">
+        <ul class=" collapse-content  w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 ml-5 p-0">
+          {children.map(({ label, href }) => (
             <li>
-              <a href={href}>Todos</a>
+              <a href={href}>{label}</a>
             </li>
-            {children.map(({ label, href }) => (
-              <li>
-                <a href={href}>{label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+          ))}
+        </ul>
       )}
     </div>
   );
@@ -67,10 +62,10 @@ function Menu({ items, menuClosed }: Props) {
   }, []);
 
   return (
-    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl">
+    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4">
       <ul class="pr-4 flex-grow flex flex-col">
         {items.map((item, index) => (
-          <li key={index}>
+          <li key={index} class="-mb-4">
             <MenuItem item={item} />
           </li>
         ))}
