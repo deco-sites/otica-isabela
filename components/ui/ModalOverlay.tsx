@@ -20,6 +20,6 @@ export const ModalOverlay = (
       class="fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30"
     >
     </div>,
-    document.body
+    document.body,
   );
 };

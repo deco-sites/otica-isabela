@@ -1,8 +1,6 @@
 import { NavItemProps } from "./NavItem.tsx";
 import { ModalOverlay } from "../ui/ModalOverlay.tsx";
 
-
-
 export interface Props {
   items: NavItemProps[];
   closeMenu?: () => void;
