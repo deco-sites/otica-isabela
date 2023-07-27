@@ -1,16 +1,15 @@
 import Buttons from "$store/islands/HeaderButton.tsx";
-
 import NavItem from "./NavItem.tsx";
 import Searchbar from "$store/components/search/Searchbar.tsx";
 import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import { maxWidthContainer } from "$store/components/header/constants.ts";
 import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
 import { IconLoginLink } from "./IconLoginLink.tsx";
+import { lazy, Suspense } from "preact/compat";
 
 function Navbar(
   { items, searchbar, storeLogo, IconNavigationItems, loginLink }: {
@@ -36,11 +35,11 @@ function Navbar(
             />
           )}
 
-          <div class=" hidden lg:flex  w-full max-w-[33.33%] pr-6   ">
+          <div class=" hidden lg:flex flex-col w-full max-w-[33.33%] pr-6   ">
             <Searchbar {...searchbar} />
           </div>
 
-          <div class="flex flex-row  gap-x-4  justify-center items-baseline  lg:items-center ">
+          <div class="flex flex-row  gap-x-4  justify-center items-baseline  mt-10 lg:items-center ">
             <IconLoginLink {...loginLink} />
 
             <IconNavigationComponent items={IconNavigationItems} />
@@ -49,7 +48,7 @@ function Navbar(
           </div>
         </div>
 
-        <div class="flex lg:hidden  w-full ">
+        <div class="flex flex-col lg:hidden  w-full ">
           <Searchbar {...searchbar} />
         </div>
 
