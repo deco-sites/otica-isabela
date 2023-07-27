@@ -17,7 +17,7 @@ function MenuItem({ item }: { item: NavItemProps }) {
           class="items-center flex  text-base font-normal w-full text-start text-secondary gap-x-4 "
           href={href}
         >
-          {src && <img width={55} height={29} src={src} />}
+          {src && <img width={55} height={29} src={src} alt={alt} />}
           <span class="pl-2">{label}</span>
         </a>
       </div>
@@ -25,7 +25,7 @@ function MenuItem({ item }: { item: NavItemProps }) {
   }
 
   return (
-    <div class=" collapse collapse-plus transition-none  ">
+    <div class=" collapse collapse-plus items-start  ">
       <input frameBorder="none" type="checkbox" />
       <div class="collapse-title  items-center after:text-3xl  after:h-full text-secondary flex ">
         <div class="w-4/12">
