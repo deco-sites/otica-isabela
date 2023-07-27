@@ -11,11 +11,9 @@
 
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "$store/sdk/useUI.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
-import { lazy, Suspense } from "preact/compat";
+import { formatPrice } from "$store/sdk/format.ts";
 
 // Editable props
 export interface EditableProps {
@@ -55,35 +53,33 @@ function Searchbar({
   const { setSearch } = useAutocomplete();
 
   const sugestions = [{
-    "URL":
+    "url":
       "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
-    "Name": "Armação óculos de grau masculino - Lunks 1400",
-    "ImagePath":
+    "name": "Armação óculos de grau masculino - Lunks 1400",
+    "image":
       "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "Value": "99,99",
-    "DateTimeCreator": "\\/Date(1690298963860)\\/",
+    "value": 99.99,
   }, {
-    "URL":
-      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Marrom-1400-Izaker",
-    "Name": "Armação óculos de grau masculino - Lunks 1400",
-    "ImagePath":
+    "url":
+      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
+    "name": "Armação óculos de grau masculino - Lunks 1400",
+    "image":
       "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "Value": "99,99",
-    "DateTimeCreator": "\\/Date(1690298934073)\\/",
+    "value": 99.99,
   }, {
-    "URL": "/produto/armacao-oculos-masculino-moderno-Octopus-1057",
-    "Name": "Armação óculos de grau masculino - Octopus 1057",
-    "ImagePath":
+    "url":
+      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
+    "name": "Armação óculos de grau masculino - Lunks 1400",
+    "image":
       "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "Value": "79,99",
-    "DateTimeCreator": "\\/Date(1690389843617)\\/",
+    "value": 99.99,
   }, {
-    "URL": "/produto/armacao-oculos-grau-preto-cinza-isabeladias-willid1025m",
-    "Name": "Armação óculos de grau masculino - Will 1025",
-    "ImagePath":
+    "url":
+      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
+    "name": "Armação óculos de grau masculino - Lunks 1400",
+    "image":
       "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "Value": "79,99",
-    "DateTimeCreator": "\\/Date(1690298192260)\\/",
+    "value": 99.99,
   }];
 
   useEffect(() => {
@@ -110,16 +106,16 @@ function Searchbar({
               name={name}
               defaultValue={query}
               onInput={(e) => {
-                const value = e.currentTarget.value;
+                const inputValue = e.currentTarget.value;
 
-                if (value) {
+                if (inputValue) {
                   sendEvent({
                     name: "search",
-                    params: { search_term: value },
+                    params: { search_term: inputValue },
                   });
                 }
 
-                setSearch(value);
+                setSearch(inputValue);
               }}
               onFocus={() => console.log("ola mundo")}
               onBlur={() => console.log("ola mundo")}
@@ -143,17 +139,19 @@ function Searchbar({
           <div class="absolute flex flex-col top-2 left-0 bg-white border border-blue-200 rounded-lg  w-full p-4 z-50">
             <h1 class="text-base text-secondary mb-5">Sugestões de óculos</h1>
             <div class=" flex flex-wrap  w-full gap-y-4 ">
-              {sugestions.map(({ ImagePath, Value, Name, URL }) => {
+              {sugestions.map(({ image, name, url, value }) => {
                 return (
                   <a
-                    src={URL}
+                    src={url}
                     class="w-1/2 flex flex-col justify-center items-center text-center "
                   >
-                    <image src={ImagePath} width={100} />
+                    <image src={image} width={100} />
                     <span class="text-secondary font-bold text-xs line-clamp-3">
-                      {Name}
+                      {name}
                     </span>
-                    <span class="text-xs text-blue-200 font-medium mt-3">{Value}</span>
+                    <span class="text-xs text-blue-200 font-medium mt-3">
+                      {formatPrice(value)}
+                    </span>
                   </a>
                 );
               })}

@@ -35,11 +35,11 @@ function Navbar(
             />
           )}
 
-          <div class=" hidden lg:flex flex-col w-full max-w-[33.33%] pr-6   ">
+          <div class=" hidden lg:flex flex-col w-full max-w-[36%] pr-6   ">
             <Searchbar {...searchbar} />
           </div>
 
-          <div class="flex flex-row  gap-x-4  justify-center items-baseline  mt-10 lg:items-center ">
+          <div class="flex flex-row  gap-x-4  justify-center items-baseline  lg:items-center ">
             <IconLoginLink {...loginLink} />
 
             <IconNavigationComponent items={IconNavigationItems} />
