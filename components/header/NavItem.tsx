@@ -72,7 +72,7 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
                 <Image
                   class="rounded-xl p-0"
                   src={desktopMenuImage.src}
-                  alt={desktopMenuImage?.alt ?? ""}
+                  alt={desktopMenuImage?.alt ?? "Drop down menu image"}
                   width={280}
                   height={280}
                   loading="lazy"
