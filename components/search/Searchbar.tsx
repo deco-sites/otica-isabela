@@ -14,6 +14,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
+import Spinner from "$store/components/ui/Spinner.tsx";
 
 // Editable props
 export interface EditableProps {
@@ -50,37 +51,9 @@ function Searchbar({
   query,
 }: EditableProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch } = useAutocomplete();
-
-  const sugestions = [{
-    "url":
-      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
-    "name": "Armação óculos de grau masculino - Lunks 1400",
-    "image":
-      "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "value": 99.99,
-  }, {
-    "url":
-      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
-    "name": "Armação óculos de grau masculino - Lunks 1400",
-    "image":
-      "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "value": 99.99,
-  }, {
-    "url":
-      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
-    "name": "Armação óculos de grau masculino - Lunks 1400",
-    "image":
-      "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "value": 99.99,
-  }, {
-    "url":
-      "/produto/Armacao-Oculos-Grau-Redondo-Masculino-Lunks-Grafite-Cinza-1400-Izaker",
-    "name": "Armação óculos de grau masculino - Lunks 1400",
-    "image":
-      "https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//edbb2392688a4e6ea1eb8b99f3ba488a-2.webp",
-    "value": 99.99,
-  }];
+  const { setSearch, suggestions, loading } = useAutocomplete();
+  const hasProducts = Boolean(suggestions.value?.products?.length);
+  const suggestionProducts = suggestions.value?.products;
 
   useEffect(() => {
     if (!searchInputRef.current) {
@@ -102,7 +75,7 @@ function Searchbar({
             <input
               ref={searchInputRef}
               id="search-input"
-              class="flex outline-none placeholder-shown:sibling:hidden font-extralight text-sm text-start p-2 w-10/12"
+              class="flex outline-none placeholder-shown:sibling:hidden font-extralight text-sm text-start p-2 w-4/5"
               name={name}
               defaultValue={query}
               onInput={(e) => {
@@ -114,11 +87,10 @@ function Searchbar({
                     params: { search_term: inputValue },
                   });
                 }
-
-                setSearch(inputValue);
+                if (inputValue.length >= 3) {
+                  setSearch(inputValue);
+                }
               }}
-              onFocus={() => console.log("ola mundo")}
-              onBlur={() => console.log("ola mundo")}
               placeholder={placeholder}
               role="combobox"
               aria-controls="search-suggestion"
@@ -132,25 +104,27 @@ function Searchbar({
               strokeWidth={0.01}
             />
           </form>
+          {loading.value && <Spinner />}
         </div>
       </div>
-      {!!sugestions?.length && (
+      {hasProducts && (
         <div class="relative w-full">
           <div class="absolute flex flex-col top-2 left-0 bg-white border border-blue-200 rounded-lg  w-full p-4 z-50">
             <h1 class="text-base text-secondary mb-5">Sugestões de óculos</h1>
             <div class=" flex flex-wrap  w-full gap-y-4 ">
-              {sugestions.map(({ image, name, url, value }) => {
+              {suggestionProducts?.map(({ image, name, url, offers }) => {
+                image?.[0].url;
                 return (
                   <a
                     src={url}
                     class="w-1/2 flex flex-col justify-center items-center text-center "
                   >
-                    <image src={image} width={100} />
+                    <img src={image?.[0].url ?? ""} width={100} />
                     <span class="text-secondary font-bold text-xs line-clamp-3">
                       {name}
                     </span>
                     <span class="text-xs text-blue-200 font-medium mt-3">
-                      {formatPrice(value)}
+                      {formatPrice(offers?.highPrice)}
                     </span>
                   </a>
                 );
