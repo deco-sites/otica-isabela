@@ -35,7 +35,7 @@ function Navbar(
             />
           )}
 
-          <div class=" hidden lg:flex flex-col w-full max-w-[36%] ">
+          <div class=" hidden lg:flex flex-col w-full max-w-[33%] ">
             <Searchbar {...searchbar} />
           </div>
 
