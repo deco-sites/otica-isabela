@@ -8,7 +8,7 @@
  * Note that this is the most performatic way to perform a search, since
  * no JavaScript is shipped to the browser!
  */
-
+import Image from "deco-sites/std/components/Image.tsx";
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
@@ -128,11 +128,13 @@ function Searchbar({
                     src={url}
                     class="w-1/2 flex flex-col justify-center items-center text-center "
                   >
-                    <img
+                    <Image
                       src={image?.[0].url ?? ""}
                       alt={image?.[0].description ?? ""}
                       width={100}
+                      loading="lazy"
                     />
+
                     <span class="text-black font-bold text-xs line-clamp-3">
                       {name}
                     </span>
