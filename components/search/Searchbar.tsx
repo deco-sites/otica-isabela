@@ -87,7 +87,7 @@ function Searchbar({
                   });
                 }
                 if (inputValue.length >= 3) {
-                  setSearch(inputValue, 10);
+                  setSearch(inputValue);
                 }
               }}
               placeholder={placeholder}
