@@ -1,6 +1,6 @@
 import Buttons from "$store/islands/HeaderButton.tsx";
+import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import NavItem from "../../islands/NavItem.tsx";
-import Searchbar from "$store/components/search/Searchbar.tsx";
 import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
@@ -38,7 +38,7 @@ function Navbar(
             />
           )}
 
-          <div class=" hidden lg:flex  w-full max-w-[33.33%] pr-6   ">
+          <div class=" hidden lg:flex flex-col w-full max-w-[33%] ">
             <Searchbar {...searchbar} />
           </div>
 

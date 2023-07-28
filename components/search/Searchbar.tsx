@@ -8,13 +8,12 @@
  * Note that this is the most performatic way to perform a search, since
  * no JavaScript is shipped to the browser!
  */
-
+import Image from "deco-sites/std/components/Image.tsx";
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "$store/sdk/useUI.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
 
 // Editable props
 export interface EditableProps {
@@ -51,7 +50,9 @@ function Searchbar({
   query,
 }: EditableProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch } = useAutocomplete();
+  const { setSearch, suggestions, loading } = useAutocomplete();
+  const hasProducts = Boolean(suggestions.value?.products?.length);
+  const suggestionProducts = suggestions.value?.products;
 
   useEffect(() => {
     if (!searchInputRef.current) {
@@ -62,46 +63,92 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex bg-white w-full h-10  rounded-lg">
-      <div class="flex items-center w-full ">
-        <form
-          id="searchbar"
-          action={action}
-          class="flex flex-row justify-center items-center border border-none w-full"
-        >
-          <input
-            ref={searchInputRef}
-            id="search-input"
-            class="flex  outline-none placeholder-shown:sibling:hidden font-extralight text-sm text-start p-2 w-10/12"
-            name={name}
-            defaultValue={query}
-            onInput={(e) => {
-              const value = e.currentTarget.value;
+    <>
+      <div class="flex bg-white w-full h-10 items-center justify-center  rounded-lg">
+        <div class="flex items-center w-full ">
+          <form
+            id="searchbar"
+            action={action}
+            class="group flex flex-row justify-between items-center border border-none w-full pr-1 pl-3"
+          >
+            <input
+              ref={searchInputRef}
+              id="search-input"
+              class="flex outline-none placeholder-shown:sibling:hidden font-extralight text-sm text-start w-4/5"
+              name={name}
+              defaultValue={query}
+              onInput={(e) => {
+                const inputValue = e.currentTarget.value;
 
-              if (value) {
-                sendEvent({
-                  name: "search",
-                  params: { search_term: value },
-                });
-              }
+                if (inputValue) {
+                  sendEvent({
+                    name: "search",
+                    params: { search_term: inputValue },
+                  });
+                }
+                if (inputValue.length >= 3) {
+                  setSearch(inputValue);
+                }
+              }}
+              placeholder={placeholder}
+              role="combobox"
+              aria-controls="search-suggestion"
+              autocomplete="off"
+            />
 
-              setSearch(value);
-            }}
-            placeholder={placeholder}
-            role="combobox"
-            aria-controls="search-suggestion"
-            autocomplete="off"
-          />
-
-          <Icon
-            class="text-black"
-            id="Magnifier"
-            size={25}
-            strokeWidth={0.01}
-          />
-        </form>
+            <Icon
+              class="text-black"
+              id="Magnifier"
+              size={25}
+              strokeWidth={0.01}
+            />
+          </form>
+        </div>
+        <div class="flex items-center justify-end w-5 relative pr-1">
+          {loading.value && (
+            <img
+              alt="Loading Gif"
+              width="16"
+              height="16"
+              src="/gif/loadingGif.gif"
+            />
+          )}
+        </div>
       </div>
-    </div>
+      {hasProducts && (
+        <div class="relative w-full">
+          <div class="absolute flex flex-col top-2 left-0 bg-white border border-blue-200 rounded-lg  w-full p-4 z-50">
+            <h1 class="text-base text-black font-normal mb-5">
+              Sugestões de óculos
+            </h1>
+            <div class=" flex flex-wrap  w-full gap-y-4 ">
+              {suggestionProducts?.map(({ image, name, url, offers }) => {
+                return (
+                  <a
+                    href={url}
+                    class="w-1/2 flex flex-col justify-center items-center text-center "
+                  >
+                    <Image
+                      src={image?.[0].url ?? ""}
+                      alt={image?.[0].description ?? ""}
+                      width={100}
+                      loading="lazy"
+                    />
+
+                    <span class="text-black font-bold text-xs line-clamp-3">
+                      {name}
+                    </span>
+                    <span class="text-xs text-blue-200 font-bold mt-3">
+                      {formatPrice(offers?.highPrice)}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
