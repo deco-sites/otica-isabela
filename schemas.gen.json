@@ -9303,21 +9303,18 @@
           "type": "string",
           "title": "Href"
         },
-        "children": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@NavItemProps"
-          },
-          "title": "Children"
+        "mobileOnly": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Mobile Only"
         },
-        "image": {
+        "mobileMenuImage": {
           "type": "object",
           "properties": {
             "src": {
-              "type": [
-                "string",
-                "null"
-              ],
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
               "title": "Src"
             },
             "alt": {
@@ -9329,7 +9326,56 @@
             }
           },
           "required": [],
-          "title": "Image"
+          "title": "Mobile Menu Image"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mobileOnly": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "title": "Mobile Only"
+              },
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Label"
+              },
+              "href": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Href"
+              },
+              "desktopMenuImage": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Src"
+                  },
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
+                  }
+                },
+                "required": [],
+                "title": "Desktop Menu Image"
+              }
+            },
+            "required": []
+          },
+          "title": "Children"
         }
       },
       "required": [

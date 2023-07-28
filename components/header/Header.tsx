@@ -69,6 +69,11 @@ function Header({
   return (
     <>
       <header class="bg-black">
+        <div
+          id="overlayHeader"
+          class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30"
+        >
+        </div>
         {activate && <BasicImageAndLink {...image} />}
         <Navbar
           IconNavigationItems={IconNavigation}

@@ -125,7 +125,8 @@ function Searchbar({
               {suggestionProducts?.map(({ image, name, url, offers }) => {
                 return (
                   <a
-                    src={url}
+
+                    href={url}
                     class="w-1/2 flex flex-col justify-center items-center text-center "
                   >
                     <Image

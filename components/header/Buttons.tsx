@@ -3,6 +3,8 @@ import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
+import { lazy } from "preact/compat";
+import type { NavItemProps } from "./NavItem.tsx";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -21,17 +23,23 @@ function SearchButton() {
 }
 
 function MenuButton() {
-  const { displayMenu } = useUI();
+  const { displayMobileMenu } = useUI();
 
   return (
     <Button
-      class="btn-sm btn-ghost px-0"
+      class="btn-sm btn-ghost px-0 z-50"
       aria-label="open menu"
-      onClick={() => {
-        displayMenu.value = true;
-      }}
+      onClick={() => displayMobileMenu.value = !displayMobileMenu.value}
     >
-      <Icon id="Bars3" width={35} height={42} strokeWidth={0.01} />
+      {
+        <Icon
+          id={!displayMobileMenu.value ? "Bars3" : "XMark"}
+          width={35}
+          height={42}
+          fill={displayMobileMenu.value ? "white" : ""}
+          strokeWidth={0.01}
+        />
+      }
     </Button>
   );
 }
@@ -83,7 +91,11 @@ function CartButton() {
   );
 }
 
-function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
+function Buttons(
+  { variant }: {
+    variant: "cart" | "search" | "menu";
+  },
+) {
   if (variant === "cart") {
     return <CartButton />;
   }
