@@ -1,81 +1,69 @@
-import Icon from "$store/components/ui/Icon.tsx";
-import type { NavItemProps } from "./NavItem.tsx";
+import { NavItemProps } from "./NavItem.tsx";
+import { ModalOverlay } from "../ui/ModalOverlay.tsx";
 
 export interface Props {
   items: NavItemProps[];
+  closeMenu?: () => void;
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
+  const { href = "/", label, children, mobileMenuImage } = item;
+  const { src, alt } = mobileMenuImage || {};
+
+  if (!children?.length) {
+    return (
+      <div class="collapse-title  ">
+        <a
+          class="items-center flex  text-base font-normal w-full text-start text-secondary gap-x-4 "
+          href={href}
+        >
+          {src && <img width={55} height={29} src={src} alt={alt} />}
+          <span class="pl-2">{label}</span>
+        </a>
+      </div>
+    );
+  }
+
   return (
-    <div class="collapse collapse-plus">
-      <input type="checkbox" />
-      <div class="collapse-title">{item.label}</div>
-      <div class="collapse-content">
-        <ul>
-          <li>
-            <a class="underline text-sm" href={item.href}>Ver todos</a>
-          </li>
-          {item.children?.map((node) => (
-            <li>
-              <MenuItem item={node} />
+    <div class=" collapse collapse-plus items-start  ">
+      <input frameBorder="none" type="checkbox" />
+      <div class="collapse-title  items-center after:text-3xl  after:h-full text-secondary flex ">
+        <div class="w-4/12">
+          {src && <img alt={alt} width={55} height={29} src={src} />}
+        </div>
+        <span class="text-base font-normal w-full text-start text-secondary ml-6">
+          {label}
+        </span>
+      </div>
+
+      {!!children?.length && (
+        <ul class=" collapse-content  w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 p-0 ">
+          {children.map(({ label, href }) => (
+            <li class="pl-9">
+              <a href={href}>{label}</a>
             </li>
           ))}
         </ul>
-      </div>
+      )}
     </div>
   );
 }
 
-function Menu({ items }: Props) {
+function Menu({ items, closeMenu }: Props) {
   return (
-    <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200">
-        {items.map((item) => (
-          <li>
+    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4 top-20">
+      <ModalOverlay
+        ariaLabel="Mobile Menu Overlay"
+        backDropAction={closeMenu}
+      />
+      <ul class="pr-4 flex-grow flex flex-col">
+        {items.map((item, index) => (
+          <li key={index} class="-mb-4">
             <MenuItem item={item} />
           </li>
         ))}
       </ul>
-
-      <ul class="flex flex-col py-2 bg-base-200">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="/wishlist"
-          >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Lista de desejos</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Nossas lojas</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Fale conosco</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <span class="text-sm">Minha conta</span>
-          </a>
-        </li>
-      </ul>
-    </>
+    </div>
   );
 }
 
