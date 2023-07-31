@@ -3,21 +3,21 @@ import FooterLinks from "./FooterLinks.tsx";
 
 export type Link = {
   title?: string;
-  href: string;
+  href?: string;
 };
 
 export type LinksSection = {
-  title: string;
-  items: Link[];
+  title?: string;
+  items?: Link[];
 };
 
 export interface SocialItem {
-  icon:
+  icon?:
     | "Facebook"
     | "Instagram"
     | "YouTube";
 
-  link: string;
+  link?: string;
 }
 
 export interface Props {
@@ -29,22 +29,22 @@ export interface Props {
   };
 
   secondBlock?: {
-    hideSecondBlock: boolean;
-    links: LinksSection[];
+    hideSecondBlock?: boolean;
+    links?: LinksSection[];
   };
 
   thirdBlock?: {
     hideThirdBlock?: boolean;
-    support: {
-      title: string;
-      links: {
-        image: LiveImage;
-        label: string;
-        href: string;
+    support?: {
+      title?: string;
+      links?: {
+        image?: LiveImage;
+        label?: string;
+        href?: string;
       }[];
-      openingHours: {
-        hours: { primaryLabel: string; secondaryLabel: string };
-        observation: string;
+      openingHours?: {
+        hours?: { primaryLabel: string; secondaryLabel: string };
+        observation?: string;
       };
     };
     securityInformation: {
@@ -52,10 +52,13 @@ export interface Props {
     };
     payments?: {
       title?: string;
-      items: PaymentItem[];
+      methods?: {
+        image?: LiveImage;
+        alt?: string;
+      }[];
     };
     logo?: {
-      image: LiveImage;
+      image?: LiveImage;
       description?: string;
     };
   };
@@ -72,7 +75,7 @@ function Footer({
 }: Props) {
   const { hideSecondBlock, links } = secondBlock ?? {};
   return (
-    <footer>
+    <footer class="w-full bg-black">
       {hideSecondBlock && <FooterLinks links={links ?? []} />}
     </footer>
   );

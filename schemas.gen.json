@@ -8795,14 +8795,14 @@
           "title": "Icon"
         },
         "link": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "Link"
         }
       },
-      "required": [
-        "icon",
-        "link"
-      ],
+      "required": [],
       "title": "SocialItem"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]": {
@@ -8823,13 +8823,14 @@
           "title": "Title"
         },
         "href": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "Href"
         }
       },
-      "required": [
-        "href"
-      ],
+      "required": [],
       "title": "Link"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Link[]": {
@@ -8843,7 +8844,10 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "title": "Title"
         },
         "items": {
@@ -8851,10 +8855,7 @@
           "title": "Items"
         }
       },
-      "required": [
-        "title",
-        "items"
-      ],
+      "required": [],
       "title": "LinksSection"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinksSection[]": {
@@ -8905,7 +8906,10 @@
           "type": "object",
           "properties": {
             "hideSecondBlock": {
-              "type": "boolean",
+              "type": [
+                "boolean",
+                "null"
+              ],
               "title": "Hide Second Block"
             },
             "links": {
@@ -8913,10 +8917,7 @@
               "title": "Links"
             }
           },
-          "required": [
-            "hideSecondBlock",
-            "links"
-          ],
+          "required": [],
           "title": "Second Block"
         },
         "thirdBlock": {
@@ -8933,7 +8934,10 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "title": "Title"
                 },
                 "links": {
@@ -8946,19 +8950,21 @@
                         "title": "Image"
                       },
                       "label": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "title": "Label"
                       },
                       "href": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "title": "Href"
                       }
                     },
-                    "required": [
-                      "image",
-                      "label",
-                      "href"
-                    ]
+                    "required": []
                   },
                   "title": "Links"
                 },
@@ -8984,22 +8990,18 @@
                       "title": "Hours"
                     },
                     "observation": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "title": "Observation"
                     }
                   },
-                  "required": [
-                    "hours",
-                    "observation"
-                  ],
+                  "required": [],
                   "title": "Opening Hours"
                 }
               },
-              "required": [
-                "title",
-                "links",
-                "openingHours"
-              ],
+              "required": [],
               "title": "Support"
             },
             "securityInformation": {
@@ -9026,15 +9028,29 @@
                   ],
                   "title": "Title"
                 },
-                "items": {
+                "methods": {
                   "type": "array",
-                  "items": {},
-                  "title": "Items"
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                        "title": "Image"
+                      },
+                      "alt": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "title": "Alt"
+                      }
+                    },
+                    "required": []
+                  },
+                  "title": "Methods"
                 }
               },
-              "required": [
-                "items"
-              ],
+              "required": [],
               "title": "Payments"
             },
             "logo": {
@@ -9052,14 +9068,11 @@
                   "title": "Description"
                 }
               },
-              "required": [
-                "image"
-              ],
+              "required": [],
               "title": "Logo"
             }
           },
           "required": [
-            "support",
             "securityInformation"
           ],
           "title": "Third Block"

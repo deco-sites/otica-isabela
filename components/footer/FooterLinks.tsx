@@ -4,34 +4,32 @@ export default function FooterLinks(
   { links }: { links: LinksSection[] },
 ) {
   return (
-    <>
+    <div class="w-full border-b-[1px] border-b-white">
       {links.length > 0 && (
-        <>
-          {/* Tablet and Desktop view */}
-          <ul
-            class={`hidden md:flex flex-row gap-6 lg:gap-10`}
-          >
-            {links.map(({ items, title }) => (
-              <li>
-                <div class="flex flex-col gap-2">
-                  <span class="font-medium text-lg">
-                    {title}
-                  </span>
-                  <ul class={`flex flex-col gap-2 flex-wrap text-sm`}>
-                    {items?.map((item) => (
-                      <li>
-                        <a href={item.href} class="block py-1 link link-hover">
-                          {item.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </>
+        <ul
+          class={`container flex flex-col md:flex-row justify-between w-full bg-black pt-10  pb-5  `}
+        >
+          {links.map(({ items, title }) => (
+            <li class="flex flex-col gap-2">
+              <span class="font-bold text-base text-blue-200 uppercase">
+                {title}
+              </span>
+              <ul class={`flex flex-col gap-1 flex-wrap text-sm`}>
+                {items?.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="block py-1 link no-underline   text-white hover:text-white"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
       )}
-    </>
+    </div>
   );
 }
