@@ -8325,8 +8325,8 @@
                   },
                   {
                     "type": "string",
-                    "const": "Youtube",
-                    "default": "Youtube"
+                    "const": "YouTube",
+                    "default": "YouTube"
                   },
                   {
                     "type": "string",
@@ -8770,154 +8770,13 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem": {
-      "type": "object",
-      "properties": {
-        "icon": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
-            },
-            {
-              "type": "string",
-              "const": "Instagram",
-              "default": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "YouTube",
-              "default": "YouTube"
-            }
-          ],
-          "type": "string",
-          "title": "Icon"
-        },
-        "link": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Link"
-        }
-      },
-      "required": [],
-      "title": "SocialItem"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem"
-      },
-      "title": "SocialItem[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Link": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "href": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Href"
-        }
-      },
-      "required": [],
-      "title": "Link"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Link[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Link"
-      },
-      "title": "Link[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinksSection": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "items": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Link[]",
-          "title": "Items"
-        }
-      },
-      "required": [],
-      "title": "LinksSection"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinksSection[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinksSection"
-      },
-      "title": "LinksSection[]"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
       "properties": {
         "firstBlock": {
-          "type": "object",
-          "properties": {
-            "hideFirstBlock": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Hide First Block"
-            },
-            "firstLabel": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "First Label"
-            },
-            "secondLabel": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Second Label"
-            },
-            "socialLinks": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]",
-              "title": "Social Links"
-            }
-          },
-          "required": [
-            "socialLinks"
-          ],
           "title": "First Block"
         },
         "secondBlock": {
-          "type": "object",
-          "properties": {
-            "hideSecondBlock": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Hide Second Block"
-            },
-            "links": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinksSection[]",
-              "title": "Links"
-            }
-          },
-          "required": [],
           "title": "Second Block"
         },
         "thirdBlock": {
@@ -8933,12 +8792,12 @@
             "support": {
               "type": "object",
               "properties": {
-                "title": {
+                "sectionTitle": {
                   "type": [
                     "string",
                     "null"
                   ],
-                  "title": "Title"
+                  "title": "Section Title"
                 },
                 "links": {
                   "type": "array",
@@ -9007,28 +8866,14 @@
             "securityInformation": {
               "type": "object",
               "properties": {
-                "title": {
+                "sectionTitle": {
                   "type": [
                     "string",
                     "null"
                   ],
-                  "title": "Title"
-                }
-              },
-              "required": [],
-              "title": "Security Information"
-            },
-            "payments": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Title"
+                  "title": "Section Title"
                 },
-                "methods": {
+                "certificates": {
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -9047,6 +8892,45 @@
                     },
                     "required": []
                   },
+                  "title": "Certificates"
+                },
+                "date": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Date"
+                }
+              },
+              "required": [],
+              "title": "Security Information"
+            },
+            "payments": {
+              "type": "object",
+              "properties": {
+                "sectionTitle": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Section Title"
+                },
+                "methods": {
+                  "type": "object",
+                  "properties": {
+                    "image": {
+                      "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                      "title": "Image"
+                    },
+                    "alt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "title": "Alt"
+                    }
+                  },
+                  "required": [],
                   "title": "Methods"
                 }
               },
@@ -9484,8 +9368,8 @@
             },
             {
               "type": "string",
-              "const": "Youtube",
-              "default": "Youtube"
+              "const": "YouTube",
+              "default": "YouTube"
             },
             {
               "type": "string",
@@ -10607,8 +10491,8 @@
             },
             {
               "type": "string",
-              "const": "Youtube",
-              "default": "Youtube"
+              "const": "YouTube",
+              "default": "YouTube"
             },
             {
               "type": "string",

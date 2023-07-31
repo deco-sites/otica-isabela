@@ -18,6 +18,7 @@ export default {
     extend: {
       colors: {
         "blue-200": "#42c3ff",
+        "blue-300": "#00a7f5",
         "success": " #00ff2a",
       },
     },
