@@ -1,5 +1,7 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import FooterLinks from "./FooterLinks.tsx";
+
+
 export type Link = {
   title?: string;
   href: string;
@@ -17,20 +19,6 @@ export interface SocialItem {
     | "YouTube";
 
   link: string;
-}
-
-export interface Layout {
-  hide?: {
-    logo?: boolean;
-    newsletter?: boolean;
-    sectionLinks?: boolean;
-    socialLinks?: boolean;
-    paymentMethods?: boolean;
-    mobileApps?: boolean;
-    regionOptions?: boolean;
-    extraLinks?: boolean;
-    backToTheTop?: boolean;
-  };
 }
 
 export interface Props {
@@ -72,6 +60,7 @@ export interface Props {
       description?: string;
     };
   };
+
   fourthBlock: {
     hideFourthBlock?: boolean;
     address: string;
