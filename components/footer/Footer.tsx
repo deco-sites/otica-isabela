@@ -1,7 +1,6 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import FooterLinks from "./FooterLinks.tsx";
 
-
 export type Link = {
   title?: string;
   href: string;
@@ -25,7 +24,7 @@ export interface Props {
   firstBlock?: {
     hideFirstBlock?: boolean;
     firstLabel?: string;
-    second?: string;
+    secondLabel?: string;
     socialLinks: SocialItem[];
   };
 
