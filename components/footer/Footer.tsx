@@ -1,28 +1,28 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import FooterLinks from "./FooterLinks.tsx";
-import type { FooterSocial as FooterSocialProps } from "./FooterSocial.tsx";
 import { FooterSocial } from "./FooterSocial.tsx";
 
-import type { LinkBlockProps } from "./FooterLinks.tsx";
+export interface SocialItem {
+  icon?:
+    | "Facebook"
+    | "Instagram"
+    | "YouTube";
 
-interface SecondBlock {
-  hideSecondBlock?: boolean;
-  links: {
-    title?: string;
-    items?: {
-      href?: string;
-      title: string;
-    }[];
-  }[];
-}
-interface FirstBlock extends FooterSocialProps {
-  hideFirstBlock?: boolean;
+  link?: string;
 }
 
 export interface Props {
-  firstBlock?: FirstBlock;
-  secondBlock?: SecondBlock;
+  firstBlock?: {
+    hideFirstBlock?: boolean;
+    firstLabel?: string;
+    secondLabel?: string;
+    socialLinks?: SocialItem[];
+  };
+  secondBlock?: {
+    hideSecondBlock?: boolean;
+    links: { title?: string; items?: { title?: string; href?: string }[] }[];
+  };
 
   thirdBlock?: {
     hideThirdBlock?: boolean;
@@ -62,8 +62,8 @@ export interface Props {
 
   fourthBlock: {
     hideFourthBlock?: boolean;
-    address: string;
-    socialName: string;
+    address?: string;
+    socialName?: string;
   };
 }
 
@@ -71,6 +71,7 @@ function Footer({
   secondBlock,
   firstBlock,
   thirdBlock,
+  fourthBlock,
 }: Props) {
   const { hideSecondBlock, links } = secondBlock ?? {};
   const { hideFirstBlock, ...firstBlockProps } = firstBlock ?? {};
@@ -82,48 +83,94 @@ function Footer({
   const { certificates, sectionTitle: certificatesTitle, date } =
     securityInformation ?? {};
 
+  const { address, socialName, hideFourthBlock } = fourthBlock ?? {};
+
   return (
     <footer class="w-full bg-black">
       {hideFirstBlock && <FooterSocial {...firstBlockProps} />}
       {hideSecondBlock && <FooterLinks links={links ?? []} />}
       {hideThirdBlock && (
-        <section class="container">
-          <div class="">
-            <h2>{supportTile}</h2>
+        <section class="container w-full flex flex-col lg:flex-row mt-8 gap-y-8  pb-8">
+
+          
+          <div class="w-full lg:w-1/4 flex flex-col gap-y-3 ">
+            <h2 class="font-bold text-center lg:text-start text-base  text-blue-300 uppercase w-full ">
+              {supportTile}
+            </h2>
             {suportLink?.map(({ href, image, label }) => {
               return (
-                <a href={href}>
+                <a class="flex items-center gap-x-3 pl-6 lg:pl-0" href={href}>
                   {image && <Image width={20} src={image} alt={label} />}
-                  <span>{label}</span>
+                  <span class="text-white font-normal text-xs">{label}</span>
                 </a>
               );
             })}
-            <div>
-              <span>{openingHours?.hours?.primaryLabel}</span>
-              <span>{openingHours?.hours?.secondaryLabel}</span>
-              <span>{openingHours?.observation}</span>
+
+
+            <div class="flex flex-col text-center lg:text-start text-white">
+              <span class="text-base font-medium">
+                {openingHours?.hours?.primaryLabel}
+              </span>
+              <span class="text-base font-medium">
+                {openingHours?.hours?.secondaryLabel}
+              </span>
+              <span class="text-xs font-normal">
+                {openingHours?.observation}
+              </span>
             </div>
           </div>
 
-          <div class="">
-            <h2>{certificatesTitle}</h2>
-            {certificates?.map(({ alt, image }) => {
-              if (!image) return null;
-              return <Image width={140} src={image} alt={alt} />;
-            })}
-            <span>{date}</span>
+          <div class="flex flex-col items-center lg:items-start w-full lg:w-1/4 gap-y-4 ">
+            <h2 class="font-bold text-center lg:text-start text-base text-blue-300 uppercase w-full">
+              {certificatesTitle}
+            </h2>
+            <div class=" w-5/6 flex  justify-center lg:justify-between items-center">
+              {certificates?.map(({ alt, image }) => {
+                if (!image) return null;
+                return <Image width={100} height={40} src={image} alt={alt} />;
+              })}
+            </div>
+            <span class=" w-full text-xs font-normal text-center lg:text-start  text-white">
+              {date}
+            </span>
           </div>
-          <div class="">
-            <h2>{paymentsTitle}</h2>
+
+          <div class="flex flex-col items-center w-full lg:w-1/4  ">
+            <h2 class="font-bold text-center lg:text-start text-base text-blue-300 uppercase w-full">
+              {paymentsTitle}
+            </h2>
 
             {methods?.image && (
-              <Image width={140} src={methods.image} alt={methods.alt} />
+              <div class="w-full flex justify-center lg:justify-start items-center">
+                <Image
+                  width={230}
+                  height={150}
+                  src={methods?.image}
+                  alt={methods?.alt}
+                />
+              </div>
             )}
           </div>
 
-          {logo?.image && (
-            <Image width={140} src={logo.image} alt={logo.description} />
-          )}
+          <div class=" flex justify-center lg:justify-start items-start w-full lg:w-1/4">
+            {logo?.image && (
+              <Image
+                width={300}
+                height={74}
+                src={logo?.image}
+                alt={logo?.description}
+              />
+            )}
+          </div>
+        </section>
+      )}
+
+      {hideFourthBlock && (
+        <section class="w-full bg-base-500 ">
+          <div class="container pb-5 pt-5 text-white flex flex-col lg:flex-row justify-between items-center text-xs font-bold gap-y-4 ">
+            <span>{socialName}</span>
+            <span>{address}</span>
+          </div>
         </section>
       )}
     </footer>

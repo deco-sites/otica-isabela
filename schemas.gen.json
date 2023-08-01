@@ -8770,13 +8770,138 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "YouTube",
+              "default": "YouTube"
+            }
+          ],
+          "type": "string",
+          "title": "Icon"
+        },
+        "link": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Link"
+        }
+      },
+      "required": [],
+      "title": "SocialItem"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem"
+      },
+      "title": "SocialItem[]"
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
       "properties": {
         "firstBlock": {
+          "type": "object",
+          "properties": {
+            "hideFirstBlock": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Hide First Block"
+            },
+            "firstLabel": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "First Label"
+            },
+            "secondLabel": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Second Label"
+            },
+            "socialLinks": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]",
+              "title": "Social Links"
+            }
+          },
+          "required": [],
           "title": "First Block"
         },
         "secondBlock": {
+          "type": "object",
+          "properties": {
+            "hideSecondBlock": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "title": "Hide Second Block"
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Title"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "title": "Title"
+                        },
+                        "href": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "title": "Href"
+                        }
+                      },
+                      "required": []
+                    },
+                    "title": "Items"
+                  }
+                },
+                "required": []
+              },
+              "title": "Links"
+            }
+          },
+          "required": [
+            "links"
+          ],
           "title": "Second Block"
         },
         "thirdBlock": {
@@ -8972,18 +9097,21 @@
               "title": "Hide Fourth Block"
             },
             "address": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Address"
             },
             "socialName": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Social Name"
             }
           },
-          "required": [
-            "address",
-            "socialName"
-          ],
+          "required": [],
           "title": "Fourth Block"
         }
       },

@@ -9,14 +9,14 @@ export interface SocialItem {
   link?: string;
 }
 
-export interface FooterSocial {
+export interface FooterSocialProps {
   firstLabel?: string;
   secondLabel?: string;
   socialLinks?: SocialItem[];
 }
 
 export const FooterSocial = (
-  { socialLinks, firstLabel = "", secondLabel = "" }: FooterSocial,
+  { socialLinks, firstLabel = "", secondLabel = "" }: FooterSocialProps,
 ) => {
   return (
     <section className="w-full bg-blue-300 flex flex-col items-center justify-center pb-12 pt-12 gap-y-8">

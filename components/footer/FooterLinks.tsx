@@ -1,25 +1,27 @@
+export type Link = {
+  title?: string;
+  href?: string;
+};
+
 export type LinkBlockProps = {
   title?: string;
-  items?: {
-    href?: string;
-    title: string;
-  }[];
+  items?: Link[];
 };
 
 export default function FooterLinks(
-  { links = [] }: { links: LinkBlockProps[] },
+  { links }: { links: LinkBlockProps[] },
 ) {
   if (!links?.length) {
     return null;
   }
   return (
-    <div class="w-full border-b-[1px] border-b-slate-300">
+    <div class="w-full border-b-[1px] border-b-slate-400 ">
       <ul
         class={`container flex flex-col lg:flex-row justify-between w-full bg-black pt-10 pb-5 gap-y-4`}
       >
-        {links?.map(({ items, title }) => (
-          <li class="flex flex-col gap-2 ">
-            <span class="font-bold text-center lg:text-start text-base text-primary uppercase w-full">
+        {links.map(({ items, title }) => (
+          <li class="flex flex-col gap-2 w-full lg:w-1/4 ">
+            <span class="font-bold text-center lg:text-start text-base  text-blue-300 uppercase w-full">
               {title ?? ""}
             </span>
             <ul
@@ -28,10 +30,10 @@ export default function FooterLinks(
               {items?.map((item) => (
                 <li>
                   <a
-                    href={item?.href ?? ""}
+                    href={item.href ?? ""}
                     class="block py-1 link no-underline   text-white hover:text-white"
                   >
-                    {item?.title ?? ""}
+                    {item.title ?? ""}
                   </a>
                 </li>
               ))}
