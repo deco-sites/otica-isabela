@@ -23,7 +23,7 @@ export const FirstBlock = (
       </div>
       <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-xs ">
         <a href={instagram}>
-          <Icon width="40px" height="50px" id="Instagram" />
+          <Icon width="50px" height="50px" id="Instagram" />
         </a>
         <a href={facebook}>
           <Icon width="36px" height="36px" id="Facebook" />
@@ -31,7 +31,7 @@ export const FirstBlock = (
         <a href={youtube}>
           <Icon width="49px" height="36px" id="YouTube" />
         </a>
-      </div>
+      </div>.
     </section>
   );
 };
