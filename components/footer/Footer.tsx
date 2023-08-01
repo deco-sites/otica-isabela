@@ -91,8 +91,6 @@ function Footer({
       {hideSecondBlock && <FooterLinks links={links ?? []} />}
       {hideThirdBlock && (
         <section class="container w-full flex flex-col lg:flex-row mt-8 gap-y-8  pb-8">
-
-          
           <div class="w-full lg:w-1/4 flex flex-col gap-y-3 ">
             <h2 class="font-bold text-center lg:text-start text-base  text-blue-300 uppercase w-full ">
               {supportTile}
@@ -105,7 +103,6 @@ function Footer({
                 </a>
               );
             })}
-
 
             <div class="flex flex-col text-center lg:text-start text-white">
               <span class="text-base font-medium">
@@ -167,7 +164,7 @@ function Footer({
 
       {hideFourthBlock && (
         <section class="w-full bg-base-500 ">
-          <div class="container pb-5 pt-5 text-white flex flex-col lg:flex-row justify-between items-center text-xs font-bold gap-y-4 ">
+          <div class="container pb-5 pt-5 text-white text-center flex flex-col lg:flex-row lg:justify-between items-center text-xs font-bold gap-y-4 ">
             <span>{socialName}</span>
             <span>{address}</span>
           </div>
