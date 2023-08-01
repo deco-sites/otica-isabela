@@ -1,25 +1,18 @@
-export type Link = {
-  title?: string;
-  href?: string;
-};
+import type { SecondBlock as SecondBlockProps } from "./Footer.tsx";
 
-export type LinkBlockProps = {
-  title?: string;
-  items?: Link[];
-};
-
-export default function FooterLinks(
-  { links }: { links: LinkBlockProps[] },
-) {
-  if (!links?.length) {
+export const SecondBlock = (
+  { links, hideSecondBlock }: SecondBlockProps,
+) => {
+  if (!links?.length && hideSecondBlock) {
     return null;
   }
+
   return (
     <div class="w-full border-b-[1px] border-b-slate-400 ">
       <ul
         class={`container flex flex-col lg:flex-row justify-between w-full bg-black pt-10 pb-5 gap-y-4`}
       >
-        {links.map(({ items, title }) => (
+        {links?.map(({ items, title }) => (
           <li class="flex flex-col gap-2 w-full lg:w-1/4 ">
             <span class="font-bold text-center lg:text-start text-base  text-blue-300 uppercase w-full">
               {title ?? ""}
@@ -43,4 +36,4 @@ export default function FooterLinks(
       </ul>
     </div>
   );
-}
+};

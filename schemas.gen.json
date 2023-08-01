@@ -8770,354 +8770,360 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock": {
       "type": "object",
       "properties": {
-        "icon": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
-            },
-            {
-              "type": "string",
-              "const": "Instagram",
-              "default": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "YouTube",
-              "default": "YouTube"
-            }
+        "hideFirstBlock": {
+          "type": [
+            "boolean",
+            "null"
           ],
-          "type": "string",
-          "title": "Icon"
+          "title": "Hide First Block"
         },
-        "link": {
+        "firstLabel": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Link"
-        }
-      },
-      "required": [],
-      "title": "SocialItem"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem"
-      },
-      "title": "SocialItem[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "firstBlock": {
+          "title": "First Label"
+        },
+        "secondLabel": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Second Label"
+        },
+        "socialLinks": {
           "type": "object",
           "properties": {
-            "hideFirstBlock": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Hide First Block"
-            },
-            "firstLabel": {
+            "instagram": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "First Label"
+              "title": "Instagram"
             },
-            "secondLabel": {
+            "facebook": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Second Label"
+              "title": "Facebook"
             },
-            "socialLinks": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]",
-              "title": "Social Links"
+            "youtube": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Youtube"
             }
           },
           "required": [],
-          "title": "First Block"
+          "title": "Social Links"
+        }
+      },
+      "required": [],
+      "title": "FirstBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SecondBlock": {
+      "type": "object",
+      "properties": {
+        "hideSecondBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Second Block"
         },
-        "secondBlock": {
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Title"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "title": "Title"
+                    },
+                    "href": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "title": "Href"
+                    }
+                  },
+                  "required": []
+                },
+                "title": "Items"
+              }
+            },
+            "required": []
+          },
+          "title": "Links"
+        }
+      },
+      "required": [],
+      "title": "SecondBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ThirdBlock": {
+      "type": "object",
+      "properties": {
+        "hideThirdBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Third Block"
+        },
+        "support": {
           "type": "object",
           "properties": {
-            "hideSecondBlock": {
+            "sectionTitle": {
               "type": [
-                "boolean",
+                "string",
                 "null"
               ],
-              "title": "Hide Second Block"
+              "title": "Section Title"
             },
             "links": {
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
-                  "title": {
+                  "image": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Image"
+                  },
+                  "label": {
                     "type": [
                       "string",
                       "null"
                     ],
-                    "title": "Title"
+                    "title": "Label"
                   },
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "title": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "title": "Title"
-                        },
-                        "href": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "title": "Href"
-                        }
-                      },
-                      "required": []
-                    },
-                    "title": "Items"
+                  "href": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Href"
                   }
                 },
                 "required": []
               },
               "title": "Links"
+            },
+            "openingHours": {
+              "type": "object",
+              "properties": {
+                "hours": {
+                  "type": "object",
+                  "properties": {
+                    "primaryLabel": {
+                      "type": "string",
+                      "title": "Primary Label"
+                    },
+                    "secondaryLabel": {
+                      "type": "string",
+                      "title": "Secondary Label"
+                    }
+                  },
+                  "required": [
+                    "primaryLabel",
+                    "secondaryLabel"
+                  ],
+                  "title": "Hours"
+                },
+                "observation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Observation"
+                }
+              },
+              "required": [],
+              "title": "Opening Hours"
             }
           },
-          "required": [
-            "links"
-          ],
-          "title": "Second Block"
+          "required": [],
+          "title": "Support"
         },
-        "thirdBlock": {
+        "securityInformation": {
           "type": "object",
           "properties": {
-            "hideThirdBlock": {
+            "sectionTitle": {
               "type": [
-                "boolean",
+                "string",
                 "null"
               ],
-              "title": "Hide Third Block"
+              "title": "Section Title"
             },
-            "support": {
-              "type": "object",
-              "properties": {
-                "sectionTitle": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Section Title"
-                },
-                "links": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "image": {
-                        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                        "title": "Image"
-                      },
-                      "label": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "title": "Label"
-                      },
-                      "href": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "title": "Href"
-                      }
-                    },
-                    "required": []
+            "certificates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Image"
                   },
-                  "title": "Links"
-                },
-                "openingHours": {
-                  "type": "object",
-                  "properties": {
-                    "hours": {
-                      "type": "object",
-                      "properties": {
-                        "primaryLabel": {
-                          "type": "string",
-                          "title": "Primary Label"
-                        },
-                        "secondaryLabel": {
-                          "type": "string",
-                          "title": "Secondary Label"
-                        }
-                      },
-                      "required": [
-                        "primaryLabel",
-                        "secondaryLabel"
-                      ],
-                      "title": "Hours"
-                    },
-                    "observation": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "title": "Observation"
-                    }
+                  "alt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Alt"
                   },
-                  "required": [],
-                  "title": "Opening Hours"
-                }
+                  "width": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "title": "Width"
+                  },
+                  "height": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "title": "Height"
+                  }
+                },
+                "required": []
               },
-              "required": [],
-              "title": "Support"
+              "title": "Certificates"
             },
-            "securityInformation": {
-              "type": "object",
-              "properties": {
-                "sectionTitle": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Section Title"
-                },
-                "certificates": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "image": {
-                        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                        "title": "Image"
-                      },
-                      "alt": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "title": "Alt"
-                      }
-                    },
-                    "required": []
-                  },
-                  "title": "Certificates"
-                },
-                "date": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Date"
-                }
-              },
-              "required": [],
-              "title": "Security Information"
+            "date": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Date"
+            }
+          },
+          "required": [],
+          "title": "Security Information"
+        },
+        "payments": {
+          "type": "object",
+          "properties": {
+            "sectionTitle": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Section Title"
             },
-            "payments": {
-              "type": "object",
-              "properties": {
-                "sectionTitle": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Section Title"
-                },
-                "methods": {
-                  "type": "object",
-                  "properties": {
-                    "image": {
-                      "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                      "title": "Image"
-                    },
-                    "alt": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "title": "Alt"
-                    }
-                  },
-                  "required": [],
-                  "title": "Methods"
-                }
-              },
-              "required": [],
-              "title": "Payments"
-            },
-            "logo": {
+            "methods": {
               "type": "object",
               "properties": {
                 "image": {
                   "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
                   "title": "Image"
                 },
-                "description": {
+                "alt": {
                   "type": [
                     "string",
                     "null"
                   ],
-                  "title": "Description"
+                  "title": "Alt"
                 }
               },
               "required": [],
-              "title": "Logo"
-            }
-          },
-          "required": [
-            "securityInformation"
-          ],
-          "title": "Third Block"
-        },
-        "fourthBlock": {
-          "type": "object",
-          "properties": {
-            "hideFourthBlock": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Hide Fourth Block"
-            },
-            "address": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Address"
-            },
-            "socialName": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Social Name"
+              "title": "Methods"
             }
           },
           "required": [],
+          "title": "Payments"
+        },
+        "logo": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Image"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Description"
+            }
+          },
+          "required": [],
+          "title": "Logo"
+        }
+      },
+      "required": [],
+      "title": "ThirdBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FourthBlock": {
+      "type": "object",
+      "properties": {
+        "hideFourthBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Fourth Block"
+        },
+        "address": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Address"
+        },
+        "socialName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Social Name"
+        }
+      },
+      "required": [],
+      "title": "FourthBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "firstBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock",
+          "title": "First Block"
+        },
+        "secondBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SecondBlock",
+          "title": "Second Block"
+        },
+        "thirdBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ThirdBlock",
+          "title": "Third Block"
+        },
+        "fourthBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FourthBlock",
           "title": "Fourth Block"
         }
       },
-      "required": [
-        "fourthBlock"
-      ],
+      "required": [],
       "title": "deco-sites/otica-isabela/components/footer/Footer.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps": {
