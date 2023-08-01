@@ -23,13 +23,13 @@ export const FirstBlock = (
       </div>
       <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-xs ">
         <a href={instagram}>
-          <Icon width="46px" height="46px" id="Instagram" />
+          <Icon width="40px" height="50px" id="Instagram" />
         </a>
         <a href={facebook}>
-          <Icon width="46px" height="46px" id="Facebook" />
+          <Icon width="36px" height="36px" id="Facebook" />
         </a>
         <a href={youtube}>
-          <Icon width="46px" height="46px" id="YouTube" />
+          <Icon width="49px" height="36px" id="YouTube" />
         </a>
       </div>
     </section>

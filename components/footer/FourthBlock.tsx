@@ -3,7 +3,7 @@ import type { FourthBlock as FourthBlockProps } from "./Footer.tsx";
 export const FourthBlock = (
   { address, socialName, hideFourthBlock }: FourthBlockProps,
 ) => {
-  if (!hideFourthBlock) {
+  if (hideFourthBlock) {
     return null;
   }
 
