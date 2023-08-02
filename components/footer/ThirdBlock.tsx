@@ -5,10 +5,10 @@ export const ThirdBlock = (
   { securityInformation, hideThirdBlock, logo, payments, support }:
     ThirdBlockProps,
 ) => {
-  const { methods, sectionTitle: paymentsTitle = "" } = payments ?? {};
-  const { links: suportLink, openingHours, sectionTitle: supportTile = "" } =
+  const { methods, label: paymentsTitle = "" } = payments ?? {};
+  const { links: suportLink, openingHours, label: supportTile = "" } =
     support ?? {};
-  const { certificates, sectionTitle: certificatesTitle = "", date } =
+  const { certificates, label: certificatesTitle = "", date } =
     securityInformation ?? {};
 
   if (hideThirdBlock) {
@@ -49,14 +49,14 @@ export const ThirdBlock = (
           {certificatesTitle}
         </h2>
         <div class=" w-5/6 flex  justify-center lg:justify-between items-center">
-          {certificates?.map(({ alt, image, height, width }) => {
+          {certificates?.map(({ label , image, height, width }) => {
             if (!image) return null;
             return (
               <Image
                 width={width ?? 0}
                 height={height ?? 0}
                 src={image}
-                alt={alt}
+                alt={label}
               />
             );
           })}

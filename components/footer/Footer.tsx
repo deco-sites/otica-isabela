@@ -18,13 +18,13 @@ export interface FirstBlock {
 
 export interface SecondBlock {
   hideSecondBlock?: boolean;
-  links?: { title?: string; items?: { title?: string; href?: string }[] }[];
+  links?: { label?: string; items?: { label?: string; href?: string }[] }[];
 }
 
 export interface ThirdBlock {
   hideThirdBlock?: boolean;
   support?: {
-    sectionTitle?: string;
+    label?: string;
     links?: {
       image?: LiveImage;
       label?: string;
@@ -36,10 +36,10 @@ export interface ThirdBlock {
     };
   };
   securityInformation?: {
-    sectionTitle?: string;
+    label?: string;
     certificates?: {
       image?: LiveImage;
-      alt?: string;
+      label?: string;
       width?: number;
       height?: number;
     }[];
@@ -47,7 +47,7 @@ export interface ThirdBlock {
     date?: string;
   };
   payments?: {
-    sectionTitle?: string;
+    label?: string;
     methods?: {
       image?: LiveImage;
       alt?: string;
@@ -66,9 +66,21 @@ export interface FourthBlock {
 }
 
 export interface Props {
+  /**
+   * @title  Social Section
+   */
   firstBlock?: FirstBlock;
+  /**
+   * @title  Links Section
+   */
   secondBlock?: SecondBlock;
+  /**
+   * @title  Commercial Section
+   */
   thirdBlock?: ThirdBlock;
+  /**
+   * @title Institutional Section
+   */
   fourthBlock?: FourthBlock;
 }
 

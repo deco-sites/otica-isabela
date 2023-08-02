@@ -8841,24 +8841,24 @@
           "items": {
             "type": "object",
             "properties": {
-              "title": {
+              "label": {
                 "type": [
                   "string",
                   "null"
                 ],
-                "title": "Title"
+                "title": "Label"
               },
               "items": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "title": {
+                    "label": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "title": "Title"
+                      "title": "Label"
                     },
                     "href": {
                       "type": [
@@ -8894,12 +8894,12 @@
         "support": {
           "type": "object",
           "properties": {
-            "sectionTitle": {
+            "label": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Section Title"
+              "title": "Label"
             },
             "links": {
               "type": "array",
@@ -8968,12 +8968,12 @@
         "securityInformation": {
           "type": "object",
           "properties": {
-            "sectionTitle": {
+            "label": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Section Title"
+              "title": "Label"
             },
             "certificates": {
               "type": "array",
@@ -8984,12 +8984,12 @@
                     "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
                     "title": "Image"
                   },
-                  "alt": {
+                  "label": {
                     "type": [
                       "string",
                       "null"
                     ],
-                    "title": "Alt"
+                    "title": "Label"
                   },
                   "width": {
                     "type": [
@@ -9024,12 +9024,12 @@
         "payments": {
           "type": "object",
           "properties": {
-            "sectionTitle": {
+            "label": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Section Title"
+              "title": "Label"
             },
             "methods": {
               "type": "object",
@@ -9108,19 +9108,19 @@
       "properties": {
         "firstBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock",
-          "title": "First Block"
+          "title": " Social Section"
         },
         "secondBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SecondBlock",
-          "title": "Second Block"
+          "title": " Links Section"
         },
         "thirdBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ThirdBlock",
-          "title": "Third Block"
+          "title": " Commercial Section"
         },
         "fourthBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FourthBlock",
-          "title": "Fourth Block"
+          "title": "Institutional Section"
         }
       },
       "required": [],

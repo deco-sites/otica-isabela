@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("./static/fonts/BebasNeue-Regular.ttf") format("truetype");
-}
-
 @layer base {
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
-  }
-
-  .bebas{
-    font-family: "Bebas Neue", sans-serif;
   }
 
   /** Remove default styles from input[type=number] */
@@ -31,14 +22,8 @@
 }
 
 @layer components {
-
-  .custom-stretch-font {
-    font-size: 1.5rem; 
-    line-height: 2.5 rem; 
-    transform: scaleY(1.5); 
-  }
-
   /** Prevent scroll when modal is open */
+
   .no-scroll {
     overflow: hidden;
     height: 100vh;
