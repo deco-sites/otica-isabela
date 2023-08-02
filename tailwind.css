@@ -4,11 +4,15 @@
 
 @font-face {
   font-family: "Bebas Neue";
-  src: local("Bebas Neue"),
-    url("./static/fonts/BebasNeue-Regular.ttf") format("ttf");
+  src: url("./static/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @layer base {
+  .bebas {
+    font-family: "Bebas Neue", sans-serif;
+  }
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
@@ -29,6 +33,7 @@
 
 @layer components {
   /** Prevent scroll when modal is open */
+
   .no-scroll {
     overflow: hidden;
     height: 100vh;
