@@ -43,7 +43,7 @@ export default function Newsletter({ form }: Props) {
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    console.log("ola mundo");
+
   };
 
   const headerLayout = (
