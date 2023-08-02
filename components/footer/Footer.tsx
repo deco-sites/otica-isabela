@@ -1,5 +1,5 @@
 import Logo from "$store/components/footer/Logo.tsx";
-import Newsletter from "$store/islands/Newsletter.tsx";
+import Newsletter from "$store/components/footer/Newsletter.tsx";
 import FooterItems from "$store/components/footer/FooterItems.tsx";
 import Social from "$store/components/footer/Social.tsx";
 import PaymentMethods from "$store/components/footer/PaymentMethods.tsx";

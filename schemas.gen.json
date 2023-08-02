@@ -7387,14 +7387,35 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/search/Searchbar.tsx@EditableProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Form": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Form": {
       "type": "object",
       "properties": {
         "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "object",
+          "properties": {
+            "nameInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Name Input"
+            },
+            "mailInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Mail Input"
+            },
+            "foneInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Fone Input"
+            }
+          },
+          "required": [],
           "title": "Placeholder"
         },
         "buttonText": {
@@ -7409,14 +7430,14 @@
             "string",
             "null"
           ],
-          "format": "html",
+          "format": "textarea",
           "title": "Help Text"
         }
       },
       "required": [],
       "title": "Form"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Props": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -7426,21 +7447,13 @@
           ],
           "title": "Title"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "textarea",
-          "title": "Description"
-        },
         "form": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Form",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Form",
           "title": "Form"
         }
       },
       "required": [],
-      "title": "Props"
+      "title": "deco-sites/otica-isabela/islands/Newsletter.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
@@ -11046,135 +11059,6 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/ui/CookieConsent.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Form": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Placeholder"
-        },
-        "buttonText": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Button Text"
-        },
-        "helpText": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "html",
-          "title": "Help Text"
-        }
-      },
-      "required": [],
-      "title": "Form"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "textarea",
-          "title": "Description"
-        },
-        "form": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Form",
-          "title": "Form"
-        },
-        "layout": {
-          "type": "object",
-          "properties": {
-            "headerFontSize": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Large",
-                  "default": "Large"
-                },
-                {
-                  "type": "string",
-                  "const": "Normal",
-                  "default": "Normal"
-                }
-              ],
-              "type": "string",
-              "title": "Header Font Size"
-            },
-            "content": {
-              "type": "object",
-              "properties": {
-                "border": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Border"
-                },
-                "alignment": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Center",
-                      "default": "Center"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Left",
-                      "default": "Left"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Side to side",
-                      "default": "Side to side"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Alignment"
-                },
-                "bgColor": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Normal",
-                      "default": "Normal"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Reverse",
-                      "default": "Reverse"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Bg Color"
-                }
-              },
-              "required": [],
-              "title": "Content"
-            }
-          },
-          "required": [],
-          "title": "Layout"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -14575,6 +14459,11 @@
     "Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4": {
       "title": "./islands/Newsletter.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],
@@ -15318,7 +15207,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props"
         }
       ],
       "required": [
