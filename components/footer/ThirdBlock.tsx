@@ -49,7 +49,7 @@ export const ThirdBlock = (
           {certificatesTitle}
         </h2>
         <div class=" w-5/6 flex  justify-center lg:justify-between items-center">
-          {certificates?.map(({ label , image, height, width }) => {
+          {certificates?.map(({ label, image, height, width }) => {
             if (!image) return null;
             return (
               <Image
