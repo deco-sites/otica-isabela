@@ -43,7 +43,7 @@ export type AvailableIcons =
   | "XMark"
   | "Zoom"
   | "RatingStar"
-  | "Youtube"
+  | "YouTube"
   | "MenGlassesLg"
   | "BalloonsDoubt"
   | "Balloons"
