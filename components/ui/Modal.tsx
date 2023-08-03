@@ -16,7 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -25,18 +25,35 @@ const dialogStyles = {
   "sidebar-right": "animate-slide-left",
   "sidebar-left": "animate-slide-right",
   center: "animate-fade-in",
+  danger: "animate-fade-in",
 };
 
 const sectionStyles = {
   "sidebar-right": "justify-end",
   "sidebar-left": "justify-start",
   center: "justify-center items-center",
+  danger: "justify-center items-center",
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:max-w-lg",
-  "sidebar-left": "h-full w-full sm:max-w-lg",
-  center: "",
+  "sidebar-right": "h-full w-full sm:max-w-lg bg-base-100",
+  "sidebar-left": "h-full w-full sm:max-w-lg bg-base-100",
+  center: "bg-base-100",
+  danger: " w-full max-w-lg  ",
+};
+
+const headerStyle = {
+  "sidebar-right": "px-4 py-6 border-b border-base-200 bg-white",
+  "sidebar-left": "px-4 py-6 border-b border-base-200 bg-white",
+  center: "px-4 py-6 border-b border-base-200  bg-white  ",
+  danger: " w-full max-w-lg bg-danger py-2 px-9 rounded-t-md  ",
+};
+
+const titleStyle = {
+  "sidebar-right": "text-black",
+  "sidebar-left": "text-black",
+  center: "text-black  ",
+  danger: "text-white uppercase font-bold",
 };
 
 const Modal = ({
@@ -70,7 +87,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
+      class={`bg-transparent  p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>
@@ -78,24 +95,22 @@ const Modal = ({
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
+        class={`w-full   h-full flex bg-transparent  ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-base-100 flex flex-col max-h-full ${
-            containerStyles[mode]
-          }`}
+          class={`bg-transparent shadow-2xl p-3 flex flex-col${containerStyles[mode]}`}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b border-base-200">
+          <header
+            class={`flex justify-between items-center  ${headerStyle[mode]}`}
+          >
             <div class="flex gap-5 items-center">
-              <h1>
-                <span class="font-medium text-2xl">{title}</span>
-              </h1>
+              <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>
             </div>
             <Button class="btn btn-ghost" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={2}  />
+              <Icon id="XMark" width={20} height={20} strokeWidth={1} fill="white" />
             </Button>
           </header>
-          <div class="overflow-y-auto flex-grow flex flex-col">
+          <div class="overflow-y-auto flex-grow flex flex-col rounded-b-lg">
             {loading === "lazy" ? lazy.value && children : children}
           </div>
         </div>

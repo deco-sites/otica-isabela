@@ -12,6 +12,19 @@ function GlobalTags() {
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
 
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `@font-face {
+              font-family: "Bebas Neue";
+              src: url("${
+            asset("/fonts/BebasNeue-Regular.ttf")
+          }") format("truetype");
+              font-style: normal;
+              font-weight: normal;
+          }`,
+        }}
+      />
     </Head>
   );
 }

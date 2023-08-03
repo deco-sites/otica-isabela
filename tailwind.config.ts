@@ -17,9 +17,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        bebas: ["Bebas Neue,sans-serif"],
+        "bebas-neue": ["Bebas Neue"],
       },
       colors: {
+        "danger": "#f3ae3f",
         "base-500": "#171717",
         "blue-100": "#a8e3ff",
         "blue-200": "#42c3ff",

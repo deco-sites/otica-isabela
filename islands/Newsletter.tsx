@@ -24,6 +24,7 @@ export default function Newsletter({ form }: Props) {
   const userPhoneNumber = useSignal("");
   const userName = useSignal("");
   const userMail = useSignal("");
+  const showModal = useSignal(false);
 
   const phoneMask = (phoneValue?: string) => {
     if (!phoneValue) return "";
@@ -43,15 +44,16 @@ export default function Newsletter({ form }: Props) {
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    showModal.value = true;
   };
 
   const headerLayout = (
     <div class="w-full flex flex-col justify-center items-center mt-12 mb-6 md:mb-16   ">
       <div class="text-start">
-        <span class="flex items-center text-lg  md:text-[26px] font-semibold gap-x-1 text-[#a8e3ff]">
+        <span class="flex items-center font-semibold text-xl  md:text-3xl  gap-x-1 text-[#a8e3ff]">
           Seja avisado das <Icon width={65} height={34} id="MenGlassesLg" />
         </span>
-        <span class="text-white uppercase font-bebas font-bold text-2xl md:text-4xl scale-y-150">
+        <span class="text-white uppercase font-bebas-neue font-normal  text-5xl md:text-6xl ">
           Ofertas e descontos
         </span>
       </div>
@@ -117,13 +119,16 @@ export default function Newsletter({ form }: Props) {
       </section>
       <Modal
         title="Atenção"
-        mode="center"
+        mode="danger"
         loading="lazy"
-        open={true}
+        open={showModal.value}
         onClose={() => {
-          console.log("feachsss");
+          showModal.value = false;
         }}
       >
+        <div class="bg-white w-full flex justify-center items-center pt-4 pb-5">
+          <p>Favor Informar um email válido!</p>
+        </div>
       </Modal>
     </>
   );
