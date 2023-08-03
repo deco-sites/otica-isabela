@@ -18,7 +18,7 @@ function GlobalTags() {
           __html: `@font-face {
               font-family: "Bebas Neue";
               src: ${
-            asset("../static/fonts/BebasNeue-Regular.ttf")
+            asset("/fonts/BebasNeue-Regular.ttf")
           } format("truetype");
               font-style: normal;
               font-weight: normal;
