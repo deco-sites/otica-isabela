@@ -98,7 +98,9 @@ const Modal = ({
         class={`w-full   h-full flex bg-transparent  ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-transparent shadow-2xl p-3 flex flex-col${containerStyles[mode]}`}
+          class={`bg-transparent shadow-2xl p-3 flex flex-col${
+            containerStyles[mode]
+          }`}
         >
           <header
             class={`flex justify-between items-center  ${headerStyle[mode]}`}
@@ -107,7 +109,13 @@ const Modal = ({
               <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>
             </div>
             <Button class="btn btn-ghost" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={1} fill="white" />
+              <Icon
+                id="XMark"
+                width={20}
+                height={20}
+                strokeWidth={1}
+                fill="white"
+              />
             </Button>
           </header>
           <div class="overflow-y-auto flex-grow flex flex-col rounded-b-lg">
