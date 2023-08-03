@@ -38,13 +38,12 @@ export interface ThirdBlock {
   securityInformation?: {
     label?: string;
     certificates?: {
+      href?: string;
       image?: LiveImage;
       label?: string;
       width?: number;
       height?: number;
     }[];
-
-    date?: string;
   };
   payments?: {
     label?: string;

@@ -8,8 +8,14 @@ export const ThirdBlock = (
   const { methods, label: paymentsTitle = "" } = payments ?? {};
   const { links: suportLink, openingHours, label: supportTile = "" } =
     support ?? {};
-  const { certificates, label: certificatesTitle = "", date } =
+  const { certificates, label: certificatesTitle = ""} =
     securityInformation ?? {};
+
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const currentDate = `${day}/${month}/${date.getFullYear()}`;
+
 
   if (hideThirdBlock) {
     return null;
@@ -49,20 +55,22 @@ export const ThirdBlock = (
           {certificatesTitle}
         </h2>
         <div class=" w-5/6 flex  justify-center lg:justify-between items-center">
-          {certificates?.map(({ label, image, height, width }) => {
+          {certificates?.map(({ label, image, height, width, href }) => {
             if (!image) return null;
             return (
-              <Image
-                width={width ?? 0}
-                height={height ?? 0}
-                src={image}
-                alt={label}
-              />
+              <a href={href ?? ""}>
+                <Image
+                  width={width ?? 0}
+                  height={height ?? 0}
+                  src={image}
+                  alt={label}
+                />
+              </a>
             );
           })}
         </div>
         <span class=" w-full text-xs font-normal text-center lg:text-start  text-white">
-          {date}
+          {currentDate}
         </span>
       </div>
 

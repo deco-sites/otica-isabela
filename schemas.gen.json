@@ -8980,6 +8980,13 @@
               "items": {
                 "type": "object",
                 "properties": {
+                  "href": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Href"
+                  },
                   "image": {
                     "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
                     "title": "Image"
@@ -9009,13 +9016,6 @@
                 "required": []
               },
               "title": "Certificates"
-            },
-            "date": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Date"
             }
           },
           "required": [],
