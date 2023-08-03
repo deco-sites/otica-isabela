@@ -17,9 +17,9 @@ function GlobalTags() {
         dangerouslySetInnerHTML={{
           __html: `@font-face {
               font-family: "Bebas Neue";
-              src: ${
+              src: url("${
             asset("/fonts/BebasNeue-Regular.ttf")
-          } format("truetype");
+          }") format("truetype");
               font-style: normal;
               font-weight: normal;
           }`,

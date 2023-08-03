@@ -17,11 +17,11 @@ export const FirstBlock = (
         <span class="text-blue-100 font-semibold text-lg lg:text-[28px]">
           {firstLabel}
         </span>
-        <span class="text-white uppercase font-bold  text-2xl lg:text-4xl scale-y-150  ">
+        <span class="text-white uppercase font-normal font-bebas-neue  text-5xl lg:text-6xl scale-y-150 pt-1 ">
           {secondLabel}
         </span>
       </div>
-      <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-xs ">
+      <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-sm ">
         <a href={instagram}>
           <Icon width="50px" height="50px" id="Instagram" />
         </a>
