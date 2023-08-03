@@ -8,14 +8,13 @@ export const ThirdBlock = (
   const { methods, label: paymentsTitle = "" } = payments ?? {};
   const { links: suportLink, openingHours, label: supportTile = "" } =
     support ?? {};
-  const { certificates, label: certificatesTitle = ""} =
-    securityInformation ?? {};
+  const { certificates, label: certificatesTitle = "" } = securityInformation ??
+    {};
 
-    const date = new Date();
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const currentDate = `${day}/${month}/${date.getFullYear()}`;
-
+  const date = new Date();
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const currentDate = `${day}/${month}/${date.getFullYear()}`;
 
   if (hideThirdBlock) {
     return null;
