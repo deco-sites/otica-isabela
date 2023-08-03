@@ -1,4 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
+import Modal from "$store/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 export interface Form {
@@ -22,9 +23,9 @@ export default function Newsletter({ form }: Props) {
 
   const userPhoneNumber = useSignal("");
   const userName = useSignal("");
-  const useMail = useSignal("");
+  const userMail = useSignal("");
 
-  const phoneMask = (phoneValue: string) => {
+  const phoneMask = (phoneValue?: string) => {
     if (!phoneValue) return "";
 
     phoneValue = phoneValue.replace(/\D/g, "");
@@ -42,17 +43,15 @@ export default function Newsletter({ form }: Props) {
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-
-
   };
 
   const headerLayout = (
-    <div class="w-full flex flex-col justify-center items-center  mt-12 mb-12 p-3">
+    <div class="w-full flex flex-col justify-center items-center mt-12 mb-6 md:mb-16   ">
       <div class="text-start">
-        <span class="flex items-center text-lg  lg:text-[26px] font-semibold gap-x-1 text-[#a8e3ff]">
+        <span class="flex items-center text-lg  md:text-[26px] font-semibold gap-x-1 text-[#a8e3ff]">
           Seja avisado das <Icon width={65} height={34} id="MenGlassesLg" />
         </span>
-        <span class="text-white uppercase font-bebas font-bold text-2xl lg:text-4xl scale-y-150">
+        <span class="text-white uppercase font-bebas font-bold text-2xl md:text-4xl scale-y-150">
           Ofertas e descontos
         </span>
       </div>
@@ -62,11 +61,11 @@ export default function Newsletter({ form }: Props) {
   const formLayout = (
     <form
       action="#"
-      class="flex flex-col gap-3 w-full max-w-lg p-3 gap-y-7 mb-12"
+      class="flex flex-col gap-3 w-full md:max-w-[70%] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"
       onSubmit={handleSubmit}
     >
       <input
-        class="outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
         type="text"
         placeholder={placeholder?.nameInput ?? ""}
         value={String(userName)}
@@ -75,16 +74,16 @@ export default function Newsletter({ form }: Props) {
         }}
       />
       <input
-        class="outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
         type="text"
         placeholder={placeholder?.mailInput ?? ""}
-        value={String(useMail)}
+        value={String(userMail)}
         onInput={(event) => {
-          useMail.value = event.currentTarget.value;
+          userMail.value = event.currentTarget.value;
         }}
       />
       <input
-        class="outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+        class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
         type="tel"
         value={phoneMask(String(userPhoneNumber))}
         maxLength={15}
@@ -94,14 +93,14 @@ export default function Newsletter({ form }: Props) {
         }}
       />
       <button
-        class="bg-black text-white text-base uppercase font-bold rounded-xl w-full h-14 mb-3"
+        class="bg-black text-white text-base uppercase font-bold rounded-xl w-full md:max-w-sm h-14 md:h-20 mb-3 mt-0 md:mt-12"
         type="submit"
       >
         {buttonText}
       </button>
 
       {helpText && (
-        <p class="text-[10px] text-white  font-normal text-center">
+        <p class="text-[10px] text-white  font-normal text-xs md:text-base text-center  md:max-w-[60%]">
           {helpText}
         </p>
       )}
@@ -109,9 +108,23 @@ export default function Newsletter({ form }: Props) {
   );
 
   return (
-    <div class=" flex flex-col justify-center items-center w-full bg-blue-200  ">
-      {headerLayout}
-      {formLayout}
-    </div>
+    <>
+      <section class="w-full bg-blue-200  ">
+        <div class="flex flex-col justify-center items-center container w-full ">
+          {headerLayout}
+          {formLayout}
+        </div>
+      </section>
+      <Modal
+        title="Atenção"
+        mode="center"
+        loading="lazy"
+        open={true}
+        onClose={() => {
+          console.log("feachsss");
+        }}
+      >
+      </Modal>
+    </>
   );
 }

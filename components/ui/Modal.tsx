@@ -92,7 +92,7 @@ const Modal = ({
               </h1>
             </div>
             <Button class="btn btn-ghost" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+              <Icon id="XMark" width={20} height={20} strokeWidth={2}  />
             </Button>
           </header>
           <div class="overflow-y-auto flex-grow flex flex-col">
