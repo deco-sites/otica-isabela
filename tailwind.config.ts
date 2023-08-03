@@ -16,8 +16,14 @@ export default {
       "2xl": "1140px",
     },
     extend: {
+      fontFamily: {
+        "bebas-neue": ["Bebas Neue"],
+      },
       colors: {
+        "base-500": "#171717",
+        "blue-100": "#a8e3ff",
         "blue-200": "#42c3ff",
+        "blue-300": "#00a7f5",
         "success": " #00ff2a",
       },
     },

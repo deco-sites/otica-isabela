@@ -8325,8 +8325,8 @@
                   },
                   {
                     "type": "string",
-                    "const": "Youtube",
-                    "default": "Youtube"
+                    "const": "YouTube",
+                    "default": "YouTube"
                   },
                   {
                     "type": "string",
@@ -8770,369 +8770,289 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@NewsletterForm": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock": {
       "type": "object",
       "properties": {
-        "placeholder": {
+        "hideFirstBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide First Block"
+        },
+        "firstLabel": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Placeholder"
+          "title": "First Label"
         },
-        "buttonText": {
+        "secondLabel": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Button Text"
+          "title": "Second Label"
         },
-        "helpText": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "html",
-          "title": "Help Text"
-        }
-      },
-      "required": [],
-      "title": "NewsletterForm"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "Item"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item"
-      },
-      "title": "Item[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "items": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item[]",
-          "title": "Items"
-        }
-      },
-      "required": [
-        "label",
-        "items"
-      ],
-      "title": "Section"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section"
-      },
-      "title": "Section[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Discord",
-              "default": "Discord"
-            },
-            {
-              "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
-            },
-            {
-              "type": "string",
-              "const": "Instagram",
-              "default": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "Linkedin",
-              "default": "Linkedin"
-            },
-            {
-              "type": "string",
-              "const": "Tiktok",
-              "default": "Tiktok"
-            },
-            {
-              "type": "string",
-              "const": "Twitter",
-              "default": "Twitter"
-            }
-          ],
-          "type": "string",
-          "title": "Label"
-        },
-        "link": {
-          "type": "string",
-          "title": "Link"
-        }
-      },
-      "required": [
-        "label",
-        "link"
-      ],
-      "title": "SocialItem"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem"
-      },
-      "title": "SocialItem[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@PaymentItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Diners",
-              "default": "Diners"
-            },
-            {
-              "type": "string",
-              "const": "Elo",
-              "default": "Elo"
-            },
-            {
-              "type": "string",
-              "const": "Mastercard",
-              "default": "Mastercard"
-            },
-            {
-              "type": "string",
-              "const": "Pix",
-              "default": "Pix"
-            },
-            {
-              "type": "string",
-              "const": "Visa",
-              "default": "Visa"
-            }
-          ],
-          "type": "string",
-          "title": "Label"
-        }
-      },
-      "required": [
-        "label"
-      ],
-      "title": "PaymentItem"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@PaymentItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@PaymentItem"
-      },
-      "title": "PaymentItem[]"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@MobileApps": {
-      "type": "object",
-      "properties": {
-        "apple": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Link to the app",
-          "title": "Apple"
-        },
-        "android": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Link to the app",
-          "title": "Android"
-        }
-      },
-      "required": [],
-      "title": "MobileApps"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@RegionOptions": {
-      "type": "object",
-      "properties": {
-        "currency": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item[]",
-          "title": "Currency"
-        },
-        "language": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item[]",
-          "title": "Language"
-        }
-      },
-      "required": [],
-      "title": "RegionOptions"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Layout": {
-      "type": "object",
-      "properties": {
-        "backgroundColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Primary",
-              "default": "Primary"
-            },
-            {
-              "type": "string",
-              "const": "Secondary",
-              "default": "Secondary"
-            },
-            {
-              "type": "string",
-              "const": "Accent",
-              "default": "Accent"
-            },
-            {
-              "type": "string",
-              "const": "Base 100",
-              "default": "Base 100"
-            },
-            {
-              "type": "string",
-              "const": "Base 100 inverted",
-              "default": "Base 100 inverted"
-            }
-          ],
-          "type": "string",
-          "title": "Background Color"
-        },
-        "variation": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Variation 1",
-              "default": "Variation 1"
-            },
-            {
-              "type": "string",
-              "const": "Variation 2",
-              "default": "Variation 2"
-            },
-            {
-              "type": "string",
-              "const": "Variation 3",
-              "default": "Variation 3"
-            },
-            {
-              "type": "string",
-              "const": "Variation 4",
-              "default": "Variation 4"
-            },
-            {
-              "type": "string",
-              "const": "Variation 5",
-              "default": "Variation 5"
-            }
-          ],
-          "type": "string",
-          "title": "Variation"
-        },
-        "hide": {
+        "socialLinks": {
           "type": "object",
           "properties": {
-            "logo": {
+            "instagram": {
               "type": [
-                "boolean",
+                "string",
                 "null"
               ],
-              "title": "Logo"
+              "title": "Instagram"
             },
-            "newsletter": {
+            "facebook": {
               "type": [
-                "boolean",
+                "string",
                 "null"
               ],
-              "title": "Newsletter"
+              "title": "Facebook"
             },
-            "sectionLinks": {
+            "youtube": {
               "type": [
-                "boolean",
+                "string",
                 "null"
               ],
-              "title": "Section Links"
-            },
-            "socialLinks": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Social Links"
-            },
-            "paymentMethods": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Payment Methods"
-            },
-            "mobileApps": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Mobile Apps"
-            },
-            "regionOptions": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Region Options"
-            },
-            "extraLinks": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Extra Links"
-            },
-            "backToTheTop": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Back To The Top"
+              "title": "Youtube"
             }
           },
           "required": [],
-          "title": "Hide"
+          "title": "Social Links"
         }
       },
       "required": [],
-      "title": "Layout"
+      "title": "FirstBlock"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SecondBlock": {
       "type": "object",
       "properties": {
+        "hideSecondBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Second Block"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Label"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "title": "Label"
+                    },
+                    "href": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "title": "Href"
+                    }
+                  },
+                  "required": []
+                },
+                "title": "Items"
+              }
+            },
+            "required": []
+          },
+          "title": "Links"
+        }
+      },
+      "required": [],
+      "title": "SecondBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ThirdBlock": {
+      "type": "object",
+      "properties": {
+        "hideThirdBlock": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Third Block"
+        },
+        "support": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Label"
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Image"
+                  },
+                  "label": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Label"
+                  },
+                  "href": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Href"
+                  }
+                },
+                "required": []
+              },
+              "title": "Links"
+            },
+            "openingHours": {
+              "type": "object",
+              "properties": {
+                "hours": {
+                  "type": "object",
+                  "properties": {
+                    "primaryLabel": {
+                      "type": "string",
+                      "title": "Primary Label"
+                    },
+                    "secondaryLabel": {
+                      "type": "string",
+                      "title": "Secondary Label"
+                    }
+                  },
+                  "required": [
+                    "primaryLabel",
+                    "secondaryLabel"
+                  ],
+                  "title": "Hours"
+                },
+                "observation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Observation"
+                }
+              },
+              "required": [],
+              "title": "Opening Hours"
+            }
+          },
+          "required": [],
+          "title": "Support"
+        },
+        "securityInformation": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Label"
+            },
+            "certificates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Href"
+                  },
+                  "image": {
+                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                    "title": "Image"
+                  },
+                  "label": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "title": "Label"
+                  },
+                  "width": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "title": "Width"
+                  },
+                  "height": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "title": "Height"
+                  }
+                },
+                "required": []
+              },
+              "title": "Certificates"
+            }
+          },
+          "required": [],
+          "title": "Security Information"
+        },
+        "payments": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Label"
+            },
+            "methods": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                  "title": "Image"
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Alt"
+                }
+              },
+              "required": [],
+              "title": "Methods"
+            }
+          },
+          "required": [],
+          "title": "Payments"
+        },
         "logo": {
           "type": "object",
           "properties": {
@@ -9148,109 +9068,59 @@
               "title": "Description"
             }
           },
-          "required": [
-            "image"
-          ],
+          "required": [],
           "title": "Logo"
-        },
-        "newsletter": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Title"
-            },
-            "description": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Description"
-            },
-            "form": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@NewsletterForm",
-              "title": "Form"
-            }
-          },
-          "required": [],
-          "title": "Newsletter"
-        },
-        "sections": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]",
-          "title": "Sections"
-        },
-        "social": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Title"
-            },
-            "items": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SocialItem[]",
-              "title": "Items"
-            }
-          },
-          "required": [
-            "items"
+        }
+      },
+      "required": [],
+      "title": "ThirdBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FourthBlock": {
+      "type": "object",
+      "properties": {
+        "hideFourthBlock": {
+          "type": [
+            "boolean",
+            "null"
           ],
-          "title": "Social"
+          "title": "Hide Fourth Block"
         },
-        "payments": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Title"
-            },
-            "items": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@PaymentItem[]",
-              "title": "Items"
-            }
-          },
-          "required": [
-            "items"
+        "address": {
+          "type": [
+            "string",
+            "null"
           ],
-          "title": "Payments"
+          "title": "Address"
         },
-        "mobileApps": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@MobileApps",
-          "title": "Mobile Apps"
+        "socialName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Social Name"
+        }
+      },
+      "required": [],
+      "title": "FourthBlock"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "firstBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock",
+          "title": " Social Section"
         },
-        "regionOptions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@RegionOptions",
-          "title": "Region Options"
+        "secondBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@SecondBlock",
+          "title": " Links Section"
         },
-        "extraLinks": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Item[]",
-          "title": "Extra Links"
+        "thirdBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ThirdBlock",
+          "title": " Commercial Section"
         },
-        "backToTheTop": {
-          "type": "object",
-          "properties": {
-            "text": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Text"
-            }
-          },
-          "required": [],
-          "title": "Back To The Top"
-        },
-        "layout": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Layout",
-          "title": "Layout"
+        "fourthBlock": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FourthBlock",
+          "title": "Institutional Section"
         }
       },
       "required": [],
@@ -9632,8 +9502,8 @@
             },
             {
               "type": "string",
-              "const": "Youtube",
-              "default": "Youtube"
+              "const": "YouTube",
+              "default": "YouTube"
             },
             {
               "type": "string",
@@ -10755,8 +10625,8 @@
             },
             {
               "type": "string",
-              "const": "Youtube",
-              "default": "Youtube"
+              "const": "YouTube",
+              "default": "YouTube"
             },
             {
               "type": "string",
