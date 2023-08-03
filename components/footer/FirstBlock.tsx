@@ -17,7 +17,7 @@ export const FirstBlock = (
         <span class="text-blue-100 font-semibold text-lg lg:text-[28px]">
           {firstLabel}
         </span>
-        <span class="text-white uppercase font-normal font-bebas-neue  text-5xl lg:text-6xl scale-y-150 pt-1 ">
+        <span class="text-white uppercase font-normal font-bebas-neue  text-5xl lg:text-6xl pt-1 ">
           {secondLabel}
         </span>
       </div>
