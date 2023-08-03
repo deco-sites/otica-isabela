@@ -8370,6 +8370,11 @@
                     "type": "string",
                     "const": "Magnifier",
                     "default": "Magnifier"
+                  },
+                  {
+                    "type": "string",
+                    "const": "CheckMarkCircle",
+                    "default": "CheckMarkCircle"
                   }
                 ],
                 "type": "string",
@@ -9547,6 +9552,11 @@
               "type": "string",
               "const": "Magnifier",
               "default": "Magnifier"
+            },
+            {
+              "type": "string",
+              "const": "CheckMarkCircle",
+              "default": "CheckMarkCircle"
             }
           ],
           "type": "string",
@@ -10670,6 +10680,11 @@
               "type": "string",
               "const": "Magnifier",
               "default": "Magnifier"
+            },
+            {
+              "type": "string",
+              "const": "CheckMarkCircle",
+              "default": "CheckMarkCircle"
             }
           ],
           "type": "string",

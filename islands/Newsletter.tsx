@@ -44,16 +44,19 @@ export default function Newsletter({ form }: Props) {
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    showModal.value = true;
+
+    if (userPhoneNumber.value) {
+      showModal.value = true;
+    }
   };
 
   const headerLayout = (
     <div class="w-full flex flex-col justify-center items-center mt-12 mb-6 md:mb-16   ">
       <div class="text-start">
-        <span class="flex items-center font-semibold text-xl  md:text-3xl  gap-x-1 text-[#a8e3ff]">
+        <span class="flex items-center font-semibold text-xl  md:text-3xl  gap-x-1 text-blue-100">
           Seja avisado das <Icon width={65} height={34} id="MenGlassesLg" />
         </span>
-        <span class="text-white uppercase font-bebas-neue font-normal  text-5xl md:text-6xl ">
+        <span class="text-white uppercase font-bebas-neue font-normal  text-5xl md:text-[64px] ">
           Ofertas e descontos
         </span>
       </div>
@@ -67,7 +70,7 @@ export default function Newsletter({ form }: Props) {
       onSubmit={handleSubmit}
     >
       <input
-        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
         type="text"
         placeholder={placeholder?.nameInput ?? ""}
         value={String(userName)}
@@ -76,7 +79,7 @@ export default function Newsletter({ form }: Props) {
         }}
       />
       <input
-        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+        class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
         type="text"
         placeholder={placeholder?.mailInput ?? ""}
         value={String(userMail)}
@@ -118,8 +121,8 @@ export default function Newsletter({ form }: Props) {
         </div>
       </section>
       <Modal
-        title="Atenção"
-        mode="danger"
+        title="Sucesso"
+        mode="sucess"
         loading="lazy"
         open={showModal.value}
         onClose={() => {

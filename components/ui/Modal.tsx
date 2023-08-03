@@ -16,7 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -26,6 +26,7 @@ const dialogStyles = {
   "sidebar-left": "animate-slide-right",
   center: "animate-fade-in",
   danger: "animate-fade-in",
+  sucess: "animate-fade-in",
 };
 
 const sectionStyles = {
@@ -33,6 +34,7 @@ const sectionStyles = {
   "sidebar-left": "justify-start",
   center: "justify-center items-center",
   danger: "justify-center items-center",
+  sucess: "justify-center items-center",
 };
 
 const containerStyles = {
@@ -40,6 +42,7 @@ const containerStyles = {
   "sidebar-left": "h-full w-full sm:max-w-lg bg-base-100",
   center: "bg-base-100",
   danger: " w-full max-w-lg  ",
+  sucess: " w-full max-w-lg  ",
 };
 
 const headerStyle = {
@@ -47,6 +50,7 @@ const headerStyle = {
   "sidebar-left": "px-4 py-6 border-b border-base-200 bg-white",
   center: "px-4 py-6 border-b border-base-200  bg-white  ",
   danger: " w-full max-w-lg bg-danger py-2 px-9 rounded-t-md  ",
+  sucess: " w-full max-w-lg bg-success-content  py-2 px-9 rounded-t-md  ",
 };
 
 const titleStyle = {
@@ -54,6 +58,7 @@ const titleStyle = {
   "sidebar-left": "text-black",
   center: "text-black  ",
   danger: "text-white uppercase font-bold",
+  sucess: "text-white uppercase font-bold",
 };
 
 const Modal = ({
@@ -98,7 +103,7 @@ const Modal = ({
         class={`w-full   h-full flex bg-transparent  ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-transparent shadow-2xl p-3 flex flex-col${
+          class={`bg-transparent shadow-2xl m-3 flex flex-col${
             containerStyles[mode]
           }`}
         >
@@ -106,13 +111,22 @@ const Modal = ({
             class={`flex justify-between items-center  ${headerStyle[mode]}`}
           >
             <div class="flex gap-5 items-center">
+              {mode === "sucess" && (
+                <Icon
+                  id="CheckMarkCircle"
+                  width={36}
+                  height={36}
+                  strokeWidth={1}
+                  fill="white"
+                />
+              )}
               <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>
             </div>
             <Button class="btn btn-ghost" onClick={onClose}>
               <Icon
                 id="XMark"
-                width={20}
-                height={20}
+                width={25}
+                height={25}
                 strokeWidth={1}
                 fill="white"
               />

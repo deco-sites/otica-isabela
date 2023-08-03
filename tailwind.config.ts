@@ -22,10 +22,12 @@ export default {
       colors: {
         "danger": "#f3ae3f",
         "base-500": "#171717",
+        "base-300":"#757575",
         "blue-100": "#a8e3ff",
         "blue-200": "#42c3ff",
         "blue-300": "#00a7f5",
         "success": " #00ff2a",
+        "success-content":"#9ec54d"
       },
     },
   },
