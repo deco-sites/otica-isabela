@@ -7390,6 +7390,13 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props": {
       "type": "object",
       "properties": {
+        "hideNewsletter": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Newsletter"
+        },
         "placeholder": {
           "type": "object",
           "properties": {

@@ -5,19 +5,27 @@ import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 
 export interface Props {
+  hideNewsletter?: boolean;
   placeholder?: {
     nameInput?: string;
     mailInput?: string;
     foneInput?: string;
   };
   buttonText?: string;
+
   /** @format textarea */
   helpText?: string;
 }
 
 export default function Newsletter(
-  { buttonText, helpText, placeholder }: Props,
+  { buttonText, helpText, placeholder, hideNewsletter }: Props,
 ) {
+
+
+  if (hideNewsletter) {
+    return null;
+  }
+
   const modalMode = useSignal("");
   const modalAlertMensage = useSignal("");
 
