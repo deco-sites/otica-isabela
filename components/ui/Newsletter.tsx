@@ -20,8 +20,6 @@ export interface Props {
 export default function Newsletter(
   { buttonText, helpText, placeholder, hideNewsletter }: Props,
 ) {
-
-
   if (hideNewsletter) {
     return null;
   }
