@@ -7387,7 +7387,7 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/search/Searchbar.tsx@EditableProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Form": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props": {
       "type": "object",
       "properties": {
         "placeholder": {
@@ -7435,25 +7435,7 @@
         }
       },
       "required": [],
-      "title": "Form"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "form": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Form",
-          "title": "Form"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/otica-isabela/islands/Newsletter.tsx@Props"
+      "title": "deco-sites/otica-isabela/components/ui/Newsletter.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
@@ -9124,6 +9106,10 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
       "properties": {
+        "newsletter": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props",
+          "title": "Newsletter"
+        },
         "firstBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock",
           "title": " Social Section"
@@ -14346,7 +14332,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props"
         }
       ],
       "required": [
@@ -15090,11 +15076,6 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=": {
       "title": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2lzbGFuZHMvTmV3c2xldHRlci50c3g=@Props"
-        }
-      ],
       "required": [
         "__resolveType"
       ],

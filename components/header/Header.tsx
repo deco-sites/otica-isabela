@@ -8,6 +8,7 @@ import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx"
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 
+
 export interface Props {
   /**
    * @title Store logo
@@ -68,6 +69,7 @@ function Header({
 
   return (
     <>
+      
       <header class="bg-black">
         <div
           id="overlayHeader"

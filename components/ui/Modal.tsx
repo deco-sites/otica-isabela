@@ -16,7 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess" ;
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
