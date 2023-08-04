@@ -1,5 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Modal from "$store/components/ui/Modal.tsx";
+
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 export interface Form {
@@ -21,10 +22,8 @@ export interface Props {
 export default function Newsletter({ form }: Props) {
   const { buttonText, helpText, placeholder } = form ?? {};
 
-  const userPhoneNumber = useSignal("");
-  const userName = useSignal("");
-  const userMail = useSignal("");
-  const showModal = useSignal(false);
+  const modalMode = useSignal("");
+  const modalAlertMensage = useSignal("");
 
   const phoneMask = (phoneValue?: string) => {
     if (!phoneValue) return "";
@@ -44,10 +43,29 @@ export default function Newsletter({ form }: Props) {
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    const phoneRegex = /^\(\d{2}\)\s\d{5}-\d{4}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (userPhoneNumber.value) {
-      showModal.value = true;
+    const name = (e.currentTarget.elements.namedItem("name") as RadioNodeList)
+      ?.value;
+    const email = (e.currentTarget.elements.namedItem("email") as RadioNodeList)
+      ?.value;
+    const phone = (e.currentTarget.elements.namedItem("phone") as RadioNodeList)
+      ?.value;
+
+    if (!phoneRegex.test(phone)) {
+      modalAlertMensage.value =
+        "Por favor, insira um telefone válido no formato (xx)xxxxx-xxxx.";
+      return;
     }
+
+    if (!emailRegex.test(email)) {
+      modalAlertMensage.value = "Favor Informar um email válido!";
+      return;
+    }
+
+    modalAlertMensage.value = "Obrigado por se inscrever!";
+    modalMode.value = "sucess";
   };
 
   const headerLayout = (
@@ -70,32 +88,26 @@ export default function Newsletter({ form }: Props) {
       onSubmit={handleSubmit}
     >
       <input
+        name="name"
         class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
         type="text"
         placeholder={placeholder?.nameInput ?? ""}
-        value={String(userName)}
-        onInput={(event) => {
-          userName.value = event.currentTarget.value;
-        }}
       />
       <input
+        name="email"
         class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
         type="text"
         placeholder={placeholder?.mailInput ?? ""}
-        value={String(userMail)}
-        onInput={(event) => {
-          userMail.value = event.currentTarget.value;
-        }}
       />
       <input
+        name="phone"
+        onKeyUp={(e) => {
+          e.currentTarget.value = phoneMask(e.currentTarget.value);
+        }}
         class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
         type="tel"
-        value={phoneMask(String(userPhoneNumber))}
         maxLength={15}
         placeholder={placeholder?.foneInput ?? ""}
-        onInput={(event) => {
-          userPhoneNumber.value = event.currentTarget.value;
-        }}
       />
       <button
         class="bg-black text-white text-base uppercase font-bold rounded-xl w-full md:max-w-sm h-14 md:h-20 mb-3 mt-0 md:mt-12"
@@ -121,16 +133,17 @@ export default function Newsletter({ form }: Props) {
         </div>
       </section>
       <Modal
-        title="Sucesso"
-        mode="sucess"
+        title={String(modalMode) !== "" ? "Sucesso" : "Atenção"}
+        mode={String(modalMode) !== "" ? "sucess" : "danger"}
         loading="lazy"
-        open={showModal.value}
+        open={modalAlertMensage.value !== ""}
         onClose={() => {
-          showModal.value = false;
+          modalAlertMensage.value = "";
+          modalMode.value = "";
         }}
       >
         <div class="bg-white w-full flex justify-center items-center pt-4 pb-5">
-          <p>Favor Informar um email válido!</p>
+          <p>{modalAlertMensage}</p>
         </div>
       </Modal>
     </>

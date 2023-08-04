@@ -16,7 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess" ;
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -64,7 +64,7 @@ const titleStyle = {
 const Modal = ({
   open,
   title,
-  mode = "sidebar-right",
+  mode = "danger",
   onClose,
   children,
   loading,
@@ -110,18 +110,20 @@ const Modal = ({
           <header
             class={`flex justify-between items-center  ${headerStyle[mode]}`}
           >
-            <div class="flex gap-5 items-center">
-              {mode === "sucess" && (
-                <Icon
-                  id="CheckMarkCircle"
-                  width={36}
-                  height={36}
-                  strokeWidth={1}
-                  fill="white"
-                />
-              )}
-              <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>
-            </div>
+            {title && (
+              <div class="flex gap-5 items-center">
+                {mode === "sucess" && (
+                  <Icon
+                    id="CheckMarkCircle"
+                    width={36}
+                    height={36}
+                    strokeWidth={1}
+                    fill="white"
+                  />
+                )}
+                <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>
+              </div>
+            )}
             <Button class="btn btn-ghost" onClick={onClose}>
               <Icon
                 id="XMark"
