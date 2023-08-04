@@ -1,6 +1,5 @@
-import Icon from "$store/components/ui/Icon.tsx";
 import Modal from "$store/components/ui/Modal.tsx";
-
+import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 
@@ -77,19 +76,6 @@ export default function Newsletter(
     modalMode.value = "sucess";
   };
 
-  const headerLayout = (
-    <div class="w-full flex flex-col justify-center items-center mt-12 mb-6 md:mb-16   ">
-      <div class="text-start">
-        <span class="flex items-center font-semibold text-xl  md:text-3xl  gap-x-1 text-blue-100">
-          Seja avisado das <Icon width={65} height={34} id="MenGlassesLg" />
-        </span>
-        <span class="text-white uppercase font-bebas-neue font-normal  text-5xl md:text-[64px] ">
-          Ofertas e descontos
-        </span>
-      </div>
-    </div>
-  );
-
   const formLayout = (
     <form
       action="#"
@@ -137,7 +123,11 @@ export default function Newsletter(
     <>
       <section class="w-full bg-blue-200  ">
         <div class="flex flex-col justify-center items-center container w-full ">
-          {headerLayout}
+          <IconTitle
+            icon="MenGlassesLg"
+            iconText="Seja avisado das"
+            mainText="OFERTAS E DESCONTOS"
+          />
           {formLayout}
         </div>
       </section>
