@@ -7432,6 +7432,13 @@
           ],
           "title": "Button Text"
         },
+        "sucessRedirectLink": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": " WhatsApp redirect link"
+        },
         "helpText": {
           "type": [
             "string",

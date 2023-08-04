@@ -1,6 +1,5 @@
 import Button from "$store/components/ui/Button.tsx";
 import { useEffect, useRef } from "preact/hooks";
-import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
@@ -19,6 +18,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  sucessRedirectLink?: string;
 };
 
 const dialogStyles = {
@@ -66,6 +66,7 @@ const Modal = ({
   title,
   mode = "danger",
   onClose,
+  sucessRedirectLink,
   children,
   loading,
   ...props
@@ -74,6 +75,9 @@ const Modal = ({
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
+    if (!IS_BROWSER) {
+      return;
+    }
     if (open === false) {
       document.getElementsByTagName("body").item(0)?.classList.remove(
         "no-scroll",
@@ -87,6 +91,17 @@ const Modal = ({
       lazy.value = true;
     }
   }, [open]);
+
+  useEffect(() => {
+    if (!sucessRedirectLink || mode !== "sucess" || !IS_BROWSER) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      window.location.href = sucessRedirectLink;
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [mode, sucessRedirectLink]);
 
   return (
     <dialog

@@ -13,12 +13,19 @@ export interface Props {
   };
   buttonText?: string;
 
+  /**
+   * @title  WhatsApp redirect link
+   */
+
+  sucessRedirectLink?: string;
+
   /** @format textarea */
   helpText?: string;
 }
 
 export default function Newsletter(
-  { buttonText, helpText, placeholder, hideNewsletter }: Props,
+  { buttonText, helpText, placeholder, hideNewsletter, sucessRedirectLink }:
+    Props,
 ) {
   if (hideNewsletter) {
     return null;
@@ -138,6 +145,7 @@ export default function Newsletter(
         title={String(modalMode) !== "" ? "Sucesso" : "Atenção"}
         mode={String(modalMode) !== "" ? "sucess" : "danger"}
         loading="lazy"
+        sucessRedirectLink={sucessRedirectLink}
         open={modalAlertMensage.value !== ""}
         onClose={() => {
           modalAlertMensage.value = "";
