@@ -102,7 +102,6 @@ export default function Newsletter(
             />
             <input
               name="phone"
-              ref={phoneNumberRef}
               onChange={(e) => {
                 e.currentTarget.value = phoneMask(e.currentTarget.value);
               }}
