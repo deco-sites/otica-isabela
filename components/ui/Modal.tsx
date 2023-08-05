@@ -15,10 +15,10 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "sucess";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "danger" | "success";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
-  sucessRedirectLink?: string;
+  successRedirectLink?: string;
 };
 
 const dialogStyles = {
@@ -26,7 +26,7 @@ const dialogStyles = {
   "sidebar-left": "animate-slide-right",
   center: "animate-fade-in",
   danger: "animate-fade-in",
-  sucess: "animate-fade-in",
+  success: "animate-fade-in",
 };
 
 const sectionStyles = {
@@ -34,7 +34,7 @@ const sectionStyles = {
   "sidebar-left": "justify-start",
   center: "justify-center items-center",
   danger: "justify-center items-center",
-  sucess: "justify-center items-center",
+  success: "justify-center items-center",
 };
 
 const containerStyles = {
@@ -42,7 +42,7 @@ const containerStyles = {
   "sidebar-left": "h-full w-full sm:max-w-lg bg-base-100",
   center: "bg-base-100",
   danger: " w-full max-w-lg  ",
-  sucess: " w-full max-w-lg  ",
+  success: " w-full max-w-lg  ",
 };
 
 const headerStyle = {
@@ -50,7 +50,7 @@ const headerStyle = {
   "sidebar-left": "px-4 py-6 border-b border-base-200 bg-white",
   center: "px-4 py-6 border-b border-base-200  bg-white  ",
   danger: " w-full max-w-lg bg-danger py-2 px-9 rounded-t-md  ",
-  sucess: " w-full max-w-lg bg-success-content  py-2 px-9 rounded-t-md  ",
+  success: " w-full max-w-lg bg-success-content  py-2 px-9 rounded-t-md  ",
 };
 
 const titleStyle = {
@@ -58,7 +58,7 @@ const titleStyle = {
   "sidebar-left": "text-black",
   center: "text-black  ",
   danger: "text-white uppercase font-bold",
-  sucess: "text-white uppercase font-bold",
+  success: "text-white uppercase font-bold",
 };
 
 const Modal = ({
@@ -66,7 +66,7 @@ const Modal = ({
   title,
   mode = "danger",
   onClose,
-  sucessRedirectLink,
+  successRedirectLink,
   children,
   loading,
   ...props
@@ -93,15 +93,15 @@ const Modal = ({
   }, [open]);
 
   useEffect(() => {
-    if (!sucessRedirectLink || mode !== "sucess" || !IS_BROWSER) {
+    if (!successRedirectLink || mode !== "success" || !IS_BROWSER) {
       return;
     }
 
     const timer = setTimeout(() => {
-      window.location.href = sucessRedirectLink;
+      window.location.href = successRedirectLink;
     }, 3000);
     return () => clearTimeout(timer);
-  }, [mode, sucessRedirectLink]);
+  }, [mode, successRedirectLink]);
 
   return (
     <dialog
@@ -127,7 +127,7 @@ const Modal = ({
           >
             {title && (
               <div class="flex gap-5 items-center">
-                {mode === "sucess" && (
+                {mode === "success" && (
                   <Icon
                     id="CheckMarkCircle"
                     width={36}

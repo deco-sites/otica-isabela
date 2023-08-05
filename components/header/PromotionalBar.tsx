@@ -4,7 +4,7 @@ export interface GiftValueReachInfosProps {
   baseValue?: number;
   beforeText?: string;
   afterText?: string;
-  sucessText?: string;
+  successText?: string;
   activate?: boolean;
 }
 
@@ -15,7 +15,7 @@ interface Props {
 export const PromotionalBar = (
   { giftValueReachInfos }: Props,
 ) => {
-  const { activate, afterText, baseValue, beforeText, sucessText } =
+  const { activate, afterText, baseValue, beforeText, successText } =
     giftValueReachInfos ??
       {};
 
@@ -35,7 +35,7 @@ export const PromotionalBar = (
   return (
     <div class="flex flex-col bg-black   justify-center items-center w-full   ">
       <p class="  pb-1 text-white  font-semibold">
-        {porcentWidthValue >= 100 ? sucessText : warningText}
+        {porcentWidthValue >= 100 ? successText : warningText}
       </p>
       <div class="w-full h-2 bg-secondary ">
         <div
