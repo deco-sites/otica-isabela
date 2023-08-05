@@ -39,12 +39,13 @@ export default function Newsletter(
     phoneValue = phoneValue.replace(/\D/g, "");
 
     if (phoneValue.length <= 2) {
-      phoneValue = phoneValue.replace(/(\d{0,2})/, "($1");
-    } else if (phoneValue.length <= 7) {
-      phoneValue = phoneValue.replace(/(\d{2})(\d{0,5})/, "($1) $2");
-    } else {
-      phoneValue = phoneValue.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+      return phoneValue.replace(/(\d{0,2})/, "($1");
+    } 
+     if (phoneValue.length <= 7) {
+      return phoneValue.replace(/(\d{2})(\d{0,5})/, "($1) $2");
     }
+      return phoneValue.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+    
 
     return phoneValue;
   };
