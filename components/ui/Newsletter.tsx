@@ -43,8 +43,6 @@ export default function Newsletter(
   const modalAlertMensage = useSignal("");
   const profilePhone = useSignal("");
 
-  const phoneNumberRef = useRef<HTMLInputElement | null>(null);
-
   const phoneMask = (value: string) => {
     return value
       .replace(/\D/g, "")
