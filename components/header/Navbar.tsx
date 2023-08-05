@@ -51,7 +51,7 @@ function Navbar(
           </div>
         </div>
 
-        <div class="flex lg:hidden  w-full mb-8 ">
+        <div class="flex flex-col lg:hidden  w-full mb-8 ">
           <Searchbar {...searchbar} />
         </div>
 
