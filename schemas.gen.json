@@ -7636,6 +7636,16 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
             }
           ],
           "type": "string",
@@ -8641,6 +8651,16 @@
                     "type": "string",
                     "const": "CheckMarkCircle",
                     "default": "CheckMarkCircle"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Camera",
+                    "default": "Camera"
+                  },
+                  {
+                    "type": "string",
+                    "const": "ArrowDown",
+                    "default": "ArrowDown"
                   }
                 ],
                 "type": "string",
@@ -9827,6 +9847,16 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
             }
           ],
           "type": "string",
@@ -10955,6 +10985,16 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
             }
           ],
           "type": "string",
@@ -15360,6 +15400,11 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=": {
       "title": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],
