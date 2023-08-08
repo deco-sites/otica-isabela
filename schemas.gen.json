@@ -9980,13 +9980,9 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {
       "type": "object",
       "properties": {
-        "srcMobile": {
+        "image": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src Mobile"
-        },
-        "srcDesktop": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Src Desktop"
+          "title": "Image"
         },
         "alt": {
           "type": "string",
@@ -10000,7 +9996,6 @@
         }
       },
       "required": [
-        "srcMobile",
         "alt",
         "href"
       ],
@@ -10054,6 +10049,11 @@
                   "type": "number",
                   "const": 2,
                   "default": 2
+                },
+                {
+                  "type": "number",
+                  "const": 3,
+                  "default": 3
                 },
                 {
                   "type": "number",
@@ -10184,11 +10184,7 @@
           "title": "Banners"
         }
       },
-      "required": [
-        "itemsPerLine",
-        "borderRadius",
-        "banners"
-      ],
+      "required": [],
       "title": "deco-sites/otica-isabela/components/ui/BannerGrid.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
