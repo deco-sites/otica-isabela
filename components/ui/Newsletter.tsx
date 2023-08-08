@@ -1,7 +1,6 @@
 import Modal from "$store/components/ui/Modal.tsx";
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
-import { useRef } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 

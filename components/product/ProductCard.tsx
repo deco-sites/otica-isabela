@@ -43,7 +43,7 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
-  layout?: Layout;
+
 }
 
 const relative = (url: string) => {
@@ -51,7 +51,7 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-function ProductCard({ product, preload, itemListName, layout }: Props) {
+function ProductCard({ product, preload, itemListName }: Props) {
   const {
     url,
     productID,
@@ -70,7 +70,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
-  const l = layout;
+
 
   return (
     <div

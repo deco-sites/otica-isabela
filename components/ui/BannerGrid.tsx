@@ -1,12 +1,12 @@
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 /**
  * @titleBy alt
  */
 export interface Banner {
-  srcMobile: LiveImage;
-  srcDesktop?: LiveImage;
+  image?: LiveImage;
   /**
    * @description Image alt text
    */
@@ -32,22 +32,22 @@ export interface Props {
   /**
    * @description Default is 2 for mobile and all for desktop
    */
-  itemsPerLine: {
+  itemsPerLine?: {
     /** @default 2 */
     mobile?: 1 | 2;
     /** @default 4 */
-    desktop?: 1 | 2 | 4 | 6 | 8;
+    desktop?: 1 | 2 | 3 | 4 | 6 | 8;
   };
   /**
    * @description Item's border radius in px
    */
-  borderRadius: {
+  borderRadius?: {
     /** @default none */
     mobile?: BorderRadius;
     /** @default none */
     desktop?: BorderRadius;
   };
-  banners: Banner[];
+  banners?: Banner[];
 }
 
 const MOBILE_COLUMNS = {
@@ -56,11 +56,12 @@ const MOBILE_COLUMNS = {
 };
 
 const DESKTOP_COLUMNS = {
-  1: "sm:grid-cols-1",
-  2: "sm:grid-cols-2",
-  4: "sm:grid-cols-4",
-  6: "sm:grid-cols-6",
-  8: "sm:grid-cols-8",
+  1: "md:grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+  6: "md:grid-cols-6",
+  8: "md:grid-cols-8",
 };
 
 const RADIUS_MOBILE = {
@@ -92,7 +93,7 @@ export default function BannnerGrid({
   banners = [],
 }: Props) {
   return (
-    <section class="container w-full px-4 md:px-0 mx-auto">
+    <section class="container w-full py-12 px-4 md:px-0 mx-auto">
       {title &&
         (
           <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
@@ -104,41 +105,27 @@ export default function BannnerGrid({
           </div>
         )}
       <div
-        class={`grid gap-4 md:gap-6 ${
-          MOBILE_COLUMNS[itemsPerLine?.mobile ?? 2]
-        } ${DESKTOP_COLUMNS[itemsPerLine?.desktop ?? 4]}`}
+        class={`grid gap-10 place-items-center ${
+          MOBILE_COLUMNS[itemsPerLine?.mobile ?? 1]
+        } ${DESKTOP_COLUMNS[itemsPerLine?.desktop ?? 3]}`}
       >
-        {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
-          <a
-            href={href}
-            class={`overflow-hidden ${
-              RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-            } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
-          >
-            <Picture>
-              <Source
-                media="(max-width: 767px)"
-                src={srcMobile}
-                width={100}
-                height={100}
-              />
-              <Source
-                media="(min-width: 768px)"
-                src={srcDesktop ? srcDesktop : srcMobile}
-                width={250}
-                height={250}
-              />
-              <img
-                class="w-full"
-                sizes="(max-width: 640px) 100vw, 30vw"
-                src={srcMobile}
+        {banners.map(({ href, image, alt }) =>
+          image &&
+          (
+            <a
+              href={href}
+            >
+              <Image
+                class={` ${RADIUS_MOBILE[borderRadius?.mobile ?? "none"]} ${
+                  RADIUS_DESKTOP[borderRadius?.desktop ?? "none"]
+                } `}
+                width={380}
+                src={image ?? ""}
                 alt={alt}
-                decoding="async"
-                loading="lazy"
               />
-            </Picture>
-          </a>
-        ))}
+            </a>
+          )
+        )}
       </div>
     </section>
   );
