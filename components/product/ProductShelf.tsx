@@ -26,8 +26,7 @@ export interface Props {
 
 function ProductShelf({
   products,
-  title,
-  cardLayout,
+  title
 }: Props) {
   const id = useId();
   const externalContainerId = useId();
