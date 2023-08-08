@@ -26,20 +26,16 @@ export interface Props {
 
 function ProductShelf({
   products,
-  title
+  title,
 }: Props) {
   const id = useId();
-  const externalContainerId = useId();
 
   if (!products || products.length === 0) {
     return null;
   }
 
   return (
-    <div
-      id={externalContainerId}
-      class="w-full flex flex-col gap-12 lg:gap-16 "
-    >
+    <div class="w-full flex flex-col gap-12 lg:gap-16 ">
       <IconTitle label="Produtos/nVISITADOS" />
 
       <div
