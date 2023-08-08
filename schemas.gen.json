@@ -39,6 +39,7 @@
               "deco-sites/std/functions/vtexProductListingPage.ts",
               "deco-sites/std/functions/vtexSuggestions.ts",
               "deco-sites/std/functions/vtexWishlist.ts",
+              "deco-sites/otica-isabela/accounts/configStore.ts",
               "deco-sites/std/accounts/nuvemShop.ts",
               "deco-sites/std/accounts/occ.ts",
               "deco-sites/std/accounts/shopify.ts",
@@ -3428,6 +3429,39 @@
       ],
       "title": "deco-sites/std/functions/vtexWishlist.ts@Props"
     },
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "title": "Account"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3BhY2tzL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz@Account": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account"
+        }
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Oticas Isabela token, used for API authentication.",
+          "title": "Token"
+        },
+        "publicUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Public store URL",
+          "description": "Domain that is registered on License Manager (e.g: www.mystore.com.br)"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "title": "deco-sites/otica-isabela/packs/accounts/configStore.ts@Account"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvbnV2ZW1TaG9wL3R5cGVzLnRz@Account": {
       "type": "object",
       "properties": {
@@ -3453,12 +3487,6 @@
         "storeId"
       ],
       "title": "deco-sites/std/commerce/nuvemShop/types.ts@Account"
-    },
-    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account": {
-      "type": "object",
-      "properties": {},
-      "required": [],
-      "title": "Account"
     },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2Uvb2NjL2NsaWVudC50cw==@ConfigOCC": {
       "type": "object",
@@ -7387,14 +7415,312 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/search/Searchbar.tsx@EditableProps"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Form": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps": {
       "type": "object",
       "properties": {
-        "placeholder": {
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut",
+              "default": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Bars3",
+              "default": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "ChevronLeft",
+              "default": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight",
+              "default": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp",
+              "default": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown",
+              "default": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard",
+              "default": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco",
+              "default": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Diners",
+              "default": "Diners"
+            },
+            {
+              "type": "string",
+              "const": "Discord",
+              "default": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Discount",
+              "default": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Elo",
+              "default": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook",
+              "default": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "FilterList",
+              "default": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "Heart",
+              "default": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "Instagram",
+              "default": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin",
+              "default": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Logo",
+              "default": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Minus",
+              "default": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin",
+              "default": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass",
+              "default": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard",
+              "default": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Message",
+              "default": "Message"
+            },
+            {
+              "type": "string",
+              "const": "Phone",
+              "default": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Pix",
+              "default": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Plus",
+              "default": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle",
+              "default": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Return",
+              "default": "Return"
+            },
+            {
+              "type": "string",
+              "const": "Ruler",
+              "default": "Ruler"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart",
+              "default": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Star",
+              "default": "Star"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok",
+              "default": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Trash",
+              "default": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "Truck",
+              "default": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Twitter",
+              "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "User",
+              "default": "User"
+            },
+            {
+              "type": "string",
+              "const": "Visa",
+              "default": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp",
+              "default": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "XMark",
+              "default": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Zoom",
+              "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "RatingStar",
+              "default": "RatingStar"
+            },
+            {
+              "type": "string",
+              "const": "YouTube",
+              "default": "YouTube"
+            },
+            {
+              "type": "string",
+              "const": "MenGlassesLg",
+              "default": "MenGlassesLg"
+            },
+            {
+              "type": "string",
+              "const": "BalloonsDoubt",
+              "default": "BalloonsDoubt"
+            },
+            {
+              "type": "string",
+              "const": "Balloons",
+              "default": "Balloons"
+            },
+            {
+              "type": "string",
+              "const": "MenGlasses",
+              "default": "MenGlasses"
+            },
+            {
+              "type": "string",
+              "const": "QuestionBox",
+              "default": "QuestionBox"
+            },
+            {
+              "type": "string",
+              "const": "Magnifier",
+              "default": "Magnifier"
+            },
+            {
+              "type": "string",
+              "const": "CheckMarkCircle",
+              "default": "CheckMarkCircle"
+            }
+          ],
+          "type": "string",
+          "title": "Icon"
+        },
+        "label": {
           "type": [
             "string",
             "null"
           ],
+          "description": "Utilize %icon para atribuir a posição do icone. ex: Seja avisado das %icon OFERTAS E DESCONTOS",
+          "title": "Label"
+        }
+      },
+      "required": [],
+      "title": "IconTitleProps"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "hideNewsletter": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Newsletter"
+        },
+        "titleConfig": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Title Config"
+        },
+        "placeholder": {
+          "type": "object",
+          "properties": {
+            "nameInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Name Input"
+            },
+            "mailInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Mail Input"
+            },
+            "foneInput": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Fone Input"
+            }
+          },
+          "required": [],
           "title": "Placeholder"
         },
         "buttonText": {
@@ -7404,43 +7730,24 @@
           ],
           "title": "Button Text"
         },
+        "successRedirectLink": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": " WhatsApp redirect link"
+        },
         "helpText": {
           "type": [
             "string",
             "null"
           ],
-          "format": "html",
+          "format": "textarea",
           "title": "Help Text"
         }
       },
       "required": [],
-      "title": "Form"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "textarea",
-          "title": "Description"
-        },
-        "form": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL05ld3NsZXR0ZXIudHN4@Form",
-          "title": "Form"
-        }
-      },
-      "required": [],
-      "title": "Props"
+      "title": "deco-sites/otica-isabela/components/ui/Newsletter.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
@@ -8357,6 +8664,11 @@
                     "type": "string",
                     "const": "Magnifier",
                     "default": "Magnifier"
+                  },
+                  {
+                    "type": "string",
+                    "const": "CheckMarkCircle",
+                    "default": "CheckMarkCircle"
                   }
                 ],
                 "type": "string",
@@ -9106,6 +9418,10 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
       "properties": {
+        "newsletter": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props",
+          "title": "Newsletter"
+        },
         "firstBlock": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock",
           "title": " Social Section"
@@ -9534,6 +9850,11 @@
               "type": "string",
               "const": "Magnifier",
               "default": "Magnifier"
+            },
+            {
+              "type": "string",
+              "const": "CheckMarkCircle",
+              "default": "CheckMarkCircle"
             }
           ],
           "type": "string",
@@ -9585,12 +9906,12 @@
           ],
           "title": "After Text"
         },
-        "sucessText": {
+        "successText": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Sucess Text"
+          "title": "Success Text"
         },
         "activate": {
           "type": [
@@ -10653,6 +10974,11 @@
               "type": "string",
               "const": "Magnifier",
               "default": "Magnifier"
+            },
+            {
+              "type": "string",
+              "const": "CheckMarkCircle",
+              "default": "CheckMarkCircle"
             }
           ],
           "type": "string",
@@ -10911,135 +11237,6 @@
       },
       "required": [],
       "title": "deco-sites/otica-isabela/components/ui/CookieConsent.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Form": {
-      "type": "object",
-      "properties": {
-        "placeholder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Placeholder"
-        },
-        "buttonText": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Button Text"
-        },
-        "helpText": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "html",
-          "title": "Help Text"
-        }
-      },
-      "required": [],
-      "title": "Form"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "textarea",
-          "title": "Description"
-        },
-        "form": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Form",
-          "title": "Form"
-        },
-        "layout": {
-          "type": "object",
-          "properties": {
-            "headerFontSize": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Large",
-                  "default": "Large"
-                },
-                {
-                  "type": "string",
-                  "const": "Normal",
-                  "default": "Normal"
-                }
-              ],
-              "type": "string",
-              "title": "Header Font Size"
-            },
-            "content": {
-              "type": "object",
-              "properties": {
-                "border": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ],
-                  "title": "Border"
-                },
-                "alignment": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Center",
-                      "default": "Center"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Left",
-                      "default": "Left"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Side to side",
-                      "default": "Side to side"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Alignment"
-                },
-                "bgColor": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "const": "Normal",
-                      "default": "Normal"
-                    },
-                    {
-                      "type": "string",
-                      "const": "Reverse",
-                      "default": "Reverse"
-                    }
-                  ],
-                  "type": "string",
-                  "title": "Bg Color"
-                }
-              },
-              "required": [],
-              "title": "Content"
-            }
-          },
-          "required": [],
-          "title": "Layout"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
       "type": "object",
@@ -13821,6 +14018,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz": {
+      "title": "deco-sites/otica-isabela/accounts/configStore.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3BhY2tzL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz@Account"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/accounts/configStore.ts"
+          ],
+          "default": "deco-sites/otica-isabela/accounts/configStore.ts"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdGQvYWNjb3VudHMvbnV2ZW1TaG9wLnRz": {
       "title": "deco-sites/std/accounts/nuvemShop.ts",
       "type": "object",
@@ -14441,6 +14659,11 @@
     "Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4": {
       "title": "./islands/Newsletter.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],
@@ -15184,7 +15407,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props"
         }
       ],
       "required": [
@@ -16387,6 +16610,9 @@
       "anyOf": [
         {
           "$ref": "#/definitions/Resolvable"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvYWNjb3VudHMvbnV2ZW1TaG9wLnRz"

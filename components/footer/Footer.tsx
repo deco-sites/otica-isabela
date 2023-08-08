@@ -1,5 +1,6 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-
+import Newsletter from "$store/islands/Newsletter.tsx";
+import type { Props as NewsletterProps } from "$store/components/ui/Newsletter.tsx";
 import { FirstBlock } from "./FirstBlock.tsx";
 import { SecondBlock } from "./SecondBlock.tsx";
 import { ThirdBlock } from "./ThirdBlock.tsx";
@@ -65,6 +66,7 @@ export interface FourthBlock {
 }
 
 export interface Props {
+  newsletter?: NewsletterProps;
   /**
    * @title  Social Section
    */
@@ -84,17 +86,21 @@ export interface Props {
 }
 
 function Footer({
+  newsletter,
   secondBlock,
   firstBlock,
   thirdBlock,
   fourthBlock,
 }: Props) {
   return (
-    <footer class="w-full bg-black">
-      <FirstBlock {...firstBlock} />
-      <SecondBlock {...secondBlock} />
-      <ThirdBlock {...thirdBlock} />
-      <FourthBlock {...fourthBlock} />
+    <footer>
+      <Newsletter {...newsletter} />
+      <div class="w-full bg-black">
+        <FirstBlock {...firstBlock} />
+        <SecondBlock {...secondBlock} />
+        <ThirdBlock {...thirdBlock} />
+        <FourthBlock {...fourthBlock} />
+      </div>
     </footer>
   );
 }

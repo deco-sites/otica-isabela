@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("./static/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
+  .bebas {
+    font-family: "Bebas Neue", sans-serif;
+  }
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
