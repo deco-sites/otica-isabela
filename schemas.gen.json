@@ -39,6 +39,7 @@
               "deco-sites/std/functions/vtexProductListingPage.ts",
               "deco-sites/std/functions/vtexSuggestions.ts",
               "deco-sites/std/functions/vtexWishlist.ts",
+              "deco-sites/otica-isabela/accounts/configStore.ts",
               "deco-sites/std/accounts/nuvemShop.ts",
               "deco-sites/std/accounts/occ.ts",
               "deco-sites/std/accounts/shopify.ts",
@@ -3428,6 +3429,39 @@
       ],
       "title": "deco-sites/std/functions/vtexWishlist.ts@Props"
     },
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "title": "Account"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3BhY2tzL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz@Account": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account"
+        }
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Oticas Isabela token, used for API authentication.",
+          "title": "Token"
+        },
+        "publicUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Public store URL",
+          "description": "Domain that is registered on License Manager (e.g: www.mystore.com.br)"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "title": "deco-sites/otica-isabela/packs/accounts/configStore.ts@Account"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvbnV2ZW1TaG9wL3R5cGVzLnRz@Account": {
       "type": "object",
       "properties": {
@@ -3453,12 +3487,6 @@
         "storeId"
       ],
       "title": "deco-sites/std/commerce/nuvemShop/types.ts@Account"
-    },
-    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account": {
-      "type": "object",
-      "properties": {},
-      "required": [],
-      "title": "Account"
     },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2Uvb2NjL2NsaWVudC50cw==@ConfigOCC": {
       "type": "object",
@@ -13994,6 +14022,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz": {
+      "title": "deco-sites/otica-isabela/accounts/configStore.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3BhY2tzL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz@Account"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/accounts/configStore.ts"
+          ],
+          "default": "deco-sites/otica-isabela/accounts/configStore.ts"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdGQvYWNjb3VudHMvbnV2ZW1TaG9wLnRz": {
       "title": "deco-sites/std/accounts/nuvemShop.ts",
       "type": "object",
@@ -15360,6 +15409,11 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL05ld3NsZXR0ZXIvTmV3c2xldHRlci50c3g=": {
       "title": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvTmV3c2xldHRlci50c3g=@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],
@@ -16560,6 +16614,9 @@
       "anyOf": [
         {
           "$ref": "#/definitions/Resolvable"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2FjY291bnRzL2NvbmZpZ1N0b3JlLnRz"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvYWNjb3VudHMvbnV2ZW1TaG9wLnRz"
