@@ -1,10 +1,5 @@
-import ProductCard, {
-  Layout as cardLayout,
-} from "$store/components/product/ProductCard.tsx";
+import ProductCard from "$store/components/product/ProductCard.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-
 import Slider from "$store/components/ui/Slider.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useId } from "preact/hooks";
@@ -15,18 +10,12 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
-  title?: string;
-  description?: string;
-  layout?: {
-    headerAlignment?: "center" | "left";
-    headerfontSize?: "Normal" | "Large";
-  };
-  cardLayout?: cardLayout;
+  itemListName?: string;
 }
 
 function ProductShelf({
   products,
-  title,
+  itemListName,
 }: Props) {
   const id = useId();
 
@@ -36,8 +25,6 @@ function ProductShelf({
 
   return (
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
-      <IconTitle label="Produtos/nVISITADOS" />
-
       <div
         id={id}
         class="container flex flex-col px-0 sm:px-5"
@@ -51,7 +38,7 @@ function ProductShelf({
               >
                 <ProductCard
                   product={product}
-                  itemListName={title}
+                  itemListName={itemListName}
                 />
               </Slider.Item>
             </div>
@@ -62,7 +49,7 @@ function ProductShelf({
           event={{
             name: "view_item_list",
             params: {
-              item_list_name: title,
+              item_list_name: itemListName,
               items: products.map((product) =>
                 mapProductToAnalyticsItem({
                   product,

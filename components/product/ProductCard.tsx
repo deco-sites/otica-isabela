@@ -43,7 +43,6 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
-
 }
 
 const relative = (url: string) => {
@@ -69,8 +68,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
-
-
 
   return (
     <div
