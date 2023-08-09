@@ -59,7 +59,7 @@ function ProductShelf({
             },
           }}
         />
-        <SliderJS rootId={id} />
+        <SliderJS itemsPerPage={{ 3: 3 }} rootId={id} />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
           {products.map((_, index) => (

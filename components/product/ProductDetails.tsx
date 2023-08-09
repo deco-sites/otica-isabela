@@ -14,7 +14,7 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-
+import VisitedProductsSetCookie from "$store/islands/VisitedProductsSetCookie.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
@@ -69,6 +69,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
   return (
     <>
+      <VisitedProductsSetCookie productId={productID} />
       {/* Breadcrumb */}
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}

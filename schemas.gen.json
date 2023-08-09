@@ -76,6 +76,7 @@
               "./islands/SearchControls.tsx",
               "./islands/ShippingSimulation.tsx",
               "./islands/SliderJS.tsx",
+              "./islands/VisitedProductsSetCookie.tsx",
               "./islands/WishlistButton.tsx",
               "$live/handlers/devPage.ts",
               "$live/handlers/fresh.ts",
@@ -9111,8 +9112,8 @@
             "string",
             "null"
           ],
-          "title": "Title",
-          "description": "Utilize /n para diferenciar os testos. ex: Produtos/nVISITADOS"
+          "title": "Visited product shelf title",
+          "description": "Utilize /n para diferenciar os textos. ex: Produtos /n VISITADOS"
         }
       },
       "required": [],
@@ -14768,6 +14769,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Zpc2l0ZWRQcm9kdWN0c1NldENvb2tpZS50c3g=": {
+      "title": "./islands/VisitedProductsSetCookie.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/VisitedProductsSetCookie.tsx"
+          ],
+          "default": "./islands/VisitedProductsSetCookie.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA==": {
       "title": "./islands/WishlistButton.tsx",
       "type": "object",
@@ -16768,6 +16785,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Zpc2l0ZWRQcm9kdWN0c1NldENvb2tpZS50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA=="

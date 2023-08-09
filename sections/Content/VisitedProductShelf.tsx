@@ -1,15 +1,14 @@
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { useId } from "preact/hooks";
-import type { Product } from "deco-sites/std/commerce/types.ts";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 
 export interface Props {
   /**
-   * @title Title
-   * @description Utilize /n para diferenciar os testos. ex: Produtos/nVISITADOS
+   * @title Visited product shelf title
+   * @description Utilize /n para diferenciar os textos. ex: Produtos /n VISITADOS
    */
 
   label?: string;
@@ -21,15 +20,15 @@ export async function loader(
   ctx: Context,
 ) {
   const cookies = getCookies(_req.headers);
-  const parsedIds: string | undefined = cookies?.["visited_products"];
+  const currentIds: string | undefined = cookies?.["visited_products"];
 
-  if (!parsedIds || !JSON.parse(parsedIds)?.length) {
+  if (!currentIds || !currentIds.split(":")?.length) {
     return { ...props, products: [] };
   }
 
   const products = await ctx.invoke(
     "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
-    { ids: JSON.parse(parsedIds) },
+    { ids: currentIds.split(":") },
   );
 
   return { ...props, products };
