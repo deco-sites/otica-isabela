@@ -7419,6 +7419,99 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps": {
       "type": "object",
       "properties": {
+        "firstLineText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "First Line Text"
+        },
+        "firstLineTextWeight": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "medium",
+              "default": "medium"
+            },
+            {
+              "type": "string",
+              "const": "semi-bold",
+              "default": "semi-bold"
+            }
+          ],
+          "type": "string",
+          "title": "First Line Text Weight"
+        },
+        "secondLineText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Second Line Text"
+        },
+        "secondLineTextWeight": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "bold",
+              "default": "bold"
+            },
+            {
+              "type": "string",
+              "const": "normal",
+              "default": "normal"
+            }
+          ],
+          "type": "string",
+          "title": "Second Line Text Weight"
+        },
+        "textAlignment": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "center",
+              "default": "center"
+            },
+            {
+              "type": "string",
+              "const": "start",
+              "default": "start"
+            }
+          ],
+          "type": "string",
+          "title": "Text Alignment"
+        },
+        "firstLineTextColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "First Line Text Color"
+        },
+        "secondLineTextColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "Second Line Text Color"
+        },
+        "backgroundColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "Background Color"
+        },
+        "hideIcon": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Icon"
+        },
         "icon": {
           "anyOf": [
             {
@@ -7679,14 +7772,6 @@
           ],
           "type": "string",
           "title": "Icon"
-        },
-        "label": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Utilize %icon para atribuir a posição do icone. ex: Seja avisado das %icon OFERTAS E DESCONTOS",
-          "title": "Label"
         }
       },
       "required": [],
@@ -7702,9 +7787,9 @@
           ],
           "title": "Hide Newsletter"
         },
-        "titleConfig": {
+        "newLetterHeader": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
-          "title": "Title Config"
+          "title": "New Letter Header"
         },
         "placeholder": {
           "type": "object",
@@ -9106,13 +9191,9 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
-        "label": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Visited product shelf title",
-          "description": "Utilize /n para diferenciar os textos. ex: Produtos /n VISITADOS"
+        "shelfHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Shelf Header"
         }
       },
       "required": [],
@@ -11426,214 +11507,6 @@
       ],
       "title": "Layout"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout": {
-      "type": "object",
-      "properties": {
-        "basics": {
-          "type": "object",
-          "properties": {
-            "contentAlignment": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Left",
-                  "default": "Left"
-                },
-                {
-                  "type": "string",
-                  "const": "Center",
-                  "default": "Center"
-                }
-              ],
-              "type": "string",
-              "title": "Content Alignment"
-            },
-            "oldPriceSize": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Small",
-                  "default": "Small"
-                },
-                {
-                  "type": "string",
-                  "const": "Normal",
-                  "default": "Normal"
-                }
-              ],
-              "type": "string",
-              "title": "Old Price Size"
-            },
-            "ctaText": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Cta Text"
-            }
-          },
-          "required": [],
-          "title": "Basics"
-        },
-        "elementsPositions": {
-          "type": "object",
-          "properties": {
-            "skuSelector": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Top",
-                  "default": "Top"
-                },
-                {
-                  "type": "string",
-                  "const": "Bottom",
-                  "default": "Bottom"
-                }
-              ],
-              "type": "string",
-              "title": "Sku Selector"
-            },
-            "favoriteIcon": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Top right",
-                  "default": "Top right"
-                },
-                {
-                  "type": "string",
-                  "const": "Top left",
-                  "default": "Top left"
-                }
-              ],
-              "type": "string",
-              "title": "Favorite Icon"
-            }
-          },
-          "required": [],
-          "title": "Elements Positions"
-        },
-        "hide": {
-          "type": "object",
-          "properties": {
-            "productName": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Product Name"
-            },
-            "productDescription": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Product Description"
-            },
-            "allPrices": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "All Prices"
-            },
-            "installments": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Installments"
-            },
-            "skuSelector": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Sku Selector"
-            },
-            "cta": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Cta"
-            }
-          },
-          "required": [],
-          "title": "Hide"
-        },
-        "onMouseOver": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Change image",
-                  "default": "Change image"
-                },
-                {
-                  "type": "string",
-                  "const": "Zoom image",
-                  "default": "Zoom image"
-                }
-              ],
-              "type": "string",
-              "title": "Image"
-            },
-            "card": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "None",
-                  "default": "None"
-                },
-                {
-                  "type": "string",
-                  "const": "Move up",
-                  "default": "Move up"
-                }
-              ],
-              "type": "string",
-              "title": "Card"
-            },
-            "showFavoriteIcon": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Favorite Icon"
-            },
-            "showSkuSelector": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Sku Selector"
-            },
-            "showCardShadow": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Card Shadow"
-            },
-            "showCta": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Cta"
-            }
-          },
-          "required": [],
-          "title": "On Mouse Over"
-        }
-      },
-      "required": [],
-      "title": "Layout"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -11644,10 +11517,6 @@
         "layout": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Layout",
           "title": "Layout"
-        },
-        "cardLayout": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
-          "title": "Card Layout"
         }
       },
       "required": [

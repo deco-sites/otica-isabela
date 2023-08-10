@@ -6,7 +6,7 @@ import type { JSX } from "preact";
 
 export interface Props {
   hideNewsletter?: boolean;
-  titleConfig?: IconTitleProps;
+  newLetterHeader?: IconTitleProps;
   placeholder?: {
     nameInput?: string;
     mailInput?: string;
@@ -31,7 +31,7 @@ export default function Newsletter(
     placeholder,
     hideNewsletter,
     successRedirectLink,
-    titleConfig,
+    newLetterHeader,
   }: Props,
 ) {
   if (hideNewsletter) {
@@ -40,7 +40,6 @@ export default function Newsletter(
 
   const modalMode = useSignal("");
   const modalAlertMensage = useSignal("");
-  const profilePhone = useSignal("");
 
   const phoneMask = (value: string) => {
     return value
@@ -78,9 +77,9 @@ export default function Newsletter(
   return (
     <>
       <section class="w-full bg-blue-200  ">
-        <div class="flex flex-col justify-center items-center container w-full ">
+        <div class="flex flex-col justify-center items-center w-full ">
           <IconTitle
-            {...titleConfig}
+            {...newLetterHeader}
           />
           <form
             action="#"
