@@ -22,7 +22,7 @@ export default {
       colors: {
         "red-500": "#d92027",
         "danger": "#f3ae3f",
-        "gray-scale-100":"#f8f8f8",
+        "gray-scale-100": "#f8f8f8",
         "base-500": "#171717",
         "base-300": "#757575",
         "base-200": "#a6a6a6",

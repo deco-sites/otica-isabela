@@ -39,8 +39,6 @@ function VisitedProductShelf({
   products,
   label,
 }: SectionProps<typeof loader>) {
-  const id = useId();
-
   if (!products || products.length === 0) {
     return null;
   }

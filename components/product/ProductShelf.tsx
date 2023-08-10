@@ -20,7 +20,7 @@ export interface Props {
 function ProductShelf({
   products,
   itemListName,
-  itemsPerPage
+  itemsPerPage,
 }: Props) {
   const id = useId();
 
@@ -65,7 +65,7 @@ function ProductShelf({
           }}
         />
         <SliderJS
-          itemsPerPage={itemsPerPage}  
+          itemsPerPage={itemsPerPage}
           rootId={id}
         />
 
