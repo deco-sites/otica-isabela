@@ -35,7 +35,7 @@ function NotFound() {
 
 function Result({
   page,
-  layout
+  layout,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
@@ -56,7 +56,7 @@ function Result({
             </aside>
           )}
           <div class="flex-grow">
-            <ProductGallery products={products}/>
+            <ProductGallery products={products} />
           </div>
         </div>
 
