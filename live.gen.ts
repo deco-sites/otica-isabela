@@ -18,8 +18,7 @@ import * as $$$$$8 from "./islands/PromotionalBar.tsx";
 import * as $$$$$9 from "./islands/SearchControls.tsx";
 import * as $$$$$10 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$11 from "./islands/SliderJS.tsx";
-import * as $$$$$12 from "./islands/VisitedProductsSetCookie.tsx";
-import * as $$$$$13 from "./islands/WishlistButton.tsx";
+import * as $$$$$12 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$1 from "./sections/Category/CategoryList.tsx";
 import * as $$$$$$$$2 from "./sections/Content/Benefits.tsx";
@@ -210,8 +209,7 @@ const manifest = {
     "./islands/SearchControls.tsx": $$$$$9,
     "./islands/ShippingSimulation.tsx": $$$$$10,
     "./islands/SliderJS.tsx": $$$$$11,
-    "./islands/VisitedProductsSetCookie.tsx": $$$$$12,
-    "./islands/WishlistButton.tsx": $$$$$13,
+    "./islands/WishlistButton.tsx": $$$$$12,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,

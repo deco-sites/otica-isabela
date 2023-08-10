@@ -11,11 +11,16 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
   itemListName?: string;
+  itemsPerPage: {
+    mobile: Record<number, number>;
+    desktop: Record<number, number>;
+  };
 }
 
 function ProductShelf({
   products,
   itemListName,
+  itemsPerPage
 }: Props) {
   const id = useId();
 
@@ -24,17 +29,17 @@ function ProductShelf({
   }
 
   return (
-    <div class="w-full flex flex-col gap-12 lg:gap-16 ">
+    <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
       <div
         id={id}
         class="container flex flex-col px-0 sm:px-5"
       >
-        <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
+        <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
           {products?.map((product, index) => (
             <div class="flex flex-col">
               <Slider.Item
                 index={index}
-                class="carousel-item w-full first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+                class="carousel-item w-full  lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 "
               >
                 <ProductCard
                   product={product}
@@ -59,7 +64,10 @@ function ProductShelf({
             },
           }}
         />
-        <SliderJS itemsPerPage={{ 3: 3 }} rootId={id} />
+        <SliderJS
+          itemsPerPage={itemsPerPage}  
+          rootId={id}
+        />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
           {products.map((_, index) => (

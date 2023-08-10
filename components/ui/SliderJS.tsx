@@ -5,7 +5,10 @@ interface Props {
   scroll?: "smooth" | "auto";
   interval?: number;
   infinite?: boolean;
-  itemsPerPage?: Record<number, number>;
+  itemsPerPage?: {
+    mobile: Record<number, number>;
+    desktop: Record<number, number>;
+  };
 }
 
 const ATTRIBUTES = {
@@ -48,8 +51,19 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   typeof (x as any).offsetLeft === "number";
 
 const setup = (
-  { rootId, scroll, interval, infinite, itemsPerPage = { 0: 1 } }: Props,
+  {
+    rootId,
+    scroll,
+    interval,
+    infinite,
+    itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
+  }: Props,
 ) => {
+  const { desktop, mobile } = itemsPerPage ?? {};
+
+  const currentItemsPerPage =
+    window?.matchMedia?.("(min-width: 768px)")?.matches ? desktop : mobile;
+
   const root = document.getElementById(rootId);
   const slider = root?.querySelector<HTMLUListElement>(
     `[${ATTRIBUTES["data-slider"]}]`,
@@ -62,7 +76,7 @@ const setup = (
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
   const [, perPage] =
-    Object.entries(itemsPerPage).sort(([widthA], [widthB]) =>
+    Object.entries(currentItemsPerPage).sort(([widthA], [widthB]) =>
       Number(widthB) - Number(widthA)
     )
       .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];

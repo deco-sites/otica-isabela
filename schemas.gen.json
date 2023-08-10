@@ -76,7 +76,6 @@
               "./islands/SearchControls.tsx",
               "./islands/ShippingSimulation.tsx",
               "./islands/SliderJS.tsx",
-              "./islands/VisitedProductsSetCookie.tsx",
               "./islands/WishlistButton.tsx",
               "$live/handlers/devPage.ts",
               "$live/handlers/fresh.ts",
@@ -11343,10 +11342,35 @@
             "null"
           ],
           "title": "Item List Name"
+        },
+        "itemsPerPage": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "title": "Mobile",
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
+            },
+            "desktop": {
+              "title": "Desktop",
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "mobile",
+            "desktop"
+          ],
+          "title": "Items Per Page"
         }
       },
       "required": [
-        "products"
+        "products",
+        "itemsPerPage"
       ],
       "title": "deco-sites/otica-isabela/components/product/ProductShelf.tsx@Props"
     },
@@ -14769,22 +14793,6 @@
         }
       }
     },
-    "Li9pc2xhbmRzL1Zpc2l0ZWRQcm9kdWN0c1NldENvb2tpZS50c3g=": {
-      "title": "./islands/VisitedProductsSetCookie.tsx",
-      "type": "object",
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/VisitedProductsSetCookie.tsx"
-          ],
-          "default": "./islands/VisitedProductsSetCookie.tsx"
-        }
-      }
-    },
     "Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA==": {
       "title": "./islands/WishlistButton.tsx",
       "type": "object",
@@ -16785,9 +16793,6 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="
-        },
-        {
-          "$ref": "#/definitions/Li9pc2xhbmRzL1Zpc2l0ZWRQcm9kdWN0c1NldENvb2tpZS50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA=="

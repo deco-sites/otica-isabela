@@ -16,19 +16,20 @@ export interface Props {
 
 export async function loader(
   { ...props }: Props,
-  _req: Request,
+  req: Request,
   ctx: Context,
 ) {
-  const cookies = getCookies(_req.headers);
+  const cookies = getCookies(req.headers);
   const currentIds: string | undefined = cookies?.["visited_products"];
+  const splitedIds = currentIds.split(":");
 
-  if (!currentIds || !currentIds.split(":")?.length) {
+  if (!splitedIds?.length) {
     return { ...props, products: [] };
   }
 
   const products = await ctx.invoke(
     "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
-    { ids: currentIds.split(":") },
+    { ids: splitedIds },
   );
 
   return { ...props, products };
@@ -47,7 +48,11 @@ function VisitedProductShelf({
   return (
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
       <IconTitle label={label} />
-      <ProductShelf products={products} itemListName="Produtos Visitados" />
+      <ProductShelf
+        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.6 } }}
+        products={products}
+        itemListName="Produtos Visitados"
+      />
     </div>
   );
 }
