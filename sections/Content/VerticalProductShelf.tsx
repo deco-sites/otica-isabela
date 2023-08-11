@@ -14,5 +14,4 @@ const VerticalProductShelf = () => {
   );
 };
 
-
-export default VerticalProductShelf
+export default VerticalProductShelf;
