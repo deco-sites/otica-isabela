@@ -371,21 +371,14 @@ export function loader(
 ) {
   const productId = props.page?.product?.productID;
 
-  if (!productId) {
-    return { ...props };
-  }
-
   const cookies = getCookies(req.headers);
-  const currentIds: string | undefined = cookies?.["visited_products"];
-  const splitedIds: string[] = currentIds?.split(":") ?? [];
+  const currentIds: string | undefined = cookies?.["visited_products"]?.split(":") ?? [];
 
-  const updateIds = currentIds
-    ? [productId, ...splitedIds.filter((id) => id !== productId)]
-    : [productId];
+  const newIds = currentIds.some((id) => id === productId) ? currentIds : currentIds.concat([productId])
 
   setCookie(ctx.response.headers, {
     name: "visited_products",
-    value: updateIds?.join(":"),
+    value: newIds?.join(":"),
     path: "/",
   });
 
