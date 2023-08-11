@@ -1,4 +1,5 @@
 {
   "namespace": "deco-sites/otica-isabela",
-  "siteId": 1803
+  "siteId": 1803,
+  "imports": ["$live/live.gen.ts", "deco-sites/std/live.gen.ts"]
 }
