@@ -22,7 +22,6 @@ import type { SectionProps } from "$live/mod.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
 
-
 export type Variant = "front-back" | "slider" | "auto";
 
 export interface Props {
