@@ -4,6 +4,7 @@ import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
+import { visitedProductsCookie } from "$store/components/constants.ts";
 
 export interface Props {
   shelfHeader?: IconTitleProps;
@@ -15,7 +16,7 @@ export async function loader(
   ctx: Context,
 ) {
   const cookies = getCookies(req.headers);
-  const currentIds: string | undefined = cookies?.["visited_products"];
+  const currentIds: string | undefined = cookies?.[visitedProductsCookie];
   const splitedIds = currentIds?.split(":");
 
   if (!splitedIds?.length) {
