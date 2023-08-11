@@ -5,6 +5,10 @@ interface Props {
   scroll?: "smooth" | "auto";
   interval?: number;
   infinite?: boolean;
+  itemsPerPage?: {
+    mobile: Record<number, number>;
+    desktop: Record<number, number>;
+  };
 }
 
 const ATTRIBUTES = {
@@ -46,13 +50,36 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   // deno-lint-ignore no-explicit-any
   typeof (x as any).offsetLeft === "number";
 
-const setup = ({ rootId, scroll, interval, infinite }: Props) => {
+const setup = (
+  {
+    rootId,
+    scroll,
+    interval,
+    infinite,
+    itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
+  }: Props,
+) => {
+  const { desktop, mobile } = itemsPerPage ?? {};
+
+  const currentItemsPerPage =
+    window?.matchMedia?.("(min-width: 768px)")?.matches ? desktop : mobile;
+
   const root = document.getElementById(rootId);
-  const slider = root?.querySelector(`[${ATTRIBUTES["data-slider"]}]`);
-  const items = root?.querySelectorAll(`[${ATTRIBUTES["data-slider-item"]}]`);
+  const slider = root?.querySelector<HTMLUListElement>(
+    `[${ATTRIBUTES["data-slider"]}]`,
+  );
+
+  const items = root?.querySelectorAll<HTMLLIElement>(
+    `[${ATTRIBUTES["data-slider-item"]}]`,
+  );
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
+  const [, perPage] =
+    Object.entries(currentItemsPerPage).sort(([widthA], [widthB]) =>
+      Number(widthB) - Number(widthA)
+    )
+      .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];
 
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
@@ -98,32 +125,30 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     slider.scrollTo({
       top: 0,
       behavior: scroll,
-      left: item.offsetLeft - root.offsetLeft,
+      left: item.offsetLeft,
     });
   };
 
   const onClickPrev = () => {
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
-    const itemsPerPage = indices.length;
 
     const isShowingFirst = indices[0] === 0;
-    const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
+    const pageIndex = Math.floor(indices[indices.length - 1] / perPage);
 
     goToItem(
-      isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
+      isShowingFirst ? items.length - 1 : (pageIndex - 1) * perPage,
     );
   };
 
   const onClickNext = () => {
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
-    const itemsPerPage = indices.length;
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
-    const pageIndex = Math.floor(indices[0] / itemsPerPage);
+    const pageIndex = Math.floor(indices[0] / perPage);
 
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
+    goToItem(isShowingLast ? 0 : (pageIndex + 1) * perPage);
   };
 
   const observer = new IntersectionObserver(
@@ -158,7 +183,15 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     { threshold: THRESHOLD, root: slider },
   );
 
-  items.forEach((item) => observer.observe(item));
+  const safeWidth = slider.offsetWidth -
+    (Number(getComputedStyle(slider).columnGap.replace("px", "")) *
+      (perPage - 1));
+  const cardSize = Math.floor(safeWidth / perPage);
+
+  items.forEach((item) => {
+    item.style.width = `${cardSize}px`;
+    observer.observe(item);
+  });
 
   for (let it = 0; it < (dots?.length ?? 0); it++) {
     dots?.item(it).addEventListener("click", () => goToItem(it));
@@ -189,12 +222,14 @@ function Slider({
   scroll = "smooth",
   interval,
   infinite = false,
+  itemsPerPage,
 }: Props) {
-  useEffect(() => setup({ rootId, scroll, interval, infinite }), [
+  useEffect(() => setup({ rootId, scroll, interval, infinite, itemsPerPage }), [
     rootId,
     scroll,
     interval,
     infinite,
+    itemsPerPage,
   ]);
 
   return <div data-slider-controller-js />;
