@@ -23,7 +23,6 @@ export interface Layout {
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
   layout?: Layout;
-  cardLayout?: cardLayout;
 }
 
 function NotFound() {
@@ -37,7 +36,6 @@ function NotFound() {
 function Result({
   page,
   layout,
-  cardLayout,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
@@ -58,7 +56,7 @@ function Result({
             </aside>
           )}
           <div class="flex-grow">
-            <ProductGallery products={products} layout={cardLayout} />
+            <ProductGallery products={products} />
           </div>
         </div>
 

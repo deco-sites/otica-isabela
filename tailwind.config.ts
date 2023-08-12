@@ -20,9 +20,12 @@ export default {
         "bebas-neue": ["Bebas Neue"],
       },
       colors: {
+        "red-500": "#d92027",
         "danger": "#f3ae3f",
+        "gray-scale-100": "#f8f8f8",
         "base-500": "#171717",
         "base-300": "#757575",
+        "base-200": "#a6a6a6",
         "blue-100": "#a8e3ff",
         "blue-200": "#42c3ff",
         "blue-300": "#00a7f5",

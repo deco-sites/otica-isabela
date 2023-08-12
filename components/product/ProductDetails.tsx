@@ -14,10 +14,13 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-
+import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
+import type { SectionProps } from "$live/mod.ts";
+import { getCookies, setCookie } from "std/http/mod.ts";
+import { visitedProductsCookie } from "$store/components/constants.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -361,7 +364,33 @@ function Details({
   );
 }
 
-function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
+export function loader(
+  { ...props }: Props,
+  req: Request,
+  ctx: Context,
+) {
+  const productId: string | undefined = props.page?.product?.productID ?? "";
+
+  const cookies = getCookies(req.headers);
+  const currentIds: string[] | undefined =
+    cookies?.[visitedProductsCookie]?.split(":") ?? [];
+
+  const newIds = currentIds.some((id) => id === productId)
+    ? currentIds
+    : currentIds.concat([productId]);
+
+  setCookie(ctx.response.headers, {
+    name: visitedProductsCookie,
+    value: newIds?.join(":"),
+    path: "/",
+  });
+
+  return { ...props };
+}
+
+function ProductDetails(
+  { page, variant: maybeVar = "auto" }: SectionProps<typeof loader>,
+) {
   /**
    * Showcase the different product views we have on this template. In case there are less
    * than two images, render a front-back, otherwhise render a slider

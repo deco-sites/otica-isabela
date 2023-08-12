@@ -111,7 +111,9 @@
               "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx",
               "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx",
               "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx",
+              "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx",
               "deco-sites/otica-isabela/sections/Product/SearchResult.tsx",
+              "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx",
               "deco-sites/otica-isabela/sections/Product/Wishlist.tsx",
               "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx",
               "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx",
@@ -7419,6 +7421,99 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps": {
       "type": "object",
       "properties": {
+        "firstLineText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "First Line Text"
+        },
+        "firstLineTextWeight": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "medium",
+              "default": "medium"
+            },
+            {
+              "type": "string",
+              "const": "semi-bold",
+              "default": "semi-bold"
+            }
+          ],
+          "type": "string",
+          "title": "First Line Text Weight"
+        },
+        "secondLineText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Second Line Text"
+        },
+        "secondLineTextWeight": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "bold",
+              "default": "bold"
+            },
+            {
+              "type": "string",
+              "const": "normal",
+              "default": "normal"
+            }
+          ],
+          "type": "string",
+          "title": "Second Line Text Weight"
+        },
+        "textAlignment": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "center",
+              "default": "center"
+            },
+            {
+              "type": "string",
+              "const": "start",
+              "default": "start"
+            }
+          ],
+          "type": "string",
+          "title": "Text Alignment"
+        },
+        "firstLineTextColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "First Line Text Color"
+        },
+        "secondLineTextColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "Second Line Text Color"
+        },
+        "backgroundColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "title": "Background Color"
+        },
+        "hideIcon": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Icon"
+        },
         "icon": {
           "anyOf": [
             {
@@ -7665,18 +7760,25 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
+            },
+            {
+              "type": "string",
+              "const": "GlassesAroClosed",
+              "default": "GlassesAroClosed"
             }
           ],
           "type": "string",
           "title": "Icon"
-        },
-        "label": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Utilize %icon para atribuir a posição do icone. ex: Seja avisado das %icon OFERTAS E DESCONTOS",
-          "title": "Label"
         }
       },
       "required": [],
@@ -7692,9 +7794,9 @@
           ],
           "title": "Hide Newsletter"
         },
-        "titleConfig": {
+        "newLetterHeader": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
-          "title": "Title Config"
+          "title": "New Letter Header"
         },
         "placeholder": {
           "type": "object",
@@ -8670,6 +8772,21 @@
                     "type": "string",
                     "const": "CheckMarkCircle",
                     "default": "CheckMarkCircle"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Camera",
+                    "default": "Camera"
+                  },
+                  {
+                    "type": "string",
+                    "const": "ArrowDown",
+                    "default": "ArrowDown"
+                  },
+                  {
+                    "type": "string",
+                    "const": "GlassesAroClosed",
+                    "default": "GlassesAroClosed"
                   }
                 ],
                 "type": "string",
@@ -9856,6 +9973,21 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
+            },
+            {
+              "type": "string",
+              "const": "GlassesAroClosed",
+              "default": "GlassesAroClosed"
             }
           ],
           "type": "string",
@@ -10281,15 +10413,15 @@
       "type": "object",
       "properties": {
         "image": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
           "title": "Image"
         },
-        "alt": {
+        "activate": {
           "type": [
-            "string",
+            "boolean",
             "null"
           ],
-          "title": "Alt"
+          "title": "Activate"
         }
       },
       "required": [],
@@ -10998,6 +11130,21 @@
               "type": "string",
               "const": "CheckMarkCircle",
               "default": "CheckMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "Camera",
+              "default": "Camera"
+            },
+            {
+              "type": "string",
+              "const": "ArrowDown",
+              "default": "ArrowDown"
+            },
+            {
+              "type": "string",
+              "const": "GlassesAroClosed",
+              "default": "GlassesAroClosed"
             }
           ],
           "type": "string",
@@ -11292,214 +11439,6 @@
       ],
       "title": "deco-sites/otica-isabela/components/product/ProductDetails.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout": {
-      "type": "object",
-      "properties": {
-        "basics": {
-          "type": "object",
-          "properties": {
-            "contentAlignment": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Left",
-                  "default": "Left"
-                },
-                {
-                  "type": "string",
-                  "const": "Center",
-                  "default": "Center"
-                }
-              ],
-              "type": "string",
-              "title": "Content Alignment"
-            },
-            "oldPriceSize": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Small",
-                  "default": "Small"
-                },
-                {
-                  "type": "string",
-                  "const": "Normal",
-                  "default": "Normal"
-                }
-              ],
-              "type": "string",
-              "title": "Old Price Size"
-            },
-            "ctaText": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Cta Text"
-            }
-          },
-          "required": [],
-          "title": "Basics"
-        },
-        "elementsPositions": {
-          "type": "object",
-          "properties": {
-            "skuSelector": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Top",
-                  "default": "Top"
-                },
-                {
-                  "type": "string",
-                  "const": "Bottom",
-                  "default": "Bottom"
-                }
-              ],
-              "type": "string",
-              "title": "Sku Selector"
-            },
-            "favoriteIcon": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Top right",
-                  "default": "Top right"
-                },
-                {
-                  "type": "string",
-                  "const": "Top left",
-                  "default": "Top left"
-                }
-              ],
-              "type": "string",
-              "title": "Favorite Icon"
-            }
-          },
-          "required": [],
-          "title": "Elements Positions"
-        },
-        "hide": {
-          "type": "object",
-          "properties": {
-            "productName": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Product Name"
-            },
-            "productDescription": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Product Description"
-            },
-            "allPrices": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "All Prices"
-            },
-            "installments": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Installments"
-            },
-            "skuSelector": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Sku Selector"
-            },
-            "cta": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Cta"
-            }
-          },
-          "required": [],
-          "title": "Hide"
-        },
-        "onMouseOver": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Change image",
-                  "default": "Change image"
-                },
-                {
-                  "type": "string",
-                  "const": "Zoom image",
-                  "default": "Zoom image"
-                }
-              ],
-              "type": "string",
-              "title": "Image"
-            },
-            "card": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "None",
-                  "default": "None"
-                },
-                {
-                  "type": "string",
-                  "const": "Move up",
-                  "default": "Move up"
-                }
-              ],
-              "type": "string",
-              "title": "Card"
-            },
-            "showFavoriteIcon": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Favorite Icon"
-            },
-            "showSkuSelector": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Sku Selector"
-            },
-            "showCardShadow": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Card Shadow"
-            },
-            "showCta": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Show Cta"
-            }
-          },
-          "required": [],
-          "title": "On Mouse Over"
-        }
-      },
-      "required": [],
-      "title": "Layout"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0U2hlbGYudHN4@Props": {
       "type": "object",
       "properties": {
@@ -11507,68 +11446,91 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products"
         },
-        "title": {
+        "itemListName": {
           "type": [
             "string",
             "null"
           ],
-          "title": "Title"
+          "title": "Item List Name"
         },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Description"
-        },
-        "layout": {
+        "itemsPerPage": {
           "type": "object",
           "properties": {
-            "headerAlignment": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "center",
-                  "default": "center"
-                },
-                {
-                  "type": "string",
-                  "const": "left",
-                  "default": "left"
-                }
-              ],
-              "type": "string",
-              "title": "Header Alignment"
+            "mobile": {
+              "title": "Mobile",
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
             },
-            "headerfontSize": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Normal",
-                  "default": "Normal"
-                },
-                {
-                  "type": "string",
-                  "const": "Large",
-                  "default": "Large"
-                }
-              ],
-              "type": "string",
-              "title": "Headerfont Size"
+            "desktop": {
+              "title": "Desktop",
+              "type": "object",
+              "additionalProperties": {
+                "type": "number"
+              }
             }
           },
-          "required": [],
-          "title": "Layout"
-        },
-        "cardLayout": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
-          "title": "Card Layout"
+          "required": [
+            "mobile",
+            "desktop"
+          ],
+          "title": "Items Per Page"
         }
       },
       "required": [
-        "products"
+        "products",
+        "itemsPerPage"
       ],
       "title": "deco-sites/otica-isabela/components/product/ProductShelf.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdFNoZWxmQW5kSW1hZ2UudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Header"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Href"
+            },
+            "desktop": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Mobile"
+            },
+            "alt": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Alt"
+            }
+          },
+          "required": [
+            "desktop"
+          ],
+          "title": "Image"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "title": "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns": {
       "type": "object",
@@ -11632,16 +11594,23 @@
         "layout": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Layout",
           "title": "Layout"
-        },
-        "cardLayout": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0Q2FyZC50c3g=@Layout",
-          "title": "Card Layout"
         }
       },
       "required": [
         "page"
       ],
       "title": "deco-sites/otica-isabela/components/search/SearchResult.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "shelfHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Shelf Header"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1NvY2lhbC9JbnN0YWdyYW1Qb3N0cy50c3g=@layout": {
       "type": "object",
@@ -15505,6 +15474,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdFNoZWxmQW5kSW1hZ2UudHN4": {
+      "title": "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdFNoZWxmQW5kSW1hZ2UudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx"
+          ],
+          "default": "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvU2VhcmNoUmVzdWx0LnRzeA==": {
       "title": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx",
       "type": "object",
@@ -15523,6 +15513,27 @@
             "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
           ],
           "default": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=": {
+      "title": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx"
+          ],
+          "default": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx"
         }
       }
     },
@@ -16912,7 +16923,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdFNoZWxmLnRzeA=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvUHJvZHVjdFNoZWxmQW5kSW1hZ2UudHN4"
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvU2VhcmNoUmVzdWx0LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvV2lzaGxpc3QudHN4"
