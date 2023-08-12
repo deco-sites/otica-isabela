@@ -10,7 +10,11 @@ const InformativeBanner = ({ image, hidden }: Props) => {
     return null;
   }
 
-  return <BasicImageAndLink {...image} />;
+  return (
+    <div class='w-full hidden lg:flex bg-black py-3'>
+      <BasicImageAndLink {...image} />
+    </div>
+  );
 };
 
 export default InformativeBanner;
