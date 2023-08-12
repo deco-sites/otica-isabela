@@ -7,7 +7,7 @@ import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
 
 export interface Props {
-  shelfHeader?: IconTitleProps;
+  header?: IconTitleProps;
 }
 
 export async function loader(
@@ -33,7 +33,7 @@ export async function loader(
 
 function VisitedProductShelf({
   products,
-  shelfHeader,
+  header,
 }: SectionProps<typeof loader>) {
   if (!products || products.length === 0) {
     return null;
@@ -41,7 +41,7 @@ function VisitedProductShelf({
 
   return (
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
-      <IconTitle {...shelfHeader} />
+      <IconTitle {...header} />
       <ProductShelf
         itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
         products={products}

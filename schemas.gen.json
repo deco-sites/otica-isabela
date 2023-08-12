@@ -11516,9 +11516,9 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
-        "shelfHeader": {
+        "header": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
-          "title": "Shelf Header"
+          "title": "Header"
         }
       },
       "required": [],
