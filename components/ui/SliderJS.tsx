@@ -62,7 +62,7 @@ const setup = (
   const { desktop, mobile } = itemsPerPage ?? {};
 
   const currentItemsPerPage =
-    window?.matchMedia?.("(min-width: 768px)")?.matches ? desktop : mobile;
+    window?.matchMedia?.("(min-width: 984px)")?.matches ? desktop : mobile;
 
   const root = document.getElementById(rootId);
   const slider = root?.querySelector<HTMLUListElement>(

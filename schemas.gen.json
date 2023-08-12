@@ -98,7 +98,6 @@
               "deco-sites/otica-isabela/sections/Content/Logos.tsx",
               "deco-sites/otica-isabela/sections/Content/Testimonials.tsx",
               "deco-sites/otica-isabela/sections/Content/VerticalProductShelf.tsx",
-              "deco-sites/otica-isabela/sections/Content/VisitedProductShelf.tsx",
               "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
               "deco-sites/otica-isabela/sections/Header/Header.tsx",
               "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx",
@@ -113,6 +112,7 @@
               "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx",
               "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx",
               "deco-sites/otica-isabela/sections/Product/SearchResult.tsx",
+              "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx",
               "deco-sites/otica-isabela/sections/Product/Wishlist.tsx",
               "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx",
               "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx",
@@ -9228,17 +9228,6 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/VerticalProductShelf.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "shelfHeader": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
-          "title": "Shelf Header"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/otica-isabela/sections/Content/VisitedProductShelf.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@FirstBlock": {
       "type": "object",
       "properties": {
@@ -11573,6 +11562,17 @@
         "page"
       ],
       "title": "deco-sites/otica-isabela/components/search/SearchResult.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "shelfHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Shelf Header"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1NvY2lhbC9JbnN0YWdyYW1Qb3N0cy50c3g=@layout": {
       "type": "object",
@@ -15163,27 +15163,6 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=": {
-      "title": "deco-sites/otica-isabela/sections/Content/VisitedProductShelf.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "deco-sites/otica-isabela/sections/Content/VisitedProductShelf.tsx"
-          ],
-          "default": "deco-sites/otica-isabela/sections/Content/VisitedProductShelf.tsx"
-        }
-      }
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0Zvb3Rlci9Gb290ZXIudHN4": {
       "title": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
       "type": "object",
@@ -15475,6 +15454,27 @@
             "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
           ],
           "default": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=": {
+      "title": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx"
+          ],
+          "default": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx"
         }
       }
     },
@@ -16825,9 +16825,6 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmVydGljYWxQcm9kdWN0U2hlbGYudHN4"
         },
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g="
-        },
-        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0Zvb3Rlci9Gb290ZXIudHN4"
         },
         {
@@ -16868,6 +16865,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvU2VhcmNoUmVzdWx0LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvVmlzaXRlZFByb2R1Y3RTaGVsZi50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL1Byb2R1Y3QvV2lzaGxpc3QudHN4"

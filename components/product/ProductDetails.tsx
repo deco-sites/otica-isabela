@@ -15,12 +15,12 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
-
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
+import { visitedProductsCookie } from "$store/components/constants.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -369,23 +369,19 @@ export function loader(
   req: Request,
   ctx: Context,
 ) {
-  const productId = props.page?.product?.productID;
-
-  if (!productId) {
-    return { ...props };
-  }
+  const productId: string | undefined = props.page?.product?.productID ?? "";
 
   const cookies = getCookies(req.headers);
-  const currentIds: string | undefined = cookies?.["visited_products"];
-  const splitedIds: string[] = currentIds?.split(":") ?? [];
+  const currentIds: string[] | undefined =
+    cookies?.[visitedProductsCookie]?.split(":") ?? [];
 
-  const updateIds = currentIds
-    ? [productId, ...splitedIds.filter((id) => id !== productId)]
-    : [productId];
+  const newIds = currentIds.some((id) => id === productId)
+    ? currentIds
+    : currentIds.concat([productId]);
 
   setCookie(ctx.response.headers, {
-    name: "visited_products",
-    value: updateIds?.join(":"),
+    name: visitedProductsCookie,
+    value: newIds?.join(":"),
     path: "/",
   });
 
