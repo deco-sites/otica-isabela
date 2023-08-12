@@ -19,9 +19,9 @@ export const BasicImageAndLink = (
   }
   return (
     <a
-      href={href ?? "/"}
+      href={href ?? "#"}
       aria-label="Basic image and link"
-      class={`${
+      class={`${href ? "" : "pointer-events-none"} ${
         !src?.mobile
           ? "hidden lg:flex "
           : !src?.desktop
