@@ -29,8 +29,8 @@ import * as $$$$$$$$6 from "./sections/Footer/Footer.tsx";
 import * as $$$$$$$$7 from "./sections/Header/Header.tsx";
 import * as $$$$$$$$8 from "./sections/Images/BannerGrid.tsx";
 import * as $$$$$$$$9 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$$$10 from "./sections/Images/FullWidthImage.tsx";
-import * as $$$$$$$$11 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$$$10 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$$$11 from "./sections/Images/InformativeBanner.tsx";
 import * as $$$$$$$$12 from "./sections/Images/ShoppableBanner.tsx";
 import * as $$$$$$$$13 from "./sections/Links/LinkTree.tsx";
 import * as $$$$$$$$14 from "./sections/Links/Shortcuts.tsx";
@@ -229,8 +229,9 @@ const manifest = {
     "deco-sites/otica-isabela/sections/Header/Header.tsx": $$$$$$$$7,
     "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx": $$$$$$$$8,
     "deco-sites/otica-isabela/sections/Images/Carousel.tsx": $$$$$$$$9,
-    "deco-sites/otica-isabela/sections/Images/FullWidthImage.tsx": $$$$$$$$10,
-    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$11,
+    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$10,
+    "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx":
+      $$$$$$$$11,
     "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$12,
     "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$13,
     "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$14,
