@@ -44,7 +44,7 @@ function BannerTextButton(
           </h1>
         )}
         <p
-          class={` w-full text-black text-2xl font-normal ${
+          class={` w-full text-black text-lg lg:text-2xl font-normal ${
             textAlign === "center" ? "text-center" : "text-left"
           }  lg:mt-6 `}
         >
