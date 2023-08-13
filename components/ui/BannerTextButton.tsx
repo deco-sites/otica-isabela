@@ -51,7 +51,7 @@ function BannerTextButton(
           {text}
         </p>
       </div>
-      <a href={href} class="w-full lg:w-2/3">
+      <a href={href} class="w-full lg:w-2/3 p-5 lg:p-0">
         <Picture
           preload
         >
