@@ -91,7 +91,7 @@ function Buttons() {
       <div class="flex items-center justify-end z-10 col-start-3 row-start-2 ">
         <Slider.NextButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tl-3xl rounded-bl-3xl pl-2">
           <Icon
-          size={35}
+            size={35}
             class="text-base-300"
             id="ChevronRight"
             strokeWidth={3}

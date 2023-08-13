@@ -160,7 +160,6 @@ const setup = (
         const indices = getElementsInsideContainer();
         const isShowingLast = indices[indices.length - 1] === items.length - 1;
 
-  
         if (isShowingLast) {
           next?.classList.add("hidden");
           prev?.classList.remove("hidden");
