@@ -25,7 +25,7 @@ export const handler = async (
   const cookies = getCookies(req.headers);
   const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
-  //Código comento, pois o mesmo esta impactando o desenvolvimetno do front, assim que for corrigido retiramos o comentário 
+  //Código comento, pois o mesmo esta impactando o desenvolvimetno do front, assim que for corrigido retiramos o comentário
 
   // if (!sessionToken) {
   //   const authApiResponse = await ctx.state.invoke(
