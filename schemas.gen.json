@@ -7781,6 +7781,11 @@
               "type": "string",
               "const": "Cloud",
               "default": "Cloud"
+            },
+            {
+              "type": "string",
+              "const": "Locale",
+              "default": "Locale"
             }
           ],
           "type": "string",
@@ -8819,6 +8824,11 @@
                     "type": "string",
                     "const": "Cloud",
                     "default": "Cloud"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Locale",
+                    "default": "Locale"
                   }
                 ],
                 "type": "string",
@@ -9097,41 +9107,12 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Logos.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Testimonial": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial": {
       "type": "object",
       "properties": {
-        "text": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Text"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
-          },
-          "required": [],
-          "title": "Image"
-        },
         "user": {
           "type": "object",
           "properties": {
-            "avatar": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Avatar"
-            },
             "name": {
               "type": [
                 "string",
@@ -9139,32 +9120,71 @@
               ],
               "title": "Name"
             },
-            "position": {
+            "locale": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Position"
+              "title": "Locale"
             },
-            "company": {
+            "productId": {
               "type": [
                 "string",
                 "null"
               ],
-              "title": "Company"
+              "title": "Product Id"
             }
           },
           "required": [],
           "title": "User"
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Description"
+            },
+            "ratting": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Ratting"
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                  "title": "Src"
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "title": "Alt"
+                }
+              },
+              "required": [],
+              "title": "Image"
+            }
+          },
+          "required": [],
+          "title": "Review"
         }
       },
       "required": [],
       "title": "Testimonial"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Testimonial[]": {
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Testimonial"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial"
       },
       "title": "Testimonial[]"
     },
@@ -9176,47 +9196,8 @@
           "title": "Header"
         },
         "testimonials": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Testimonial[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial[]",
           "title": "Testimonials"
-        },
-        "layout": {
-          "type": "object",
-          "properties": {
-            "variation": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Grid",
-                  "default": "Grid"
-                },
-                {
-                  "type": "string",
-                  "const": "Slider",
-                  "default": "Slider"
-                }
-              ],
-              "type": "string",
-              "title": "Variation"
-            },
-            "headerAlignment": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "center",
-                  "default": "center"
-                },
-                {
-                  "type": "string",
-                  "const": "left",
-                  "default": "left"
-                }
-              ],
-              "type": "string",
-              "title": "Header Alignment"
-            }
-          },
-          "required": [],
-          "title": "Layout"
         }
       },
       "required": [],
@@ -10015,6 +9996,11 @@
               "type": "string",
               "const": "Cloud",
               "default": "Cloud"
+            },
+            {
+              "type": "string",
+              "const": "Locale",
+              "default": "Locale"
             }
           ],
           "type": "string",
@@ -11266,6 +11252,11 @@
               "type": "string",
               "const": "Cloud",
               "default": "Cloud"
+            },
+            {
+              "type": "string",
+              "const": "Locale",
+              "default": "Locale"
             }
           ],
           "type": "string",
