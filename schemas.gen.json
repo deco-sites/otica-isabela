@@ -7776,10 +7776,36 @@
               "type": "string",
               "const": "GlassesAroClosed",
               "default": "GlassesAroClosed"
+            },
+            {
+              "type": "string",
+              "const": "Cloud",
+              "default": "Cloud"
             }
           ],
           "type": "string",
           "title": "Icon"
+        },
+        "iconSize": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Width"
+            },
+            "height": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Height"
+            }
+          },
+          "required": [],
+          "title": "Icon Size"
         }
       },
       "required": [],
@@ -8788,6 +8814,11 @@
                     "type": "string",
                     "const": "GlassesAroClosed",
                     "default": "GlassesAroClosed"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Cloud",
+                    "default": "Cloud"
                   }
                 ],
                 "type": "string",
@@ -9140,19 +9171,9 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Props": {
       "type": "object",
       "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Title"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Description"
+        "header": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
+          "title": "Header"
         },
         "testimonials": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Testimonial[]",
@@ -9989,6 +10010,11 @@
               "type": "string",
               "const": "GlassesAroClosed",
               "default": "GlassesAroClosed"
+            },
+            {
+              "type": "string",
+              "const": "Cloud",
+              "default": "Cloud"
             }
           ],
           "type": "string",
@@ -11235,6 +11261,11 @@
               "type": "string",
               "const": "GlassesAroClosed",
               "default": "GlassesAroClosed"
+            },
+            {
+              "type": "string",
+              "const": "Cloud",
+              "default": "Cloud"
             }
           ],
           "type": "string",

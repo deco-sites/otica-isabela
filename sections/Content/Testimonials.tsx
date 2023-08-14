@@ -1,6 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import Header from "$store/components/ui/SectionHeader.tsx";
+import { IconTitle } from "$store/components/ui/IconTitle.tsx";
+import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "preact/hooks";
@@ -21,8 +22,7 @@ export interface Testimonial {
 }
 
 export interface Props {
-  title?: string;
-  description?: string;
+  header?: IconTitleProps;
   testimonials?: Testimonial[];
   layout?: {
     variation?: "Grid" | "Slider";
@@ -31,8 +31,6 @@ export interface Props {
 }
 
 const DEFAULT_PROPS: Props = {
-  "title": "",
-  "description": "",
   "testimonials": [{
     "text":
       "Fashion Store is my go-to online destination for all things stylish. Their vast collection of trendy clothes and accessories never disappoints. The quality is exceptional, and the prices are affordable. The website is easy to navigate, and their customer service team is friendly and responsive. I always feel like a fashionista when I shop here!",
@@ -124,60 +122,54 @@ const Testimonal = ({ image, text, user }: Testimonial) => (
 );
 
 export default function Testimonials(
-  props: Props,
+  { header, layout, testimonials }: Props,
 ) {
   const id = useId();
-  const { title, description, testimonials, layout } = {
-    ...DEFAULT_PROPS,
-    ...props,
-  };
 
   return (
-    <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
-      <Header
-        title={title}
-        description={description}
-        alignment={layout?.headerAlignment || "center"}
-      />
+    <>
+      <IconTitle {...header} />
 
-      {layout?.variation === "Grid" && (
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {testimonials?.map(({ image, text, user }) => (
-            <Testimonal image={image} text={text} user={user} />
-          ))}
-        </div>
-      )}
-
-      {layout?.variation !== "Grid" && (
-        <div
-          class="relative w-full px-8"
-          id={id}
-        >
-          <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
-            {testimonials?.map(({ image, text, user }, index) => (
-              <Slider.Item
-                index={index}
-                class="flex flex-col gap-4 carousel-item w-full"
-              >
-                <Testimonal image={image} text={text} user={user} />
-              </Slider.Item>
+      <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
+        {layout?.variation === "Grid" && (
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {testimonials?.map(({ image, text, user }) => (
+              <Testimonal image={image} text={text} user={user} />
             ))}
-          </Slider>
-          <>
-            <div class="z-10 absolute -left-2 lg:-left-8 top-1/2">
-              <Slider.PrevButton class="btn btn-circle btn-outline">
-                <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-              </Slider.PrevButton>
-            </div>
-            <div class="z-10 absolute -right-2 lg:-right-8 top-1/2">
-              <Slider.NextButton class="btn btn-circle btn-outline">
-                <Icon size={20} id="ChevronRight" strokeWidth={3} />
-              </Slider.NextButton>
-            </div>
-          </>
-          <SliderJS rootId={id} />
-        </div>
-      )}
-    </div>
+          </div>
+        )}
+
+        {layout?.variation !== "Grid" && (
+          <div
+            class="relative w-full px-8"
+            id={id}
+          >
+            <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
+              {testimonials?.map(({ image, text, user }, index) => (
+                <Slider.Item
+                  index={index}
+                  class="flex flex-col gap-4 carousel-item w-full"
+                >
+                  <Testimonal image={image} text={text} user={user} />
+                </Slider.Item>
+              ))}
+            </Slider>
+            <>
+              <div class="z-10 absolute -left-2 lg:-left-8 top-1/2">
+                <Slider.PrevButton class="btn btn-circle btn-outline">
+                  <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+                </Slider.PrevButton>
+              </div>
+              <div class="z-10 absolute -right-2 lg:-right-8 top-1/2">
+                <Slider.NextButton class="btn btn-circle btn-outline">
+                  <Icon size={20} id="ChevronRight" strokeWidth={3} />
+                </Slider.NextButton>
+              </div>
+            </>
+            <SliderJS rootId={id} />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
