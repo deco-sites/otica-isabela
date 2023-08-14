@@ -81,42 +81,42 @@ const DEFAULT_PROPS: Props = {
 };
 
 const Testimonal = ({ image, text, user }: Testimonial) => (
-  <div class="flex flex-col items-center gap-9 text-center">
-    {image?.src && (
-      <Image
-        src={image.src}
-        alt={image?.alt}
-        width={100}
-        height={100}
-      />
-    )}
-    <h3 class="text-xl lg:text-2xl">
-      {text}
-    </h3>
-    <div class="flex flex-col items-center gap-4">
-      {user?.avatar && (
-        <Image
-          src={user.avatar}
-          alt={user?.name}
-          width={60}
-          height={60}
-          class="rounded-full"
-        />
-      )}
-      <div class="flex flex-col">
-        {user?.name &&
-          (
-            <p class="text-lg">
-              {user?.name}
-            </p>
-          )}
-        {(user?.position || user?.company) &&
-          (
-            <p class="text-lg">
-              {user?.position}, {user?.company}
-            </p>
-          )}
+  <div class="flex flex-col items-center text-center border border-blue-300 rounded-xl px-3 py-5 ">
+    <div class="flex items-start justify-center gap-x-2 ">
+      <div class="w-1/3 flex flex-col">
+        {user?.avatar && (
+          <Image
+            src={user.avatar}
+            alt={user?.name}
+            width={140}
+            height={200}
+          />
+        )}
+
+        <div class="flex flex-col">
+          <span class="text-xs text-blue-200">& | São Paulo</span>
+          <p class="text-xs font-semibold ">{user?.name}</p>
+          <div>ratting</div>
+        </div>
       </div>
+      <a href="productsLink" class="w-2/3 flex flex-col items-center">
+        <p class="text-sm text-start font-normal text-black border-b border-b-blue-300 pb-8">
+          {text}
+        </p>
+        <div class="flex flex-col justify-center items-center ">
+          <span class="my-4 font-semibold text-base text-black underline ">
+            Oculos Clipon Redondo Masculino
+          </span>
+          {image?.src && (
+            <Image
+              src={image.src}
+              alt={image?.alt}
+              width={150}
+              height={60}
+            />
+          )}
+        </div>
+      </a>
     </div>
   </div>
 );
@@ -154,19 +154,11 @@ export default function Testimonials(
                 </Slider.Item>
               ))}
             </Slider>
-            <>
-              <div class="z-10 absolute -left-2 lg:-left-8 top-1/2">
-                <Slider.PrevButton class="btn btn-circle btn-outline">
-                  <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-                </Slider.PrevButton>
-              </div>
-              <div class="z-10 absolute -right-2 lg:-right-8 top-1/2">
-                <Slider.NextButton class="btn btn-circle btn-outline">
-                  <Icon size={20} id="ChevronRight" strokeWidth={3} />
-                </Slider.NextButton>
-              </div>
-            </>
-            <SliderJS rootId={id} />
+
+            <SliderJS
+              itemsPerPage={{ desktop: { 0: 2 }, mobile: { 0: 1 } }}
+              rootId={id}
+            />
           </div>
         )}
       </div>
