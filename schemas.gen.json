@@ -11777,12 +11777,16 @@
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvV2hhdHNBcHAudHN4@Props": {
       "type": "object",
       "properties": {
-        "phone": {
+        "link": {
           "type": [
-            "number",
+            "string",
             "null"
           ],
-          "title": "Phone"
+          "title": "Link"
+        },
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
         }
       },
       "required": [],
