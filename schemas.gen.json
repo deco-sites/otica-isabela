@@ -9107,6 +9107,48 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Logos.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@MembershipBadgeProps": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "bagde": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Mobile"
+            }
+          },
+          "required": [
+            "desktop"
+          ],
+          "title": "Bagde"
+        },
+        "badgeDescription": {
+          "type": "string",
+          "title": "Badge Description"
+        }
+      },
+      "required": [
+        "label",
+        "badgeDescription"
+      ],
+      "title": "MembershipBadgeProps"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@MembershipBadgeProps[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@MembershipBadgeProps"
+      },
+      "title": "MembershipBadgeProps[]"
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -9115,44 +9157,8 @@
           "title": "Header"
         },
         "membershipBadges": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": [
-                  "string",
-                  "null"
-                ],
-                "title": "Label"
-              },
-              "bagde": {
-                "type": "object",
-                "properties": {
-                  "desktop": {
-                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                    "title": "Desktop"
-                  },
-                  "mobile": {
-                    "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                    "title": "Mobile"
-                  }
-                },
-                "required": [
-                  "desktop"
-                ],
-                "title": "Bagde"
-              },
-              "badgeDescription": {
-                "type": "string",
-                "title": "Badge Description"
-              }
-            },
-            "required": [
-              "badgeDescription"
-            ]
-          },
-          "description": "Utilize o campo label dentro de  Membership Badges para adicionar a classificação do cliente.",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@MembershipBadgeProps[]",
+          "description": "Utilize o campo label dentro de Membership Badges para adicionar a classificação do cliente.",
           "title": "Membership Badges"
         }
       },

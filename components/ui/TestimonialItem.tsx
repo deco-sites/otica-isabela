@@ -1,23 +1,8 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-
-export interface Testimonial {
-  user?: {
-    name?: string;
-    locale?: string;
-    productId?: string;
-  };
-  review?: {
-    description?: string;
-    ratting?: number;
-    image?: {
-      src?: ImageType;
-      alt?: string;
-    };
-  };
-}
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useId } from "preact/hooks";
 
 interface Review {
   ratingValue: number;
@@ -28,47 +13,55 @@ interface Review {
   productPhoto: string;
   productLink: string;
   additionalImage: string;
-  membershipBadge?: string;
+  memberLevel?: string;
+}
+
+export interface MembershipBadgeProps {
+  label: string;
+  bagde?: { desktop: LiveImage; mobile?: LiveImage };
+  badgeDescription: string;
 }
 
 export const UserInfos = (
   { authorName, ratingValue, membershipBadge }: {
     authorName: string;
     ratingValue: number;
-    membershipBadge?: string;
+    membershipBadge?: MembershipBadgeProps;
   },
 ) => {
+  const { badgeDescription, bagde } = membershipBadge ?? {};
+  const { desktop, mobile } = bagde ?? {};
+
   return (
     <div class="flex flex-col w-full">
-      <p class=" w-full text-xs font-semibold flex items-center justify-around gap-x-3  ">
+      <p class=" w-full text-xs font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 ">
         {authorName}
-        {membershipBadge && (
+        {desktop && (
           <Picture>
             <Source
-              media="(max-width: 767px)"
-              src={membershipBadge}
+              media="(max-width: 983px)"
+              src={mobile ?? desktop}
               width={45}
               height={50}
             />
             <Source
-              media="(min-width: 768px)"
-              src={membershipBadge}
+              media="(min-width: 984px)"
+              src={desktop}
               width={68}
               height={75}
             />
             <img
-              class="object-cover"
-              src={membershipBadge}
-              alt={"Membership Badge"}
+              src={mobile ?? desktop}
+              alt={badgeDescription}
             />
           </Picture>
         )}
       </p>
       {!!ratingValue && ratingValue <= 5 && (
-        <div class="flex">
+        <div class="flex mb-0 lg:mb-3  gap-x-0  lg:gap-x-3">
           {Array.from({ length: ratingValue }).map((_, index) => (
             <Icon
-              key={`ratingStar${index}`}
+              key={`ratingStar-${index}`}
               width={21}
               height={21}
               id="RatingStar"
@@ -82,6 +75,14 @@ export const UserInfos = (
 
 const TestimonialItem = (
   {
+    membershipBadges,
+    review,
+  }: {
+    review: Review;
+    membershipBadges?: MembershipBadgeProps[];
+  },
+) => {
+  const {
     additionalImage,
     authorCity,
     authorName,
@@ -90,9 +91,14 @@ const TestimonialItem = (
     productPhoto,
     ratingValue,
     reviewDescription,
-    membershipBadge,
-  }: Review,
-) => {
+    memberLevel,
+  } = review;
+
+  const id = useId();
+  const memberBadge = membershipBadges?.find((item) =>
+    item.label === memberLevel
+  );
+
   return (
     <div class="flex flex-col items-center text-center border border-blue-300 rounded-xl px-3 py-5 ">
       <div class="flex items-start justify-center gap-x-2 ">
@@ -101,7 +107,7 @@ const TestimonialItem = (
             src={additionalImage}
             alt={productName}
             width={140}
-            class="rounded-xl"
+            class="rounded-xl w-full"
             height={200}
           />
 
@@ -112,9 +118,9 @@ const TestimonialItem = (
             </span>
             <div class="flex lg:hidden w-full">
               <UserInfos
+                membershipBadge={memberBadge}
                 authorName={authorName}
                 ratingValue={ratingValue}
-                membershipBadge={membershipBadge}
               />
             </div>
           </div>
@@ -124,40 +130,33 @@ const TestimonialItem = (
             <UserInfos
               authorName={authorName}
               ratingValue={ratingValue}
-              membershipBadge={membershipBadge}
+              membershipBadge={memberBadge}
             />
           </div>
-          <p class="text-sm text-start font-normal text-black border-b border-b-blue-300 pb-8">
+          <label
+            for={id}
+            class="text-sm text-start font-normal text-black border-b border-b-blue-300 pb-8"
+          >
+            <input
+              type="checkbox"
+              name={id}
+              id={id}
+              class="peer hidden"
+              frameBorder="none"
+            />
             {reviewDescription}
-          </p>
-          <div class="h-full w-full flex place-items-center p-8">
-            <div>
-              <label for="themeToggler">
-                <input
-                  type="checkbox"
-                  name="themeToggler"
-                  id="themeToggler"
-                  class="peer hidden"
-                  frameBorder="none"
-                />
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  eget ante vel nisi euismod laoreet nec a felis.
-                </span>
-                <span class="flex peer-checked:hidden">Mostrar mais</span>
-                <span class="hidden peer-checked:flex">
-                  Vestibulum dapibus ex sit amet justo auctor, vel consectetur
-                  mi venenatis.
-                </span>
-              </label>
-            </div>
-          </div>
-
+            <span class=" font-bold ml-1 inline-block peer-checked:hidden">
+              Mostrar mais...
+            </span>
+            <span class="hidden peer-checked:inline-block">
+              C-O-N-T-I-N-U-A-Ç-Ã-O
+            </span>
+          </label>
           <a
             href={productLink}
             class="flex flex-col justify-center items-center "
           >
-            <span class="my-4 font-semibold text-base text-black underline ">
+            <span class="mb-4 mt-1 font-semibold text-base text-black underline ">
               {productName}
             </span>
 
