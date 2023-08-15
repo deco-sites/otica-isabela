@@ -1,6 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 export interface Testimonial {
   user?: {
@@ -29,6 +30,55 @@ interface Review {
   additionalImage: string;
   membershipBadge?: string;
 }
+
+export const UserInfos = (
+  { authorName, ratingValue, membershipBadge }: {
+    authorName: string;
+    ratingValue: number;
+    membershipBadge?: string;
+  },
+) => {
+  return (
+    <div class="flex flex-col w-full">
+      <p class=" w-full text-xs font-semibold flex items-center justify-around gap-x-3  ">
+        {authorName}
+        {membershipBadge && (
+          <Picture>
+            <Source
+              media="(max-width: 767px)"
+              src={membershipBadge}
+              width={45}
+              height={50}
+            />
+            <Source
+              media="(min-width: 768px)"
+              src={membershipBadge}
+              width={68}
+              height={75}
+            />
+            <img
+              class="object-cover"
+              src={membershipBadge}
+              alt={"Membership Badge"}
+            />
+          </Picture>
+        )}
+      </p>
+      {!!ratingValue && ratingValue <= 5 && (
+        <div class="flex">
+          {Array.from({ length: ratingValue }).map((_, index) => (
+            <Icon
+              key={`ratingStar${index}`}
+              width={21}
+              height={21}
+              id="RatingStar"
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const TestimonialItem = (
   {
@@ -60,26 +110,53 @@ const TestimonialItem = (
               <Icon width={18} height={22} id="Locale" />
               {authorCity}
             </span>
-            <p class="text-xs font-semibold ">{authorName}</p>
-            {!!ratingValue && ratingValue <= 5 && (
-              <div class="flex">
-                {Array.from({ length: ratingValue }).map((_, index) => (
-                  <Icon
-                    key={`ratingStar${index}`}
-                    width={21}
-                    height={21}
-                    id="RatingStar"
-                  />
-                ))}
-              </div>
-            )}
+            <div class="flex lg:hidden w-full">
+              <UserInfos
+                authorName={authorName}
+                ratingValue={ratingValue}
+                membershipBadge={membershipBadge}
+              />
+            </div>
           </div>
         </div>
-        <a href={productLink} class="w-2/3 flex flex-col items-center">
+        <div class="w-2/3 flex flex-col items-center">
+          <div class="hidden lg:flex w-full">
+            <UserInfos
+              authorName={authorName}
+              ratingValue={ratingValue}
+              membershipBadge={membershipBadge}
+            />
+          </div>
           <p class="text-sm text-start font-normal text-black border-b border-b-blue-300 pb-8">
             {reviewDescription}
           </p>
-          <div class="flex flex-col justify-center items-center ">
+          <div class="h-full w-full flex place-items-center p-8">
+            <div>
+              <label for="themeToggler">
+                <input
+                  type="checkbox"
+                  name="themeToggler"
+                  id="themeToggler"
+                  class="peer hidden"
+                  frameBorder="none"
+                />
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  eget ante vel nisi euismod laoreet nec a felis.
+                </span>
+                <span class="flex peer-checked:hidden">Mostrar mais</span>
+                <span class="hidden peer-checked:flex">
+                  Vestibulum dapibus ex sit amet justo auctor, vel consectetur
+                  mi venenatis.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <a
+            href={productLink}
+            class="flex flex-col justify-center items-center "
+          >
             <span class="my-4 font-semibold text-base text-black underline ">
               {productName}
             </span>
@@ -90,8 +167,8 @@ const TestimonialItem = (
               width={150}
               height={60}
             />
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   );
