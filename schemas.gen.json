@@ -9107,97 +9107,12 @@
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Content/Logos.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial": {
-      "type": "object",
-      "properties": {
-        "user": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Name"
-            },
-            "locale": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Locale"
-            },
-            "productId": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Product Id"
-            }
-          },
-          "required": [],
-          "title": "User"
-        },
-        "review": {
-          "type": "object",
-          "properties": {
-            "description": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Description"
-            },
-            "ratting": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "title": "Ratting"
-            },
-            "image": {
-              "type": "object",
-              "properties": {
-                "src": {
-                  "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                  "title": "Src"
-                },
-                "alt": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "title": "Alt"
-                }
-              },
-              "required": [],
-              "title": "Image"
-            }
-          },
-          "required": [],
-          "title": "Review"
-        }
-      },
-      "required": [],
-      "title": "Testimonial"
-    },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial"
-      },
-      "title": "Testimonial[]"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0NvbnRlbnQvVGVzdGltb25pYWxzLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "header": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvSWNvblRpdGxlLnRzeA==@IconTitleProps",
           "title": "Header"
-        },
-        "testimonials": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@Testimonial[]",
-          "title": "Testimonials"
         }
       },
       "required": [],
