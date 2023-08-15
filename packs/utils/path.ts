@@ -7,5 +7,8 @@ export const paths = ({ token, publicUrl }: Account) => {
     session: {
       initSession: () => `${searchBaseUrl}/InicioSessao?token=${token}`,
     },
+    product: {
+      getProduct: () => `${searchBaseUrl}/Produtos?token=${token}`,
+    },
   };
 };

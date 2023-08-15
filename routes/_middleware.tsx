@@ -23,23 +23,23 @@ export const handler = async (
 ) => {
   const res = await ctx.next();
   const cookies = getCookies(req.headers);
-  const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
+  // const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
-  if (!sessionToken) {
-    const authApiResponse = await ctx.state.invoke(
-      "deco-sites/otica-isabela/loaders/store/session.ts",
-    );
+  // if (!sessionToken) {
+  //   const authApiResponse = await ctx.state.invoke(
+  //     "deco-sites/otica-isabela/loaders/store/session.ts",
+  //   );
 
-    const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
+  //   const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
 
-    setCookie(
-      SessionKey,
-      res,
-      IdCustomer !== null
-        ? new Date().setFullYear(new Date().getFullYear() + 1)
-        : null,
-    );
-  }
+  //   setCookie(
+  //     SessionKey,
+  //     res,
+  //     IdCustomer !== null
+  //       ? new Date().setFullYear(new Date().getFullYear() + 1)
+  //       : null,
+  //   );
+  // }
 
   return res;
 };
