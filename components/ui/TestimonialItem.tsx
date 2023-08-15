@@ -99,11 +99,6 @@ const TestimonialItem = (
     item.label === memberLevel
   );
 
-  console.log(
-    "reviewDescription",
-    reviewDescription.split(" ").length > 24,
-  );
-
   const descriptionSplit = reviewDescription.split(" ");
   const hasLineClamp = descriptionSplit.length > 24;
   const firstPart = descriptionSplit.slice(0, 24).join(" ");
