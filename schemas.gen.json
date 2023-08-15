@@ -9158,7 +9158,7 @@
         },
         "membershipBadges": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvVGVzdGltb25pYWxJdGVtLnRzeA==@MembershipBadgeProps[]",
-          "description": "Utilize o campo label dentro de Membership Badges para adicionar a classificação do cliente.",
+          "description": "Utilize o campo label em Membership Badges para adicionar a classificação do cliente.",
           "title": "Membership Badges"
         }
       },

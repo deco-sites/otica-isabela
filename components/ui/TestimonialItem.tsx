@@ -4,7 +4,7 @@ import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
 
-interface Review {
+export interface Review {
   ratingValue: number;
   authorName: string;
   reviewDescription: string;
@@ -99,6 +99,16 @@ const TestimonialItem = (
     item.label === memberLevel
   );
 
+  console.log(
+    "reviewDescription",
+    reviewDescription.split(" ").length > 24,
+  );
+
+  const descriptionSplit = reviewDescription.split(" ");
+  const hasLineClamp = descriptionSplit.length > 24;
+  const firstPart = descriptionSplit.slice(0, 24).join(" ");
+  const secondPart = descriptionSplit.slice(24).join(" ");
+
   return (
     <div class="flex flex-col items-center text-center border border-blue-300 rounded-xl px-3 py-5 ">
       <div class="flex items-start justify-center gap-x-2 ">
@@ -135,7 +145,7 @@ const TestimonialItem = (
           </div>
           <label
             for={id}
-            class="text-sm text-start font-normal text-black border-b border-b-blue-300 pb-8"
+            class="text-sm text-start font-normal min-h-[115px] text-black border-b border-b-blue-300 pb-8"
           >
             <input
               type="checkbox"
@@ -144,13 +154,18 @@ const TestimonialItem = (
               class="peer hidden"
               frameBorder="none"
             />
-            {reviewDescription}
-            <span class=" font-bold ml-1 inline-block peer-checked:hidden">
-              Mostrar mais...
-            </span>
-            <span class="hidden peer-checked:inline-block">
-              C-O-N-T-I-N-U-A-Ç-Ã-O
-            </span>
+            {firstPart}
+
+            {hasLineClamp && (
+              <>
+                <span class="font-bold ml-1 inline-block peer-checked:hidden">
+                  Mostrar mais...
+                </span>
+                <span class="hidden ml-1 peer-checked:inline">
+                  {secondPart}
+                </span>
+              </>
+            )}
           </label>
           <a
             href={productLink}
