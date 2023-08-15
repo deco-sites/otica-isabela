@@ -5,6 +5,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "preact/hooks";
 import TestimonialItem from "$store/components/ui/TestimonialItem.tsx";
 import { ProductShelfDots } from "$store/components/product/ProductShelf.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 interface Review {
   ratingValue: number;
@@ -20,6 +21,15 @@ interface Review {
 
 export interface Props {
   header?: IconTitleProps;
+
+  /**
+   * @description Utilize o campo label dentro de  Membership Badges para adicionar a classificação do cliente.
+   */
+  membershipBadges?: {
+    label: string;
+    bagde?: { desktop: LiveImage; mobile?: LiveImage };
+    badgeDescription: string;
+  }[];
 }
 
 export default function Testimonials(
@@ -27,7 +37,7 @@ export default function Testimonials(
 ) {
   const id = useId();
 
-  const reviewMock: Review[] = [
+  const testimonialsMock: Review[] = [
     {
       additionalImage:
         "https://www.oticaisabeladias.com.br//Images/Blob/Avaliacoes//876231b79dc743c1860a4b7e8d3d8cc7.webp",
@@ -120,7 +130,7 @@ export default function Testimonials(
           id={id}
         >
           <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
-            {reviewMock?.map((review, index) => (
+            {testimonialsMock?.map((review, index) => (
               <Slider.Item
                 index={index}
                 class="flex flex-col gap-4 carousel-item w-full"
@@ -131,7 +141,7 @@ export default function Testimonials(
           </Slider>
 
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-            {reviewMock?.map((_, index) => (
+            {testimonialsMock?.map((_, index) => (
               <Slider.Dot index={index}>
                 {ProductShelfDots}
               </Slider.Dot>
