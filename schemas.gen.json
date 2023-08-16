@@ -11476,6 +11476,48 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products"
         },
+        "imageAlign": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "top",
+                  "default": "top"
+                },
+                {
+                  "type": "string",
+                  "const": "bottom",
+                  "default": "bottom"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile"
+            }
+          },
+          "required": [
+            "desktop",
+            "mobile"
+          ],
+          "title": "Image Align"
+        },
         "image": {
           "type": "object",
           "properties": {
