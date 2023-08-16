@@ -1,65 +1,53 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { paths } from "$store/packs/utils/path.ts";
-import { Product as IsabelaProduct, Products } from "$store/packs/types.ts";
+import { Products } from "$store/packs/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-
-const toProduct = (product: IsabelaProduct): Product => {
-  const {
-    IdProduct,
-    UrlFriendlyColor,
-    Nome,
-    Imagem,
-    ValorDesconto,
-    ValorOriginal,
-  } = product;
-
-  return {
-    "@type": "Product",
-    productID: `${IdProduct}`,
-    url:
-      new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
-        .href,
-    name: Nome,
-    sku: `${IdProduct}`,
-    image: [{
-      "@type": "ImageObject" as const,
-      alternateName: Nome,
-      url: Imagem,
-    }],
-    offers: {
-      "@type": "AggregateOffer",
-      highPrice: ValorOriginal,
-      lowPrice: ValorDesconto,
-      offerCount: 1,
-      offers: [],
-    },
-  };
-};
+import { toProduct } from "$store/packs/utils/transform.ts";
 
 /**
  * @title Oticaisabeladias Products
  * @description Use it in Shelves
  */
 
+export interface Props {
+  /** @description query to use on search */
+  term?: string;
+
+  collection?: number;
+
+  /** @description search sort parameter */
+  sort?: string;
+
+  isStopwatch?: boolean;
+
+  /** @description total number of items to display */
+  count: number;
+}
+
 const loader = async (
-  _props: null,
+  props: Props,
   _req: Request,
   ctx: Context,
 ): Promise<Product[]> => {
   const { configStore: config } = ctx;
   const path = paths(config!);
+  const { term, collection, count } = props;
+
+  const searchByTerm = term ? `&nome=${term}` : "";
+  const searchByCollection = collection
+    ? `&idColecaoProdutos=${collection}`
+    : "";
+  const itemsShelf = count ? `&offset=${count}` : "&offset=9";
 
   const productsData = await fetchAPI<Products>(
-    path.product.getProduct(),
+    `${path.product.getProduct()}${searchByTerm}${searchByCollection}${itemsShelf}`,
     {
       method: "POST",
     },
   );
 
   const products = productsData.map((product) => toProduct(product));
-
-  console.log("Products", products);
 
   return products;
 };
