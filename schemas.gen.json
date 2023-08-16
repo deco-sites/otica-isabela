@@ -10359,7 +10359,7 @@
             }
           ],
           "type": "string",
-          "description": "justify and align the text (MOBILE ONLY)",
+          "description": "justify and align the text",
           "title": "Text Align"
         },
         "image": {
@@ -10374,32 +10374,56 @@
               "title": "Mobile"
             },
             "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
+              "type": "string",
               "title": "Alt"
             },
             "imageAlign": {
-              "anyOf": [
-                {
+              "type": "object",
+              "properties": {
+                "desktop": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "right",
+                      "default": "right"
+                    },
+                    {
+                      "type": "string",
+                      "const": "left",
+                      "default": "left"
+                    }
+                  ],
                   "type": "string",
-                  "const": "right",
-                  "default": "right"
+                  "title": "Desktop"
                 },
-                {
+                "mobile": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "top",
+                      "default": "top"
+                    },
+                    {
+                      "type": "string",
+                      "const": "botton",
+                      "default": "botton"
+                    }
+                  ],
                   "type": "string",
-                  "const": "left",
-                  "default": "left"
+                  "title": "Mobile"
                 }
+              },
+              "required": [
+                "desktop",
+                "mobile"
               ],
-              "type": "string",
               "title": "Image Align"
             }
           },
           "required": [
             "desktop",
-            "mobile"
+            "mobile",
+            "alt"
           ],
           "title": "Image"
         }
