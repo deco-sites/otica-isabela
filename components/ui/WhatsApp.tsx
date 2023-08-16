@@ -14,7 +14,7 @@ function WhatsApp({ image, link }: Props) {
   return (
     <a
       href={link ?? "#"}
-      class="fixed bottom-6 right-6 z-40"
+      class="fixed bottom-6 right-6 min-[1680px]:right-[15%] z-40"
       aria-label="WhatsApp"
     >
       <Image
