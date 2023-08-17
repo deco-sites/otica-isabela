@@ -13,7 +13,7 @@ export interface NavItemProps {
     src?: imageType;
     alt?: string;
   };
-  children?: Array<{
+  items?: Array<{
     mobileOnly?: boolean;
     label?: string;
     href?: string;
@@ -24,10 +24,12 @@ export interface NavItemProps {
   }>;
 }
 
-export const NavItem = ({ label, children, href }: NavItemProps) => {
+export const NavItem = ({ label, items, href }: NavItemProps) => {
+
+
   const filteredChildren = useMemo(() => {
-    return children?.filter((item) => item.mobileOnly !== true);
-  }, [children]);
+    return items?.filter((item) => item.mobileOnly !== true);
+  }, [items]);
 
   const modalAlignment = useMemo(() => {
     if (!IS_BROWSER) {
@@ -49,7 +51,7 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
       ...alignment,
       maxWidth: `${modalWidth}px`,
     };
-  }, [children]);
+  }, [items]);
 
   return (
     <div class="group flex">
