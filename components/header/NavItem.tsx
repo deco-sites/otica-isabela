@@ -25,8 +25,6 @@ export interface NavItemProps {
 }
 
 export const NavItem = ({ label, items, href }: NavItemProps) => {
-
-
   const filteredChildren = useMemo(() => {
     return items?.filter((item) => item.mobileOnly !== true);
   }, [items]);
