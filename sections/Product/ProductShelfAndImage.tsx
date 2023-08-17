@@ -37,7 +37,9 @@ const ProductShelfAndImage = (
         class={`w-full container  flex ${
           imageAlign?.mobile === "bottom" ? "flex-col" : "flex-col-reverse"
         } items-center justify-center gap-x-12  ${
-          imageAlign?.desktop === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
+          imageAlign?.desktop === "right"
+            ? "lg:flex-row"
+            : "lg:flex-row-reverse"
         } lg:justify-between lg:items-start mt-14 mb-24 lg:mb-6`}
       >
         <div class=" w-full lg:w-1/3">
