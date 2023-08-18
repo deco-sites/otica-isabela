@@ -75,7 +75,6 @@ export const NavItem = ({ label, children, href }: NavItemProps) => {
                   alt={desktopMenuImage?.alt ?? "Drop down menu image"}
                   width={280}
                   height={280}
-                  loading="lazy"
                 />
                 <div class="w-full text-center">
                   <span class="font-medium text-lg text-blue-200 uppercase">
