@@ -24,7 +24,9 @@ export interface NavItemProps {
   }>;
 }
 
+
 export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
+
   const filteredChildren = useMemo(() => {
     return navbarItems?.filter((item) => item.mobileOnly !== true);
   }, [navbarItems]);
