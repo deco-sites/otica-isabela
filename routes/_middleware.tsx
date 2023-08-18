@@ -25,24 +25,23 @@ export const handler = async (
   const cookies = getCookies(req.headers);
   const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
+  //Código comento, pois o mesmo esta impactando o desenvolvimetno do front, assim que for corrigido retiramos o comentário 
 
+  // if (!sessionToken) {
+  //   const authApiResponse = await ctx.state.invoke(
+  //     "deco-sites/otica-isabela/loaders/store/session.ts",
+  //   );
 
+  //   const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
 
-  if (!sessionToken) {
-    const authApiResponse = await ctx.state.invoke(
-      "deco-sites/otica-isabela/loaders/store/session.ts",
-    );
-
-    const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
-
-    setCookie(
-      SessionKey,
-      res,
-      IdCustomer !== null
-        ? new Date().setFullYear(new Date().getFullYear() + 1)
-        : null,
-    );
-  }
+  //   setCookie(
+  //     SessionKey,
+  //     res,
+  //     IdCustomer !== null
+  //       ? new Date().setFullYear(new Date().getFullYear() + 1)
+  //       : null,
+  //   );
+  // }
 
   return res;
 };

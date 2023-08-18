@@ -1,4 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
+import Button from "$store/components/ui/Button.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
@@ -77,21 +78,21 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
 function Buttons() {
   return (
     <>
-      <div class="h-full absolute flex justify-center items-center ">
-        <Slider.PrevButton class="flex items-center justify-start z-10 col-start-1 row-start-2 opacity-25 hover:opacity-30 bg-white w-11 h-11   rounded-tr-3xl rounded-br-3xl ">
+      <div class="flex items-center justify-start z-10 col-start-1 row-start-2">
+        <Slider.PrevButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tr-3xl rounded-br-3xl ">
           <Icon
-            class="text-base-100"
-            size={20}
+            size={35}
+            class="text-base-300"
             id="ChevronLeft"
             strokeWidth={3}
           />
         </Slider.PrevButton>
       </div>
-      <div class="absolute right-0 h-full flex items-center justify-center">
-        <Slider.NextButton class="flex items-center justify-center z-10 col-start-3 row-start-2 opacity-40 hover:opacity-60 bg-white w-11 h-11 rounded-tl-3xl rounded-bl-3xl  ">
+      <div class="flex items-center justify-end z-10 col-start-3 row-start-2 ">
+        <Slider.NextButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tl-3xl rounded-bl-3xl pl-2">
           <Icon
-            class="text-base-100"
-            size={20}
+          size={35}
+            class="text-base-300"
             id="ChevronRight"
             strokeWidth={3}
           />
