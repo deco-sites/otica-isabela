@@ -42,7 +42,7 @@ export const handler = async (
         ? new Date().setFullYear(new Date().getFullYear() + 1)
         : null,
     );
-  // }
+  }
 
   return res;
 };
