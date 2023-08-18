@@ -17,7 +17,7 @@ export interface Props {
   };
 }
 
-export const ProductShelfDots = (
+export const ProductShelfDots = () => (
   <div class=" w-[10px] h-[10px] rounded-3xl bg-blue-200  ">
   </div>
 );
