@@ -23,11 +23,7 @@ const VerticalProductShelf = (
   );
 
   return (
-    <div class="w-full">
-      <div
-        id={id}
-        class="container hidden  lg:flex flex-col  "
-      >
+    <div class="container hidden  lg:flex flex-col" id={id}>
         <Slider class="carousel">
           {arrangedProducts?.map((allProducts, index) => (
             <Slider.Item
