@@ -57,12 +57,12 @@ function Navbar(
 
         <div class="hidden lg:flex flex-row justify-center items-center gap-x-4  ">
           {items?.filter(({ mobileOnly }) => mobileOnly !== true)?.map((
-            { href, label, items },
+            { href, label, navbarItems },
           ) => (
             <NavItem
               label={label}
               href={href}
-              items={items}
+              navbarItems={navbarItems}
             />
           ))}
         </div>
