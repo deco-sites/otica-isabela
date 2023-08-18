@@ -77,7 +77,7 @@ function ProductShelf({
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
           {products.map((_, index) => (
             <Slider.Dot index={index}>
-              {ProductShelfDots}
+              <ProductShelfDots />
             </Slider.Dot>
           ))}
         </div>
