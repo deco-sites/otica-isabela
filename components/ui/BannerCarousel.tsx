@@ -112,7 +112,10 @@ function BannerCarousel({ images, preload, interval }: Props) {
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (
-          <Slider.Item index={index} class="flex-none box-content  snap-center  w-full">
+          <Slider.Item
+            index={index}
+            class="flex-none box-content  snap-center  w-full"
+          >
             <BannerItem image={image} lcp={index === 0 && preload} />
           </Slider.Item>
         ))}
