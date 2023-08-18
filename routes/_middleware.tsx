@@ -25,6 +25,9 @@ export const handler = async (
   const cookies = getCookies(req.headers);
   const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
+
+
+
   if (!sessionToken) {
     const authApiResponse = await ctx.state.invoke(
       "deco-sites/otica-isabela/loaders/store/session.ts",
@@ -39,7 +42,7 @@ export const handler = async (
         ? new Date().setFullYear(new Date().getFullYear() + 1)
         : null,
     );
-  }
+  // }
 
   return res;
 };
