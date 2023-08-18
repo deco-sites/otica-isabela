@@ -17,9 +17,38 @@ export const BasicImageAndLink = (
   if (!src) {
     return null;
   }
+
+  if (!href || href === "") {
+    return (
+      <Picture>
+        <Source
+          media="(max-width: 983px)"
+          src={src?.mobile ?? ""}
+          width={width?.mobile ?? 0}
+        />
+        <Source
+          media="(min-width: 984px)"
+          src={src?.desktop ?? ""}
+          width={width?.desktop ?? 0}
+        />
+        {
+          <img
+            src={src.mobile ?? src?.desktop ?? ""}
+            alt={alt}
+            class={`${
+              !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
+            }`}
+            decoding="async"
+            loading="lazy"
+          />
+        }
+      </Picture>
+    );
+  }
+
   return (
     <a
-      href={href ?? "/"}
+      href={href ?? "#"}
       aria-label="Basic image and link"
       class={`${
         !src?.mobile

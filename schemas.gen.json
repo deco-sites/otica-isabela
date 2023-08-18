@@ -102,6 +102,7 @@
               "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx",
               "deco-sites/otica-isabela/sections/Images/Carousel.tsx",
               "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx",
+              "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx",
               "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx",
               "deco-sites/otica-isabela/sections/Links/LinkTree.tsx",
               "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx",
@@ -10344,14 +10345,6 @@
               "type": "string",
               "title": "Href"
             },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
             "label": {
               "type": "string",
               "title": "Label"
@@ -10359,8 +10352,6 @@
           },
           "required": [
             "href",
-            "title",
-            "subTitle",
             "label"
           ],
           "title": "Action"
@@ -10625,6 +10616,24 @@
       },
       "required": [],
       "title": "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9JbmZvcm1hdGl2ZUJhbm5lci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "hidden": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hidden"
+        },
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFzaWNJbWFnZUFuZExpbmsudHN4@BasicImageAndLinkProps",
+          "title": "Image"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx@Props"
     },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9TaG9wcGFibGVCYW5uZXIudHN4@Pin": {
       "type": "object",
@@ -15308,6 +15317,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9JbmZvcm1hdGl2ZUJhbm5lci50c3g=": {
+      "title": "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9JbmZvcm1hdGl2ZUJhbm5lci50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx"
+          ],
+          "default": "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9TaG9wcGFibGVCYW5uZXIudHN4": {
       "title": "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx",
       "type": "object",
@@ -16896,6 +16926,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9JbWFnZUdhbGxlcnkudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9JbmZvcm1hdGl2ZUJhbm5lci50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9TaG9wcGFibGVCYW5uZXIudHN4"

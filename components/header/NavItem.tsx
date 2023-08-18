@@ -13,7 +13,7 @@ export interface NavItemProps {
     src?: imageType;
     alt?: string;
   };
-  children?: Array<{
+  navbarItems?: Array<{
     mobileOnly?: boolean;
     label?: string;
     href?: string;
@@ -24,10 +24,12 @@ export interface NavItemProps {
   }>;
 }
 
-export const NavItem = ({ label, children = [], href }: NavItemProps) => {
+
+export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
+
   const filteredChildren = useMemo(() => {
-    return children?.filter((item) => item.mobileOnly !== true);
-  }, [children]);
+    return navbarItems?.filter((item) => item.mobileOnly !== true);
+  }, [navbarItems]);
 
   const modalAlignment = useMemo(() => {
     if (!IS_BROWSER) {
@@ -49,7 +51,7 @@ export const NavItem = ({ label, children = [], href }: NavItemProps) => {
       ...alignment,
       maxWidth: `${modalWidth}px`,
     };
-  }, [children]);
+  }, [navbarItems]);
 
   return (
     <div class="group flex">
@@ -75,7 +77,6 @@ export const NavItem = ({ label, children = [], href }: NavItemProps) => {
                   alt={desktopMenuImage?.alt ?? "Drop down menu image"}
                   width={280}
                   height={280}
-                  loading="lazy"
                 />
                 <div class="w-full text-center">
                   <span class="font-medium text-lg text-blue-200 uppercase">

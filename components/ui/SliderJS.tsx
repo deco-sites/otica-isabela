@@ -157,6 +157,17 @@ const setup = (
         const index = Number(item.target.getAttribute("data-slider-item")) || 0;
         const dot = dots?.item(index);
 
+        const indices = getElementsInsideContainer();
+        const isShowingLast = indices[indices.length - 1] === items.length - 1;
+
+        if (isShowingLast) {
+          next?.classList.add("hidden");
+          prev?.classList.remove("hidden");
+        } else {
+          next?.classList.remove("hidden");
+          prev?.classList.add("hidden");
+        }
+
         if (item.isIntersecting) {
           dot?.setAttribute("disabled", "");
         } else {
