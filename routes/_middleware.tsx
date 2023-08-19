@@ -25,21 +25,23 @@ export const handler = async (
   const cookies = getCookies(req.headers);
   const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
-  if (!sessionToken) {
-    const authApiResponse = await ctx.state.invoke(
-      "deco-sites/otica-isabela/loaders/store/session.ts",
-    );
+  //Trecho comentado, pois o mesmo esta impactando o funcionamento do front, quando corrigida removemos a marcação
 
-    const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
+  // if (!sessionToken) {
+  //   const authApiResponse = await ctx.state.invoke(
+  //     "deco-sites/otica-isabela/loaders/store/session.ts",
+  //   );
 
-    setCookie(
-      SessionKey,
-      res,
-      IdCustomer !== null
-        ? new Date().setFullYear(new Date().getFullYear() + 1)
-        : null,
-    );
-  }
+  //   const { SessionCustomer: { SessionKey, IdCustomer } } = authApiResponse;
+
+  //   setCookie(
+  //     SessionKey,
+  //     res,
+  //     IdCustomer !== null
+  //       ? new Date().setFullYear(new Date().getFullYear() + 1)
+  //       : null,
+  //   );
+  // }
 
   return res;
 };

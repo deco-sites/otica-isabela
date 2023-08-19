@@ -7,10 +7,10 @@ export interface Props {
 }
 
 function MenuItem({ item }: { item: NavItemProps }) {
-  const { href = "/", label, children, mobileMenuImage } = item;
+  const { href = "/", label, navbarItems, mobileMenuImage } = item;
   const { src, alt } = mobileMenuImage || {};
 
-  if (!children?.length) {
+  if (!navbarItems?.length) {
     return (
       <div class="collapse-title  ">
         <a
@@ -36,9 +36,9 @@ function MenuItem({ item }: { item: NavItemProps }) {
         </span>
       </div>
 
-      {!!children?.length && (
+      {!!navbarItems?.length && (
         <ul class=" collapse-content  w-full flex flex-col gap-y-3 font-semibold text-secondary text-base leading-5 p-0 ">
-          {children.map(({ label, href }) => (
+          {navbarItems.map(({ label, href }) => (
             <li class="pl-9">
               <a href={href}>{label}</a>
             </li>
