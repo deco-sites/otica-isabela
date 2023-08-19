@@ -168,8 +168,7 @@ const setup = (
 
         const indices = getElementsInsideContainer();
         const isShowingLast = indices[indices.length - 1] === items.length - 1;
-      
-    
+
         if (hideArrowsOnLast) {
           if (isShowingLast) {
             next?.classList.add("hidden");
@@ -180,7 +179,6 @@ const setup = (
           }
         }
 
-       
         if (perPageDots) {
           const floorElementsPerPage = Math.floor(perPage);
           const firstElementIndex = floorElementsPerPage * dotIndex;
@@ -225,8 +223,6 @@ const setup = (
 
   const safeWidth = slider.offsetWidth - (colGap * (perPage - 1));
   const cardSize = Math.floor(safeWidth / perPage);
-
-
 
   items.forEach((item) => {
     item.style.width = `${cardSize}px`;
@@ -274,7 +270,15 @@ function Slider({
 }: Props) {
   useEffect(
     () =>
-      setup({ rootId, scroll, interval, infinite, itemsPerPage, perPageDots,hideArrowsOnLast }),
+      setup({
+        rootId,
+        scroll,
+        interval,
+        infinite,
+        itemsPerPage,
+        perPageDots,
+        hideArrowsOnLast,
+      }),
     [
       rootId,
       scroll,
