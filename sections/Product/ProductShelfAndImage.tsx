@@ -11,10 +11,10 @@ export interface Props {
   header?: IconTitleProps;
   products?: LoaderReturnType<Product[] | null>;
   image: {
-    href?: string;
     desktop: ImageType;
     mobile?: ImageType;
-    alt?: string;
+    alt: string;
+    href?: string;
   };
   imageAlign?: {
     desktop: "left" | "right";
