@@ -3,18 +3,9 @@ import Image from "deco-sites/std/components/Image.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
+import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
-export interface Review {
-  ratingValue: number;
-  authorName: string;
-  reviewDescription: string;
-  authorCity: string;
-  productName: string;
-  productPhoto: string;
-  productLink: string;
-  additionalImage: string;
-  memberLevel?: string;
-}
+
 
 export interface MembershipBadgeProps {
   label: string;

@@ -8,8 +8,8 @@ import TestimonialItem from "$store/components/ui/TestimonialItem.tsx";
 
 import type {
   MembershipBadgeProps,
-  Review,
 } from "$store/components/ui/TestimonialItem.tsx";
+import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
 export interface Props {
   header?: IconTitleProps;
@@ -71,8 +71,6 @@ export default function Testimonials(
   { header, membershipBadges }: Props,
 ) {
   const id = useId();
-
-  
 
   return (
     <>
