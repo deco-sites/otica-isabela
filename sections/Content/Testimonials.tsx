@@ -2,9 +2,10 @@ import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
+
 import { useId } from "preact/hooks";
 import TestimonialItem from "$store/components/ui/TestimonialItem.tsx";
-import { ProductShelfDots } from "$store/components/product/ProductShelf.tsx";
+
 import type {
   MembershipBadgeProps,
   Review,
@@ -71,6 +72,8 @@ export default function Testimonials(
 ) {
   const id = useId();
 
+  
+
   return (
     <>
       <IconTitle {...header} />
@@ -94,14 +97,11 @@ export default function Testimonials(
           </Slider>
 
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-            {REVIEW_MOCK?.map((_, index) => (
-              <Slider.Dot index={index}>
-                {ProductShelfDots}
-              </Slider.Dot>
-            ))}
+            {REVIEW_MOCK?.map((_, index) => <Slider.Dot index={index} />)}
           </div>
 
           <SliderJS
+            perPageDots={true}
             itemsPerPage={{ desktop: { 0: 2 }, mobile: { 0: 1 } }}
             rootId={id}
           />

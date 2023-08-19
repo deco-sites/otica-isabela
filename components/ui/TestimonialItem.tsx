@@ -18,7 +18,7 @@ export interface Review {
 
 export interface MembershipBadgeProps {
   label: string;
-  bagde?: { desktop: LiveImage; mobile?: LiveImage };
+  bagde: { desktop: LiveImage; mobile?: LiveImage };
   badgeDescription: string;
 }
 
@@ -34,7 +34,7 @@ export const UserInfos = (
 
   return (
     <div class="flex flex-col w-full">
-      <p class=" w-full text-xs font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 ">
+      <p class=" w-full text-xs lg:text-base font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 ">
         {authorName}
         {desktop && (
           <Picture>
@@ -117,7 +117,7 @@ const TestimonialItem = (
           />
 
           <div class="flex flex-col items-start">
-            <span class="text-xs text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
+            <span class="text-sm  text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
               <Icon width={18} height={22} id="Locale" />
               {authorCity}
             </span>

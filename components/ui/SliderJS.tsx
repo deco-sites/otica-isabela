@@ -241,6 +241,8 @@ const setup = (
 
   const timeout = interval && setInterval(onClickNext, interval);
 
+  const indices = getElementsInsideContainer();
+
   // Unregister callbacks
   return () => {
     for (let it = 0; it < (dots?.length ?? 0); it++) {
