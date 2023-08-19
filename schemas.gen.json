@@ -100,7 +100,6 @@
               "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
               "deco-sites/otica-isabela/sections/Header/Header.tsx",
               "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx",
-              "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx",
               "deco-sites/otica-isabela/sections/Images/Carousel.tsx",
               "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx",
               "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx",
@@ -10295,95 +10294,6 @@
       "required": [],
       "title": "deco-sites/otica-isabela/components/ui/BannerGrid.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyVGV4dEJ1dHRvbi50c3g=@BannerTextButton": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the text",
-          "title": "Title"
-        },
-        "text": {
-          "type": "string",
-          "description": "Text to be rendered after the title",
-          "title": "Text"
-        },
-        "href": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "href where the button will send to",
-          "title": "Href"
-        },
-        "textAlign": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "center",
-              "default": "center"
-            },
-            {
-              "type": "string",
-              "const": "left",
-              "default": "left"
-            }
-          ],
-          "type": "string",
-          "description": "justify and align the text (MOBILE ONLY)",
-          "title": "Text Align"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "desktop": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Desktop"
-            },
-            "mobile": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Mobile"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            },
-            "imageAlign": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "right",
-                  "default": "right"
-                },
-                {
-                  "type": "string",
-                  "const": "left",
-                  "default": "left"
-                }
-              ],
-              "type": "string",
-              "title": "Image Align"
-            }
-          },
-          "required": [
-            "desktop",
-            "mobile"
-          ],
-          "title": "Image"
-        }
-      },
-      "required": [
-        "text",
-        "image"
-      ],
-      "title": "deco-sites/otica-isabela/components/ui/BannerTextButton.tsx@BannerTextButton"
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
       "type": "object",
       "properties": {
@@ -10409,14 +10319,6 @@
               "type": "string",
               "title": "Href"
             },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
             "label": {
               "type": "string",
               "title": "Label"
@@ -10424,8 +10326,6 @@
           },
           "required": [
             "href",
-            "title",
-            "subTitle",
             "label"
           ],
           "title": "Action"
@@ -11568,6 +11468,48 @@
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products"
+        },
+        "imageAlign": {
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "left",
+                  "default": "left"
+                },
+                {
+                  "type": "string",
+                  "const": "right",
+                  "default": "right"
+                }
+              ],
+              "type": "string",
+              "title": "Desktop"
+            },
+            "mobile": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "top",
+                  "default": "top"
+                },
+                {
+                  "type": "string",
+                  "const": "bottom",
+                  "default": "bottom"
+                }
+              ],
+              "type": "string",
+              "title": "Mobile"
+            }
+          },
+          "required": [
+            "desktop",
+            "mobile"
+          ],
+          "title": "Image Align"
         },
         "image": {
           "type": "object",
@@ -15317,27 +15259,6 @@
         }
       }
     },
-    "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9CYW5uZXJUZXh0QnV0dG9uLnRzeA==": {
-      "title": "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL2NvbXBvbmVudHMvdWkvQmFubmVyVGV4dEJ1dHRvbi50c3g=@BannerTextButton"
-        }
-      ],
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx"
-          ],
-          "default": "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx"
-        }
-      }
-    },
     "ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9DYXJvdXNlbC50c3g=": {
       "title": "deco-sites/otica-isabela/sections/Images/Carousel.tsx",
       "type": "object",
@@ -16983,9 +16904,6 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9CYW5uZXJHcmlkLnRzeA=="
-        },
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9CYW5uZXJUZXh0QnV0dG9uLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9vdGljYS1pc2FiZWxhL3NlY3Rpb25zL0ltYWdlcy9DYXJvdXNlbC50c3g="
