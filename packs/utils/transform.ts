@@ -9,7 +9,38 @@ export function toProduct(product: IsabelaProduct): Product {
     Imagem,
     ValorDesconto,
     ValorOriginal,
+    Altura,
+    Largura,
+    Ponte,
+    Hastes,
+    FrenteTotal,
+    Aro,
   } = product;
+
+  function newPropertyValue(properties: Record<string, string>) {
+    const result = [];
+
+    for (const propertyName in properties) {
+      const propertyValue = properties[propertyName];
+      const propertyObject = {
+        "@type": "PropertyValue" as const,
+        name: propertyName,
+        value: propertyValue,
+      };
+      result.push(propertyObject);
+    }
+
+    return result;
+  }
+
+  const additionalProperty = newPropertyValue({
+    Altura,
+    Largura,
+    Ponte,
+    Hastes,
+    FrenteTotal,
+    Aro,
+  });
 
   return {
     "@type": "Product",
@@ -24,6 +55,7 @@ export function toProduct(product: IsabelaProduct): Product {
       alternateName: Nome,
       url: Imagem,
     }],
+    additionalProperty,
     offers: {
       "@type": "AggregateOffer",
       highPrice: ValorOriginal,
