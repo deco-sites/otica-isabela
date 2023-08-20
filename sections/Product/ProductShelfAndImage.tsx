@@ -11,15 +11,19 @@ export interface Props {
   header?: IconTitleProps;
   products?: LoaderReturnType<Product[] | null>;
   image: {
-    href?: string;
     desktop: ImageType;
     mobile?: ImageType;
-    alt?: string;
+    alt: string;
+    href?: string;
+  };
+  imageAlign?: {
+    desktop: "left" | "right";
+    mobile: "top" | "bottom";
   };
 }
 
 const ProductShelfAndImage = (
-  { header, image, products }: Props,
+  { header, image, products, imageAlign }: Props,
 ) => {
   if (!products || !products?.length) {
     return null;
@@ -29,12 +33,20 @@ const ProductShelfAndImage = (
   return (
     <section class="flex flex-col">
       <IconTitle {...header} />
-      <div class="w-full container flex flex-col items-center justify-center gap-x-12  lg:flex-row lg:justify-between lg:items-start mt-14 mb-24 lg:mb-6">
+      <div
+        class={`w-full container  flex ${
+          imageAlign?.mobile === "bottom" ? "flex-col" : "flex-col-reverse"
+        } items-center justify-center gap-x-12  ${
+          imageAlign?.desktop === "right"
+            ? "lg:flex-row"
+            : "lg:flex-row-reverse"
+        } lg:justify-between lg:items-start mt-14 mb-24 lg:mb-6`}
+      >
         <div class=" w-full lg:w-1/3">
           <div class="hidden lg:flex">
             <VerticalProductShelf products={products} />
           </div>
-          <div class="flex lg:hidden">
+          <div class="flex mt-8 lg:hidden">
             <ProductShelf
               itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 0 } }}
               products={products}

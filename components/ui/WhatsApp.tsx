@@ -1,26 +1,29 @@
-import Icon from "$store/components/ui/Icon.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface Props {
-  phone?: number;
+  link?: string;
+  image?: LiveImage;
 }
 
-function WhatsApp({ phone }: Props) {
-  if (!phone) {
+function WhatsApp({ image, link }: Props) {
+  if (!image) {
     return null;
   }
 
   return (
     <a
-      href={`https://api.whatsapp.com/send/?phone=${phone}&text&type=phone_number&app_absent=0`}
-      class="fixed bottom-6 right-6 z-40"
-      aria-label="Chat on WhatsApp"
+      href={link ?? "#"}
+      class="fixed bottom-6 right-6 min-[1680px]:right-[15%] z-40"
+      aria-label="WhatsApp"
     >
-      <button
-        class="bg-[#45D268] text-white p-2 rounded-full shadow-lg"
-        aria-label="Chat on WhatsApp"
-      >
-        <Icon id="WhatsApp" size={32} stroke="0.01" />
-      </button>
+      <Image
+        title="WhatsApp"
+        width={50}
+        height={50}
+        src={image ?? ""}
+        alt="WhatsApp"
+      />
     </a>
   );
 }
