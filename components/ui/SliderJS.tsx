@@ -9,6 +9,8 @@ interface Props {
     mobile: Record<number, number>;
     desktop: Record<number, number>;
   };
+  perPageDots?: boolean;
+  hideArrowsOnLast?: boolean;
 }
 
 const ATTRIBUTES = {
@@ -57,6 +59,8 @@ const setup = (
     interval,
     infinite,
     itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
+    perPageDots,
+    hideArrowsOnLast,
   }: Props,
 ) => {
   const { desktop, mobile } = itemsPerPage ?? {};
@@ -125,7 +129,7 @@ const setup = (
     slider.scrollTo({
       top: 0,
       behavior: scroll,
-      left: item.offsetLeft,
+      left: item.offsetLeft - root.offsetLeft,
     });
   };
 
@@ -144,23 +148,54 @@ const setup = (
   const onClickNext = () => {
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
+    const itemsPerPage = indices.length;
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
-    const pageIndex = Math.floor(indices[0] / perPage);
+    const pageIndex = Math.floor(indices[0] / itemsPerPage);
 
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * perPage);
+    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
   };
 
   const observer = new IntersectionObserver(
     (elements) =>
       elements.forEach((item) => {
         const index = Number(item.target.getAttribute("data-slider-item")) || 0;
-        const dot = dots?.item(index);
 
-        if (item.isIntersecting) {
-          dot?.setAttribute("disabled", "");
+        const dotIndex = perPageDots
+          ? Math.floor(index / Math.floor(perPage))
+          : index;
+        const dot = dots?.item(dotIndex);
+
+        const indices = getElementsInsideContainer();
+        const isShowingLast = indices[indices.length - 1] === items.length - 1;
+
+        if (hideArrowsOnLast) {
+          if (isShowingLast) {
+            next?.classList.add("hidden");
+            prev?.classList.remove("hidden");
+          } else {
+            next?.classList.remove("hidden");
+            prev?.classList.add("hidden");
+          }
+        }
+
+        if (perPageDots) {
+          const floorElementsPerPage = Math.floor(perPage);
+          const firstElementIndex = floorElementsPerPage * dotIndex;
+
+          if (index === firstElementIndex) {
+            if (item.isIntersecting) {
+              dot?.setAttribute("disabled", "");
+            } else {
+              dot?.removeAttribute("disabled");
+            }
+          }
         } else {
-          dot?.removeAttribute("disabled");
+          if (item.isIntersecting) {
+            dot?.setAttribute("disabled", "");
+          } else {
+            dot?.removeAttribute("disabled");
+          }
         }
 
         if (!infinite) {
@@ -183,9 +218,10 @@ const setup = (
     { threshold: THRESHOLD, root: slider },
   );
 
-  const safeWidth = slider.offsetWidth -
-    (Number(getComputedStyle(slider).columnGap.replace("px", "")) *
-      (perPage - 1));
+  const colGap = Number(getComputedStyle(slider).columnGap.replace("px", "")) ||
+    0;
+
+  const safeWidth = slider.offsetWidth - (colGap * (perPage - 1));
   const cardSize = Math.floor(safeWidth / perPage);
 
   items.forEach((item) => {
@@ -194,7 +230,10 @@ const setup = (
   });
 
   for (let it = 0; it < (dots?.length ?? 0); it++) {
-    dots?.item(it).addEventListener("click", () => goToItem(it));
+    dots?.item(it).addEventListener(
+      "click",
+      () => goToItem(perPageDots ? it * Math.floor(perPage) : it),
+    );
   }
 
   prev?.addEventListener("click", onClickPrev);
@@ -205,7 +244,10 @@ const setup = (
   // Unregister callbacks
   return () => {
     for (let it = 0; it < (dots?.length ?? 0); it++) {
-      dots?.item(it).removeEventListener("click", () => goToItem(it));
+      dots?.item(it).removeEventListener(
+        "click",
+        () => goToItem(perPageDots ? it * perPage : it),
+      );
     }
 
     prev?.removeEventListener("click", onClickPrev);
@@ -223,14 +265,30 @@ function Slider({
   interval,
   infinite = false,
   itemsPerPage,
+  perPageDots = false,
+  hideArrowsOnLast = false,
 }: Props) {
-  useEffect(() => setup({ rootId, scroll, interval, infinite, itemsPerPage }), [
-    rootId,
-    scroll,
-    interval,
-    infinite,
-    itemsPerPage,
-  ]);
+  useEffect(
+    () =>
+      setup({
+        rootId,
+        scroll,
+        interval,
+        infinite,
+        itemsPerPage,
+        perPageDots,
+        hideArrowsOnLast,
+      }),
+    [
+      rootId,
+      scroll,
+      interval,
+      infinite,
+      itemsPerPage,
+      perPageDots,
+      hideArrowsOnLast,
+    ],
+  );
 
   return <div data-slider-controller-js />;
 }

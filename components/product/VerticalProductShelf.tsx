@@ -23,38 +23,34 @@ const VerticalProductShelf = (
   );
 
   return (
-    <div class="w-full">
-      <div
-        id={id}
-        class="container hidden  lg:flex flex-col  "
-      >
-        <Slider class="carousel">
-          {arrangedProducts?.map((allProducts, index) => (
-            <Slider.Item
-              index={index}
-              class="carousel-item  w-full flex flex-col"
-            >
-              {allProducts.map((product) => (
-                <ProductCard
-                  product={product}
-                />
-              ))}
-            </Slider.Item>
-          ))}
-        </Slider>
+    <div class="container w-full hidden  lg:flex flex-col" id={id}>
+      <Slider class="carousel">
+        {arrangedProducts?.map((allProducts, index) => (
+          <Slider.Item
+            index={index}
+            class="carousel-item  w-full flex flex-col"
+          >
+            {allProducts.map((product) => (
+              <ProductCard
+                product={product}
+              />
+            ))}
+          </Slider.Item>
+        ))}
+      </Slider>
 
-        <SliderJS
-          rootId={id}
-        />
-
-        <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-          {arrangedProducts.map((_, index) => (
-            <Slider.Dot index={index}>
-              {ProductShelfDots}
-            </Slider.Dot>
-          ))}
-        </div>
+      <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
+        {arrangedProducts.map((_, index) => (
+          <Slider.Dot index={index}>
+            <ProductShelfDots />
+          </Slider.Dot>
+        ))}
       </div>
+
+      <SliderJS
+        perPageDots
+        rootId={id}
+      />
     </div>
   );
 };

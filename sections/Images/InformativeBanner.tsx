@@ -11,7 +11,11 @@ const InformativeBanner = ({ image, hidden }: Props) => {
   }
 
   return (
-    <div class="w-full hidden lg:flex bg-black py-3">
+    <div
+      class={`w-full ${image?.src?.mobile ? "flex" : "hidden"}   ${
+        image?.src?.desktop ? "lg:flex" : "hidden"
+      }  items-center justify-center bg-black py-3`}
+    >
       <BasicImageAndLink {...image} />
     </div>
   );
