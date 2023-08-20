@@ -53,7 +53,7 @@ export type AvailableIcons =
   | "CheckMarkCircle"
   | "Camera"
   | "ArrowDown"
-  | "GlassesAroClose"
+  | "GlassesAroClosed"
   | "CatGlasses";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {

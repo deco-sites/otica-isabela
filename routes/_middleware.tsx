@@ -23,9 +23,7 @@ export const handler = async (
 ) => {
   const res = await ctx.next();
   const cookies = getCookies(req.headers);
-  const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
-
-  //Trecho comentado, pois o mesmo esta impactando o funcionamento do front, quando corrigida removemos a marcação
+   // const sessionToken = cookies[ISABELA_DIAS_COOKIE] ?? false;
 
   // if (!sessionToken) {
   //   const authApiResponse = await ctx.state.invoke(
