@@ -48,7 +48,7 @@ export function toProduct(product: IsabelaProduct): Product {
     url:
       new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
         .href,
-    name: Nome,
+    name: Nome.trim(),
     sku: `${IdProduct}`,
     image: [{
       "@type": "ImageObject" as const,
