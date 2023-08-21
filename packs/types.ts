@@ -5,7 +5,7 @@ export type Session = {
 export type SessionCustomer = {
   Company: string;
   Customer: string;
-  SessionCustomer_CartProduct: [];
+  SessionCustomer_CartProduct: unknown[];
   IdSessionCustomer: number;
   IdCustomer: number;
   SessionKey: string;
@@ -43,7 +43,7 @@ export type Product = {
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   PorcentagemDesconto: number;
-  ProdutosMaisCores: productColors[];
+  ProdutosMaisCores: ProductColors[];
   Imagem: string;
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
@@ -57,7 +57,7 @@ export type Product = {
   ValorArmacaoSeComprarLentes: number;
 };
 
-export type productColors = {
+export type ProductColors = {
   IdProduct: number;
   Nome: string;
   ValorOriginal: number;
