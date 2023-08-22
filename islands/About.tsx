@@ -6,11 +6,13 @@ interface Props {
   header?: IconTitleProps;
   /**
    * @title Primeira Parte
+   * @description Texto que sempre estará visível'
    * @format html
    */
   firstPart?: string;
   /**
    * @title Segunda Parte
+   * @description Texto que aparecerá ao clicar em 'ver mais'
    * @format html */
   secondPart?: string;
 }
@@ -29,22 +31,24 @@ const About = ({ header, firstPart, secondPart }: Props) => {
               "",
           }}
         />
-        {secondPart && showText.value && (
-          <span
-            class="w-full text-start my-6 "
-            dangerouslySetInnerHTML={{
-              __html: secondPart ?? "",
-            }}
-          />
-        )}
-
         {secondPart && (
-          <button
-            onClick={() => showText.value = !showText.value}
-            class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block"
-          >
-            {showText.value ? "ver menos" : "ver mais"}
-          </button>
+          <>
+            {showText.value && (
+              <span
+                class="w-full text-start my-6 "
+                dangerouslySetInnerHTML={{
+                  __html: secondPart ?? "",
+                }}
+              />
+            )}
+
+            <button
+              onClick={() => showText.value = !showText.value}
+              class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block"
+            >
+              {showText.value ? "ver menos" : "ver mais"}
+            </button>
+          </>
         )}
       </div>
     </>
