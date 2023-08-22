@@ -33,6 +33,17 @@ export type SessionCustomer = {
   SourceCliente: string;
 };
 
+export interface Review {
+  ratingValue: number;
+  authorName: string;
+  reviewDescription: string;
+  authorCity: string;
+  productName: string;
+  productPhoto: string;
+  productLink: string;
+  additionalImage: string;
+  memberLevel?: string;
+}
 export type Products = Product[];
 
 export type Product = {

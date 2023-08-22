@@ -3,7 +3,6 @@ import { useId } from "preact/hooks";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-import { ProductShelfDots } from "$store/components/product/ProductShelf.tsx";
 
 export interface Props {
   products?: Product[];
@@ -40,11 +39,7 @@ const VerticalProductShelf = (
       </Slider>
 
       <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-        {arrangedProducts.map((_, index) => (
-          <Slider.Dot index={index}>
-            <ProductShelfDots />
-          </Slider.Dot>
-        ))}
+        {arrangedProducts.map((_, index) => <Slider.Dot index={index} />)}
       </div>
 
       <SliderJS

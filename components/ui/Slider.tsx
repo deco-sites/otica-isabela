@@ -2,7 +2,7 @@ import type { ComponentChildren, JSX } from "preact";
 
 function Dot({ index, children }: {
   index: number;
-  children: ComponentChildren;
+  children?: ComponentChildren;
 }) {
   return (
     <button
@@ -10,7 +10,12 @@ function Dot({ index, children }: {
       aria-label={`go to slider item ${index}`}
       class="focus:outline-none group  disabled:opacity-50"
     >
-      {children}
+      {children
+        ? children
+        : (
+          <div class=" w-[10px] h-[10px] rounded-3xl bg-blue-200  ">
+          </div>
+        )}
     </button>
   );
 }

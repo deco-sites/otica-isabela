@@ -17,10 +17,6 @@ export interface Props {
   };
 }
 
-export const ProductShelfDots = () => (
-  <div class=" w-[10px] h-[10px] rounded-3xl bg-blue-200  ">
-  </div>
-);
 
 function ProductShelf({
   products,
@@ -75,11 +71,7 @@ function ProductShelf({
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-          {products.map((_, index) => (
-            <Slider.Dot index={index}>
-              <ProductShelfDots />
-            </Slider.Dot>
-          ))}
+          {products.map((_, index) => <Slider.Dot index={index} />)}
         </div>
       </div>
     </div>
