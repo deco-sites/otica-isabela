@@ -1,6 +1,5 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
-import About from "$store/sections/Content/About.tsx";
 
 /**
  * @titleBy alt
@@ -127,8 +126,6 @@ export default function BannnerGrid({
           )
         )}
       </div>
-
-      <About/>
     </section>
   );
 }
