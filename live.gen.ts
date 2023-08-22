@@ -23,26 +23,26 @@ import * as $$$$$11 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$12 from "./islands/SliderJS.tsx";
 import * as $$$$$13 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/Category/CategoryBanner.tsx";
-import * as $$$$$$$$1 from "./sections/Category/CategoryList.tsx";
-import * as $$$$$$$$2 from "./sections/Content/About.tsx";
-import * as $$$$$$$$3 from "./sections/Content/Benefits.tsx";
-import * as $$$$$$$$4 from "./sections/Content/Faq.tsx";
-import * as $$$$$$$$5 from "./sections/Content/Logos.tsx";
-import * as $$$$$$$$6 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$$$7 from "./sections/Footer/Footer.tsx";
-import * as $$$$$$$$8 from "./sections/Header/Header.tsx";
-import * as $$$$$$$$9 from "./sections/Images/BannerGrid.tsx";
-import * as $$$$$$$$10 from "./sections/Images/BannerTextButton.tsx";
-import * as $$$$$$$$11 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$$$12 from "./sections/Images/ImageGallery.tsx";
-import * as $$$$$$$$13 from "./sections/Images/InformativeBanner.tsx";
-import * as $$$$$$$$14 from "./sections/Images/ShoppableBanner.tsx";
-import * as $$$$$$$$15 from "./sections/Links/LinkTree.tsx";
-import * as $$$$$$$$16 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$$$17 from "./sections/Miscellaneous/CampaignTimer.tsx";
-import * as $$$$$$$$18 from "./sections/Miscellaneous/CookieConsent.tsx";
-import * as $$$$$$$$19 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$$$20 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$$$1 from "./sections/Content/About.tsx";
+import * as $$$$$$$$2 from "./sections/Content/Benefits.tsx";
+import * as $$$$$$$$3 from "./sections/Content/Faq.tsx";
+import * as $$$$$$$$4 from "./sections/Content/Logos.tsx";
+import * as $$$$$$$$5 from "./sections/Content/Testimonials.tsx";
+import * as $$$$$$$$6 from "./sections/Footer/Footer.tsx";
+import * as $$$$$$$$7 from "./sections/Header/Header.tsx";
+import * as $$$$$$$$8 from "./sections/Images/BannerGrid.tsx";
+import * as $$$$$$$$9 from "./sections/Images/BannerTextButton.tsx";
+import * as $$$$$$$$10 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$$$11 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$$$12 from "./sections/Images/InformativeBanner.tsx";
+import * as $$$$$$$$13 from "./sections/Images/ShoppableBanner.tsx";
+import * as $$$$$$$$14 from "./sections/Links/LinkTree.tsx";
+import * as $$$$$$$$15 from "./sections/Links/Shortcuts.tsx";
+import * as $$$$$$$$16 from "./sections/Miscellaneous/CampaignTimer.tsx";
+import * as $$$$$$$$17 from "./sections/Miscellaneous/CookieConsent.tsx";
+import * as $$$$$$$$18 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$$$19 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$$$20 from "./sections/Product/ProductsAndBanner.tsx";
 import * as $$$$$$$$21 from "./sections/Product/ProductShelf.tsx";
 import * as $$$$$$$$22 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$$$23 from "./sections/Product/SearchResult.tsx";
@@ -293,29 +293,30 @@ const manifest = {
     "$live/sections/Slot.tsx": i2$$$$$3,
     "$live/sections/UseSlot.tsx": i2$$$$$4,
     "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$$$0,
-    "deco-sites/otica-isabela/sections/Category/CategoryList.tsx": $$$$$$$$1,
-    "deco-sites/otica-isabela/sections/Content/About.tsx": $$$$$$$$2,
-    "deco-sites/otica-isabela/sections/Content/Benefits.tsx": $$$$$$$$3,
-    "deco-sites/otica-isabela/sections/Content/Faq.tsx": $$$$$$$$4,
-    "deco-sites/otica-isabela/sections/Content/Logos.tsx": $$$$$$$$5,
-    "deco-sites/otica-isabela/sections/Content/Testimonials.tsx": $$$$$$$$6,
-    "deco-sites/otica-isabela/sections/Footer/Footer.tsx": $$$$$$$$7,
-    "deco-sites/otica-isabela/sections/Header/Header.tsx": $$$$$$$$8,
-    "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx": $$$$$$$$9,
-    "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx": $$$$$$$$10,
-    "deco-sites/otica-isabela/sections/Images/Carousel.tsx": $$$$$$$$11,
-    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$12,
+    "deco-sites/otica-isabela/sections/Content/About.tsx": $$$$$$$$1,
+    "deco-sites/otica-isabela/sections/Content/Benefits.tsx": $$$$$$$$2,
+    "deco-sites/otica-isabela/sections/Content/Faq.tsx": $$$$$$$$3,
+    "deco-sites/otica-isabela/sections/Content/Logos.tsx": $$$$$$$$4,
+    "deco-sites/otica-isabela/sections/Content/Testimonials.tsx": $$$$$$$$5,
+    "deco-sites/otica-isabela/sections/Footer/Footer.tsx": $$$$$$$$6,
+    "deco-sites/otica-isabela/sections/Header/Header.tsx": $$$$$$$$7,
+    "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx": $$$$$$$$8,
+    "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx": $$$$$$$$9,
+    "deco-sites/otica-isabela/sections/Images/Carousel.tsx": $$$$$$$$10,
+    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$11,
     "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx":
-      $$$$$$$$13,
-    "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$14,
-    "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$15,
-    "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$16,
+      $$$$$$$$12,
+    "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$13,
+    "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$14,
+    "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$15,
     "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx":
-      $$$$$$$$17,
+      $$$$$$$$16,
     "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
-      $$$$$$$$18,
-    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$19,
-    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$20,
+      $$$$$$$$17,
+    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$18,
+    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$19,
+    "deco-sites/otica-isabela/sections/Product/ProductsAndBanner.tsx":
+      $$$$$$$$20,
     "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$21,
     "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
       $$$$$$$$22,
@@ -339,6 +340,7 @@ const manifest = {
     "deco-sites/std/sections/SEOPLP.tsx": i2$$$$$15,
     "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx": i2$$$$$16,
   },
+  "name": "deco-sites/otica-isabela",
   "handlers": {
     "$live/handlers/devPage.ts": i2$$$$0,
     "$live/handlers/fresh.ts": i2$$$$1,
