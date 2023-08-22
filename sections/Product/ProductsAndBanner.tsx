@@ -10,7 +10,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 
-export interface Category {
+export interface BannersProps {
   label: string;
   href?: string;
   image?: LiveImage;
@@ -21,11 +21,11 @@ export interface Props {
   /**
    * @title Banners
    */
-  list?: Category[];
+  banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
 }
 
-function CategoryList({ header, list, products }: Props) {
+function ProductsAndBanner({ header, banners, products }: Props) {
   const id = `category-list-${useId()}`;
 
   return (
@@ -38,7 +38,7 @@ function CategoryList({ header, list, products }: Props) {
           class="container h-full py-8 flex flex-col gap-8 lg:gap-10 text-base-content mb-8  lg:py-10"
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
-            {list?.map((
+            {banners?.map((
               { label, href, image },
               index,
             ) => (
@@ -67,7 +67,7 @@ function CategoryList({ header, list, products }: Props) {
             ))}
           </Slider>
           <div class="flex lg:hidden w-full justify-center items-center gap-x-4">
-            {list?.map((_, index) => {
+            {banners?.map((_, index) => {
               return (
                 <Slider.Dot index={index}>
                   <ProductShelfDots />
@@ -93,4 +93,4 @@ function CategoryList({ header, list, products }: Props) {
   );
 }
 
-export default CategoryList;
+export default ProductsAndBanner;
