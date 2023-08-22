@@ -34,6 +34,10 @@ export interface IconTitleProps {
 
   hideIcon?: boolean;
   icon?: AvailableIcons;
+  iconSize?: {
+    width?: number;
+    height?: number;
+  };
 
   /**
    * @format color
@@ -84,8 +88,10 @@ export const IconTitle = (
     secondLineTextFont = "bebas",
     textAlignment = "center",
     hideIcon,
+    iconSize,
   }: IconTitleProps,
 ) => {
+  const { height, width } = iconSize ?? {};
   return (
     <div
       style={{ backgroundColor: backgroundColor }}
@@ -109,7 +115,9 @@ export const IconTitle = (
           } gap-x-2`}
         >
           {firstLineText}
-          {!hideIcon && icon && <Icon width={65} height={34} id={icon} />}
+          {!hideIcon && icon && (
+            <Icon width={width ?? 65} height={height ?? 34} id={icon} />
+          )}
         </span>
 
         <span

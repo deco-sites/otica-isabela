@@ -1,7 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { ProductShelfDots } from "$store/components/product/ProductShelf.tsx";
 import { useId } from "preact/hooks";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
@@ -70,7 +69,6 @@ function ProductsAndBanner({ header, banners, products }: Props) {
             {banners?.map((_, index) => {
               return (
                 <Slider.Dot index={index}>
-                  <ProductShelfDots />
                 </Slider.Dot>
               );
             })}
@@ -86,7 +84,6 @@ function ProductsAndBanner({ header, banners, products }: Props) {
         <ProductShelf
           itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
           products={products}
-          itemListName="Produtos Visitados"
         />
       )}
     </>

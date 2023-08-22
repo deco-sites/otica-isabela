@@ -183,6 +183,10 @@ const setup = (
           const floorElementsPerPage = Math.floor(perPage);
           const firstElementIndex = floorElementsPerPage * dotIndex;
 
+          if (items.length > 2 && perPage > 1) {
+            dots?.item(items.length - 1).classList.add("hidden");
+          }
+
           if (index === firstElementIndex) {
             if (item.isIntersecting) {
               dot?.setAttribute("disabled", "");
