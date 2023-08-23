@@ -68,6 +68,7 @@ function ProductShelf({
         <SliderJS
           itemsPerPage={itemsPerPage}
           rootId={id}
+          perPageDots
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">

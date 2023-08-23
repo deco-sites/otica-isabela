@@ -160,14 +160,24 @@ function ProductCard({ product, preload, itemListName }: Props) {
           </div>
         </div>
 
-        <button class=" flex items-center justify-center h-14 gap-x-3   group btn btn-outline w-full border-black   font-bold text-black hover:bg-black py-2 ">
-          <Icon
-            id="Camera"
-            class="group-hover:invert"
-            width={40}
-            height={37}
-          />
-          <span class="group-hover:text-white text-2xl">Experimentar</span>
+        <button class=" flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-full border-black   font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2 ">
+          <span class="hidden lg:flex">
+            <Icon
+              id="Camera"
+              class="group-hover:invert"
+              width={40}
+              height={37}
+            />
+          </span>
+          <span class="flex lg:hidden">
+            <Icon
+              id="Camera"
+              class="group-hover:invert"
+              width={25}
+              height={23}
+            />
+          </span>
+          Experimentar
         </button>
       </div>
     </div>
