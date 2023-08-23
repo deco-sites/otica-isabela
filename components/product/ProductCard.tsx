@@ -1,6 +1,5 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
@@ -56,11 +55,29 @@ function ProductCard({ product, preload, itemListName }: Props) {
     name,
     image: images,
     offers,
+    additionalProperty,
   } = product;
   const id = `product-card-${productID}`;
 
+  const targetNames: string[] = [
+    "Altura da Lente",
+    "Largura da Lente",
+    "Largura da Ponte",
+    "Hastes",
+    "Frente Total",
+    "Aro",
+  ];
+
+  const nameMapping: Record<string, string> = {
+    "Altura da Lente": "Altura",
+    "Largura da Lente": "Largura",
+    "Largura da Ponte": "Ponte",
+    "Frente Total": "Frente",
+  };
+
   const [front] = images ?? [];
-  const { listPrice, price } = useOffer(offers);
+
+  const { highPrice: listPrice, lowPrice: price } = offers ?? {};
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
@@ -68,10 +85,19 @@ function ProductCard({ product, preload, itemListName }: Props) {
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
+  const propertyDescription = additionalProperty?.filter((property) =>
+    targetNames.some((targetName) => property?.name?.includes(targetName))
+  )?.map(
+    (property) => {
+      const mappedName = nameMapping[property?.name ?? ""] || property.name;
+      return { ...property, name: mappedName };
+    },
+  );
+
   return (
     <div
       id={id}
-      class="card  card-compact  w-full text-center h-full"
+      class="card card-compact w-full text-center h-full  min-w-[340px]"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -92,8 +118,8 @@ function ProductCard({ product, preload, itemListName }: Props) {
       />
 
       <figure
-        class="relative  overflow-hidden min-h-[170px]"
-        style={{ aspectRatio: `${316} / ${176}` }}
+        class="relative"
+        style={{ aspectRatio: `${306} / ${170}` }}
       >
         {/* Product Images */}
         <a
@@ -104,10 +130,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={316}
-            height={176}
-            class="rounded w-full"
-            sizes="(max-width: 640px) 50vw, 20vw"
+            width={306}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
             decoding="async"
@@ -126,14 +149,18 @@ function ProductCard({ product, preload, itemListName }: Props) {
       </figure>
 
       {/* Prices & Name */}
-      <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4">
+      <div class="flex-auto flex flex-col p-1 gap-3 lg:gap-4">
         <div class="flex flex-col gap-0">
           <h2 class=" font-semibold text-black   text-base lg:text-lg min-h-[57px] mb-6  ">
             {name}
           </h2>
 
           <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
-            {product.description}
+            {propertyDescription?.map((property, index) =>
+              `${property?.name}: ${property?.value}mm ${
+                index < propertyDescription.length - 1 ? "/" : ""
+              } `
+            )}
           </p>
         </div>
 
@@ -160,25 +187,27 @@ function ProductCard({ product, preload, itemListName }: Props) {
           </div>
         </div>
 
-        <button class=" flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-full border-black   font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2 ">
-          <span class="hidden lg:flex">
-            <Icon
-              id="Camera"
-              class="group-hover:invert"
-              width={40}
-              height={37}
-            />
-          </span>
-          <span class="flex lg:hidden">
-            <Icon
-              id="Camera"
-              class="group-hover:invert"
-              width={25}
-              height={23}
-            />
-          </span>
-          Experimentar
-        </button>
+        <div class="w-full flex items-center justify-center">
+          <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
+            <span class="hidden lg:flex">
+              <Icon
+                id="Camera"
+                class="group-hover:invert"
+                width={40}
+                height={37}
+              />
+            </span>
+            <span class="flex lg:hidden">
+              <Icon
+                id="Camera"
+                class="group-hover:invert"
+                width={25}
+                height={23}
+              />
+            </span>
+            Experimentar
+          </button>
+        </div>
       </div>
     </div>
   );
