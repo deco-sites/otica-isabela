@@ -1,5 +1,5 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
-import { Products } from "$store/packs/types.ts";
+import { Product as IsabelaProduct, ProductData } from "$store/packs/types.ts";
 import { paths } from "$store/packs/utils/path.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
@@ -32,7 +32,7 @@ const loader = async (
   const path = paths(config!);
   const { term, collection, count, isStopwatch, sort } = props;
 
-  const productsData = await fetchAPI<Products>(
+  const productsData = await fetchAPI<ProductData>(
     `${
       path.product.getProduct({
         term: term ?? "",
@@ -47,7 +47,9 @@ const loader = async (
     },
   );
 
-  const products = productsData.map((product) => toProduct(product));
+  const products = productsData.produtos.map((product: IsabelaProduct) =>
+    toProduct(product)
+  );
 
   return products;
 };

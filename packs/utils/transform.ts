@@ -1,46 +1,29 @@
-import { Product as IsabelaProduct } from "$store/packs/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import {
+  Product as IsabelaProduct,
+  ProductColors,
+} from "$store/packs/types.ts";
+import type {
+  ImageObject,
+  Product,
+  PropertyValue,
+} from "deco-sites/std/commerce/types.ts";
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
     UrlFriendlyColor,
     Nome,
-    Imagem,
+    ProdutosMaisCores,
     ValorDesconto,
     ValorOriginal,
-    Altura,
-    Largura,
-    Ponte,
-    Hastes,
-    FrenteTotal,
-    Aro,
+    Classificacoes,
   } = product;
 
-  function newPropertyValue(properties: Record<string, string>) {
-    const result = [];
+  const productImages = ProdutosMaisCores.map((productColors: ProductColors) =>
+    productColors.Imagem
+  );
 
-    for (const propertyName in properties) {
-      const propertyValue = properties[propertyName];
-      const propertyObject = {
-        "@type": "PropertyValue" as const,
-        name: propertyName,
-        value: propertyValue,
-      };
-      result.push(propertyObject);
-    }
-
-    return result;
-  }
-
-  const additionalProperty = newPropertyValue({
-    Altura,
-    Largura,
-    Ponte,
-    Hastes,
-    FrenteTotal,
-    Aro,
-  });
+  const productsInfo = Classificacoes.map((productInfo) => productInfo);
 
   return {
     "@type": "Product",
@@ -50,12 +33,16 @@ export function toProduct(product: IsabelaProduct): Product {
         .href,
     name: Nome.trim(),
     sku: `${IdProduct}`,
-    image: [{
+    image: productImages.map((image): ImageObject => ({
       "@type": "ImageObject" as const,
       alternateName: Nome,
-      url: Imagem,
-    }],
-    additionalProperty,
+      url: image,
+    })),
+    additionalProperty: productsInfo.map((propertieValue): PropertyValue => ({
+      "@type": "PropertyValue" as const,
+      name: propertieValue.Tipo,
+      value: propertieValue.Nome,
+    })),
     offers: {
       "@type": "AggregateOffer",
       highPrice: ValorOriginal,

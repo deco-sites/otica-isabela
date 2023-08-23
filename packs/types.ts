@@ -33,31 +33,44 @@ export type SessionCustomer = {
   SourceCliente: string;
 };
 
-export type Products = Product[];
+export interface ProductData {
+  Total: number;
+  Pagina: number;
+  Offset: number;
+  produtos: Product[];
+}
 
-export type Product = {
+export interface Product {
   IdProduct: number;
+  IdCategoriaPai: number;
+  IdCategoria: number;
+  NomeCategoriaPai: string;
+  NomeCategoria: string;
+  QtdeEstoque: number;
   Nome: string;
+  Codigo: string;
+  Tamanho: string;
+  DescricaoSeo?: string;
+  KeywordsSeo: string;
+  TituloSeo?: string;
+  TagH1: string;
+  TagH2: string;
+  TagH3: string;
+  IdSku: number;
   ValorOriginal: number;
   ValorDesconto: number;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   PorcentagemDesconto: number;
-  ProdutosMaisCores: productColors[];
-  Imagem: string;
+  ProdutosMaisCores: ProductColors[];
+  Paineis: Pannels[];
+  Imagens: Image[];
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
-  Altura: string;
-  Largura: string;
-  Ponte: string;
-  Hastes: string;
-  FrenteTotal: string;
-  Aro: string;
-  ArmacaoGratis: boolean;
-  ValorArmacaoSeComprarLentes: number;
-};
+  Classificacoes: ProductInfo[];
+}
 
-export type productColors = {
+export interface ProductColors {
   IdProduct: number;
   Nome: string;
   ValorOriginal: number;
@@ -70,4 +83,28 @@ export type productColors = {
   Color2: string;
   Color3: string;
   NomeColor: string;
-};
+}
+
+export interface Pannels {
+  IdTipoPainel: number;
+  TipoPainel: string;
+  Descricao: string;
+}
+
+export interface Image {
+  Id: number;
+  Imagem: string;
+}
+
+export interface ProductInfo {
+  IdTipo: number;
+  Tipo: string;
+  Imagem?: string;
+  TituloSeo: string;
+  DescricaoSeo: string;
+  TagH1: string;
+  TagH2: string;
+  TagH3: string;
+  Nome: string;
+  Cor?: string;
+}
