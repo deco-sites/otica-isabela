@@ -5,7 +5,7 @@ export type Session = {
 export type SessionCustomer = {
   Company: string;
   Customer: string;
-  SessionCustomer_CartProduct: [];
+  SessionCustomer_CartProduct: unknown[];
   IdSessionCustomer: number;
   IdCustomer: number;
   SessionKey: string;
@@ -38,6 +38,18 @@ export interface ProductData {
   Pagina: number;
   Offset: number;
   produtos: Product[];
+}
+
+export interface Review {
+  ratingValue: number;
+  authorName: string;
+  reviewDescription: string;
+  authorCity: string;
+  productName: string;
+  productPhoto: string;
+  productLink: string;
+  additionalImage: string;
+  memberLevel?: string;
 }
 
 export interface Product {

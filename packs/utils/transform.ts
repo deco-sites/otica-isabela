@@ -1,7 +1,4 @@
-import {
-  Product as IsabelaProduct,
-  ProductColors,
-} from "$store/packs/types.ts";
+import { Image, Product as IsabelaProduct } from "$store/packs/types.ts";
 import type {
   ImageObject,
   Product,
@@ -13,15 +10,13 @@ export function toProduct(product: IsabelaProduct): Product {
     IdProduct,
     UrlFriendlyColor,
     Nome,
-    ProdutosMaisCores,
+    Imagens,
     ValorDesconto,
     ValorOriginal,
     Classificacoes,
   } = product;
 
-  const productImages = ProdutosMaisCores.map((productColors: ProductColors) =>
-    productColors.Imagem
-  );
+  const productImages = Imagens.map((image: Image) => image.Imagem);
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
 

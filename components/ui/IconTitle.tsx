@@ -3,8 +3,18 @@ import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 
 export interface IconTitleProps {
   firstLineText?: string;
+  firstLineTextFont?: "bebas" | "roboto";
+  firstLineFontSize?: {
+    mobile?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+    desktop?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+  };
   firstLineTextWeight?: "medium" | "semi-bold";
   secondLineText?: string;
+  secondLineFontSize?: {
+    mobile?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+    desktop?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+  };
+  secondLineTextFont?: "bebas" | "roboto";
   secondLineTextWeight?: "bold" | "normal";
   textAlignment?: "center" | "start";
 
@@ -24,6 +34,10 @@ export interface IconTitleProps {
 
   hideIcon?: boolean;
   icon?: AvailableIcons;
+  iconSize?: {
+    width?: number;
+    height?: number;
+  };
 
   /**
    * @format color
@@ -46,24 +60,42 @@ const firstLineTextWeightConfig = {
   "semi-bold": 600,
 };
 
+const textFontConfig = {
+  "bebas": "font-bebas-neue",
+  "roboto": "",
+};
+
+const fontSizeConfig = {
+  "text-xl": "text-xl",
+  "text-3xl": "text-3xl",
+  "text-5xl": "text-5xl",
+  "text-7xl": "text-7xl",
+};
+
 export const IconTitle = (
   {
     backgroundColor = "transparent",
     icon,
     firstLineText,
-    secondLineText,
     firstLineTextWeight = "medium",
+    firstLineFontSize,
+    firstLineTextFont = "roboto",
+    secondLineText,
+    secondLineFontSize,
     secondLineTextWeight = "bold",
     firstLineTextColor = "black",
     secondLineTextColor = "black",
+    secondLineTextFont = "bebas",
     textAlignment = "center",
     hideIcon,
+    iconSize,
   }: IconTitleProps,
 ) => {
+  const { height, width } = iconSize ?? {};
   return (
     <div
       style={{ backgroundColor: backgroundColor }}
-      class={`w-full flex flex-col justify-center items-center  pt-10 pb-10 `}
+      class={`w-full flex flex-col justify-center items-center pt-10 pb-10 `}
     >
       <div
         class={`flex flex-col ${
@@ -75,10 +107,17 @@ export const IconTitle = (
             color: firstLineTextColor,
             fontWeight: firstLineTextWeightConfig[firstLineTextWeight],
           }}
-          class="flex items-center justify-start  font-medium text-xl md:text-[28px]  gap-x-2"
+          class={`flex items-center justify-start ${
+            textFontConfig[firstLineTextFont]
+          } ${fontSizeConfig[firstLineFontSize?.mobile ?? "text-xl"]}
+          lg:${
+            fontSizeConfig[firstLineFontSize?.desktop ?? "text-xl"]
+          } gap-x-2`}
         >
           {firstLineText}
-          {!hideIcon && icon && <Icon width={65} height={34} id={icon} />}
+          {!hideIcon && icon && (
+            <Icon width={width ?? 65} height={height ?? 34} id={icon} />
+          )}
         </span>
 
         <span
@@ -86,7 +125,10 @@ export const IconTitle = (
             color: secondLineTextColor,
             fontWeight: secondLineTextWeightConfig[secondLineTextWeight],
           }}
-          class="text-black uppercase font-bebas-neue text-5xl md:text-[64px]  "
+          class={`text-black ${textFontConfig[secondLineTextFont]}
+          ${fontSizeConfig[secondLineFontSize?.mobile ?? "text-5xl"]}
+          lg:${fontSizeConfig[secondLineFontSize?.desktop ?? "text-7xl"]}
+          `}
         >
           {secondLineText}
         </span>
