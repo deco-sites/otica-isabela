@@ -5,17 +5,17 @@ export interface IconTitleProps {
   firstLineText?: string;
   firstLineTextFont?: "bebas" | "roboto";
   firstLineFontSize?: {
-    mobile?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
-    desktop?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+    mobile?: "text-xl" | "text-2xl" | "text-3xl" | "text-5xl" | "text-6xl";
+    desktop?: "text-xl" | "text-2xl" | "text-3xl" | "text-5xl" | "text-6xl";
   };
   firstLineTextWeight?: "medium" | "semi-bold";
   secondLineText?: string;
   secondLineFontSize?: {
-    mobile?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
-    desktop?: "text-xl" | "text-3xl" | "text-5xl" | "text-7xl";
+    mobile?: "text-xl" | "text-2xl" | "text-3xl" | "text-5xl" | "text-6xl";
+    desktop?: "text-xl" | "text-2xl" | "text-3xl" | "text-5xl" | "text-6xl";
   };
   secondLineTextFont?: "bebas" | "roboto";
-  secondLineTextWeight?: "bold" | "normal";
+  secondLineTextWeight?: "normal" | "bold" | "medium";
   textAlignment?: "center" | "start";
 
   /**
@@ -51,6 +51,7 @@ const textAlignmentConfig = {
 };
 
 const secondLineTextWeightConfig = {
+  "medium": 500,
   "bold": 700,
   "normal": 400,
 };
@@ -67,9 +68,10 @@ const textFontConfig = {
 
 const fontSizeConfig = {
   "text-xl": "text-xl",
+  "text-2xl": "text-2xl",
   "text-3xl": "text-3xl",
   "text-5xl": "text-5xl",
-  "text-7xl": "text-7xl",
+  "text-6xl": "text-6xl",
 };
 
 export const IconTitle = (
@@ -95,7 +97,7 @@ export const IconTitle = (
   return (
     <div
       style={{ backgroundColor: backgroundColor }}
-      class={`w-full flex flex-col justify-center items-center pt-10 pb-10 `}
+      class={`w-full font flex flex-col justify-center items-center pt-10 pb-10 `}
     >
       <div
         class={`flex flex-col ${
@@ -127,7 +129,7 @@ export const IconTitle = (
           }}
           class={`text-black ${textFontConfig[secondLineTextFont]}
           ${fontSizeConfig[secondLineFontSize?.mobile ?? "text-5xl"]}
-          lg:${fontSizeConfig[secondLineFontSize?.desktop ?? "text-7xl"]}
+          lg:${fontSizeConfig[secondLineFontSize?.desktop ?? "text-6xl"]}
           `}
         >
           {secondLineText}
