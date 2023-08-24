@@ -48,6 +48,7 @@ const loader = async (
     sort,
     category,
     subcategory,
+    dinamicFilters,
   } = props;
 
   const productsData = await fetchAPI<ProductData>(
@@ -60,6 +61,7 @@ const loader = async (
         sort,
         category,
         subcategory,
+        dinamicFilters,
       })
     }`,
     {

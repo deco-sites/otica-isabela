@@ -59,9 +59,19 @@ export const paths = ({ token, publicUrl }: Account) => {
           sort,
           category,
           subcategory,
+          dinamicFilters,
         }: GetProduct,
       ) => {
-        return `${searchBaseUrl}/Produtos?token=${token}&nome=${term}&idColecaoProdutos=${collection}&offset=${count}&somenteCronometrosAtivos=${isStopwatch}&ordenacao=${sort}&idCategoria=${category}&idSubCategoria=${subcategory}`;
+        const validFilters = dinamicFilters
+          ? dinamicFilters.filter(({ filterID }) => filterID)
+          : [];
+
+        const filterIDs = validFilters.map(({ filterID }) => filterID);
+        const filterValues = validFilters.map(({ filterValue }) =>
+          filterValue !== undefined ? filterValue.replace(/ /g, "%20") : ""
+        );
+
+        return `${searchBaseUrl}/Produtos?token=${token}&nome=${term}&idColecaoProdutos=${collection}&offset=${count}&somenteCronometrosAtivos=${isStopwatch}&ordenacao=${sort}&idCategoria=${category}&idSubCategoria=${subcategory}&filtrosDinamicos=${filterIDs}&valorFiltrosDinamicos=${filterValues}`;
       },
     },
   };
