@@ -41,8 +41,8 @@ import * as $$$$$$$$15 from "./sections/Links/Shortcuts.tsx";
 import * as $$$$$$$$16 from "./sections/Miscellaneous/CampaignTimer.tsx";
 import * as $$$$$$$$17 from "./sections/Miscellaneous/CookieConsent.tsx";
 import * as $$$$$$$$18 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$$$19 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$$$20 from "./sections/Product/ProductsAndBanner.tsx";
+import * as $$$$$$$$19 from "./sections/Product/ProductBannerShelf.tsx";
+import * as $$$$$$$$20 from "./sections/Product/ProductDetails.tsx";
 import * as $$$$$$$$21 from "./sections/Product/ProductShelf.tsx";
 import * as $$$$$$$$22 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$$$23 from "./sections/Product/SearchResult.tsx";
@@ -314,9 +314,9 @@ const manifest = {
     "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
       $$$$$$$$17,
     "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$18,
-    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$19,
-    "deco-sites/otica-isabela/sections/Product/ProductsAndBanner.tsx":
-      $$$$$$$$20,
+    "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
+      $$$$$$$$19,
+    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$20,
     "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$21,
     "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
       $$$$$$$$22,

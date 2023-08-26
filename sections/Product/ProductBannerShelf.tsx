@@ -12,19 +12,16 @@ import ProductShelf from "$store/components/product/ProductShelf.tsx";
 export interface BannersProps {
   label: string;
   href?: string;
-  image?: LiveImage;
+  image: LiveImage;
 }
 
 export interface Props {
   header?: IconTitleProps;
-  /**
-   * @title Banners
-   */
   banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
 }
 
-function ProductsAndBanner({ header, banners, products }: Props) {
+function ProductBannerShelf({ header, banners, products }: Props) {
   const id = `category-list-${useId()}`;
 
   return (
@@ -47,19 +44,18 @@ function ProductsAndBanner({ header, banners, products }: Props) {
               >
                 <a
                   href={href}
+                  aria-label={label}
                 >
                   {image &&
                     (
-                      <figure>
-                        <Image
-                          class=" rounded-3xl"
-                          src={image}
-                          alt={label}
-                          width={350}
-                          height={350}
-                          loading="lazy"
-                        />
-                      </figure>
+                      <Image
+                        class=" rounded-3xl"
+                        src={image}
+                        alt={label}
+                        width={350}
+                        height={350}
+                        loading="lazy"
+                      />
                     )}
                 </a>
               </Slider.Item>
@@ -67,10 +63,7 @@ function ProductsAndBanner({ header, banners, products }: Props) {
           </Slider>
           <div class="flex lg:hidden w-full justify-center items-center gap-x-4">
             {banners?.map((_, index) => {
-              return (
-                <Slider.Dot index={index}>
-                </Slider.Dot>
-              );
+              return <Slider.Dot index={index} />;
             })}
           </div>
         </div>
@@ -82,7 +75,7 @@ function ProductsAndBanner({ header, banners, products }: Props) {
 
       {products && (
         <ProductShelf
-          itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
+          itemsPerPage={{ desktop: 3, mobile: 1.5 }}
           products={products}
         />
       )}
@@ -90,4 +83,4 @@ function ProductsAndBanner({ header, banners, products }: Props) {
   );
 }
 
-export default ProductsAndBanner;
+export default ProductBannerShelf;

@@ -43,7 +43,7 @@ function VisitedProductShelf({
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
       <IconTitle {...header} />
       <ProductShelf
-        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
+        itemsPerPage={{ desktop: 3, mobile: 0 }}
         products={products}
         itemListName="Produtos Visitados"
       />
