@@ -12,8 +12,8 @@ export interface Props {
   products: LoaderReturnType<Product[] | null>;
   itemListName?: string;
   itemsPerPage: {
-    mobile: Record<number, number>;
-    desktop: Record<number, number>;
+    mobile:number;
+    desktop: number;
   };
 }
 
@@ -65,7 +65,7 @@ function ProductShelf({
           }}
         />
         <SliderJS
-          itemsPerPage={itemsPerPage}
+          itemsPerPage={{desktop:{0:itemsPerPage.desktop},mobile:{0:itemsPerPage.mobile}}}
           rootId={id}
           perPageDots
         />

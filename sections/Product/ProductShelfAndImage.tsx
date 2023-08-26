@@ -48,7 +48,7 @@ const ProductShelfAndImage = (
           </div>
           <div class="flex mt-8 lg:hidden">
             <ProductShelf
-              itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 0 } }}
+              itemsPerPage={{ desktop: 3, mobile: 0 }}
               products={products}
             />
           </div>
