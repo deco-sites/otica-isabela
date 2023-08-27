@@ -31,7 +31,7 @@ function Question({ label, answer }: Question) {
   return (
     <>
       <div className="collapse collapse-arrow">
-        <input type="input" name="faq-help-accordion" />
+        <input type="radio" name="faq-help-accordion" />
         <label
           for={id}
           className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100"
