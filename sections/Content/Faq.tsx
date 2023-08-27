@@ -18,6 +18,7 @@ export interface Question {
 
 export interface Props {
   header?: IconTitleProps;
+  backgroundColor?: string;
   desktopImage?: { src: LiveImage; description: string };
 
   /**
@@ -27,13 +28,12 @@ export interface Props {
 }
 
 function Question({ label, answer }: Question) {
-  const id = useId();
+
   return (
     <>
-      <div className="collapse collapse-arrow">
+      <div className="collapse bg-black collapse-arrow">
         <input type="radio" name="faq-help-accordion" />
         <label
-          for={id}
           className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100"
         >
           {label}
@@ -50,7 +50,7 @@ function Question({ label, answer }: Question) {
 }
 
 export default function FAQ(
-  { header, desktopImage, questions }: Props,
+  { header, desktopImage, questions,backgroundColor}: Props,
 ) {
   return (
     <>
