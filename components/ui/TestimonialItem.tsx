@@ -5,8 +5,6 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
-
-
 export interface MembershipBadgeProps {
   label: string;
   bagde: { desktop: LiveImage; mobile?: LiveImage };
