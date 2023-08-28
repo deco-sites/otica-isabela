@@ -1,6 +1,6 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
 
-export interface GetProduct {
+export interface GetProducts {
   /** @description query to use on search */
   term?: string;
 
@@ -42,6 +42,10 @@ export interface dinamicFilter {
   filterValue?: string;
 }
 
+export interface GetProduct {
+  id: string;
+}
+
 export const paths = ({ token, publicUrl }: Account) => {
   const searchBaseUrl = `${publicUrl}/Api`;
 
@@ -49,8 +53,8 @@ export const paths = ({ token, publicUrl }: Account) => {
     session: {
       initSession: () => `${searchBaseUrl}/InicioSessao?token=${token}`,
     },
-    product: {
-      getProduct: (
+    products: {
+      getProducts: (
         {
           term,
           collection,
@@ -60,7 +64,7 @@ export const paths = ({ token, publicUrl }: Account) => {
           category,
           subcategory,
           dinamicFilters,
-        }: GetProduct,
+        }: GetProducts,
       ) => {
         const validFilters = dinamicFilters
           ? dinamicFilters.filter(({ filterID }) => filterID)
@@ -73,6 +77,14 @@ export const paths = ({ token, publicUrl }: Account) => {
 
         return `${searchBaseUrl}/Produtos?token=${token}&nome=${term}&idColecaoProdutos=${collection}&offset=${count}&somenteCronometrosAtivos=${isStopwatch}&ordenacao=${sort}&idCategoria=${category}&idSubCategoria=${subcategory}&filtrosDinamicos=${filterIDs}&valorFiltrosDinamicos=${filterValues}`;
       },
+    },
+    product: {
+      getProduct: (id: string) =>
+        `${searchBaseUrl}/Produtos?token=${token}&id=${id}`,
+    },
+    reviewAndRating: {
+      getTestimonails: (id: string) =>
+        `${searchBaseUrl}/Depoimentos?token=${token}&idProduto=${id}`,
     },
   };
 };

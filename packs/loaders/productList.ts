@@ -53,7 +53,7 @@ const loader = async (
 
   const productsData = await fetchAPI<ProductData>(
     `${
-      path.product.getProduct({
+      path.products.getProducts({
         term: term ?? "",
         collection: collection ?? 0,
         count,

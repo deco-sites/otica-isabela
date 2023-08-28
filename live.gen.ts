@@ -3,8 +3,10 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $$0 from "./accounts/configStore.ts";
-import * as $$$0 from "./loaders/product/productList.ts";
-import * as $$$1 from "./loaders/store/session.ts";
+import * as $$$0 from "./loaders/product/productDetailsPage.ts";
+import * as $$$1 from "./loaders/product/productList.ts";
+import * as $$$2 from "./loaders/reviewsAndRating.ts";
+import * as $$$3 from "./loaders/store/session.ts";
 import * as $$$$0 from "./routes/styles.css.ts";
 import * as $$$$1 from "./routes/_app.tsx";
 import * as $$$$2 from "./routes/_middleware.tsx";
@@ -217,8 +219,10 @@ const manifest = {
     "$live/loaders/state.ts": i2$$$1,
     "$live/loaders/workflows/events.ts": i2$$$2,
     "$live/loaders/workflows/get.ts": i2$$$3,
-    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$0,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$1,
+    "deco-sites/otica-isabela/loaders/product/productDetailsPage.ts": $$$0,
+    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$1,
+    "deco-sites/otica-isabela/loaders/reviewsAndRating.ts": $$$2,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$3,
     "deco-sites/std/loaders/linxImpulse/autocompletes/popular.ts": i2$$$4,
     "deco-sites/std/loaders/linxImpulse/autocompletes/suggestions.ts": i2$$$5,
     "deco-sites/std/loaders/linxImpulse/pages/recommendations.ts": i2$$$6,
