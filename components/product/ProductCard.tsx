@@ -38,6 +38,7 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  carouselImage?: boolean;
 
   /** @description used for analytics event */
   itemListName?: string;
@@ -59,8 +60,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
   } = product;
   const id = `product-card-${productID}`;
 
-  console.log("product", product);
-
   const targetNames: string[] = [
     "Altura da Lente",
     "Largura da Lente",
@@ -80,8 +79,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const [front] = images ?? [];
 
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
-  const possibilities = useVariantPossibilities(product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
@@ -94,6 +91,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
       const mappedName = nameMapping[property?.name ?? ""] || property.name;
       return { ...property, name: mappedName };
     },
+  );
+
+  const colorsPropertys = additionalProperty?.filter((property) =>
+    property.propertyID === "color"
   );
 
   return (
@@ -167,10 +168,13 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </div>
 
         <ul class="flex items-center justify-center gap-2 w-full h-5 ">
-          {variants.slice(0, 1).map(([[link]]) => (
+          {colorsPropertys?.map(({ unitCode, name, url }) => (
             <li>
-              <a href={link}>
-                <div class="mask mask-circle h-5 w-5 bg-secondary mx-2" />
+              <a href={url} aria-label={name} title={name}>
+                <div
+                  style={{ backgroundColor: unitCode }}
+                  class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                />
               </a>
             </li>
           ))}
@@ -190,19 +194,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </div>
 
         <div class="w-full flex items-center justify-center">
-          {/* <iframe
-            allow="camera *;"
-            src="/view/experimentador.html?v=1692927953170&amp;oculos=https://www.oticaisabeladias.com.br/backoffice//Images/Blob/webp_id//34ccb883ae9d49859b4b50704b953231.webp&amp;tipo=mobile"
-            scrolling="no"
-            id="myFrame"
-            width="640"
-            height="480"
-            data-ruffle-polyfilled=""
-          >
-          </iframe> */}
-
-          
-             <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
+          <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
             <span class="hidden lg:flex">
               <Icon
                 id="Camera"
@@ -220,7 +212,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               />
             </span>
             Experimentar
-          </button> 
+          </button>
         </div>
       </div>
     </div>

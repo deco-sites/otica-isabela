@@ -1,9 +1,9 @@
-import { Image, Product as IsabelaProduct } from "$store/packs/types.ts";
-import type {
-  ImageObject,
-  Product,
-  PropertyValue,
-} from "deco-sites/std/commerce/types.ts";
+import {
+  Image,
+  Product as IsabelaProduct,
+  ProductInfo,
+} from "$store/packs/types.ts";
+import type { ImageObject, Product } from "deco-sites/std/commerce/types.ts";
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
@@ -14,11 +14,30 @@ export function toProduct(product: IsabelaProduct): Product {
     ValorDesconto,
     ValorOriginal,
     Classificacoes,
+    ProdutosMaisCores,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
+
+  function handleNewProperties(properties: ProductInfo[]) {
+    return properties.map((item) => {
+      const additionalProps = {
+        "@type": "PropertyValue" as const,
+        name: item.Tipo,
+        value: item.Nome,
+        cores: ProdutosMaisCores.map((cores) => {
+          return {
+            propertyID: "color",
+            unitCode: cores.Color1,
+            value: cores.NomeColor,
+          };
+        }),
+      };
+      return additionalProps;
+    });
+  }
 
   return {
     "@type": "Product",
@@ -33,11 +52,7 @@ export function toProduct(product: IsabelaProduct): Product {
       alternateName: Nome,
       url: image,
     })),
-    additionalProperty: productsInfo.map((propertieValue): PropertyValue => ({
-      "@type": "PropertyValue" as const,
-      name: propertieValue.Tipo,
-      value: propertieValue.Nome,
-    })),
+    additionalProperty: handleNewProperties(productsInfo),
     offers: {
       "@type": "AggregateOffer",
       highPrice: ValorOriginal,

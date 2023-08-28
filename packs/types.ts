@@ -40,6 +40,18 @@ export interface ProductData {
   produtos: Product[];
 }
 
+export interface Review {
+  ratingValue: number;
+  authorName: string;
+  reviewDescription: string;
+  authorCity: string;
+  productName: string;
+  productPhoto: string;
+  productLink: string;
+  additionalImage: string;
+  memberLevel?: string;
+}
+
 export interface Product {
   IdProduct: number;
   IdCategoriaPai: number;

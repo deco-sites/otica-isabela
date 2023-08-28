@@ -1,6 +1,6 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import { Product as IsabelaProduct, ProductData } from "$store/packs/types.ts";
-import { paths } from "$store/packs/utils/path.ts";
+import { dinamicFilter, paths } from "$store/packs/utils/path.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
@@ -12,9 +12,19 @@ export interface Props {
   /** @description Search by collection */
   collection?: number;
 
+  /** @description Search by category */
+  category?: number;
+
+  /** @description Search by subcategory */
+  subcategory?: number;
+
   /** @description total number of items to display*/
 
   count: number;
+
+  /** @description Dinamic filters Example: Aro Fechado,Retangular*/
+
+  dinamicFilters: dinamicFilter[];
 
   /** @description Sort for product whit promotion */
   isStopwatch?: boolean;
@@ -30,7 +40,16 @@ const loader = async (
 ): Promise<Product[]> => {
   const { configStore: config } = ctx;
   const path = paths(config!);
-  const { term, collection, count, isStopwatch, sort } = props;
+  const {
+    term,
+    collection,
+    count,
+    isStopwatch,
+    sort,
+    category,
+    subcategory,
+    dinamicFilters,
+  } = props;
 
   const productsData = await fetchAPI<ProductData>(
     `${
@@ -40,6 +59,9 @@ const loader = async (
         count,
         isStopwatch: isStopwatch ?? false,
         sort,
+        category,
+        subcategory,
+        dinamicFilters,
       })
     }`,
     {
