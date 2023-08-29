@@ -17,7 +17,6 @@ export interface Props {
   };
 }
 
-
 function ProductShelf({
   products,
   itemListName,

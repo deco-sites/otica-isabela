@@ -339,6 +339,7 @@ const manifest = {
     "deco-sites/std/sections/SEOPLP.tsx": i2$$$$$15,
     "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx": i2$$$$$16,
   },
+  "name": "deco-sites/otica-isabela",
   "handlers": {
     "$live/handlers/devPage.ts": i2$$$$0,
     "$live/handlers/fresh.ts": i2$$$$1,

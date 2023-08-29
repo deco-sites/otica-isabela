@@ -1,6 +1,6 @@
 import type { Account as AccountBlock } from "$live/blocks/account.ts";
 import type { FnContext } from "$live/types.ts";
-import type { Manifest } from "deco-sites/std/live.gen.ts";
+import type { Manifest } from "deco-sites/otica-isabela/live.gen.ts";
 
 export interface Account extends AccountBlock {
   /**

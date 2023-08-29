@@ -1,46 +1,43 @@
-import { Product as IsabelaProduct } from "$store/packs/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import {
+  Image,
+  Product as IsabelaProduct,
+  ProductInfo,
+} from "$store/packs/types.ts";
+import type { ImageObject, Product } from "deco-sites/std/commerce/types.ts";
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
     UrlFriendlyColor,
     Nome,
-    Imagem,
+    Imagens,
     ValorDesconto,
     ValorOriginal,
-    Altura,
-    Largura,
-    Ponte,
-    Hastes,
-    FrenteTotal,
-    Aro,
+    Classificacoes,
+    ProdutosMaisCores,
   } = product;
 
-  function newPropertyValue(properties: Record<string, string>) {
-    const result = [];
+  const productImages = Imagens.map((image: Image) => image.Imagem);
 
-    for (const propertyName in properties) {
-      const propertyValue = properties[propertyName];
-      const propertyObject = {
+  const productsInfo = Classificacoes.map((productInfo) => productInfo);
+
+  function handleNewProperties(properties: ProductInfo[]) {
+    return properties.map((item) => {
+      const additionalProps = {
         "@type": "PropertyValue" as const,
-        name: propertyName,
-        value: propertyValue,
+        name: item.Nome,
+        value: item.Tipo,
+        cores: ProdutosMaisCores.map((cores) => {
+          return {
+            propertyID: "color",
+            unitCode: cores.Color1,
+            value: cores.NomeColor,
+          };
+        }),
       };
-      result.push(propertyObject);
-    }
-
-    return result;
+      return additionalProps;
+    });
   }
-
-  const additionalProperty = newPropertyValue({
-    Altura,
-    Largura,
-    Ponte,
-    Hastes,
-    FrenteTotal,
-    Aro,
-  });
 
   return {
     "@type": "Product",
@@ -50,12 +47,12 @@ export function toProduct(product: IsabelaProduct): Product {
         .href,
     name: Nome.trim(),
     sku: `${IdProduct}`,
-    image: [{
+    image: productImages.map((image): ImageObject => ({
       "@type": "ImageObject" as const,
       alternateName: Nome,
-      url: Imagem,
-    }],
-    additionalProperty,
+      url: image,
+    })),
+    additionalProperty: handleNewProperties(productsInfo),
     offers: {
       "@type": "AggregateOffer",
       highPrice: ValorOriginal,
