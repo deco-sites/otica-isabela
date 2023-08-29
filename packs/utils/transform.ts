@@ -34,7 +34,9 @@ export function toProduct(product: IsabelaProduct): Product {
         "name": "Cor",
         "value": cores.NomeColor,
         "propertyID": "color",
-        "unitCode": `${cores.Color1} / ${cores.Color2}`,
+        "unitCode": `${cores.Color1}${
+          cores.Color2.length > 0 ? " / " + cores.Color2 : ""
+        }`,
       }));
       additionalProperties.push(...coresProperties);
     }
@@ -64,6 +66,19 @@ export function toProduct(product: IsabelaProduct): Product {
       url: image,
     })),
     additionalProperty: handleNewProperties(productsInfo),
+    isVariantOf: {
+      "@type": "ProductGroup" as const,
+      productGroupID: `${IdProduct}`,
+      hasVariant: ProdutosMaisCores.map((productColor) => {
+        return {
+          "@type": "Product" as const,
+          productID: `${productColor.IdProduct}`,
+          sku: `${productColor.IdProduct}`,
+          ...productColor,
+        };
+      }),
+      additionalProperty: [],
+    },
     offers: {
       "@type": "AggregateOffer",
       highPrice: ValorOriginal,
