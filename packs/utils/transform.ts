@@ -3,7 +3,11 @@ import {
   Product as IsabelaProduct,
   ProductInfo,
 } from "$store/packs/types.ts";
-import type { ImageObject, Product } from "deco-sites/std/commerce/types.ts";
+import type {
+  ImageObject,
+  Product,
+  PropertyValue,
+} from "deco-sites/std/commerce/types.ts";
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
@@ -22,21 +26,28 @@ export function toProduct(product: IsabelaProduct): Product {
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
 
   function handleNewProperties(properties: ProductInfo[]) {
-    return properties.map((item) => {
-      const additionalProps = {
+    const additionalProperties: PropertyValue[] = [];
+
+    if (ProdutosMaisCores) {
+      const coresProperties = ProdutosMaisCores.map((cores) => ({
         "@type": "PropertyValue" as const,
-        name: item.Nome,
-        value: item.Tipo,
-        cores: ProdutosMaisCores.map((cores) => {
-          return {
-            propertyID: "color",
-            unitCode: cores.Color1,
-            value: cores.NomeColor,
-          };
-        }),
-      };
-      return additionalProps;
-    });
+        "name": "Cor",
+        "value": cores.NomeColor,
+        "propertyID": "color",
+        "unitCode": `${cores.Color1} / ${cores.Color2}`,
+      }));
+      additionalProperties.push(...coresProperties);
+    }
+
+    const typeProperties = properties.map((item) => ({
+      "@type": "PropertyValue" as const,
+      "name": item.Nome,
+      "value": item.Tipo,
+    }));
+
+    additionalProperties.push(...typeProperties);
+
+    return additionalProperties;
   }
 
   return {
