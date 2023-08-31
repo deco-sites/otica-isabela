@@ -1,9 +1,9 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
+import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Layout {
@@ -58,23 +58,24 @@ function ProductCard({ product, preload, itemListName }: Props) {
     offers,
     additionalProperty,
   } = product;
+
   const id = `product-card-${productID}`;
 
-  const targetNames: string[] = [
+  const targetNames = [
     "Altura da Lente",
     "Largura da Lente",
     "Largura da Ponte",
     "Hastes",
     "Frente Total",
     "Aro",
-  ];
+  ] as const;
 
-  const nameMapping: Record<string, string> = {
+  const nameMapping = {
     "Altura da Lente": "Altura",
     "Largura da Lente": "Largura",
     "Largura da Ponte": "Ponte",
     "Frente Total": "Frente",
-  };
+  } as const;
 
   const [front] = images ?? [];
 
@@ -84,23 +85,22 @@ function ProductCard({ product, preload, itemListName }: Props) {
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
-  const propertyDescription = additionalProperty?.filter((property) =>
+  const description = additionalProperty?.filter((property) =>
     targetNames.some((targetName) => property?.name?.includes(targetName))
   )?.map(
     (property) => {
-      const mappedName = nameMapping[property?.name ?? ""] || property.name;
+      const mappedName =
+        nameMapping[property.name as keyof typeof nameMapping] || property.name;
       return { ...property, name: mappedName };
     },
   );
 
-  const colorsPropertys = additionalProperty?.filter((property) =>
-    property.propertyID === "color"
-  );
+  const availableColors = getAvailableColors(product);
 
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center h-full  min-w-[340px]"
+      class="card card-compact w-full text-center h-full"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -153,26 +153,30 @@ function ProductCard({ product, preload, itemListName }: Props) {
 
       {/* Prices & Name */}
       <div class="flex-auto flex flex-col p-1 gap-3 lg:gap-4">
+        {/* Name & Description */}
         <div class="flex flex-col gap-0">
           <h2 class=" font-semibold text-black   text-base lg:text-lg min-h-[57px] mb-6  ">
             {name}
           </h2>
 
           <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
-            {propertyDescription?.map((property, index) =>
+            {description?.map((property, index) =>
               `${property?.name}: ${property?.value}mm ${
-                index < propertyDescription.length - 1 ? "/" : ""
+                index < description.length - 1 ? "/" : ""
               } `
             )}
           </p>
         </div>
 
+        {/* Available Colors */}
         <ul class="flex items-center justify-center gap-2 w-full h-5 ">
-          {colorsPropertys?.map(({ unitCode, name, url }) => (
+          {availableColors?.map(({ name, url, unitCodes }) => (
             <li>
               <a href={url} aria-label={name} title={name}>
                 <div
-                  style={{ backgroundColor: unitCode }}
+                  style={{
+                    background: `linear-gradient(${unitCodes.join(", ")})`,
+                  }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />
               </a>
@@ -180,6 +184,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           ))}
         </ul>
 
+        {/* Price & Discount */}
         <div class="flex flex-col gap-2">
           <div class="flex flex-row  justify-center items-center gap-3  ">
             {discount > 0 && (
@@ -193,6 +198,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           </div>
         </div>
 
+        {/* Experimenter */}
         <div class="w-full flex items-center justify-center">
           <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
             <span class="hidden lg:flex">
