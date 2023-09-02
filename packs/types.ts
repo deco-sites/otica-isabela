@@ -74,7 +74,7 @@ export interface Product {
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   PorcentagemDesconto: number;
-  ProdutosMaisCores: ProductColors[];
+  ProdutosMaisCores: ColorVariants[];
   Paineis: Pannels[];
   Imagens: Image[];
   ImagemExperimentador: string;
@@ -82,7 +82,7 @@ export interface Product {
   Classificacoes: ProductInfo[];
 }
 
-export interface ProductColors {
+export interface ColorVariants {
   IdProduct: number;
   Nome: string;
   ValorOriginal: number;
