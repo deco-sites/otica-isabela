@@ -54,6 +54,7 @@ export type AvailableIcons =
   | "Camera"
   | "ArrowDown"
   | "GlassesAroClosed"
+  | "CatGlasses"
   | "Cloud"
   | "Locale";
 

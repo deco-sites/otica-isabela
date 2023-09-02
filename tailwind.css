@@ -18,6 +18,12 @@
     font-family: var(--font-family);
   }
 
+  .aboutConfig {
+    h2 {
+      display: none;
+    }
+  }
+
   /** Remove default styles from input[type=number] */
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
