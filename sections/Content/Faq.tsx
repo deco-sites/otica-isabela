@@ -2,7 +2,7 @@ import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
-import { useId } from "preact/hooks";
+import FaqContainer from "$store/islands/FaqContainer.tsx";
 
 export interface Question {
   /**
@@ -18,6 +18,10 @@ export interface Question {
 
 export interface Props {
   header?: IconTitleProps;
+  /**
+   * @format color
+   */
+  backgroundColor?: string;
   desktopImage?: { src: LiveImage; description: string };
 
   /**
@@ -27,15 +31,11 @@ export interface Props {
 }
 
 function Question({ label, answer }: Question) {
-  const id = useId();
   return (
     <>
       <div className="collapse collapse-arrow">
         <input type="radio" name="faq-help-accordion" />
-        <label
-          for={id}
-          className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100"
-        >
+        <label className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100">
           {label}
         </label>
         <div className="collapse-content mt-3 rounded-2xl text-black  bg-gray-100 text-base mb-2">
@@ -50,7 +50,7 @@ function Question({ label, answer }: Question) {
 }
 
 export default function FAQ(
-  { header, desktopImage, questions }: Props,
+  { header, desktopImage, questions, backgroundColor }: Props,
 ) {
   return (
     <>
@@ -60,9 +60,7 @@ export default function FAQ(
         </div>
       </div>
 
-      <div
-        class={`w-full flex items-center justify-center px-4 lg:px-0 bg-white lg:bg-orange-600`}
-      >
+      <FaqContainer backgroundColor={backgroundColor}>
         <div class="w-full container flex flex-col lg:flex-row gap-x-3 ">
           {desktopImage && (
             <div class="w-full hidden lg:flex justify-center items-center lg:w-1/2">
@@ -80,7 +78,7 @@ export default function FAQ(
             {questions?.map((question) => <Question {...question} />)}
           </div>
         </div>
-      </div>
+      </FaqContainer>
     </>
   );
 }
