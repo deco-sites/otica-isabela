@@ -31,6 +31,7 @@ export default {
         "blue-300": "#00a7f5",
         "success": " #00ff2a",
         "success-content": "#9ec54d",
+        "orange-600": "#eb7f24",
       },
     },
   },
