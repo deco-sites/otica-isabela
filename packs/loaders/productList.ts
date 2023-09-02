@@ -37,7 +37,7 @@ const loader = async (
   props: Props,
   _req: Request,
   ctx: Context,
-): Promise<Product[]> => {
+): Promise<Product[] | null> => {
   const { configStore: config } = ctx;
   const path = paths(config!);
   const {
