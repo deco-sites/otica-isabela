@@ -36,7 +36,7 @@ function ProductBannerShelf({ header, banners, products }: Props) {
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
             {banners?.map((
-              { label, href, image, buttonLabel = "VER ÓCULOS" },
+              { label, href, image, buttonLabel },
               index,
             ) => (
               <Slider.Item
@@ -58,9 +58,11 @@ function ProductBannerShelf({ header, banners, products }: Props) {
                           height={350}
                           loading="lazy"
                         />
-                        <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
-                          {buttonLabel}
-                        </button>
+                        {buttonLabel && (
+                          <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
+                            {buttonLabel}
+                          </button>
+                        )}
                       </div>
                     )}
                 </a>
