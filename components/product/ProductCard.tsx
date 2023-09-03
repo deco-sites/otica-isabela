@@ -1,10 +1,14 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
+import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import { useState } from "preact/hooks";
+import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
+import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 
 export interface Layout {
   basics?: {
@@ -59,6 +63,12 @@ function ProductCard({ product, preload, itemListName }: Props) {
     additionalProperty,
   } = product;
 
+  const [isExperimenterOpen, setExperimenterOpen] = useState(false);
+
+  const toggleExperimenter = () => {
+    setExperimenterOpen(!isExperimenterOpen);
+  };
+
   const id = `product-card-${productID}`;
 
   const targetNames = [
@@ -96,6 +106,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
   );
 
   const availableColors = getAvailableColors(product);
+  const device = getDevice();
+  const experimenterImage = additionalProperty?.find((prop) =>
+    prop.propertyID === "experimentador"
+  )?.value;
 
   return (
     <div
@@ -197,10 +211,14 @@ function ProductCard({ product, preload, itemListName }: Props) {
             </div>
           </div>
         </div>
+        <span>{toggleExperimenter}</span>
 
         {/* Experimenter */}
         <div class="w-full flex items-center justify-center">
-          <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
+          <button
+            class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2"
+            onClick={toggleExperimenter}
+          >
             <span class="hidden lg:flex">
               <Icon
                 id="Camera"
@@ -220,6 +238,36 @@ function ProductCard({ product, preload, itemListName }: Props) {
             Experimentar
           </button>
         </div>
+
+        {/* Modal */}
+        <Modal
+          class="p-0 rounded-md md:min-w-[673px]"
+          open={isExperimenterOpen}
+          onClose={toggleExperimenter}
+        >
+          <div id="header" class="text-left sticky bg-white top-0">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
+              <Icon
+                class="mr-1 cursor-pointer"
+                id="XMark"
+                width={25}
+                height={23}
+                onClick={toggleExperimenter}
+              />
+            </div>
+            <span class="border-b block"></span>
+          </div>
+          <div id="content" class="min-h-[512px] p-2">
+            <iframe
+              class="w-full"
+              width="640"
+              height="480"
+              src={`${BASE_EXPERIMENTER_URL}?oculos=${experimenterImage}&tipo=${device}`}
+            >
+            </iframe>
+          </div>
+        </Modal>
       </div>
     </div>
   );
