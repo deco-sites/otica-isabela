@@ -12,6 +12,7 @@ import ProductShelf from "$store/components/product/ProductShelf.tsx";
 export interface BannersProps {
   label: string;
   href?: string;
+  buttonLabel?: string;
   image: LiveImage;
 }
 
@@ -35,7 +36,7 @@ function ProductBannerShelf({ header, banners, products }: Props) {
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
             {banners?.map((
-              { label, href, image },
+              { label, href, image, buttonLabel = "VER ÓCULOS" },
               index,
             ) => (
               <Slider.Item
@@ -48,14 +49,19 @@ function ProductBannerShelf({ header, banners, products }: Props) {
                 >
                   {image &&
                     (
-                      <Image
-                        class=" rounded-3xl"
-                        src={image}
-                        alt={label}
-                        width={350}
-                        height={350}
-                        loading="lazy"
-                      />
+                      <div class="relative">
+                        <Image
+                          class=" rounded-3xl"
+                          src={image}
+                          alt={label}
+                          width={350}
+                          height={350}
+                          loading="lazy"
+                        />
+                        <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
+                          {buttonLabel}
+                        </button>
+                      </div>
                     )}
                 </a>
               </Slider.Item>
