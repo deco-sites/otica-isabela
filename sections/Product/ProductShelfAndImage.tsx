@@ -22,9 +22,12 @@ export interface Props {
   };
 }
 
-const ProductShelfAndImage = (
-  { header, image, products, imageAlign }: Props,
-) => {
+const ProductShelfAndImage = ({
+  header,
+  image,
+  products,
+  imageAlign,
+}: Props) => {
   if (!products || !products?.length) {
     return null;
   }
@@ -62,11 +65,7 @@ const ProductShelfAndImage = (
                 src={mobile ?? desktop}
                 width={350}
               />
-              <Source
-                media="(min-width: 984px)"
-                src={desktop}
-                width={700}
-              />
+              <Source media="(min-width: 984px)" src={desktop} width={700} />
               {
                 <img
                   src={mobile ?? desktop}

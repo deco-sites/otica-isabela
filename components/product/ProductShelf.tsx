@@ -1,4 +1,4 @@
-import ProductCard from "$store/components/product/ProductCard.tsx";
+import ProductCard from "$store/islands/ProductCard.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
@@ -17,11 +17,7 @@ export interface Props {
   };
 }
 
-function ProductShelf({
-  products,
-  itemListName,
-  itemsPerPage,
-}: Props) {
+function ProductShelf({ products, itemListName, itemsPerPage }: Props) {
   const id = useId();
 
   if (!products || products.length === 0) {
@@ -30,10 +26,7 @@ function ProductShelf({
 
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
-      <div
-        id={id}
-        class="container flex flex-col px-0 sm:px-5"
-      >
+      <div id={id} class="container flex flex-col px-0 sm:px-5">
         <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
           {products?.map((product, index) => (
             <div class="flex flex-col">
@@ -41,10 +34,7 @@ function ProductShelf({
                 index={index}
                 class="carousel-item w-full  lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 "
               >
-                <ProductCard
-                  product={product}
-                  itemListName={itemListName}
-                />
+                <ProductCard product={product} itemListName={itemListName} />
               </Slider.Item>
             </div>
           ))}
@@ -58,7 +48,7 @@ function ProductShelf({
               items: products.map((product) =>
                 mapProductToAnalyticsItem({
                   product,
-                  ...(useOffer(product.offers)),
+                  ...useOffer(product.offers),
                 })
               ),
             },
@@ -70,6 +60,7 @@ function ProductShelf({
             mobile: { 0: itemsPerPage.mobile },
           }}
           rootId={id}
+          perPageDots
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">

@@ -1,11 +1,14 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import { useOffer } from "$store/sdk/useOffer.ts";
+import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
+import { useState } from "preact/hooks";
+import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
+import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 
 export interface Layout {
   basics?: {
@@ -39,6 +42,7 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  carouselImage?: boolean;
 
   /** @description used for analytics event */
   itemListName?: string;
@@ -56,22 +60,61 @@ function ProductCard({ product, preload, itemListName }: Props) {
     name,
     image: images,
     offers,
+    additionalProperty,
   } = product;
+
+  const [isExperimenterOpen, setExperimenterOpen] = useState(false);
+
+  const toggleExperimenter = () => {
+    setExperimenterOpen(!isExperimenterOpen);
+  };
+
   const id = `product-card-${productID}`;
 
+  const targetNames = [
+    "Altura da Lente",
+    "Largura da Lente",
+    "Largura da Ponte",
+    "Hastes",
+    "Frente Total",
+    "Aro",
+  ] as const;
+
+  const nameMapping = {
+    "Altura da Lente": "Altura",
+    "Largura da Lente": "Largura",
+    "Largura da Ponte": "Ponte",
+    "Frente Total": "Frente",
+  } as const;
+
   const [front] = images ?? [];
-  const { listPrice, price } = useOffer(offers);
-  const possibilities = useVariantPossibilities(product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
+
+  const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
+  const description = additionalProperty
+    ?.filter((property) =>
+      targetNames.some((targetName) => property?.name?.includes(targetName))
+    )
+    ?.map((property) => {
+      const mappedName =
+        nameMapping[property.name as keyof typeof nameMapping] || property.name;
+      return { ...property, name: mappedName };
+    });
+
+  const availableColors = getAvailableColors(product);
+  const device = getDevice();
+  const experimenterImage = additionalProperty?.find(
+    (prop) => prop.propertyID === "experimentador",
+  )?.value;
+
   return (
     <div
       id={id}
-      class="card  card-compact  w-full text-center h-full"
+      class="card card-compact w-full text-center h-full"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -91,10 +134,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
         }}
       />
 
-      <figure
-        class="relative  overflow-hidden min-h-[170px]"
-        style={{ aspectRatio: `${316} / ${176}` }}
-      >
+      <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
         {/* Product Images */}
         <a
           href={url && relative(url)}
@@ -104,10 +144,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={316}
-            height={176}
-            class="rounded w-full"
-            sizes="(max-width: 640px) 50vw, 20vw"
+            width={306}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
             decoding="async"
@@ -116,37 +153,46 @@ function ProductCard({ product, preload, itemListName }: Props) {
 
         {discount > 0 && (
           <span class="absolute right-0 bottom-0 bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] ">
-            <Icon
-              id="ArrowDown"
-              width={9}
-              height={9}
-            />-{discount}%
+            <Icon id="ArrowDown" width={9} height={9} />-{discount}%
           </span>
         )}
       </figure>
 
       {/* Prices & Name */}
-      <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4">
+      <div class="flex-auto flex flex-col p-1 gap-3 lg:gap-4">
+        {/* Name & Description */}
         <div class="flex flex-col gap-0">
           <h2 class=" font-semibold text-black   text-base lg:text-lg min-h-[57px] mb-6  ">
             {name}
           </h2>
 
           <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
-            {product.description}
+            {description?.map(
+              (property, index) =>
+                `${property?.name}: ${property?.value}mm ${
+                  index < description.length - 1 ? "/" : ""
+                } `,
+            )}
           </p>
         </div>
 
+        {/* Available Colors */}
         <ul class="flex items-center justify-center gap-2 w-full h-5 ">
-          {variants.slice(0, 1).map(([[link]]) => (
+          {availableColors?.map(({ name, url, unitCodes }) => (
             <li>
-              <a href={link}>
-                <div class="mask mask-circle h-5 w-5 bg-secondary mx-2" />
+              <a href={url} aria-label={name} title={name}>
+                <div
+                  style={{
+                    background: `linear-gradient(${unitCodes.join(", ")})`,
+                  }}
+                  class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                />
               </a>
             </li>
           ))}
         </ul>
 
+        {/* Price & Discount */}
         <div class="flex flex-col gap-2">
           <div class="flex flex-row  justify-center items-center gap-3  ">
             {discount > 0 && (
@@ -159,16 +205,63 @@ function ProductCard({ product, preload, itemListName }: Props) {
             </div>
           </div>
         </div>
+        <span>{toggleExperimenter}</span>
 
-        <button class=" flex items-center justify-center h-14 gap-x-3   group btn btn-outline w-full border-black   font-bold text-black hover:bg-black py-2 ">
-          <Icon
-            id="Camera"
-            class="group-hover:invert"
-            width={40}
-            height={37}
-          />
-          <span class="group-hover:text-white text-2xl">Experimentar</span>
-        </button>
+        {/* Experimenter */}
+        <div class="w-full flex items-center justify-center">
+          <button
+            class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2"
+            onClick={toggleExperimenter}
+          >
+            <span class="hidden lg:flex">
+              <Icon
+                id="Camera"
+                class="group-hover:invert"
+                width={40}
+                height={37}
+              />
+            </span>
+            <span class="flex lg:hidden">
+              <Icon
+                id="Camera"
+                class="group-hover:invert"
+                width={25}
+                height={23}
+              />
+            </span>
+            Experimentar
+          </button>
+        </div>
+
+        {/* Modal */}
+        <Modal
+          class="p-0 rounded-md md:min-w-[673px]"
+          open={isExperimenterOpen}
+          onClose={toggleExperimenter}
+        >
+          <div id="header" class="text-left sticky bg-white top-0">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
+              <Icon
+                class="mr-1 cursor-pointer"
+                id="XMark"
+                width={25}
+                height={23}
+                onClick={toggleExperimenter}
+              />
+            </div>
+            <span class="border-b block"></span>
+          </div>
+          <div id="content" class="min-h-[512px] p-2">
+            <iframe
+              class="w-full"
+              width="640"
+              height="480"
+              src={`${BASE_EXPERIMENTER_URL}?oculos=${experimenterImage}&tipo=${device}`}
+            >
+            </iframe>
+          </div>
+        </Modal>
       </div>
     </div>
   );

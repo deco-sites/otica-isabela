@@ -10,11 +10,7 @@ export interface Props {
   header?: IconTitleProps;
 }
 
-export async function loader(
-  { ...props }: Props,
-  req: Request,
-  ctx: Context,
-) {
+export async function loader({ ...props }: Props, req: Request, ctx: Context) {
   const cookies = getCookies(req.headers);
   const currentIds: string | undefined = cookies?.[visitedProductsCookie];
   const splitedIds = currentIds?.split(":");
@@ -43,7 +39,7 @@ function VisitedProductShelf({
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
       <IconTitle {...header} />
       <ProductShelf
-        itemsPerPage={{ desktop: 3, mobile: 0 }}
+        itemsPerPage={{ desktop: 3, mobile: 1.5 }}
         products={products}
         itemListName="Produtos Visitados"
       />

@@ -74,7 +74,7 @@ export interface Product {
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   PorcentagemDesconto: number;
-  ProdutosMaisCores: ColorVariants[];
+  ProdutosMaisCores: ProductColors[];
   Paineis: Pannels[];
   Imagens: Image[];
   ImagemExperimentador: string;
@@ -82,7 +82,7 @@ export interface Product {
   Classificacoes: ProductInfo[];
 }
 
-export interface ColorVariants {
+export interface ProductColors {
   IdProduct: number;
   Nome: string;
   ValorOriginal: number;
@@ -119,4 +119,16 @@ export interface ProductInfo {
   TagH3: string;
   Nome: string;
   Cor?: string;
+}
+
+export interface Review {
+  ratingValue: number;
+  authorName: string;
+  reviewDescription: string;
+  authorCity: string;
+  productName: string;
+  productPhoto: string;
+  productLink: string;
+  additionalImage: string;
+  memberLevel?: string;
 }
