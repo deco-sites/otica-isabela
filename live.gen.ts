@@ -15,14 +15,15 @@ import * as $$$$$3 from "./islands/HeaderSearchbar.tsx";
 import * as $$$$$4 from "./islands/PromotionalBar.tsx";
 import * as $$$$$5 from "./islands/HeaderButton.tsx";
 import * as $$$$$6 from "./islands/FaqContainer.tsx";
-import * as $$$$$7 from "./islands/AddToCartButton.tsx";
-import * as $$$$$8 from "./islands/HeaderModals.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$11 from "./islands/OutOfStock.tsx";
-import * as $$$$$12 from "./islands/About.tsx";
-import * as $$$$$13 from "./islands/NavItem.tsx";
-import * as $$$$$14 from "./islands/SearchControls.tsx";
+import * as $$$$$7 from "./islands/ProductCard.tsx";
+import * as $$$$$8 from "./islands/AddToCartButton.tsx";
+import * as $$$$$9 from "./islands/HeaderModals.tsx";
+import * as $$$$$10 from "./islands/SliderJS.tsx";
+import * as $$$$$11 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$12 from "./islands/OutOfStock.tsx";
+import * as $$$$$13 from "./islands/About.tsx";
+import * as $$$$$14 from "./islands/NavItem.tsx";
+import * as $$$$$15 from "./islands/SearchControls.tsx";
 import * as $$$$$$$$0 from "./sections/Footer/Footer.tsx";
 import * as $$$$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$2 from "./sections/Images/ShoppableBanner.tsx";
@@ -274,20 +275,21 @@ const manifest = {
     "./routes/styles.css.ts": $$$$0,
   },
   "islands": {
-    "./islands/About.tsx": $$$$$12,
-    "./islands/AddToCartButton.tsx": $$$$$7,
+    "./islands/About.tsx": $$$$$13,
+    "./islands/AddToCartButton.tsx": $$$$$8,
     "./islands/FaqContainer.tsx": $$$$$6,
     "./islands/HeaderButton.tsx": $$$$$5,
-    "./islands/HeaderModals.tsx": $$$$$8,
+    "./islands/HeaderModals.tsx": $$$$$9,
     "./islands/HeaderSearchbar.tsx": $$$$$3,
-    "./islands/NavItem.tsx": $$$$$13,
+    "./islands/NavItem.tsx": $$$$$14,
     "./islands/Newsletter.tsx": $$$$$0,
-    "./islands/OutOfStock.tsx": $$$$$11,
-    "./islands/ProductImageZoom.tsx": $$$$$10,
+    "./islands/OutOfStock.tsx": $$$$$12,
+    "./islands/ProductCard.tsx": $$$$$7,
+    "./islands/ProductImageZoom.tsx": $$$$$11,
     "./islands/PromotionalBar.tsx": $$$$$4,
-    "./islands/SearchControls.tsx": $$$$$14,
+    "./islands/SearchControls.tsx": $$$$$15,
     "./islands/ShippingSimulation.tsx": $$$$$2,
-    "./islands/SliderJS.tsx": $$$$$9,
+    "./islands/SliderJS.tsx": $$$$$10,
     "./islands/WishlistButton.tsx": $$$$$1,
   },
   "sections": {
