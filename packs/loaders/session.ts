@@ -1,6 +1,6 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
-import { paths } from "$store/packs/utils/path.ts";
+import paths from "$store/packs/utils/paths.ts";
 import { Session } from "$store/packs/types.ts";
 
 const loader = async (
