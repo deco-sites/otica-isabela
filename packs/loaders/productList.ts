@@ -19,25 +19,18 @@ const loader = async (
   const {
     nome,
     idColecaoProdutos,
-    offset,
     somenteCronometrosAtivos,
-    ordenacao,
-    IdCategoria,
-    IdSubCategoria,
-    filtrosDinamicos,
+    id,
   } = props;
 
   const productsData = await fetchAPI<ProductData>(
     `${
       path.product.getProduct({
+        ...props,
         nome: nome ?? "",
         idColecaoProdutos: idColecaoProdutos ?? 0,
-        offset,
         somenteCronometrosAtivos: somenteCronometrosAtivos ?? false,
-        ordenacao,
-        IdCategoria,
-        IdSubCategoria,
-        filtrosDinamicos,
+        id: id?.length === 0 ? undefined : id,
       })
     }`,
     {

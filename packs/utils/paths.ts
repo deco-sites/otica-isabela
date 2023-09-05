@@ -13,13 +13,14 @@ const paths = ({ token, publicUrl }: Account) => {
 
   return {
     session: {
-      initSession: () => `${base}/InicioSessao?token=${token}`,
+      initSession: () => href(`${base}/InicioSessao?token=${token}`),
     },
     product: {
       getProduct: (props: PLPProps) => {
         const dynamicFiltersString = stringfyDynamicFilters(
           props.filtrosDinamicos,
         );
+
         return href(
           `${base}/Produtos?token=${token}${dynamicFiltersString}`,
           { ...props, filtrosDinamicos: undefined },

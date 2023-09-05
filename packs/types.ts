@@ -140,6 +140,11 @@ export interface PLPProps {
   nome?: string;
 
   /**
+   * @title Product IDs
+   * @description Define several products IDs */
+  id?: Array<string>;
+
+  /**
    * @title Collection
    * @description Search by collection ID */
   idColecaoProdutos?: number;
@@ -157,7 +162,7 @@ export interface PLPProps {
   /**
    * @title Count
    * @description Limit quantity of items to display 
-   * @default 10
+   * @default 9
    * */
   offset: number;
 
