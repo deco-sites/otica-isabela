@@ -142,7 +142,7 @@ export interface PLPProps {
   /**
    * @title Product IDs
    * @description Define several products IDs */
-  id?: Array<string>;
+  id?: string[];
 
   /**
    * @title Collection
@@ -180,7 +180,7 @@ export interface PLPProps {
   /**
    * @title Sort
    * @description search sort parameter */
-  ordenacao: "none" | "nome";
+  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco"
 }
 
 export interface DynamicFilter {

@@ -74,33 +74,36 @@ const toAdditionalProperties = (
   const additionalProperties: PropertyValue[] = [];
 
   if (variants.length > 0) {
-    const coresProperties = variants.map((variant) => ({
+    additionalProperties.push(...variants.map((variant) => ({
       "@type": "PropertyValue" as const,
       "name": "Cor",
       "value": variant.NomeColor,
       "propertyID": "color",
-      "unitCode": `${variant.Color1}${
-        variant.Color2.length > 0 ? " / " + variant.Color2 : ""
-      }`,
-    }));
-    additionalProperties.push(...coresProperties);
+      "unitCode": toPropertyUnitCode(variant),
+    })));
   }
 
-  const typeProperties = properties.map((item) => ({
-    "@type": "PropertyValue" as const,
-    "name": item.Nome,
-    "value": item.Tipo,
-  }));
-
-  additionalProperties.push(...typeProperties, {
-    "@type": "PropertyValue" as const,
-    "name": "Experimentador",
-    "propertyID": "experimentador",
-    "value": experimentador,
-  });
+  additionalProperties.push(
+    ...properties.map((item) => ({
+      "@type": "PropertyValue" as const,
+      "name": item.Nome,
+      "value": item.Tipo,
+    })),
+    {
+      "@type": "PropertyValue" as const,
+      "name": "Experimentador",
+      "propertyID": "experimentador",
+      "value": experimentador,
+    },
+  );
 
   return additionalProperties;
 };
+
+const toPropertyUnitCode = (variant: ColorVariants) =>
+  Object.keys(variant).map((prop: string) =>
+    prop.startsWith("Color") ? variant[prop as keyof object] : ""
+  ).filter(Boolean).join(" / ");
 
 const toVariantProduct = (
   master: IsabelaProduct,
@@ -121,9 +124,7 @@ const toVariantProduct = (
         "name": "Cor",
         "value": variant.NomeColor,
         "propertyID": "color",
-        "unitCode": `${variant.Color1}${
-          variant.Color2.length > 0 ? " / " + variant.Color2 : ""
-        }`,
+        "unitCode": toPropertyUnitCode(variant),
       }],
       Imagem: variant.Imagem,
       offers: toOffer(variant.ValorOriginal, variant.ValorDesconto),

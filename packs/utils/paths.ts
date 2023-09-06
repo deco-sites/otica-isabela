@@ -1,12 +1,18 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
 import { PLPProps } from "../types.ts";
-import { stringfyDynamicFilters, stringfyParams } from "./utils.ts";
+import { stringfyDynamicFilters } from "./utils.ts";
 
 const paths = ({ token, publicUrl }: Account) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
     if (extraParams) {
-      path = path + stringfyParams(extraParams);
+      path = path + "&" + new URLSearchParams({
+        ...Object.fromEntries(
+          Object.entries(extraParams).filter(([_, value]) =>
+            value !== undefined && value !== 0
+          ),
+        ),
+      });
     }
     return new URL(path, base).href;
   };
