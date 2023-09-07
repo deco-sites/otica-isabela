@@ -1,5 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
+import Stopwatch from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -44,6 +45,7 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
+  isStopwatchEnabled?: boolean;
 }
 
 const relative = (url: string) => {
@@ -51,7 +53,12 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard({
+  product,
+  preload,
+  itemListName,
+  isStopwatchEnabled,
+}: Props) {
   const {
     url,
     productID,
@@ -84,7 +91,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
 
   const description = additionalProperty
@@ -100,8 +107,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const availableColors = getAvailableColors(product);
   const device = getDevice();
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
+
+  //ToDo: remove this line and add a real date from loader
+  const now = new Date();
 
   return (
     <div
@@ -125,6 +135,15 @@ function ProductCard({ product, preload, itemListName }: Props) {
           },
         }}
       />
+
+      {/* Stopwatch */}
+      {isStopwatchEnabled && (
+        <Stopwatch
+          targetDate={
+            new Date(now.getFullYear(), now.getMonth(), now.getDate() + 10)
+          }
+        />
+      )}
 
       <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
         {/* Product Images */}
@@ -163,7 +182,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               (property, index) =>
                 `${property?.name}: ${property?.value}mm ${
                   index < description.length - 1 ? "/" : ""
-                } `,
+                } `
             )}
           </p>
         </div>
@@ -175,9 +194,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background: unitCodes.length > 1
-                      ? `linear-gradient(${unitCodes.join(", ")})`
-                      : `${unitCodes[0]}`,
+                    background:
+                      unitCodes.length > 1
+                        ? `linear-gradient(${unitCodes.join(", ")})`
+                        : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />

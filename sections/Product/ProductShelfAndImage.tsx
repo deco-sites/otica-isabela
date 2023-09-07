@@ -20,6 +20,7 @@ export interface Props {
     desktop: "left" | "right";
     mobile: "top" | "bottom";
   };
+  isStopwatchEnabled?: boolean;
 }
 
 const ProductShelfAndImage = ({
@@ -27,6 +28,7 @@ const ProductShelfAndImage = ({
   image,
   products,
   imageAlign,
+  isStopwatchEnabled,
 }: Props) => {
   if (!products || !products?.length) {
     return null;
@@ -53,6 +55,7 @@ const ProductShelfAndImage = ({
             <ProductShelf
               itemsPerPage={{ desktop: 3, mobile: 0 }}
               products={products}
+              isStopwatchEnabled={isStopwatchEnabled}
             />
           </div>
         </div>
