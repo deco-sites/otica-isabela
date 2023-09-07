@@ -74,13 +74,9 @@ const toAdditionalProperties = (
   const additionalProperties: PropertyValue[] = [];
 
   if (variants.length > 0) {
-    additionalProperties.push(...variants.map((variant) => ({
-      "@type": "PropertyValue" as const,
-      "name": "Cor",
-      "value": variant.NomeColor,
-      "propertyID": "color",
-      "unitCode": toPropertyUnitCode(variant),
-    })));
+    additionalProperties.push(
+      ...toProductColorAdditionalProperties(properties, variants),
+    );
   }
 
   additionalProperties.push(
@@ -100,10 +96,29 @@ const toAdditionalProperties = (
   return additionalProperties;
 };
 
-const toPropertyUnitCode = (variant: ColorVariants) =>
-  Object.keys(variant).map((prop: string) =>
-    prop.startsWith("Color") ? variant[prop as keyof object] : ""
-  ).filter(Boolean).join(" / ");
+const toProductColorAdditionalProperties = (
+  properties: ProductInfo[],
+  variants: ColorVariants[],
+): PropertyValue[] => {
+  const colorName =
+    Object.values(properties).filter((value) =>
+      value.IdTipo === 14 || value.Tipo === "Cor"
+    )[0].Nome;
+  return Object.values(variants).filter((variant) =>
+    variant.NomeColor === colorName
+  ).flatMap((variant) => toColorPropertyValue(variant));
+};
+
+const toColorPropertyValue = (variant: ColorVariants): PropertyValue[] =>
+  Object.keys(variant).filter((prop) =>
+    prop.startsWith("Color") && variant[prop as keyof object]
+  ).map((color) => ({
+    "@type": "PropertyValue" as const,
+    "name": "Cor",
+    "value": variant["NomeColor" as keyof object],
+    "propertyID": "color",
+    "unitCode": variant[color as keyof object],
+  }));
 
 const toVariantProduct = (
   master: IsabelaProduct,
@@ -119,13 +134,7 @@ const toVariantProduct = (
       url: toUrl(variant.UrlFriendlyColor),
       name: variant.Nome.trim(),
       sku: `${variant.IdProduct}`,
-      additionalProperty: [{
-        "@type": "PropertyValue" as const,
-        "name": "Cor",
-        "value": variant.NomeColor,
-        "propertyID": "color",
-        "unitCode": toPropertyUnitCode(variant),
-      }],
+      additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
       offers: toOffer(variant.ValorOriginal, variant.ValorDesconto),
     };
