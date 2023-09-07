@@ -74,7 +74,7 @@ export interface Product {
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   PorcentagemDesconto: number;
-  ProdutosMaisCores: ProductColors[];
+  ProdutosMaisCores: ColorVariants[];
   Paineis: Pannels[];
   Imagens: Image[];
   ImagemExperimentador: string;
@@ -82,7 +82,7 @@ export interface Product {
   Classificacoes: ProductInfo[];
 }
 
-export interface ProductColors {
+export interface ColorVariants {
   IdProduct: number;
   Nome: string;
   ValorOriginal: number;
@@ -131,4 +131,70 @@ export interface Review {
   productLink: string;
   additionalImage: string;
   memberLevel?: string;
+}
+
+export interface PLPProps {
+  /**
+   * @title Term
+   * @description Term to use on search */
+  nome?: string;
+
+  /**
+   * @title Product IDs
+   * @description Define several products IDs */
+  id?: string[];
+
+  /**
+   * @title Collection
+   * @description Search by collection ID */
+  idColecaoProdutos?: number;
+
+  /**
+   * @title CategoryID
+   * @description Search by category ID */
+  IdCategoria?: number;
+
+  /**
+   * @title SubcategoryID
+   * @description Search by subcategory ID */
+  IdSubCategoria?: number;
+
+  /**
+   * @title Count
+   * @description Limit quantity of items to display 
+   * @default 9
+   * */
+  offset: number;
+
+  /**
+   * @title Dynamic filters
+   * @description Define dinamic filters for the query. Example: Aro Fechado,Retangular */
+
+  filtrosDinamicos?: DynamicFilter[];
+
+  /**
+   * @title isStopwatch
+   * @description Only return products with promotions */
+  somenteCronometrosAtivos?: boolean;
+
+  /**
+   * @title Sort
+   * @description search sort parameter */
+  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco"
+}
+
+export interface DynamicFilter {
+  /**
+   * @title Filter ID
+   * @description The ID of the filter.
+   */
+
+  filterID: number;
+
+  /**
+   * @title Filter Value
+   * @description The value of the filter.
+   */
+
+  filterValue: string;
 }
