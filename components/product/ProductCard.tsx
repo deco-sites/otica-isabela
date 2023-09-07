@@ -175,7 +175,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background: `linear-gradient(${unitCodes.join(", ")})`,
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />
