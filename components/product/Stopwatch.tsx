@@ -28,9 +28,17 @@ function StopwatchItem({ label, value }: ItemProps) {
 function Stopwatch({ targetDate }: Props) {
   const timeRemaining = useSignal<number>(0);
 
+  //toDo: remove this mock
+  const now = new Date();
+  const promotionalDate = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 10,
+  );
+
   useEffect(() => {
     const interval = setInterval(() => {
-      timeRemaining.value = calcRemainingTime(targetDate);
+      timeRemaining.value = calcRemainingTime(promotionalDate);
     });
 
     return () => {
@@ -61,7 +69,7 @@ function Stopwatch({ targetDate }: Props) {
           </span>
           <div
             id="counter"
-            class="flex w-[75%] justify-between mt-0 mb-0 ml-auto mr-auto"
+            class="flex w-[90%] justify-between mt-0 mb-0 ml-auto mr-auto"
           >
             <StopwatchItem label="Dias" value={days} />
             <StopwatchItem label="Horas" value={hours} />
