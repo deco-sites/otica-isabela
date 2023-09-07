@@ -20,9 +20,15 @@ export interface Props {
   header?: IconTitleProps;
   banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
+  isStopwatchEnabled?: boolean;
 }
 
-function ProductBannerShelf({ header, banners, products }: Props) {
+function ProductBannerShelf({
+  header,
+  banners,
+  products,
+  isStopwatchEnabled,
+}: Props) {
   const id = `category-list-${useId()}`;
 
   return (
@@ -35,36 +41,29 @@ function ProductBannerShelf({ header, banners, products }: Props) {
           class="container h-full py-8 flex flex-col gap-8 lg:gap-10 text-base-content mb-8  lg:py-10"
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
-            {banners?.map((
-              { label, href, image, buttonLabel },
-              index,
-            ) => (
+            {banners?.map(({ label, href, image, buttonLabel }, index) => (
               <Slider.Item
                 index={index}
                 class="carousel-item flex flex-col mb-3 lg:mb-8  first:ml-8 lg:first:ml-0"
               >
-                <a
-                  href={href}
-                  aria-label={label}
-                >
-                  {image &&
-                    (
-                      <div class="relative">
-                        <Image
-                          class=" rounded-3xl"
-                          src={image}
-                          alt={label}
-                          width={350}
-                          height={350}
-                          loading="lazy"
-                        />
-                        {buttonLabel && (
-                          <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
-                            {buttonLabel}
-                          </button>
-                        )}
-                      </div>
-                    )}
+                <a href={href} aria-label={label}>
+                  {image && (
+                    <div class="relative">
+                      <Image
+                        class=" rounded-3xl"
+                        src={image}
+                        alt={label}
+                        width={350}
+                        height={350}
+                        loading="lazy"
+                      />
+                      {buttonLabel && (
+                        <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
+                          {buttonLabel}
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </a>
               </Slider.Item>
             ))}
@@ -85,6 +84,7 @@ function ProductBannerShelf({ header, banners, products }: Props) {
         <ProductShelf
           itemsPerPage={{ desktop: 3, mobile: 1.5 }}
           products={products}
+          isStopwatchEnabled={isStopwatchEnabled}
         />
       )}
     </>

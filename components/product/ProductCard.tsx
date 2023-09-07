@@ -1,14 +1,15 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import Stopwatch from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
 import { useState } from "preact/hooks";
-import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
+import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 
 export interface Layout {
   basics?: {
@@ -46,6 +47,7 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
+  isStopwatchEnabled?: boolean;
 }
 
 const relative = (url: string) => {
@@ -53,7 +55,12 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard({
+  product,
+  preload,
+  itemListName,
+  isStopwatchEnabled,
+}: Props) {
   const {
     url,
     productID,
@@ -111,6 +118,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
     (prop) => prop.propertyID === "experimentador",
   )?.value;
 
+  //ToDo: remove this line and add a real date from loader
+  const now = new Date();
+
   return (
     <div
       id={id}
@@ -133,6 +143,17 @@ function ProductCard({ product, preload, itemListName }: Props) {
           },
         }}
       />
+
+      {/* Stopwatch */}
+      {isStopwatchEnabled && (
+        <Stopwatch
+          targetDate={new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate() + 10,
+          )}
+        />
+      )}
 
       <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
         {/* Product Images */}

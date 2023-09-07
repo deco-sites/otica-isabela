@@ -56,7 +56,8 @@ export type AvailableIcons =
   | "GlassesAroClosed"
   | "CatGlasses"
   | "Cloud"
-  | "Locale";
+  | "Locale"
+  | "Stopwatch";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
@@ -68,9 +69,14 @@ interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   size?: number;
 }
 
-function Icon(
-  { id, strokeWidth = 16, size, width, height, ...otherProps }: Props,
-) {
+function Icon({
+  id,
+  strokeWidth = 16,
+  size,
+  width,
+  height,
+  ...otherProps
+}: Props) {
   return (
     <svg
       {...otherProps}
