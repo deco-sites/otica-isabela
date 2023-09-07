@@ -161,9 +161,9 @@ export interface PLPProps {
 
   /**
    * @title Count
-   * @description Limit quantity of items to display 
+   * @description Limit quantity of items to display
    * @default 9
-   * */
+   */
   offset: number;
 
   /**
@@ -180,7 +180,7 @@ export interface PLPProps {
   /**
    * @title Sort
    * @description search sort parameter */
-  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco"
+  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco";
 }
 
 export interface DynamicFilter {

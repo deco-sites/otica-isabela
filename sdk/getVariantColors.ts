@@ -17,13 +17,6 @@ const getColors = (
 
 export const getAvailableColors = (product: Product): Array<Color> => {
   const availableColors: Array<Color> = [];
-  const colorsInRoot = getColors(product.additionalProperty!);
-
-  colorsInRoot.length && availableColors.push({
-    name: product.name!,
-    url: product.url!,
-    unitCodes: colorsInRoot,
-  });
 
   if (product.isVariantOf) {
     const { isVariantOf: variant } = product;
