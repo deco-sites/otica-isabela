@@ -30,6 +30,9 @@ function ProductShelf({
     return null;
   }
 
+  //@ts-ignore temporarily until we have this on Product interface
+  const priceValidUntil = products[0]?.offers?.priceValidUntil;
+
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
       <div id={id} class="container flex flex-col px-0 sm:px-5">
@@ -44,6 +47,7 @@ function ProductShelf({
                   product={product}
                   itemListName={itemListName}
                   isStopwatchEnabled={isStopwatchEnabled}
+                  priceValidUntil={priceValidUntil}
                 />
               </Slider.Item>
             </div>
@@ -74,7 +78,9 @@ function ProductShelf({
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-          {products.map((_, index) => <Slider.Dot index={index} />)}
+          {products.map((_, index) => (
+            <Slider.Dot index={index} />
+          ))}
         </div>
       </div>
     </div>

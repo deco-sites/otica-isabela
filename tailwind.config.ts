@@ -16,6 +16,10 @@ export default {
       "2xl": "1140px",
     },
     extend: {
+      fontSize: {
+        "xxs": "0.5rem",
+      },
+
       fontFamily: {
         "bebas-neue": ["Bebas Neue"],
       },

@@ -9,6 +9,7 @@ import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
 import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 import { getDescriptions } from "deco-sites/otica-isabela/sdk/getDescriptions.ts";
+import { Size } from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
 
 export interface Layout {
   basics?: {
@@ -47,6 +48,7 @@ interface Props {
   /** @description used for analytics event */
   itemListName?: string;
   isStopwatchEnabled?: boolean;
+  priceValidUntil?: Date;
 }
 
 const relative = (url: string) => {
@@ -59,6 +61,7 @@ function ProductCard({
   preload,
   itemListName,
   isStopwatchEnabled,
+  priceValidUntil,
 }: Props) {
   const {
     url,
@@ -110,7 +113,9 @@ function ProductCard({
       />
 
       {/* Stopwatch */}
-      {isStopwatchEnabled && <Stopwatch targetDate={new Date()} />}
+      {isStopwatchEnabled && priceValidUntil && (
+        <Stopwatch targetDate={priceValidUntil!} size={Size.card} />
+      )}
 
       <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
         {/* Product Images */}
