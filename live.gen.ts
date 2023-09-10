@@ -8,51 +8,51 @@ import * as $$$1 from "./loaders/store/session.ts";
 import * as $$$$0 from "./routes/styles.css.ts";
 import * as $$$$1 from "./routes/_app.tsx";
 import * as $$$$2 from "./routes/_middleware.tsx";
-import * as $$$$$0 from "./islands/Newsletter.tsx";
-import * as $$$$$1 from "./islands/WishlistButton.tsx";
-import * as $$$$$2 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$3 from "./islands/HeaderSearchbar.tsx";
-import * as $$$$$4 from "./islands/PromotionalBar.tsx";
-import * as $$$$$5 from "./islands/HeaderButton.tsx";
-import * as $$$$$6 from "./islands/FaqContainer.tsx";
-import * as $$$$$7 from "./islands/AddToCartButton.tsx";
-import * as $$$$$8 from "./islands/HeaderModals.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$11 from "./islands/ToExperimentButton.tsx";
-import * as $$$$$12 from "./islands/OutOfStock.tsx";
-import * as $$$$$13 from "./islands/About.tsx";
-import * as $$$$$14 from "./islands/NavItem.tsx";
-import * as $$$$$15 from "./islands/SearchControls.tsx";
-import * as $$$$$$$$0 from "./sections/Footer/Footer.tsx";
-import * as $$$$$$$$1 from "./sections/Category/CategoryBanner.tsx";
-import * as $$$$$$$$2 from "./sections/Images/ShoppableBanner.tsx";
-import * as $$$$$$$$3 from "./sections/Images/BannerGrid.tsx";
-import * as $$$$$$$$4 from "./sections/Images/ImageGallery.tsx";
-import * as $$$$$$$$5 from "./sections/Images/InformativeBanner.tsx";
-import * as $$$$$$$$6 from "./sections/Images/BannerTextButton.tsx";
-import * as $$$$$$$$7 from "./sections/Images/Carousel.tsx";
-import * as $$$$$$$$8 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$$$9 from "./sections/Content/Logos.tsx";
-import * as $$$$$$$$10 from "./sections/Content/Faq.tsx";
-import * as $$$$$$$$11 from "./sections/Content/Benefits.tsx";
-import * as $$$$$$$$12 from "./sections/Content/About.tsx";
-import * as $$$$$$$$13 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$$$14 from "./sections/Product/ProductBannerShelf.tsx";
-import * as $$$$$$$$15 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$$$16 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$$$17 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$$$18 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$$$19 from "./sections/Product/ProductShelfAndImage.tsx";
-import * as $$$$$$$$20 from "./sections/Miscellaneous/CampaignTimer.tsx";
-import * as $$$$$$$$21 from "./sections/Miscellaneous/CookieConsent.tsx";
-import * as $$$$$$$$22 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$$$23 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$$$24 from "./sections/Theme/Theme.tsx";
-import * as $$$$$$$$25 from "./sections/Links/LinkTree.tsx";
-import * as $$$$$$$$26 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$$$27 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$$$28 from "./sections/Header/Header.tsx";
+import * as $$$$$0 from "./islands/About.tsx";
+import * as $$$$$1 from "./islands/AddToCartButton.tsx";
+import * as $$$$$2 from "./islands/FaqContainer.tsx";
+import * as $$$$$3 from "./islands/HeaderButton.tsx";
+import * as $$$$$4 from "./islands/HeaderModals.tsx";
+import * as $$$$$5 from "./islands/HeaderSearchbar.tsx";
+import * as $$$$$6 from "./islands/NavItem.tsx";
+import * as $$$$$7 from "./islands/Newsletter.tsx";
+import * as $$$$$8 from "./islands/OutOfStock.tsx";
+import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$10 from "./islands/PromotionalBar.tsx";
+import * as $$$$$11 from "./islands/SearchControls.tsx";
+import * as $$$$$12 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$13 from "./islands/SliderJS.tsx";
+import * as $$$$$14 from "./islands/ToExperimentButton.tsx";
+import * as $$$$$15 from "./islands/WishlistButton.tsx";
+import * as $$$$$$$$0 from "./sections/Category/CategoryBanner.tsx";
+import * as $$$$$$$$1 from "./sections/Content/About.tsx";
+import * as $$$$$$$$2 from "./sections/Content/Benefits.tsx";
+import * as $$$$$$$$3 from "./sections/Content/Faq.tsx";
+import * as $$$$$$$$4 from "./sections/Content/Logos.tsx";
+import * as $$$$$$$$5 from "./sections/Content/Testimonials.tsx";
+import * as $$$$$$$$6 from "./sections/Footer/Footer.tsx";
+import * as $$$$$$$$7 from "./sections/Header/Header.tsx";
+import * as $$$$$$$$8 from "./sections/Images/BannerGrid.tsx";
+import * as $$$$$$$$9 from "./sections/Images/BannerTextButton.tsx";
+import * as $$$$$$$$10 from "./sections/Images/Carousel.tsx";
+import * as $$$$$$$$11 from "./sections/Images/ImageGallery.tsx";
+import * as $$$$$$$$12 from "./sections/Images/InformativeBanner.tsx";
+import * as $$$$$$$$13 from "./sections/Images/ShoppableBanner.tsx";
+import * as $$$$$$$$14 from "./sections/Links/LinkTree.tsx";
+import * as $$$$$$$$15 from "./sections/Links/Shortcuts.tsx";
+import * as $$$$$$$$16 from "./sections/Miscellaneous/CampaignTimer.tsx";
+import * as $$$$$$$$17 from "./sections/Miscellaneous/CookieConsent.tsx";
+import * as $$$$$$$$18 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$$$19 from "./sections/Product/ProductBannerShelf.tsx";
+import * as $$$$$$$$20 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$$$21 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$$$22 from "./sections/Product/ProductShelfAndImage.tsx";
+import * as $$$$$$$$23 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$$$24 from "./sections/Product/VisitedProductShelf.tsx";
+import * as $$$$$$$$25 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$$$26 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$$$27 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$$$28 from "./sections/Theme/Theme.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -275,22 +275,22 @@ const manifest = {
     "./routes/styles.css.ts": $$$$0,
   },
   "islands": {
-    "./islands/About.tsx": $$$$$13,
-    "./islands/AddToCartButton.tsx": $$$$$7,
-    "./islands/FaqContainer.tsx": $$$$$6,
-    "./islands/HeaderButton.tsx": $$$$$5,
-    "./islands/HeaderModals.tsx": $$$$$8,
-    "./islands/HeaderSearchbar.tsx": $$$$$3,
-    "./islands/NavItem.tsx": $$$$$14,
-    "./islands/Newsletter.tsx": $$$$$0,
-    "./islands/OutOfStock.tsx": $$$$$12,
-    "./islands/ProductImageZoom.tsx": $$$$$10,
-    "./islands/PromotionalBar.tsx": $$$$$4,
-    "./islands/SearchControls.tsx": $$$$$15,
-    "./islands/ShippingSimulation.tsx": $$$$$2,
-    "./islands/SliderJS.tsx": $$$$$9,
-    "./islands/ToExperimentButton.tsx": $$$$$11,
-    "./islands/WishlistButton.tsx": $$$$$1,
+    "./islands/About.tsx": $$$$$0,
+    "./islands/AddToCartButton.tsx": $$$$$1,
+    "./islands/FaqContainer.tsx": $$$$$2,
+    "./islands/HeaderButton.tsx": $$$$$3,
+    "./islands/HeaderModals.tsx": $$$$$4,
+    "./islands/HeaderSearchbar.tsx": $$$$$5,
+    "./islands/NavItem.tsx": $$$$$6,
+    "./islands/Newsletter.tsx": $$$$$7,
+    "./islands/OutOfStock.tsx": $$$$$8,
+    "./islands/ProductImageZoom.tsx": $$$$$9,
+    "./islands/PromotionalBar.tsx": $$$$$10,
+    "./islands/SearchControls.tsx": $$$$$11,
+    "./islands/ShippingSimulation.tsx": $$$$$12,
+    "./islands/SliderJS.tsx": $$$$$13,
+    "./islands/ToExperimentButton.tsx": $$$$$14,
+    "./islands/WishlistButton.tsx": $$$$$15,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,
@@ -298,40 +298,41 @@ const manifest = {
     "$live/sections/PageInclude.tsx": i2$$$$$2,
     "$live/sections/Slot.tsx": i2$$$$$3,
     "$live/sections/UseSlot.tsx": i2$$$$$4,
-    "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$$$1,
-    "deco-sites/otica-isabela/sections/Content/About.tsx": $$$$$$$$12,
-    "deco-sites/otica-isabela/sections/Content/Benefits.tsx": $$$$$$$$11,
-    "deco-sites/otica-isabela/sections/Content/Faq.tsx": $$$$$$$$10,
-    "deco-sites/otica-isabela/sections/Content/Logos.tsx": $$$$$$$$9,
-    "deco-sites/otica-isabela/sections/Content/Testimonials.tsx": $$$$$$$$8,
-    "deco-sites/otica-isabela/sections/Footer/Footer.tsx": $$$$$$$$0,
-    "deco-sites/otica-isabela/sections/Header/Header.tsx": $$$$$$$$28,
-    "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx": $$$$$$$$3,
-    "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx": $$$$$$$$6,
-    "deco-sites/otica-isabela/sections/Images/Carousel.tsx": $$$$$$$$7,
-    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$4,
-    "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx": $$$$$$$$5,
-    "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$2,
-    "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$25,
-    "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$26,
+    "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$$$0,
+    "deco-sites/otica-isabela/sections/Content/About.tsx": $$$$$$$$1,
+    "deco-sites/otica-isabela/sections/Content/Benefits.tsx": $$$$$$$$2,
+    "deco-sites/otica-isabela/sections/Content/Faq.tsx": $$$$$$$$3,
+    "deco-sites/otica-isabela/sections/Content/Logos.tsx": $$$$$$$$4,
+    "deco-sites/otica-isabela/sections/Content/Testimonials.tsx": $$$$$$$$5,
+    "deco-sites/otica-isabela/sections/Footer/Footer.tsx": $$$$$$$$6,
+    "deco-sites/otica-isabela/sections/Header/Header.tsx": $$$$$$$$7,
+    "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx": $$$$$$$$8,
+    "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx": $$$$$$$$9,
+    "deco-sites/otica-isabela/sections/Images/Carousel.tsx": $$$$$$$$10,
+    "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx": $$$$$$$$11,
+    "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx":
+      $$$$$$$$12,
+    "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$$$13,
+    "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$$$14,
+    "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$$$15,
     "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx":
-      $$$$$$$$20,
+      $$$$$$$$16,
     "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
-      $$$$$$$$21,
-    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$27,
-    "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
-      $$$$$$$$14,
-    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$18,
-    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$16,
-    "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
-      $$$$$$$$19,
-    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$$$15,
-    "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx":
       $$$$$$$$17,
-    "deco-sites/otica-isabela/sections/Product/Wishlist.tsx": $$$$$$$$13,
-    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$$$23,
-    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$$$22,
-    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$$$24,
+    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$18,
+    "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
+      $$$$$$$$19,
+    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$20,
+    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$21,
+    "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
+      $$$$$$$$22,
+    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$$$23,
+    "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx":
+      $$$$$$$$24,
+    "deco-sites/otica-isabela/sections/Product/Wishlist.tsx": $$$$$$$$25,
+    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$$$26,
+    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$$$27,
+    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$$$28,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$$5,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$$6,
     "deco-sites/std/sections/configLinxImpulse.global.tsx": i2$$$$$7,
