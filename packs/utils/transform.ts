@@ -7,6 +7,7 @@ import {
 import type {
   AggregateOffer,
   ImageObject,
+  Offer,
   Product,
   ProductGroup,
   PropertyValue,
@@ -25,6 +26,8 @@ export function toProduct(product: IsabelaProduct): Product {
     ImagemExperimentador,
     NomeCategoriaPai,
     NomeCategoria,
+    QtdeEstoque,
+    OfertaTermina,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
@@ -53,7 +56,12 @@ export function toProduct(product: IsabelaProduct): Product {
       ImagemExperimentador,
     ),
     isVariantOf,
-    offers: toOffer(ValorOriginal, ValorDesconto),
+    offers: toAggregateOffer(
+      ValorOriginal,
+      ValorDesconto,
+      OfertaTermina,
+      QtdeEstoque,
+    ),
   };
 }
 
@@ -136,7 +144,12 @@ const toVariantProduct = (
       sku: `${variant.IdProduct}`,
       additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
-      offers: toOffer(variant.ValorOriginal, variant.ValorDesconto),
+      offers: toAggregateOffer(
+        variant.ValorOriginal,
+        variant.ValorDesconto,
+        variant.OfertaTermina,
+        master.QtdeEstoque,
+      ),
     };
   }),
   url: toUrl(master.UrlFriendlyColor),
@@ -145,19 +158,31 @@ const toVariantProduct = (
   model: `${master.IdProduct}`,
 } ?? []);
 
-const toOffer = (
-  ValorOriginal: number,
-  ValorDesconto: number,
+const toAggregateOffer = (
+  originalValue: number,
+  discountedValue: number,
+  priceValidUntil: string,
+  stock: number,
 ): AggregateOffer => ({
   "@type": "AggregateOffer",
-  highPrice: ValorOriginal,
-  lowPrice: ValorDesconto,
+  highPrice: originalValue,
+  lowPrice: discountedValue,
   offerCount: 1,
-  offers: [{
-    "@type": "Offer",
-    price: ValorOriginal,
-    availability: "https://schema.org/InStock",
-    inventoryLevel: { value: undefined },
-    priceSpecification: [],
-  }],
+  priceCurrency: "BRL",
+  offers: [{ ...toOffer(originalValue, priceValidUntil, stock) }],
+});
+
+const toOffer = (
+  originalValue: number,
+  priceValidUntil: string,
+  stock: number,
+): Offer => ({
+  "@type": "Offer",
+  availability: stock > 0
+    ? "https://schema.org/InStock"
+    : "https://schema.org/OutOfStock",
+  inventoryLevel: { value: undefined },
+  price: originalValue,
+  priceSpecification: [],
+  priceValidUntil,
 });
