@@ -1,6 +1,6 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import {
-  PLPProps as Props,
+  GetProductProps as Props,
   Product as IsabelaProduct,
   ProductData,
 } from "$store/packs/types.ts";
@@ -10,7 +10,7 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 
 const loader = async (
-  props: Props,
+  props: Omit<Props, "url">,
   _req: Request,
   ctx: Context,
 ): Promise<Product[] | null> => {

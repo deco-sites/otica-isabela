@@ -6,9 +6,11 @@ import {
 } from "$store/packs/types.ts";
 import type {
   AggregateOffer,
+  BreadcrumbList,
   ImageObject,
   Offer,
   Product,
+  ProductDetailsPage,
   ProductGroup,
   PropertyValue,
 } from "deco-sites/std/commerce/types.ts";
@@ -62,6 +64,25 @@ export function toProduct(product: IsabelaProduct): Product {
       OfertaTermina,
       QtdeEstoque,
     ),
+  };
+}
+
+export function toProductPage(
+  product: IsabelaProduct,
+  baseURL: string,
+): ProductDetailsPage {
+  return {
+    "@type": "ProductDetailsPage",
+    breadcrumbList: toBreadcrumbList(product, baseURL),
+    product: toProduct(product),
+    seo: {
+      title: `${product.TituloSeo}`,
+      description: `${product.DescricaoSeo}`,
+      canonical: toProductCanonicalUrl(
+        baseURL,
+        product.UrlFriendlyColor,
+      ).href,
+    },
   };
 }
 
@@ -186,3 +207,45 @@ const toOffer = (
   priceSpecification: [],
   priceValidUntil,
 });
+
+const toBreadcrumbList = (
+  { NomeCategoriaPai, NomeCategoria, Nome, UrlFriendlyColor }: IsabelaProduct,
+  baseURL: string,
+): BreadcrumbList => {
+  const categories = toCategory([NomeCategoriaPai, NomeCategoria]).split(/[>]/);
+
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      ...categories.map((name, index) => ({
+        "@type": "ListItem" as const,
+        name,
+        item: new URL(
+          `/${
+            categories
+              .slice(0, index + 1)
+              .join("/")
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/\s+/g, "-")
+          }`,
+          baseURL,
+        ).href,
+        position: index + 1,
+      })),
+      {
+        "@type": "ListItem",
+        name: Nome,
+        item: toProductCanonicalUrl(baseURL, UrlFriendlyColor).href,
+        position: categories.length + 1,
+      },
+    ],
+    numberOfItems: categories.length + 1,
+  };
+};
+
+const toProductCanonicalUrl = (
+  baseURL: string,
+  productSlug: string,
+): URL => new URL(`/produto/${productSlug}`, baseURL);
