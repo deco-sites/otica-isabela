@@ -133,7 +133,7 @@ export interface Review {
   memberLevel?: string;
 }
 
-export interface PLPProps {
+export interface GetProductProps {
   /**
    * @title Term
    * @description Term to use on search */
@@ -181,6 +181,11 @@ export interface PLPProps {
    * @title Sort
    * @description search sort parameter */
   ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco";
+
+  /**
+   * @title SLUG
+   * @description search by product SLUG */
+  url?: string
 }
 
 export interface DynamicFilter {

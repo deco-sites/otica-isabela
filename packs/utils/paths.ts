@@ -1,5 +1,5 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
-import { PLPProps } from "../types.ts";
+import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 
 const paths = ({ token, publicUrl }: Account) => {
@@ -22,7 +22,7 @@ const paths = ({ token, publicUrl }: Account) => {
       initSession: () => href(`${base}/InicioSessao?token=${token}`),
     },
     product: {
-      getProduct: (props: PLPProps) => {
+      getProduct: (props: GetProductProps) => {
         const dynamicFiltersString = stringfyDynamicFilters(
           props.filtrosDinamicos,
         );
