@@ -78,10 +78,7 @@ export function toProductPage(
     seo: {
       title: `${product.TituloSeo}`,
       description: `${product.DescricaoSeo}`,
-      canonical: toProductCanonicalUrl(
-        baseURL,
-        product.UrlFriendlyColor,
-      ).href,
+      canonical: "",
     },
   };
 }
