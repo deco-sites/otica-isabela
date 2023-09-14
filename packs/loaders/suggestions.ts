@@ -1,9 +1,9 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import type { Suggestion } from "deco-sites/std/commerce/types.ts";
-/* import { ProductData } from "$store/packs/types.ts";
+import { ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts"; */
+import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 
 export interface Props {
   /**
@@ -23,31 +23,19 @@ export interface Props {
  */
 
 const loader = async (
-  _props: Props,
+  props: Props,
   _req: Request,
-  _ctx: Context,
+  ctx: Context,
 ): Promise<Suggestion | null> => {
-  /* const { configStore: config } = ctx;
+  const { configStore: config } = ctx;
   const path = paths(config!);
   const {
     q,
     offset,
   } = props;
 
-  const suggestions = () =>
-    fetchAPI<ProductData>(
-      `${
-        path.product.getProduct({
-          q,
-          offset,
-          ordenacao: "none",
-        })
-      }`,
-      {
-        method: "POST",
-      },
-    );
-
+  /*TODO: Refactor this function. His delay is too high. Maybe do something with another 
+  endpoint or with the productSearch */
   const topSellers = () =>
     fetchAPI<ProductData>(
       `${
@@ -59,10 +47,35 @@ const loader = async (
       {
         method: "POST",
       },
-    ); */
+    );
 
-  await 0;
-  return null;
+  const productSearch = () =>
+    fetchAPI<ProductData>(
+      `${
+        path.product.getProduct({
+          nome: q,
+          offset,
+          ordenacao: "none",
+        })
+      }`,
+      {
+        method: "POST",
+      },
+    );
+
+  const [topSellersProducts, { produtos, Total }] = await Promise.all([
+    topSellers(),
+    productSearch(),
+  ]);
+
+  if (topSellersProducts.Total == 0 || Total == 0) return null;
+
+  return {
+    searches: topSellersProducts.produtos.map(({ Nome }) => ({
+      term: Nome,
+    })),
+    products: produtos.map((p) => toProduct(p)),
+  };
 };
 
 export default loader;
