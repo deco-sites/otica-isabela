@@ -185,7 +185,12 @@ export interface GetProductProps {
   /**
    * @title SLUG
    * @description search by product SLUG */
-  url?: string
+  url?: string;
+
+  /**
+   * @title Query
+   * @description search by QUERY */
+  q?: string;
 }
 
 export interface DynamicFilter {
@@ -202,4 +207,13 @@ export interface DynamicFilter {
    */
 
   filterValue: string;
+}
+
+export interface Suggestion {
+  searches?: Search[];
+  products?: Product[];
+}
+
+export interface Search {
+  term: string;
 }
