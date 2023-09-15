@@ -34,21 +34,6 @@ const loader = async (
     offset,
   } = props;
 
-  /*TODO: Refactor this function. His delay is too high. Maybe do something with another 
-  endpoint or with the productSearch */
-  const topSellers = () =>
-    fetchAPI<ProductData>(
-      `${
-        path.product.getProduct({
-          offset,
-          ordenacao: "mais-vendidos",
-        })
-      }`,
-      {
-        method: "POST",
-      },
-    );
-
   const productSearch = () =>
     fetchAPI<ProductData>(
       `${
@@ -63,15 +48,14 @@ const loader = async (
       },
     );
 
-  const [topSellersProducts, { produtos, Total }] = await Promise.all([
-    topSellers(),
+  const [{ produtos, Total }] = await Promise.all([
     productSearch(),
   ]);
 
-  if (topSellersProducts.Total == 0 || Total == 0) return null;
+  if (Total == 0) return null;
 
   return {
-    searches: topSellersProducts.produtos.map(({ Nome }) => ({
+    searches: produtos.map(({ Nome }) => ({
       term: Nome,
     })),
     products: produtos.map((p) => toProduct(p)),
