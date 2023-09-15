@@ -84,7 +84,6 @@ function ProductCard({
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
-  const device = getDevice();
   const experimenterImage = additionalProperty?.find(
     (prop) => prop.propertyID === "experimentador"
   )?.value;
@@ -182,7 +181,7 @@ function ProductCard({
         <div class="flex flex-col gap-2">
           <div class="flex flex-row  justify-center items-center gap-3  ">
             {discount > 0 && (
-              <div class="line-through font-semibold text-sm  text-red-500 lg:text-base ">
+              <div class="line-through font-semibold text-sm  text-red-500 lg:text-base">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </div>
             )}
@@ -193,7 +192,7 @@ function ProductCard({
         </div>
 
         {/* Experimenter */}
-        <ToExperimentButton device={device} image={experimenterImage!} />
+        <ToExperimentButton image={experimenterImage!} />
       </div>
     </div>
   );

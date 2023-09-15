@@ -2,15 +2,21 @@ import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 import { useSignal } from "@preact/signals";
+import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 
 interface Props {
-  device: string;
   image: string;
+  variant?: "outlined" | "filled";
 }
 
-const ToExperimentButton = ({ device, image }: Props) => {
-  const isExperimenting = useSignal(false);
+const variantClasses = {
+  outlined: "bg-white text-black hover:text-white hover:bg-black lg:text-lg",
+  filled: "bg-black text-white hover:text-black hover:bg-white lg:text-lg",
+};
 
+const ToExperimentButton = ({ image, variant = "outlined" }: Props) => {
+  const isExperimenting = useSignal(false);
+  const device = getDevice();
   const toggleExperimenter = () => {
     isExperimenting.value = !isExperimenting.value;
   };
@@ -20,23 +26,29 @@ const ToExperimentButton = ({ device, image }: Props) => {
       {/* Experimenter */}
       <div class="w-full flex items-center justify-center">
         <button
-          class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2"
+          class={`group flex items-center lg:h-14 p-0 text-xs justify-center btn w-full border-black sm:py-2 ${
+            variantClasses[variant]
+          }`}
           onClick={toggleExperimenter}
         >
           <span class="hidden lg:flex">
             <Icon
               id="Camera"
-              class="group-hover:invert"
+              class={variant === "outlined"
+                ? "group-hover:invert"
+                : "group-hover:invert-0"}
               width={40}
               height={37}
+              filter={variant === "outlined" ? "none" : "invert()"}
             />
           </span>
           <span class="flex lg:hidden">
             <Icon
               id="Camera"
               class="group-hover:invert"
-              width={25}
-              height={23}
+              width={17}
+              height={17}
+              filter={variant === "outlined" ? "none" : "invert()"}
             />
           </span>
           Experimentar
