@@ -185,7 +185,7 @@ export interface GetProductProps {
   /**
    * @title SLUG
    * @description search by product SLUG */
-  url?: string
+  url?: string;
 }
 
 export interface DynamicFilter {
