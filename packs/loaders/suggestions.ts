@@ -55,9 +55,7 @@ const loader = async (
   if (Total == 0) return null;
 
   return {
-    searches: produtos.map(({ Nome }) => ({
-      term: Nome,
-    })),
+    searches: [],
     products: produtos.map((p) => toProduct(p)),
   };
 };

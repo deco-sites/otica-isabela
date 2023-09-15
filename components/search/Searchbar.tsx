@@ -11,7 +11,7 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
-import { useSuggestions } from "../../packs/hooks/useSuggestions.ts";
+import { useSuggestions } from "$store/packs/hooks/useSuggestions.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 
