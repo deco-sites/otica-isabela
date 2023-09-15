@@ -11,7 +11,7 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
-import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
+import { useSuggestions } from "../../packs/hooks/useSuggestions.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 
@@ -50,7 +50,7 @@ function Searchbar({
   query,
 }: EditableProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions, loading } = useAutocomplete();
+  const { setSearch, suggestions, loading } = useSuggestions();
   const hasProducts = Boolean(suggestions.value?.products?.length);
   const suggestionProducts = suggestions.value?.products;
 

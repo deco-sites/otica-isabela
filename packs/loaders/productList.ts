@@ -12,7 +12,7 @@ import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
  * @title Otica Isabela Products List
  */
 const loader = async (
-  props: Omit<Props, "url" | "q">,
+  props: Omit<Props, "url">,
   _req: Request,
   ctx: Context,
 ): Promise<Product[] | null> => {

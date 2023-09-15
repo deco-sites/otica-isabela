@@ -1,20 +1,20 @@
-/* import { signal } from "@preact/signals";
+import { signal } from "@preact/signals";
 import { debounce } from "std/async/debounce.ts";
-import type { Suggestion } from "../types.ts";
+import type { Suggestion } from "deco-sites/std/commerce/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
 import type { Manifest } from "../../live.gen.ts";
 
-const Runtime = withManifest<Manifest>()
+const Runtime = withManifest<Manifest>();
 const payload = signal<Suggestion | null>(null);
 const loading = signal<boolean>(false);
 
 const suggestions = Runtime.create(
-  "deco-sites/otica-isabela/loaders/product/productSearch.ts",
+  "deco-sites/otica-isabela/loaders/product/suggestions.ts",
 );
 
 const setSearch = debounce(async (search: string, count: number) => {
   try {
-    payload.value = await suggestions({ q: search, offset: count });
+    payload.value = await suggestions({ nome: search, offset: count });
   } catch (error) {
     console.error("Something went wrong while fetching suggestions \n", error);
   } finally {
@@ -23,17 +23,15 @@ const setSearch = debounce(async (search: string, count: number) => {
 }, 250);
 
 const state = {
-  setSearch: (query: string, count = 4) => {
+  setSearch: (query: string, count?: number) => {
     loading.value = true;
-    setSearch(query, count);
+    setSearch(query, count ?? 8);
   },
   loading,
   suggestions: payload,
 };
 
 /**
- * This hook only works if the vtex intelligent search app is installed at VTEX Account.
+ * This hook uses the Otica Isabela API.
  */
-/*
-export const useAutocomplete = () => state;
- */
+export const useSuggestions = () => state;

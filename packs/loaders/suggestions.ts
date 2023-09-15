@@ -1,6 +1,6 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
-import type { Suggestion } from "deco-sites/std/commerce/types.ts";
 import { ProductData } from "$store/packs/types.ts";
+import type { Suggestion } from "deco-sites/std/commerce/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
@@ -9,7 +9,7 @@ export interface Props {
   /**
    * @title Term
    * @description Term to use on search */
-  q?: string;
+  nome?: string;
   /**
    * @title Count
    * @description Limit quantity of items to display
@@ -30,7 +30,7 @@ const loader = async (
   const { configStore: config } = ctx;
   const path = paths(config!);
   const {
-    q,
+    nome,
     offset,
   } = props;
 
@@ -38,7 +38,7 @@ const loader = async (
     fetchAPI<ProductData>(
       `${
         path.product.getProduct({
-          nome: q,
+          nome,
           offset,
           ordenacao: "none",
         })
@@ -48,9 +48,9 @@ const loader = async (
       },
     );
 
-  const [{ produtos, Total }] = await Promise.all([
+  const { produtos, Total } = await Promise.resolve(
     productSearch(),
-  ]);
+  );
 
   if (Total == 0) return null;
 
