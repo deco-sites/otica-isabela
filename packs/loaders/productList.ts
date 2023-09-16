@@ -1,8 +1,5 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
-import {
-  GetProductProps as Props,
-  ProductData,
-} from "$store/packs/types.ts";
+import { GetProductProps as Props, ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
