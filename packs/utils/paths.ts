@@ -33,6 +33,8 @@ const paths = ({ token, publicUrl }: Account) => {
         );
       },
     },
+    category: (categoryUrl: string) =>
+      href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
   };
 };
 

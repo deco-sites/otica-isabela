@@ -203,3 +203,18 @@ export interface DynamicFilter {
 
   filterValue: string;
 }
+
+export interface Category {
+  Id: number;
+  Nome: string;
+  IdCategoriaPai: number;
+  Title_SEO: string;
+  PageKeywords_SEO: string;
+  PageDescription_SEO: string;
+  Description_SEO: string;
+  UrlFriendly: string;
+  TagH3: string;
+  TagH2: string;
+  TagH1: string;
+  Descricao: string;
+}
