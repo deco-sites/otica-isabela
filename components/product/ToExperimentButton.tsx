@@ -7,14 +7,32 @@ import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 interface Props {
   image: string;
   variant?: "outlined" | "filled";
+  size?: "small" | "large";
 }
 
-const variantClasses = {
-  outlined: "bg-white text-black hover:text-white hover:bg-black lg:text-lg",
-  filled: "bg-black text-white hover:text-black hover:bg-white lg:text-lg",
+const style = {
+  outlined: "bg-white text-black hover:text-white hover:bg-black",
+  filled: "bg-black text-white hover:text-black hover:bg-white",
 };
 
-const ToExperimentButton = ({ image, variant = "outlined" }: Props) => {
+const sizing = {
+  small: {
+    iconW: 21,
+    iconH: 19,
+    style: "text-sm",
+  },
+  large: {
+    iconW: 40,
+    iconH: 37,
+    style: "text-lg",
+  },
+};
+
+const ToExperimentButton = ({
+  image,
+  variant = "outlined",
+  size = "small",
+}: Props) => {
   const isExperimenting = useSignal(false);
   const device = getDevice();
   const toggleExperimenter = () => {
@@ -26,19 +44,19 @@ const ToExperimentButton = ({ image, variant = "outlined" }: Props) => {
       {/* Experimenter */}
       <div class="w-full flex items-center justify-center">
         <button
-          class={`group flex items-center lg:h-14 p-0 text-xs justify-center btn w-full border-black sm:py-2 ${
-            variantClasses[variant]
-          }`}
+          class={`group flex items-center lg:h-14 p-0 justify-center btn w-full border-black sm:py-2 ${style[variant]} ${sizing[size].style}`}
           onClick={toggleExperimenter}
         >
           <span class="hidden lg:flex">
             <Icon
               id="Camera"
-              class={variant === "outlined"
-                ? "group-hover:invert"
-                : "group-hover:invert-0"}
-              width={40}
-              height={37}
+              class={
+                variant === "outlined"
+                  ? "group-hover:invert"
+                  : "group-hover:invert-0"
+              }
+              width={sizing[size].iconW}
+              height={sizing[size].iconH}
               filter={variant === "outlined" ? "none" : "invert()"}
             />
           </span>
@@ -80,8 +98,7 @@ const ToExperimentButton = ({ image, variant = "outlined" }: Props) => {
             width="640"
             height="480"
             src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-          >
-          </iframe>
+          ></iframe>
         </div>
       </Modal>
     </>

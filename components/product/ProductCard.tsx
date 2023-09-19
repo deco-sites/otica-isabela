@@ -192,7 +192,7 @@ function ProductCard({
         </div>
 
         {/* Experimenter */}
-        <ToExperimentButton image={experimenterImage!} />
+        <ToExperimentButton image={experimenterImage!} size="large" />
       </div>
     </div>
   );

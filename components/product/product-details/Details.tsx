@@ -72,7 +72,7 @@ function Details({ page, variant }: Props) {
     return (
       <>
         {/* Breadcrumb - Desktop */}
-        <div id="breadcrumb" class="hidden lg:block lg:mb-4">
+        <div id="breadcrumb" class="hidden lg:block lg:mb-[40px]">
           <Breadcrumb
             itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
           />
