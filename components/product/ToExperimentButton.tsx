@@ -44,7 +44,7 @@ const ToExperimentButton = ({
       {/* Experimenter */}
       <div class="w-full flex items-center justify-center">
         <button
-          class={`group flex items-center lg:h-14 p-0 justify-center btn w-full border-black sm:py-2 ${style[variant]} ${sizing[size].style}`}
+          class={`w-full px-1 py-2 group flex items-center justify-center border border-black rounded-[4px] gap-2 font-bold sm:py-2 lg:rounded-[9px] lg:gap-3 lg:h-14 ${style[variant]} ${sizing[size].style}`}
           onClick={toggleExperimenter}
         >
           <span class="hidden lg:flex">

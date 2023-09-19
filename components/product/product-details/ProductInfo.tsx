@@ -28,7 +28,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
 
       {/* Prices */}
-      <div class="w-[80%] flex items-center justify-between">
+      <div class="w-[80%] flex items-center">
         <div id="price-container">
           {listPrice && (
             <p class="mt-4 mb-4 line-through font-semibold text-sm  text-red-500 lg:text-base">
@@ -42,7 +42,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         </div>
 
         {!!colorsList?.length && (
-          <div id="colors" class="flex items-center">
+          <div id="colors" class="flex items-center ml-2">
             <p class="text-base-300 font-bold">
               {colorsList?.[0]?.value?.toUpperCase()}
             </p>
@@ -66,7 +66,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Choose Lens */}
       <div class="mt-[11px] lg:max-w-[80%] w-full">
         <a href={chooseLensUrl}>
-          <button class="text-white bg-orange-500 rounded-md uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
+          <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
             Escolher as Lentes
           </button>
         </a>
@@ -74,7 +74,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] lg:max-w-[80%] w-full flex items-center">
-        <button class="bg-white text-orange-500 border-orange-500 border rounded-md uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
+        <button class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
           Comprar Clipon
         </button>
         <div class="ml-2">

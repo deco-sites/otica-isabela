@@ -81,7 +81,7 @@ function Details({ page, variant }: Props) {
         {/* Header - Mobile */}
         <div
           id="pdp-mobile-header-container"
-          class="flex justify-between mx-3 mt-4 lg:hidden"
+          class="flex items-center justify-between mx-3 mt-4 lg:hidden"
         >
           {discount > 0 && (
             <span class="flex px-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
@@ -98,15 +98,15 @@ function Details({ page, variant }: Props) {
         </div>
 
         {/* Product Name - Mobile */}
-        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
-          <span class="font-sans font-medium text-lg">{name}</span>
+        <div class="mt-4 mb-[30px] text-center px-8 lg:hidden">
+          <span class="font-roboto font-normal text-lg">{name}</span>
         </div>
 
         {/* Image Slider - Mobile & Desktop */}
         <div id={id} class="lg:flex lg:justify-around">
           <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
             <div class="relative">
-              <Slider class="carousel carousel-center gap-6 w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[30vw]">
+              <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[30vw]">
                 {images.map((img, index) => (
                   <Slider.Item
                     index={index}
@@ -150,13 +150,13 @@ function Details({ page, variant }: Props) {
           </div>
 
           {/* Price & Color - Mobile */}
-          <div class="lg:hidden px-3 flex items-center justify-between">
+          <div class="lg:hidden px-3 flex items-center justify-between mt-4">
             <div id="price-mobile-container">
               <div id="price-mobile-content">
                 <p class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
                   {formatPrice(listPrice, offers!.priceCurrency!)}
                 </p>
-                <p class="mt-1 text-blue-200 text-2xl font-bold">
+                <p class="mt-1 text-blue-200 text-[27px] font-bold">
                   {formatPrice(price, offers!.priceCurrency!)}
                 </p>
               </div>
