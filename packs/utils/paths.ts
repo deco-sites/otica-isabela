@@ -2,6 +2,11 @@ import { Account } from "$store/packs/accounts/configStore.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 
+interface GetDynamicFiltersURL {
+  primaryCategory?: number;
+  secondaryCategory?: number;
+}
+
 const paths = ({ token, publicUrl }: Account) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
@@ -33,8 +38,17 @@ const paths = ({ token, publicUrl }: Account) => {
         );
       },
     },
-    category: (categoryUrl: string) =>
-      href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
+    category: {
+      getCategory: (categoryUrl: string) =>
+        href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
+    },
+    dynamicFillter: {
+      getDynamicFillters: (categories: GetDynamicFiltersURL) =>
+        href(`${base}/FiltrosDinamicos?token=${token}`, {
+          idCategoria: categories.primaryCategory,
+          IdSubCategoria: categories.secondaryCategory,
+        }),
+    },
   };
 };
 

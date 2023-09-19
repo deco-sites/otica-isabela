@@ -3,46 +3,59 @@ import { Category } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
-import type { RequestURLParam } from "deco-sites/std/functions/requestToParam.ts";
-
-export interface Props {
-  slug: RequestURLParam;
-}
 
 /**
  * @title Otica Isabela Products Listining Page
  */
-const loader = async (
-  _props: Props,
+const loaders = async (
+  _props: null,
   req: Request,
   ctx: Context,
 ): Promise<ProductListingPage | null> => {
   const { configStore: config } = ctx;
-  const { url: baseUrl } = req;
-  const url = new URL(baseUrl);
+  const url = new URL(req.url);
   const path = paths(config!);
 
-  const categoriesSlug = url.pathname.split("/");
-  const lastCategorySlug = categoriesSlug[categoriesSlug.length - 1];
+  const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
 
-  const category = await getCategory(path.category(lastCategorySlug), lastCategorySlug);
+  const category = await fetchAPI<Category[]>(
+    path.category.getCategory(lastCategorySlug),
+    { method: "POST" },
+  ).then((categories) =>
+    categories.filter(({ UrlFriendly }) =>
+      UrlFriendly === lastCategorySlug
+    )[0] ?? null
+  );
 
   if (!category) return null;
 
-  console.log(category);
+  //TODO: Return the ProductListingPage
+  /* const { IdCategoriaPai, Id } = category;
+  const isPrimary = IdCategoriaPai === 0;
+  const [primaryCategory, secondaryCategory] = isPrimary
+    ? [Id, undefined]
+    : [undefined, Id];
 
+  const products = await fetchAPI<Product[]>(
+    path.product.getProduct({
+      ordenacao: "none",
+      offset: 50,
+      page: 1,
+      IdCategoria: primaryCategory,
+      IdSubCategoria: secondaryCategory,
+    }),
+    { method: "POST" },
+  );
+
+  const dynamicFilters = await fetchAPI<GetDynamicFilters[]>(
+    path.dynamicFillter.getDynamicFillters({
+      primaryCategory,
+      secondaryCategory,
+    }),
+    { method: "POST" },
+  );
+ */
   return null;
 };
 
-export default loader;
-
-const getCategory = async (path: string, slug: string) => {
-  const categories = await fetchAPI<Category[]>(
-    path,
-    {
-      method: "POST",
-    },
-  );
-  return categories.filter(({ UrlFriendly }) => UrlFriendly === slug)[0] ??
-    null;
-};
+export default loaders;

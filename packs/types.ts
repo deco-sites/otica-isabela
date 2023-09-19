@@ -186,6 +186,11 @@ export interface GetProductProps {
    * @title SLUG
    * @description search by product SLUG */
   url?: string;
+
+  /**
+   * @title Page
+   * @description Pagination of the products */
+  page?: number;
 }
 
 export interface DynamicFilter {
@@ -209,12 +214,23 @@ export interface Category {
   Nome: string;
   IdCategoriaPai: number;
   Title_SEO: string;
-  PageKeywords_SEO: string;
-  PageDescription_SEO: string;
+  PageKeywords_SEO?: string;
+  PageDescription_SEO?: string;
   Description_SEO: string;
   UrlFriendly: string;
   TagH3: string;
   TagH2: string;
   TagH1: string;
   Descricao: string;
+}
+
+export interface GetDynamicFilters {
+  IdTipo: number;
+  NomeTipo: string;
+  Nome: string;
+  DescricaoSeo: string;
+  TituloSeo: string;
+  h1: string;
+  h2: string;
+  h3: string;
 }
