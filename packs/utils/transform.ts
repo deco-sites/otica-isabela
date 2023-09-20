@@ -1,19 +1,25 @@
 import {
+  Category,
   ColorVariants,
+  GetDynamicFilters,
   Image,
   Product as IsabelaProduct,
+  ProductData as IsabelaProductData,
   ProductInfo,
 } from "$store/packs/types.ts";
 import type {
   AggregateOffer,
   BreadcrumbList,
+  FilterToggleValue,
   ImageObject,
   Offer,
   Product,
   ProductDetailsPage,
   ProductGroup,
+  ProductListingPage,
   PropertyValue,
 } from "deco-sites/std/commerce/types.ts";
+import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
@@ -246,3 +252,74 @@ const toProductCanonicalUrl = (
   baseURL: string,
   productSlug: string,
 ): URL => new URL(`/produto/${productSlug}`, baseURL);
+
+//TODO: FIX groupFilters, somehow its returning some null attributes; Return breadcrumb
+export const toProductListingPage = (
+  filters: GetDynamicFilters[],
+  productsData: IsabelaProductData,
+  category: Category,
+): Omit<ProductListingPage, "breadcrumb"> => ({
+  "@type": "ProductListingPage",
+  filters: groupFilters(filters).map((f) => ({
+    "@type": "FilterToggle",
+    key: `${f[0].IdTipo}`,
+    label: f[0].NomeTipo,
+    quantity: 0,
+    values: f.map((individualFilter) => toFilterValues(individualFilter)),
+  })),
+  products: productsData.produtos.map((product) => toProduct(product)),
+  pageInfo: toPageInfo(productsData),
+  sortOptions: SORT_OPTIONS,
+  seo: {
+    title: category.Title_SEO,
+    description: category.PageDescription_SEO ?? category.Description_SEO,
+    canonical: "",
+  },
+});
+
+const groupFilters = (
+  filters: GetDynamicFilters[],
+): GetDynamicFilters[][] => {
+  const orderedFilters: GetDynamicFilters[][] = [];
+
+  filters.forEach((filter) => {
+    const { IdTipo } = filter;
+    orderedFilters[IdTipo] = orderedFilters[IdTipo] || [];
+    orderedFilters[IdTipo].push(filter);
+  });
+
+  return orderedFilters;
+};
+
+const toFilterValues = (
+  filter: GetDynamicFilters,
+): FilterToggleValue => ({
+  quantity: 0,
+  label: filter.Nome,
+  value: filter.Nome,
+  selected: false,
+  url: "",
+});
+
+const toPageInfo = ({ Total, Pagina, Offset }: IsabelaProductData) => {
+  const totalPages = Math.ceil(Total / Offset);
+  const nextPage = totalPages > Pagina ? `?page=${Pagina + 1}` : undefined;
+  const previousPage = Pagina > 1 ? `?page=${Pagina + 1}` : undefined;
+  return {
+    nextPage,
+    previousPage,
+    currentPage: Pagina,
+    records: Total,
+    recordPerPage: Offset,
+  };
+};
+
+/*
+TODO: COUNT THE QUANTITY OF PRODUCTS WITH FILTERS
+const countFiltersQuantity = (
+  products: IsabelaProduct[],
+  type?: number,
+) => {
+  console.log(products[1].Classificacoes.length)
+  return 0;
+}; */

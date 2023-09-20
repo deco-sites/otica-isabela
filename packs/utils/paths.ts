@@ -43,10 +43,9 @@ const paths = ({ token, publicUrl }: Account) => {
         href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
     },
     dynamicFillter: {
-      getDynamicFillters: (categories: GetDynamicFiltersURL) =>
+      getDynamicFillters: (category: number) =>
         href(`${base}/FiltrosDinamicos?token=${token}`, {
-          idCategoria: categories.primaryCategory,
-          IdSubCategoria: categories.secondaryCategory,
+          idCategoria: category,
         }),
     },
   };
