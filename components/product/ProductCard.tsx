@@ -1,12 +1,15 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
+import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
+import ToExperimentButton from "deco-sites/otica-isabela/islands/ToExperimentButton.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
 import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
+import { getDescriptions } from "deco-sites/otica-isabela/sdk/getDescriptions.ts";
+import { Size } from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
 
 export interface Layout {
   basics?: {
@@ -44,6 +47,8 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
+  isStopwatchEnabled?: boolean;
+  priceValidUntil?: Date;
 }
 
 const relative = (url: string) => {
@@ -51,7 +56,13 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard({
+  product,
+  preload,
+  itemListName,
+  isStopwatchEnabled,
+  priceValidUntil,
+}: Props) {
   const {
     url,
     productID,
@@ -63,22 +74,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
 
   const id = `product-card-${productID}`;
 
-  const targetNames = [
-    "Altura da Lente",
-    "Largura da Lente",
-    "Largura da Ponte",
-    "Hastes",
-    "Frente Total",
-    "Aro",
-  ] as const;
-
-  const nameMapping = {
-    "Altura da Lente": "Altura",
-    "Largura da Lente": "Largura",
-    "Largura da Ponte": "Ponte",
-    "Frente Total": "Frente",
-  } as const;
-
   const [front] = images ?? [];
 
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
@@ -87,16 +82,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
-  const description = additionalProperty
-    ?.filter((property) =>
-      targetNames.some((targetName) => property?.name?.includes(targetName))
-    )
-    ?.map((property) => {
-      const mappedName =
-        nameMapping[property.name as keyof typeof nameMapping] || property.name;
-      return { ...property, name: mappedName };
-    });
-
+  const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const device = getDevice();
   const experimenterImage = additionalProperty?.find(
@@ -125,6 +111,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
           },
         }}
       />
+
+      {/* Stopwatch */}
+      {isStopwatchEnabled && priceValidUntil && (
+        <Stopwatch targetDate={priceValidUntil!} size={Size.card} />
+      )}
 
       <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
         {/* Product Images */}
@@ -161,7 +152,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
             {description?.map(
               (property, index) =>
-                `${property?.name}: ${property?.value}mm ${
+                `${property?.value}: ${property?.name}mm ${
                   index < description.length - 1 ? "/" : ""
                 } `,
             )}

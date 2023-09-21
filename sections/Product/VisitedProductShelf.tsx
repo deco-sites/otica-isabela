@@ -8,6 +8,7 @@ import { visitedProductsCookie } from "$store/components/constants.ts";
 
 export interface Props {
   header?: IconTitleProps;
+  isStopwatchEnabled?: boolean;
 }
 
 export async function loader({ ...props }: Props, req: Request, ctx: Context) {
@@ -30,6 +31,7 @@ export async function loader({ ...props }: Props, req: Request, ctx: Context) {
 function VisitedProductShelf({
   products,
   header,
+  isStopwatchEnabled,
 }: SectionProps<typeof loader>) {
   if (!products || products.length === 0) {
     return null;
@@ -42,6 +44,7 @@ function VisitedProductShelf({
         itemsPerPage={{ desktop: 3, mobile: 1.5 }}
         products={products}
         itemListName="Produtos Visitados"
+        isStopwatchEnabled={isStopwatchEnabled}
       />
     </div>
   );

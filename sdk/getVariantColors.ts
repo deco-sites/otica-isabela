@@ -24,7 +24,7 @@ export const getAvailableColors = (product: Product): Array<Color> => {
 
     variantColors.length && availableColors.push({
       name: variant.name!,
-      url: variant.url!,
+      url: variant.url?.split("/produto")[1]!,
       unitCodes: variantColors,
     });
 
@@ -36,7 +36,7 @@ export const getAvailableColors = (product: Product): Array<Color> => {
 
         variantColors.length && availableColors.push({
           name: variant.name!,
-          url: variant.url!,
+          url: variant.url?.split("/produto")[1]!,
           unitCodes: variantColors,
         });
       });

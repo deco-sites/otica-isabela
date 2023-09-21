@@ -15,14 +15,23 @@ export interface Props {
     mobile: number;
     desktop: number;
   };
+  isStopwatchEnabled?: boolean;
 }
 
-function ProductShelf({ products, itemListName, itemsPerPage }: Props) {
+function ProductShelf({
+  products,
+  itemListName,
+  itemsPerPage,
+  isStopwatchEnabled,
+}: Props) {
   const id = useId();
 
   if (!products || products.length === 0) {
     return null;
   }
+
+  //@ts-ignore temporarily until we have this on Product interface
+  const priceValidUntil = products[0]?.offers?.priceValidUntil;
 
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
@@ -34,7 +43,12 @@ function ProductShelf({ products, itemListName, itemsPerPage }: Props) {
                 index={index}
                 class="carousel-item w-full  lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 "
               >
-                <ProductCard product={product} itemListName={itemListName} />
+                <ProductCard
+                  product={product}
+                  itemListName={itemListName}
+                  isStopwatchEnabled={isStopwatchEnabled}
+                  priceValidUntil={priceValidUntil}
+                />
               </Slider.Item>
             </div>
           ))}
@@ -64,7 +78,9 @@ function ProductShelf({ products, itemListName, itemsPerPage }: Props) {
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-          {products.map((_, index) => <Slider.Dot index={index} />)}
+          {products.map((_, index) => (
+            <Slider.Dot index={index} />
+          ))}
         </div>
       </div>
     </div>
