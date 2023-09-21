@@ -1,7 +1,7 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
 import {
+  APIDynamicFilters,
   Category,
-  GetDynamicFilters,
   ProductData,
 } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
@@ -16,7 +16,7 @@ const loaders = async (
   _props: null,
   req: Request,
   ctx: Context,
-): Promise<Omit<ProductListingPage, "breadcrumb"> | null> => {
+): Promise<ProductListingPage | null> => {
   const { configStore: config } = ctx;
   const url = new URL(req.url);
   const path = paths(config!);
@@ -38,12 +38,12 @@ const loaders = async (
   const isPrimary = IdCategoriaPai === 0;
   const [primaryCategory, secondaryCategory] = isPrimary
     ? [Id, undefined]
-    : [undefined, Id];
+    : [IdCategoriaPai, Id];
 
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
       ordenacao: "none",
-      offset: 50,
+      offset: 32,
       page: 1,
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
@@ -51,14 +51,14 @@ const loaders = async (
     { method: "POST" },
   );
 
-  const dynamicFilters = await fetchAPI<GetDynamicFilters[]>(
+  const dynamicFilters = await fetchAPI<APIDynamicFilters[]>(
     path.dynamicFillter.getDynamicFillters(
-      primaryCategory ?? secondaryCategory,
+      secondaryCategory ?? primaryCategory,
     ),
     { method: "POST" },
   );
 
-  return toProductListingPage(dynamicFilters, products, category);
+  return toProductListingPage(dynamicFilters, products, category, url);
 };
 
 export default loaders;

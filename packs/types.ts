@@ -224,7 +224,7 @@ export interface Category {
   Descricao: string;
 }
 
-export interface GetDynamicFilters {
+export interface APIDynamicFilters {
   IdTipo: number;
   NomeTipo: string;
   Nome: string;

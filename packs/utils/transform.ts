@@ -1,7 +1,7 @@
 import {
+  APIDynamicFilters,
   Category,
   ColorVariants,
-  GetDynamicFilters,
   Image,
   Product as IsabelaProduct,
   ProductData as IsabelaProductData,
@@ -253,48 +253,65 @@ const toProductCanonicalUrl = (
   productSlug: string,
 ): URL => new URL(`/produto/${productSlug}`, baseURL);
 
-//TODO: FIX groupFilters, somehow its returning some null attributes; Return breadcrumb
 export const toProductListingPage = (
-  filters: GetDynamicFilters[],
+  filters: APIDynamicFilters[],
   productsData: IsabelaProductData,
   category: Category,
-): Omit<ProductListingPage, "breadcrumb"> => ({
-  "@type": "ProductListingPage",
-  filters: groupFilters(filters).map((f) => ({
-    "@type": "FilterToggle",
-    key: `${f[0].IdTipo}`,
-    label: f[0].NomeTipo,
-    quantity: 0,
-    values: f.map((individualFilter) => toFilterValues(individualFilter)),
-  })),
-  products: productsData.produtos.map((product) => toProduct(product)),
-  pageInfo: toPageInfo(productsData),
-  sortOptions: SORT_OPTIONS,
-  seo: {
-    title: category.Title_SEO,
-    description: category.PageDescription_SEO ?? category.Description_SEO,
-    canonical: "",
-  },
-});
+  baseURL: URL,
+): ProductListingPage => {
+  const { produtos } = productsData;
+  const itemListElement = toPageBreadcrumbList(baseURL, category.Nome);
+  return {
+    "@type": "ProductListingPage",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement,
+      numberOfItems: itemListElement.length,
+    },
+    filters: groupPageFilters(filters).map((f) => ({
+      "@type": "FilterToggle",
+      key: `${f[0].IdTipo}`,
+      label: f[0].NomeTipo,
+      quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
+      values: f.map((individualFilter) =>
+        toPageFilterValues(individualFilter, produtos)
+      ),
+    })),
+    products: produtos.map((product) => toProduct(product)),
+    pageInfo: toPageInfo(productsData),
+    sortOptions: SORT_OPTIONS,
+    seo: {
+      title: category.Title_SEO,
+      description: category.PageDescription_SEO ?? category.Description_SEO,
+      canonical: "",
+    },
+  };
+};
 
-const groupFilters = (
-  filters: GetDynamicFilters[],
-): GetDynamicFilters[][] => {
-  const orderedFilters: GetDynamicFilters[][] = [];
+const groupPageFilters = (
+  filters: APIDynamicFilters[],
+): APIDynamicFilters[][] => {
+  const orderedFilters: APIDynamicFilters[][] = [];
 
   filters.forEach((filter) => {
     const { IdTipo } = filter;
-    orderedFilters[IdTipo] = orderedFilters[IdTipo] || [];
+    orderedFilters[IdTipo] = orderedFilters[IdTipo] ?? [];
     orderedFilters[IdTipo].push(filter);
   });
 
-  return orderedFilters;
+  return orderedFilters.filter((item) => item.length > 0);
 };
 
-const toFilterValues = (
-  filter: GetDynamicFilters,
+const toPageFilterValues = (
+  filter: APIDynamicFilters,
+  products: IsabelaProduct[],
 ): FilterToggleValue => ({
-  quantity: 0,
+  quantity: countPageFiltersQuantity(
+    products,
+    "typeValue",
+    filter.IdTipo,
+    filter.Nome,
+  ),
   label: filter.Nome,
   value: filter.Nome,
   selected: false,
@@ -308,18 +325,41 @@ const toPageInfo = ({ Total, Pagina, Offset }: IsabelaProductData) => {
   return {
     nextPage,
     previousPage,
-    currentPage: Pagina,
+    currentPage: Pagina - 1,
     records: Total,
     recordPerPage: Offset,
   };
 };
 
-/*
-TODO: COUNT THE QUANTITY OF PRODUCTS WITH FILTERS
-const countFiltersQuantity = (
+//TODO: API isn't returning the name of the primary category. When fixed, refactor this function
+const toPageBreadcrumbList = (url: URL, name: string) => {
+  const categoriesSlug = url.pathname.split("/").filter((p) => p != "");
+  return categoriesSlug.map((_c, i) => ({
+    "@type": "ListItem" as const,
+    name,
+    item: new URL(
+      `/${
+        categoriesSlug
+          .slice(0, i + 1)
+          .join("/")
+      }`,
+      url.origin,
+    ).href,
+    position: i + 1,
+  }));
+};
+
+const countPageFiltersQuantity = (
   products: IsabelaProduct[],
-  type?: number,
-) => {
-  console.log(products[1].Classificacoes.length)
-  return 0;
-}; */
+  match: "typeId" | "typeValue",
+  typeId: number,
+  typeValue?: string,
+) =>
+  products
+    .filter((product) =>
+      product.Classificacoes.some((item) => {
+        if (match == "typeId") return item.IdTipo === typeId;
+        return item.Nome === typeValue && item.IdTipo === typeId;
+      })
+    )
+    .length;

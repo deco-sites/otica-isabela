@@ -2,7 +2,7 @@ import { Account } from "$store/packs/accounts/configStore.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 
-interface GetDynamicFiltersURL {
+interface APIDynamicFiltersURL {
   primaryCategory?: number;
   secondaryCategory?: number;
 }
