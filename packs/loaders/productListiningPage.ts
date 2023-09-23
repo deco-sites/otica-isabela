@@ -2,6 +2,7 @@ import { Context } from "$store/packs/accounts/configStore.ts";
 import {
   APIDynamicFilters,
   Category,
+  GetProductProps,
   ProductData,
 } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
@@ -40,13 +41,14 @@ const loaders = async (
     ? [Id, undefined]
     : [IdCategoriaPai, Id];
 
+  console.log(getSearchParams(url));
+
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
-      ordenacao: "none",
       offset: 32,
-      page: 1,
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
+      ...getSearchParams(url),
     }),
     { method: "POST" },
   );
@@ -59,6 +61,25 @@ const loaders = async (
   );
 
   return toProductListingPage(dynamicFilters, products, category, url);
+};
+
+const getSearchParams = (url: URL): Omit<GetProductProps, "offset"> => {
+  const allowedProducts: Array<string> = [
+    "none",
+    "mais-vendidos",
+    "ofertas",
+    "menor-preco",
+    "nome",
+  ];
+
+  const ordenacao =
+    allowedProducts.find((value) => value == url.searchParams.get("sort")) ??
+      "nome";
+  const page = 1;
+  return {
+    ordenacao: ordenacao as GetProductProps["ordenacao"],
+    page,
+  };
 };
 
 export default loaders;

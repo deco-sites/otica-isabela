@@ -180,7 +180,7 @@ export interface GetProductProps {
   /**
    * @title Sort
    * @description search sort parameter */
-  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco";
+  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco" | "nome";
 
   /**
    * @title SLUG
