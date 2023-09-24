@@ -1,6 +1,8 @@
 import { useId } from "preact/hooks";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import ShippingSimulation from "$store/islands/ShippingSimulation.tsx";
+import ProductDetailsSpecsDesktop from "$store/components/product/ProductDetailsSpecsDesktop.tsx";
+import ProductDetailsSpecsMobile from "$store/components/product/ProductDetailsSpecsMobile.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
@@ -54,21 +56,10 @@ function NotFound() {
 }
 
 function ProductInfo({ page }: { page: ProductDetailsPage }) {
-  const {
-    breadcrumbList,
-    product,
-  } = page;
-  const {
-    description,
-    productID,
-    offers,
-    name,
-    gtin,
-    isVariantOf,
-  } = product;
-  const { price, listPrice, seller, installments, availability } = useOffer(
-    offers,
-  );
+  const { breadcrumbList, product } = page;
+  const { description, productID, offers, name, gtin, isVariantOf } = product;
+  const { price, listPrice, seller, installments, availability } =
+    useOffer(offers);
 
   return (
     <>
@@ -79,9 +70,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
         <div>
-          <span class="text-sm text-base-300">
-            Cod. {gtin}
-          </span>
+          <span class="text-sm text-base-300">Cod. {gtin}</span>
         </div>
         <h1>
           <span class="font-medium text-xl">{name}</span>
@@ -97,9 +86,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
-          {installments}
-        </span>
+        <span class="text-sm text-base-300">{installments}</span>
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
@@ -107,36 +94,38 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Add to Cart and Favorites button */}
       <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              {seller && (
-                <AddToCartButton
-                  skuId={productID}
-                  sellerId={seller}
-                  price={price ?? 0}
-                  discount={price && listPrice ? listPrice - price : 0}
-                  name={product.name ?? ""}
-                  productGroupId={product.isVariantOf?.productGroupID ?? ""}
-                />
-              )}
-              <WishlistButton
-                variant="full"
-                productGroupID={isVariantOf?.productGroupID}
-                productID={productID}
+        {availability === "https://schema.org/InStock" ? (
+          <>
+            {seller && (
+              <AddToCartButton
+                skuId={productID}
+                sellerId={seller}
+                price={price ?? 0}
+                discount={price && listPrice ? listPrice - price : 0}
+                name={product.name ?? ""}
+                productGroupId={product.isVariantOf?.productGroupID ?? ""}
               />
-            </>
-          )
-          : <OutOfStock productID={productID} />}
+            )}
+            <WishlistButton
+              variant="full"
+              productGroupID={isVariantOf?.productGroupID}
+              productID={productID}
+            />
+          </>
+        ) : (
+          <OutOfStock productID={productID} />
+        )}
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
         <ShippingSimulation
-          items={[{
-            id: Number(product.sku),
-            quantity: 1,
-            seller: seller ?? "1",
-          }]}
+          items={[
+            {
+              id: Number(product.sku),
+              quantity: 1,
+              seller: seller ?? "1",
+            },
+          ]}
         />
       </div>
       {/* Description card */}
@@ -217,13 +206,15 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages = product.isVariantOf?.hasVariant.flatMap((p) => p.image)
-    .reduce((acc, img) => {
-      if (img?.url) {
-        acc[imageNameFromURL(img.url)] = img.url;
-      }
-      return acc;
-    }, {} as Record<string, string>) ?? {};
+  const allImages =
+    product.isVariantOf?.hasVariant
+      .flatMap((p) => p.image)
+      .reduce((acc, img) => {
+        if (img?.url) {
+          acc[imageNameFromURL(img.url)] = img.url;
+        }
+        return acc;
+      }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -235,7 +226,10 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 function Details({
   page,
   variant,
-}: { page: ProductDetailsPage; variant: Variant }) {
+}: {
+  page: ProductDetailsPage;
+  variant: Variant;
+}) {
   const { product } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -258,10 +252,7 @@ function Details({
           <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1">
             <Slider class="carousel carousel-center gap-6 w-screen sm:w-[40vw]">
               {images.map((img, index) => (
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full"
-                >
+                <Slider.Item index={index} class="carousel-item w-full">
                   <Image
                     class="w-full"
                     sizes="(max-width: 640px) 100vw, 40vw"
@@ -296,7 +287,7 @@ function Details({
               <ProductImageZoom
                 images={images}
                 width={1280}
-                height={1280 * HEIGHT / WIDTH}
+                height={(1280 * HEIGHT) / WIDTH}
               />
             </div>
           </div>
@@ -364,11 +355,7 @@ function Details({
   );
 }
 
-export function loader(
-  { ...props }: Props,
-  req: Request,
-  ctx: Context,
-) {
+export function loader({ ...props }: Props, req: Request, ctx: Context) {
   const productId: string | undefined = props.page?.product?.productID ?? "";
 
   const cookies = getCookies(req.headers);
@@ -388,24 +375,38 @@ export function loader(
   return { ...props };
 }
 
-function ProductDetails(
-  { page, variant: maybeVar = "auto" }: SectionProps<typeof loader>,
-) {
+function ProductDetails({
+  page,
+  variant: maybeVar = "auto",
+}: SectionProps<typeof loader>) {
   /**
    * Showcase the different product views we have on this template. In case there are less
    * than two images, render a front-back, otherwhise render a slider
    * Remove one of them and go with the best suited for your use case.
    */
-  const variant = maybeVar === "auto"
-    ? page?.product.image?.length && page?.product.image?.length < 2
-      ? "front-back"
-      : "slider"
-    : maybeVar;
+  const { product } = page || {};
+  const variant =
+    maybeVar === "auto"
+      ? page?.product.image?.length && page?.product.image?.length < 2
+        ? "front-back"
+        : "slider"
+      : maybeVar;
+
+  if (!page) {
+    return <NotFound />;
+  }
 
   return (
-    <div class="container py-0 sm:py-10">
-      {page ? <Details page={page} variant={variant} /> : <NotFound />}
-    </div>
+    <>
+      <div class="container py-0 sm:py-10">
+        <Details page={page} variant={variant} />
+        {/* Specs - Desktop */}
+        <ProductDetailsSpecsDesktop product={product!} />
+
+        {/* Specs - Mobile */}
+        <ProductDetailsSpecsMobile product={product!} />
+      </div>
+    </>
   );
 }
 
