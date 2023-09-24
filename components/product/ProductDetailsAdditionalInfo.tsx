@@ -17,17 +17,17 @@ function ProductDetailsScale({ items }: Props) {
   return (
     <div
       id="scale-container"
-      class="my-4 bg-gray-100 rounded-[20px] p-9 max-w-[1140px] mx-auto lg:flex items-center justify-center wrap sm:grid sm:grid-cols-2"
+      class="w-[95%] m-auto my-4 bg-gray-100 rounded-[20px] p-9 max-w-[1140px] mx-auto lg:flex items-center justify-center wrap sm:grid sm:grid-cols-2"
     >
       {items.map(({ icon, label, description }, index) => (
         <div
           id={`item-${index}`}
-          class={`flex items-center gap-3 p-4 border-b border-blue-300 last:border-0 ${
+          class={`flex items-center gap-3 py-[15px] md:px-[30px] border-b border-blue-300 last:border-0 ${
             index >= applyBorder ? "md:border-b-0" : ""
           } lg:border-r lg:border-b-0 lg:py-0 relative group`}
         >
-          <Icon id={icon} width={43} height={28} />
-          <span>{label}</span>
+          <Icon id={icon} size={31} />
+          <span class="text-lg font-roboto">{label}</span>
           <div
             id={`item-${index}-description`}
             class="hidden bg-white rounded-[10px] p-[30px] shadow-inner bottom-[100%] left-0 absolute group-hover:block max-w-[260px]"
