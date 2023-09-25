@@ -84,7 +84,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
 
   const description = additionalProperty
@@ -100,7 +100,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const availableColors = getAvailableColors(product);
   const device = getDevice();
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
 
   return (
@@ -134,8 +134,8 @@ function ProductCard({ product, preload, itemListName }: Props) {
           class="contents"
         >
           <Image
-            src={front.url!}
-            alt={front.alternateName}
+            src={front ? front.url! : ""}
+            alt={front ? front.alternateName : url}
             width={306}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -163,7 +163,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               (property, index) =>
                 `${property?.name}: ${property?.value}mm ${
                   index < description.length - 1 ? "/" : ""
-                } `,
+                } `
             )}
           </p>
         </div>
@@ -175,9 +175,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background: unitCodes.length > 1
-                      ? `linear-gradient(${unitCodes.join(", ")})`
-                      : `${unitCodes[0]}`,
+                    background:
+                      unitCodes.length > 1
+                        ? `linear-gradient(${unitCodes.join(", ")})`
+                        : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />

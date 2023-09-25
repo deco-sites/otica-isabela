@@ -131,13 +131,14 @@ const toAdditionalProperties = (
 const toProductColorAdditionalProperties = (
   properties: ProductInfo[],
   variants: ColorVariants[],
-): PropertyValue[] => {
-  const colorName =
-    Object.values(properties).filter((value) =>
-      value.IdTipo === 14 || value.Tipo === "Cor"
-    )[0].Nome;
+): PropertyValue[] | [] => {
+  const colorName = Object.values(properties).filter((value) =>
+    value.IdTipo === 14 || value.Tipo === "Cor"
+  );
+
+  if (colorName.length === 0) return [];
   return Object.values(variants).filter((variant) =>
-    variant.NomeColor === colorName
+    variant.NomeColor === colorName[0].Nome
   ).flatMap((variant) => toColorPropertyValue(variant));
 };
 
@@ -321,7 +322,7 @@ const toPageFilterValues = (
 const toPageInfo = ({ Total, Pagina, Offset }: IsabelaProductData) => {
   const totalPages = Math.ceil(Total / Offset);
   const nextPage = totalPages > Pagina ? `?page=${Pagina + 1}` : undefined;
-  const previousPage = Pagina > 1 ? `?page=${Pagina + 1}` : undefined;
+  const previousPage = Pagina > 1 ? `?page=${Pagina - 1}` : undefined;
   return {
     nextPage,
     previousPage,

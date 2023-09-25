@@ -41,8 +41,6 @@ const loaders = async (
     ? [Id, undefined]
     : [IdCategoriaPai, Id];
 
-  console.log(getSearchParams(url));
-
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
       offset: 32,
@@ -52,6 +50,8 @@ const loaders = async (
     }),
     { method: "POST" },
   );
+
+  if (products.produtos.length == 0) return null;
 
   const dynamicFilters = await fetchAPI<APIDynamicFilters[]>(
     path.dynamicFillter.getDynamicFillters(
@@ -64,7 +64,7 @@ const loaders = async (
 };
 
 const getSearchParams = (url: URL): Omit<GetProductProps, "offset"> => {
-  const allowedProducts: Array<string> = [
+  const allowedProducts: string[] = [
     "none",
     "mais-vendidos",
     "ofertas",
@@ -75,10 +75,10 @@ const getSearchParams = (url: URL): Omit<GetProductProps, "offset"> => {
   const ordenacao =
     allowedProducts.find((value) => value == url.searchParams.get("sort")) ??
       "nome";
-  const page = 1;
+  const page = url.searchParams.get("page") ?? 1;
   return {
     ordenacao: ordenacao as GetProductProps["ordenacao"],
-    page,
+    page: Number(page),
   };
 };
 
