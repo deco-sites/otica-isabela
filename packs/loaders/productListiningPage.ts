@@ -2,13 +2,20 @@ import { Context } from "$store/packs/accounts/configStore.ts";
 import {
   APIDynamicFilters,
   Category,
+  DynamicFilter,
   GetProductProps,
   ProductData,
 } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
+import { normalizeFilter } from "$store/packs/utils/utils.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { toProductListingPage } from "$store/packs/utils/transform.ts";
+
+interface UrlDynamicFilters {
+  key: string;
+  value: string;
+}
 
 /**
  * @title Otica Isabela Products Listining Page
@@ -41,29 +48,43 @@ const loaders = async (
     ? [Id, undefined]
     : [IdCategoriaPai, Id];
 
-  const products = await fetchAPI<ProductData>(
-    path.product.getProduct({
-      offset: 32,
-      IdCategoria: primaryCategory,
-      IdSubCategoria: secondaryCategory,
-      ...getSearchParams(url),
-    }),
-    { method: "POST" },
-  );
-
-  if (products.produtos.length == 0) return null;
-
   const dynamicFilters = await fetchAPI<APIDynamicFilters[]>(
-    path.dynamicFillter.getDynamicFillters(
+    path.dynamicFilter.getDynamicFilters(
       secondaryCategory ?? primaryCategory,
     ),
     { method: "POST" },
   );
 
+  const filtrosDinamicos = dynamicFilters.length > 0
+    ? matchDynamicFilters(url, dynamicFilters)
+    : undefined;
+
+  const products = await fetchAPI<ProductData>(
+    path.product.getProduct({
+      offset: 32,
+      IdCategoria: primaryCategory,
+      IdSubCategoria: secondaryCategory,
+      filtrosDinamicos,
+      ...getSearchParams(url),
+    }),
+    { method: "POST" },
+  );
+
+  console.log(path.product.getProduct({
+    offset: 32,
+    IdCategoria: primaryCategory,
+    IdSubCategoria: secondaryCategory,
+    filtrosDinamicos,
+    ...getSearchParams(url),
+  }));
+  if (products.produtos.length == 0) return null;
+
   return toProductListingPage(dynamicFilters, products, category, url);
 };
 
-const getSearchParams = (url: URL): Omit<GetProductProps, "offset"> => {
+const getSearchParams = (
+  url: URL,
+): Omit<GetProductProps, "offset"> => {
   const allowedProducts: string[] = [
     "none",
     "mais-vendidos",
@@ -76,10 +97,43 @@ const getSearchParams = (url: URL): Omit<GetProductProps, "offset"> => {
     allowedProducts.find((value) => value == url.searchParams.get("sort")) ??
       "nome";
   const page = url.searchParams.get("page") ?? 1;
+
   return {
     ordenacao: ordenacao as GetProductProps["ordenacao"],
     page: Number(page),
   };
+};
+
+const matchDynamicFilters = (
+  url: URL,
+  dynamicFiltersAPI: APIDynamicFilters[],
+): DynamicFilter[] | undefined => {
+  const urlDynamicFilters: UrlDynamicFilters[] = [];
+
+  url.searchParams.forEach((value, key) => {
+    if (!key.startsWith("filter.")) return;
+    urlDynamicFilters.push({
+      key: normalizeFilter(key.substring(7)),
+      value: normalizeFilter(value),
+    });
+  });
+
+  if (urlDynamicFilters.length == 0) return undefined;
+
+  return urlDynamicFilters.map((
+    { key, value },
+  ) => {
+    const filterID = dynamicFiltersAPI.find((value) =>
+      normalizeFilter(value.NomeTipo).startsWith(key)
+    )?.IdTipo!;
+
+    return {
+      filterID,
+      filterValue: value,
+    };
+  }).filter(({ filterID, filterValue }) =>
+    filterID !== undefined && filterValue !== undefined
+  );
 };
 
 export default loaders;
