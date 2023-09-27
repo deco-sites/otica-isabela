@@ -180,12 +180,17 @@ export interface GetProductProps {
   /**
    * @title Sort
    * @description search sort parameter */
-  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco";
+  ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco" | "nome";
 
   /**
    * @title SLUG
    * @description search by product SLUG */
   url?: string;
+
+  /**
+   * @title Page
+   * @description Pagination of the products */
+  page?: number;
 }
 
 export interface DynamicFilter {
@@ -202,4 +207,30 @@ export interface DynamicFilter {
    */
 
   filterValue: string;
+}
+
+export interface Category {
+  Id: number;
+  Nome: string;
+  IdCategoriaPai: number;
+  Title_SEO: string;
+  PageKeywords_SEO?: string;
+  PageDescription_SEO?: string;
+  Description_SEO: string;
+  UrlFriendly: string;
+  TagH3: string;
+  TagH2: string;
+  TagH1: string;
+  Descricao: string;
+}
+
+export interface APIDynamicFilters {
+  IdTipo: number;
+  NomeTipo: string;
+  Nome: string;
+  DescricaoSeo: string;
+  TituloSeo: string;
+  h1: string;
+  h2: string;
+  h3: string;
 }

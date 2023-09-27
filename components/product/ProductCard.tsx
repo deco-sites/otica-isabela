@@ -79,14 +79,14 @@ function ProductCard({
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const device = getDevice();
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
 
   return (
@@ -125,8 +125,8 @@ function ProductCard({
           class="contents"
         >
           <Image
-            src={front.url!}
-            alt={front.alternateName}
+            src={front ? front.url! : ""}
+            alt={front ? front.alternateName : url}
             width={306}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -154,7 +154,7 @@ function ProductCard({
               (property, index) =>
                 `${property?.value}: ${property?.name}mm ${
                   index < description.length - 1 ? "/" : ""
-                } `,
+                } `
             )}
           </p>
         </div>
@@ -166,9 +166,10 @@ function ProductCard({
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background: unitCodes.length > 1
-                      ? `linear-gradient(${unitCodes.join(", ")})`
-                      : `${unitCodes[0]}`,
+                    background:
+                      unitCodes.length > 1
+                        ? `linear-gradient(${unitCodes.join(", ")})`
+                        : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />

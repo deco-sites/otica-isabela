@@ -5,8 +5,9 @@
 import * as $$0 from "./accounts/configStore.ts";
 import * as $$$0 from "./loaders/product/productDetails.ts";
 import * as $$$1 from "./loaders/product/productList.ts";
-import * as $$$2 from "./loaders/product/suggestions.ts";
-import * as $$$3 from "./loaders/store/session.ts";
+import * as $$$2 from "./loaders/product/productListiningPage.ts";
+import * as $$$3 from "./loaders/product/suggestions.ts";
+import * as $$$4 from "./loaders/store/session.ts";
 import * as $$$$0 from "./routes/styles.css.ts";
 import * as $$$$1 from "./routes/_app.tsx";
 import * as $$$$2 from "./routes/_middleware.tsx";
@@ -226,8 +227,9 @@ const manifest = {
     "$live/loaders/workflows/get.ts": i2$$$3,
     "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$0,
     "deco-sites/otica-isabela/loaders/product/productList.ts": $$$1,
-    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$2,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$3,
+    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$2,
+    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$3,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$4,
     "deco-sites/std/loaders/linxImpulse/autocompletes/popular.ts": i2$$$4,
     "deco-sites/std/loaders/linxImpulse/autocompletes/suggestions.ts": i2$$$5,
     "deco-sites/std/loaders/linxImpulse/pages/recommendations.ts": i2$$$6,
