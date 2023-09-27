@@ -47,17 +47,18 @@ import * as $$$$$$$$15 from "./sections/Links/Shortcuts.tsx";
 import * as $$$$$$$$16 from "./sections/Miscellaneous/CampaignTimer.tsx";
 import * as $$$$$$$$17 from "./sections/Miscellaneous/CookieConsent.tsx";
 import * as $$$$$$$$18 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$$$19 from "./sections/Product/ProductBannerShelf.tsx";
-import * as $$$$$$$$20 from "./sections/Product/ProductBestDailyOffers.tsx";
-import * as $$$$$$$$21 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$$$22 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$$$23 from "./sections/Product/ProductShelfAndImage.tsx";
-import * as $$$$$$$$24 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$$$25 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$$$26 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$$$27 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$$$28 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$$$29 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$$$19 from "./sections/Product/Details/ProductDetailsAdditionalInfo.tsx";
+import * as $$$$$$$$20 from "./sections/Product/ProductBannerShelf.tsx";
+import * as $$$$$$$$21 from "./sections/Product/ProductBestDailyOffers.tsx";
+import * as $$$$$$$$22 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$$$23 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$$$24 from "./sections/Product/ProductShelfAndImage.tsx";
+import * as $$$$$$$$25 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$$$26 from "./sections/Product/VisitedProductShelf.tsx";
+import * as $$$$$$$$27 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$$$28 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$$$29 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$$$30 from "./sections/Theme/Theme.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -329,21 +330,23 @@ const manifest = {
     "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
       $$$$$$$$17,
     "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$$$18,
-    "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
+    "deco-sites/otica-isabela/sections/Product/Details/ProductDetailsAdditionalInfo.tsx":
       $$$$$$$$19,
-    "deco-sites/otica-isabela/sections/Product/ProductBestDailyOffers.tsx":
+    "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
       $$$$$$$$20,
-    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$21,
-    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$22,
+    "deco-sites/otica-isabela/sections/Product/ProductBestDailyOffers.tsx":
+      $$$$$$$$21,
+    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$$$22,
+    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$$$23,
     "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
-      $$$$$$$$23,
-    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$$$24,
+      $$$$$$$$24,
+    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$$$25,
     "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx":
-      $$$$$$$$25,
-    "deco-sites/otica-isabela/sections/Product/Wishlist.tsx": $$$$$$$$26,
-    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$$$27,
-    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$$$28,
-    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$$$29,
+      $$$$$$$$26,
+    "deco-sites/otica-isabela/sections/Product/Wishlist.tsx": $$$$$$$$27,
+    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$$$28,
+    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$$$29,
+    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$$$30,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$$5,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$$6,
     "deco-sites/std/sections/configLinxImpulse.global.tsx": i2$$$$$7,

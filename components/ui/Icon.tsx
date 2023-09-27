@@ -57,7 +57,11 @@ export type AvailableIcons =
   | "CatGlasses"
   | "Cloud"
   | "Locale"
-  | "Stopwatch";
+  | "Stopwatch"
+  | "SuportePremium"
+  | "GarantiaDoProduto"
+  | "RecebaComLentes"
+  | "ProvadorOnline";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
