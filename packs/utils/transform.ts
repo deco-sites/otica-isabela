@@ -1,6 +1,7 @@
 import {
   ColorVariants,
   Image,
+  Panels,
   Product as IsabelaProduct,
   ProductInfo,
 } from "$store/packs/types.ts";
@@ -30,6 +31,8 @@ export function toProduct(product: IsabelaProduct): Product {
     NomeCategoria,
     QtdeEstoque,
     OfertaTermina,
+    Paineis,
+    DescricaoSeo,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
@@ -47,6 +50,8 @@ export function toProduct(product: IsabelaProduct): Product {
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai, NomeCategoria]),
     sku: `${IdProduct}`,
+    description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
+      DescricaoSeo,
     image: productImages.map((image): ImageObject => ({
       "@type": "ImageObject" as const,
       alternateName: Nome,
@@ -56,6 +61,7 @@ export function toProduct(product: IsabelaProduct): Product {
       productsInfo,
       ProdutosMaisCores,
       ImagemExperimentador,
+      Paineis,
     ),
     isVariantOf,
     offers: toAggregateOffer(
@@ -96,6 +102,7 @@ const toAdditionalProperties = (
   properties: ProductInfo[],
   variants: ColorVariants[],
   experimentador: string,
+  panels: Panels[],
 ): PropertyValue[] => {
   const additionalProperties: PropertyValue[] = [];
 
@@ -110,6 +117,13 @@ const toAdditionalProperties = (
       "@type": "PropertyValue" as const,
       "name": item.Nome,
       "value": item.Tipo,
+    })),
+    ...panels.filter(({ IdTipoPainel }) => IdTipoPainel != 11).map((p) => ({
+      "@type": "PropertyValue" as const,
+      "name": p.TipoPainel,
+      "value": p.Descricao,
+      "propertyID": "panel",
+      "unitCode": `${p.IdTipoPainel}`,
     })),
     {
       "@type": "PropertyValue" as const,

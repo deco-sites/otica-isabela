@@ -75,7 +75,7 @@ export interface Product {
   OfertaTermina: string;
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
-  Paineis: Pannels[];
+  Paineis: Panels[];
   Imagens: Image[];
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
@@ -97,7 +97,7 @@ export interface ColorVariants {
   NomeColor: string;
 }
 
-export interface Pannels {
+export interface Panels {
   IdTipoPainel: number;
   TipoPainel: string;
   Descricao: string;
