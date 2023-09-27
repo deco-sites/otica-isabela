@@ -3,6 +3,7 @@ import { Product, PropertyValue } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
   product: Product;
+  measurementsImage: string;
 }
 
 interface DescriptionItem {
@@ -31,7 +32,7 @@ export function SpecItem({ item, classes }: SpecItem) {
   );
 }
 
-function ProductDetailsMeasurements({ product }: Props) {
+function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const { image, additionalProperty } = product;
 
   const getProp = (prop: string) =>
@@ -67,14 +68,14 @@ function ProductDetailsMeasurements({ product }: Props) {
           alt="medidas"
         />
         <Image
-          src="https://www.oticaisabeladias.com.br/Images/medidas_oculos.png"
+          src={measurementsImage}
           class="w-full absolute left-3 lg:left-4 top-0 z-10"
           width={580}
           height={380}
           alt="medidas-do-oculos"
         />
       </div>
-      <div id="measurements" class="w-[95%] m-auto lg:max-w-[390px]">
+      <div id="measurements" class="w-[95%] m-auto mt-2 lg:max-w-[390px]">
         <DescriptionItem item={altura!} />
         <DescriptionItem item={largura!} />
         <DescriptionItem item={ponte!} />

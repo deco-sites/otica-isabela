@@ -15,6 +15,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import ProductSelector from "./ProductVariantSelector.tsx";
@@ -33,6 +34,12 @@ export interface Props {
    * @description Ask for the developer to remove this option since this is here to help development only and should not be used in production
    */
   variant?: Variant;
+  /**
+   * @title Product Measurements Image
+   * @description Image to be rendered within the Description section
+   * @disable
+   */
+  measurementsImage: LiveImage;
 }
 
 const WIDTH = 360;
@@ -378,6 +385,7 @@ export function loader({ ...props }: Props, req: Request, ctx: Context) {
 function ProductDetails({
   page,
   variant: maybeVar = "auto",
+  measurementsImage,
 }: SectionProps<typeof loader>) {
   /**
    * Showcase the different product views we have on this template. In case there are less
@@ -401,10 +409,16 @@ function ProductDetails({
       <div class="container py-0 sm:py-10">
         <Details page={page} variant={variant} />
         {/* Specs - Desktop */}
-        <ProductDetailsSpecsDesktop product={product!} />
+        <ProductDetailsSpecsDesktop
+          product={product!}
+          measurementsImage={measurementsImage}
+        />
 
         {/* Specs - Mobile */}
-        <ProductDetailsSpecsMobile product={product!} />
+        <ProductDetailsSpecsMobile
+          product={product!}
+          measurementsImage={measurementsImage}
+        />
       </div>
     </>
   );
