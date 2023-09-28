@@ -295,7 +295,7 @@ export const toProductListingPage = (
       ),
     })),
     products: produtos.map((product) => toProduct(product)),
-    pageInfo: toPageInfo(productsData),
+    pageInfo: toPageInfo(productsData, baseURL.searchParams),
     sortOptions: SORT_OPTIONS,
     seo: {
       title: category.Title_SEO,
@@ -340,13 +340,28 @@ const toPageFilterValues = (
   url: "",
 });
 
-const toPageInfo = ({ Total, Pagina, Offset }: IsabelaProductData) => {
+const toPageInfo = (
+  { Total, Pagina, Offset }: IsabelaProductData,
+  params: URLSearchParams,
+) => {
   const totalPages = Math.ceil(Total / Offset);
-  const nextPage = totalPages > Pagina ? `?page=${Pagina + 1}` : undefined;
-  const previousPage = Pagina > 1 ? `?page=${Pagina - 1}` : undefined;
+
+  const hasNextPage = totalPages > Pagina;
+  const hasPreviousPage = Pagina > 1;
+  const nextPage = new URLSearchParams(params);
+  const previousPage = new URLSearchParams(params);
+
+  if (hasNextPage) {
+    nextPage.set("page", (Pagina + 1).toString());
+  }
+
+  if (hasPreviousPage) {
+    previousPage.set("page", (Pagina - 1).toString());
+  }
+
   return {
-    nextPage,
-    previousPage,
+    nextPage: hasNextPage ? `?${nextPage}` : undefined,
+    previousPage: hasPreviousPage ? `?${previousPage}` : undefined,
     currentPage: Pagina - 1,
     records: Total,
     recordPerPage: Offset,

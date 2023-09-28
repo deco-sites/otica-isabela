@@ -71,7 +71,13 @@ const loaders = async (
 
   if (products.produtos.length == 0) return null;
 
-  return toProductListingPage(dynamicFilters, products, category, url, filtrosDinamicos);
+  return toProductListingPage(
+    dynamicFilters,
+    products,
+    category,
+    url,
+    filtrosDinamicos,
+  );
 };
 
 const getSearchParams = (
