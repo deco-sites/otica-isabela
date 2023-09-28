@@ -7,7 +7,6 @@ import {
   ProductData,
 } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
-import { normalizeFilter } from "$store/packs/utils/utils.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { toProductListingPage } from "$store/packs/utils/transform.ts";
@@ -70,16 +69,9 @@ const loaders = async (
     { method: "POST" },
   );
 
-  console.log(path.product.getProduct({
-    offset: 32,
-    IdCategoria: primaryCategory,
-    IdSubCategoria: secondaryCategory,
-    filtrosDinamicos,
-    ...getSearchParams(url),
-  }));
   if (products.produtos.length == 0) return null;
 
-  return toProductListingPage(dynamicFilters, products, category, url);
+  return toProductListingPage(dynamicFilters, products, category, url, filtrosDinamicos);
 };
 
 const getSearchParams = (
@@ -113,8 +105,8 @@ const matchDynamicFilters = (
   url.searchParams.forEach((value, key) => {
     if (!key.startsWith("filter.")) return;
     urlDynamicFilters.push({
-      key: normalizeFilter(key.substring(7)),
-      value: normalizeFilter(value),
+      key: key.substring(7),
+      value: value,
     });
   });
 
@@ -123,9 +115,8 @@ const matchDynamicFilters = (
   return urlDynamicFilters.map((
     { key, value },
   ) => {
-    const filterID = dynamicFiltersAPI.find((value) =>
-      normalizeFilter(value.NomeTipo).startsWith(key)
-    )?.IdTipo!;
+    const filterID = dynamicFiltersAPI.find((value) => value.NomeTipo == key)
+      ?.IdTipo!;
 
     return {
       filterID,

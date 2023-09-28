@@ -2,6 +2,7 @@ import {
   APIDynamicFilters,
   Category,
   ColorVariants,
+  DynamicFilter,
   Image,
   Panels,
   Product as IsabelaProduct,
@@ -269,10 +270,11 @@ const toProductCanonicalUrl = (
 ): URL => new URL(`/produto/${productSlug}`, baseURL);
 
 export const toProductListingPage = (
-  filters: APIDynamicFilters[],
+  filtersApi: APIDynamicFilters[],
   productsData: IsabelaProductData,
   category: Category,
   baseURL: URL,
+  filtersUrl: DynamicFilter[] | undefined,
 ): ProductListingPage => {
   const { produtos } = productsData;
   const itemListElement = toPageBreadcrumbList(baseURL, category.Nome);
@@ -283,13 +285,13 @@ export const toProductListingPage = (
       itemListElement,
       numberOfItems: itemListElement.length,
     },
-    filters: groupPageFilters(filters).map((f) => ({
+    filters: groupPageFilters(filtersApi).map((f) => ({
       "@type": "FilterToggle",
       key: `${f[0].IdTipo}`,
       label: f[0].NomeTipo,
       quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
       values: f.map((individualFilter) =>
-        toPageFilterValues(individualFilter, produtos)
+        toPageFilterValues(individualFilter, produtos, filtersUrl)
       ),
     })),
     products: produtos.map((product) => toProduct(product)),
@@ -304,11 +306,11 @@ export const toProductListingPage = (
 };
 
 const groupPageFilters = (
-  filters: APIDynamicFilters[],
+  filtersApi: APIDynamicFilters[],
 ): APIDynamicFilters[][] => {
   const orderedFilters: APIDynamicFilters[][] = [];
 
-  filters.forEach((filter) => {
+  filtersApi.forEach((filter) => {
     const { IdTipo } = filter;
     orderedFilters[IdTipo] = orderedFilters[IdTipo] ?? [];
     orderedFilters[IdTipo].push(filter);
@@ -318,18 +320,23 @@ const groupPageFilters = (
 };
 
 const toPageFilterValues = (
-  filter: APIDynamicFilters,
+  filterApi: APIDynamicFilters,
   products: IsabelaProduct[],
+  filtersUrl: DynamicFilter[] | undefined,
 ): FilterToggleValue => ({
   quantity: countPageFiltersQuantity(
     products,
     "typeValue",
-    filter.IdTipo,
-    filter.Nome,
+    filterApi.IdTipo,
+    filterApi.Nome,
   ),
-  label: filter.Nome,
-  value: filter.Nome,
-  selected: false,
+  label: filterApi.Nome,
+  value: filterApi.Nome,
+  selected: !filtersUrl ? false : filtersUrl.some(
+    (filter) =>
+      filter.filterID === filterApi.IdTipo &&
+      filter.filterValue === filterApi.Nome,
+  ),
   url: "",
 });
 
