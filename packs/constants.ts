@@ -17,4 +17,8 @@ export const SORT_OPTIONS: SortOption[] = [
     value: "menor-preco",
     label: "Menor preço",
   },
+  {
+    value: "nome",
+    label: "Nome",
+  },
 ];

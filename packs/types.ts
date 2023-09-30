@@ -1,3 +1,5 @@
+import type { Filter, ListItem, Seo } from "deco-sites/std/commerce/types.ts";
+
 export type Session = {
   SessionCustomer: SessionCustomer;
 };
@@ -168,7 +170,7 @@ export interface GetProductProps {
 
   /**
    * @title Dynamic filters
-   * @description Define dinamic filters for the query. Example: Aro Fechado,Retangular */
+   * @description Define dinamic filters for the query. Its not possible to use them with "Term" parameter in "productList" and "ProductListiningPage" Loaders */
 
   filtrosDinamicos?: DynamicFilter[];
 
@@ -233,4 +235,20 @@ export interface APIDynamicFilters {
   h1: string;
   h2: string;
   h3: string;
+}
+
+export interface ProductListiningPageProps {
+  productsData: ProductData;
+  baseURL: URL;
+  pageType: "category" | "search";
+  category?: Category;
+  filtersApi?: APIDynamicFilters[];
+  filtersUrl?: DynamicFilter[] | undefined;
+  term?: string;
+}
+
+export interface PLPPageProps {
+  itemListElement: ListItem<string>[];
+  filters: Filter[] | [];
+  seo: Seo;
 }
