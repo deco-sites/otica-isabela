@@ -339,7 +339,7 @@ const searchPageProps = (url: URL, term: string): PLPPageProps => ({
     "@type": "ListItem" as const,
     name: term.toUpperCase(),
     item: new URL(
-      `?termo=${term}`,
+      `/busca?termo=${term}`,
       url.origin,
     ).href,
     position: 1,
