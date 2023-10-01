@@ -1,22 +1,33 @@
 import { Context } from "$store/packs/accounts/configStore.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import paths from "$store/packs/utils/paths.ts";
-import { Session } from "$store/packs/types.ts";
+import { getCookies } from "std/http/mod.ts";
+import { ISABELA_DIAS_SESSION_COOKIE } from "$store/packs/constants.ts";
+
+/**
+@title Otica Isabela Dias session starter
+@description This loader starts the session of the client, returning a token for the cart releatable requisitions.
+**/
 
 const loader = async (
   _props: null,
-  _req: Request,
+  req: Request,
   ctx: Context,
-): Promise<Session> => {
+): Promise<Response> => {
   const { configStore: config } = ctx;
   const path = paths(config!);
+  const sessionToken = getCookies(req.headers)[ISABELA_DIAS_SESSION_COOKIE];
 
-  const session = await fetchAPI<Session>(
+  const session = await fetch(
     path.session.initSession(),
     {
       method: "POST",
+      headers: {
+        cookie: sessionToken ? `${ISABELA_DIAS_SESSION_COOKIE}=` + sessionToken : "",
+      },
     },
-  );
+    //data.json() type will be aways 'Session'
+  ).then((data) => data)
+    .catch((err: Response) => err);
 
   return session;
 };

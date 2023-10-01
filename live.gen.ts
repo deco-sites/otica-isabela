@@ -3,14 +3,15 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $$0 from "./accounts/configStore.ts";
-import * as $$$0 from "./loaders/product/productDetails.ts";
-import * as $$$1 from "./loaders/product/productList.ts";
-import * as $$$2 from "./loaders/product/productListiningPage.ts";
-import * as $$$3 from "./loaders/product/suggestions.ts";
-import * as $$$4 from "./loaders/store/session.ts";
-import * as $$$$0 from "./routes/styles.css.ts";
-import * as $$$$1 from "./routes/_app.tsx";
-import * as $$$$2 from "./routes/_middleware.tsx";
+import * as $$$0 from "./loaders/product/cart.ts";
+import * as $$$1 from "./loaders/product/productDetails.ts";
+import * as $$$2 from "./loaders/product/productList.ts";
+import * as $$$3 from "./loaders/product/productListiningPage.ts";
+import * as $$$4 from "./loaders/product/suggestions.ts";
+import * as $$$5 from "./loaders/store/session.ts";
+import * as $$$$0 from "./routes/live/invoke/_middleware.tsx";
+import * as $$$$1 from "./routes/styles.css.ts";
+import * as $$$$2 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/About.tsx";
 import * as $$$$$1 from "./islands/AddToCartButton.tsx";
 import * as $$$$$2 from "./islands/FaqContainer.tsx";
@@ -226,11 +227,12 @@ const manifest = {
     "$live/loaders/state.ts": i2$$$1,
     "$live/loaders/workflows/events.ts": i2$$$2,
     "$live/loaders/workflows/get.ts": i2$$$3,
-    "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$0,
-    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$1,
-    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$2,
-    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$3,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$4,
+    "deco-sites/otica-isabela/loaders/product/cart.ts": $$$0,
+    "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$1,
+    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$2,
+    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$3,
+    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$4,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$5,
     "deco-sites/std/loaders/linxImpulse/autocompletes/popular.ts": i2$$$4,
     "deco-sites/std/loaders/linxImpulse/autocompletes/suggestions.ts": i2$$$5,
     "deco-sites/std/loaders/linxImpulse/pages/recommendations.ts": i2$$$6,
@@ -266,14 +268,14 @@ const manifest = {
     "deco-sites/std/loaders/x/redirectsFromCsv.ts": i2$$$34,
   },
   "routes": {
-    "./routes/_app.tsx": $$$$1,
+    "./routes/_app.tsx": $$$$2,
     "./routes/_middleware.ts": $live_middleware,
-    "./routes/_middleware.tsx": $$$$2,
     "./routes/[...catchall].tsx": $live_catchall,
     "./routes/index.tsx": $live_catchall,
     "./routes/live/_meta.ts": $live_meta,
     "./routes/live/editorData.ts": $live_editorData,
     "./routes/live/inspect/[...block].ts": $live_inspect,
+    "./routes/live/invoke/_middleware.tsx": $$$$0,
     "./routes/live/invoke/[...key].ts": $live_invoke_key,
     "./routes/live/invoke/index.ts": $live_invoke,
     "./routes/live/previews/[...block].tsx": $live_previews_block,
@@ -281,7 +283,7 @@ const manifest = {
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/workflows/run.ts": $live_workflows,
-    "./routes/styles.css.ts": $$$$0,
+    "./routes/styles.css.ts": $$$$1,
   },
   "islands": {
     "./islands/About.tsx": $$$$$0,

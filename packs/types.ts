@@ -252,3 +252,41 @@ export interface PLPPageProps {
   filters: Filter[] | [];
   seo: Seo;
 }
+
+export interface ProductsCart {
+  IdProduct: number;
+  Nome: string;
+  ValorOriginal: number;
+  ValorDesconto: number;
+  OfertaSeraLiberada: string;
+  OfertaTermina: string;
+  PorcentagemDesconto: number;
+  ProdutosMaisCores: ColorVariants[];
+  Imagem: string;
+  ImagemExperimentador: string;
+  UrlFriendlyColor: string;
+  Altura: string;
+  Largura: string;
+  Ponte: string;
+  Hastes: string;
+  FrenteTotal: string;
+  Aro: string;
+  ArmacaoGratis: boolean;
+  ValorArmacaoSeComprarLentes: number;
+  Codigo: string;
+  IdSku: number;
+  Tamanho: string;
+  DescricaoSeo?: string;
+  KeywordsSeo?: string;
+  TituloSeo?: string;
+  TagH1?: string;
+  TagH2?: string;
+  TagH3?: string;
+  Paineis?: Panels[];
+  Imagens?: Image[];
+  Classificacoes?: ProductInfo[];
+}
+
+export interface OrderForm {
+  products: ProductsCart[];
+}

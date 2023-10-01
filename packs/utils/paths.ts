@@ -43,6 +43,12 @@ const paths = ({ token, publicUrl }: Account) => {
           idCategoria: category,
         }),
     },
+    cart: {
+      getCart: (clientId: number) =>
+        href(`${base}/DadosCarrinho?token=${token}`, {
+          idClienteSessao: clientId,
+        }),
+    },
   };
 };
 
