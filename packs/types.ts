@@ -215,6 +215,7 @@ export interface Category {
   Id: number;
   Nome: string;
   IdCategoriaPai: number;
+  CategoriaPai: Omit<Category, "IdCategoriaPai" | "CategoriaPai">;
   Title_SEO: string;
   PageKeywords_SEO?: string;
   PageDescription_SEO?: string;
