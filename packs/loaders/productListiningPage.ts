@@ -73,7 +73,7 @@ const loaders = async (
     { method: "POST" },
   );
 
-  if (products.produtos.length == 0) return null;
+  if (!products.produtos.length) return null;
 
   return toProductListingPage(
     {
