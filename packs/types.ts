@@ -170,7 +170,7 @@ export interface GetProductProps {
 
   /**
    * @title Dynamic filters
-   * @description Define dinamic filters for the query. Its not possible to use them with "Term" parameter in "productList" and "ProductListiningPage" Loaders */
+   * @description Define dinamic filters for the query. Its not possible to use them with "Term" parameter */
 
   filtrosDinamicos?: DynamicFilter[];
 
