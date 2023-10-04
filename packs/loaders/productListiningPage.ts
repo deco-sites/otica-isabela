@@ -48,7 +48,7 @@ const loaders = async (
   const url = new URL(req.url);
   const path = paths(config!);
 
-  const isCategoryPage = url.pathname.split("/")[1] != "busca";
+  const isCategoryPage = !url.pathname.includes("busca");
 
   const pageParams: PLPPageParams | null = isCategoryPage
     ? await getCategoryPageParams(url, config!).then((data) => data)
