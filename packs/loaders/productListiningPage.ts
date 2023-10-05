@@ -14,11 +14,6 @@ import { toProductListingPage } from "$store/packs/utils/transform.ts";
 import { Account } from "$store/packs/accounts/configStore.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
-interface UrlDynamicFilters {
-  key: string;
-  value: string;
-}
-
 interface PLPPageParams {
   productApiProps: Partial<
     Omit<
@@ -152,32 +147,22 @@ const getSearchParams = (
 const matchDynamicFilters = (
   url: URL,
   dynamicFiltersAPI: APIDynamicFilters[],
-): DynamicFilter[] | undefined => {
-  const urlDynamicFilters: UrlDynamicFilters[] = [];
+): DynamicFilter[] =>
+  Array.from(url.searchParams).map(([key, value]) => {
+    if (!key.startsWith("filter.")) return null;
 
-  url.searchParams.forEach((value, key) => {
-    if (!key.startsWith("filter.")) return;
-    urlDynamicFilters.push({
-      key: key.substring(7),
-      value: value,
-    });
-  });
+    const filterID = dynamicFiltersAPI.find((v) =>
+      v.NomeTipo == key.substring(7)
+    )
+      ?.IdTipo;
 
-  if (urlDynamicFilters.length == 0) return undefined;
-
-  return urlDynamicFilters.map((
-    { key, value },
-  ) => {
-    const filterID = dynamicFiltersAPI.find((v) => v.NomeTipo == key)
-      ?.IdTipo!;
+    if (!filterID) return null;
 
     return {
       filterID,
       filterValue: value,
-    };
-  }).filter(({ filterID, filterValue }) =>
-    filterID !== undefined && filterValue !== undefined
-  );
-};
+    } as DynamicFilter;
+  })
+    .filter((item) => !!item) as DynamicFilter[];
 
 export default loaders;
