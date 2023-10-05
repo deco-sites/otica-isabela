@@ -1,5 +1,6 @@
 import {
   APIDynamicFilters,
+  Category,
   ColorVariants,
   DynamicFilter,
   Image,
@@ -316,7 +317,7 @@ const categoryPageProps = (
   const { productsData, baseURL, category, filtersApi, filtersUrl } = props;
   const { produtos } = productsData;
   return {
-    itemListElement: toPageBreadcrumbList(baseURL, category.Nome),
+    itemListElement: toPageBreadcrumbList(category, baseURL),
     filters: groupPageFilters(filtersApi).map((f) => ({
       "@type": "FilterToggle",
       key: `${f[0].IdTipo}`,
@@ -415,16 +416,18 @@ const toPageInfo = (
   };
 };
 
-//TODO: API isn't returning the name of the primary category. When fixed, refactor this function
-const toPageBreadcrumbList = (url: URL, name: string) => {
-  const categoriesSlug = url.pathname.split("/").filter((p) => p != "");
-  return categoriesSlug.map((_c, i) => ({
+const toPageBreadcrumbList = (category: Category, url: URL) => {
+  const categories = [category.CategoriaPai ?? null, category].filter((p) =>
+    p != null
+  );
+  return categories.map((c, i) => ({
     "@type": "ListItem" as const,
-    name,
+    name: c.Nome,
     item: new URL(
       `/${
-        categoriesSlug
+        categories
           .slice(0, i + 1)
+          .map(({ UrlFriendly }) => UrlFriendly)
           .join("/")
       }`,
       url.origin,
