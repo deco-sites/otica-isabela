@@ -1,5 +1,6 @@
 import {
   APIDynamicFilters,
+  APIGetTestimonials,
   Category,
   ColorVariants,
   DynamicFilter,
@@ -10,6 +11,7 @@ import {
   ProductData as IsabelaProductData,
   ProductInfo,
   ProductListiningPageProps,
+  Review,
 } from "$store/packs/types.ts";
 import type {
   AggregateOffer,
@@ -450,3 +452,26 @@ const countPageFiltersQuantity = (
       })
     )
     .length;
+
+export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
+  const {
+    Stars,
+    NameCustomer,
+    Comments,
+    CustomerAddress,
+    NameProduct,
+    ImagePath,
+    UrlFriendly,
+    CommentsImgPath,
+  } = testimonial;
+  return {
+    ratingValue: Stars,
+    authorName: NameCustomer,
+    reviewDescription: Comments,
+    authorCity: CustomerAddress,
+    productName: NameProduct,
+    productPhoto: ImagePath,
+    productLink: `${url.origin}/produto/${UrlFriendly}`,
+    additionalImage: CommentsImgPath,
+  };
+};
