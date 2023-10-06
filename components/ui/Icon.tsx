@@ -62,7 +62,8 @@ export type AvailableIcons =
   | "GarantiaDoProduto"
   | "RecebaComLentes"
   | "ProvadorOnline"
-  | "WishListHeart";
+  | "WishListHeart"
+  | "ShareButton";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

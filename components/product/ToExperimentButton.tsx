@@ -19,7 +19,7 @@ const sizing = {
   small: {
     iconW: 21,
     iconH: 19,
-    style: "text-sm",
+    style: "text-xs lg:text-sm",
   },
   large: {
     iconW: 40,
