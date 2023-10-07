@@ -20,6 +20,11 @@ export interface Props {
    * @title Offset
    * @default 9 */
   offset?: number;
+
+  /**
+   * @title Only With Photos
+   */
+  somenteFoto?: boolean;
 }
 
 /**
@@ -34,12 +39,14 @@ const loader = async (
 ): Promise<Review[] | null> => {
   const { configStore: config } = ctx;
   const path = paths(config!);
-  const { slug, ordenacao, offset } = props;
+  const { slug, ordenacao, offset, somenteFoto } = props;
   const url = new URL(req.url);
 
-  const idproduto = await getProductIdBySlug(
-    path.product.getProduct({ offset: 1, ordenacao: "none", url: slug }),
-  );
+  const idproduto = slug
+    ? await getProductIdBySlug(
+      path.product.getProduct({ offset: 1, ordenacao: "none", url: slug }),
+    )
+    : undefined;
 
   if (slug && !idproduto) return null;
 
@@ -47,6 +54,7 @@ const loader = async (
     path.testimonials.getTestimonials({
       ordenacao: ordenacao ?? "ultimosAdicionados",
       offset: offset ?? 9,
+      somenteFoto: somenteFoto ?? false,
       idproduto,
     }),
     {

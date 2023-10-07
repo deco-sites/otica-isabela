@@ -1,6 +1,7 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
+import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
 
 const paths = ({ token, publicUrl }: Account) => {
   const base = `${publicUrl}Api`;
@@ -51,10 +52,8 @@ const paths = ({ token, publicUrl }: Account) => {
     },
     testimonials: {
       getTestimonials: (
-        props: {
+        props: Omit<TestimonialProps, "slug"> & {
           idproduto?: number;
-          ordenacao?: "ultimosAdicionados" | "none";
-          offset?: number;
         },
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
