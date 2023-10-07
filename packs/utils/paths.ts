@@ -1,5 +1,5 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
-import { GetProductProps, TestimonialProps } from "../types.ts";
+import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 
 const paths = ({ token, publicUrl }: Account) => {
@@ -51,7 +51,11 @@ const paths = ({ token, publicUrl }: Account) => {
     },
     testimonials: {
       getTestimonials: (
-        props: Omit<TestimonialProps, "slug"> & { idproduto?: number },
+        props: {
+          idproduto?: number;
+          ordenacao?: "ultimosAdicionados" | "none";
+          offset?: number;
+        },
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
   };

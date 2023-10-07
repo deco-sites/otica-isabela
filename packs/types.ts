@@ -1,5 +1,4 @@
 import type { Filter, ListItem, Seo } from "deco-sites/std/commerce/types.ts";
-import type { RequestURLParam } from "deco-sites/std/functions/requestToParam.ts";
 
 export type Session = {
   SessionCustomer: SessionCustomer;
@@ -279,19 +278,6 @@ export interface ProductsCart {
 
 export interface OrderForm {
   products: ProductsCart[];
-}
-
-export interface TestimonialProps {
-  slug?: RequestURLParam;
-  /**
-   * @title Sort
-   * @description search sort parameter */
-  ordenacao?: "ultimosAdicionados" | "none";
-
-  /**
-   * @title Offset
-   * @default 9 */
-  offset?: number;
 }
 
 export interface APIGetTestimonials {
