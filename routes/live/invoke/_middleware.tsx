@@ -16,7 +16,7 @@ export interface GlobalMiddleware {
   [key: string]: unknown;
 }
 
-const setTokenCookie = (
+/* const setTokenCookie = (
   res: Response,
   tokenName: string,
   tokenValue: string
@@ -47,7 +47,7 @@ const getSetSessionToken = async (
   await setTokenCookie(res, ISABELA_DIAS_SESSION_COOKIE, sessionToken);
 
   return sessionToken;
-};
+}; */
 
 export const handler = async (
   req: Request,
@@ -59,7 +59,7 @@ export const handler = async (
 
   const customerToken = cookies[ISABELA_DIAS_CLIENT_COOKIE];
 
-  if (!customerToken) {
+  /* if (!customerToken) {
     const sessionToken =
       cookies[ISABELA_DIAS_SESSION_COOKIE] ??
       (await getSetSessionToken(state, res));
@@ -83,7 +83,7 @@ export const handler = async (
       ISABELA_DIAS_CLIENT_COOKIE,
       String(SessionCustomer.IdSessionCustomer)
     );
-  }
+  } */
 
   return res;
 };
