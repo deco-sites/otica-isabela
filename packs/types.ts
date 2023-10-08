@@ -42,18 +42,6 @@ export interface ProductData {
   produtos: Product[];
 }
 
-export interface Review {
-  ratingValue: number;
-  authorName: string;
-  reviewDescription: string;
-  authorCity: string;
-  productName: string;
-  productPhoto: string;
-  productLink: string;
-  additionalImage: string;
-  memberLevel?: string;
-}
-
 export interface Product {
   IdProduct: number;
   IdCategoriaPai: number;
@@ -290,4 +278,21 @@ export interface ProductsCart {
 
 export interface OrderForm {
   products: ProductsCart[];
+}
+
+export interface APIGetTestimonials {
+  IdOrderProductComments: number;
+  IdOrder: number;
+  CommentsImgPath: string;
+  Stars: number;
+  NameCustomer: string;
+  CustomerAddress: string;
+  CommentsPhrase: string;
+  Comments: string;
+  UrlFriendly: string;
+  ImagePath: string;
+  NameProduct: string;
+  StampImagePath: string;
+  Index: number;
+  IdProduto: number;
 }

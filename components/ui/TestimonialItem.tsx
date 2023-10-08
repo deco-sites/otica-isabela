@@ -11,13 +11,15 @@ export interface MembershipBadgeProps {
   badgeDescription: string;
 }
 
-export const UserInfos = (
-  { authorName, ratingValue, membershipBadge }: {
-    authorName: string;
-    ratingValue: number;
-    membershipBadge?: MembershipBadgeProps;
-  },
-) => {
+export const UserInfos = ({
+  authorName,
+  ratingValue,
+  membershipBadge,
+}: {
+  authorName: string;
+  ratingValue: number;
+  membershipBadge?: MembershipBadgeProps;
+}) => {
   const { badgeDescription, bagde } = membershipBadge ?? {};
   const { desktop, mobile } = bagde ?? {};
 
@@ -39,10 +41,7 @@ export const UserInfos = (
               width={68}
               height={75}
             />
-            <img
-              src={mobile ?? desktop}
-              alt={badgeDescription}
-            />
+            <img src={mobile ?? desktop} alt={badgeDescription} />
           </Picture>
         )}
       </p>
@@ -62,15 +61,13 @@ export const UserInfos = (
   );
 };
 
-const TestimonialItem = (
-  {
-    membershipBadges,
-    review,
-  }: {
-    review: Review;
-    membershipBadges?: MembershipBadgeProps[];
-  },
-) => {
+const TestimonialItem = ({
+  membershipBadges,
+  review,
+}: {
+  review: Review;
+  membershipBadges?: MembershipBadgeProps[];
+}) => {
   const {
     additionalImage,
     authorCity,
@@ -84,8 +81,8 @@ const TestimonialItem = (
   } = review;
 
   const id = useId();
-  const memberBadge = membershipBadges?.find((item) =>
-    item.label === memberLevel
+  const memberBadge = membershipBadges?.find(
+    (item) => item.label === memberLevel
   );
 
   const descriptionSplit = reviewDescription.split(" ");
@@ -97,13 +94,15 @@ const TestimonialItem = (
     <div class="flex flex-col items-center text-center border border-blue-300 rounded-xl px-3 py-5 ">
       <div class="flex items-start justify-center gap-x-2 ">
         <div class="w-1/3 flex flex-col">
-          <Image
-            src={additionalImage}
-            alt={productName}
-            width={140}
-            class="rounded-xl w-full"
-            height={200}
-          />
+          {additionalImage && (
+            <Image
+              src={additionalImage}
+              alt={productName}
+              width={140}
+              class="rounded-xl w-full"
+              height={200}
+            />
+          )}
 
           <div class="flex flex-col items-start">
             <span class="text-sm  text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
