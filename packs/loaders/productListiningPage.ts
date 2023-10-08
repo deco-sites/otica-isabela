@@ -18,52 +18,47 @@ interface PLPPageParams {
   productApiProps: Partial<
     Omit<
       GetProductProps,
-      | "id"
-      | "idColecaoProdutos"
-      | "offset"
-      | "somenteCronometrosAtivos"
-      | "ordenacao"
       | "url"
       | "page"
+      | "offset"
+      | "ordenacao"
     >
   >;
   plpProps: Omit<ProductListiningPageProps, "productsData" | "baseURL">;
 }
 
+type Props = Omit<
+  GetProductProps,
+  "IdCategoria" | "IdSubCategoria" | "url" | "page"
+>;
+
 /**
- * @title Otica Isabela Products Listining Page
+ * @title Otica Isabela Dias - Product Listining Page
  * @description Works on routes /busca using the querystring "termo" to serch the products OR in categories pages on routes /category
  */
 const loaders = async (
-  _props: null,
+  props: Props,
   req: Request,
   ctx: Context,
 ): Promise<ProductListingPage | null> => {
   const { configStore: config } = ctx;
   const url = new URL(req.url);
   const path = paths(config!);
+  const { offset } = props;
 
   const isCategoryPage = !url.pathname.includes("busca");
 
   const pageParams: PLPPageParams | null = isCategoryPage
-    ? await getCategoryPageParams(url, config!).then((data) => data)
-    : {
-      productApiProps: {
-        nome: url.searchParams.get("termo") ?? "",
-      },
-      plpProps: {
-        term: url.searchParams.get("termo") ?? "",
-        pageType: "search",
-      },
-    };
+    ? await getCategoryPageParams(url, config!, props).then((data) => data)
+    : getSearchPageParams(url, props);
 
   if (!pageParams) return null;
 
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
-      offset: 32,
+      offset: offset ?? 32,
       ...pageParams.productApiProps,
-      ...getSearchParams(url),
+      ...getSearchParams(url, props.ordenacao),
     }),
     { method: "POST" },
   );
@@ -79,12 +74,43 @@ const loaders = async (
   );
 };
 
+const getSearchPageParams = (url: URL, extraParams: Props): PLPPageParams => {
+  const {
+    nome,
+    id,
+    idColecaoProdutos,
+    filtrosDinamicos,
+    somenteCronometrosAtivos,
+  } = extraParams;
+
+  return {
+    productApiProps: {
+      nome: url.searchParams.get("termo") ?? nome ?? "",
+      id: !id?.length ? undefined : id,
+      idColecaoProdutos,
+      filtrosDinamicos,
+      somenteCronometrosAtivos,
+    },
+    plpProps: {
+      term: url.searchParams.get("termo") ?? nome ?? "",
+      pageType: "search",
+    },
+  };
+};
+
 const getCategoryPageParams = async (
   url: URL,
   config: Account,
+  extraParams: Props,
 ): Promise<PLPPageParams | null> => {
   const path = paths(config!);
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
+  const {
+    nome,
+    id,
+    idColecaoProdutos,
+    somenteCronometrosAtivos,
+  } = extraParams;
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
@@ -114,11 +140,19 @@ const getCategoryPageParams = async (
     ? matchDynamicFilters(url, filtersApi)
     : undefined;
 
+  extraParams.filtrosDinamicos?.forEach((f) => {
+    filtrosDinamicos?.push(f);
+  });
+
   return {
     productApiProps: {
+      nome,
+      id: !id?.length ? undefined : id,
+      idColecaoProdutos: idColecaoProdutos,
       filtrosDinamicos,
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
+      somenteCronometrosAtivos,
     },
     plpProps: {
       category,
@@ -131,10 +165,12 @@ const getCategoryPageParams = async (
 
 const getSearchParams = (
   url: URL,
+  sortBy?: GetProductProps["ordenacao"],
 ): Omit<GetProductProps, "offset"> => {
   const ordenacao =
     SORT_OPTIONS.find(({ value }) => value == url.searchParams.get("sort"))
       ?.value ??
+      sortBy ??
       "nome";
   const page = url.searchParams.get("page") ?? 1;
 
