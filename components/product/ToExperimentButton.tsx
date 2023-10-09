@@ -1,30 +1,30 @@
-import Icon from '$store/components/ui/Icon.tsx';
-import { useSignal } from '@preact/signals';
-import Modal from 'deco-sites/otica-isabela/components/ui/NewModal.tsx';
-import { getDevice } from 'deco-sites/otica-isabela/sdk/getDevice.ts';
-import { BASE_EXPERIMENTER_URL } from '../../sdk/constants/index.ts';
+import Icon from "$store/components/ui/Icon.tsx";
+import { useSignal } from "@preact/signals";
+import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
+import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 
 interface Props {
   image: string;
-  variant?: 'outlined' | 'filled';
-  size?: 'small' | 'large';
+  variant?: "outlined" | "filled";
+  size?: "small" | "large";
 }
 
 const style = {
-  outlined: 'bg-white text-black hover:text-white hover:bg-black',
-  filled: 'bg-black text-white hover:text-black hover:bg-white',
+  outlined: "bg-white text-black hover:text-white hover:bg-black",
+  filled: "bg-black text-white hover:text-black hover:bg-white",
 };
 
 const sizing = {
   small: {
     iconW: 21,
     iconH: 19,
-    style: 'text-xs lg:text-sm',
+    style: "text-xs lg:text-sm",
   },
   large: {
     iconW: 40,
     iconH: 37,
-    style: 'text-lg',
+    style: "text-lg",
   },
 };
 
@@ -85,7 +85,8 @@ const ToExperimentButton = ({ image }: Props) => {
             width="640"
             height="480"
             src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-          ></iframe>
+          >
+          </iframe>
         </div>
       </Modal>
     </>
