@@ -1,21 +1,25 @@
-import Button from "$store/components/ui/Button.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import Filters from "$store/components/search/Filters.tsx";
-import Sort from "$store/components/search/Sort.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import { useSignal } from "@preact/signals";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Filters from '$store/components/search/Filters.tsx';
+import Sort from '$store/components/search/Sort.tsx';
+import Breadcrumb from '$store/components/ui/Breadcrumb.tsx';
+import Button from '$store/components/ui/Button.tsx';
+import Icon from '$store/components/ui/Icon.tsx';
+import Modal from '$store/components/ui/Modal.tsx';
+import { useSignal } from '@preact/signals';
+import type { ProductListingPage } from 'deco-sites/std/commerce/types.ts';
 
-type Props =
-  & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
-  & {
-    displayFilter?: boolean;
-  };
+type Props = Pick<
+  ProductListingPage,
+  'filters' | 'breadcrumb' | 'sortOptions'
+> & {
+  displayFilter?: boolean;
+};
 
-function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
-) {
+function SearchControls({
+  filters,
+  breadcrumb,
+  displayFilter,
+  sortOptions,
+}: Props) {
   const open = useSignal(false);
 
   return (
@@ -26,7 +30,7 @@ function SearchControls(
 
       <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"}
+          class={displayFilter ? 'btn-ghost' : 'btn-ghost lg:hidden'}
           onClick={() => {
             open.value = true;
           }}

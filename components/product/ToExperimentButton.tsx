@@ -38,7 +38,7 @@ const ToExperimentButton = ({ image }: Props) => {
   return (
     <>
       <button
-        class="flex flex-row flex-nowrap items-center h-14 gap-x-3 btn btn-outline w-60 lg:w-full  border-black font-bold  hover:bg-black py-2"
+        class="flex flex-row flex-nowrap items-center gap-x-3 btn btn-outline lg:w-full  border-black font-bold group hover:bg-black w-[200px] px-[22px] py-[5px] xxs:w-60 xxs:px-[26px] xxs:py-[9px] "
         onClick={toggleExperimenter}
       >
         <span class="flex items-center">
