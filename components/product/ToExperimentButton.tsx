@@ -1,7 +1,7 @@
-import Icon from '$store/components/ui/Icon.tsx';
-import { useSignal } from '@preact/signals';
-import Modal from 'deco-sites/otica-isabela/components/ui/NewModal.tsx';
-import { BASE_EXPERIMENTER_URL } from '../../sdk/constants/index.ts';
+import Icon from "$store/components/ui/Icon.tsx";
+import { useSignal } from "@preact/signals";
+import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 
 interface Props {
   device: string;
@@ -65,7 +65,8 @@ const ToExperimentButton = ({ device, image }: Props) => {
             width="640"
             height="480"
             src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-          ></iframe>
+          >
+          </iframe>
         </div>
       </Modal>
     </>

@@ -9,9 +9,11 @@ export default {
       center: true,
     },
     screens: {
+      xxs: "481px",
+      xs: "577px",
       sm: "600px",
       md: "728px",
-      lg: "984px",
+      lg: "993px",
       xl: "1140px",
       "2xl": "1140px",
     },
