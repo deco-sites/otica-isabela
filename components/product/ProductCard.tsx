@@ -5,7 +5,6 @@ import { Size } from 'deco-sites/otica-isabela/components/product/Stopwatch.tsx'
 import Stopwatch from 'deco-sites/otica-isabela/islands/Stopwatch.tsx';
 import ToExperimentButton from 'deco-sites/otica-isabela/islands/ToExperimentButton.tsx';
 import { getDescriptions } from 'deco-sites/otica-isabela/sdk/getDescriptions.ts';
-import { getDevice } from 'deco-sites/otica-isabela/sdk/getDevice.ts';
 import { getAvailableColors } from 'deco-sites/otica-isabela/sdk/getVariantColors.ts';
 import type { Product } from 'deco-sites/std/commerce/types.ts';
 import { mapProductToAnalyticsItem } from 'deco-sites/std/commerce/utils/productToAnalyticsItem.ts';
@@ -84,7 +83,6 @@ function ProductCard({
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
-  const device = getDevice();
   const experimenterImage = additionalProperty?.find(
     (prop) => prop.propertyID === 'experimentador'
   )?.value;
@@ -161,7 +159,7 @@ function ProductCard({
         {/* Available Colors */}
         <ul class="flex items-center justify-center gap-2 w-full h-5 ">
           {availableColors?.map(({ name, url, unitCodes }) => (
-            <li>
+            <li key={unitCodes}>
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
@@ -181,7 +179,7 @@ function ProductCard({
         <div class="flex flex-col gap-2">
           <div class="flex flex-row  justify-center items-center gap-3  ">
             {discount > 0 && (
-              <div class="line-through font-semibold text-sm  text-red-500 lg:text-base ">
+              <div class="line-through font-semibold text-sm  text-red-500 lg:text-base">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </div>
             )}
@@ -191,7 +189,7 @@ function ProductCard({
           </div>
         </div>
 
-        <ToExperimentButton device={device} image={experimenterImage!} />
+        <ToExperimentButton image={experimenterImage!} />
       </div>
     </div>
   );

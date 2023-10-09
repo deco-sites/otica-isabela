@@ -11,6 +11,7 @@ interface Props {
   };
   perPageDots?: boolean;
   hideArrowsOnLast?: boolean;
+  borderedDots?: boolean;
 }
 
 const ATTRIBUTES = {
@@ -52,43 +53,42 @@ const isHTMLElement = (x: Element): x is HTMLElement =>
   // deno-lint-ignore no-explicit-any
   typeof (x as any).offsetLeft === "number";
 
-const setup = (
-  {
-    rootId,
-    scroll,
-    interval,
-    infinite,
-    itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
-    perPageDots,
-    hideArrowsOnLast,
-  }: Props,
-) => {
+const setup = ({
+  rootId,
+  scroll,
+  interval,
+  infinite,
+  itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
+  perPageDots,
+  hideArrowsOnLast,
+  borderedDots,
+}: Props) => {
   const { desktop, mobile } = itemsPerPage ?? {};
 
-  const currentItemsPerPage =
-    window?.matchMedia?.("(min-width: 984px)")?.matches ? desktop : mobile;
+  const currentItemsPerPage = window?.matchMedia?.("(min-width: 984px)")
+    ?.matches
+    ? desktop
+    : mobile;
 
   const root = document.getElementById(rootId);
   const slider = root?.querySelector<HTMLUListElement>(
-    `[${ATTRIBUTES["data-slider"]}]`,
+    `[${ATTRIBUTES["data-slider"]}]`
   );
 
   const items = root?.querySelectorAll<HTMLLIElement>(
-    `[${ATTRIBUTES["data-slider-item"]}]`,
+    `[${ATTRIBUTES["data-slider-item"]}]`
   );
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
-  const [, perPage] =
-    Object.entries(currentItemsPerPage).sort(([widthA], [widthB]) =>
-      Number(widthB) - Number(widthA)
-    )
-      .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];
+  const [, perPage] = Object.entries(currentItemsPerPage)
+    .sort(([widthA], [widthB]) => Number(widthB) - Number(widthA))
+    .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];
 
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
-      { root, slider, items, rootId },
+      { root, slider, items, rootId }
     );
 
     return;
@@ -102,10 +102,7 @@ const setup = (
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
 
-      const ratio = intersectionX(
-        rect,
-        sliderRect,
-      ) / rect.width;
+      const ratio = intersectionX(rect, sliderRect) / rect.width;
 
       if (ratio > THRESHOLD) {
         indices.push(index);
@@ -120,7 +117,7 @@ const setup = (
 
     if (!isHTMLElement(item)) {
       console.warn(
-        `Element at index ${index} is not an html element. Skipping carousel`,
+        `Element at index ${index} is not an html element. Skipping carousel`
       );
 
       return;
@@ -129,7 +126,7 @@ const setup = (
     slider.scrollTo({
       top: 0,
       behavior: scroll,
-      left: item.offsetLeft - root.offsetLeft,
+      left: item.offsetLeft,
     });
   };
 
@@ -140,9 +137,7 @@ const setup = (
     const isShowingFirst = indices[0] === 0;
     const pageIndex = Math.floor(indices[indices.length - 1] / perPage);
 
-    goToItem(
-      isShowingFirst ? items.length - 1 : (pageIndex - 1) * perPage,
-    );
+    goToItem(isShowingFirst ? items.length - 1 : (pageIndex - 1) * perPage);
   };
 
   const onClickNext = () => {
@@ -197,8 +192,10 @@ const setup = (
         } else {
           if (item.isIntersecting) {
             dot?.setAttribute("disabled", "");
+            borderedDots && dot?.parentElement?.classList.add("border-2");
           } else {
             dot?.removeAttribute("disabled");
+            borderedDots && dot?.parentElement?.classList.remove("border-2");
           }
         }
 
@@ -219,13 +216,13 @@ const setup = (
           }
         }
       }),
-    { threshold: THRESHOLD, root: slider },
+    { threshold: THRESHOLD, root: slider }
   );
 
-  const colGap = Number(getComputedStyle(slider).columnGap.replace("px", "")) ||
-    0;
+  const colGap =
+    Number(getComputedStyle(slider).columnGap.replace("px", "")) || 0;
 
-  const safeWidth = slider.offsetWidth - (colGap * (perPage - 1));
+  const safeWidth = slider.offsetWidth - colGap * (perPage - 1);
   const cardSize = Math.floor(safeWidth / perPage);
 
   items.forEach((item) => {
@@ -234,10 +231,11 @@ const setup = (
   });
 
   for (let it = 0; it < (dots?.length ?? 0); it++) {
-    dots?.item(it).addEventListener(
-      "click",
-      () => goToItem(perPageDots ? it * Math.floor(perPage) : it),
-    );
+    dots
+      ?.item(it)
+      .addEventListener("click", () =>
+        goToItem(perPageDots ? it * Math.floor(perPage) : it)
+      );
   }
 
   prev?.addEventListener("click", onClickPrev);
@@ -248,10 +246,11 @@ const setup = (
   // Unregister callbacks
   return () => {
     for (let it = 0; it < (dots?.length ?? 0); it++) {
-      dots?.item(it).removeEventListener(
-        "click",
-        () => goToItem(perPageDots ? it * perPage : it),
-      );
+      dots
+        ?.item(it)
+        .removeEventListener("click", () =>
+          goToItem(perPageDots ? it * perPage : it)
+        );
     }
 
     prev?.removeEventListener("click", onClickPrev);
@@ -271,6 +270,7 @@ function Slider({
   itemsPerPage,
   perPageDots = false,
   hideArrowsOnLast = false,
+  borderedDots = false,
 }: Props) {
   useEffect(
     () =>
@@ -282,6 +282,7 @@ function Slider({
         itemsPerPage,
         perPageDots,
         hideArrowsOnLast,
+        borderedDots,
       }),
     [
       rootId,
@@ -291,7 +292,7 @@ function Slider({
       itemsPerPage,
       perPageDots,
       hideArrowsOnLast,
-    ],
+    ]
   );
 
   return <div data-slider-controller-js />;

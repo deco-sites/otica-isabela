@@ -1,3 +1,5 @@
+import type { Filter, ListItem, Seo } from "deco-sites/std/commerce/types.ts";
+
 export type Session = {
   SessionCustomer: SessionCustomer;
 };
@@ -38,18 +40,6 @@ export interface ProductData {
   Pagina: number;
   Offset: number;
   produtos: Product[];
-}
-
-export interface Review {
-  ratingValue: number;
-  authorName: string;
-  reviewDescription: string;
-  authorCity: string;
-  productName: string;
-  productPhoto: string;
-  productLink: string;
-  additionalImage: string;
-  memberLevel?: string;
 }
 
 export interface Product {
@@ -168,7 +158,7 @@ export interface GetProductProps {
 
   /**
    * @title Dynamic filters
-   * @description Define dinamic filters for the query. Example: Aro Fechado,Retangular */
+   * @description Define dinamic filters for the query. Its not possible to use them with "Term" parameter */
 
   filtrosDinamicos?: DynamicFilter[];
 
@@ -213,6 +203,7 @@ export interface Category {
   Id: number;
   Nome: string;
   IdCategoriaPai: number;
+  CategoriaPai: Omit<Category, "IdCategoriaPai" | "CategoriaPai">;
   Title_SEO: string;
   PageKeywords_SEO?: string;
   PageDescription_SEO?: string;
@@ -233,4 +224,75 @@ export interface APIDynamicFilters {
   h1: string;
   h2: string;
   h3: string;
+}
+
+export interface ProductListiningPageProps {
+  productsData: ProductData;
+  baseURL: URL;
+  pageType: "category" | "search";
+  category?: Category;
+  filtersApi?: APIDynamicFilters[];
+  filtersUrl?: DynamicFilter[] | undefined;
+  term?: string;
+}
+
+export interface PLPPageProps {
+  itemListElement: ListItem<string>[];
+  filters: Filter[] | [];
+  seo: Seo;
+}
+
+export interface ProductsCart {
+  IdProduct: number;
+  Nome: string;
+  ValorOriginal: number;
+  ValorDesconto: number;
+  OfertaSeraLiberada: string;
+  OfertaTermina: string;
+  PorcentagemDesconto: number;
+  ProdutosMaisCores: ColorVariants[];
+  Imagem: string;
+  ImagemExperimentador: string;
+  UrlFriendlyColor: string;
+  Altura: string;
+  Largura: string;
+  Ponte: string;
+  Hastes: string;
+  FrenteTotal: string;
+  Aro: string;
+  ArmacaoGratis: boolean;
+  ValorArmacaoSeComprarLentes: number;
+  Codigo: string;
+  IdSku: number;
+  Tamanho: string;
+  DescricaoSeo?: string;
+  KeywordsSeo?: string;
+  TituloSeo?: string;
+  TagH1?: string;
+  TagH2?: string;
+  TagH3?: string;
+  Paineis?: Panels[];
+  Imagens?: Image[];
+  Classificacoes?: ProductInfo[];
+}
+
+export interface OrderForm {
+  products: ProductsCart[];
+}
+
+export interface APIGetTestimonials {
+  IdOrderProductComments: number;
+  IdOrder: number;
+  CommentsImgPath: string;
+  Stars: number;
+  NameCustomer: string;
+  CustomerAddress: string;
+  CommentsPhrase: string;
+  Comments: string;
+  UrlFriendly: string;
+  ImagePath: string;
+  NameProduct: string;
+  StampImagePath: string;
+  Index: number;
+  IdProduto: number;
 }

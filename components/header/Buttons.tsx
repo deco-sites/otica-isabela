@@ -2,7 +2,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
-import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
+import { useCart } from "$store/packs/hooks/useCart.ts";
 import { lazy } from "preact/compat";
 import type { NavItemProps } from "./NavItem.tsx";
 
@@ -29,7 +29,7 @@ function MenuButton() {
     <Button
       class="btn-sm btn-ghost px-0 z-50"
       aria-label="open menu"
-      onClick={() => displayMobileMenu.value = !displayMobileMenu.value}
+      onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >
       {
         <Icon
@@ -46,15 +46,10 @@ function MenuButton() {
 
 function CartButton() {
   const { displayCart } = useUI();
-  const { loading, cart, mapItemsToAnalyticsItems } = useCart();
-  const totalItems = cart.value?.items.length || null;
-  const currencyCode = cart.value?.storePreferencesData.currencyCode;
-  const total = cart.value?.totalizers.find((item) => item.id === "Items");
-  const discounts = cart.value?.totalizers.find((item) =>
-    item.id === "Discounts"
-  );
+  const { loading, cart } = useCart();
+  const totalItems = cart.value?.products.length ?? 0;
 
-  const onClick = () => {
+  /* const onClick = () => {
     displayCart.value = true;
     sendEvent({
       name: "view_cart",
@@ -67,7 +62,7 @@ function CartButton() {
         items: cart.value ? mapItemsToAnalyticsItems(cart.value) : [],
       },
     });
-  };
+  }; */
 
   return (
     <Button
@@ -75,10 +70,9 @@ function CartButton() {
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
-      onClick={onClick}
     >
       <div class="indicator">
-        {totalItems && (
+        {totalItems > 0 && (
           <span class="-top-3.5 absolute indicator-item badge badge-secondary badge-lg h-6 w-6 pa  bg-white text-black border-none font-extralight">
             {totalItems > 9 ? "9+" : totalItems}
           </span>
@@ -91,11 +85,7 @@ function CartButton() {
   );
 }
 
-function Buttons(
-  { variant }: {
-    variant: "cart" | "search" | "menu";
-  },
-) {
+function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
   if (variant === "cart") {
     return <CartButton />;
   }
