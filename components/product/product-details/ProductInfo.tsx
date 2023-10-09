@@ -13,10 +13,10 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color"
+    (prop) => prop.propertyID === "color",
   );
   const colors = colorsList?.map((color) => color.unitCode);
 
@@ -49,10 +49,9 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             <span
               class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
               style={{
-                background:
-                  colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
+                background: colors && colors?.length > 1
+                  ? `linear-gradient(${colors.join(", ")})`
+                  : colors?.[0],
               }}
             />
           </div>

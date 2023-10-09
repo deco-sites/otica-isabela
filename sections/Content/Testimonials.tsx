@@ -20,7 +20,9 @@ export interface Props {
   page: LoaderReturnType<Review[] | null>;
 }
 
-export default function Testimonials({ header, membershipBadges, page }: Props) {
+export default function Testimonials(
+  { header, membershipBadges, page }: Props,
+) {
   const id = useId();
 
   return (
@@ -43,9 +45,7 @@ export default function Testimonials({ header, membershipBadges, page }: Props) 
           </Slider>
 
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-            {page?.map((_, index) => (
-              <Slider.Dot index={index} />
-            ))}
+            {page?.map((_, index) => <Slider.Dot index={index} />)}
           </div>
 
           <SliderJS

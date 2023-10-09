@@ -2,8 +2,8 @@ import { MiddlewareHandlerContext } from "$fresh/server.ts";
 import { LiveConfig, LiveState } from "$live/types.ts";
 import { getCookies } from "std/http/mod.ts";
 import {
-  ISABELA_DIAS_SESSION_COOKIE,
   ISABELA_DIAS_CLIENT_COOKIE,
+  ISABELA_DIAS_SESSION_COOKIE,
 } from "$store/packs/constants.ts";
 import { Manifest } from "$store/live.gen.ts";
 
@@ -23,15 +23,17 @@ const setCookies = (res: Response, tokens: Tokens[]) => {
   tokens.forEach(({ tokenName, tokenValue }) => {
     res.headers.append(
       "Set-Cookie",
-      `${tokenName}=${tokenValue}; Expires=${new Date().setFullYear(
-        new Date().getFullYear() + 1
-      )}; Path=/; Secure; HttpOnly`
+      `${tokenName}=${tokenValue}; Expires=${
+        new Date().setFullYear(
+          new Date().getFullYear() + 1,
+        )
+      }; Path=/; Secure; HttpOnly`,
     );
   });
 };
 
 const getSessionToken = async (
-  state: LiveConfig<unknown, LiveState, Manifest>
+  state: LiveConfig<unknown, LiveState, Manifest>,
 ): Promise<string | null> => {
   const sessionToken = await invokeSession(state);
   return sessionToken?.SessionKey ?? null;
@@ -39,7 +41,7 @@ const getSessionToken = async (
 
 const invokeSession = async (
   state: LiveConfig<unknown, LiveState, Manifest>,
-  sessionToken?: string
+  sessionToken?: string,
 ) =>
   await state.invoke("deco-sites/otica-isabela/loaders/store/session.ts", {
     sessionToken,
@@ -47,7 +49,7 @@ const invokeSession = async (
 
 export const handler = async (
   req: Request,
-  ctx: MiddlewareHandlerContext<LiveConfig<unknown, LiveState, Manifest>>
+  ctx: MiddlewareHandlerContext<LiveConfig<unknown, LiveState, Manifest>>,
 ) => {
   const res = await ctx.next();
   const { state } = ctx;
@@ -55,8 +57,8 @@ export const handler = async (
 
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) return res;
 
-  const sessionToken =
-    cookies[ISABELA_DIAS_SESSION_COOKIE] ?? (await getSessionToken(state));
+  const sessionToken = cookies[ISABELA_DIAS_SESSION_COOKIE] ??
+    (await getSessionToken(state));
 
   if (!sessionToken) return res;
 

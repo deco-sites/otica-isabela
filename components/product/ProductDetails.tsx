@@ -35,7 +35,7 @@ function ProductDetails({
 
   return (
     <div class="lg:bg-gray-scale-100">
-      <div class="container py-0 lg:py-[60px]"> 
+      <div class="container py-0 lg:py-[60px]">
         {page ? <Details page={page} variant={variant} /> : <NotFound />}
       </div>
     </div>

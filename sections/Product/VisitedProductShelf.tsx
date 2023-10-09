@@ -23,7 +23,7 @@ export async function loader({ ...props }: Props, req: Request, ctx: Context) {
 
   const products = await ctx.invoke(
     "deco-sites/otica-isabela/loaders/product/productList.ts",
-    { id: splitedIds, ordenacao: "none" }
+    { id: splitedIds, ordenacao: "none" },
   );
 
   if (!products) {

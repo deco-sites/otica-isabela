@@ -16,11 +16,10 @@ function Cart() {
   const currencyCode = "BRL";
   const total =
     cart.value?.products.reduce((total, p) => total + p.ValorDesconto, 0) ?? 0;
-  const discounts =
-    cart.value?.products.reduce(
-      (total, p) => total + p.ValorOriginal - p.ValorDesconto,
-      0
-    ) ?? 0;
+  const discounts = cart.value?.products.reduce(
+    (total, p) => total + p.ValorOriginal - p.ValorDesconto,
+    0,
+  ) ?? 0;
 
   if (cart.value === null) {
     return null;
