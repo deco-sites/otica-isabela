@@ -123,7 +123,10 @@ function Details({ page, variant }: Props) {
             <div class="relative">
               <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
                 {images.map((img, index) => (
-                  <Slider.Item index={index} class="carousel-item w-full">
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item w-full items-center min-h-[540px]"
+                  >
                     <img
                       class="w-full h-max"
                       src={img.url!}
