@@ -1,7 +1,7 @@
-import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
-import { useSignal } from "@preact/signals";
+import Icon from '$store/components/ui/Icon.tsx';
+import { useSignal } from '@preact/signals';
+import Modal from 'deco-sites/otica-isabela/components/ui/NewModal.tsx';
+import { BASE_EXPERIMENTER_URL } from '../../sdk/constants/index.ts';
 
 interface Props {
   device: string;
@@ -17,31 +17,28 @@ const ToExperimentButton = ({ device, image }: Props) => {
 
   return (
     <>
-      {/* Experimenter */}
-      <div class="w-full flex items-center justify-center">
-        <button
-          class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full  border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2"
-          onClick={toggleExperimenter}
-        >
-          <span class="hidden lg:flex">
-            <Icon
-              id="Camera"
-              class="group-hover:invert"
-              width={40}
-              height={37}
-            />
-          </span>
-          <span class="flex lg:hidden">
-            <Icon
-              id="Camera"
-              class="group-hover:invert"
-              width={25}
-              height={23}
-            />
-          </span>
+      <button
+        class="flex flex-row flex-nowrap items-center h-14 gap-x-3 btn btn-outline w-60 lg:w-full  border-black font-bold  hover:bg-black py-2"
+        onClick={toggleExperimenter}
+      >
+        <span class="flex items-center">
+          <Icon
+            id="Camera"
+            class="max-xxs:hidden group-hover:invert"
+            width={40}
+            height={37}
+          />
+          <Icon
+            id="Camera"
+            class="xxs:hidden group-hover:invert"
+            width={25}
+            height={23}
+          />
+        </span>
+        <p class="max-xxs:text-xl text-2xl text-black group-hover:text-white">
           Experimentar
-        </button>
-      </div>
+        </p>
+      </button>
 
       {/* Modal */}
       <Modal
@@ -68,8 +65,7 @@ const ToExperimentButton = ({ device, image }: Props) => {
             width="640"
             height="480"
             src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-          >
-          </iframe>
+          ></iframe>
         </div>
       </Modal>
     </>

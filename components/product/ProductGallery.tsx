@@ -1,6 +1,6 @@
-import { Product } from "deco-sites/std/commerce/types.ts";
+import { Product } from 'deco-sites/std/commerce/types.ts';
 
-import ProductCard from "$store/components/product/ProductCard.tsx";
+import ProductCard from '$store/components/product/ProductCard.tsx';
 
 export interface Columns {
   mobile?: number;
@@ -13,7 +13,7 @@ export interface Props {
 
 function ProductGallery({ products }: Props) {
   return (
-    <div class="grid grid-cols-2 gap-2 items-center sm:grid-cols-4 sm:gap-10">
+    <div class="grid grid-cols-1 gap-2 items-center xs:grid-cols-2  lg:grid-cols-3 lg:gap-10">
       {products?.map((product, index) => (
         <ProductCard product={product} preload={index === 0} />
       ))}

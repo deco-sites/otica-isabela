@@ -1,25 +1,25 @@
-import Image from "deco-sites/std/components/Image.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
-import ToExperimentButton from "deco-sites/otica-isabela/islands/ToExperimentButton.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
-import { formatPrice } from "$store/sdk/format.ts";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { SendEventOnClick } from "$store/sdk/analytics.tsx";
-import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
-import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
-import { getDescriptions } from "deco-sites/otica-isabela/sdk/getDescriptions.ts";
-import { Size } from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
+import Icon from '$store/components/ui/Icon.tsx';
+import { SendEventOnClick } from '$store/sdk/analytics.tsx';
+import { formatPrice } from '$store/sdk/format.ts';
+import { Size } from 'deco-sites/otica-isabela/components/product/Stopwatch.tsx';
+import Stopwatch from 'deco-sites/otica-isabela/islands/Stopwatch.tsx';
+import ToExperimentButton from 'deco-sites/otica-isabela/islands/ToExperimentButton.tsx';
+import { getDescriptions } from 'deco-sites/otica-isabela/sdk/getDescriptions.ts';
+import { getDevice } from 'deco-sites/otica-isabela/sdk/getDevice.ts';
+import { getAvailableColors } from 'deco-sites/otica-isabela/sdk/getVariantColors.ts';
+import type { Product } from 'deco-sites/std/commerce/types.ts';
+import { mapProductToAnalyticsItem } from 'deco-sites/std/commerce/utils/productToAnalyticsItem.ts';
+import Image from 'deco-sites/std/components/Image.tsx';
 
 export interface Layout {
   basics?: {
-    contentAlignment?: "Left" | "Center";
-    oldPriceSize?: "Small" | "Normal";
+    contentAlignment?: 'Left' | 'Center';
+    oldPriceSize?: 'Small' | 'Normal';
     ctaText?: string;
   };
   elementsPositions?: {
-    skuSelector?: "Top" | "Bottom";
-    favoriteIcon?: "Top right" | "Top left";
+    skuSelector?: 'Top' | 'Bottom';
+    favoriteIcon?: 'Top right' | 'Top left';
   };
   hide?: {
     productName?: boolean;
@@ -30,8 +30,8 @@ export interface Layout {
     cta?: boolean;
   };
   onMouseOver?: {
-    image?: "Change image" | "Zoom image";
-    card?: "None" | "Move up";
+    image?: 'Change image' | 'Zoom image';
+    card?: 'None' | 'Move up';
     showFavoriteIcon?: boolean;
     showSkuSelector?: boolean;
     showCardShadow?: boolean;
@@ -86,7 +86,7 @@ function ProductCard({
   const availableColors = getAvailableColors(product);
   const device = getDevice();
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === 'experimentador'
   )?.value;
 
   return (
@@ -98,7 +98,7 @@ function ProductCard({
       <SendEventOnClick
         id={id}
         event={{
-          name: "select_item" as const,
+          name: 'select_item' as const,
           params: {
             item_list_name: itemListName,
             items: [
@@ -125,11 +125,11 @@ function ProductCard({
           class="contents"
         >
           <Image
-            src={front ? front.url! : ""}
+            src={front ? front.url! : ''}
             alt={front ? front.alternateName : url}
             width={306}
             preload={preload}
-            loading={preload ? "eager" : "lazy"}
+            loading={preload ? 'eager' : 'lazy'}
             decoding="async"
           />
         </a>
@@ -142,19 +142,18 @@ function ProductCard({
       </figure>
 
       {/* Prices & Name */}
-      <div class="flex-auto flex flex-col p-1 gap-3 lg:gap-4">
+      <div class="flex flex-col items-center p-1 gap-3 lg:gap-4">
         {/* Name & Description */}
         <div class="flex flex-col gap-0">
-          <h2 class=" font-semibold text-black   text-base lg:text-lg min-h-[57px] mb-6  ">
+          <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
             {name}
-          </h2>
-
-          <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
+          </h4>
+          <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px]">
             {description?.map(
               (property, index) =>
                 `${property?.value}: ${property?.name}mm ${
-                  index < description.length - 1 ? "/" : ""
-                } `
+                  index < description.length - 1 ? '/' : ''
+                }`
             )}
           </p>
         </div>
@@ -168,7 +167,7 @@ function ProductCard({
                   style={{
                     background:
                       unitCodes.length > 1
-                        ? `linear-gradient(${unitCodes.join(", ")})`
+                        ? `linear-gradient(${unitCodes.join(', ')})`
                         : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
@@ -192,7 +191,6 @@ function ProductCard({
           </div>
         </div>
 
-        {/* Experimenter */}
         <ToExperimentButton device={device} image={experimenterImage!} />
       </div>
     </div>
