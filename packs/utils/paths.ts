@@ -1,11 +1,7 @@
 import { Account } from "$store/packs/accounts/configStore.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
-
-interface APIDynamicFiltersURL {
-  primaryCategory?: number;
-  secondaryCategory?: number;
-}
+import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
 
 const paths = ({ token, publicUrl }: Account) => {
   const base = `${publicUrl}Api`;
@@ -42,11 +38,24 @@ const paths = ({ token, publicUrl }: Account) => {
       getCategory: (categoryUrl: string) =>
         href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
     },
-    dynamicFillter: {
-      getDynamicFillters: (category: number) =>
+    dynamicFilter: {
+      getDynamicFilters: (category: number) =>
         href(`${base}/FiltrosDinamicos?token=${token}`, {
           idCategoria: category,
         }),
+    },
+    cart: {
+      getCart: (clientId: number) =>
+        href(`${base}/DadosCarrinho?token=${token}`, {
+          idClienteSessao: clientId,
+        }),
+    },
+    testimonials: {
+      getTestimonials: (
+        props: Omit<TestimonialProps, "slug"> & {
+          idproduto?: number;
+        },
+      ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
   };
 };

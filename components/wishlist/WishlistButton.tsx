@@ -56,8 +56,8 @@ function WishlistButton({
       }}
     >
       <Icon
-        id="Heart"
-        size={20}
+        id="WishListHeart"
+        class="w-[24px] h-[24px] md:w-[33px] md:h-[29px]"
         strokeWidth={2}
         fill={inWishlist ? "black" : "none"}
       />

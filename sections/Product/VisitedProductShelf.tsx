@@ -1,10 +1,11 @@
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
-import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
+import { Context } from "$store/packs/accounts/configStore.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   header?: IconTitleProps;
@@ -21,11 +22,21 @@ export async function loader({ ...props }: Props, req: Request, ctx: Context) {
   }
 
   const products = await ctx.invoke(
-    "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
-    { ids: splitedIds },
+    "deco-sites/otica-isabela/loaders/product/productList.ts",
+    { id: splitedIds, ordenacao: "none" },
   );
 
-  return { ...props, products };
+  if (!products) {
+    return { ...props, products: [] };
+  }
+
+  return {
+    ...props,
+    products: splitedIds
+      .reverse()
+      .map((v) => products.find((p) => p.productID == v ?? null))
+      .filter((item) => item !== null && item !== undefined) as Product[],
+  };
 }
 
 function VisitedProductShelf({

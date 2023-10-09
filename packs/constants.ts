@@ -1,5 +1,6 @@
 import { SortOption } from "deco-sites/std/commerce/types.ts";
-export const ISABELA_DIAS_COOKIE = "IsabelaDias_SessionCustomerKey";
+export const ISABELA_DIAS_SESSION_COOKIE = "IsabelaDias_SessionCustomerKey";
+export const ISABELA_DIAS_CLIENT_COOKIE = "IsabelaDias_CustomerKey";
 export const SORT_OPTIONS: SortOption[] = [
   {
     value: "none",
@@ -16,5 +17,9 @@ export const SORT_OPTIONS: SortOption[] = [
   {
     value: "menor-preco",
     label: "Menor preço",
+  },
+  {
+    value: "nome",
+    label: "Nome",
   },
 ];
