@@ -1,18 +1,17 @@
-import type { LoaderReturnType } from "$live/types.ts";
-import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import SearchControls from "$store/islands/SearchControls.tsx";
-import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import type { LoaderReturnType } from '$live/types.ts';
+import Icon from '$store/components/ui/Icon.tsx';
+import SearchControls from '$store/islands/SearchControls.tsx';
+import { SendEventOnLoad } from '$store/sdk/analytics.tsx';
+import { useOffer } from '$store/sdk/useOffer.ts';
+import type { ProductListingPage } from 'deco-sites/std/commerce/types.ts';
+import { mapProductToAnalyticsItem } from 'deco-sites/std/commerce/utils/productToAnalyticsItem.ts';
+import ProductGallery, { Columns } from '../product/ProductGallery.tsx';
 
 export interface Layout {
   /**
    * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
    */
-  variant?: "aside" | "drawer";
+  variant?: 'aside' | 'drawer';
   /**
    * @description Number of products per line on grid
    */
@@ -35,32 +34,31 @@ function NotFound() {
 function Result({
   page,
   layout,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
+}: Omit<Props, 'page'> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  const productCategory = products[0]?.category?.replace(">", " ");
+  const productCategory = products[0]?.category?.replace('>', ' ');
 
   return (
     <>
-      <header class="bg-white border-b-2 border-base-200 m-0 py-2 px-0">
+      <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
         <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
           {productCategory}
         </h1>
       </header>
+      <SearchControls
+        sortOptions={sortOptions}
+        filters={filters}
+        breadcrumb={breadcrumb}
+        displayFilter={layout?.variant === 'drawer'}
+      />
       <div class="container px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={layout?.variant === "drawer"}
-        />
-
         <div class="flex flex-row">
-          {layout?.variant === "aside" && filters.length > 0 && (
+          {/* {layout?.variant === 'aside' && filters.length > 0 && (
             <aside class="hidden lg:block w-min min-w-[250px]">
               <Filters filters={filters} />
             </aside>
-          )}
+          )} */}
           <div class="flex-grow">
             <ProductGallery products={products} />
           </div>
@@ -71,7 +69,7 @@ function Result({
             <a
               aria-label="previous page link"
               rel="prev"
-              href={pageInfo.previousPage ?? "#"}
+              href={pageInfo.previousPage ?? '#'}
               class="btn btn-ghost join-item"
             >
               <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
@@ -82,7 +80,7 @@ function Result({
             <a
               aria-label="next page link"
               rel="next"
-              href={pageInfo.nextPage ?? "#"}
+              href={pageInfo.nextPage ?? '#'}
               class="btn btn-ghost join-item"
             >
               <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
@@ -92,11 +90,11 @@ function Result({
       </div>
       <SendEventOnLoad
         event={{
-          name: "view_item_list",
+          name: 'view_item_list',
           params: {
             // TODO: get category name from search or cms setting
-            item_list_name: "",
-            item_list_id: "",
+            item_list_name: '',
+            item_list_id: '',
             items: page.products?.map((product) =>
               mapProductToAnalyticsItem({
                 ...useOffer(product.offers),
