@@ -27,10 +27,18 @@ interface PLPPageParams {
   plpProps: Omit<ProductListiningPageProps, "productsData" | "baseURL">;
 }
 
-type Props = Omit<
-  GetProductProps,
-  "IdCategoria" | "IdSubCategoria" | "url" | "page"
->;
+type Props =
+  & Omit<
+    GetProductProps,
+    "IdCategoria" | "IdSubCategoria" | "url" | "page"
+  >
+  & {
+    /**
+     * @title Force this page to be a Search Product Page
+     */
+
+    forceSearchPage?: boolean;
+  };
 
 /**
  * @title Otica Isabela Dias - Product Listining Page
@@ -44,19 +52,21 @@ const loaders = async (
   const { configStore: config } = ctx;
   const url = new URL(req.url);
   const path = paths(config!);
-  const { offset } = props;
+  const { offset, forceSearchPage } = props;
 
-  const isCategoryPage = !url.pathname.includes("busca");
+  const hasSearchParam = url.pathname.includes("busca");
 
-  const pageParams: PLPPageParams | null = isCategoryPage
-    ? await getCategoryPageParams(url, config!, props).then((data) => data)
-    : getSearchPageParams(url, props);
+  const isSearchPage = !!hasSearchParam || !!forceSearchPage;
+
+  const pageParams = isSearchPage
+    ? getSearchPageParams(url, props)
+    : await getCategoryPageParams(url, config!, props).then((data) => data);
 
   if (!pageParams) return null;
 
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
-      offset: offset ?? 32,
+      offset: offset,
       ...pageParams.productApiProps,
       ...getSearchParams(url, props.ordenacao),
     }),
@@ -86,7 +96,7 @@ const getSearchPageParams = (url: URL, extraParams: Props): PLPPageParams => {
   return {
     productApiProps: {
       nome: url.searchParams.get("termo") ?? nome ?? "",
-      id: !id?.length ? undefined : id,
+      id: id?.length ? id : undefined,
       idColecaoProdutos,
       filtrosDinamicos,
       somenteCronometrosAtivos,
@@ -105,6 +115,8 @@ const getCategoryPageParams = async (
 ): Promise<PLPPageParams | null> => {
   const path = paths(config!);
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
+  if (!lastCategorySlug) return null;
+
   const {
     nome,
     id,
@@ -137,17 +149,13 @@ const getCategoryPageParams = async (
   );
 
   const filtrosDinamicos = filtersApi.length > 0
-    ? matchDynamicFilters(url, filtersApi)
+    ? matchDynamicFilters(url, filtersApi, extraParams.filtrosDinamicos)
     : undefined;
-
-  extraParams.filtrosDinamicos?.forEach((f) => {
-    filtrosDinamicos?.push(f);
-  });
 
   return {
     productApiProps: {
       nome,
-      id: !id?.length ? undefined : id,
+      id: id?.length ? id : undefined,
       idColecaoProdutos: idColecaoProdutos,
       filtrosDinamicos,
       IdCategoria: primaryCategory,
@@ -182,23 +190,35 @@ const getSearchParams = (
 
 const matchDynamicFilters = (
   url: URL,
-  dynamicFiltersAPI: APIDynamicFilters[],
-): DynamicFilter[] =>
-  Array.from(url.searchParams).map(([key, value]) => {
+  filtersAPI: APIDynamicFilters[],
+  loaderFilters?: DynamicFilter[],
+): DynamicFilter[] => {
+  const filtersFromUrl = Array.from(url.searchParams).map(([key, value]) => {
     if (!key.startsWith("filter.")) return null;
 
-    const filterID = dynamicFiltersAPI.find((v) =>
-      v.NomeTipo == key.substring(7)
-    )
-      ?.IdTipo;
+    const filterID = getFilterId(filtersAPI, key.substring(7));
 
     if (!filterID) return null;
-
     return {
       filterID,
       filterValue: value,
     } as DynamicFilter;
   })
     .filter((item) => !!item) as DynamicFilter[];
+
+  const filtersFromLoader =
+    loaderFilters?.filter(({ filterID }) =>
+      filtersAPI.find(({ IdTipo }) => IdTipo === filterID)
+    ) ?? [];
+
+  return [...filtersFromUrl, ...filtersFromLoader];
+};
+
+const getFilterId = (
+  filtersAPI: APIDynamicFilters[],
+  value: string,
+): number | undefined =>
+  filtersAPI.find(({ NomeTipo }) => NomeTipo == value)
+    ?.IdTipo;
 
 export default loaders;
