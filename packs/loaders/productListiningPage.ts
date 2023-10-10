@@ -36,13 +36,12 @@ type Props =
     /**
      * @title Force this page to be a Search Product Page
      */
-
     forceSearchPage?: boolean;
   };
 
 /**
  * @title Otica Isabela Dias - Product Listining Page
- * @description Works on routes /busca using the querystring "termo" to serch the products OR in categories pages on routes /category
+ * @description Works on routes /busca using the querystring "termo" to search the products OR in categories pages on routes /$category.
  */
 const loaders = async (
   props: Props,
@@ -56,7 +55,7 @@ const loaders = async (
 
   const hasSearchParam = url.pathname.includes("busca");
 
-  const isSearchPage = !!hasSearchParam || !!forceSearchPage;
+  const isSearchPage = hasSearchParam || !!forceSearchPage || url.pathname.endsWith("/");
 
   const pageParams = isSearchPage
     ? getSearchPageParams(url, props)
