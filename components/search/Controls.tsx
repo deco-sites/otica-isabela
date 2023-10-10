@@ -28,7 +28,7 @@ function SearchControls({
         <ul class="flex w-full justify-center flex-row">
           <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
             <p>Formato</p>
-            <Icon class="text-black" size={12} id="ArrowDown" />
+            <Icon class="fill-black" size={12} id="ArrowDown" />
           </li>
           <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
             <p>Material</p>
