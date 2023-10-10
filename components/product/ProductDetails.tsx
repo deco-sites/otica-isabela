@@ -1,3 +1,4 @@
+import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
 import type { SectionProps } from "$live/mod.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
@@ -22,23 +23,23 @@ function ProductDetails({
   page,
   variant: maybeVar = "auto",
 }: SectionProps<typeof loader>) {
-  /**
-   * Showcase the different product views we have on this template. In case there are less
-   * than two images, render a front-back, otherwhise render a slider
-   * Remove one of them and go with the best suited for your use case.
-   */
-  const variant = maybeVar === "auto"
-    ? page?.product.image?.length && page?.product.image?.length < 2
-      ? "front-back"
-      : "slider"
-    : maybeVar;
+  const { product } = page || {};
+  const variant =
+    maybeVar === "auto"
+      ? page?.product.image?.length && page?.product.image?.length < 2
+        ? "front-back"
+        : "slider"
+      : maybeVar;
 
   return (
-    <div class="lg:bg-gray-scale-100">
-      <div class="container py-0 lg:py-[60px]">
-        {page ? <Details page={page} variant={variant} /> : <NotFound />}
+    <>
+      <div class="lg:bg-gray-scale-100">
+        <div class="container py-0 lg:py-[60px]">
+          {page ? <Details page={page} variant={variant} /> : <NotFound />}
+        </div>
       </div>
-    </div>
+      <OtherColorsShelf product={product!} />
+    </>
   );
 }
 
