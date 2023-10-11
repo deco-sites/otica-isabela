@@ -9,7 +9,7 @@ import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { getCookies } from "std/http/mod.ts";
 
 /**
-@title Otica Isabela Dias Get Cart
+@title Otica Isabela Dias - Get Cart
 @description This loader get the client cart from his ID
 **/
 const loader = async (

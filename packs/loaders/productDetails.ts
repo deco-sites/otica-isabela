@@ -11,7 +11,7 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Product Details Page
+ * @title Otica Isabela Dias - Product Details Page
  * @description works on routes /produto/:slug
  */
 const loader = async (

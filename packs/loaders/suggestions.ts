@@ -19,7 +19,7 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Product Search
+ * @title Otica Isabela Dias - Product Search
  */
 
 const loader = async (

@@ -6,7 +6,7 @@ import type { Product } from "apps/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 
 /**
- * @title Otica Isabela Products List
+ * @title Otica Isabela Dias - Product List
  */
 
 const loader = async (
