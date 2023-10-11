@@ -6,17 +6,17 @@ import {
   SessionCustomer,
 } from "deco-sites/otica-isabela/packs/types.ts";
 
-/**
-@title Otica Isabela Dias session starter
-@description This loader starts the session of the client, returning a token for the cart releatable requisitions.
-**/
-
 interface Props {
   /**
    * @title Session Token
    */
   sessionToken?: string;
 }
+
+/**
+@title Otica Isabela Dias - Session Start
+@description This loader starts the session of the client, returning a token for the cart releatable requisitions.
+**/
 
 const loader = async (
   props: Props,

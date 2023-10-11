@@ -9,7 +9,7 @@ import {
 } from "deco-sites/otica-isabela/packs/types.ts";
 
 /**
-@title Otica Isabela Dias Get Cart
+@title Otica Isabela Dias - Get Cart
 @description This loader get the client cart from his ID
 **/
 
