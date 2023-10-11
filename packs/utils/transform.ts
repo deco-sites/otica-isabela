@@ -296,7 +296,7 @@ export const toProductListingPage = (
         productsData,
       },
     )
-    : searchPageProps(baseURL, props.term!);
+    : searchPageProps(baseURL, props.term);
 
   return {
     "@type": "ProductListingPage",
@@ -337,23 +337,41 @@ const categoryPageProps = (
   };
 };
 
-const searchPageProps = (url: URL, term: string): PLPPageProps => ({
-  itemListElement: [{
-    "@type": "ListItem" as const,
-    name: term.toUpperCase(),
-    item: new URL(
-      `/busca?termo=${term}`,
-      url.origin,
-    ).href,
-    position: 1,
-  }],
-  filters: [],
-  seo: {
-    title: "",
-    description: "",
-    canonical: "",
-  },
-});
+const searchPageProps = (url: URL, term?: string): PLPPageProps => {
+  const pathsItemList = url.pathname.includes("busca")
+    ? [{
+      "@type": "ListItem" as const,
+      name: "BUSCA",
+      item: new URL(
+        `/busca`,
+        url.origin,
+      ).href,
+      position: 1,
+    }]
+    : [];
+
+  const termItemList = term && pathsItemList.length
+    ? [{
+      "@type": "ListItem" as const,
+      name: term.toUpperCase(),
+      item: new URL(
+        `${url.pathname}?termo=${term}`,
+        url.origin,
+      ).href,
+      position: pathsItemList.length + 1,
+    }]
+    : [];
+
+  return {
+    itemListElement: [...pathsItemList, ...termItemList],
+    filters: [],
+    seo: {
+      title: "",
+      description: "",
+      canonical: "",
+    },
+  };
+};
 
 const groupPageFilters = (
   filtersApi: APIDynamicFilters[],

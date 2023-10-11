@@ -94,14 +94,14 @@ const getSearchPageParams = (
 
   return {
     productApiProps: {
-      nome: url.searchParams.get("termo") ?? nome ?? "",
+      nome: url.searchParams.get("termo") ?? nome,
       id: id?.length ? id : undefined,
       idColecaoProdutos,
       filtrosDinamicos,
       somenteCronometrosAtivos,
     },
     plpProps: {
-      term: url.searchParams.get("termo") ?? nome ?? "",
+      term: url.searchParams.get("termo") ?? nome,
       pageType: "search",
     },
   };
