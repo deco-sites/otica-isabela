@@ -27,17 +27,10 @@ interface PLPPageParams {
   plpProps: Omit<ProductListiningPageProps, "productsData" | "baseURL">;
 }
 
-type Props =
-  & Omit<
-    GetProductProps,
-    "IdCategoria" | "IdSubCategoria" | "url" | "page"
-  >
-  & {
-    /**
-     * @title Force this page to be a Search Product Page
-     */
-    forceSearchPage?: boolean;
-  };
+type Props = Omit<
+  GetProductProps,
+  "IdCategoria" | "IdSubCategoria" | "url" | "page"
+>;
 
 /**
  * @title Otica Isabela Dias - Product Listining Page
@@ -51,15 +44,19 @@ const loaders = async (
   const { configStore: config } = ctx;
   const url = new URL(req.url);
   const path = paths(config!);
-  const { offset, forceSearchPage } = props;
+
+  const { offset, ordenacao, filtrosDinamicos, ...searchPageProps } = props;
 
   const hasSearchParam = url.pathname.includes("busca");
 
-  const isSearchPage = hasSearchParam || !!forceSearchPage || url.pathname.endsWith("/");
+  const isCategoryPage = !hasSearchParam &&
+    Object.values(searchPageProps).every((val) =>
+      !val || val.toString().length === 0
+    );
 
-  const pageParams = isSearchPage
-    ? getSearchPageParams(url, props)
-    : await getCategoryPageParams(url, config!, props).then((data) => data);
+  const pageParams = isCategoryPage
+    ? await getCategoryPageParams(url, config!, props).then((data) => data)
+    : getSearchPageParams(url, props, filtrosDinamicos);
 
   if (!pageParams) return null;
 
@@ -67,7 +64,7 @@ const loaders = async (
     path.product.getProduct({
       offset: offset,
       ...pageParams.productApiProps,
-      ...getSearchParams(url, props.ordenacao),
+      ...getSearchParams(url, ordenacao),
     }),
     { method: "POST" },
   );
@@ -83,12 +80,15 @@ const loaders = async (
   );
 };
 
-const getSearchPageParams = (url: URL, extraParams: Props): PLPPageParams => {
+const getSearchPageParams = (
+  url: URL,
+  extraParams: Props,
+  filtrosDinamicos?: DynamicFilter[],
+): PLPPageParams => {
   const {
     nome,
     id,
     idColecaoProdutos,
-    filtrosDinamicos,
     somenteCronometrosAtivos,
   } = extraParams;
 
