@@ -12,13 +12,14 @@ type Variant = ProductLeaf & {
 
 function OtherColorsShelf({ product }: Props) {
   const id = "other-colors-shelf";
-  const { isVariantOf } = product;
+  const { isVariantOf, sku } = product;
   const { hasVariant } = isVariantOf || {};
 
   const images = hasVariant?.map((variant: Variant) => ({
     image: variant.Imagem,
     alternateName: variant.alternateName,
     url: variant.url,
+    sku: variant.sku,
   }));
 
   return (
@@ -29,31 +30,34 @@ function OtherColorsShelf({ product }: Props) {
       <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-10">
         <div id={id} class="container flex flex-col px-0 sm:px-5">
           <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
-            {images?.map((img, index) => (
-              <div class="flex flex-col">
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 justify-center"
-                >
-                  <a href={img.url} class="hidden md:block">
-                    <img
-                      src={img.image}
-                      alt={img.alternateName}
-                      width="340px"
-                      height="190px"
-                    />
-                  </a>
-                  <a href={img.url} class="md:hidden">
-                    <img
-                      src={img.image}
-                      alt={img.alternateName}
-                      width="260px"
-                      height="190px"
-                    />
-                  </a>
-                </Slider.Item>
-              </div>
-            ))}
+            {images?.map(
+              ({ image, alternateName, url, sku: variantSku }, index) =>
+                variantSku !== sku && (
+                  <div class="flex flex-col">
+                    <Slider.Item
+                      index={index}
+                      class="carousel-item w-full lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 justify-center"
+                    >
+                      <a href={url} class="hidden md:block">
+                        <img
+                          src={image}
+                          alt={alternateName}
+                          width="340px"
+                          height="190px"
+                        />
+                      </a>
+                      <a href={url} class="md:hidden">
+                        <img
+                          src={image}
+                          alt={alternateName}
+                          width="260px"
+                          height="190px"
+                        />
+                      </a>
+                    </Slider.Item>
+                  </div>
+                )
+            )}
           </Slider>
 
           <SliderJS
