@@ -2,7 +2,7 @@ import ProductCard from "$store/components/product/ProductCard.tsx";
 import { useId } from "preact/hooks";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   products?: Product[];

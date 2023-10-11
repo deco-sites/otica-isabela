@@ -82,7 +82,7 @@ const TestimonialItem = ({
 
   const id = useId();
   const memberBadge = membershipBadges?.find(
-    (item) => item.label === memberLevel
+    (item) => item.label === memberLevel,
   );
 
   const descriptionSplit = reviewDescription.split(" ");

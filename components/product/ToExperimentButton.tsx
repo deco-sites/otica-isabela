@@ -44,17 +44,17 @@ const ToExperimentButton = ({
       {/* Experimenter */}
       <div class="w-full flex items-center justify-center">
         <button
-          class={`w-full px-1 py-2 group flex items-center justify-center border border-black rounded-[4px] gap-2 font-bold sm:py-2 lg:rounded-[9px] lg:gap-3 lg:h-14 ${style[variant]} ${sizing[size].style}`}
+          class={`w-full px-1 py-2 group flex items-center justify-center border border-black rounded-[4px] gap-2 font-bold sm:py-2 lg:rounded-[9px] lg:gap-3 lg:h-14 ${
+            style[variant]
+          } ${sizing[size].style}`}
           onClick={toggleExperimenter}
         >
           <span class="hidden lg:flex">
             <Icon
               id="Camera"
-              class={
-                variant === "outlined"
-                  ? "group-hover:invert"
-                  : "group-hover:invert-0"
-              }
+              class={variant === "outlined"
+                ? "group-hover:invert"
+                : "group-hover:invert-0"}
               width={sizing[size].iconW}
               height={sizing[size].iconH}
               filter={variant === "outlined" ? "none" : "invert()"}
@@ -98,7 +98,8 @@ const ToExperimentButton = ({
             width="640"
             height="480"
             src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-          ></iframe>
+          >
+          </iframe>
         </div>
       </Modal>
     </>

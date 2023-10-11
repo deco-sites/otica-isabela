@@ -1,4 +1,3 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
 import {
   APIDynamicFilters,
   Category,
@@ -8,11 +7,14 @@ import {
   ProductListiningPageProps,
 } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { toProductListingPage } from "$store/packs/utils/transform.ts";
-import { Account } from "$store/packs/accounts/configStore.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
+import type {
+  AppContext,
+  StoreProps,
+} from "deco-sites/otica-isabela/apps/site.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
+import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 
 interface PLPPageParams {
   productApiProps: Partial<
@@ -37,11 +39,11 @@ interface PLPPageParams {
 const loaders = async (
   _props: null,
   req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<ProductListingPage | null> => {
-  const { configStore: config } = ctx;
-  const url = new URL(req.url);
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
+  const url = new URL(req.url);
 
   const isCategoryPage = !url.pathname.includes("busca");
 
@@ -81,7 +83,7 @@ const loaders = async (
 
 const getCategoryPageParams = async (
   url: URL,
-  config: Account,
+  config: StoreProps,
 ): Promise<PLPPageParams | null> => {
   const path = paths(config!);
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];

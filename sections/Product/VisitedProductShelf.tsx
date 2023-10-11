@@ -1,18 +1,22 @@
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   header?: IconTitleProps;
   isStopwatchEnabled?: boolean;
 }
 
-export async function loader({ ...props }: Props, req: Request, ctx: Context) {
+export async function loader(
+  { ...props }: Props,
+  req: Request,
+  ctx: AppContext,
+) {
   const cookies = getCookies(req.headers);
   const currentIds: string | undefined = cookies?.[visitedProductsCookie];
   const splitedIds = currentIds?.split(":");
@@ -23,7 +27,7 @@ export async function loader({ ...props }: Props, req: Request, ctx: Context) {
 
   const products = await ctx.invoke(
     "deco-sites/otica-isabela/loaders/product/productList.ts",
-    { id: splitedIds, ordenacao: "none" }
+    { id: splitedIds, ordenacao: "none" },
   );
 
   if (!products) {

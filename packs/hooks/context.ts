@@ -1,7 +1,7 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { signal } from "@preact/signals";
 import { withManifest } from "$live/clients/withManifest.ts";
-import type { Manifest } from "../../live.gen.ts";
+import type { Manifest } from "../../manifest.gen.ts";
 import { OrderForm } from "$store/packs/types.ts";
 
 interface Context {

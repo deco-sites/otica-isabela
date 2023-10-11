@@ -1,9 +1,9 @@
-import { Account } from "$store/packs/accounts/configStore.ts";
+import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
+import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
-import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
 
-const paths = ({ token, publicUrl }: Account) => {
+const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
     if (extraParams) {

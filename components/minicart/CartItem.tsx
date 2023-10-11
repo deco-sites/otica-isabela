@@ -22,7 +22,7 @@ function CartItem({ index, locale, currency }: Props) {
 
   const isGift = ValorDesconto < 0.01;
 
- /*  const withLoading = useCallback(
+  /*  const withLoading = useCallback(
     <A,>(cb: (args: A) => void) =>
       async (e: A) => {
         try {

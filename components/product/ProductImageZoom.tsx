@@ -5,7 +5,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Modal from "$store/components/ui/Modal.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import type { ImageObject } from "deco-sites/std/commerce/types.ts";
+import type { ImageObject } from "apps/commerce/types.ts";
 
 interface Props {
   images: ImageObject[];

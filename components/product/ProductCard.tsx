@@ -2,7 +2,7 @@ import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/islands/ToExperimentButton.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
@@ -79,13 +79,13 @@ function ProductCard({
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
 
   return (
@@ -153,7 +153,7 @@ function ProductCard({
               (property, index) =>
                 `${property?.value}: ${property?.name}mm ${
                   index < description.length - 1 ? "/" : ""
-                } `
+                } `,
             )}
           </p>
         </div>
@@ -165,10 +165,9 @@ function ProductCard({
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background:
-                      unitCodes.length > 1
-                        ? `linear-gradient(${unitCodes.join(", ")})`
-                        : `${unitCodes[0]}`,
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />

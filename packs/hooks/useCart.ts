@@ -1,8 +1,8 @@
 import { OrderForm } from "$store/packs/types.ts";
 import { state as storeState } from "$store/packs/hooks/context.ts";
-import { AnalyticsItem } from "deco-sites/std/commerce/types.ts";
+import { AnalyticsItem } from "apps/commerce/types.ts";
 //import { withManifest } from "$live/clients/withManifest.ts";
-//import type { Manifest } from "../../live.gen.ts";
+//import type { Manifest } from "../../manifest.gen.ts";
 
 const { cart, loading } = storeState;
 /* const Runtime = withManifest<Manifest>(); */

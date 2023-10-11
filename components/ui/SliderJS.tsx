@@ -66,17 +66,17 @@ const setup = ({
   const { desktop, mobile } = itemsPerPage ?? {};
 
   const currentItemsPerPage = window?.matchMedia?.("(min-width: 984px)")
-    ?.matches
+      ?.matches
     ? desktop
     : mobile;
 
   const root = document.getElementById(rootId);
   const slider = root?.querySelector<HTMLUListElement>(
-    `[${ATTRIBUTES["data-slider"]}]`
+    `[${ATTRIBUTES["data-slider"]}]`,
   );
 
   const items = root?.querySelectorAll<HTMLLIElement>(
-    `[${ATTRIBUTES["data-slider-item"]}]`
+    `[${ATTRIBUTES["data-slider-item"]}]`,
   );
   const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
@@ -88,7 +88,7 @@ const setup = ({
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
-      { root, slider, items, rootId }
+      { root, slider, items, rootId },
     );
 
     return;
@@ -117,7 +117,7 @@ const setup = ({
 
     if (!isHTMLElement(item)) {
       console.warn(
-        `Element at index ${index} is not an html element. Skipping carousel`
+        `Element at index ${index} is not an html element. Skipping carousel`,
       );
 
       return;
@@ -216,11 +216,11 @@ const setup = ({
           }
         }
       }),
-    { threshold: THRESHOLD, root: slider }
+    { threshold: THRESHOLD, root: slider },
   );
 
-  const colGap =
-    Number(getComputedStyle(slider).columnGap.replace("px", "")) || 0;
+  const colGap = Number(getComputedStyle(slider).columnGap.replace("px", "")) ||
+    0;
 
   const safeWidth = slider.offsetWidth - colGap * (perPage - 1);
   const cardSize = Math.floor(safeWidth / perPage);
@@ -233,8 +233,9 @@ const setup = ({
   for (let it = 0; it < (dots?.length ?? 0); it++) {
     dots
       ?.item(it)
-      .addEventListener("click", () =>
-        goToItem(perPageDots ? it * Math.floor(perPage) : it)
+      .addEventListener(
+        "click",
+        () => goToItem(perPageDots ? it * Math.floor(perPage) : it),
       );
   }
 
@@ -248,8 +249,9 @@ const setup = ({
     for (let it = 0; it < (dots?.length ?? 0); it++) {
       dots
         ?.item(it)
-        .removeEventListener("click", () =>
-          goToItem(perPageDots ? it * perPage : it)
+        .removeEventListener(
+          "click",
+          () => goToItem(perPageDots ? it * perPage : it),
         );
     }
 
@@ -292,7 +294,7 @@ function Slider({
       itemsPerPage,
       perPageDots,
       hideArrowsOnLast,
-    ]
+    ],
   );
 
   return <div data-slider-controller-js />;

@@ -24,7 +24,7 @@ import type {
   ProductGroup,
   ProductListingPage,
   PropertyValue,
-} from "deco-sites/std/commerce/types.ts";
+} from "apps/commerce/types.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 type CategoryPageProps =

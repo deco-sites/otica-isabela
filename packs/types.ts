@@ -1,4 +1,4 @@
-import type { Filter, ListItem, Seo } from "deco-sites/std/commerce/types.ts";
+import type { Filter, ListItem, Seo } from "apps/commerce/types.ts";
 
 export type Session = {
   SessionCustomer: SessionCustomer;

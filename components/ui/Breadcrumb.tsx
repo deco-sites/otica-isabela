@@ -1,4 +1,4 @@
-import type { BreadcrumbList } from "deco-sites/std/commerce/types.ts";
+import type { BreadcrumbList } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
 interface Props {

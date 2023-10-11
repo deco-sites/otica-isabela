@@ -1,7 +1,7 @@
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   products?: LoaderReturnType<Product[] | null>;

@@ -1,4 +1,4 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { ISABELA_DIAS_SESSION_COOKIE } from "$store/packs/constants.ts";
 import {
@@ -21,9 +21,9 @@ interface Props {
 const loader = async (
   props: Props,
   _req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<SessionCustomer | null> => {
-  const { configStore: config } = ctx;
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const sessionToken = props.sessionToken;
 

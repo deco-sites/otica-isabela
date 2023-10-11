@@ -6,7 +6,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 
 export interface BannersProps {

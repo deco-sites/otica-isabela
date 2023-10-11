@@ -1,4 +1,4 @@
-import { PropertyValue } from "deco-sites/std/commerce/types.ts";
+import { PropertyValue } from "apps/commerce/types.ts";
 
 const targetNames = [
   "Altura da Lente",
