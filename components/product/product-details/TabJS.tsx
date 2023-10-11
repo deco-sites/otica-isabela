@@ -49,9 +49,9 @@ const setup = ({ rootId }: Props) => {
   });
 };
 
-const ProductTabJS = ({ rootId }: Props) => {
+const TabJS = ({ rootId }: Props) => {
   useEffect(() => setup({ rootId }), [rootId]);
   return <div data-tab-controller-js />;
 };
 
-export default ProductTabJS;
+export default TabJS;

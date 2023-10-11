@@ -1,4 +1,4 @@
-import ProductTabJS from "deco-sites/otica-isabela/islands/ProductTabJS.tsx";
+import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { Product } from "deco-sites/std/commerce/types.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
@@ -40,13 +40,18 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           #descricao-content > div > p:last-child {
             display: none
           }
+          
           #descricao-content > div > p {
             margin: 0 0 10px;
             font-size: 15px;
             font-weight: 400;
           }
           
-          #descricao-content > div > p > span { 
+          #descricao-content p:nth-child(-n+7) > span {
+            display: flex;
+          }
+
+          .collapse-content p:nth-child(-n+7) > span {
             display: flex;
           }
           
@@ -116,7 +121,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           );
         })}
       </div>
-      <ProductTabJS rootId={rootId} />
+      <TabJS rootId={rootId} />
     </div>
   );
 }

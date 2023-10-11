@@ -144,10 +144,15 @@ function Details({ page, variant }: Props) {
               )}
             </div>
 
+            {/* Buy with lens label */}
+            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
+              <span>Compre com lentes de grau e pague só R$ {price}</span>
+            </div>
+
             {/* Dots - Mobile & Desktop */}
             <ul
               id="image-dots"
-              class="w-[90%] mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+              class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
             >
               {images.map((img, index) => (
                 <li class="min-w-[92px] flex items-center px-1 bg-white border-black">

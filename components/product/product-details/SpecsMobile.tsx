@@ -1,5 +1,4 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import ProductCollapseJS from "deco-sites/otica-isabela/islands/ProductCollapseJS.tsx";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { Product } from "deco-sites/std/commerce/types.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
@@ -32,31 +31,8 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   );
 
   return (
-    <div id="section" class="border-t border-gray-300 lg:hidden">
-      <style
-        type="text/css"
-        dangerouslySetInnerHTML={{
-          __html: `
-          #medidas-content, 
-          #descricao-content,
-          #acessorios-inclusos-content,
-          #como-comprar-content,
-          #como-fazemos-as-lentes-de-grau-content {
-            overflow: hidden;
-            transition: max-height 0.15s ease-in-out;
-            transition: max-width 0.15s ease-in-out;
-            max-height: 100%;
-            max-width: 100%;
-          }
-
-          .hide {
-            max-width: 0 !important;
-            max-height: 0 !important;
-          }
-          `,
-        }}
-      />
-      <div id={rootId} class="w-[90%] m-auto mt-2">
+    <div id="specs-mobile" class="border-t border-gray-300 lg:hidden">
+      <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-[20px]">
         {panels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
@@ -64,21 +40,16 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             .replace(/[?]/g, "");
 
           return (
-            <div id="collapse-container" class="mb-5">
+            <div class="collapse rounded-none">
               {/* Title */}
-              <div
-                id={`${id}-item`}
-                class="flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase font-bold text-sm shadow-md"
-              >
+              <input type="checkbox" />
+              <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase font-bold text-sm">
                 {name}
                 <Icon id="ArrowDown" size={10} filter="invert(1)" />
               </div>
 
               {/* Content */}
-              <div
-                id={`${id}-content`}
-                class="border border-t-0 border-gray-300 hide"
-              >
+              <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
                 {id === "medidas" ? (
                   <ProductDetailsMeasurements
                     product={product}
@@ -94,8 +65,6 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             </div>
           );
         })}
-
-        <ProductCollapseJS rootId={rootId} />
       </div>
     </div>
   );
