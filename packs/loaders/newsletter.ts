@@ -33,9 +33,7 @@ const loader = async (
   const path = paths(config!);
 
   if (!props.email || !props.celular) {
-    return {
-      wasShopperInserted: false,
-    };
+    return { wasShopperInserted: false };
   }
 
   const wasShopperInserted = await fetchAPI<boolean>(
