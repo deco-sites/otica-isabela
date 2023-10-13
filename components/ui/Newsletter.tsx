@@ -1,4 +1,4 @@
-import Modal from "$store/components/ui/Modal.tsx";
+import Modal, { Props as ModalProps } from "$store/components/ui/Modal.tsx";
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import { useSignal } from "@preact/signals";
@@ -43,8 +43,7 @@ export default function Newsletter({
     return null;
   }
 
-  const modalMode = useSignal("");
-  const modalAlertMensage = useSignal("");
+  const modalAlert = useSignal({ message: "", mode: "" });
   const loading = useSignal(false);
 
   const phoneMask = (value: string) => {
@@ -66,24 +65,34 @@ export default function Newsletter({
       ?.value;
 
     if (!phoneRegex.test(phone)) {
-      modalAlertMensage.value =
-        "Por favor, insira um telefone válido no formato (xx)xxxxx-xxxx.";
+      modalAlert.value = {
+        message:
+          "Por favor, insira um telefone válido no formato (xx)xxxxx-xxxx.",
+        mode: "danger",
+      };
       return;
     }
 
     if (!emailRegex.test(email)) {
-      modalAlertMensage.value = "Favor Informar um email válido!";
+      modalAlert.value = {
+        message: "Favor informar um email válido.",
+        mode: "danger",
+      };
       return;
     }
 
     try {
       loading.value = true;
       await subscribe({ email, nome: name, celular: phone });
-      modalAlertMensage.value = "Obrigado por se inscrever!";
-      modalMode.value = "success";
+      modalAlert.value = {
+        message: "Obrigado por se inscrever!",
+        mode: "success",
+      };
     } catch (e) {
-      modalAlertMensage.value =
-        "Houve um erro interno. Por favor, tente novamente";
+      modalAlert.value = {
+        message: "Houve um erro interno. Por favor, tente novamente.",
+        mode: "danger",
+      };
     } finally {
       loading.value = false;
     }
@@ -138,18 +147,20 @@ export default function Newsletter({
         </div>
       </section>
       <Modal
-        title={String(modalMode) !== "" ? "successo" : "Atenção"}
-        mode={String(modalMode) !== "" ? "success" : "danger"}
+        title={modalAlert.value.mode === "sucess" ? "Successo" : "Atenção"}
+        mode={modalAlert.value.mode as ModalProps["mode"]}
         loading="lazy"
         successRedirectLink={successRedirectLink}
-        open={modalAlertMensage.value !== ""}
+        open={modalAlert.value.message !== ""}
         onClose={() => {
-          modalAlertMensage.value = "";
-          modalMode.value = "";
+          modalAlert.value = {
+            message: "",
+            mode: "",
+          };
         }}
       >
         <div class="bg-white w-full flex justify-center items-center pt-4 pb-5">
-          <p>{modalAlertMensage}</p>
+          <p>{modalAlert.value.message}</p>
         </div>
       </Modal>
     </>
