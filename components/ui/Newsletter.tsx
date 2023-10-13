@@ -3,6 +3,13 @@ import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
+import { withManifest } from "$live/clients/withManifest.ts";
+import type { Manifest } from "../../manifest.gen.ts";
+const Runtime = withManifest<Manifest>();
+
+const subscribe = Runtime.create(
+  "deco-sites/otica-isabela/loaders/store/newsletter.ts"
+);
 
 export interface Props {
   hideNewsletter?: boolean;
@@ -24,22 +31,21 @@ export interface Props {
   helpText?: string;
 }
 
-export default function Newsletter(
-  {
-    buttonText,
-    helpText,
-    placeholder,
-    hideNewsletter,
-    successRedirectLink,
-    newLetterHeader,
-  }: Props,
-) {
+export default function Newsletter({
+  buttonText,
+  helpText,
+  placeholder,
+  hideNewsletter,
+  successRedirectLink,
+  newLetterHeader,
+}: Props) {
   if (hideNewsletter) {
     return null;
   }
 
   const modalMode = useSignal("");
   const modalAlertMensage = useSignal("");
+  const loading = useSignal(false);
 
   const phoneMask = (value: string) => {
     return value
@@ -47,7 +53,7 @@ export default function Newsletter(
       .replace(/(\d{2})(\d)/, "($1) $2")
       .replace(/(\d{5})(\d)/, "$1-$2");
   };
-  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const phoneRegex = /^\(\d{2}\)\s\d{5}-\d{4}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,17 +76,24 @@ export default function Newsletter(
       return;
     }
 
-    modalAlertMensage.value = "Obrigado por se inscrever!";
-    modalMode.value = "success";
+    try {
+      loading.value = true;
+      await subscribe({ email, nome: name, celular: phone });
+      modalAlertMensage.value = "Obrigado por se inscrever!";
+      modalMode.value = "success";
+    } catch (e) {
+      modalAlertMensage.value =
+        "Houve um erro interno. Por favor, tente novamente";
+    } finally {
+      loading.value = false;
+    }
   };
 
   return (
     <>
       <section class="w-full bg-blue-200  ">
         <div class="flex flex-col justify-center items-center w-full ">
-          <IconTitle
-            {...newLetterHeader}
-          />
+          <IconTitle {...newLetterHeader} />
           <form
             action="#"
             class="flex flex-col gap-3 w-full md:max-w-[70%] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"
@@ -111,6 +124,7 @@ export default function Newsletter(
             <button
               class="bg-black text-white text-base uppercase font-bold rounded-xl w-full md:max-w-sm h-14 md:h-20 mb-3 mt-0 md:mt-12"
               type="submit"
+              disabled={loading}
             >
               {buttonText}
             </button>

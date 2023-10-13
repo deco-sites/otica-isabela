@@ -296,3 +296,7 @@ export interface APIGetTestimonials {
   Index: number;
   IdProduto: number;
 }
+
+export interface APIAddNewsletter {
+  wasShopperInserted: boolean
+}
