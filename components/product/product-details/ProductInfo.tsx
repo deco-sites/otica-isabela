@@ -5,20 +5,27 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { product, breadcrumbList } = page;
-  const { productID, offers, name, url, isVariantOf, additionalProperty } =
+  const { productID, offers, name, url, isVariantOf, additionalProperty, sku } =
     product;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
+    (prop) => prop.propertyID === "color"
   );
   const colors = colorsList?.map((color) => color.unitCode);
+  const addToCard = {
+    idProduct: Number(productID),
+    sku: Number(sku),
+    price: price!,
+    name: name!,
+  };
 
   return (
     <>
@@ -49,9 +56,10 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             <span
               class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
               style={{
-                background: colors && colors?.length > 1
-                  ? `linear-gradient(${colors.join(", ")})`
-                  : colors?.[0],
+                background:
+                  colors && colors?.length > 1
+                    ? `linear-gradient(${colors.join(", ")})`
+                    : colors?.[0],
               }}
             />
           </div>
@@ -74,9 +82,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] lg:max-w-[80%] w-full flex items-center">
-        <button class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
-          Comprar Clipon
-        </button>
+        <AddToCartButton {...addToCard} />
         <div class="ml-2">
           <WishlistButton
             productGroupID={isVariantOf?.productGroupID}

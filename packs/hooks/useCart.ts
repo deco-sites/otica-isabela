@@ -1,11 +1,11 @@
 import { OrderForm } from "$store/packs/types.ts";
 import { state as storeState } from "$store/packs/hooks/context.ts";
 import { AnalyticsItem } from "apps/commerce/types.ts";
-//import { withManifest } from "$live/clients/withManifest.ts";
-//import type { Manifest } from "../../manifest.gen.ts";
+import { withManifest } from "$live/clients/withManifest.ts";
+import type { Manifest } from "$store/manifest.gen.ts";
 
 const { cart, loading } = storeState;
-/* const Runtime = withManifest<Manifest>(); */
+const Runtime = withManifest<Manifest>();
 
 export const mapOrderFormItemsToAnalyticsItems = (
   orderForm: Pick<OrderForm, "products">,
@@ -29,22 +29,22 @@ export const mapOrderFormItemsToAnalyticsItems = (
   }));
 };
 
-/* const wrap =
+const wrap =
   <T>(action: (p: T, init?: RequestInit | undefined) => Promise<OrderForm>) =>
   (p: T) =>
     storeState.enqueue(async (signal) => ({
       cart: await action(p, { signal }),
+      loading: false
     }));
- */
+
 const state = {
   cart,
   loading,
 
-  /* addItems: wrap(
-    Runtime.create("salesforce-integration/actions/cart/addItems.ts"),
+  addItems: wrap(
+    Runtime.create("deco-sites/otica-isabela/loaders/actions/addItem.ts"),
   ),
-  TODO: ADD ITEMS
-  */
+
   mapItemsToAnalyticsItems: mapOrderFormItemsToAnalyticsItems,
 };
 

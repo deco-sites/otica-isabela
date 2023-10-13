@@ -50,6 +50,7 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaTermina,
     Paineis,
     DescricaoSeo,
+    IdSku
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
@@ -66,7 +67,7 @@ export function toProduct(product: IsabelaProduct): Product {
     url: toUrl(UrlFriendlyColor),
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai, NomeCategoria]),
-    sku: `${IdProduct}`,
+    sku: `${IdSku}`,
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
     image: productImages.map((image): ImageObject => ({

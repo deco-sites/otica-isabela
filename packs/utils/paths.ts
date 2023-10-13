@@ -49,6 +49,12 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         href(`${base}/DadosCarrinho?token=${token}`, {
           idClienteSessao: clientId,
         }),
+      addCart: (idProduct: number, sku: number, clientSession: number) =>
+        href(`${base}/AddCarrinho?token=${token}`, {
+          idProduto: idProduct,
+          idOptionValue: sku,
+          idClienteSessao: clientSession,
+        }),
     },
     testimonials: {
       getTestimonials: (
