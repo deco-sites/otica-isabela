@@ -7,6 +7,7 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import { useId } from "preact/hooks";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -168,6 +169,14 @@ function Details({ page, variant }: Props) {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Ratings */}
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <Ratings />
+            <a href="#product-review" class="text-lg font-bold">
+              Veja as avaliações
+            </a>
           </div>
 
           {/* Price & Color - Mobile */}

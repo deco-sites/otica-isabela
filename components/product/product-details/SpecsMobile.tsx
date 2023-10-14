@@ -39,10 +39,14 @@ function SpecsMobile({ product, measurementsImage }: Props) {
           .collapse-content iframe { 
             width: 100%;
           }
+
+          .collapse input[type="checkbox"] {
+            min-height: 45px
+          }
           `,
         }}
       />
-      <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-1">
+      <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-4">
         {panels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
