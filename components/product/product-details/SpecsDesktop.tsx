@@ -58,6 +58,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           #descricao-content > div > p > span > img {
             height: 20px;
           }
+          
           #como-fazemos-as-lentes-de-grau-content iframe, 
           #como-comprar-content iframe { 
             width: 100%;

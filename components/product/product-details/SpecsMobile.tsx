@@ -32,7 +32,17 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
   return (
     <div id="specs-mobile" class="border-t border-gray-300 lg:hidden">
-      <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-[20px]">
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `
+          .collapse-content iframe { 
+            width: 100%;
+          }
+          `,
+        }}
+      />
+      <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-1">
         {panels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
@@ -43,7 +53,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             <div class="collapse rounded-none">
               {/* Title */}
               <input type="checkbox" />
-              <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase font-bold text-sm">
+              <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase text-sm min-h-[45px] max-h-[45px]">
                 {name}
                 <Icon id="ArrowDown" size={10} filter="invert(1)" />
               </div>
