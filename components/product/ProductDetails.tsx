@@ -27,11 +27,12 @@ function ProductDetails({
    * than two images, render a front-back, otherwhise render a slider
    * Remove one of them and go with the best suited for your use case.
    */
-  const variant = maybeVar === "auto"
-    ? page?.product.image?.length && page?.product.image?.length < 2
-      ? "front-back"
-      : "slider"
-    : maybeVar;
+  const variant =
+    maybeVar === "auto"
+      ? page?.product.image?.length && page?.product.image?.length < 2
+        ? "front-back"
+        : "slider"
+      : maybeVar;
 
   return (
     <div class="lg:bg-gray-scale-100">
@@ -52,12 +53,14 @@ export function loader({ ...props }: Props, req: Request, ctx: AppContext) {
   const newIds = currentIds.some((id) => id === productId)
     ? currentIds
     : currentIds.concat([productId]);
-
-  setCookie(ctx.response.headers, {
-    name: visitedProductsCookie,
-    value: newIds?.join(":"),
-    path: "/",
-  });
+    
+  if (productId) {
+    setCookie(ctx.response.headers, {
+      name: visitedProductsCookie,
+      value: newIds?.join(":"),
+      path: "/",
+    });
+  }
 
   return { ...props };
 }

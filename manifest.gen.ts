@@ -9,7 +9,8 @@ import * as $$$3 from "./loaders/product/productList.ts";
 import * as $$$4 from "./loaders/product/productListiningPage.ts";
 import * as $$$5 from "./loaders/product/suggestions.ts";
 import * as $$$6 from "./loaders/product/testimonials.ts";
-import * as $$$7 from "./loaders/store/session.ts";
+import * as $$$7 from "./loaders/store/newsletter.ts";
+import * as $$$8 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$1 from "./sections/Content/About.tsx";
 import * as $$$$$$2 from "./sections/Content/Benefits.tsx";
@@ -53,7 +54,8 @@ const manifest = {
     "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$4,
     "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$5,
     "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$6,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$7,
+    "deco-sites/otica-isabela/loaders/store/newsletter.ts": $$$7,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$8,
   },
   "sections": {
     "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$0,
