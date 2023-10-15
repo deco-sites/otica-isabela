@@ -2,7 +2,7 @@ import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts"
 import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
-
+import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts"
 const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
@@ -63,6 +63,11 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         },
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
+    newsletter: {
+      getNewsletter: (
+        props: NewsletterProps
+      ) => href(`${base}/AddNewsletter?token=${token}`, props)
+    }
   };
 };
 
