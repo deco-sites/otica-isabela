@@ -12,6 +12,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { Variant } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 interface Props {
   page: ProductDetailsPage;
@@ -25,14 +26,15 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages = product.isVariantOf?.hasVariant
-    .flatMap((p) => p.image)
-    .reduce((acc, img) => {
-      if (img?.url) {
-        acc[imageNameFromURL(img.url)] = img.url;
-      }
-      return acc;
-    }, {} as Record<string, string>) ?? {};
+  const allImages =
+    product.isVariantOf?.hasVariant
+      .flatMap((p) => p.image)
+      .reduce((acc, img) => {
+        if (img?.url) {
+          acc[imageNameFromURL(img.url)] = img.url;
+        }
+        return acc;
+      }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -43,22 +45,28 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 
 function Details({ page, variant }: Props) {
   const { product, breadcrumbList } = page;
-  const { name, productID, offers, isVariantOf, additionalProperty, url } =
+  const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
+    (prop) => prop.propertyID === "color"
   );
   const colors = colorsList?.map((color) => color.unitCode);
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
+  const addToCard = {
+    idProduct: Number(productID),
+    sku: Number(sku),
+    price: price!,
+    name: name!,
+  };
 
   /**
    * Product slider variant
@@ -185,9 +193,10 @@ function Details({ page, variant }: Props) {
                 <span
                   class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                   style={{
-                    background: colors && colors?.length > 1
-                      ? `linear-gradient(${colors.join(", ")})`
-                      : colors?.[0],
+                    background:
+                      colors && colors?.length > 1
+                        ? `linear-gradient(${colors.join(", ")})`
+                        : colors?.[0],
                   }}
                 />
               </div>
@@ -204,9 +213,7 @@ function Details({ page, variant }: Props) {
               </a>
             </div>
             <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-              <button class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
-                Comprar Armação
-              </button>
+              <AddToCartButton {...addToCard} />
             </div>
           </div>
 

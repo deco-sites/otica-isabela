@@ -2,13 +2,13 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $$$0 from "./loaders/product/cart.ts";
-import * as $$$1 from "./loaders/product/productDetails.ts";
-import * as $$$2 from "./loaders/product/productList.ts";
-import * as $$$3 from "./loaders/product/productListiningPage.ts";
-import * as $$$4 from "./loaders/product/suggestions.ts";
-import * as $$$5 from "./loaders/product/testimonials.ts";
-import * as $$$6 from "./loaders/store/newsletter.ts";
+import * as $$$0 from "./loaders/actions/addItem.ts";
+import * as $$$1 from "./loaders/product/cart.ts";
+import * as $$$2 from "./loaders/product/productDetails.ts";
+import * as $$$3 from "./loaders/product/productList.ts";
+import * as $$$4 from "./loaders/product/productListiningPage.ts";
+import * as $$$5 from "./loaders/product/suggestions.ts";
+import * as $$$6 from "./loaders/product/testimonials.ts";
 import * as $$$7 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$1 from "./sections/Content/About.tsx";
@@ -46,13 +46,13 @@ import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
 const manifest = {
   "loaders": {
-    "deco-sites/otica-isabela/loaders/product/cart.ts": $$$0,
-    "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$1,
-    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$2,
-    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$3,
-    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$4,
-    "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$5,
-    "deco-sites/otica-isabela/loaders/store/newsletter.ts": $$$6,
+    "deco-sites/otica-isabela/loaders/actions/addItem.ts": $$$0,
+    "deco-sites/otica-isabela/loaders/product/cart.ts": $$$1,
+    "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$2,
+    "deco-sites/otica-isabela/loaders/product/productList.ts": $$$3,
+    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$4,
+    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$5,
+    "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$6,
     "deco-sites/otica-isabela/loaders/store/session.ts": $$$7,
   },
   "sections": {

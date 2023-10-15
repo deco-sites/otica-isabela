@@ -1,8 +1,8 @@
 import { useComputed, useSignal } from "@preact/signals";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
-import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
+/* import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
+import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts"; */
 
 interface Props {
   productID: string;
@@ -15,7 +15,7 @@ function WishlistButton({
   productGroupID,
   productID,
 }: Props) {
-  const { user } = useUser();
+  /* const { user } = useUser();
   const item = { sku: productID, productId: productGroupID };
   const { loading, addItem, removeItem, getItem } = useWishlist();
   const listItem = useComputed(() => getItem(item));
@@ -23,10 +23,10 @@ function WishlistButton({
 
   const isUserLoggedIn = Boolean(user.value?.email);
   const inWishlist = Boolean(listItem.value);
-
+ */
   return (
     <Button
-      class={variant === "icon"
+      /* class={variant === "icon"
         ? "btn-circle btn-ghost gap-2"
         : "btn-primary btn-outline gap-2"}
       loading={fetching.value}
@@ -53,15 +53,15 @@ function WishlistButton({
         } finally {
           fetching.value = false;
         }
-      }}
+      }} */
     >
       <Icon
         id="WishListHeart"
         class="w-[24px] h-[24px] md:w-[33px] md:h-[29px]"
         strokeWidth={2}
-        fill={inWishlist ? "black" : "none"}
+        /* fill={inWishlist ? "black" : "none"} */
       />
-      {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"}
+      {/* {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"} */}
     </Button>
   );
 }

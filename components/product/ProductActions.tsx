@@ -1,16 +1,6 @@
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import {
-  Options as UseAddToCartProps,
-  useAddToCart,
-} from "$store/sdk/useAddToCart.ts";
-
-interface Props extends UseAddToCartProps {
-  /**
-   * @description Product id
-   */
-  sellerId: string;
-}
+import { Options as Props, useAddToCart } from "$store/sdk/useAddToCart.ts";
 
 export const ToExperimentButton = () => {
   return (
@@ -28,25 +18,20 @@ export const ToExperimentButton = () => {
   );
 };
 
-export const AddToCartButton = ({
-  skuId,
-  sellerId,
-  discount,
-  price,
-  productGroupId,
-  name,
-}: Props) => {
+export const AddToCartButton = ({ idProduct, sku, price, name }: Props) => {
   const props = useAddToCart({
-    skuId,
-    sellerId,
-    discount,
+    idProduct,
+    sku,
     price,
-    productGroupId,
     name,
   });
 
   return (
-    <Button data-deco="add-to-cart" {...props} class="btn-primary">
+    <Button
+      data-deco="add-to-cart"
+      {...props}
+      class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:bg-orange-500 hover:text-white hover:border-orange-500"
+    >
       Adicionar à Sacola
     </Button>
   );
