@@ -27,12 +27,11 @@ function ProductDetails({
    * than two images, render a front-back, otherwhise render a slider
    * Remove one of them and go with the best suited for your use case.
    */
-  const variant =
-    maybeVar === "auto"
-      ? page?.product.image?.length && page?.product.image?.length < 2
-        ? "front-back"
-        : "slider"
-      : maybeVar;
+  const variant = maybeVar === "auto"
+    ? page?.product.image?.length && page?.product.image?.length < 2
+      ? "front-back"
+      : "slider"
+    : maybeVar;
 
   return (
     <div class="lg:bg-gray-scale-100">

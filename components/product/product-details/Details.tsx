@@ -26,15 +26,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages =
-    product.isVariantOf?.hasVariant
-      .flatMap((p) => p.image)
-      .reduce((acc, img) => {
-        if (img?.url) {
-          acc[imageNameFromURL(img.url)] = img.url;
-        }
-        return acc;
-      }, {} as Record<string, string>) ?? {};
+  const allImages = product.isVariantOf?.hasVariant
+    .flatMap((p) => p.image)
+    .reduce((acc, img) => {
+      if (img?.url) {
+        acc[imageNameFromURL(img.url)] = img.url;
+      }
+      return acc;
+    }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -52,14 +51,14 @@ function Details({ page, variant }: Props) {
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color"
+    (prop) => prop.propertyID === "color",
   );
   const colors = colorsList?.map((color) => color.unitCode);
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
   const addToCard = {
     idProduct: Number(productID),
@@ -110,7 +109,6 @@ function Details({ page, variant }: Props) {
           <div class="flex items-center">
             <ShareButton link={url!} />
             <WishlistButton
-              productGroupID={isVariantOf?.productGroupID}
               productID={productID}
             />
           </div>
@@ -193,10 +191,9 @@ function Details({ page, variant }: Props) {
                 <span
                   class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                   style={{
-                    background:
-                      colors && colors?.length > 1
-                        ? `linear-gradient(${colors.join(", ")})`
-                        : colors?.[0],
+                    background: colors && colors?.length > 1
+                      ? `linear-gradient(${colors.join(", ")})`
+                      : colors?.[0],
                   }}
                 />
               </div>

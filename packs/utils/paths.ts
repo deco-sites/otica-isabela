@@ -2,7 +2,7 @@ import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts"
 import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
-import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts"
+import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts";
 const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
@@ -65,9 +65,21 @@ const paths = ({ token, publicUrl }: StoreProps) => {
     },
     newsletter: {
       getNewsletter: (
-        props: NewsletterProps
-      ) => href(`${base}/AddNewsletter?token=${token}`, props)
-    }
+        props: NewsletterProps,
+      ) => href(`${base}/AddNewsletter?token=${token}`, props),
+    },
+    wishlist: {
+      addWishlist: (idProduct: number, clientSession: number) =>
+        href(`${base}/AddFavoritoProduto?token=${token}`, {
+          idProduto: idProduct,
+          idClienteSessao: clientSession,
+        }),
+      removeWishlist: (idProduct: number, clientSession: number) =>
+        href(`${base}/RemoveFavoritoProduto?token=${token}`, {
+          idProduto: idProduct,
+          idClienteSessao: clientSession,
+        }),
+    },
   };
 };
 

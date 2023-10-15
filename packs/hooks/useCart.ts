@@ -34,7 +34,7 @@ const wrap =
   (p: T) =>
     storeState.enqueue(async (signal) => ({
       cart: await action(p, { signal }),
-      loading: false
+      loading: false,
     }));
 
 const state = {
@@ -42,7 +42,7 @@ const state = {
   loading,
 
   addItems: wrap(
-    Runtime.create("deco-sites/otica-isabela/loaders/actions/addItem.ts"),
+    Runtime.create("deco-sites/otica-isabela/loaders/actions/cart/addItem.ts"),
   ),
 
   mapItemsToAnalyticsItems: mapOrderFormItemsToAnalyticsItems,

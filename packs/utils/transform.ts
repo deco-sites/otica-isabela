@@ -50,7 +50,7 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaTermina,
     Paineis,
     DescricaoSeo,
-    IdSku
+    IdSku,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);

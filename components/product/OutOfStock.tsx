@@ -9,7 +9,7 @@ interface Props {
 /* const notifyme = Runtime.create("deco-sites/std/actions/vtex/notifyme.ts"); */
 
 function Notify({ productID }: Props) {
- /*  const loading = useSignal(false);
+  /*  const loading = useSignal(false);
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -36,7 +36,9 @@ function Notify({ productID }: Props) {
       <input placeholder="Nome" class="input input-bordered" name="name" />
       <input placeholder="Email" class="input input-bordered" name="email" />
 
-      <button class="btn disabled:loading" /* disabled={loading} */>Enviar</button>
+      <button class="btn disabled:loading" /* disabled={loading} */>
+        Enviar
+      </button>
     </form>
   );
 }

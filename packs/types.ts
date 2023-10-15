@@ -298,5 +298,12 @@ export interface APIGetTestimonials {
 }
 
 export interface APIAddNewsletter {
-  wasShopperInserted: boolean
+  wasShopperInserted: boolean;
+}
+
+export interface WishlistItem {
+  /**
+   * TODO: Type Wishlist API Return
+   */
+  tempProp: boolean;
 }
