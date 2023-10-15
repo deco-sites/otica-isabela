@@ -46,6 +46,8 @@ function ProductDetails({
 export function loader({ ...props }: Props, req: Request, ctx: AppContext) {
   const productId: string | undefined = props.page?.product?.productID ?? "";
 
+  if (!productId) return { ...props };
+
   const cookies = getCookies(req.headers);
   const currentIds: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
@@ -53,14 +55,12 @@ export function loader({ ...props }: Props, req: Request, ctx: AppContext) {
   const newIds = currentIds.some((id) => id === productId)
     ? currentIds
     : currentIds.concat([productId]);
-    
-  if (productId) {
-    setCookie(ctx.response.headers, {
-      name: visitedProductsCookie,
-      value: newIds?.join(":"),
-      path: "/",
-    });
-  }
+
+  setCookie(ctx.response.headers, {
+    name: visitedProductsCookie,
+    value: newIds?.join(":"),
+    path: "/",
+  });
 
   return { ...props };
 }
