@@ -1,24 +1,24 @@
-import Icon from '$store/components/ui/Icon.tsx';
-import { SendEventOnClick } from '$store/sdk/analytics.tsx';
-import { formatPrice } from '$store/sdk/format.ts';
-import { Size } from 'deco-sites/otica-isabela/components/product/Stopwatch.tsx';
-import Stopwatch from 'deco-sites/otica-isabela/islands/Stopwatch.tsx';
-import ToExperimentButton from 'deco-sites/otica-isabela/islands/ToExperimentButton.tsx';
-import { getDescriptions } from 'deco-sites/otica-isabela/sdk/getDescriptions.ts';
-import { getAvailableColors } from 'deco-sites/otica-isabela/sdk/getVariantColors.ts';
-import type { Product } from 'deco-sites/std/commerce/types.ts';
-import { mapProductToAnalyticsItem } from 'deco-sites/std/commerce/utils/productToAnalyticsItem.ts';
-import Image from 'deco-sites/std/components/Image.tsx';
+import Icon from "$store/components/ui/Icon.tsx";
+import { SendEventOnClick } from "$store/sdk/analytics.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
+import { Size } from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
+import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
+import ToExperimentButton from "deco-sites/otica-isabela/islands/ToExperimentButton.tsx";
+import { getDescriptions } from "deco-sites/otica-isabela/sdk/getDescriptions.ts";
+import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface Layout {
   basics?: {
-    contentAlignment?: 'Left' | 'Center';
-    oldPriceSize?: 'Small' | 'Normal';
+    contentAlignment?: "Left" | "Center";
+    oldPriceSize?: "Small" | "Normal";
     ctaText?: string;
   };
   elementsPositions?: {
-    skuSelector?: 'Top' | 'Bottom';
-    favoriteIcon?: 'Top right' | 'Top left';
+    skuSelector?: "Top" | "Bottom";
+    favoriteIcon?: "Top right" | "Top left";
   };
   hide?: {
     productName?: boolean;
@@ -29,8 +29,8 @@ export interface Layout {
     cta?: boolean;
   };
   onMouseOver?: {
-    image?: 'Change image' | 'Zoom image';
-    card?: 'None' | 'Move up';
+    image?: "Change image" | "Zoom image";
+    card?: "None" | "Move up";
     showFavoriteIcon?: boolean;
     showSkuSelector?: boolean;
     showCardShadow?: boolean;
@@ -78,13 +78,13 @@ function ProductCard({
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === 'experimentador'
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
 
   return (
@@ -96,7 +96,7 @@ function ProductCard({
       <SendEventOnClick
         id={id}
         event={{
-          name: 'select_item' as const,
+          name: "select_item" as const,
           params: {
             item_list_name: itemListName,
             items: [
@@ -123,12 +123,12 @@ function ProductCard({
           class="contents"
         >
           <Image
-            src={front ? front.url! : ''}
+            src={front ? front.url! : ""}
             alt={front ? front.alternateName : url}
             width={320}
             height={320}
             preload={preload}
-            loading={preload ? 'eager' : 'lazy'}
+            loading={preload ? "eager" : "lazy"}
             decoding="async"
           />
         </a>
@@ -151,8 +151,8 @@ function ProductCard({
             {description?.map(
               (property, index) =>
                 `${property?.value}: ${property?.name}mm ${
-                  index < description.length - 1 ? '/' : ''
-                }`
+                  index < description.length - 1 ? "/" : ""
+                }`,
             )}
           </p>
         </div>
@@ -164,10 +164,9 @@ function ProductCard({
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background:
-                      unitCodes.length > 1
-                        ? `linear-gradient(${unitCodes.join(', ')})`
-                        : `${unitCodes[0]}`,
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />
