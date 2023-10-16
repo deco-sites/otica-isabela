@@ -16,9 +16,11 @@ const setCookies = (res: Response, tokens: Tokens[]) => {
   tokens.forEach(({ tokenName, tokenValue }) => {
     res.headers.append(
       "Set-Cookie",
-      `${tokenName}=${tokenValue}; Expires=${new Date().setFullYear(
-        new Date().getFullYear() + 1
-      )}; Path=/; Secure; HttpOnly`
+      `${tokenName}=${tokenValue}; Expires=${
+        new Date().setFullYear(
+          new Date().getFullYear() + 1,
+        )
+      }; Path=/; Secure; HttpOnly`,
     );
   });
 };
@@ -31,18 +33,17 @@ export const handler = async (
       Record<string | number | symbol, never>,
       Manifest
     >
-  >
+  >,
 ) => {
   const res = await ctx.next();
   const cookies = getCookies(req.headers);
 
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) return res;
 
-  const sessionToken =
-    cookies[ISABELA_DIAS_SESSION_COOKIE] ??
+  const sessionToken = cookies[ISABELA_DIAS_SESSION_COOKIE] ??
     (
       await ctx.state.invoke(
-        "deco-sites/otica-isabela/loaders/store/session.ts"
+        "deco-sites/otica-isabela/loaders/store/session.ts",
       )
     )?.SessionKey;
 
@@ -50,7 +51,7 @@ export const handler = async (
 
   const customerToken = await ctx.state.invoke(
     "deco-sites/otica-isabela/loaders/store/session.ts",
-    { sessionToken }
+    { sessionToken },
   );
 
   setCookies(res, [

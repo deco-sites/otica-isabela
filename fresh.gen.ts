@@ -13,15 +13,14 @@ import * as $$4 from "./islands/HeaderModals.tsx";
 import * as $$5 from "./islands/HeaderSearchbar.tsx";
 import * as $$6 from "./islands/NavItem.tsx";
 import * as $$7 from "./islands/Newsletter.tsx";
-import * as $$8 from "./islands/OutOfStock.tsx";
-import * as $$9 from "./islands/ProductImageZoom.tsx";
-import * as $$10 from "./islands/PromotionalBar.tsx";
-import * as $$11 from "./islands/SearchControls.tsx";
-import * as $$12 from "./islands/ShareButton.tsx";
-import * as $$13 from "./islands/SliderJS.tsx";
-import * as $$14 from "./islands/Stopwatch.tsx";
-import * as $$15 from "./islands/ToExperimentButton.tsx";
-import * as $$16 from "./islands/WishlistButton.tsx";
+import * as $$8 from "./islands/ProductImageZoom.tsx";
+import * as $$9 from "./islands/PromotionalBar.tsx";
+import * as $$10 from "./islands/SearchControls.tsx";
+import * as $$11 from "./islands/ShareButton.tsx";
+import * as $$12 from "./islands/SliderJS.tsx";
+import * as $$13 from "./islands/Stopwatch.tsx";
+import * as $$14 from "./islands/ToExperimentButton.tsx";
+import * as $$15 from "./islands/WishlistButton.tsx";
 
 const manifest = {
   routes: {
@@ -38,15 +37,14 @@ const manifest = {
     "./islands/HeaderSearchbar.tsx": $$5,
     "./islands/NavItem.tsx": $$6,
     "./islands/Newsletter.tsx": $$7,
-    "./islands/OutOfStock.tsx": $$8,
-    "./islands/ProductImageZoom.tsx": $$9,
-    "./islands/PromotionalBar.tsx": $$10,
-    "./islands/SearchControls.tsx": $$11,
-    "./islands/ShareButton.tsx": $$12,
-    "./islands/SliderJS.tsx": $$13,
-    "./islands/Stopwatch.tsx": $$14,
-    "./islands/ToExperimentButton.tsx": $$15,
-    "./islands/WishlistButton.tsx": $$16,
+    "./islands/ProductImageZoom.tsx": $$8,
+    "./islands/PromotionalBar.tsx": $$9,
+    "./islands/SearchControls.tsx": $$10,
+    "./islands/ShareButton.tsx": $$11,
+    "./islands/SliderJS.tsx": $$12,
+    "./islands/Stopwatch.tsx": $$13,
+    "./islands/ToExperimentButton.tsx": $$14,
+    "./islands/WishlistButton.tsx": $$15,
   },
   baseUrl: import.meta.url,
 };

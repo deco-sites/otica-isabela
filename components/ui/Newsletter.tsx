@@ -8,7 +8,7 @@ import type { Manifest } from "../../manifest.gen.ts";
 const Runtime = withManifest<Manifest>();
 
 const subscribe = Runtime.create(
-  "deco-sites/otica-isabela/loaders/store/newsletter.ts"
+  "deco-sites/otica-isabela/loaders/store/newsletter.ts",
 );
 
 export interface Props {

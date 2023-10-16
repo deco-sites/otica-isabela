@@ -17,7 +17,6 @@ const loader = async (
   req: Request,
   ctx: AppContext,
 ): Promise<OrderForm> => {
-  
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const customerToken = Number(
@@ -42,7 +41,7 @@ const loader = async (
       products: [],
     };
   }
-  
+
   return {
     products: productsCart,
   };
