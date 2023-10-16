@@ -62,14 +62,13 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
         </div>
         <Image
           src={image![0].url!}
-          class="w-full"
           width={550}
           height={307}
           alt="medidas"
         />
         <Image
           src={measurementsImage}
-          class="w-full absolute left-3 lg:left-4 top-0 z-10"
+          class="absolute left-3 lg:left-4 top-0 z-10"
           width={580}
           height={380}
           alt="medidas-do-oculos"

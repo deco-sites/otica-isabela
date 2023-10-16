@@ -4,11 +4,16 @@
 
 import * as $$$0 from "./loaders/product/productList.ts";
 import * as $$$1 from "./loaders/product/productDetails.ts";
-import * as $$$2 from "./loaders/product/productListiningPage.ts";
-import * as $$$3 from "./loaders/product/testimonials.ts";
-import * as $$$4 from "./loaders/product/suggestions.ts";
-import * as $$$5 from "./loaders/product/cart.ts";
-import * as $$$6 from "./loaders/store/session.ts";
+import * as $$$2 from "./loaders/product/wishlist.ts";
+import * as $$$3 from "./loaders/product/productListiningPage.ts";
+import * as $$$4 from "./loaders/product/testimonials.ts";
+import * as $$$5 from "./loaders/product/suggestions.ts";
+import * as $$$6 from "./loaders/product/cart.ts";
+import * as $$$7 from "./loaders/actions/cart/addItem.ts";
+import * as $$$8 from "./loaders/actions/wishlist/removeItem.ts";
+import * as $$$9 from "./loaders/actions/wishlist/addItem.ts";
+import * as $$$10 from "./loaders/store/newsletter.ts";
+import * as $$$11 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/Footer/Footer.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Images/ShoppableBanner.tsx";
@@ -45,13 +50,18 @@ import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
 const manifest = {
   "loaders": {
-    "deco-sites/otica-isabela/loaders/product/cart.ts": $$$5,
+    "deco-sites/otica-isabela/loaders/actions/cart/addItem.ts": $$$7,
+    "deco-sites/otica-isabela/loaders/actions/wishlist/addItem.ts": $$$9,
+    "deco-sites/otica-isabela/loaders/actions/wishlist/removeItem.ts": $$$8,
+    "deco-sites/otica-isabela/loaders/product/cart.ts": $$$6,
     "deco-sites/otica-isabela/loaders/product/productDetails.ts": $$$1,
     "deco-sites/otica-isabela/loaders/product/productList.ts": $$$0,
-    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$2,
-    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$4,
-    "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$3,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$6,
+    "deco-sites/otica-isabela/loaders/product/productListiningPage.ts": $$$3,
+    "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$5,
+    "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$4,
+    "deco-sites/otica-isabela/loaders/product/wishlist.ts": $$$2,
+    "deco-sites/otica-isabela/loaders/store/newsletter.ts": $$$10,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$11,
   },
   "sections": {
     "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$1,

@@ -6,10 +6,11 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { product, breadcrumbList } = page;
-  const { productID, offers, name, url, isVariantOf, additionalProperty } =
+  const { productID, offers, name, url, isVariantOf, additionalProperty, sku } =
     product;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
@@ -20,6 +21,12 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     (prop) => prop.propertyID === "color",
   );
   const colors = colorsList?.map((color) => color.unitCode);
+  const addToCard = {
+    idProduct: Number(productID),
+    sku: Number(sku),
+    price: price!,
+    name: name!,
+  };
 
   return (
     <>
@@ -83,12 +90,9 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] lg:max-w-[80%] w-full flex items-center">
-        <button class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
-          Comprar Clipon
-        </button>
+        <AddToCartButton {...addToCard} />
         <div class="ml-2">
           <WishlistButton
-            productGroupID={isVariantOf?.productGroupID}
             productID={productID}
           />
         </div>

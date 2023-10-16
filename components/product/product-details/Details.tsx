@@ -13,6 +13,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { Variant } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 interface Props {
   page: ProductDetailsPage;
@@ -45,7 +46,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 
 function Details({ page, variant }: Props) {
   const { product, breadcrumbList } = page;
-  const { name, productID, offers, isVariantOf, additionalProperty, url } =
+  const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
@@ -61,6 +62,12 @@ function Details({ page, variant }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
+  const addToCard = {
+    idProduct: Number(productID),
+    sku: Number(sku),
+    price: price!,
+    name: name!,
+  };
 
   /**
    * Product slider variant
@@ -104,7 +111,6 @@ function Details({ page, variant }: Props) {
           <div class="flex items-center">
             <ShareButton link={url!} />
             <WishlistButton
-              productGroupID={isVariantOf?.productGroupID}
               productID={productID}
             />
           </div>
@@ -220,9 +226,7 @@ function Details({ page, variant }: Props) {
               </a>
             </div>
             <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-              <button class="bg-white text-orange-500 border-orange-500 border rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:bg-orange-500 hover:text-white hover:border-orange-500">
-                Comprar Armação
-              </button>
+              <AddToCartButton {...addToCard} />
             </div>
           </div>
 

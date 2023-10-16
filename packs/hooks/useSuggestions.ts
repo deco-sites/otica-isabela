@@ -4,6 +4,7 @@ import type { Suggestion } from "apps/commerce/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
 import type { Manifest } from "../../manifest.gen.ts";
 
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 const payload = signal<Suggestion | null>(null);
 const loading = signal<boolean>(false);

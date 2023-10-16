@@ -1,5 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import { calcRemainingTime } from "deco-sites/otica-isabela/sdk/calcRemainingTime.ts";
+import { calcRemainingTime } from "$store/sdk/calcRemainingTime.ts";
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
@@ -54,7 +54,7 @@ export function StopwatchItem({ label, value, size }: ItemProps) {
       </p>
       <p
         id={`item-${label}-label`}
-        class={`text-black font-normal text-xxs md:text-sm }`}
+        class={`text-black font-bold text-xxs md:text-sm }`}
       >
         {label}
       </p>
@@ -66,14 +66,16 @@ function Stopwatch({ targetDate, size }: Props) {
   const timeRemaining = useSignal<number>(0);
 
   useEffect(() => {
+    if (!targetDate) return;
+
     const interval = setInterval(() => {
       timeRemaining.value = calcRemainingTime(targetDate);
-    });
+    }, 999);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [targetDate]);
 
   const seconds = Math.floor((timeRemaining.value / 1000) % 60);
   const minutes = Math.floor((timeRemaining.value / 1000 / 60) % 60);
@@ -89,12 +91,12 @@ function Stopwatch({ targetDate, size }: Props) {
         {size === Size.card && (
           <div
             id="stopwatch-icon"
-            class="bg-red-500 rounded-md flex items-center justify-center"
+            class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center"
           >
-            <Icon id="Stopwatch" width={40} height={40} class="ml-2" />
+            <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}
-        <div id="stopwatch" class="w-full text-center mt-0 mb-0 ml-1 mr-1">
+        <div id="stopwatch" class="w-full text-center my-0 mx-2.5">
           <p
             class={`${style("font-color", size)} ${
               style(

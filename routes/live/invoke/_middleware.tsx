@@ -24,13 +24,13 @@ const setCookies = (res: Response, tokens: Tokens[]) => {
     );
   });
 };
-
 export const handler = async (
   req: Request,
   ctx: MiddlewareHandlerContext<
     DecoState<
       Record<string | number | symbol, never>,
       Record<string | number | symbol, never>,
+      //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
       Manifest
     >
   >,
@@ -40,8 +40,18 @@ export const handler = async (
 
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) return res;
 
+  const sessionToken = cookies[ISABELA_DIAS_SESSION_COOKIE] ??
+    (
+      await ctx.state.invoke(
+        "deco-sites/otica-isabela/loaders/store/session.ts",
+      )
+    )?.SessionKey;
+
+  if (!sessionToken) return res;
+
   const customerToken = await ctx.state.invoke(
     "deco-sites/otica-isabela/loaders/store/session.ts",
+    { sessionToken },
   );
 
   setCookies(res, [
@@ -51,7 +61,7 @@ export const handler = async (
     },
     {
       tokenName: ISABELA_DIAS_SESSION_COOKIE,
-      tokenValue: String(customerToken?.SessionKey),
+      tokenValue: sessionToken,
     },
   ]);
 

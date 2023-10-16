@@ -51,6 +51,8 @@ function ProductDetails({
 export function loader({ ...props }: Props, req: Request, ctx: AppContext) {
   const productId: string | undefined = props.page?.product?.productID ?? "";
 
+  if (!productId) return { ...props };
+
   const cookies = getCookies(req.headers);
   const currentIds: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];

@@ -296,3 +296,14 @@ export interface APIGetTestimonials {
   Index: number;
   IdProduto: number;
 }
+
+export interface APIAddNewsletter {
+  wasShopperInserted: boolean;
+}
+
+export interface WishlistItem {
+  /**
+   * TODO: Type Wishlist API Return
+   */
+  tempProp: boolean;
+}
