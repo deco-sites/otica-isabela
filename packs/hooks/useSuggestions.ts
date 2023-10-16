@@ -1,9 +1,10 @@
 import { signal } from "@preact/signals";
 import { debounce } from "std/async/debounce.ts";
-import type { Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { Suggestion } from "apps/commerce/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
-import type { Manifest } from "../../live.gen.ts";
+import type { Manifest } from "../../manifest.gen.ts";
 
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 const payload = signal<Suggestion | null>(null);
 const loading = signal<boolean>(false);

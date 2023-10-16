@@ -1,4 +1,4 @@
-import { SortOption } from "deco-sites/std/commerce/types.ts";
+import { SortOption } from "apps/commerce/types.ts";
 export const ISABELA_DIAS_SESSION_COOKIE = "IsabelaDias_SessionCustomerKey";
 export const ISABELA_DIAS_CLIENT_COOKIE = "IsabelaDias_CustomerKey";
 export const SORT_OPTIONS: SortOption[] = [

@@ -6,7 +6,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import { IconTitle } from "$store/components/ui/IconTitle.tsx";
 import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 
 export interface BannersProps {
@@ -50,11 +50,11 @@ function ProductBannerShelf({
                   {image && (
                     <div class="relative">
                       <Image
-                        class=" rounded-3xl"
+                        class="rounded-3xl w-[350px] h-auto"
                         src={image}
                         alt={label}
-                        width={350}
-                        height={350}
+                        width={350 / 2}
+                        height={350 / 2}
                         loading="lazy"
                       />
                       {buttonLabel && (

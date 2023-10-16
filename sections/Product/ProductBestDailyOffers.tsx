@@ -1,30 +1,28 @@
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   products?: LoaderReturnType<Product[] | null>;
-  isStopwatchEnabled?: boolean;
 }
 
-function BestDailyOffers({ products, isStopwatchEnabled }: Props) {
-  if (!products || products.length === 0) {
+function BestDailyOffers({ products }: Props) {
+  if (!products?.length) {
     return null;
   }
 
-  //@ts-ignore temporarily until we have this on Product interface
-  const priceValidUntil = products[0]?.offers?.priceValidUntil;
+  const priceValidUntil = products[0]?.offers?.offers.at(0)?.priceValidUntil;
 
   return (
     priceValidUntil && (
       <div class="w-full flex flex-col gap-12 lg:gap-16 ">
-        <BestOffersHeader priceValidUntil={priceValidUntil} />
+        <BestOffersHeader priceValidUntil={new Date(priceValidUntil)} />
         <ProductShelf
           itemsPerPage={{ desktop: 3, mobile: 1.5 }}
           products={products}
-          itemListName="Produtos Visitados"
-          isStopwatchEnabled={isStopwatchEnabled}
+          itemListName="Ofertas do dia"
+          isStopwatchEnabled
         />
       </div>
     )

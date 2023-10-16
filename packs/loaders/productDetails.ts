@@ -1,8 +1,8 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProductPage } from "$store/packs/utils/transform.ts";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import type { RequestURLParam } from "deco-sites/std/functions/requestToParam.ts";
 
@@ -11,17 +11,17 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Product Details Page
+ * @title Otica Isabela Dias - Product Details Page
  * @description works on routes /produto/:slug
  */
 const loader = async (
   props: Props,
   req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<ProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
-  const { configStore: config } = ctx;
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
 
   if (!slug) return null;
 

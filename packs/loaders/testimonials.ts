@@ -1,4 +1,4 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import {
   APIGetTestimonials,
@@ -35,9 +35,9 @@ export interface Props {
 const loader = async (
   props: Props,
   req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<Review[] | null> => {
-  const { configStore: config } = ctx;
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const { slug, ordenacao, offset, somenteFoto } = props;
   const url = new URL(req.url);

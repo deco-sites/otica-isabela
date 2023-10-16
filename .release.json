@@ -1,0 +1,4528 @@
+{
+  "decohub": {
+    "__resolveType": "deco-sites/otica-isabela/apps/decohub.ts"
+  },
+  "admin-app": {
+    "resolvables": {
+      "__resolveType": "deco-sites/admin/loaders/state.ts"
+    },
+    "__resolveType": "decohub/apps/admin.ts"
+  },
+  "Fun": {
+    "fonts": {
+      "fontFamily": "'Comic Sans MS'"
+    },
+    "mainColors": {
+      "primary": "#ff7598",
+      "base-100": "#ffee00",
+      "tertiary": "#c07ecc",
+      "secondary": "#75d1f0"
+    },
+    "buttonStyle": {
+      "--border-btn": "1px",
+      "--rounded-btn": "0.8rem",
+      "--btn-text-case": "lowercase",
+      "--btn-focus-scale": "0.95"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx",
+    "complementaryColors": {
+      "primary": {
+        "primary-content": "#000000"
+      },
+      "tertiary": {
+        "tertiary-content": "#000000"
+      },
+      "secondary": {
+        "secondary-content": "#000000"
+      }
+    }
+  },
+  "Home": {
+    "name": "Home",
+    "path": "/",
+    "sections": [
+      {
+        "__resolveType": "SEODefault"
+      },
+      {
+        "__resolveType": "Oticas Isabela Custom Theme"
+      },
+      {
+        "__resolveType": "Header - 01"
+      },
+      {
+        "__resolveType": "analytics"
+      },
+      {
+        "__resolveType": "Carousel - 01"
+      },
+      {
+        "image": {
+          "src": {
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ceacf6ac-39c7-43c1-8fa4-6e245f59a826"
+          }
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Images/InformativeBanner.tsx"
+      },
+      {
+        "header": {
+          "hideIcon": true,
+          "firstLineText": "Produtos",
+          "textAlignment": "start",
+          "secondLineText": "VISITADOS",
+          "backgroundColor": "#f8f8f8",
+          "firstLineFontSize": {
+            "mobile": "text-3xl",
+            "desktop": "text-3xl"
+          },
+          "firstLineTextFont": "roboto",
+          "firstLineTextColor": "#42c3ff",
+          "secondLineFontSize": {
+            "mobile": "text-5xl",
+            "desktop": "text-5xl"
+          },
+          "secondLineTextFont": "bebas",
+          "firstLineTextWeight": "medium",
+          "secondLineTextWeight": "bold"
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx",
+        "isStopwatchEnabled": true
+      },
+      {
+        "products": {
+          "id": [],
+          "offset": 9,
+          "ordenacao": "none",
+          "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+          "filtrosDinamicos": [],
+          "somenteCronometrosAtivos": true
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductBestDailyOffers.tsx",
+        "isStopwatchEnabled": true
+      },
+      {
+        "__resolveType": "Para as Mulheres"
+      },
+      {
+        "image": {
+          "alt": "Grau e Sol Juntos",
+          "href": "/oculos-clip-on",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b8f7012a-ff8b-4353-939c-cf98853bb65d",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/dbbc5f85-261b-4f24-b75e-8732115458b6"
+        },
+        "header": {
+          "icon": "GlassesAroClosed",
+          "firstLineText": "Clipon",
+          "secondLineText": "NOVIDADES",
+          "backgroundColor": "#f8f8f8",
+          "firstLineFontSize": {
+            "mobile": "text-xl",
+            "desktop": "text-3xl"
+          },
+          "firstLineTextFont": "roboto",
+          "firstLineTextColor": "#42c3ff",
+          "secondLineFontSize": {
+            "mobile": "text-5xl",
+            "desktop": "text-6xl"
+          },
+          "secondLineTextFont": "bebas",
+          "firstLineTextWeight": "medium"
+        },
+        "products": {
+          "__resolveType": "cliponNews"
+        },
+        "imageAlign": {
+          "mobile": "bottom",
+          "desktop": "right"
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx"
+      },
+      {
+        "banners": [
+          {
+            "alt": "Oculos Epi",
+            "href": "/oculos-de-protecao-com-grau",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/abc3816a-efe3-4f87-9cfe-a9297a950418",
+            "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0584a5ed-4bea-4a7a-9063-fa597421887c",
+            "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e8b4fddb-3f1d-4e04-ac2d-427a8bbf4e3c"
+          },
+          {
+            "alt": "Óculos Esporte",
+            "href": "/oculos-de-protecao-com-grau",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d5b0038f-a0fb-458b-abc7-cbb56b081d01",
+            "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a653f170-7b8f-4d9e-906b-fb3c00c85ead",
+            "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/47ee5bc3-9cd0-487b-bd3f-87c4eeee89da"
+          },
+          {
+            "alt": "Óculos Gamer",
+            "href": "/oculos-gamer",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fc1b1184-2721-4a1a-835c-834703ee24b3",
+            "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/20593abb-ebac-459e-b7df-9300a60024ba",
+            "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/366f39c9-bfee-4738-b1e2-1b739f8b0aba"
+          }
+        ],
+        "borderRadius": {
+          "mobile": "2xl",
+          "desktop": "2xl"
+        },
+        "itemsPerLine": {
+          "desktop": 3
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx"
+      },
+      {
+        "__resolveType": "Para os Homens"
+      },
+      {
+        "text": "Ficar indo de ótica em ótica é coisa do passado!",
+        "image": {
+          "alt": "Oculos Virtual",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/94ac8630-6fe4-4682-8d2d-6055b0786feb",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e1f1e535-0d44-4f74-9a34-151d11828207",
+          "imageAlign": {
+            "mobile": "top",
+            "desktop": "left"
+          }
+        },
+        "title": "Provador de Óculos Virtual",
+        "textAlign": "center",
+        "__resolveType": "deco-sites/otica-isabela/sections/Images/BannerTextButton.tsx"
+      },
+      {
+        "newsletter": {
+          "newLetterHeader": {
+            "firstLineText": "Clipon",
+            "secondLineText": "Feminino",
+            "firstLineFontSize": {
+              "mobile": "text-2xl",
+              "desktop": "text-3xl"
+            },
+            "firstLineTextFont": "roboto",
+            "secondLineFontSize": {
+              "mobile": "text-5xl",
+              "desktop": "text-6xl"
+            },
+            "firstLineTextWeight": "medium"
+          }
+        },
+        "__resolveType": "Clipon Feminino"
+      },
+      {
+        "banners": [
+          {
+            "alt": "sobre nossas lentes de oculos",
+            "href": "/pagina/lentes-de-grau-para-oculos",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/218db9df-579b-4820-8e0d-b15c3070abb5"
+          },
+          {
+            "alt": "lentes de grau para oculos",
+            "href": "/pagina/lentes-de-grau-para-oculos",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a3fd403d-fffd-4c3b-a98e-9ad06886a693"
+          },
+          {
+            "alt": "Como limpar as lentes dos óculos",
+            "href": "/pagina/como-limpar-as-lentes-dos-oculos",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/15075b6e-3ecf-434a-86d9-19254c591f68"
+          }
+        ],
+        "borderRadius": {
+          "mobile": "2xl",
+          "desktop": "2xl"
+        },
+        "itemsPerLine": {
+          "mobile": 1,
+          "desktop": 3
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx"
+      },
+      {
+        "page": {
+          "__resolveType": "homeTestimonials"
+        },
+        "title": "Testimonials",
+        "header": {
+          "icon": "Cloud",
+          "iconSize": {
+            "width": 43,
+            "height": 43
+          },
+          "firstLineText": "confira os",
+          "textAlignment": "start",
+          "secondLineText": "DEPOIMENTOS DE CLIENTES",
+          "backgroundColor": "#f8f8f8",
+          "firstLineFontSize": {
+            "mobile": "text-3xl",
+            "desktop": "text-5xl"
+          },
+          "firstLineTextFont": "roboto",
+          "firstLineTextColor": "#42c3ff",
+          "secondLineFontSize": {
+            "mobile": "text-3xl",
+            "desktop": "text-6xl"
+          },
+          "secondLineTextFont": "bebas",
+          "firstLineTextWeight": "medium",
+          "secondLineTextWeight": "normal"
+        },
+        "description": "Take a look at what our customers are saying",
+        "testimonials": [
+          {
+            "text": "Thrilled with my first Fashion purchase. Seamless process, prompt delivery with free shipping. Exceeded expectations in style and quality!",
+            "user": {
+              "name": "Tiago Gimenes",
+              "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/850df7f9-120e-4155-ae79-c76e737535ee"
+            },
+            "image": {
+              "alt": "deco",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/9dc5dddc-f8b5-4f70-847b-1f91b84ad7dc"
+            }
+          },
+          {
+            "text": "Love shopping at Fashion! Quality products, exceptional service. Hassle-free returns and free shipping. My go-to for stylish fashion!",
+            "user": {
+              "name": "Rafael Crespo",
+              "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/6a595043-fb5b-43b4-b6dd-bd3154e4e595"
+            },
+            "image": {
+              "alt": "deco",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d0a79cf6-6825-4624-884c-f30bda6c3daf"
+            }
+          },
+          {
+            "text": "Fashion is my favorite online retailer. On-trend selection, exceptional quality. Easy returns and 24/7 online support. A delightful shopping experience!",
+            "user": {
+              "name": "Maria Luiza Aires",
+              "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/8327a46f-bb4e-4ae8-8cf2-963d530d3066"
+            },
+            "image": {
+              "alt": "deco",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ca4c79ea-5bd9-42d3-a60a-07c99c5f45c4"
+            }
+          }
+        ],
+        "__resolveType": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx",
+        "membershipBadges": [
+          {
+            "bagde": {
+              "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bdb1802e-2400-4e78-abba-5903761e2c81",
+              "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/5db96d3d-78cf-482d-bd16-b5417282f809"
+            },
+            "label": "gold",
+            "badgeDescription": "Cliente Gold"
+          },
+          {
+            "bagde": {
+              "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6bbe1048-7fa0-421f-a38f-d912065bf675",
+              "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d44afe55-daa4-4c97-bca7-3f5841c7e6c2"
+            },
+            "label": "vip",
+            "badgeDescription": "Cliente Vip"
+          }
+        ]
+      },
+      {
+        "header": {
+          "firstLineText": "Ótica online",
+          "textAlignment": "start",
+          "secondLineText": "Isabela Dias",
+          "firstLineFontSize": {
+            "mobile": "text-xl",
+            "desktop": "text-3xl"
+          },
+          "firstLineTextFont": "roboto",
+          "firstLinefontSize": {
+            "mobile": "text-7xl",
+            "desktop": "text-3xl"
+          },
+          "firstLineTextColor": "#42c3ff",
+          "secondLineFontSize": {
+            "mobile": "text-5xl",
+            "desktop": "text-5xl"
+          },
+          "secondLineTextFont": "roboto",
+          "firstLineTextWeight": "semi-bold",
+          "secondLineTextWeight": "bold"
+        },
+        "firstPart": "<p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">Na maioria das vezes o consumidor é explorado na compra da sua armação de grau, óculos de sol e lentes com valores abusivos, a missão da empresa é a democratização dos óculos. Nós desenvolvemos essa ótica online pensando no cliente, que nos motiva por este trabalho.</span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">A Ótica Isabela Dias fica localizada no interior de São Paulo em Franca SP, despachamos nossos produtos para todo Brasil e para mais de 100 países no exterior. Temos um ambiente online totalmente seguro e criptografado, podendo digitar seus dados tranquilamente.</span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">Nossa ótica online conta com uma estrutura que você já pode comprar a armação com as lentes de grau de uma maneira bem fácil e rápido. Desenvolvemos um provador de óculos, para não ter erro na compra do óculos, show né?! Temos uma estrutura e equipe altamente profissional, nossos técnicos em ótica garantem total qualidade na conferência do grau e montagem final das lentes na armação, repito fique tranquilo seus olhos estão em excelentes mãos.</span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Como escolher a melhor ótica para adquirir seus óculos?</strong></span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">Escolher a ótica certa para adquirir os seus óculos é de fundamental importância. Afinal, a empresa responsável por confeccionar esse item tão essencial, precisa ser escolhida a dedo para você garantir saúde ocular de que precisa e a elegância que quer.</span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">Pensando nisso, hoje trouxemos muitas dicas e informações sobre óticas e como escolher a melhor para mandar fazer os seus óculos.</span></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify;\" data-mce-style=\"text-align: justify;\"><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">Além disso, também vamos te dar algumas dicas valiosas de como escolher seus modelos ideais de óculos, de acordo com sua estrutura facial.</span></p>",
+        "secondPart": "<p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Qual a importância de se escolher uma boa ótica?</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Na hora de fazer seus óculos de grau, você precisa levar várias coisas em consideração para escolher a melhor opção de ótica. Isso porque a empresa responsável por elaborar seus óculos precisa trabalhar com materiais de boa qualidade, ter experiência no ramo e saber o que está fazendo para entregar um produto satisfatório para você.</p><p><br data-mce-bogus=\"1\"></p><p>Afinal de contas, um óculos feito com materiais de qualidade ruim pode até agravar seu problema oftalmológico. Além disso, sem o devido cuidado com os processos de produção dos óculos, eles podem ficar desconfortáveis e não trazer o bom resultado que você espera.</p><p><br data-mce-bogus=\"1\"></p><p>E mesmo que o óculos em questão não seja de grau, mas sim um <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/oculos-de-sol/oculos-de-sol-feminino\" data-mce-href=\"../../../../oculos-de-sol/oculos-de-sol-feminino\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de sol feminino</a></span></span> ou um <a href=\"/oculos-de-sol/oculos-de-sol-masculino\" data-mce-href=\"../../../../oculos-de-sol/oculos-de-sol-masculino\"><span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de sol masculino</span></span> </a>os materiais e a fabricação deles também precisam ser bons.</p><p><br data-mce-bogus=\"1\"></p><p>Afinal, a proteção contra os raios ultravioleta e o excesso de luminosidade também é muito importante para a saúde dos seus olhos.</p><p><br data-mce-bogus=\"1\"></p><p>Como você deve saber, procurar um óculos da <a href=\"/oculos-de-sol\" data-mce-href=\"../../../../oculos-de-sol\"><span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de sol</span></span></a>, para você ou para dar de presente para alguém em fontes não confiáveis pode ser perigoso.</p><p>Os materiais usados para a fabricação de óculos precisam ser atóxicos e próprios para esse fim, o que não acontece com produtos comprados em camelôs e lojas desconhecidas.</p><p><br data-mce-bogus=\"1\"></p><p>Dessa forma, prefira sempre escolher uma ótica séria e responsável para comprar seus <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/armacao-para-oculos-de-grau/oculos-de-grau-feminina\" data-mce-href=\"../../../../armacao-para-oculos-de-grau/oculos-de-grau-feminina\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de grau feminino</a></span></span>, masculino ou <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><a href=\"/armacao-para-oculos-de-grau/oculos-de-grau-infantil\" data-mce-href=\"../../../../armacao-para-oculos-de-grau/oculos-de-grau-infantil\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de grau infantil</span></a></span>.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Como escolher uma boa ótica?</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Como já vimos, não é bom confiar em qualquer loja, seja física ou online, para comprar seus óculos de grau ou de sol.</p><p><br data-mce-bogus=\"1\"></p><p>Por isso, você deve seguir alguns critérios para se decidir pela melhor ótica onde adquirir os óculos dos quais necessita ou os quais deseja.</p><p><br data-mce-bogus=\"1\"></p><p>Para te ajudar com isso, trouxemos algumas medidas que você pode aplicar na prática para escolher sua ótica online ou física. Acompanhe e confira!</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Pesquise sobre a empresa:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Com os avanços tecnológicos cada vez mais populares, pesquisar sobre alguma coisa na internet é simples e rápido.</p><p><br data-mce-bogus=\"1\"></p><p>Sendo assim, você pode usar os mecanismos de busca online para saber mais sobre a ótica na qual está pensando em comprar óculos.</p><p><br data-mce-bogus=\"1\"></p><p>Você pode fazer buscas no Google, por exemplo, em sites de opinião de clientes, como o \"Reclame aqui\" e nas redes sociais.</p><p>Além disso, analisar a fundo o site da empresa também pode ser de grande valia. Afinal, lá você encontra a descrição detalhada dos produtos, com a lista de materiais dos quais são fabricados, opiniões de quem já comprou, etc.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Converse com pessoas que usam óculos:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Outra forma muito útil para escolher uma boa ótica é perguntar para as pessoas que usam óculos onde elas os compraram e se ficaram satisfeitas com a compra.</p><p><br data-mce-bogus=\"1\"></p><p>A opinião de consumidores já acostumados com um produto geralmente ajuda muito na decisão de consumo de qualquer produto, o que inclui óculos.</p><p><br data-mce-bogus=\"1\"></p><p>Você mesmo com certeza já deve ter passado por alguma situação em que alguém o viu com um lindo<span style=\"color: rgb(105, 192, 249);\" data-mce-style=\"color: rgb(105, 192, 249);\"> <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><a href=\"/oculos-gamer\" data-mce-href=\"../../../../oculos-gamer\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos gamer</a></span></span>, por exemplo, e alguém te perguntou onde você adquiriu.</p><p><br data-mce-bogus=\"1\"></p><p>Desse modo, você também pode conseguir opiniões muito úteis e sinceras conversando com pessoas que já escolheram uma ótica e, agora, tem experiência para te auxiliar.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Busque ajuda de especialistas:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Na ótica que você for pesquisar seus óculos, nunca deixe de pedir ajuda aos vendedores para tomar sua decisão sobre o melhor óculos. Ademais, a ótica que você escolher deve oferecer esse tipo de ajuda, seja presencialmente, seja online, para que você não tenha que passar por todo o processo sozinho.</p><p><br data-mce-bogus=\"1\"></p><p>Portanto, procure saber se a loja em questão disponibiliza a ajuda de atendentes para tirar alguma dúvida, para esclarecer detalhes sobre as opções e quais os modelos de óculos ficam melhor em você.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Experimente modelos diferentes:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Uma boa ótica deve oferecer uma boa variedade de modelos para você escolher. Afinal, variedade de opções é uma das principais características positivas de qualquer estabelecimento comercial, não é mesmo?</p><p><br data-mce-bogus=\"1\"></p><p>Sendo assim, analise se a loja física ou online na qual você intenciona comprar seus óculos oferecem modelos da moda atual como <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/oculos-clip-on/clipon-feminino\" data-mce-href=\"../../../../oculos-clip-on/clipon-feminino\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos clipon feminino</a></span></span>, <a href=\"/oculos-clip-on/clipon-masculino\" data-mce-href=\"../../../../oculos-clip-on/clipon-masculino\"><span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos clipon masculino</span></span></a>, por exemplo.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Além disso, veja se ela conta com variedade de opções de lentes de grau, feitas em vidro, resina, para que você escolha a melhor alternativa para a dioptria que você precisa.</p><p><br data-mce-bogus=\"1\"></p><p>Você também pode avaliar se a ótica em questão oferece modelos de óculos de sol arrojados e de qualidade, pois esse também é um grande indicativo de que ela é um estabelecimento confiável.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Afinal, se você precisar de um óculos para presentear seu pai, por exemplo, um modelo da <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/oculos-clip-on\" data-mce-href=\"../../../../oculos-clip-on\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos clip on</a></span></span> é uma boa pedida. E uma ótica que se preze deve oferecer isso para você.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Dê prioridade para o conforto:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>O óculos é um item que você utiliza durante uma boa parte do dia, quando não o dia inteiro. Desse modo, um dos fatores que você deve levar em consideração para escolher uma boa ótica é se ela trabalha com materiais que primam pelo seu conforto.</p><p><br data-mce-bogus=\"1\"></p><p>Observe se a loja oferece óculos feitos de diferentes materiais, como alumínio, acetato TR90, enfim, para que você possa escolher óculos que sejam leves, não apertem ou fiquem caindo.</p><p><br data-mce-bogus=\"1\"></p><p>Caso você exerça atividade braçal e precisa usar um óculos da <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/armacao-para-oculos-de-grau\" data-mce-href=\"../../../../armacao-para-oculos-de-grau\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">óculos de grau﻿</a></span></span>, por exemplo, precisa que ele seja o mais confortável e eficiente possível.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(6, 6, 6);\" data-mce-style=\"color: rgb(6, 6, 6);\">Mas não abra mão da elegância:</span></strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Claro que a eficiência e o conforto são importantes em um óculos, porém, a elegância e o estilo também são essenciais.</p><p><br data-mce-bogus=\"1\"></p><p>Afinal, os óculos são itens que ficam em evidência e precisam ser bonitos, além de combinarem com sua personalidade.</p><p>Portanto, na hora de escolher a melhor ótica para adquirir seus óculos, procure uma que tenha uma variedade de modelos, com armações diferentes e que componham bem com todos os tipos de rostos.</p><p><br data-mce-bogus=\"1\"></p><p>Afinal, não importa se for um <a href=\"/armacao-para-oculos-de-grau/oculos-de-grau-masculino\" data-mce-href=\"../../../../armacao-para-oculos-de-grau/oculos-de-grau-masculino\"><span style=\"color: rgb(105, 192, 249);\" data-mce-style=\"color: rgb(105, 192, 249);\"><span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\">óculos de grau masculino</span>﻿</span></a>, feminino ou infantil, ou mesmo óculos de sol: esse acessório precisa estar em harmonia com suas feições.</p><p><br data-mce-bogus=\"1\"></p><p>E por falar nisso, no nosso próximo tópico, vamos te mostrar como escolher o óculos perfeito para a sua estrutura facial. Continue acompanhando.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Como escolher óculos de acordo com seu formato de rosto?</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Não basta escolher uma boa ótica para adquirir seus óculos: você precisa saber como optar pelo modelo que melhor combina com você.</p><p><br data-mce-bogus=\"1\"></p><p>Isso porque, como já dissemos anteriormente, os óculos precisam estar em perfeita harmonia com seus traços faciais.</p><p>Além disso, com os óculos certos, você expressa sua personalidade e pode ficar ainda mais bonito, acabando com o estigma de que esses acessórios deixam as pessoas menos atraentes.</p><p><br data-mce-bogus=\"1\"></p><p>Se você souber escolher bem o seu óculos, ele fará por você tudo o que esperamos de um bom acessório, ou seja, destacar nossos pontos positivos e disfarçar o que não queremos evidenciar.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Óculos para rosto redondo:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Quem tem o rosto redondo, pode escolher um óculos quadrado ou hexagonal para dar equilíbrio aos traços faciais.</p><p><br data-mce-bogus=\"1\"></p><p>Com isso, as feições ganham mais harmonia e o visual fica mais elegante e equilibrado. Outra boa opção para quem tem esse tipo de rosto são os óculos gatinho, pois eles puxam o olhar para cima e ajudam a equilibrar o formato arredondado da face.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Óculos para rosto oval:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>A forma de se escolher o melhor óculos para quem tem o rosto ovalado é bem similar com escolher para quem tem face redonda.</p><p>Usar armações retangulares, quadradas ou hexagonais é um bom meio de harmonizar o visual.</p><p><br data-mce-bogus=\"1\"></p><p>Isso porque se você já tem a face com formato circular, usar um óculos redondo pode deixar você com aparência de estar acima do peso ou infantilizar a sua aparência.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"color: rgb(6, 6, 6); font-size: 18pt;\" data-mce-style=\"color: rgb(6, 6, 6); font-size: 18pt;\"><strong>Óculos para rosto quadrado:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Já o rosto quadrado é um dos mais fáceis de se combinar óculos. Se você tem a mandíbula quadrada, a testa ampla e os malares altos, pode optar por um óculos de grau de formato redondo sem problemas.</p><p><br data-mce-bogus=\"1\"></p><p>Você também pode usar um dos coringas, que é o óculos aviador. Aliás, esse modelo é um dos que caem bem com qualquer formato de rosto e pode ser o seu melhor amigo em um momento de indecisão.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(6, 6, 6);\" data-mce-style=\"color: rgb(6, 6, 6);\">Óculos para rosto em formato de coração e triangular:</span></strong></span></p><p><br data-mce-bogus=\"1\"></p><p>O formato de coração ou triangular se caracteriza pelo queixo mais fino e a testa mais ampla.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Então, para deixar as feições em harmonia e destacar toda a beleza desse tipo de face, um óculos transparente sem aro, gatinho com armação fininha e incolor, por exemplo, são excelentes pedidas.</p><p><br data-mce-bogus=\"1\"></p><p>Com esse tipo de óculos, você não sobrecarrega a parte de cima do rosto triangular, que já costuma ter os pontos de interesse concentrados ali.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Óculos para rosto losangular ou diamante:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Um óculos que fica muito bonito em quem tem o rosto em formato de diamante ou losango, é o de aro redondo, estilo Harry Potter.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>O aviador e o gatinho, dos quais já falamos, também costumam compor muito bem com esse formato facial.</p><p><br data-mce-bogus=\"1\"></p><p>E se você quiser usar um óculos retrô, como um de armação de madeira, saiba que também fica muito bonito!</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Qual a melhor opção de ótica para comprar seus óculos?</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Como vimos, uma boa ótica é aquela que reúne variedade de modelos, excelência nos materiais e processos de produção e que prima pelo seu conforto e satisfação.</p><p><br data-mce-bogus=\"1\"></p><p>E uma empresa que cumpre todos esses requisitos é a Ótica Isabela Dias! Afinal, ela é uma verdadeira autoridade quando o assunto é óculos, sejam eles <a href=\"/oculos-de-protecao-com-grau\" data-mce-href=\"../../../../oculos-de-protecao-com-grau\"><span style=\"color: rgb(105, 192, 249);\" data-mce-style=\"color: rgb(105, 192, 249);\"><span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\">óculos de proteção</span>﻿</span></a>, óculos de descanso, de grau, de sol, etc.</p><p><br data-mce-bogus=\"1\"></p><p>Confira alguns dos principais motivos pelos quais a Ótica Isabela Dias é a melhor opção de escolha para você:</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Variedade:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>A Ótica Isabela Dias oferece centenas de opções de óculos para todos os gostos, bolsos, gêneros e preferências.</p><p><br data-mce-bogus=\"1\"></p><p>Uma olhadinha na nossa <span style=\"text-decoration: underline;\" data-mce-style=\"text-decoration: underline;\"><span style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\"><a href=\"/\" data-mce-href=\"../../../../\" style=\"color: rgb(105, 192, 249); text-decoration: underline;\" data-mce-style=\"color: rgb(105, 192, 249); text-decoration: underline;\">Página inicial﻿</a></span></span> e você vai ver do que estamos falando!&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Experiência:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Nós estamos há mais de 6 anos no mercado, e temos como principal objetivo a popularização do conforto e da saúde ocular no Brasil.</p><p><br data-mce-bogus=\"1\"></p><p>Afinal, o melhor precisa ser compartilhado com todos, sem exceção.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Qualidade:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Todos os nossos óculos são feitos com total responsabilidade, com materiais de boa procedência e aprovados pelas autoridades competentes.</p><p><br data-mce-bogus=\"1\"></p><p>Então, ao adquirir um óculos na Ótica Isabela Dias, você consegue ter a certeza de que a satisfação será completa.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Reputação impecável:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>A nota da Ótica Isabela Dias no site Reclame Aqui é de 9,5/10, considerada ótima. Além disso, ela respondeu a 100% das reclamações, tendo solucionado todas elas, o que é impressionante!</p><p><br data-mce-bogus=\"1\"></p><p>Tanto que 87,5% dos consumidores disseram que voltariam a fazer negócios com ela.</p><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt; color: rgb(6, 6, 6);\" data-mce-style=\"font-size: 18pt; color: rgb(6, 6, 6);\"><strong>Comodidade para você:</strong></span></p><p><br data-mce-bogus=\"1\"></p><p>Com a Ótica Isabela Dias, você pode adquirir seus óculos no conforto do seu lar. Afinal, ela conta com atendimento digital de última geração.</p><p><br data-mce-bogus=\"1\"></p><p>Para escolher os seus óculos, você acessa o nosso provador online situado no site, segue as instruções e pode utilizar a câmera do seu celular para ver como ficaria com cada modelo.</p><p><br data-mce-bogus=\"1\"></p><p>Aí depois é só finalizar a compra e esperar com tranquilidade, pois entregamos para todo o Brasil. E se em algum momento do processo ficar com alguma dúvida, pode contar com um time de especialistas treinados para te auxiliar através do nosso chat.</p><p><br data-mce-bogus=\"1\"></p><p>Desse modo, a sua experiência de compra é o mais satisfatória possível e você não se estressa com nada.</p><p><br data-mce-bogus=\"1\"></p><p>Gostou de saber como escolher a melhor ótica para comprar seus óculos? Então não perca mais tempo, acesse agora mesmo o site da Ótica Isabela Dias e adquira os seus!</p><p><br data-mce-bogus=\"1\"></p>",
+        "__resolveType": "deco-sites/otica-isabela/sections/Content/About.tsx"
+      },
+      {
+        "__resolveType": "FAQ - 02"
+      },
+      {
+        "__resolveType": "Footer - 01"
+      },
+      {
+        "__resolveType": "wpp-cta"
+      }
+    ],
+    "__resolveType": "$live/pages/LivePage.tsx"
+  },
+  "test1": {
+    "strings": {
+      "image": {
+        "alt": " ",
+        "src": "/NKP Modal.jpg"
+      },
+      "texto": "Desconto 10% agora",
+      "bemvindo": "Bem-Vindo"
+    },
+    "checkBoxTxt": "Eu concordo com os termos",
+    "inputLabels": {
+      "email": "E-mail",
+      "primeiro": "Primeiro nome"
+    },
+    "inputStrings": {
+      "email": "E-mail",
+      "btnEnviar": "Enviar",
+      "checkBoxTxt": "Eu aceito os termos de uso",
+      "primeiroNome": "Primeiro nome:",
+      "placeholderNome": "Digite o nome...",
+      "placeholderEmail": "Digite o E-mail..."
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/NewsletterModal.NuncaPerdi.tsx"
+  },
+  "Luxury": {
+    "fonts": {
+      "fontFamily": "'Georgia'"
+    },
+    "mainColors": {
+      "primary": "#000000",
+      "base-100": "#09090b",
+      "tertiary": "#513448",
+      "secondary": "#152747"
+    },
+    "buttonStyle": {
+      "--border-btn": "1px",
+      "--rounded-btn": "0.2rem",
+      "--btn-text-case": "normal-case",
+      "--btn-focus-scale": "0.95"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx",
+    "complementaryColors": {
+      "base": {
+        "base-200": "#171618",
+        "base-300": "#2e2d2f",
+        "base-content": "#dca54c"
+      }
+    }
+  },
+  "forMan": {
+    "id": [],
+    "offset": 9,
+    "ordenacao": "none",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 23
+  },
+  "Default": {
+    "seo": {
+      "type": "website",
+      "titleTemplate": "%s | Deco.cx",
+      "descriptionTemplate": "%s | Deco.cx"
+    },
+    "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
+    "global": [],
+    "routes": [
+      {
+        "__resolveType": "website/loaders/pages.ts"
+      }
+    ],
+    "commerce": {
+      "platform": "other"
+    },
+    "publicUrl": "https://www.oticaisabeladias.com.br/",
+    "__resolveType": "deco-sites/otica-isabela/apps/site.ts"
+  },
+  "wpp-cta": {
+    "link": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/8d921d59-5393-4ac8-811f-6f763313a69d",
+    "__resolveType": "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx"
+  },
+  "FAQ - 01": {
+    "title": "FAQ",
+    "layout": {
+      "variation": "Side to side",
+      "headerAlignment": "left"
+    },
+    "questions": [
+      {
+        "answer": "<p>Placing an order on our fashion retail website is easy! Simply browse through our collection, select the items you love, choose your preferred size and color, and click on the \"Add to Cart\" button. Once you have finished shopping, proceed to the checkout page, provide your shipping and payment information, and confirm your order. Voila! Your order will be on its way to you soon.</p>",
+        "question": "How can I place an order?"
+      },
+      {
+        "answer": "<p>We accept various payment methods to provide convenience to our customers. You can securely pay for your order using major credit cards like Visa, Mastercard, and American Express. We also accept payments through PayPal for added flexibility. Please note that we do not accept cash on delivery or personal checks at the moment.</p>",
+        "question": "What payment methods are accepted?"
+      },
+      {
+        "answer": "<p>We understand the excitement of awaiting your fashion finds, so we offer order tracking to keep you informed. Once your order is shipped, we will send you a confirmation email containing a tracking number and a link to the courier's website. You can click on the link or visit the courier's website directly and enter the tracking number to check the status and whereabouts of your package.</p><p><br></p>",
+        "question": "How can I track my order?"
+      },
+      {
+        "answer": "<p>Absolutely! We want you to be completely satisfied with your purchase. If you change your mind about an item, we offer a hassle-free return and exchange policy. You can initiate a return within 30 days of receiving your order. The item should be in its original condition, unworn, and with all tags attached. Simply contact our customer support team with your order details, and they will guide you through the return or exchange process.</p>",
+        "question": "Can I return or exchange an item?"
+      },
+      {
+        "answer": "<p>Yes, we offer international shipping to many countries around the world. During the checkout process, you can select your country from the list of available destinations. Please note that international shipping fees may apply, and additional customs duties or taxes may be charged by your country's customs authorities. These charges are the responsibility of the customer and are not included in the item price or shipping cost.</p>",
+        "question": "Do you offer international shipping?"
+      }
+    ],
+    "description": "Your Questions Answered",
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Faq.tsx"
+  },
+  "FAQ - 02": {
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ca8e9b37-d5a0-4a95-8f6a-6e404e1221c3",
+    "title": "FAQ",
+    "header": {
+      "icon": "BalloonsDoubt",
+      "hideIcon": false,
+      "iconSize": {
+        "width": 63,
+        "height": 80
+      },
+      "firstLineText": "PRECISA DE AJUDA",
+      "textAlignment": "center",
+      "secondLineText": "aprenda como comprar óculos de grau pela internet sem sair de casa",
+      "backgroundColor": "#f8f8f8",
+      "firstLineFontSize": {
+        "mobile": "text-5xl",
+        "desktop": "text-6xl"
+      },
+      "firstLineTextFont": "bebas",
+      "secondLineFontSize": {
+        "mobile": "text-xl",
+        "desktop": "text-2xl"
+      },
+      "secondLineTextFont": "roboto",
+      "firstLineTextWeight": "medium",
+      "secondLineTextColor": "#42c3ff",
+      "secondLineTextWeight": "bold"
+    },
+    "layout": {
+      "variation": "Side to side",
+      "headerAlignment": "center"
+    },
+    "questions": [
+      {
+        "label": "1 - Escolha seu óculos",
+        "answer": "<p>1. Escolha um modelo de armação de óculos: clipon, óculos de sol ou de proteção. Podemos inserir as lentes de grau em qualquer uma dessas opções. Nós trabalhamos com os melhores materiais de óculos do mercado: metal, acetato, alumínio, TR90 e óculos infantil de silicone flexível. Compre sem medo, clique no botão “Experimentar óculos” e Prove!</p>"
+      },
+      {
+        "label": "2 - Preencha sua receita",
+        "answer": "<p>Suas lentes serão produzidas de acordo sua receita médica, basta informar os dados solicitados nos campos correspondentes e anexar o documento para conferência. Seu pedido tem garantia. Nós fazemos a conferência dos dados preenchidos em todos os pedidos. Em caso de dúvida, basta ler nosso passo a passo <span style=\"text-decoration: underline; color: rgb(0, 123, 255);\" data-mce-style=\"text-decoration: underline; color: rgb(0, 123, 255);\"><a data-mce-href=\"r/pagina/como-ler-entender-a-receita-de-oculos\" href=\"r/pagina/como-ler-entender-a-receita-de-oculos\" data-mce-selected=\"inline-boundary\" style=\"color: rgb(0, 123, 255); text-decoration: underline;\" data-mce-style=\"color: rgb(0, 123, 255); text-decoration: underline;\">como preencher a receita.﻿</a></span></p>"
+      },
+      {
+        "label": "3 - Escolha as lentes",
+        "answer": "<p>Existem várias tecnologias que permitem diversos benefícios na hora de escolher as lentes de grau, nesta etapa oferecemos as melhores lentes adequadas à sua necessidade. Veja a seguir as opções dos tipos de lentes:</p><ul><li>Lentes básicas</li><li>Lentes com antirreflexo</li><li>Lentes Super Finas</li><li>Lentes Blue Light (antirreflexo digital)</li><li>Lentes Fotoclimax (escurecem no sol)</li><li>Lentes de sol com grau (lentes escuras graduadas) temos 9 opções de cores.</li></ul>"
+      },
+      {
+        "label": "4 - Finalize seu pedido",
+        "answer": "<p>Através de um ambiente totalmente seguro, onde todas as informações pessoais e bancárias são transmitidas de maneira criptografada e seguindo os mais rigorosos protocolos de segurança, escolha entre o pagamento pix ou cartão de crédito em até 10x sem juros.</p>"
+      },
+      {
+        "label": "5 - Acompanhe seu pedido",
+        "answer": "<p>Após a confirmação do pagamento, você receberá notificações de todos os processos e o avanço de cada etapa via e-mail e whatsapp, mas você também encontra essas informações na área do cliente&nbsp;<span style=\"text-decoration: underline; color: rgb(0, 123, 255);\" data-mce-style=\"text-decoration: underline; color: rgb(0, 123, 255);\"><a data-mce-href=\"../../../../identificacao\" href=\"../../../../identificacao\" data-mce-selected=\"inline-boundary\" style=\"color: rgb(0, 123, 255); text-decoration: underline;\" data-mce-style=\"color: rgb(0, 123, 255); text-decoration: underline;\">Acompanhe seu Pedido</a></span>.</p>"
+      }
+    ],
+    "description": "Your Questions Answered",
+    "desktopImage": {
+      "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4de0210c-0ce8-4276-847c-d6a675a6332c",
+      "description": "Precisa de Ajuda"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Faq.tsx",
+    "backgroundColor": "#eb7f24"
+  },
+  "FAQ - 03": {
+    "title": "FAQ",
+    "layout": {
+      "variation": "Compact",
+      "headerAlignment": "center"
+    },
+    "contact": {
+      "link": {
+        "href": "Contact us",
+        "text": "Contact us"
+      },
+      "title": "Still have a question?",
+      "description": "<p class=\"ql-align-center\">Reach out now</p>"
+    },
+    "questions": [
+      {
+        "answer": "<p>Placing an order on our fashion retail website is easy! Simply browse through our collection, select the items you love, choose your preferred size and color, and click on the \"Add to Cart\" button. Once you have finished shopping, proceed to the checkout page, provide your shipping and payment information, and confirm your order. Voila! Your order will be on its way to you soon.</p>",
+        "question": "How can I place an order?"
+      },
+      {
+        "answer": "<p>We accept various payment methods to provide convenience to our customers. You can securely pay for your order using major credit cards like Visa, Mastercard, and American Express. We also accept payments through PayPal for added flexibility. Please note that we do not accept cash on delivery or personal checks at the moment.</p>",
+        "question": "What payment methods are accepted?"
+      },
+      {
+        "answer": "<p>Absolutely! We want you to be completely satisfied with your purchase. If you change your mind about an item, we offer a hassle-free return and exchange policy. You can initiate a return within 30 days of receiving your order. The item should be in its original condition, unworn, and with all tags attached. Simply contact our customer support team with your order details, and they will guide you through the return or exchange process.</p>",
+        "question": "Can I return or exchange an item?"
+      },
+      {
+        "answer": "<p>We understand the excitement of awaiting your fashion finds, so we offer order tracking to keep you informed. Once your order is shipped, we will send you a confirmation email containing a tracking number and a link to the courier's website. You can click on the link or visit the courier's website directly and enter the tracking number to check the status and whereabouts of your package.</p><p><br></p>",
+        "question": "How can I track my order?"
+      },
+      {
+        "answer": "<p>Yes, we offer international shipping to many countries around the world. During the checkout process, you can select your country from the list of available destinations. Please note that international shipping fees may apply, and additional customs duties or taxes may be charged by your country's customs authorities. These charges are the responsibility of the customer and are not included in the item price or shipping cost.</p>",
+        "question": "Do you offer international shipping?"
+      }
+    ],
+    "description": "Your Questions Answered",
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Faq.tsx"
+  },
+  "Lemonade": {
+    "fonts": {
+      "fontFamily": "'Albert Sans'"
+    },
+    "mainColors": {
+      "primary": "#519903",
+      "base-100": "#ffffff",
+      "tertiary": "#F7F9CA",
+      "secondary": "#E9E92E"
+    },
+    "buttonStyle": {
+      "--border-btn": "1px",
+      "--rounded-btn": "0.2rem",
+      "--btn-text-case": "normal-case",
+      "--btn-focus-scale": "0.95"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx",
+    "complementaryColors": {
+      "primary": {
+        "primary-content": "#deebd1"
+      },
+      "tertiary": {
+        "tertiary-content": "#2f2f28"
+      },
+      "secondary": {
+        "secondary-content": "#2e2d14"
+      }
+    }
+  },
+  "everyone": {
+    "routes": [
+      {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "Search Page"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/busca"
+      },
+      {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "Categories"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/*"
+      },
+      {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "Home"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/"
+      },
+      {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "Product Page"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/produto/:slug"
+      },
+      {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "pages-ofertasdodia-86d96fa9ec90"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/ofertas-do-dia"
+      }
+    ],
+    "matcher": {},
+    "overrides": [],
+    "__resolveType": "$live/flags/everyone.ts"
+  },
+  "forWoman": {
+    "id": [],
+    "sort": "nome",
+    "count": 9,
+    "offset": 9,
+    "ordenacao": "none",
+    "collection": 3,
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "dinamicFilters": [],
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 3
+  },
+  "Halloween": {
+    "fonts": {
+      "fontFamily": "'Courier New'"
+    },
+    "mainColors": {
+      "primary": "#f28c18",
+      "base-100": "#212121",
+      "tertiary": "#51a800",
+      "secondary": "#6d3a9c"
+    },
+    "buttonStyle": {
+      "--border-btn": "3px",
+      "--rounded-btn": "2rem",
+      "--btn-text-case": "uppercase",
+      "--btn-focus-scale": "1.05"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx"
+  },
+  "analytics": {
+    "trackingIds": [
+      "GTM-KVXHNCM"
+    ],
+    "__resolveType": "deco-sites/std/sections/Analytics.tsx"
+  },
+  "configOCC": {
+    "__resolveType": "deco-sites/std/accounts/occ.ts"
+  },
+  "Categories": {
+    "name": "Categories",
+    "path": "/*",
+    "sections": [
+      {
+        "page": {
+          "__resolveType": "defaultPLP"
+        },
+        "__resolveType": "deco-sites/std/sections/SEOPLP.tsx",
+        "titleTemplate": "%s | Ótica Isabela Dias"
+      },
+      {
+        "__resolveType": "Oticas Isabela Custom Theme"
+      },
+      {
+        "__resolveType": "Header - 01"
+      },
+      {
+        "__resolveType": "Category Banner - 01"
+      },
+      {
+        "page": {
+          "slug": {
+            "param": "slug",
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+          },
+          "__resolveType": "defaultPLP"
+        },
+        "layout": {
+          "columns": {
+            "mobile": 1,
+            "desktop": 3
+          },
+          "variant": "aside"
+        },
+        "columns": {},
+        "variant": "aside",
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+      },
+      {
+        "__resolveType": "Footer - 01"
+      },
+      {
+        "__resolveType": "wpp-cta"
+      }
+    ],
+    "__resolveType": "$live/pages/LivePage.tsx"
+  },
+  "Logos - 01": {
+    "title": "Our Partners",
+    "images": [
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d00893c6-3074-418f-b36d-28ad45fffaad",
+        "altText": "test"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/52aff497-3311-4fca-a470-5e8b8a19c54b",
+        "altText": "test"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/c970b103-9ad4-43c0-b5bd-93e4f84de82b",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/f01c7ebf-07bb-4ae6-a2df-a6e302996d5c",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d45c6c35-4db1-4665-af19-18b54ee8d808",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/62e1174b-c04f-48ef-aa3c-1b531ae2a2d8",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/168815f2-fc66-422f-8f5f-86af1e787fc3",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/942eb0da-d408-4477-ba59-b089119138af",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5851e5e4-b986-4958-b8d6-12eb620ab575",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/74e4fe58-93e3-42c0-ba97-92626bc3d412",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/62805daf-19bc-4800-93c8-2c06a5859c1f",
+        "altText": "/"
+      },
+      {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/1ef3c4e3-e024-42cf-8798-02bfdc48102a",
+        "altText": "/"
+      }
+    ],
+    "layout": {
+      "headerAlignment": "center"
+    },
+    "description": "Take a look at our Partner Agencies",
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Logos.tsx"
+  },
+  "Natal 2023": {
+    "end": "2023-07-25T21:13:00.000Z",
+    "start": "2023-12-01T21:13:00.000Z",
+    "__resolveType": "$live/matchers/MatchDate.ts"
+  },
+  "SEODefault": {
+    "type": "website",
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/b8f3b3df-31e3-4d15-b8a7-15f40c252f66",
+    "title": "Fashion by deco.cx",
+    "description": "Lightning fast stores. Available now - deco.cx",
+    "__resolveType": "deco-sites/std/sections/SEO.tsx",
+    "titleTemplate": "%s | Fashion by deco.cx"
+  },
+  "Teste Muri": {
+    "ids": [],
+    "collection": "a",
+    "__resolveType": "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts"
+  },
+  "cliponNews": {
+    "id": [],
+    "sort": "none",
+    "count": 9,
+    "offset": 9,
+    "ordenacao": "none",
+    "collection": 22,
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "dinamicFilters": [],
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 26
+  },
+  "configVNDA": {
+    "__resolveType": "deco-sites/std/accounts/vnda.ts"
+  },
+  "configVTEX": {
+    "account": "bravtexfashionstore",
+    "publicUrl": "fashion.bravtexstores.com.br",
+    "__resolveType": "deco-sites/std/accounts/vtex.ts",
+    "defaultLocale": "pt-BR",
+    "defaultSalesChannel": "1",
+    "defaultPriceCurrency": "BRL",
+    "defaultHideUnnavailableItems": false
+  },
+  "defaultPLP": {
+    "id": [],
+    "offset": 21,
+    "ordenacao": "nome",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+    "filtrosDinamicos": []
+  },
+  "vestidos-4": {
+    "count": 4,
+    "query": "vestidos",
+    "collection": [],
+    "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+  },
+  "vtex-olive": {
+    "count": 4,
+    "query": "olive",
+    "collection": [],
+    "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+  },
+  "vtex_proxy": {
+    "name": "vtex_proxy",
+    "routes": {
+      "host": "fashion.deco.site",
+      "__resolveType": "deco-sites/std/loaders/vtex/proxy.ts"
+    },
+    "matcher": {
+      "__resolveType": "$live/matchers/MatchAlways.ts"
+    },
+    "overrides": [],
+    "__resolveType": "$live/flags/audience.ts"
+  },
+  "Footer - 01": {
+    "logo": {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/79a5eab5-4a2c-4bf5-a424-ff6f141a430c",
+      "description": "O estilo pensado para você"
+    },
+    "layout": {
+      "hide": {
+        "logo": true,
+        "extraLinks": true,
+        "mobileApps": false,
+        "newsletter": true,
+        "socialLinks": false,
+        "backToTheTop": true,
+        "sectionLinks": false,
+        "regionOptions": false,
+        "paymentMethods": false
+      },
+      "variation": "Variation 1",
+      "backgroundColor": "Primary"
+    },
+    "social": {
+      "items": [
+        {
+          "link": "http://deco.cx/",
+          "label": "Discord"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Facebook"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Instagram"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Linkedin"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Tiktok"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Twitter"
+        }
+      ],
+      "title": "Siga-nos nas redes"
+    },
+    "payments": {
+      "items": [
+        {
+          "label": "Elo"
+        },
+        {
+          "label": "Mastercard"
+        },
+        {
+          "label": "Pix"
+        },
+        {
+          "label": "Visa"
+        }
+      ],
+      "title": "Formas de pagamento"
+    },
+    "sections": [
+      {
+        "items": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidade",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termos-de-uso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalhe-conosco",
+            "label": "Trabalhe conosco"
+          }
+        ],
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quemsomos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidadeeseguranca",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termosdeuso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalheconosco",
+            "label": "Trabalhe conosco"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/central-de-atendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/fale-whatsapp",
+            "label": "Fale conosco pelo Whatsapp"
+          },
+          {
+            "href": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          }
+        ],
+        "label": "Atendimento",
+        "children": [
+          {
+            "href": "/centraldeatendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/whatsapp",
+            "label": "Fale conosco pelo WhatsApp"
+          },
+          {
+            "href": "/trocaedevolucao",
+            "label": "Troca e devolução"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/login",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meus-pedidos",
+            "label": "Meus pedidos"
+          }
+        ],
+        "label": "Minha conta",
+        "children": [
+          {
+            "href": "/loginecadastro",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meuspedidos",
+            "label": "Meus pedidos"
+          }
+        ]
+      }
+    ],
+    "extraLinks": [
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com/",
+        "label": "Política de privacidade"
+      },
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com",
+        "label": "Termos de serviço"
+      }
+    ],
+    "firstBlock": {
+      "firstLabel": "Siga-nos nas",
+      "secondLabel": "Redes Sociais",
+      "socialLinks": {
+        "0": {
+          "icon": "Instagram",
+          "link": "https://www.instagram.com/oticaisabeladias/"
+        },
+        "1": {
+          "icon": "Facebook",
+          "link": "https://www.facebook.com/Oticaisabeladias/"
+        },
+        "2": {
+          "icon": "YouTube",
+          "link": "https://www.youtube.com/channel/UCsI4LiCqXeBxBtboM4edQXw"
+        },
+        "youtube": "https://www.youtube.com/channel/UCsI4LiCqXeBxBtboM4edQXw",
+        "facebook": "https://www.facebook.com/Oticaisabeladias/",
+        "instagram": "https://www.instagram.com/oticaisabeladias/"
+      },
+      "hideFirstBlock": false
+    },
+    "mobileApps": {
+      "apple": "http://www.google.com",
+      "android": "http://www.google.com"
+    },
+    "newsletter": {
+      "form": {
+        "helpText": "<p>Ao se inscrever, você está aceitando nossa <a href=\"/\" class=\"link\">Política de Privacidade</a>.</p>"
+      },
+      "title": "Assine nossa newsletter",
+      "helpText": "Ao cadastrar o e-mail para recebimento de newsletter você concorda com a Política de Privacidade e Termos de Uso.Você pode se descadastrar quando quiser clicando no link disponível no final de nossos e-mails.",
+      "buttonText": "QUERO SER AVISADO",
+      "description": "Participe e ganhe 10% de desconto na primeira compra",
+      "placeholder": {
+        "foneInput": "Digite seu telefone (WhatsApp)",
+        "mailInput": "Digite seu e-mail",
+        "nameInput": "Digite seu nome"
+      },
+      "titleConfig": {
+        "icon": "MenGlassesLg",
+        "label": "Seja avisado das %icon OFERTAS E DESCONTOS",
+        "sectionTitle": "Seja avisado das %icon OFERTAS E DESCONTOS"
+      },
+      "newLetterHeader": {
+        "icon": "MenGlassesLg",
+        "hideIcon": false,
+        "firstLineText": "Seja avisado das",
+        "textAlignment": "start",
+        "secondLineText": "OFERTAS E DESCONTOS",
+        "firstLineTextColor": "#a8e3ff",
+        "firstLineTextWeight": "semi-bold",
+        "secondLineTextColor": "#ffffff",
+        "secondLineTextWeight": "normal"
+      },
+      "sucessRedirectLink": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento"
+    },
+    "thirdBlock": {
+      "logo": {
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/369d9132-d685-4cbe-8c69-67ca9007e939",
+        "description": "Footer logotipo"
+      },
+      "support": {
+        "label": "ÓTICA ONLINE ISABELA DIAS",
+        "links": [
+          {
+            "href": "mailto:suporte@oticaisabeladias.com",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4fbbd3f9-2415-488f-ac28-217d1f552e06",
+            "label": "suporte@oticaisabeladias.com"
+          },
+          {
+            "href": "https://api.whatsapp.com/send?phone=5516991815926",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c5687e13-7e6e-4bcd-93fe-90962a8a123e",
+            "label": "(16) 99181-5926"
+          }
+        ],
+        "title": "ÓTICA ONLINE ISABELA DIAS",
+        "openingHours": {
+          "hours": {
+            "primaryLabel": "Segunda a Sexta",
+            "secondaryLabel": "8:00 às 16:00"
+          },
+          "observation": "(exceto feriados)"
+        },
+        "sectionTitle": "ÓTICA ONLINE ISABELA DIAS"
+      },
+      "payments": {
+        "label": "FORMAS DE PAGAMENTO",
+        "title": "FORMAS DE PAGAMENTO",
+        "methods": {
+          "alt": "Métodos de pagamentos",
+          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b7b5965a-5ad9-40f5-a078-a5bb9c1735c0"
+        },
+        "sectionTitle": "FORMAS DE PAGAMENTO"
+      },
+      "hideThirdBlock": false,
+      "securityInformation": {
+        "date": "01/08/2023",
+        "label": "SITE SEGURO",
+        "title": "SITE SEGURO",
+        "certificates": [
+          {
+            "alt": "Seguro certificado SSL",
+            "href": "http://www.google.com/safebrowsing/diagnostic?site=www.oticaisabeladias.com.br",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/60fa18cf-0b27-4924-a9bf-7eb12cf778e0",
+            "label": "Seguro certificado ssl",
+            "width": 140,
+            "height": 84
+          },
+          {
+            "alt": "Safe Browsing Google",
+            "href": "http://www.google.com/safebrowsing/diagnostic?site=www.oticaisabeladias.com.br",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d880a3e3-6937-493f-bcd7-76dd532f61b1",
+            "label": "Safe Browsing Google",
+            "width": 100,
+            "height": 40
+          }
+        ],
+        "sectionTitle": "SITE SEGURO"
+      }
+    },
+    "fourthBlock": {
+      "address": "R: Sargento Aldrovander Bueno Marques 525 - FRANCA SP | 24.601.674/0001-00",
+      "socialName": "ÓTICA ONLINE ISABELA DIAS COMÉRCIO DE ÓCULOS EIRELLI",
+      "hideFourthBlock": false
+    },
+    "secondBlock": {
+      "links": [
+        {
+          "items": [
+            {
+              "href": "/identificacao",
+              "label": "Acompanhe seu pedido",
+              "title": "Acompanhe seu pedido"
+            },
+            {
+              "href": "/politica-trocas",
+              "label": "Trocas e devoluções",
+              "title": "Trocas e devoluções"
+            },
+            {
+              "href": "/identificacao",
+              "label": "Área do cliente",
+              "title": "Área do cliente"
+            },
+            {
+              "href": "/identificacao",
+              "label": "Meus favoritos",
+              "title": "Meus favoritos"
+            }
+          ],
+          "label": "SUAS COMPRAS",
+          "title": "SUAS COMPRAS"
+        },
+        {
+          "items": [
+            {
+              "href": "/pagina/experimentar-provar-oculos-online-pela-internet",
+              "label": "Provador online",
+              "title": "Provador Online"
+            },
+            {
+              "href": "/pagina/como-comprar-com-lentes",
+              "label": "Como comprar com as lentes?",
+              "title": "Como comprar com as lentes?"
+            },
+            {
+              "href": "/avaliacoes",
+              "label": "Quem já comprou aqui?",
+              "title": "Quem já comprou aqui?"
+            },
+            {
+              "href": "https://blog.oticaisabeladias.com.br/",
+              "label": "Conheça o nosso Blog",
+              "title": "Conheça o nosso Blog"
+            },
+            {
+              "href": "/quem-somos",
+              "label": "Quem somos",
+              "title": "Quem somos"
+            },
+            {
+              "href": "/pagina/lentes-de-grau-para-oculos",
+              "label": "Nossas Lentes",
+              "title": "Nossas Lentes"
+            }
+          ],
+          "label": "SOBRE",
+          "title": "Sobre"
+        },
+        {
+          "items": [
+            {
+              "href": "/atendimento-cliente",
+              "label": "Atendimento ao cliente",
+              "title": "Atendimento ao cliente"
+            },
+            {
+              "href": "/pagina/como-tirar-medida-dp-dnp",
+              "label": "Como medir Dnp",
+              "title": "Como medir Dnp"
+            },
+            {
+              "href": "/pagina/duvidas-frequentes",
+              "label": "Perguntas frequentes",
+              "title": "Perguntas frequentes"
+            },
+            {
+              "href": "/pagina/como-ler-entender-a-receita-de-oculos",
+              "label": "Como preencher minha receita?",
+              "title": "Como preencher minha receita?"
+            },
+            {
+              "href": "/reclame-aqui",
+              "label": "Reclame aqui na Ótica Isabela Dias",
+              "title": "Reclame aqui na Ótica Isabela Dias"
+            },
+            {
+              "href": "/politica-privacidade",
+              "label": "Privacidade e segurança",
+              "title": "Privacidade e segurança"
+            }
+          ],
+          "label": "AJUDA E SUPORTE",
+          "title": "AJUDA E SUPORTE"
+        },
+        {
+          "items": [
+            {
+              "href": "/",
+              "label": "Técnico em Óptica",
+              "title": "Técnico em Óptica"
+            },
+            {
+              "href": "/",
+              "label": "Brandon Borges",
+              "title": "Brandon Borges"
+            },
+            {
+              "href": "/",
+              "label": "Conforme Decreto 24.492/34",
+              "title": "Conforme Decreto 24.492/34"
+            }
+          ],
+          "label": "RESPONSABILIDADE",
+          "title": "RESPONSABILIDADE"
+        }
+      ],
+      "hideSecondBlock": false
+    },
+    "backToTheTop": {
+      "text": "Voltar ao topo"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
+    "regionOptions": {
+      "currency": [
+        {
+          "href": "/",
+          "label": "Brasil BRL"
+        },
+        {
+          "href": "/",
+          "label": "United Stated USD"
+        }
+      ],
+      "language": [
+        {
+          "href": "/",
+          "label": "PT"
+        },
+        {
+          "href": "/",
+          "label": "EN"
+        }
+      ]
+    }
+  },
+  "Footer - 02": {
+    "logo": {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/79a5eab5-4a2c-4bf5-a424-ff6f141a430c",
+      "description": "O estilo pensado para você"
+    },
+    "layout": {
+      "hide": {
+        "logo": false,
+        "mobileApps": false,
+        "newsletter": false,
+        "socialLinks": false,
+        "regionOptions": false
+      },
+      "variation": "Variation 2",
+      "backgroundColor": "Secondary"
+    },
+    "social": {
+      "items": [
+        {
+          "link": "http://deco.cx/",
+          "label": "Discord"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Facebook"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Instagram"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Linkedin"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Tiktok"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Twitter"
+        }
+      ],
+      "title": "Siga-nos nas redes"
+    },
+    "payments": {
+      "items": [
+        {
+          "label": "Elo"
+        },
+        {
+          "label": "Mastercard"
+        },
+        {
+          "label": "Pix"
+        },
+        {
+          "label": "Visa"
+        }
+      ],
+      "title": "Formas de pagamento"
+    },
+    "sections": [
+      {
+        "items": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidade",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termos-de-uso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalhe-conosco",
+            "label": "Trabalhe conosco"
+          }
+        ],
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quemsomos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidadeeseguranca",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termosdeuso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalheconosco",
+            "label": "Trabalhe conosco"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/central-de-atendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/fale-whatsapp",
+            "label": "Fale conosco pelo Whatsapp"
+          },
+          {
+            "href": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          }
+        ],
+        "label": "Atendimento",
+        "children": [
+          {
+            "href": "/centraldeatendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/whatsapp",
+            "label": "Fale conosco pelo WhatsApp"
+          },
+          {
+            "href": "/trocaedevolucao",
+            "label": "Troca e devolução"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/login",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meus-pedidos",
+            "label": "Meus pedidos"
+          }
+        ],
+        "label": "Minha conta",
+        "children": [
+          {
+            "href": "/loginecadastro",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meuspedidos",
+            "label": "Meus pedidos"
+          }
+        ]
+      }
+    ],
+    "extraLinks": [
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com/",
+        "label": "Política de privacidade"
+      },
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com",
+        "label": "Termos de serviço"
+      }
+    ],
+    "mobileApps": {
+      "apple": "http://www.google.com",
+      "android": "http://www.google.com"
+    },
+    "newsletter": {
+      "form": {
+        "helpText": "<p>Ao se inscrever, você está aceitando nossa <a href=\"/\" class=\"link\">Política de Privacidade</a>.</p>"
+      },
+      "title": "Assine nossa newsletter",
+      "description": "Participe e ganhe 10% de desconto na primeira compra"
+    },
+    "backToTheTop": {
+      "text": "Voltar ao topo"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
+    "regionOptions": {
+      "currency": [
+        {
+          "href": "/",
+          "label": "Brasil BRL"
+        },
+        {
+          "href": "/",
+          "label": "United Stated USD"
+        }
+      ],
+      "language": [
+        {
+          "href": "/",
+          "label": "PT"
+        },
+        {
+          "href": "/",
+          "label": "EN"
+        }
+      ]
+    }
+  },
+  "Footer - 03": {
+    "logo": {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/79a5eab5-4a2c-4bf5-a424-ff6f141a430c",
+      "description": "O estilo pensado para você"
+    },
+    "layout": {
+      "hide": {
+        "logo": false,
+        "mobileApps": false,
+        "newsletter": false,
+        "socialLinks": false,
+        "regionOptions": false
+      },
+      "variation": "Variation 3",
+      "backgroundColor": "Accent"
+    },
+    "social": {
+      "items": [
+        {
+          "link": "http://deco.cx/",
+          "label": "Discord"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Facebook"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Instagram"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Linkedin"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Tiktok"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Twitter"
+        }
+      ],
+      "title": "Siga-nos nas redes"
+    },
+    "payments": {
+      "items": [
+        {
+          "label": "Elo"
+        },
+        {
+          "label": "Mastercard"
+        },
+        {
+          "label": "Pix"
+        },
+        {
+          "label": "Visa"
+        }
+      ],
+      "title": "Formas de pagamento"
+    },
+    "sections": [
+      {
+        "items": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidade",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termos-de-uso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalhe-conosco",
+            "label": "Trabalhe conosco"
+          }
+        ],
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quemsomos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidadeeseguranca",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termosdeuso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalheconosco",
+            "label": "Trabalhe conosco"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/central-de-atendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/fale-whatsapp",
+            "label": "Fale conosco pelo Whatsapp"
+          },
+          {
+            "href": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          }
+        ],
+        "label": "Atendimento",
+        "children": [
+          {
+            "href": "/centraldeatendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/whatsapp",
+            "label": "Fale conosco pelo WhatsApp"
+          },
+          {
+            "href": "/trocaedevolucao",
+            "label": "Troca e devolução"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/login",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meus-pedidos",
+            "label": "Meus pedidos"
+          }
+        ],
+        "label": "Minha conta",
+        "children": [
+          {
+            "href": "/loginecadastro",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meuspedidos",
+            "label": "Meus pedidos"
+          }
+        ]
+      }
+    ],
+    "extraLinks": [
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com/",
+        "label": "Política de privacidade"
+      },
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com",
+        "label": "Termos de serviço"
+      }
+    ],
+    "mobileApps": {
+      "apple": "http://www.google.com",
+      "android": "http://www.google.com"
+    },
+    "newsletter": {
+      "form": {
+        "helpText": "<p>Ao se inscrever, você está aceitando nossa <a href=\"/\" class=\"link\">Política de Privacidade</a>.</p>"
+      },
+      "title": "Assine nossa newsletter",
+      "description": "Participe e ganhe 10% de desconto na primeira compra"
+    },
+    "backToTheTop": {
+      "text": "Voltar ao topo"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
+    "regionOptions": {
+      "currency": [
+        {
+          "href": "/",
+          "label": "Brasil BRL"
+        },
+        {
+          "href": "/",
+          "label": "United Stated USD"
+        }
+      ],
+      "language": [
+        {
+          "href": "/",
+          "label": "PT"
+        },
+        {
+          "href": "/",
+          "label": "EN"
+        }
+      ]
+    }
+  },
+  "Footer - 04": {
+    "logo": {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/79a5eab5-4a2c-4bf5-a424-ff6f141a430c",
+      "description": "O estilo pensado para você"
+    },
+    "layout": {
+      "hide": {
+        "logo": false,
+        "mobileApps": false,
+        "newsletter": false,
+        "socialLinks": false,
+        "regionOptions": false
+      },
+      "variation": "Variation 4",
+      "backgroundColor": "Base 100"
+    },
+    "social": {
+      "items": [
+        {
+          "link": "http://deco.cx/",
+          "label": "Discord"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Facebook"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Instagram"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Linkedin"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Tiktok"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Twitter"
+        }
+      ],
+      "title": "Siga-nos nas redes"
+    },
+    "payments": {
+      "items": [
+        {
+          "label": "Elo"
+        },
+        {
+          "label": "Mastercard"
+        },
+        {
+          "label": "Pix"
+        },
+        {
+          "label": "Visa"
+        }
+      ],
+      "title": "Formas de pagamento"
+    },
+    "sections": [
+      {
+        "items": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidade",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termos-de-uso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalhe-conosco",
+            "label": "Trabalhe conosco"
+          }
+        ],
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quemsomos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidadeeseguranca",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termosdeuso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalheconosco",
+            "label": "Trabalhe conosco"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/central-de-atendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/fale-whatsapp",
+            "label": "Fale conosco pelo Whatsapp"
+          },
+          {
+            "href": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          }
+        ],
+        "label": "Atendimento",
+        "children": [
+          {
+            "href": "/centraldeatendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/whatsapp",
+            "label": "Fale conosco pelo WhatsApp"
+          },
+          {
+            "href": "/trocaedevolucao",
+            "label": "Troca e devolução"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/login",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meus-pedidos",
+            "label": "Meus pedidos"
+          }
+        ],
+        "label": "Minha conta",
+        "children": [
+          {
+            "href": "/loginecadastro",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meuspedidos",
+            "label": "Meus pedidos"
+          }
+        ]
+      }
+    ],
+    "extraLinks": [
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com/",
+        "label": "Política de privacidade"
+      },
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com",
+        "label": "Termos de serviço"
+      }
+    ],
+    "mobileApps": {
+      "apple": "http://www.google.com",
+      "android": "http://www.google.com"
+    },
+    "newsletter": {
+      "form": {
+        "helpText": "<p>Ao se inscrever, você está aceitando nossa <a href=\"/\" class=\"link\">Política de Privacidade</a>.</p>"
+      },
+      "title": "Assine nossa newsletter",
+      "description": "Participe e ganhe 10% de desconto na primeira compra"
+    },
+    "backToTheTop": {
+      "text": "Voltar ao topo"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
+    "regionOptions": {
+      "currency": [
+        {
+          "href": "/",
+          "label": "Brasil BRL"
+        },
+        {
+          "href": "/",
+          "label": "United Stated USD"
+        }
+      ],
+      "language": [
+        {
+          "href": "/",
+          "label": "PT"
+        },
+        {
+          "href": "/",
+          "label": "EN"
+        }
+      ]
+    }
+  },
+  "Footer - 05": {
+    "logo": {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/79a5eab5-4a2c-4bf5-a424-ff6f141a430c",
+      "description": "O estilo pensado para você"
+    },
+    "layout": {
+      "hide": {
+        "logo": false,
+        "mobileApps": false,
+        "newsletter": false,
+        "socialLinks": false,
+        "regionOptions": false
+      },
+      "variation": "Variation 5",
+      "backgroundColor": "Base 100 inverted"
+    },
+    "social": {
+      "items": [
+        {
+          "link": "http://deco.cx/",
+          "label": "Discord"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Facebook"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Instagram"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Linkedin"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Tiktok"
+        },
+        {
+          "link": "http://deco.cx/",
+          "label": "Twitter"
+        }
+      ],
+      "title": "Siga-nos nas redes"
+    },
+    "payments": {
+      "items": [
+        {
+          "label": "Elo"
+        },
+        {
+          "label": "Mastercard"
+        },
+        {
+          "label": "Pix"
+        },
+        {
+          "label": "Visa"
+        }
+      ],
+      "title": "Formas de pagamento"
+    },
+    "sections": [
+      {
+        "items": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidade",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termos-de-uso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalhe-conosco",
+            "label": "Trabalhe conosco"
+          }
+        ],
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quemsomos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/privacidadeeseguranca",
+            "label": "Privacidade e segurança"
+          },
+          {
+            "href": "/termosdeuso",
+            "label": "Termos de uso"
+          },
+          {
+            "href": "/trabalheconosco",
+            "label": "Trabalhe conosco"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/central-de-atendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/fale-whatsapp",
+            "label": "Fale conosco pelo Whatsapp"
+          },
+          {
+            "href": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          }
+        ],
+        "label": "Atendimento",
+        "children": [
+          {
+            "href": "/centraldeatendimento",
+            "label": "Central de atendimento"
+          },
+          {
+            "href": "/whatsapp",
+            "label": "Fale conosco pelo WhatsApp"
+          },
+          {
+            "href": "/trocaedevolucao",
+            "label": "Troca e devolução"
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "href": "/login",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meus-pedidos",
+            "label": "Meus pedidos"
+          }
+        ],
+        "label": "Minha conta",
+        "children": [
+          {
+            "href": "/loginecadastro",
+            "label": "Login e cadastro"
+          },
+          {
+            "href": "/meuspedidos",
+            "label": "Meus pedidos"
+          }
+        ]
+      }
+    ],
+    "extraLinks": [
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com/",
+        "label": "Política de privacidade"
+      },
+      {
+        "href": "http://www.google.com",
+        "link": "http://www.google.com",
+        "label": "Termos de serviço"
+      }
+    ],
+    "mobileApps": {
+      "apple": "http://www.google.com",
+      "android": "http://www.google.com"
+    },
+    "newsletter": {
+      "form": {
+        "helpText": "<p>Ao se inscrever, você está aceitando nossa <a href=\"/\" class=\"link\">Política de Privacidade</a>.</p>"
+      },
+      "title": "Assine nossa newsletter",
+      "description": "Participe e ganhe 10% de desconto na primeira compra"
+    },
+    "backToTheTop": {
+      "text": "Voltar ao topo"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Footer/Footer.tsx",
+    "regionOptions": {
+      "currency": [
+        {
+          "href": "/",
+          "label": "Brasil BRL"
+        },
+        {
+          "href": "/",
+          "label": "United Stated USD"
+        }
+      ],
+      "language": [
+        {
+          "href": "/",
+          "label": "PT"
+        },
+        {
+          "href": "/",
+          "label": "EN"
+        }
+      ]
+    }
+  },
+  "Header - 01": {
+    "cart": {
+      "freeShippingObjectiveQuantity": 600
+    },
+    "text": "Faltam 78,99 para ganhar um brinde!",
+    "alerts": [
+      "Use this template to create your store at deco.cx"
+    ],
+    "navItems": [
+      {
+        "href": "/armacao-para-oculos-de-grau",
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/7733d479-0fd1-4f33-bed9-6f9e170655d6",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00086e03-877f-45ff-b0af-a001aafd8d74"
+        },
+        "label": "Armação de ocúlos",
+        "children": [
+          {
+            "href": "/armacao-para-oculos-de-grau",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+            "label": "Masculino",
+            "children": [
+              {
+                "href": "/feminino/vestidos",
+                "label": "Mais vendidos"
+              },
+              {
+                "href": "/feminino/vestidos",
+                "label": "Parcerias"
+              }
+            ],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e8748ec1-afbb-49ae-a98f-022f54843f9c"
+            }
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
+            "label": "Feminino",
+            "desktopMenuImage": {
+              "alt": "Feminino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/529a219e-3293-4643-9109-b310eae6029e"
+            }
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
+            "label": "Infantil",
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/19c37351-7f79-4c0a-a515-148aa2849b15"
+            }
+          }
+        ],
+        "mobileOnly": false,
+        "navbarItems": [
+          {
+            "href": "/armacao-para-oculos-de-grau",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+            "label": "Masculino",
+            "desktopMenuImage": {
+              "alt": "masculino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d9e5c1f6-904d-40f8-a5f6-b24b326777cd"
+            }
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
+            "label": "Feminino",
+            "desktopMenuImage": {
+              "alt": "FEMININO",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fc3b2607-b906-45bd-90a9-20f18e834608"
+            }
+          },
+          {
+            "href": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
+            "label": "Infantil",
+            "desktopMenuImage": {
+              "alt": "infantil",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0efe5378-8ee9-4c6c-ad30-60621c5178ab"
+            }
+          }
+        ],
+        "mobileMenuImage": {
+          "alt": "menu image",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/01d06cd7-ea19-42cf-a00f-ff91ef2bdbf2"
+        }
+      },
+      {
+        "href": "/oculos-clip-on",
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/575c3b0f-1a2e-4ecb-aaad-532671dc553d"
+        },
+        "label": "Óculos Clipon",
+        "children": [
+          {
+            "href": "/oculos-clip-on",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/oculos-clip-on/clipon-masculino",
+            "label": "Masculino",
+            "children": [
+              {
+                "href": "/masculino",
+                "label": "Mais vendidos"
+              },
+              {
+                "href": "/masculino",
+                "label": "Parcerias"
+              }
+            ],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/22591c61-900b-4187-9775-f3ede33c3a09"
+            }
+          },
+          {
+            "href": "/oculos-clip-on/clipon-feminino",
+            "label": "Faminino",
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1da6ce0c-37aa-41b8-9794-2872aa82756f"
+            }
+          }
+        ],
+        "navbarItems": [
+          {
+            "href": "/oculos-clip-on",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/oculos-clip-on/clipon-masculino",
+            "label": "Masculino",
+            "desktopMenuImage": {
+              "alt": "masculino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d085a78-2353-47e2-8997-376b48bbe9b1"
+            }
+          },
+          {
+            "href": "/oculos-clip-on/clipon-feminino",
+            "label": "Femino",
+            "desktopMenuImage": {
+              "alt": "Femino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/abdd778d-fb08-4a84-9b40-7ea08f721716"
+            }
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/27cafdca-af3a-407c-ad9f-8832a7babcb3"
+        }
+      },
+      {
+        "href": "/oculos-de-sol",
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5e9310c0-c725-4643-ade3-f92a505bd1d6"
+        },
+        "label": "Óculos de Sol",
+        "children": [
+          {
+            "href": "/oculos-de-sol",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/oculos-de-sol/oculos-de-sol-masculino",
+            "label": "Masculino",
+            "children": [
+              {
+                "href": "/masculino",
+                "label": "Camisetas"
+              },
+              {
+                "href": "/masculino",
+                "label": "Regatas"
+              }
+            ],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/76dde0ad-5907-4e25-980d-4e603a6d363b"
+            }
+          },
+          {
+            "href": "/oculos-de-sol/oculos-de-sol-feminino",
+            "label": "Feminino",
+            "children": [
+              {
+                "href": "/feminino",
+                "label": "Camisetas"
+              },
+              {
+                "href": "/feminino",
+                "label": "Camisas"
+              }
+            ],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ac70fe79-f6bc-4c7b-b000-32363ba18e16"
+            }
+          }
+        ],
+        "navbarItems": [
+          {
+            "href": "/oculos-de-sol",
+            "label": "Todos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/oculos-de-sol/oculos-de-sol-masculino",
+            "label": "Masculino",
+            "desktopMenuImage": {
+              "alt": "Masculino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/203f39e6-b123-4f2e-91b3-a85ece4d2c4d"
+            }
+          },
+          {
+            "href": "/oculos-de-sol/oculos-de-sol-feminino",
+            "label": "Femino",
+            "desktopMenuImage": {
+              "alt": "feminino",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/de16d341-0c0f-4661-a651-83dc396aa51a"
+            }
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/7fdda33b-4be4-49a8-b41e-12ea0953fd43"
+        }
+      },
+      {
+        "href": "/oculos-gamer",
+        "image": {},
+        "label": "Óculos Gamer",
+        "children": [
+          {
+            "href": "/oculos-gamer",
+            "label": "Unissex",
+            "children": [],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/59976f52-898c-4e24-916e-6870a61e2dce"
+            }
+          }
+        ],
+        "navbarItems": [
+          {
+            "href": "/oculos-gamer",
+            "label": "Unissex",
+            "desktopMenuImage": {
+              "alt": "Unissex",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c62b137e-aa59-411e-a274-d04bf87e55ba"
+            }
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/2dad0e94-8e97-4e41-9beb-9f8cc6227af0"
+        }
+      },
+      {
+        "href": "/oculos-de-protecao-com-grau",
+        "label": "Óculos de  Proteção",
+        "children": [
+          {
+            "href": "/oculos-de-protecao-com-grau",
+            "label": "Unissex",
+            "children": [],
+            "desktopMenuImage": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6f7189c8-bb09-4d3a-ba0b-02755de43e76"
+            }
+          }
+        ],
+        "navbarItems": [
+          {
+            "href": "/oculos-de-protecao-com-grau",
+            "label": "Unissex",
+            "desktopMenuImage": {
+              "alt": "/oculos-de-protecao-com-grau",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4ca1fa77-339c-4c9c-adc7-69776825d229"
+            }
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/cd6d7e28-1aef-4cb5-992b-0aa62aafffb4"
+        }
+      },
+      {
+        "href": "/",
+        "label": "Ajuda e suporte",
+        "children": [
+          {
+            "href": "/pagina/onde-comprar-oculos-de-grau-com-lentes-de-grau-pela-internet",
+            "label": "Como comprar com as lentes"
+          },
+          {
+            "href": "/pagina/experimentar-provar-oculos-online-pela-internet",
+            "label": "Provador Online"
+          },
+          {
+            "href": "/pagina/como-ler-entender-a-receita-de-oculos",
+            "label": "Como preencher a receita"
+          },
+          {
+            "href": "/pagina/como-tirar-medida-dp-dnp",
+            "label": "Medir distancia das pupilas"
+          },
+          {
+            "href": "/pagina/lentes-de-grau-para-oculos",
+            "label": "Nossas Lentes"
+          },
+          {
+            "href": "/politica-trocas",
+            "label": "Trocas e Devoluções"
+          },
+          {
+            "href": "https://api.whatsapp.com/send?phone=5516991815926",
+            "label": "Atendimento WhatsApp"
+          },
+          {
+            "href": "mailto:suporte@oticaisabeladias.com",
+            "label": "Atendimento Email"
+          },
+          {
+            "href": "/reclame-aqui",
+            "label": "Reclame Aqui na Ótica Isabela Dias"
+          }
+        ],
+        "mobileOnly": true,
+        "navbarItems": [
+          {
+            "href": "/pagina/onde-comprar-oculos-de-grau-com-lentes-de-grau-pela-internet",
+            "label": "Como comprar com as lentes",
+            "mobileOnly": true
+          },
+          {
+            "href": "/pagina/experimentar-provar-oculos-online-pela-internet",
+            "label": "Provador Online",
+            "mobileOnly": true
+          },
+          {
+            "href": "/pagina/como-ler-entender-a-receita-de-oculos",
+            "label": "Como preencher a receita",
+            "mobileOnly": true
+          },
+          {
+            "href": "/pagina/como-tirar-medida-dp-dnp",
+            "label": "Medir distancia das pupilas",
+            "mobileOnly": true
+          },
+          {
+            "href": "/pagina/lentes-de-grau-para-oculos",
+            "label": "Nossas Lentes"
+          },
+          {
+            "href": "/politica-trocas",
+            "label": "Trocas e Devoluções",
+            "mobileOnly": true
+          },
+          {
+            "href": "https://api.whatsapp.com/send?phone=5516991815926",
+            "label": "Atendimento WhatsApp",
+            "mobileOnly": true
+          },
+          {
+            "href": "mailto:suporte@oticaisabeladias.com",
+            "label": "Atendimento Email",
+            "mobileOnly": true
+          },
+          {
+            "href": "/reclame-aqui",
+            "label": "Reclame Aqui na Ótica Isabela Dias",
+            "mobileOnly": true
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/77a68b38-a921-4c27-91a9-2347d79ad682"
+        }
+      },
+      {
+        "href": "/",
+        "label": "Meu Pedido",
+        "children": [
+          {
+            "href": "/identificacao",
+            "label": "Acompanhe seu pedido"
+          },
+          {
+            "href": "/identificacao",
+            "label": "Meus Pedidos"
+          },
+          {
+            "href": "/identificacao",
+            "label": "Minhas Receitas"
+          },
+          {
+            "href": "/identificacao",
+            "label": "Avalie seu pedido"
+          }
+        ],
+        "mobileOnly": true,
+        "navbarItems": [
+          {
+            "href": "/identificacao",
+            "label": "Acompanhe seu pedido",
+            "mobileOnly": true
+          },
+          {
+            "href": "/identificacao",
+            "label": "Meus pedidos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/identificacao",
+            "label": "Minhas receitas",
+            "mobileOnly": true
+          },
+          {
+            "href": "/identificacao",
+            "label": "Avalie seu pedido",
+            "mobileOnly": true
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/504aa204-14a4-4343-95bb-e5dcdd8c9d47"
+        }
+      },
+      {
+        "href": "/identificacao",
+        "label": "Favoritos",
+        "children": [],
+        "mobileOnly": true,
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a8f531c7-2230-41cd-a502-bf0ec0dd9f19"
+        }
+      },
+      {
+        "href": "/avaliacoes",
+        "label": "Avaliações",
+        "children": [],
+        "mobileOnly": true,
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e22cdaff-cae3-42be-bb4c-bcf9a0c666b2"
+        }
+      },
+      {
+        "href": "/",
+        "label": "Sobre",
+        "children": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos"
+          },
+          {
+            "href": "/termos-condicoes",
+            "label": "Termos e condições"
+          },
+          {
+            "href": "/politica-privacidade",
+            "label": "Privacidade e segurança"
+          }
+        ],
+        "mobileOnly": true,
+        "navbarItems": [
+          {
+            "href": "/quem-somos",
+            "label": "Quem somos",
+            "mobileOnly": true
+          },
+          {
+            "href": "/termos-condicoes",
+            "label": "Termos e condições",
+            "mobileOnly": true
+          },
+          {
+            "href": "/politica-privacidade",
+            "label": "Privacidade e segurança",
+            "mobileOnly": true
+          }
+        ],
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/facb1899-460e-4726-ab07-5ecd6440cad6"
+        }
+      },
+      {
+        "href": "https://blog.oticaisabeladias.com.br/",
+        "label": "Blog",
+        "children": [],
+        "mobileOnly": true,
+        "mobileMenuImage": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/10593aee-c516-4bb8-b046-4b3200346297"
+        }
+      }
+    ],
+    "siteLogo": {
+      "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/49c571bd-91e6-4161-9fc4-00888b066b1f"
+    },
+    "iconLinks": [
+      {
+        "href": "/",
+        "icon": "Star",
+        "title": "Avaliações",
+        "mobileVibility": false
+      },
+      {
+        "href": "/",
+        "icon": "QuestionBox",
+        "title": "Como Comprar",
+        "mobileVibility": false
+      },
+      {
+        "href": "/",
+        "icon": "Heart",
+        "title": "Favoritos",
+        "mobileVibility": true,
+        "mobileVisibility": true
+      }
+    ],
+    "searchbar": {
+      "name": "q",
+      "action": "/s",
+      "placeholder": "Busque peço código ou nome do produto"
+    },
+    "storeLogo": {
+      "alt": "Otica isabela dias logo",
+      "src": {
+        "0": "h",
+        "1": "t",
+        "2": "t",
+        "3": "p",
+        "4": "s",
+        "5": ":",
+        "6": "/",
+        "7": "/",
+        "8": "o",
+        "9": "z",
+        "10": "k",
+        "11": "s",
+        "12": "g",
+        "13": "d",
+        "14": "m",
+        "15": "y",
+        "16": "r",
+        "17": "q",
+        "18": "c",
+        "19": "x",
+        "20": "c",
+        "21": "w",
+        "22": "h",
+        "23": "n",
+        "24": "b",
+        "25": "e",
+        "26": "p",
+        "27": "g",
+        "28": ".",
+        "29": "s",
+        "30": "u",
+        "31": "p",
+        "32": "a",
+        "33": "b",
+        "34": "a",
+        "35": "s",
+        "36": "e",
+        "37": ".",
+        "38": "c",
+        "39": "o",
+        "40": "/",
+        "41": "s",
+        "42": "t",
+        "43": "o",
+        "44": "r",
+        "45": "a",
+        "46": "g",
+        "47": "e",
+        "48": "/",
+        "49": "v",
+        "50": "1",
+        "51": "/",
+        "52": "o",
+        "53": "b",
+        "54": "j",
+        "55": "e",
+        "56": "c",
+        "57": "t",
+        "58": "/",
+        "59": "p",
+        "60": "u",
+        "61": "b",
+        "62": "l",
+        "63": "i",
+        "64": "c",
+        "65": "/",
+        "66": "a",
+        "67": "s",
+        "68": "s",
+        "69": "e",
+        "70": "t",
+        "71": "s",
+        "72": "/",
+        "73": "1",
+        "74": "8",
+        "75": "0",
+        "76": "3",
+        "77": "/",
+        "78": "2",
+        "79": "2",
+        "80": "2",
+        "81": "7",
+        "82": "4",
+        "83": "9",
+        "84": "2",
+        "85": "2",
+        "86": "-",
+        "87": "d",
+        "88": "1",
+        "89": "d",
+        "90": "c",
+        "91": "-",
+        "92": "4",
+        "93": "5",
+        "94": "7",
+        "95": "5",
+        "96": "-",
+        "97": "9",
+        "98": "f",
+        "99": "c",
+        "100": "d",
+        "101": "-",
+        "102": "5",
+        "103": "e",
+        "104": "7",
+        "105": "f",
+        "106": "6",
+        "107": "1",
+        "108": "f",
+        "109": "8",
+        "110": "e",
+        "111": "d",
+        "112": "5",
+        "113": "4",
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0ab9cc8c-e731-4a0c-b692-375cef2c8c73",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/13677c04-80ca-4e5b-84d3-c1e8ab3e4a9c"
+      },
+      "href": "/"
+    },
+    "newNavItems": [
+      {
+        "href": "/",
+        "label": "ARMAÇÃO DE ÓCULOS",
+        "children": [
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fadfb5f4-7179-4681-876f-c8a1cd06baca"
+            },
+            "label": "Masculino"
+          }
+        ]
+      },
+      {
+        "href": "/",
+        "label": "ÓCULOS CLIP-ON",
+        "children": [
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/670c7c15-8e5e-4675-b013-bc162d610146"
+            },
+            "label": "teste"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1f269c79-83a4-4d66-90f0-3b598278ff2e"
+            },
+            "label": "teste  2"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d847b58-aa42-4749-aeaf-9cfd8a70c355"
+            },
+            "label": "teste 3"
+          }
+        ]
+      },
+      {
+        "href": "/",
+        "label": "ÓCULOS DE SOL",
+        "children": []
+      },
+      {
+        "href": "/",
+        "label": "ÓCULOS GAMER",
+        "children": []
+      },
+      {
+        "href": "/",
+        "label": "ÓCULOS PROTEÇÃO",
+        "children": []
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Header/Header.tsx",
+    "mainMenuItems": [
+      {
+        "href": "/s",
+        "label": "ARMAÇÃO DE ÓCULOS",
+        "children": [
+          {
+            "href": "/s",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6e918207-852e-4b00-9f4b-0e53a0e0a930"
+            },
+            "label": "Masculino"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/f4fddf2b-632d-4516-be46-1c7f9bd453b0"
+            },
+            "label": "teste teste"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/851df0f5-668f-4d82-bb1e-fe2e5008e483"
+            },
+            "label": "tes teste"
+          }
+        ]
+      },
+      {
+        "href": "/s",
+        "label": "ÓCULOS CLIP-ON",
+        "children": [
+          {
+            "href": "/s",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/638ad169-af3b-4810-99d6-e4cb54486b48"
+            },
+            "label": "Feminino"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/300c91b3-9b8e-43d2-95ee-e6f051a45c53"
+            },
+            "label": "Teste"
+          }
+        ]
+      },
+      {
+        "href": "/s",
+        "label": "ÓCULOS DE SOL",
+        "children": [
+          {
+            "href": "/s",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c85528de-0a0d-402c-bea9-143259117db2"
+            },
+            "label": "Masculino"
+          }
+        ]
+      },
+      {
+        "href": "/s",
+        "label": "ÓCULOS GAMER ",
+        "children": [
+          {
+            "href": "/s",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b26acacd-5879-4fcc-b4b8-2f03a10c9c1f"
+            },
+            "label": "UNISSEX"
+          }
+        ]
+      },
+      {
+        "href": "/s",
+        "label": "ÓCULOS PROTEÇÃO",
+        "children": [
+          {
+            "href": "/s",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00676b39-8442-4dee-a419-ae044aca9d28"
+            },
+            "label": "UNISSEX"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/2925aed7-c25b-4f8d-a574-e8d235eb596c"
+            },
+            "label": "Masculino"
+          },
+          {
+            "href": "/",
+            "image": {
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c531864d-2961-4f19-a788-704e27c02bf6"
+            },
+            "label": "Feminino"
+          }
+        ]
+      }
+    ],
+    "IconNavigation": [
+      {
+        "href": "/avalicoes",
+        "icon": "Star",
+        "title": "Avaliações",
+        "mobileVisibility": false
+      },
+      {
+        "href": "/",
+        "icon": "QuestionBox",
+        "title": "Como comprar"
+      },
+      {
+        "href": "/",
+        "icon": "Heart",
+        "title": "Favoritos",
+        "mobileVisibility": true
+      }
+    ],
+    "giftValueReachInfos": {
+      "activate": true,
+      "afterText": "ganhar um brinde !",
+      "baseValue": 80,
+      "beforeText": "Faltam",
+      "sucessText": "Parabéns, você ganhou um chaveiro de óculos!"
+    },
+    "promotionalTopBanner": {
+      "alt": "top banner",
+      "link": "/",
+      "image": {
+        "0": "h",
+        "1": "t",
+        "2": "t",
+        "3": "p",
+        "4": "s",
+        "5": ":",
+        "6": "/",
+        "7": "/",
+        "8": "o",
+        "9": "z",
+        "10": "k",
+        "11": "s",
+        "12": "g",
+        "13": "d",
+        "14": "m",
+        "15": "y",
+        "16": "r",
+        "17": "q",
+        "18": "c",
+        "19": "x",
+        "20": "c",
+        "21": "w",
+        "22": "h",
+        "23": "n",
+        "24": "b",
+        "25": "e",
+        "26": "p",
+        "27": "g",
+        "28": ".",
+        "29": "s",
+        "30": "u",
+        "31": "p",
+        "32": "a",
+        "33": "b",
+        "34": "a",
+        "35": "s",
+        "36": "e",
+        "37": ".",
+        "38": "c",
+        "39": "o",
+        "40": "/",
+        "41": "s",
+        "42": "t",
+        "43": "o",
+        "44": "r",
+        "45": "a",
+        "46": "g",
+        "47": "e",
+        "48": "/",
+        "49": "v",
+        "50": "1",
+        "51": "/",
+        "52": "o",
+        "53": "b",
+        "54": "j",
+        "55": "e",
+        "56": "c",
+        "57": "t",
+        "58": "/",
+        "59": "p",
+        "60": "u",
+        "61": "b",
+        "62": "l",
+        "63": "i",
+        "64": "c",
+        "65": "/",
+        "66": "a",
+        "67": "s",
+        "68": "s",
+        "69": "e",
+        "70": "t",
+        "71": "s",
+        "72": "/",
+        "73": "1",
+        "74": "8",
+        "75": "0",
+        "76": "3",
+        "77": "/",
+        "78": "3",
+        "79": "2",
+        "80": "2",
+        "81": "4",
+        "82": "4",
+        "83": "a",
+        "84": "2",
+        "85": "1",
+        "86": "-",
+        "87": "d",
+        "88": "3",
+        "89": "2",
+        "90": "7",
+        "91": "-",
+        "92": "4",
+        "93": "5",
+        "94": "a",
+        "95": "3",
+        "96": "-",
+        "97": "9",
+        "98": "8",
+        "99": "d",
+        "100": "5",
+        "101": "-",
+        "102": "2",
+        "103": "7",
+        "104": "e",
+        "105": "2",
+        "106": "d",
+        "107": "5",
+        "108": "9",
+        "109": "c",
+        "110": "a",
+        "111": "0",
+        "112": "7",
+        "113": "4",
+        "alt": "top banner",
+        "src": {
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a5a98597-6351-48da-9138-97d1bfa11b50"
+        }
+      },
+      "activate": true,
+      "activete": true
+    }
+  },
+  "Search Page": {
+    "name": "Search page",
+    "path": "/busca",
+    "sections": [
+      {
+        "__resolveType": "Oticas Isabela Custom Theme"
+      },
+      {
+        "__resolveType": "Header - 01"
+      },
+      {
+        "page": {
+          "__resolveType": "defaultSearchPLP"
+        },
+        "columns": {},
+        "variant": "aside",
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+      },
+      {
+        "__resolveType": "Footer - 01"
+      },
+      {
+        "__resolveType": "wpp-cta"
+      }
+    ],
+    "__resolveType": "$live/pages/LivePage.tsx"
+  },
+  "cliponWoman": {
+    "id": [],
+    "offset": 9,
+    "ordenacao": "none",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 22
+  },
+  "configStore": {
+    "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
+    "publicUrl": "https://www.oticaisabeladias.com.br/",
+    "__resolveType": "deco-sites/otica-isabela/accounts/configStore.ts"
+  },
+  "Product Page": {
+    "name": "Product page",
+    "path": "/produto/:slug",
+    "sections": [
+      {
+        "__resolveType": "Oticas Isabela Custom Theme"
+      },
+      {
+        "type": "website",
+        "context": {
+          "__resolveType": "deco-sites/std/functions/vtexProductDetailsPage.ts"
+        },
+        "__resolveType": "deco-sites/std/sections/SEO.tsx",
+        "titleTemplate": "%s | Deco.cx"
+      },
+      {
+        "__resolveType": "Header - 01"
+      },
+      {
+        "page": {
+          "slug": {
+            "param": "slug",
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+          },
+          "__resolveType": "deco-sites/otica-isabela/loaders/product/productDetails.ts"
+        },
+        "variant": "slider",
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx",
+        "measurementsImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/994ebc35-6a7d-4a16-bea4-9cb8be9c4eb7"
+      },
+      {
+        "items": [
+          {
+            "icon": "SuportePremium",
+            "label": "Suporte Premium",
+            "description": "Você tem todo o acompanhamento incrível de nossa equipe, estamos preparados para te atender em qualquer situação."
+          },
+          {
+            "icon": "GarantiaDoProduto",
+            "label": "Garantia do Produto",
+            "description": "Com a nossa garantia, você pode ter a tranquilidade de saber que o seu produto está protegido e que estamos comprometidos em garantir a sua satisfação."
+          },
+          {
+            "icon": "RecebaComLentes",
+            "label": "Receba com as Lentes",
+            "description": "Conforto e praticidade: agora você pode receber seus óculos com as lentes de grau na sua casa. Compre online na nossa ótica e receba seu óculos pronto para uso, sem sair de casa."
+          },
+          {
+            "icon": "ProvadorOnline",
+            "label": "Provador Online",
+            "description": "Com nossa tecnologia de provador virtual, você pode experimentar seus óculos pelo celular antes de comprar, garantindo a escolha perfeita para você."
+          }
+        ],
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/Details/ProductDetailsAdditionalInfo.tsx"
+      },
+      {
+        "title": "Related products",
+        "products": {
+          "id": [],
+          "offset": 9,
+          "ordenacao": "none",
+          "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+          "filtrosDinamicos": []
+        },
+        "itemsPerPage": {
+          "mobile": 1,
+          "desktop": 3
+        },
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+      },
+      {
+        "__resolveType": "Footer - 01"
+      },
+      {
+        "__resolveType": "wpp-cta"
+      }
+    ],
+    "__resolveType": "$live/pages/LivePage.tsx"
+  },
+  "visitedShelf": {
+    "id": [],
+    "offset": 9,
+    "ordenacao": "none",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "isVisitedShelf": true,
+    "filtrosDinamicos": []
+  },
+  "Benefits - 01": {
+    "title": "Take a look at our benefits",
+    "benefits": [
+      {
+        "icon": "Truck",
+        "label": "Free Shipping Worldwide",
+        "description": "Shop online with no additional fees!"
+      },
+      {
+        "icon": "Phone",
+        "label": "24/7 Online Support",
+        "description": "Instant assistance anytime"
+      },
+      {
+        "icon": "Discount",
+        "label": "15% on the first purchase",
+        "description": "Discount for new customers"
+      },
+      {
+        "icon": "ArrowsPointingOut",
+        "label": "Hassle-Free Returns",
+        "description": "Easy and Convenient Return Policy"
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Benefits.tsx"
+  },
+  "Benefits - 02": {
+    "title": "Take a look at our benefits ",
+    "layout": {
+      "variation": "Color reverse",
+      "headerAlignment": "center"
+    },
+    "benefits": [
+      {
+        "icon": "Truck",
+        "label": "Free Shipping Worldwide",
+        "description": "Shop online with no additional fees!"
+      },
+      {
+        "icon": "Phone",
+        "label": "24/7 Online Support",
+        "description": "Instant assistance anytime"
+      },
+      {
+        "icon": "Discount",
+        "label": "15% on the first purchase",
+        "description": "Discount for new customers"
+      },
+      {
+        "icon": "ArrowsPointingOut",
+        "label": "Easy Hassle-Free Returns",
+        "description": "Easy and Convenient Return Policy"
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Benefits.tsx"
+  },
+  "Benefits - 03": {
+    "title": "Take a look at our benefits ",
+    "layout": {
+      "variation": "With border",
+      "headerAlignment": "center"
+    },
+    "benefits": [
+      {
+        "icon": "Truck",
+        "label": "Free Shipping Worldwide",
+        "description": "Shop online with no additional fees!"
+      },
+      {
+        "icon": "Phone",
+        "label": "24/7 Online Support",
+        "description": "Instant assistance anytime"
+      },
+      {
+        "icon": "Discount",
+        "label": "15% on the first purchase",
+        "description": "Discount for new customers"
+      },
+      {
+        "icon": "ArrowsPointingOut",
+        "label": "Easy Hassle-Free Returns",
+        "description": "Easy and Convenient Return Policy"
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Benefits.tsx"
+  },
+  "Carousel - 01": {
+    "images": [
+      {
+        "alt": "Banner de Imagem Principal",
+        "action": {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+          "label": "deco.cx",
+          "title": "Demo Store",
+          "subTitle": "Visit our site and start building now:"
+        },
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c4ecf7e6-bdcc-47ba-92f5-d6554454c9d0",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b0c5e43f-90e1-4348-8faa-6c998f9ad410"
+      },
+      {
+        "alt": "Banner de Imagem Principal",
+        "action": {
+          "href": "/armacao-para-oculos-de-grau",
+          "label": "deco.cx",
+          "title": "Demo Store",
+          "subTitle": "Visit our site and start building now:"
+        },
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1c9f84de-0a53-4247-bddb-682b6e9fecc9",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bea9f6dc-4ece-4548-9856-3c3c1d8f2aea"
+      }
+    ],
+    "preload": true,
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/Carousel.tsx"
+  },
+  "Fashion theme": {
+    "fonts": {
+      "fontFamily": "'Albert Sans'",
+      "styleInnerHtml": "/* latin-ext */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 400;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }  /* latin */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 400;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }  /* latin-ext */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 500;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }  /* latin */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 500;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }  /* latin-ext */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 700;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2) format('woff2');   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }  /* latin */ @font-face {   font-family: 'Albert Sans';   font-display: swap;   font-style: normal;   font-weight: 700;   src: url(https://fonts.gstatic.com/s/albertsans/v1/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2) format('woff2');   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }"
+    },
+    "mainColors": {
+      "primary": "#6e0b75",
+      "base-100": "#FFFFFF",
+      "tertiary": "#f8860d",
+      "secondary": "#007ebd"
+    },
+    "buttonStyle": {
+      "--border-btn": "1px",
+      "--rounded-btn": "0.2rem",
+      "--btn-text-case": "normal-case",
+      "--btn-focus-scale": "0.95"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx"
+  },
+  "LinkTree - 01": {
+    "links": [
+      {
+        "href": "https://www.instagram.com/deco.cx/",
+        "label": "Instagram"
+      },
+      {
+        "href": "https://br.linkedin.com/company/deco-cx",
+        "label": "LinkedIn"
+      }
+    ],
+    "title": "Fashion links",
+    "social": [],
+    "__resolveType": "deco-sites/otica-isabela/sections/Links/LinkTree.tsx"
+  },
+  "configShopify": {
+    "__resolveType": "deco-sites/std/accounts/shopify.ts"
+  },
+  "Para os Homens": {
+    "header": {
+      "icon": "MenGlasses",
+      "iconSize": {
+        "width": 42,
+        "height": 21
+      },
+      "firstLineText": "Para os",
+      "textAlignment": "center",
+      "secondLineText": "HOMENS",
+      "backgroundColor": "#f8f8f8",
+      "firstLineFontSize": {
+        "mobile": "text-3xl",
+        "desktop": "text-3xl"
+      },
+      "firstLineTextFont": "roboto",
+      "firstLineTextColor": "#42c3ff",
+      "secondLineFontSize": {
+        "mobile": "text-6xl",
+        "desktop": "text-6xl"
+      },
+      "secondLineTextFont": "bebas",
+      "firstLineTextWeight": "medium",
+      "secondLineTextWeight": "medium"
+    },
+    "banners": [
+      {
+        "href": "/produto/armacao-oculos-de-grau-aviador-preto-1650-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/468c7905-177e-4745-9a66-ee7d9bb34af5",
+        "label": "armacao-oculos-de-grau-aviador-preto-1650-isabela-dias"
+      },
+      {
+        "href": "/produto/armacao-de-oculos-de-grau-masculino-chumbo-moderno-isabela-dias-1452",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/8599028b-71af-472c-9ab6-3c0ac8dd5fde",
+        "label": "armacao-de-oculos-de-grau-masculino-chumbo-moderno-isabela-dias-1452"
+      },
+      {
+        "href": "/produto/armacao-de-oculos-masculino-redondo-ptartaruga-1606-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ff6ccec0-f8d7-41a2-9b20-a5bd997a9050",
+        "label": "armacao-de-oculos-masculino-redondo-ptartaruga-1606-isabela-dias"
+      }
+    ],
+    "products": {
+      "__resolveType": "forMan"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx"
+  },
+  "Shortcuts - 01": {
+    "layout": {
+      "tooltip": true
+    },
+    "onHover": "Show label",
+    "shortcuts": [
+      {
+        "icon": "WhatsApp",
+        "link": "/",
+        "label": "WhatsApp"
+      },
+      {
+        "icon": "Message",
+        "link": "/",
+        "label": "Chat"
+      },
+      {
+        "icon": "Ruler",
+        "link": "/",
+        "label": "Measurements"
+      },
+      {
+        "icon": "Truck",
+        "link": "/",
+        "label": "Shipping"
+      },
+      {
+        "icon": "ArrowsPointingOut",
+        "link": "/",
+        "label": "Returns"
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx"
+  },
+  "Clipon Feminino": {
+    "header": {
+      "icon": "MenGlasses",
+      "iconSize": {
+        "width": 82,
+        "height": 30
+      },
+      "firstLineText": "Clipon",
+      "textAlignment": "center",
+      "secondLineText": "Feminino",
+      "backgroundColor": "#f8f8f8",
+      "firstLineFontSize": {
+        "mobile": "text-2xl",
+        "desktop": "text-3xl"
+      },
+      "firstLineTextFont": "bebas",
+      "firstLineTextColor": "#43c2ff",
+      "secondLineFontSize": {
+        "mobile": "text-5xl",
+        "desktop": "text-6xl"
+      },
+      "secondLineTextFont": "bebas",
+      "firstLineTextWeight": "medium",
+      "secondLineTextWeight": "bold"
+    },
+    "banners": [
+      {
+        "href": "/produto/Armacao-Oculos-8002-Redondo-Marrom-Com-Dourado-Grau-Feminino-Coach-1295-Isabala-Dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/39cfaefc-5b52-4c36-9515-71827187884c",
+        "label": "Armacao-Oculos-8002-Redondo-Marrom-Com-Dourado-Grau-Feminino-Coach-1295-Isabala-Dias"
+      },
+      {
+        "href": "/produto/armacao-de-oculos-feminino-gatinho-preto-1676-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/09c18e93-2810-4251-8e67-010bd46ca71b",
+        "label": "Armacao-de-oculos-feminino-gatinho-preto-1676-isabela-dias"
+      },
+      {
+        "href": "/produto/armacao-oculos-de-grau-feminino-preto-cinza-1648-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3a2f7cd8-482f-452f-bd3d-286ec14c85c2",
+        "label": "Armacao-oculos-de-grau-feminino-preto-cinza-1648-isabela-dias"
+      }
+    ],
+    "products": {
+      "__resolveType": "forWoman"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx"
+  },
+  "Flash-Promotion": {
+    "cron": "* 0-23 * * WED",
+    "__resolveType": "$live/matchers/MatchCron.ts"
+  },
+  "Friday-Campaign": {
+    "cron": "* 0-23 * * FRI",
+    "__resolveType": "$live/matchers/MatchCron.ts"
+  },
+  "Newsletter - 01": {
+    "form": {
+      "helpText": "<p>By subscribing you agree to with our <u>Privacy Policy</u>.</p>",
+      "buttonText": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "title": "Newsletter",
+    "layout": {
+      "content": {
+        "border": false,
+        "bgColor": "Reverse",
+        "alignment": "Side to side"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "Newsletter - 02": {
+    "form": {
+      "helpText": "<p>By subscribing you agree to with our <u>Privacy Policy</u>.</p>",
+      "buttonText": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "title": "Sign up for our newsletter",
+    "layout": {
+      "content": {
+        "border": false,
+        "bgColor": "Reverse",
+        "alignment": "Center"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "Newsletter - 03": {
+    "form": {
+      "helpText": "Ao cadastrar o e-mail para recebimento de newsletter você concorda com a Política de Privacidade e Termos de Uso.Você pode se descadastrar quando quiser clicando no link disponível no final de nossos e-mails.",
+      "buttonText": "Quero ser avisado",
+      "placeholder": {
+        "0": "E",
+        "1": "n",
+        "2": "t",
+        "3": "e",
+        "4": "r",
+        "5": " ",
+        "6": "y",
+        "7": "o",
+        "8": "u",
+        "9": "r",
+        "10": " ",
+        "11": "e",
+        "12": "m",
+        "13": "a",
+        "14": "i",
+        "15": "l",
+        "foneInput": "Digite seu telefone (WhatsApp)",
+        "mailInput": "Digite seu e-mail",
+        "nameInput": "Digite seu nome"
+      }
+    },
+    "title": "Sign up for our newsletter",
+    "layout": {
+      "content": {
+        "border": false,
+        "bgColor": "Reverse",
+        "alignment": "Left"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "Newsletter - 04": {
+    "form": {
+      "helpText": "<p>By subscribing you agree to with our <u>Privacy Policy</u>.</p>",
+      "buttonText": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "title": "Newsletter",
+    "layout": {
+      "content": {
+        "border": true,
+        "bgColor": "Reverse",
+        "alignment": "Side to side"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "Newsletter - 05": {
+    "form": {
+      "helpText": "<p>By subscribing you agree to with our <u>Privacy Policy</u>.</p>",
+      "buttonText": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "title": "Sign up for our newsletter",
+    "layout": {
+      "content": {
+        "border": true,
+        "bgColor": "Reverse",
+        "alignment": "Center"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "Newsletter - 06": {
+    "form": {
+      "helpText": "<p>By subscribing you agree to with our <u>Privacy Policy</u>.</p>",
+      "buttonText": "Subscribe",
+      "placeholder": "Enter your email"
+    },
+    "title": "Sign up for our newsletter",
+    "layout": {
+      "content": {
+        "border": true,
+        "bgColor": "Reverse",
+        "alignment": "Left"
+      },
+      "headerFontSize": "Large"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx"
+  },
+  "configYourViews": {
+    "__resolveType": "deco-sites/std/accounts/yourViews.ts"
+  },
+  "Banner Grid - 01": {
+    "title": "Summer bags",
+    "banners": [
+      {
+        "alt": "a",
+        "href": "a",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/82727553-f670-4e7c-b9c2-9452aed1955f",
+        "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/7b3a9d75-57a5-43cf-a3c5-f689a997f24e"
+      },
+      {
+        "alt": "a",
+        "href": "a",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/c5c6bdf6-5555-488c-8b14-719e4158dea6",
+        "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/3e2b7824-d75c-4704-8d32-621bfc9b20cf"
+      }
+    ],
+    "borderRadius": {
+      "mobile": "3xl",
+      "desktop": "3xl"
+    },
+    "itemsPerLine": {
+      "mobile": 2,
+      "desktop": 2
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/BannerGrid.tsx"
+  },
+  "Para as Mulheres": {
+    "header": {
+      "icon": "CatGlasses",
+      "iconSize": {
+        "width": 82,
+        "height": 30
+      },
+      "firstLineText": "Para as",
+      "textAlignment": "center",
+      "secondLineText": "Mulheres",
+      "backgroundColor": "#f8f8f8",
+      "firstLineFontSize": {
+        "mobile": "text-2xl",
+        "desktop": "text-3xl"
+      },
+      "firstLineTextFont": "roboto",
+      "firstLineTextColor": "#42c3ff",
+      "secondLineFontSize": {
+        "mobile": "text-5xl",
+        "desktop": "text-6xl"
+      },
+      "secondLineTextFont": "bebas",
+      "firstLineTextWeight": "medium",
+      "secondLineTextWeight": "bold"
+    },
+    "banners": [
+      {
+        "href": "/produto/Armacao-Oculos-8002-Redondo-Marrom-Com-Dourado-Grau-Feminino-Coach-1295-Isabala-Dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b6a8b7a5-f1bc-4469-aa9b-1cdca7889e8c",
+        "label": "Armacao-Oculos-8002-Redondo-Marrom-Com-Dourado-Grau-Feminino-Coach-1295-Isabala-Dias"
+      },
+      {
+        "href": "/produto/armacao-de-oculos-feminino-gatinho-preto-1676-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d350f6a1-1ef7-41cc-9861-009a6dc4736c",
+        "label": "Armacao-de-oculos-feminino-gatinho-preto-1676-isabela-dias"
+      },
+      {
+        "href": "/produto/armacao-oculos-de-grau-feminino-preto-cinza-1648-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bcab4f46-569b-49a6-8527-677819de4102",
+        "label": "Armacao-oculos-de-grau-feminino-preto-cinza-1648-isabela-dias"
+      }
+    ],
+    "products": {
+      "__resolveType": "forWoman"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx",
+    "isStopwatchEnabled": true
+  },
+  "VtexVestidoLists": {
+    "count": 2,
+    "query": "vestido",
+    "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+  },
+  "defaultSearchPLP": {
+    "id": [],
+    "offset": 21,
+    "ordenacao": "nome",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+    "filtrosDinamicos": []
+  },
+  "homeTestimonials": {
+    "offset": 9,
+    "ordenacao": "ultimosAdicionados",
+    "somenteFoto": true,
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/testimonials.ts"
+  },
+  "Testimonials - 01": {
+    "title": "Testimonials",
+    "layout": {
+      "variation": "Grid",
+      "headerAlignment": "center"
+    },
+    "description": "Take a look at what our customers are saying",
+    "testimonials": [
+      {
+        "text": "Love shopping at Fashion! Quality products, exceptional service. Hassle-free returns and free shipping. My go-to for stylish fashion!",
+        "user": {
+          "name": "Rafael Crespo",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/6a595043-fb5b-43b4-b6dd-bd3154e4e595"
+        },
+        "image": {
+          "alt": "deco",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d0a79cf6-6825-4624-884c-f30bda6c3daf"
+        }
+      },
+      {
+        "text": "Thrilled with my first Fashion purchase. Seamless process, prompt delivery with free shipping. Exceeded expectations in style and quality!",
+        "user": {
+          "name": "Tiago Gimenes",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/850df7f9-120e-4155-ae79-c76e737535ee"
+        },
+        "image": {
+          "alt": "deco",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/9dc5dddc-f8b5-4f70-847b-1f91b84ad7dc"
+        }
+      },
+      {
+        "text": "Fashion is my favorite online retailer. On-trend selection, exceptional quality. Easy returns and 24/7 online support. A delightful shopping experience!",
+        "user": {
+          "name": "Maria Luiza Aires",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/8327a46f-bb4e-4ae8-8cf2-963d530d3066"
+        },
+        "image": {
+          "alt": "deco",
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ca4c79ea-5bd9-42d3-a60a-07c99c5f45c4"
+        }
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx"
+  },
+  "Testimonials - 02": {
+    "title": "Testimonials",
+    "layout": {
+      "variation": "Slider",
+      "headerAlignment": "center"
+    },
+    "description": "Take a look at what our customers are saying",
+    "testimonials": [
+      {
+        "text": "I can't say enough about my experience shopping at this online fashion store. The website design is not only visually stunning but also incredibly user-friendly. It's a pleasure to browse through their extensive collection of fashionable clothing and accessories. The seamless checkout process makes purchasing items a breeze, and the fast and reliable shipping ensures I receive my orders in no time.",
+        "user": {
+          "name": "Rafael Crespo",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/6a595043-fb5b-43b4-b6dd-bd3154e4e595"
+        },
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d0a79cf6-6825-4624-884c-f30bda6c3daf"
+        }
+      },
+      {
+        "text": "Thrilled with my first Fashion purchase. Seamless process, prompt delivery with free shipping. Exceeded expectations in style and quality!",
+        "user": {
+          "name": "Tiago Gimenes",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/850df7f9-120e-4155-ae79-c76e737535ee"
+        },
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/9dc5dddc-f8b5-4f70-847b-1f91b84ad7dc"
+        }
+      },
+      {
+        "text": "Fashion is my favorite online retailer. On-trend selection, exceptional quality. Easy returns and 24/7 online support. A delightful shopping experience!",
+        "user": {
+          "name": "Maria Luiza Aires",
+          "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/8327a46f-bb4e-4ae8-8cf2-963d530d3066"
+        },
+        "image": {
+          "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ca4c79ea-5bd9-42d3-a60a-07c99c5f45c4"
+        }
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Content/Testimonials.tsx"
+  },
+  "Category List - 01": {
+    "list": [
+      {
+        "href": "/produto/Armacao-Oculos-8002-Redondo-Marrom-Com-Dourado-Grau-Feminino-Coach-1295-Isabala-Dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/77938635-229a-4d25-9e7d-25bbe6df15b9",
+        "label": "Óculos redondo - Coach Feminino 1295"
+      },
+      {
+        "href": "//produto/armacao-de-oculos-feminino-gatinho-preto-1676-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/80259bc5-45c1-447a-b4f5-a203abdf46c0",
+        "label": "Armação de Óculos Feminino Gatinho 1676 Isabela Dias",
+        "description": "Amazing"
+      },
+      {
+        "href": "/produto/armacao-oculos-de-grau-feminino-preto-cinza-1648-isabela-dias",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fec0d1eb-e2b3-4e4c-9c73-460e07d8dffb",
+        "label": "Óculos Feminino Redondo Preto Cinza 1648",
+        "description": "Bags"
+      }
+    ],
+    "header": {
+      "icon": "CatGlasses",
+      "title": "Categories",
+      "description": "Take a look at our categories",
+      "firstLineText": "Para as",
+      "textAlignment": "start",
+      "secondLineText": "Mulheres",
+      "backgroundColor": "#f8f8f8",
+      "firstLineTextColor": "#42c3ff",
+      "firstLineTextWeight": "semi-bold",
+      "secondLineTextWeight": "bold"
+    },
+    "layout": {
+      "categoryCard": {
+        "textPosition": "top",
+        "textAlignment": "center"
+      },
+      "headerAlignment": "center"
+    },
+    "products": {
+      "sort": "",
+      "count": 7,
+      "query": "vestidos",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Category/CategoryList.tsx"
+  },
+  "Image Gallery - 01": {
+    "title": "New collections",
+    "banners": [
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/29dbf8d4-90c3-43f7-9b6b-4c6bda5e7835"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/3210eea1-5437-4f19-8327-8b8fa4edfc45"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/1e6250d4-f9d2-4185-b8a6-b0e8a8fed4a7"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/a8d36df6-4b96-4421-bb6c-de0fe1478e06"
+      }
+    ],
+    "description": "Discover the collections of the season",
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx"
+  },
+  "Image Gallery - 02": {
+    "title": "New collections",
+    "layout": {
+      "desktop": "Asymmetric",
+      "headerAlignment": "left"
+    },
+    "banners": [
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5703060b-d1f6-4dc2-898a-ccefeefd2eab"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/3210eea1-5437-4f19-8327-8b8fa4edfc45"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/1e6250d4-f9d2-4185-b8a6-b0e8a8fed4a7"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/a8d36df6-4b96-4421-bb6c-de0fe1478e06"
+      }
+    ],
+    "description": "Discover the collections of the season",
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx"
+  },
+  "Image Gallery - 03": {
+    "title": "New collections",
+    "layout": {
+      "desktop": "Symmetrical",
+      "headerAlignment": "center"
+    },
+    "banners": [
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/29dbf8d4-90c3-43f7-9b6b-4c6bda5e7835"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/3210eea1-5437-4f19-8327-8b8fa4edfc45"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/1e6250d4-f9d2-4185-b8a6-b0e8a8fed4a7"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/a8d36df6-4b96-4421-bb6c-de0fe1478e06"
+      }
+    ],
+    "description": "Discover the collections of the season",
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx"
+  },
+  "Image Gallery - 04": {
+    "title": "etset",
+    "layout": {
+      "desktop": "Symmetrical",
+      "headerAlignment": "left"
+    },
+    "banners": [
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/29dbf8d4-90c3-43f7-9b6b-4c6bda5e7835",
+        "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/f7b0094f-b8f6-4806-bd43-4f4482958960"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/3210eea1-5437-4f19-8327-8b8fa4edfc45"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/1e6250d4-f9d2-4185-b8a6-b0e8a8fed4a7"
+      },
+      {
+        "alt": "Fashion",
+        "href": "/",
+        "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/a8d36df6-4b96-4421-bb6c-de0fe1478e06"
+      }
+    ],
+    "description": "Discover the collections of the season",
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/ImageGallery.tsx"
+  },
+  "Product Shelf - 01": {
+    "title": "Teste",
+    "products": {
+      "__resolveType": "Colecao 137 - Casacos"
+    },
+    "cardLayout": {
+      "hide": {}
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Product Shelf - 02": {
+    "title": "What we're loving right now",
+    "layout": {
+      "headerfontSize": "Normal",
+      "headerAlignment": "left"
+    },
+    "products": {
+      "count": 8,
+      "query": "camiseta",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "cardLayout": {
+      "hide": {}
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Product Shelf - 03": {
+    "title": "What we're loving right now",
+    "layout": {
+      "headerfontSize": "Large",
+      "headerAlignment": "center"
+    },
+    "products": {
+      "count": 8,
+      "query": "camiseta",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "cardLayout": {
+      "hide": {},
+      "basics": {
+        "ctaText": "View more",
+        "oldPriceSize": "Normal",
+        "contentAlignment": "Center"
+      },
+      "elementsPositions": {
+        "skuSelector": "Bottom"
+      }
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Product Shelf - 04": {
+    "title": "What we're loving right now",
+    "layout": {
+      "headerfontSize": "Large",
+      "headerAlignment": "center"
+    },
+    "products": {
+      "count": 8,
+      "query": "camiseta",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "cardLayout": {
+      "hide": {
+        "cta": true,
+        "skuSelector": true
+      },
+      "basics": {
+        "ctaText": "View more",
+        "oldPriceSize": "Normal",
+        "contentAlignment": "Center"
+      },
+      "elementsPositions": {
+        "skuSelector": "Bottom"
+      }
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Product Shelf - 05": {
+    "title": "What we're loving right now",
+    "layout": {
+      "headerfontSize": "Large",
+      "headerAlignment": "center"
+    },
+    "products": {
+      "count": 8,
+      "query": "camiseta",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "cardLayout": {
+      "hide": {
+        "cta": true,
+        "allPrices": false,
+        "skuSelector": true,
+        "installments": true,
+        "productDescription": true
+      },
+      "basics": {
+        "ctaText": "View more",
+        "oldPriceSize": "Normal",
+        "contentAlignment": "Center"
+      },
+      "elementsPositions": {
+        "skuSelector": "Bottom"
+      }
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Product Shelf - 06": {
+    "title": "What we're loving right now",
+    "layout": {
+      "headerfontSize": "Large",
+      "headerAlignment": "center"
+    },
+    "products": {
+      "count": 8,
+      "query": "camiseta",
+      "collection": [],
+      "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+    },
+    "cardLayout": {
+      "hide": {
+        "cta": true,
+        "allPrices": true,
+        "productName": true,
+        "skuSelector": true,
+        "installments": true,
+        "productDescription": true
+      },
+      "basics": {
+        "ctaText": "View more",
+        "oldPriceSize": "Normal",
+        "contentAlignment": "Center"
+      },
+      "elementsPositions": {
+        "skuSelector": "Bottom"
+      }
+    },
+    "description": "The best selection for you",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx"
+  },
+  "Campaign Timer - 01": {
+    "link": {
+      "href": "https://github.com/deco-cx",
+      "text": "Visit our GitHub"
+    },
+    "text": "<p>Design, develop and deliver complete experiences</p>",
+    "labels": {
+      "expired": " "
+    },
+    "layout": {
+      "textPosition": "After counter"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx"
+  },
+  "Campaign Timer - 02": {
+    "link": {
+      "href": "/",
+      "text": "View products"
+    },
+    "text": "<p>15% discount on all products!</p>",
+    "labels": {
+      "hours": "hr",
+      "expired": "Promotion expired.",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "layout": {
+      "textPosition": "After counter"
+    },
+    "expiresAt": "2023-06-07T00:00:00.000Z",
+    "__resolveType": "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx"
+  },
+  "Cookie Consent - 01": {
+    "text": "<p>We use cookies to personalize ads and improve your experience on the site.</p>",
+    "title": "Cookies",
+    "layout": {
+      "content": "Piled up",
+      "position": "Expanded"
+    },
+    "policy": {
+      "link": "/",
+      "text": "Find out more about privacy policy"
+    },
+    "buttons": {
+      "allowText": "Accept",
+      "cancelText": "Close"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx"
+  },
+  "Cookie Consent - 02": {
+    "text": "<p>We use cookies to personalize ads and improve your experience on the site.</p>",
+    "title": "Cookies",
+    "layout": {
+      "content": "Piled up",
+      "position": "Left"
+    },
+    "policy": {
+      "link": "/",
+      "text": "Find out more about privacy policy"
+    },
+    "buttons": {
+      "allowText": "Accept",
+      "cancelText": "Close"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx"
+  },
+  "Cookie Consent - 03": {
+    "text": "<p>We use cookies to personalize ads and improve your experience on the site.</p>",
+    "title": "Cookies",
+    "layout": {
+      "content": "Tiled",
+      "position": "Right"
+    },
+    "policy": {
+      "link": "/",
+      "text": "Find out more about privacy policy"
+    },
+    "buttons": {
+      "allowText": "Accept",
+      "cancelText": "Close"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx"
+  },
+  "Product Detail - 01": {
+    "page": {
+      "slug": "casaco-feminino-sun",
+      "__resolveType": "deco-sites/std/loaders/vtex/intelligentSearch/productDetailsPage.ts"
+    },
+    "variant": "slider",
+    "__resolveType": "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx"
+  },
+  "productTestimonials": {
+    "slug": {
+      "param": "slug",
+      "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+    },
+    "offset": 9,
+    "ordenacao": "ultimosAdicionados",
+    "__resolveType": "deco-sites/otica-isabela/loaders/product/testimonials.ts"
+  },
+  "vtex_proxy_audience": {
+    "name": "vtex_proxy",
+    "routes": {
+      "0": {
+        "handler": {
+          "value": {
+            "page": {
+              "__resolveType": "21500"
+            },
+            "__resolveType": "$live/handlers/fresh.ts"
+          }
+        },
+        "pathTemplate": "/"
+      },
+      "hostname": "fashion.bravtexstores.com.br",
+      "__resolveType": "deco-sites/std/loaders/vtex/proxy.ts"
+    },
+    "matcher": {
+      "__resolveType": "$live/matchers/MatchAlways.ts"
+    },
+    "overrides": [],
+    "__resolveType": "$live/flags/audience.ts"
+  },
+  "Category Banner - 01": {
+    "banners": [
+      {
+        "image": {
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/91102b71-4832-486a-b683-5f7b06f649af",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ec597b6a-dcf1-48ca-a99d-95b3c6304f96"
+        },
+        "title": "Woman",
+        "matcher": "/feminino/*",
+        "subtitle": "As"
+      }
+    ],
+    "__resolveType": "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx"
+  },
+  "Camisas mais vendidas": {
+    "sort": "price:desc",
+    "count": 4,
+    "query": "camisa",
+    "__resolveType": "deco-sites/std/functions/vtexProductList.ts"
+  },
+  "Colecao 137 - Casacos": {
+    "ids": [],
+    "count": 10,
+    "collection": "137",
+    "__resolveType": "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
+    "hideUnavailableItems": true
+  },
+  "Colecao 139 - Camisas": {
+    "ids": [],
+    "count": 10,
+    "collection": "139",
+    "__resolveType": "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
+    "hideUnavailableItems": true
+  },
+  "Shoppable Banner - 01": {
+    "link": {
+      "href": "/feminino",
+      "text": "Take a look"
+    },
+    "pins": [
+      {
+        "link": "/feminino",
+        "label": "Glasses",
+        "mobile": {
+          "x": 12,
+          "y": 59
+        },
+        "desktop": {
+          "x": 7,
+          "y": 60
+        }
+      },
+      {
+        "link": "/feminino",
+        "label": "Bag",
+        "mobile": {
+          "x": 30,
+          "y": 30
+        },
+        "desktop": {
+          "x": 30,
+          "y": 30
+        }
+      }
+    ],
+    "text": "Introducing our stunning Spring Clothes Collection! Step into a world of vibrant colors, fresh designs, and delightful styles that capture the essence of the season. Embrace the blooming flowers and the gentle breeze with our carefully curated selection of springtime fashion.",
+    "image": {
+      "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/cc607cfa-b7b9-4f0e-b9af-579458d2fdc6",
+      "altText": "a",
+      "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/39d61abb-5b29-4de8-86e4-325d21d7fdb7"
+    },
+    "title": "Spring collection",
+    "__resolveType": "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx"
+  },
+  "./routes/_middleware.ts": {
+    "state": [
+      {
+        "key": "configYourViews",
+        "value": {
+          "__resolveType": "configYourViews"
+        }
+      },
+      {
+        "key": "yourViews",
+        "value": {
+          "key": "asd",
+          "token": "men"
+        }
+      },
+      {
+        "key": "configVTEX",
+        "value": {
+          "__resolveType": "configVTEX"
+        }
+      },
+      {
+        "key": "configVNDA",
+        "value": {
+          "__resolveType": "configVNDA"
+        }
+      },
+      {
+        "key": "configShopify",
+        "value": {
+          "__resolveType": "configShopify"
+        }
+      },
+      {
+        "key": "configOCC",
+        "value": {
+          "__resolveType": "configOCC"
+        }
+      },
+      {
+        "key": "configButterCMS",
+        "value": {}
+      },
+      {
+        "key": "configStore",
+        "value": {
+          "__resolveType": "configStore"
+        }
+      }
+    ],
+    "__resolveType": "$live/loaders/state.ts"
+  },
+  "./routes/[...catchall].tsx": {
+    "audiences": [
+      {
+        "__resolveType": "everyone"
+      },
+      {
+        "__resolveType": "everyone"
+      },
+      {
+        "0": {
+          "isHref": false,
+          "handler": {
+            "value": {
+              "url": "https://www.google.com.br/",
+              "__resolveType": "$live/handlers/proxy.ts",
+              "customHeaders": []
+            }
+          },
+          "pathTemplate": "/example-redirect"
+        },
+        "routes": [
+          {
+            "isHref": false,
+            "handler": {
+              "value": {
+                "url": "https://www.google.com.br/",
+                "__resolveType": "$live/handlers/proxy.ts",
+                "customHeaders": []
+              }
+            },
+            "pathTemplate": "/example-proxy"
+          }
+        ],
+        "__resolveType": "$live/flags/everyone.ts"
+      }
+    ],
+    "__resolveType": "$live/handlers/routesSelection.ts"
+  },
+  "Oticas Isabela Custom Theme": {
+    "font": {
+      "fontFamily": "Roboto"
+    },
+    "mainColors": {
+      "primary": "#007bff",
+      "base-100": "#ffffff",
+      "tertiary": "#fd7e14",
+      "secondary": "#4a4a4a"
+    },
+    "buttonStyle": {
+      "--border-btn": "1px",
+      "--rounded-btn": "0.4rem",
+      "--btn-text-case": "capitalize",
+      "--btn-focus-scale": "0.9"
+    },
+    "__resolveType": "deco-sites/otica-isabela/sections/Theme/Theme.tsx",
+    "complementaryColors": {
+      "base": {
+        "base-200": "#f8f8f8",
+        "base-300": "#171717"
+      },
+      "primary": {
+        "primary-focus": "#00a7f5",
+        "primary-content": "#ffffff"
+      },
+      "tertiary": {
+        "tertiary-focus": "#aa5a18",
+        "tertiary-content": "#ffffff"
+      },
+      "secondary": {
+        "secondary-focus": "#000000",
+        "secondary-content": "#ffffff"
+      }
+    }
+  },
+  "pages-ofertasdodia-86d96fa9ec90": {
+    "name": "Ofertas do Dia",
+    "path": "/ofertas-do-dia",
+    "sections": [
+      {
+        "page": {
+          "__resolveType": "defaultPLP"
+        },
+        "__resolveType": "deco-sites/std/sections/SEOPLP.tsx",
+        "titleTemplate": "%s | Ótica Isabela Dias"
+      },
+      {
+        "__resolveType": "Oticas Isabela Custom Theme"
+      },
+      {
+        "__resolveType": "Header - 01"
+      },
+      {
+        "__resolveType": "Category Banner - 01"
+      },
+      {
+        "page": {
+          "id": [],
+          "slug": {
+            "param": "slug",
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+          },
+          "offset": 21,
+          "ordenacao": "ofertas",
+          "__resolveType": "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+          "filtrosDinamicos": [],
+          "somenteCronometrosAtivos": true
+        },
+        "layout": {
+          "columns": {
+            "mobile": 1,
+            "desktop": 3
+          },
+          "variant": "aside"
+        },
+        "columns": {},
+        "variant": "aside",
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+      },
+      {
+        "__resolveType": "Footer - 01"
+      },
+      {
+        "__resolveType": "wpp-cta"
+      }
+    ],
+    "__resolveType": "$live/pages/LivePage.tsx"
+  }
+}

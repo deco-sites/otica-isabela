@@ -1,18 +1,11 @@
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
-import { LiveConfig, LiveState } from "$live/types.ts";
-import { getCookies } from "std/http/mod.ts";
 import {
   ISABELA_DIAS_CLIENT_COOKIE,
   ISABELA_DIAS_SESSION_COOKIE,
 } from "$store/packs/constants.ts";
-import { Manifest } from "$store/live.gen.ts";
-
-import { Account } from "deco-sites/otica-isabela/packs/accounts/configStore.ts";
-
-export interface GlobalMiddleware {
-  configStore?: Account;
-  [key: string]: unknown;
-}
+import { Manifest } from "deco-sites/otica-isabela/manifest.gen.ts";
+import { DecoState } from "deco/types.ts";
+import { getCookies } from "std/http/mod.ts";
 
 export interface Tokens {
   tokenName: string;
@@ -31,38 +24,35 @@ const setCookies = (res: Response, tokens: Tokens[]) => {
     );
   });
 };
-
-const getSessionToken = async (
-  state: LiveConfig<unknown, LiveState, Manifest>,
-): Promise<string | null> => {
-  const sessionToken = await invokeSession(state);
-  return sessionToken?.SessionKey ?? null;
-};
-
-const invokeSession = async (
-  state: LiveConfig<unknown, LiveState, Manifest>,
-  sessionToken?: string,
-) =>
-  await state.invoke("deco-sites/otica-isabela/loaders/store/session.ts", {
-    sessionToken,
-  });
-
 export const handler = async (
   req: Request,
-  ctx: MiddlewareHandlerContext<LiveConfig<unknown, LiveState, Manifest>>,
+  ctx: MiddlewareHandlerContext<
+    DecoState<
+      Record<string | number | symbol, never>,
+      Record<string | number | symbol, never>,
+      //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
+      Manifest
+    >
+  >,
 ) => {
   const res = await ctx.next();
-  const { state } = ctx;
   const cookies = getCookies(req.headers);
 
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) return res;
 
   const sessionToken = cookies[ISABELA_DIAS_SESSION_COOKIE] ??
-    (await getSessionToken(state));
+    (
+      await ctx.state.invoke(
+        "deco-sites/otica-isabela/loaders/store/session.ts",
+      )
+    )?.SessionKey;
 
   if (!sessionToken) return res;
 
-  const customerToken = await invokeSession(state, sessionToken);
+  const customerToken = await ctx.state.invoke(
+    "deco-sites/otica-isabela/loaders/store/session.ts",
+    { sessionToken },
+  );
 
   setCookies(res, [
     {

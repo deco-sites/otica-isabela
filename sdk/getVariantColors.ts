@@ -1,5 +1,5 @@
-import { PropertyValue } from "deco-sites/std/commerce/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import { PropertyValue } from "apps/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 interface Color {
   name: string;

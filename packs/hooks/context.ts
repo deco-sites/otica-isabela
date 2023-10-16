@@ -1,17 +1,20 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { signal } from "@preact/signals";
 import { withManifest } from "$live/clients/withManifest.ts";
-import type { Manifest } from "../../live.gen.ts";
-import { OrderForm } from "$store/packs/types.ts";
+import type { Manifest } from "../../manifest.gen.ts";
+import { OrderForm, WishlistItem } from "$store/packs/types.ts";
 
 interface Context {
   cart: OrderForm;
+  wishlist: WishlistItem[] | null;
 }
 
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 const loading = signal<boolean>(true);
 const context = {
   cart: signal<OrderForm | null>(null),
+  wishlist: signal<WishlistItem[] | null>(null),
 };
 
 let queue = Promise.resolve();
@@ -26,13 +29,14 @@ const enqueue = (
 
   queue = queue.then(async () => {
     try {
-      const { cart } = await cb(controller.signal);
+      const { cart, wishlist } = await cb(controller.signal);
 
       if (controller.signal.aborted) {
         throw { name: "AbortError" };
       }
 
       context.cart.value = { ...context.cart!.value, ...cart! };
+      context.wishlist.value = { ...context.wishlist!.value, ...wishlist! };
 
       loading.value = false;
     } catch (error) {
@@ -49,14 +53,18 @@ const enqueue = (
 };
 
 const load = async (signal: AbortSignal) => {
-  const { cart } = await Runtime.invoke({
+  const { cart, wishlist } = await Runtime.invoke({
     cart: {
       key: "deco-sites/otica-isabela/loaders/product/cart.ts",
+    },
+    wishlist: {
+      key: "deco-sites/otica-isabela/loaders/product/wishlist.ts",
     },
   }, { signal });
 
   return {
     cart,
+    wishlist,
   };
 };
 

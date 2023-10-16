@@ -1,12 +1,12 @@
+import { Size } from "$store/components/product/Stopwatch.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
+import Stopwatch from "$store/islands/Stopwatch.tsx";
+import ToExperimentButton from "$store/islands/ToExperimentButton.tsx";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import { Size } from "deco-sites/otica-isabela/components/product/Stopwatch.tsx";
-import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
-import ToExperimentButton from "deco-sites/otica-isabela/islands/ToExperimentButton.tsx";
-import { getDescriptions } from "deco-sites/otica-isabela/sdk/getDescriptions.ts";
-import { getAvailableColors } from "deco-sites/otica-isabela/sdk/getVariantColors.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import { getDescriptions } from "$store/sdk/getDescriptions.ts";
+import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
+import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 
@@ -47,7 +47,6 @@ interface Props {
   /** @description used for analytics event */
   itemListName?: string;
   isStopwatchEnabled?: boolean;
-  priceValidUntil?: Date;
 }
 
 const relative = (url: string) => {
@@ -60,7 +59,6 @@ function ProductCard({
   preload,
   itemListName,
   isStopwatchEnabled,
-  priceValidUntil,
 }: Props) {
   const {
     url,
@@ -72,6 +70,7 @@ function ProductCard({
   } = product;
 
   const id = `product-card-${productID}`;
+  const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
 
   const [front] = images ?? [];
 
@@ -112,7 +111,7 @@ function ProductCard({
 
       {/* Stopwatch */}
       {isStopwatchEnabled && priceValidUntil && (
-        <Stopwatch targetDate={priceValidUntil!} size={Size.card} />
+        <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
       )}
 
       <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>

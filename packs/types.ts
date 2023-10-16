@@ -1,4 +1,4 @@
-import type { Filter, ListItem, Seo } from "deco-sites/std/commerce/types.ts";
+import type { Filter, ListItem, Seo } from "apps/commerce/types.ts";
 
 export type Session = {
   SessionCustomer: SessionCustomer;
@@ -295,4 +295,15 @@ export interface APIGetTestimonials {
   StampImagePath: string;
   Index: number;
   IdProduto: number;
+}
+
+export interface APIAddNewsletter {
+  wasShopperInserted: boolean;
+}
+
+export interface WishlistItem {
+  /**
+   * TODO: Type Wishlist API Return
+   */
+  tempProp: boolean;
 }
