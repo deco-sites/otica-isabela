@@ -1,20 +1,18 @@
-import Filters from "$store/components/search/Filters.tsx";
-import Sort from "$store/components/search/Sort.tsx";
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
-import { useSignal } from "@preact/signals";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Filters from '$store/components/search/Filters.tsx';
+import Sort from '$store/components/search/Sort.tsx';
+import Breadcrumb from '$store/components/ui/Breadcrumb.tsx';
+import Button from '$store/components/ui/Button.tsx';
+import Icon from '$store/components/ui/Icon.tsx';
+import Modal from '$store/components/ui/Modal.tsx';
+import { useSignal } from '@preact/signals';
+import type { ProductListingPage } from 'deco-sites/std/commerce/types.ts';
 
-type Props =
-  & Pick<
-    ProductListingPage,
-    "filters" | "breadcrumb" | "sortOptions"
-  >
-  & {
-    displayFilter?: boolean;
-  };
+type Props = Pick<
+  ProductListingPage,
+  'filters' | 'breadcrumb' | 'sortOptions'
+> & {
+  displayFilter?: boolean;
+};
 
 function SearchControls({
   filters,
@@ -26,23 +24,23 @@ function SearchControls({
 
   return (
     <div class="flex flex-col items-center sm:border-b sm:border-base-200">
-      <div class="flex w-full border-b border-base-200 py-7">
+      <div class="flex w-full border-b border-base-200 pt-7">
         <ul class="flex w-full justify-center flex-row">
-          <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
-            <p>Formato</p>
-            <Icon class="fill-black" size={12} id="ArrowDown" />
+          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
+            <p class="mr-1">Formato</p>
+            <Icon class="text-black" size={24} id="ChevronDown" />
           </li>
-          <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p>Material</p>
-            <Icon width="10px" height="10px" id="ArrowDown" />
+          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
+            <p class="mr-1">Material</p>
+            <Icon size={24} id="ChevronDown" />
           </li>
-          <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p>Estilo</p>
-            <Icon width="10px" height="10px" id="ArrowDown" />
+          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
+            <p class="mr-1">Estilo</p>
+            <Icon size={24} id="ChevronDown" />
           </li>
-          <li class="flex flex-row justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p>Lentes</p>
-            <Icon width="10px" height="10px" id="ArrowDown" />
+          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
+            <p class="mr-1">Lentes</p>
+            <Icon size={24} id="ChevronDown" />
           </li>
         </ul>
       </div>
@@ -53,7 +51,7 @@ function SearchControls({
 
       <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
+          class={displayFilter ? 'btn-ghost' : 'btn-ghost lg:hidden'}
           onClick={() => {
             open.value = true;
           }}
