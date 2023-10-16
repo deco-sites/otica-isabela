@@ -6,7 +6,7 @@ import { useId } from "preact/hooks";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
@@ -30,9 +30,6 @@ function ProductShelf({
     return null;
   }
 
-  //@ts-ignore temporarily until we have this on Product interface
-  const priceValidUntil = products[0]?.offers?.priceValidUntil;
-
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
       <div id={id} class="container flex flex-col px-0 sm:px-5">
@@ -47,7 +44,6 @@ function ProductShelf({
                   product={product}
                   itemListName={itemListName}
                   isStopwatchEnabled={isStopwatchEnabled}
-                  priceValidUntil={priceValidUntil}
                 />
               </Slider.Item>
             </div>

@@ -1,15 +1,10 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { ISABELA_DIAS_SESSION_COOKIE } from "$store/packs/constants.ts";
 import {
   Session,
   SessionCustomer,
 } from "deco-sites/otica-isabela/packs/types.ts";
-
-/**
-@title Otica Isabela Dias session starter
-@description This loader starts the session of the client, returning a token for the cart releatable requisitions.
-**/
 
 interface Props {
   /**
@@ -18,12 +13,17 @@ interface Props {
   sessionToken?: string;
 }
 
+/**
+@title Otica Isabela Dias - Session Start
+@description This loader starts the session of the client, returning a token for the cart releatable requisitions.
+**/
+
 const loader = async (
   props: Props,
   _req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<SessionCustomer | null> => {
-  const { configStore: config } = ctx;
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const sessionToken = props.sessionToken;
 

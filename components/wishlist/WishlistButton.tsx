@@ -1,28 +1,19 @@
 import { useComputed, useSignal } from "@preact/signals";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
-import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
+import { useWishlist } from "$store/packs/hooks/useWishlist.ts";
 
 interface Props {
   productID: string;
-  productGroupID?: string;
   variant?: "icon" | "full";
 }
 
-function WishlistButton({
-  variant = "icon",
-  productGroupID,
-  productID,
-}: Props) {
-  const { user } = useUser();
-  const item = { sku: productID, productId: productGroupID };
-  const { loading, addItem, removeItem, getItem } = useWishlist();
-  const listItem = useComputed(() => getItem(item));
+function WishlistButton({ variant = "icon", productID }: Props) {
+  const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
 
-  const isUserLoggedIn = Boolean(user.value?.email);
-  const inWishlist = Boolean(listItem.value);
+  /*  const isUserLoggedIn = Boolean(user.value?.email); */
+  const inWishlist = false;
 
   return (
     <Button
@@ -35,12 +26,6 @@ function WishlistButton({
         e.stopPropagation();
         e.preventDefault();
 
-        if (!isUserLoggedIn) {
-          window.alert("Please log in before adding to your wishlist");
-
-          return;
-        }
-
         if (loading.value) {
           return;
         }
@@ -48,8 +33,8 @@ function WishlistButton({
         try {
           fetching.value = true;
           inWishlist
-            ? await removeItem({ id: listItem.value!.id }!)
-            : await addItem(item);
+            ? await removeItem({ idProduct: Number(productID) }!)
+            : await addItem({ idProduct: Number(productID) }!);
         } finally {
           fetching.value = false;
         }
@@ -59,9 +44,9 @@ function WishlistButton({
         id="WishListHeart"
         class="w-[24px] h-[24px] md:w-[33px] md:h-[29px]"
         strokeWidth={2}
-        fill={inWishlist ? "black" : "none"}
+        /* fill={inWishlist ? "black" : "none"} */
       />
-      {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"}
+      {/* {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"} */}
     </Button>
   );
 }

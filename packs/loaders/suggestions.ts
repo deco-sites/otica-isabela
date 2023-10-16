@@ -1,6 +1,6 @@
-import { Context } from "$store/packs/accounts/configStore.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { ProductData } from "$store/packs/types.ts";
-import type { Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { Suggestion } from "apps/commerce/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
@@ -19,15 +19,15 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Product Search
+ * @title Otica Isabela Dias - Product Search
  */
 
 const loader = async (
   props: Props,
   _req: Request,
-  ctx: Context,
+  ctx: AppContext,
 ): Promise<Suggestion | null> => {
-  const { configStore: config } = ctx;
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const {
     nome,

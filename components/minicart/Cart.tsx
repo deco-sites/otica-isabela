@@ -4,8 +4,6 @@ import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
-import Coupon from "./Coupon.tsx";
-import SellerCode from "./SellerCode.tsx";
 import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 
 function Cart() {
@@ -82,8 +80,6 @@ function Cart() {
               {total ? formatPrice(total, currencyCode!, locale) : ""}
             </span>
           </div>
-          <Coupon />
-          <SellerCode />
         </div>
         {/* Total */}
 

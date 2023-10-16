@@ -24,7 +24,7 @@ import type {
   ProductGroup,
   ProductListingPage,
   PropertyValue,
-} from "deco-sites/std/commerce/types.ts";
+} from "apps/commerce/types.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 type CategoryPageProps =
@@ -50,6 +50,7 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaTermina,
     Paineis,
     DescricaoSeo,
+    IdSku,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
@@ -66,7 +67,7 @@ export function toProduct(product: IsabelaProduct): Product {
     url: toUrl(UrlFriendlyColor),
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai, NomeCategoria]),
-    sku: `${IdProduct}`,
+    sku: `${IdSku}`,
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
     image: productImages.map((image): ImageObject => ({
@@ -296,7 +297,7 @@ export const toProductListingPage = (
         productsData,
       },
     )
-    : searchPageProps(baseURL, props.term!);
+    : searchPageProps(baseURL, props.term);
 
   return {
     "@type": "ProductListingPage",
@@ -337,23 +338,41 @@ const categoryPageProps = (
   };
 };
 
-const searchPageProps = (url: URL, term: string): PLPPageProps => ({
-  itemListElement: [{
-    "@type": "ListItem" as const,
-    name: term.toUpperCase(),
-    item: new URL(
-      `/busca?termo=${term}`,
-      url.origin,
-    ).href,
-    position: 1,
-  }],
-  filters: [],
-  seo: {
-    title: "",
-    description: "",
-    canonical: "",
-  },
-});
+const searchPageProps = (url: URL, term?: string): PLPPageProps => {
+  const pathsItemList = url.pathname.includes("busca")
+    ? [{
+      "@type": "ListItem" as const,
+      name: "BUSCA",
+      item: new URL(
+        `/busca`,
+        url.origin,
+      ).href,
+      position: 1,
+    }]
+    : [];
+
+  const termItemList = term && pathsItemList.length
+    ? [{
+      "@type": "ListItem" as const,
+      name: term.toUpperCase(),
+      item: new URL(
+        `${url.pathname}?termo=${term}`,
+        url.origin,
+      ).href,
+      position: pathsItemList.length + 1,
+    }]
+    : [];
+
+  return {
+    itemListElement: [...pathsItemList, ...termItemList],
+    filters: [],
+    seo: {
+      title: "",
+      description: "",
+      canonical: "",
+    },
+  };
+};
 
 const groupPageFilters = (
   filtersApi: APIDynamicFilters[],

@@ -1,11 +1,11 @@
-import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
-import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import type { SectionProps } from "$live/mod.ts";
-import { getCookies, setCookie } from "std/http/mod.ts";
+import type { LoaderReturnType } from "$live/types.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
 import { NotFound } from "deco-sites/otica-isabela/components/product/product-details/NotFound.tsx";
+import { getCookies, setCookie } from "std/http/mod.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -42,8 +42,10 @@ function ProductDetails({
   );
 }
 
-export function loader({ ...props }: Props, req: Request, ctx: Context) {
+export function loader({ ...props }: Props, req: Request, ctx: AppContext) {
   const productId: string | undefined = props.page?.product?.productID ?? "";
+
+  if (!productId) return { ...props };
 
   const cookies = getCookies(req.headers);
   const currentIds: string[] | undefined =
