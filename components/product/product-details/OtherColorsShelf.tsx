@@ -1,5 +1,6 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 import { Product, ProductLeaf } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
@@ -24,11 +25,6 @@ function OtherColorsShelf({ product }: Props) {
     }))
     .filter((variant) => variant.sku !== sku);
 
-  const dots = Array.from(
-    { length: Math.ceil(images?.length! / 3) },
-    (_, index) => index
-  );
-
   if (!images) return null;
 
   return (
@@ -45,20 +41,13 @@ function OtherColorsShelf({ product }: Props) {
                   index={index}
                   class="carousel-item w-full lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 justify-center items-center"
                 >
-                  <a href={url} class="hidden md:block">
-                    <img
-                      src={image}
+                  <a href={url}>
+                    <Image
+                      class="max-w-[260px] md:max-w-[100%]"
+                      src={image!}
                       alt={alternateName}
-                      width="340px"
-                      height="190px"
-                    />
-                  </a>
-                  <a href={url} class="md:hidden">
-                    <img
-                      src={image}
-                      alt={alternateName}
-                      width="260px"
-                      height="190px"
+                      width={340}
+                      height={190}
                     />
                   </a>
                 </Slider.Item>
@@ -75,15 +64,8 @@ function OtherColorsShelf({ product }: Props) {
             perPageDots
           />
 
-          {/* Desktop - Dots */}
-          <div class="hidden lg:flex flex-row w-full gap-x-3 justify-center items-center py-14">
-            {dots?.map((_, index) => (
-              <Slider.Dot index={index} />
-            ))}
-          </div>
-
-          {/* Mobile - Dots */}
-          <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 lg:hidden">
+          {/* Dots */}
+          <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
             {images?.map((_, index) => (
               <Slider.Dot index={index} />
             ))}
