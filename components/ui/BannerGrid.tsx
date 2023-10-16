@@ -115,10 +115,11 @@ export default function BannnerGrid({
               href={href}
             >
               <Image
-                class={` ${RADIUS_MOBILE[borderRadius?.mobile ?? "none"]} ${
+                class={`${RADIUS_MOBILE[borderRadius?.mobile ?? "none"]} ${
                   RADIUS_DESKTOP[borderRadius?.desktop ?? "none"]
-                } `}
-                width={380}
+                }  w-[350px]`}
+                width={350 / 2}
+                height={350 / 2}
                 src={image ?? ""}
                 alt={alt}
               />

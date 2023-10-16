@@ -20,6 +20,7 @@ function GlobalTags() {
               src: url("${
             asset("/fonts/BebasNeue-Regular.ttf")
           }") format("truetype");
+              font-display: swap;
               font-style: normal;
               font-weight: normal;
           }`,
