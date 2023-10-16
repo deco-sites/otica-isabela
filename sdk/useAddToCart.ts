@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 import { useCart } from "$store/packs/hooks/useCart.ts";
-import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
+import { sendEvent } from "deco-sites/otica-isabela/sdk/analytics.tsx";
 
 export interface Options {
   idProduct: number;

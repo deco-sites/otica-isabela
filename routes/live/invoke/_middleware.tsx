@@ -24,13 +24,13 @@ const setCookies = (res: Response, tokens: Tokens[]) => {
     );
   });
 };
-
 export const handler = async (
   req: Request,
   ctx: MiddlewareHandlerContext<
     DecoState<
       Record<string | number | symbol, never>,
       Record<string | number | symbol, never>,
+      //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
       Manifest
     >
   >,

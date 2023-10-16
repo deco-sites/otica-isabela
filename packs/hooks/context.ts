@@ -9,6 +9,7 @@ interface Context {
   wishlist: WishlistItem[] | null;
 }
 
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 const loading = signal<boolean>(true);
 const context = {

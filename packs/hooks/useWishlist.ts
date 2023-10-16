@@ -4,6 +4,7 @@ import { withManifest } from "$live/clients/withManifest.ts";
 import type { Manifest } from "$store/manifest.gen.ts";
 
 const { wishlist, loading } = storeState;
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 const wrap = <T>(
   action: (

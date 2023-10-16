@@ -5,6 +5,8 @@ import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 import { withManifest } from "$live/clients/withManifest.ts";
 import type { Manifest } from "../../manifest.gen.ts";
+
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
 
 const subscribe = Runtime.create(

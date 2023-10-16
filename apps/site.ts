@@ -18,6 +18,7 @@ export interface StoreProps extends Props {
 
 export default function Site(
   state: StoreProps,
+  //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 ): App<Manifest, StoreProps, [
   StdApp,
 ]> {
@@ -31,5 +32,6 @@ export default function Site(
 }
 
 export type Storefront = ReturnType<typeof Site>;
+//@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 export type AppContext = AC<Storefront>;
 export { onBeforeResolveProps } from "apps/compat/$live/mod.ts";
