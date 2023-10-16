@@ -1,9 +1,10 @@
+import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
+import Review from 'deco-sites/otica-isabela/components/product/product-details/Review.tsx'
 import type { SectionProps } from "$live/mod.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
-import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
 import { NotFound } from "deco-sites/otica-isabela/components/product/product-details/NotFound.tsx";
 import { getCookies, setCookie } from "std/http/mod.ts";
 
@@ -34,11 +35,14 @@ function ProductDetails({
     : maybeVar;
 
   return (
-    <div class="lg:bg-gray-scale-100">
-      <div class="container py-0 lg:py-[60px]">
-        {page ? <Details page={page} variant={variant} /> : <NotFound />}
+    <>
+      <div class="lg:bg-gray-scale-100">
+        <div class="container py-0 lg:py-[60px]">
+          {page ? <Details page={page} variant={variant} /> : <NotFound />}
+        </div>
       </div>
-    </div>
+      <Review />
+    </>
   );
 }
 
