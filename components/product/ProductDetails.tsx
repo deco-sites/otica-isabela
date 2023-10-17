@@ -1,5 +1,6 @@
 import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
 import Review from 'deco-sites/otica-isabela/components/product/product-details/Review.tsx'
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { SectionProps } from "$live/mod.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
@@ -7,6 +8,8 @@ import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { NotFound } from "deco-sites/otica-isabela/components/product/product-details/NotFound.tsx";
 import { getCookies, setCookie } from "std/http/mod.ts";
+import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
+import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -17,22 +20,21 @@ export interface Props {
    * @description Ask for the developer to remove this option since this is here to help development only and should not be used in production
    */
   variant?: Variant;
+  measurementsImage?: LiveImage;
 }
 
 function ProductDetails({
   page,
   variant: maybeVar = "auto",
+  measurementsImage,
 }: SectionProps<typeof loader>) {
-  /**
-   * Showcase the different product views we have on this template. In case there are less
-   * than two images, render a front-back, otherwhise render a slider
-   * Remove one of them and go with the best suited for your use case.
-   */
-  const variant = maybeVar === "auto"
-    ? page?.product.image?.length && page?.product.image?.length < 2
-      ? "front-back"
-      : "slider"
-    : maybeVar;
+  const { product } = page || {};
+  const variant =
+    maybeVar === "auto"
+      ? page?.product.image?.length && page?.product.image?.length < 2
+        ? "front-back"
+        : "slider"
+      : maybeVar;
 
   return (
     <>
@@ -41,6 +43,8 @@ function ProductDetails({
           {page ? <Details page={page} variant={variant} /> : <NotFound />}
         </div>
       </div>
+      <SpecsDesktop product={product!} measurementsImage={measurementsImage!} />
+      <SpecsMobile product={product!} measurementsImage={measurementsImage!} />
       <Review />
     </>
   );

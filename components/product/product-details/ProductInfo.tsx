@@ -1,5 +1,6 @@
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -33,6 +34,14 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div>
         <span class="font-roboto font-medium text-[17px] text-lg">{name}</span>
       </div>
+
+      {/* Buy with lens label */}
+      <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
+        <span>Compre com lentes de grau e pague só R$ {price}</span>
+      </div>
+
+      {/* Ratings */}
+      <Ratings />
 
       {/* Prices */}
       <div class="w-[80%] flex items-center">
