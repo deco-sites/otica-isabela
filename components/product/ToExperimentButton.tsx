@@ -43,9 +43,8 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`group flex items-center justify-between border border-black rounded-[4px]  font-bold2 lg:rounded-[9px] lg:h-14 py-[5px] px-[22px] xxs:py-[9px] xxs:px-[25px] 2xl:px-[50px] max-lg:w-[250px] w-full
-		${style[variant]
-        } ${sizing[size].style}`}
+        class={`group flex items-center justify-between border border-black font-bold2 rounded-[9px] lg:h-14 py-[5px] px-[22px] xxs:py-[9px] xxs:px-[25px] 2xl:px-[50px] max-lg:w-[250px] w-full
+		${style[variant]} ${sizing[size].style}`}
         onClick={toggleExperimenter}
       >
         <span class="hidden lg:flex">

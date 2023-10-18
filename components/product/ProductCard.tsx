@@ -114,7 +114,10 @@ function ProductCard({
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
         )}
-        <figure class="relative mb-[10px]" style={{ aspectRatio: `${306} / ${170}` }}>
+        <figure
+          class="relative mb-[10px]"
+          style={{ aspectRatio: `${306} / ${170}` }}
+        >
           {/* Product Images */}
           <Image
             src={front ? front.url! : ""}
@@ -133,7 +136,7 @@ function ProductCard({
         </figure>
       </a>
 
-        {/* Name & Description */}
+      {/* Name & Description */}
       <div class="flex flex-col items-center mt-[10px]">
         <a
           href={url && relative(url)}

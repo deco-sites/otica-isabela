@@ -24,7 +24,7 @@ function SearchControls({
 
   return (
     <div class="flex flex-col items-center ">
-      <div class="flex w-full pt-7 border-b border-base-200">
+      <div class="flex w-full pt-7 border-b border-base-200 max-lg:hidden">
         <ul class="flex w-full justify-center flex-row">
           <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
             <p class="mr-1">Formato</p>
@@ -49,7 +49,8 @@ function SearchControls({
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
-      {/* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      {
+        /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         <Button
           class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
           onClick={() => {
@@ -60,7 +61,8 @@ function SearchControls({
           <Icon id="FilterList" width={16} height={16} />
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </Button>
-      </div> */}
+      </div> */
+      }
 
       <Modal
         loading="lazy"
