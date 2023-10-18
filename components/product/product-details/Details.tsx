@@ -7,6 +7,7 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import { useId } from "preact/hooks";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -26,14 +27,15 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages = product.isVariantOf?.hasVariant
-    .flatMap((p) => p.image)
-    .reduce((acc, img) => {
-      if (img?.url) {
-        acc[imageNameFromURL(img.url)] = img.url;
-      }
-      return acc;
-    }, {} as Record<string, string>) ?? {};
+  const allImages =
+    product.isVariantOf?.hasVariant
+      .flatMap((p) => p.image)
+      .reduce((acc, img) => {
+        if (img?.url) {
+          acc[imageNameFromURL(img.url)] = img.url;
+        }
+        return acc;
+      }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -51,14 +53,14 @@ function Details({ page, variant }: Props) {
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
+    (prop) => prop.propertyID === "color"
   );
   const colors = colorsList?.map((color) => color.unitCode);
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
   const addToCard = {
     idProduct: Number(productID),
@@ -132,12 +134,12 @@ function Details({ page, variant }: Props) {
                     index={index}
                     class="carousel-item w-full items-center min-h-[540px]"
                   >
-                    <img
+                    <Image
                       class="w-full h-max"
                       src={img.url!}
                       alt={img.alternateName}
-                      width="540px"
-                      height="540px"
+                      width={540}
+                      height={540}
                       loading={index === 0 ? "eager" : "lazy"}
                     />
                   </Slider.Item>
@@ -150,10 +152,15 @@ function Details({ page, variant }: Props) {
               )}
             </div>
 
+            {/* Buy with lens label */}
+            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
+              <span>Compre com lentes de grau e pague só R$ {price}</span>
+            </div>
+
             {/* Dots - Mobile & Desktop */}
             <ul
               id="image-dots"
-              class="w-[90%] mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+              class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
             >
               {images.map((img, index) => (
                 <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
@@ -168,6 +175,14 @@ function Details({ page, variant }: Props) {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Ratings */}
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <Ratings />
+            <a href="#product-review" class="text-lg font-bold">
+              Veja as avaliações
+            </a>
           </div>
 
           {/* Price & Color - Mobile */}
@@ -191,9 +206,10 @@ function Details({ page, variant }: Props) {
                 <span
                   class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                   style={{
-                    background: colors && colors?.length > 1
-                      ? `linear-gradient(${colors.join(", ")})`
-                      : colors?.[0],
+                    background:
+                      colors && colors?.length > 1
+                        ? `linear-gradient(${colors.join(", ")})`
+                        : colors?.[0],
                   }}
                 />
               </div>
