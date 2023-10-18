@@ -1,11 +1,6 @@
-import { useSignal } from "@preact/signals";
 import Feedback from "deco-sites/otica-isabela/components/product/product-details/Review/Feedback.tsx";
-
-type Review = {
-  rating: number;
-  description: string;
-  name: string;
-};
+import { useSignal } from "@preact/signals";
+import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
 interface Props {
   reviews: Review[];

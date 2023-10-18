@@ -1,27 +1,25 @@
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import { Review } from "deco-sites/otica-isabela/packs/types.ts";
+
 interface Props {
-  review: {
-    image?: string;
-    rating: number;
-    description: string;
-    highlited?: string;
-    name: string;
-    vip?: boolean;
-  };
+  review: Review;
 }
 
-function Feedback({ review: { rating, description, name, highlited } }: Props) {
+function Feedback(
+  { review: { ratingValue, reviewDescription, authorName, memberLevel } }:
+    Props,
+) {
   return (
     <div class="border-b flex flex-col gap-5">
       {/* Rating Goes Here */}
-      <div>{rating}</div>
+      <Ratings ratingValue={ratingValue} />
       <div id="description">
-        {highlited && <p class="text-base font-bold">"{highlited}"</p>}
         <span class="text-sm text-[#212529]">
-          {description}
+          {reviewDescription}
         </span>
       </div>
       <div id="name">
-        <span class="text-sm text-[#212529]">{name}</span>
+        <span class="text-sm text-[#212529]">{authorName}</span>
       </div>
     </div>
   );
