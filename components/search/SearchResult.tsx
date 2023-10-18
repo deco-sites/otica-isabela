@@ -35,9 +35,12 @@ function Result({
   page,
   layout,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+  const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
-  const productCategory = products[0]?.category?.replace(">", " ");
+  console.log('AQUI', breadcrumb);
+
+
+  const productCategory = seo?.title.split(' - ')[0].toUpperCase();
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );

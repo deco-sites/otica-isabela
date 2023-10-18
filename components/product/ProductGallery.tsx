@@ -13,7 +13,7 @@ export interface Props {
 
 function ProductGallery({ products }: Props) {
   return (
-    <div class="grid grid-cols-1 gap-2 items-center xs:grid-cols-2  lg:grid-cols-3 lg:gap-10">
+    <div class="grid grid-cols-1 gap-2 items-center xs:grid-cols-2  lg:grid-cols-3 lg:gap-12">
       {products?.map((product, index) => (
         <ProductCard product={product} preload={index === 0} />
       ))}

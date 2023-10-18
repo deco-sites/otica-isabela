@@ -22,7 +22,7 @@ export const getDescriptions = (properties: PropertyValue[]) => {
   )
     ?.map((property) => {
       const mappedName =
-        nameMapping[property.name as keyof typeof nameMapping] || property.name;
-      return { ...property, name: mappedName };
+        nameMapping[property.value as keyof typeof nameMapping] || property.value;
+      return { ...property, value: mappedName, name: property.name };
     });
 };

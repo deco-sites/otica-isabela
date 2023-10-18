@@ -24,13 +24,15 @@ const sizing = {
   large: {
     iconW: 40,
     iconH: 37,
-    style: "text-lg",
+    style: "text-2xl font-bold px-[50px] py-[9px]",
   },
 };
 
-const ToExperimentButton = (
-  { image, variant = "filled", size = "large" }: Props,
-) => {
+const ToExperimentButton = ({
+  image,
+  variant = "outlined",
+  size = "large",
+}: Props) => {
   const isExperimenting = useSignal(false);
   const device = getDevice();
   const toggleExperimenter = () => {
@@ -41,17 +43,17 @@ const ToExperimentButton = (
     <>
       {/* Experimenter */}
       <button
-        class={`w-full px-1 py-2 group flex items-center justify-center border border-black rounded-[4px] gap-2 font-bold sm:py-2 lg:rounded-[9px] lg:gap-3 lg:h-14 ${
-          style[variant]
-        } ${sizing[size].style}`}
+        class={`w-full group flex items-center justify-between border border-black rounded-[4px]  font-bold2 lg:rounded-[9px] lg:h-14 ${style[variant]} ${sizing[size].style}`}
         onClick={toggleExperimenter}
       >
         <span class="hidden lg:flex">
           <Icon
             id="Camera"
-            class={variant === "outlined"
-              ? "group-hover:invert"
-              : "group-hover:invert-0"}
+            class={`${
+              variant === "outlined"
+                ? "group-hover:invert"
+                : "group-hover:invert-0"
+            } text-black`}
             width={sizing[size].iconW}
             height={sizing[size].iconH}
             filter={variant === "outlined" ? "none" : "invert()"}
@@ -60,49 +62,44 @@ const ToExperimentButton = (
         <span class="flex lg:hidden">
           <Icon
             id="Camera"
-            class="group-hover:invert"
+            class="group-hover:invert text-black"
             width={17}
             height={17}
             filter={variant === "outlined" ? "none" : "invert()"}
           />
         </span>
-        <p>
-          Experimentar
-        </p>
+        <p>Experimentar</p>
       </button>
       {/* Modal */}
-      {isExperimenting.value
-        ? (
-          <Modal
-            class="p-0 rounded-md md:min-w-[673px]"
-            open={isExperimenting.value}
-            onClose={toggleExperimenter}
-          >
-            <div id="header" class="text-left sticky bg-white top-0">
-              <div class="flex items-center justify-between">
-                <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
-                <Icon
-                  class="mr-1 cursor-pointer"
-                  id="XMark"
-                  width={25}
-                  height={23}
-                  onClick={toggleExperimenter}
-                />
-              </div>
-              <span class="border-b block"></span>
+      {isExperimenting.value ? (
+        <Modal
+          class="p-0 rounded-md md:min-w-[673px]"
+          open={isExperimenting.value}
+          onClose={toggleExperimenter}
+        >
+          <div id="header" class="text-left sticky bg-white top-0">
+            <div class="flex items-center justify-between">
+              <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
+              <Icon
+                class="mr-1 cursor-pointer"
+                id="XMark"
+                width={25}
+                height={23}
+                onClick={toggleExperimenter}
+              />
             </div>
-            <div id="content" class="min-h-[512px] p-2">
-              <iframe
-                class="w-full"
-                width="640"
-                height="480"
-                src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-              >
-              </iframe>
-            </div>
-          </Modal>
-        )
-        : null}
+            <span class="border-b block"></span>
+          </div>
+          <div id="content" class="min-h-[512px] p-2">
+            <iframe
+              class="w-full"
+              width="640"
+              height="480"
+              src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
+            ></iframe>
+          </div>
+        </Modal>
+      ) : null}
     </>
   );
 };

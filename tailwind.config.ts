@@ -24,7 +24,7 @@ export default {
 
       fontFamily: {
         "bebas-neue": ["Bebas Neue"],
-        "roboto": ["Roboto"],
+        "roboto": ["Roboto", "sans-serif"],
       },
       colors: {
         "red-500": "#d92027",

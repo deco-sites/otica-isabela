@@ -25,8 +25,8 @@ function SearchControls({
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col items-center sm:border-b sm:border-base-200">
-      <div class="flex w-full border-b border-base-200 pt-7">
+    <div class="flex flex-col items-center ">
+      <div class="flex w-full pt-7 border-b border-base-200">
         <ul class="flex w-full justify-center flex-row">
           <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
             <p class="mr-1">Formato</p>
@@ -47,7 +47,7 @@ function SearchControls({
         </ul>
       </div>
 
-      <div class="flex flex-row items-center my-5">
+      <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
