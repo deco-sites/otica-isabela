@@ -96,6 +96,7 @@ export interface Panels {
 export interface Image {
   Id: number;
   Imagem: string;
+  Video?: string
 }
 
 export interface ProductInfo {
