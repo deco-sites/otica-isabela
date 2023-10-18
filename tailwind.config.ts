@@ -15,7 +15,7 @@ export default {
       md: "728px",
       lg: "993px",
       xl: "1140px",
-      "2xl": "1140px",
+      "2xl": "1200px",
     },
     extend: {
       fontSize: {

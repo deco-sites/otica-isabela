@@ -89,7 +89,7 @@ function ProductCard({
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center h-full"
+      class="card card-compact w-full text-center h-full px-[30px] mb-14"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -133,9 +133,8 @@ function ProductCard({
         </figure>
       </a>
 
-      {/* Prices & Name */}
-      <div class="flex flex-col items-center p-1 gap-3 lg:gap-4">
         {/* Name & Description */}
+      <div class="flex flex-col items-center mt-[10px]">
         <a
           href={url && relative(url)}
           aria-label="view product"
@@ -146,7 +145,7 @@ function ProductCard({
               {name}
             </h4>
             <div class="min-h-[42px] mb-[10px]">
-              <p class="text-sm font-normal text-base-200 line-clamp-3 ">
+              <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
                 {description?.map(
                   (property, index) =>
                     `${property?.value}: ${property?.name}mm ${
@@ -159,7 +158,7 @@ function ProductCard({
         </a>
 
         {/* Available Colors */}
-        <ul class="flex items-center justify-center gap-1 my-[10px] w-[90%] h-5">
+        <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
           {availableColors?.map(({ name, url, unitCodes }) => (
             <li key={unitCodes}>
               <a href={url} aria-label={name} title={name}>
@@ -177,21 +176,21 @@ function ProductCard({
         </ul>
 
         {/* Price & Discount */}
-        <div class="flex flex-col gap-2">
+        <div class="flex justify-center items-center mb-[10px]">
           <a
             href={url && relative(url)}
             aria-label="view product"
             class="contents"
           >
-            <div class="flex flex-row  justify-center items-center gap-3  ">
+            <div class="flex flex-row  justify-center items-center gap-3 ">
               {discount > 0 && (
-                <div class="line-through font-semibold text-sm  text-red-500 lg:text-base">
+                <span class="line-through font-semibold  text-red-500 text-base">
                   {formatPrice(listPrice, offers!.priceCurrency!)}
-                </div>
+                </span>
               )}
-              <div class=" text-blue-200 text-xl lg:text-[28px] font-bold">
+              <span class=" text-blue-200 text-[28px] font-bold">
                 {formatPrice(price, offers!.priceCurrency!)}
-              </div>
+              </span>
             </div>
           </a>
         </div>

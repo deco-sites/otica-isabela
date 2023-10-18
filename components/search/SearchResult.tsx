@@ -62,15 +62,8 @@ function Result({
         breadcrumb={breadcrumb}
         displayFilter={layout?.variant === "drawer"}
       />
-      <div class="container px-4 sm:py-10">
+      <div class="container px-4 sm:py-10 mt-3">
         <div class="flex flex-row">
-          {
-            /* {layout?.variant === 'aside' && filters.length > 0 && (
-            <aside class="hidden lg:block w-min min-w-[250px]">
-              <Filters filters={filters} />
-            </aside>
-          )} */
-          }
           <div class="flex-grow">
             <ProductGallery products={products} />
           </div>

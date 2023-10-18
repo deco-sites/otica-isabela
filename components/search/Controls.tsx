@@ -1,7 +1,5 @@
 import Filters from "$store/components/search/Filters.tsx";
-import Sort from "$store/components/search/Sort.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Modal from "$store/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
@@ -51,7 +49,7 @@ function SearchControls({
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
-      <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      {/* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         <Button
           class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
           onClick={() => {
@@ -62,7 +60,7 @@ function SearchControls({
           <Icon id="FilterList" width={16} height={16} />
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </Button>
-      </div>
+      </div> */}
 
       <Modal
         loading="lazy"
