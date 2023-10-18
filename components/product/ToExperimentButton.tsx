@@ -43,7 +43,9 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`w-full group flex items-center justify-between border border-black rounded-[4px]  font-bold2 lg:rounded-[9px] lg:h-14 ${style[variant]} ${sizing[size].style}`}
+        class={`w-full group flex items-center justify-between border border-black rounded-[4px]  font-bold2 lg:rounded-[9px] lg:h-14 ${
+          style[variant]
+        } ${sizing[size].style}`}
         onClick={toggleExperimenter}
       >
         <span class="hidden lg:flex">
@@ -71,35 +73,38 @@ const ToExperimentButton = ({
         <p>Experimentar</p>
       </button>
       {/* Modal */}
-      {isExperimenting.value ? (
-        <Modal
-          class="p-0 rounded-md md:min-w-[673px]"
-          open={isExperimenting.value}
-          onClose={toggleExperimenter}
-        >
-          <div id="header" class="text-left sticky bg-white top-0">
-            <div class="flex items-center justify-between">
-              <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
-              <Icon
-                class="mr-1 cursor-pointer"
-                id="XMark"
-                width={25}
-                height={23}
-                onClick={toggleExperimenter}
-              />
+      {isExperimenting.value
+        ? (
+          <Modal
+            class="p-0 rounded-md md:min-w-[673px]"
+            open={isExperimenting.value}
+            onClose={toggleExperimenter}
+          >
+            <div id="header" class="text-left sticky bg-white top-0">
+              <div class="flex items-center justify-between">
+                <h1 class="text-xs font-bold p-2">Experimentador de óculos</h1>
+                <Icon
+                  class="mr-1 cursor-pointer"
+                  id="XMark"
+                  width={25}
+                  height={23}
+                  onClick={toggleExperimenter}
+                />
+              </div>
+              <span class="border-b block"></span>
             </div>
-            <span class="border-b block"></span>
-          </div>
-          <div id="content" class="min-h-[512px] p-2">
-            <iframe
-              class="w-full"
-              width="640"
-              height="480"
-              src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
-            ></iframe>
-          </div>
-        </Modal>
-      ) : null}
+            <div id="content" class="min-h-[512px] p-2">
+              <iframe
+                class="w-full"
+                width="640"
+                height="480"
+                src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
+              >
+              </iframe>
+            </div>
+          </Modal>
+        )
+        : null}
     </>
   );
 };

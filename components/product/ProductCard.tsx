@@ -72,19 +72,18 @@ function ProductCard({
   const id = `product-card-${productID}`;
   const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
 
-
   const [front] = images ?? [];
 
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
 
   return (
@@ -111,10 +110,10 @@ function ProductCard({
       />
 
       {/* Stopwatch */}
-	  <a href={url && relative(url)} aria-label="view product" class="contents">
-      {isStopwatchEnabled && priceValidUntil && (
-        <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
-      )}
+      <a href={url && relative(url)} aria-label="view product" class="contents">
+        {isStopwatchEnabled && priceValidUntil && (
+          <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
+        )}
         <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
           {/* Product Images */}
           <Image
@@ -146,16 +145,16 @@ function ProductCard({
             <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
               {name}
             </h4>
-			<div class="min-h-[42px] mb-[10px]">
-            <p class="text-sm font-normal text-base-200 line-clamp-3 ">
-              {description?.map(
-                (property, index) =>
-                  `${property?.value}: ${property?.name}mm ${
-                    index < description.length - 1 ? "/ " : ""
-                  }`
-              )}
-            </p>
-			</div>
+            <div class="min-h-[42px] mb-[10px]">
+              <p class="text-sm font-normal text-base-200 line-clamp-3 ">
+                {description?.map(
+                  (property, index) =>
+                    `${property?.value}: ${property?.name}mm ${
+                      index < description.length - 1 ? "/ " : ""
+                    }`,
+                )}
+              </p>
+            </div>
           </div>
         </a>
 
@@ -166,10 +165,9 @@ function ProductCard({
               <a href={url} aria-label={name} title={name}>
                 <div
                   style={{
-                    background:
-                      unitCodes.length > 1
-                        ? `linear-gradient(${unitCodes.join(", ")})`
-                        : `${unitCodes[0]}`,
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : `${unitCodes[0]}`,
                   }}
                   class="mask mask-circle h-5 w-5 bg-secondary mx-2"
                 />
