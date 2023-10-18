@@ -89,7 +89,7 @@ function ProductCard({
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center h-full px-[30px] mb-14"
+      class="card card-compact w-full text-center px-[30px] mb-14"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -114,7 +114,7 @@ function ProductCard({
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
         )}
-        <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
+        <figure class="relative mb-[10px]" style={{ aspectRatio: `${306} / ${170}` }}>
           {/* Product Images */}
           <Image
             src={front ? front.url! : ""}

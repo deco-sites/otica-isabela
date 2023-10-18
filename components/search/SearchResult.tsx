@@ -62,7 +62,7 @@ function Result({
         breadcrumb={breadcrumb}
         displayFilter={layout?.variant === "drawer"}
       />
-      <div class="container px-4 sm:py-10 mt-3">
+      <div class="container px-4 sm:py-10 mt-12">
         <div class="flex flex-row">
           <div class="flex-grow">
             <ProductGallery products={products} />
