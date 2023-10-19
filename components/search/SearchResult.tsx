@@ -37,8 +37,6 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
-  console.log("AQUI", breadcrumb);
-
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
@@ -62,7 +60,7 @@ function Result({
         breadcrumb={breadcrumb}
         displayFilter={layout?.variant === "drawer"}
       />
-      <div class="container px-4 sm:py-10 mt-12">
+      <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
           <div class="flex-grow">
             <ProductGallery products={products} />
