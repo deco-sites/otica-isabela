@@ -33,6 +33,14 @@ type CategoryPageProps =
   >
   & { filtersUrl: DynamicFilter[] | undefined };
 
+interface ToAdditionalPropertiesProps {
+  properties: ProductInfo[];
+  variants: ColorVariants[];
+  experimentador: string;
+  panels: Panels[];
+  flag?: string;
+}
+
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
@@ -51,6 +59,7 @@ export function toProduct(product: IsabelaProduct): Product {
     Paineis,
     DescricaoSeo,
     IdSku,
+    OfertaFlag,
   } = product;
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
@@ -69,12 +78,13 @@ export function toProduct(product: IsabelaProduct): Product {
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
     image: toImage(Imagens, Nome),
-    additionalProperty: toAdditionalProperties(
-      productsInfo,
-      ProdutosMaisCores,
-      ImagemExperimentador,
-      Paineis,
-    ),
+    additionalProperty: toAdditionalProperties({
+      properties: productsInfo,
+      variants: ProdutosMaisCores,
+      experimentador: ImagemExperimentador,
+      panels: Paineis,
+      flag: OfertaFlag,
+    }),
     isVariantOf,
     offers: toAggregateOffer(
       ValorOriginal,
@@ -133,12 +143,10 @@ const toImage = (
   });
 
 const toAdditionalProperties = (
-  properties: ProductInfo[],
-  variants: ColorVariants[],
-  experimentador: string,
-  panels: Panels[],
+  props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
   const additionalProperties: PropertyValue[] = [];
+  const { variants, properties, panels, experimentador, flag } = props;
 
   if (variants.length > 0) {
     additionalProperties.push(
@@ -166,6 +174,17 @@ const toAdditionalProperties = (
       "value": experimentador,
     },
   );
+
+  if (flag) {
+    additionalProperties.push(
+      {
+        "@type": "PropertyValue" as const,
+        "name": "Flag",
+        "propertyID": "flag",
+        "value": flag,
+      },
+    );
+  }
 
   return additionalProperties;
 };
@@ -498,7 +517,9 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     ImagePath,
     UrlFriendly,
     CommentsImgPath,
+    StampImagePath,
   } = testimonial;
+  const stamp = StampImagePath.split("/").pop() ?? "";
   return {
     ratingValue: Stars,
     authorName: NameCustomer,
@@ -508,5 +529,6 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     productPhoto: ImagePath,
     productLink: `${url.origin}/produto/${UrlFriendly}`,
     additionalImage: CommentsImgPath,
+    memberLevel: stamp === "" ? "default" : stamp.replace(/\.[^.]+$/, ""),
   };
 };

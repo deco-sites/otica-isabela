@@ -63,6 +63,7 @@ export interface Product {
   ValorDesconto: number;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
+  OfertaFlag?: string,
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
   Paineis: Panels[];
