@@ -33,6 +33,14 @@ type CategoryPageProps =
   >
   & { filtersUrl: DynamicFilter[] | undefined };
 
+interface ToAdditionalPropertiesProps {
+  properties: ProductInfo[];
+  variants: ColorVariants[];
+  experimentador: string;
+  panels: Panels[];
+  flag?: string;
+}
+
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
@@ -51,6 +59,7 @@ export function toProduct(product: IsabelaProduct): Product {
     Paineis,
     DescricaoSeo,
     IdSku,
+    OfertaFlag,
   } = product;
 
   const productImages = Imagens.map((image: Image) => image.Imagem);
@@ -75,12 +84,13 @@ export function toProduct(product: IsabelaProduct): Product {
       alternateName: Nome,
       url: image,
     })),
-    additionalProperty: toAdditionalProperties(
-      productsInfo,
-      ProdutosMaisCores,
-      ImagemExperimentador,
-      Paineis,
-    ),
+    additionalProperty: toAdditionalProperties({
+      properties: productsInfo,
+      variants: ProdutosMaisCores,
+      experimentador: ImagemExperimentador,
+      panels: Paineis,
+      flag: OfertaFlag,
+    }),
     isVariantOf,
     offers: toAggregateOffer(
       ValorOriginal,
@@ -117,12 +127,10 @@ const toUrl = (UrlFriendlyColor: string) =>
     .href;
 
 const toAdditionalProperties = (
-  properties: ProductInfo[],
-  variants: ColorVariants[],
-  experimentador: string,
-  panels: Panels[],
+  props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
   const additionalProperties: PropertyValue[] = [];
+  const { variants, properties, panels, experimentador, flag } = props;
 
   if (variants.length > 0) {
     additionalProperties.push(
@@ -150,6 +158,17 @@ const toAdditionalProperties = (
       "value": experimentador,
     },
   );
+
+  if (flag) {
+    additionalProperties.push(
+      {
+        "@type": "PropertyValue" as const,
+        "name": "Flag",
+        "propertyID": "flag",
+        "value": flag,
+      },
+    );
+  }
 
   return additionalProperties;
 };
