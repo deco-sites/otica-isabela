@@ -482,7 +482,9 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     ImagePath,
     UrlFriendly,
     CommentsImgPath,
+    StampImagePath,
   } = testimonial;
+  const stamp = StampImagePath.split("/").pop() ?? "";
   return {
     ratingValue: Stars,
     authorName: NameCustomer,
@@ -492,5 +494,6 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     productPhoto: ImagePath,
     productLink: `${url.origin}/produto/${UrlFriendly}`,
     additionalImage: CommentsImgPath,
+    memberLevel: stamp === "" ? "default" : stamp.replace(/\.[^.]+$/, ""),
   };
 };
