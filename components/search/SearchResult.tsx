@@ -2,7 +2,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
@@ -38,14 +38,14 @@ function Result({
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
-  const totalPages = Math.ceil(
-    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
-  );
+  //   const totalPages = Math.ceil(
+  //     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
+  //   );
 
-  const totalPagesArray = Array.from(
-    { length: Number(totalPages) },
-    (value, i) => i,
-  );
+  //   const totalPagesArray = Array.from(
+  //     { length: Number(totalPages) },
+  //     (value, i) => i,
+  //   );
 
   return (
     <>
@@ -68,7 +68,7 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          <div class="join">
+          {/* <div class="join">
             <a
               aria-label="previous page link"
               rel="prev"
@@ -99,6 +99,9 @@ function Result({
               <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
             </a>
           </div>
+        </div> */}
+
+          <Pagination pageInfo={pageInfo} />
         </div>
       </div>
       <SendEventOnLoad
