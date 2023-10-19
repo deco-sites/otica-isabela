@@ -7,12 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-	  screens: {
-		sm: "540px",
-		md: "720px",
-		lg: "960px",
-		xl: "1140px",
-	  },
+      screens: {
+        sm: "540px",
+        md: "720px",
+        lg: "960px",
+        xl: "1140px",
+      },
     },
     screens: {
       xxs: "481px",
