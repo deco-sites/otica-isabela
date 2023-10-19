@@ -62,8 +62,6 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaFlag,
   } = product;
 
-  const productImages = Imagens.map((image: Image) => image.Imagem);
-
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
 
   const isVariantOf = product.ProdutosMaisCores
@@ -79,11 +77,7 @@ export function toProduct(product: IsabelaProduct): Product {
     sku: `${IdSku}`,
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
-    image: productImages.map((image): ImageObject => ({
-      "@type": "ImageObject" as const,
-      alternateName: Nome,
-      url: image,
-    })),
+    image: toImage(Imagens, Nome),
     additionalProperty: toAdditionalProperties({
       properties: productsInfo,
       variants: ProdutosMaisCores,
@@ -125,6 +119,28 @@ const toCategory = (category: Array<string>) =>
 const toUrl = (UrlFriendlyColor: string) =>
   new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
     .href;
+
+const toImage = (
+  imagesFromAPI: Image[],
+  alternateName: string,
+): ImageObject[] =>
+  imagesFromAPI.map(({ Imagem, Video }) => {
+    const [url, additionalType, image] = Video
+      ? [Video, "video", [{
+        "@type": "ImageObject" as const,
+        url: Imagem,
+        alternateName,
+        additionalType: "image",
+      }]]
+      : [Imagem, "image", undefined];
+    return {
+      "@type": "ImageObject" as const,
+      alternateName,
+      url,
+      additionalType,
+      image,
+    };
+  });
 
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
