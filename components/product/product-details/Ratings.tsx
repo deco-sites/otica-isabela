@@ -8,7 +8,7 @@ function Ratings({ ratingValue }: Props) {
   const ratings = Array.from({ length: ratingValue }, (_, index) => index);
 
   return (
-    <div className="flex items-center gap-[3px] mb-[22px]">
+    <div className="flex items-center gap-[3px]">
       {ratings.map(() => {
         return <Icon id="Ratings" size={21} />;
       })}

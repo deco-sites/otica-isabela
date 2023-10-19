@@ -4,9 +4,13 @@ import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
 interface Props {
   reviews: Review[];
+  images?: {
+    vip: string;
+    gold: string;
+  };
 }
 
-function ShowMore({ reviews }: Props) {
+function ShowMore({ reviews, images }: Props) {
   const isExpanded = useSignal(false);
 
   return (
@@ -24,7 +28,7 @@ function ShowMore({ reviews }: Props) {
         </div>
       )}
       {isExpanded.value &&
-        reviews?.map((review) => <Feedback review={review} />)}
+        reviews?.map((review) => <Feedback review={review} images={images} />)}
     </>
   );
 }

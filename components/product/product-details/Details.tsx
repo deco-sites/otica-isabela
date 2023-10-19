@@ -177,12 +177,14 @@ function Details({ page, variant }: Props) {
           </div>
 
           {/* Ratings */}
-          {/* <div class="flex flex-col items-center my-8 lg:hidden">
+          {
+            /* <div class="flex flex-col items-center my-8 lg:hidden">
             <Ratings />
             <a href="#product-review" class="text-lg font-bold">
               Veja as avaliações
             </a>
-          </div> */}
+          </div> */
+          }
 
           {/* Price & Color - Mobile */}
           <div class="lg:hidden px-3 flex items-center justify-between mt-4">
