@@ -68,7 +68,8 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          {/* <div class="join">
+          {
+            /* <div class="join">
             <a
               aria-label="previous page link"
               rel="prev"
@@ -99,7 +100,8 @@ function Result({
               <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
             </a>
           </div>
-        </div> */}
+        </div> */
+          }
 
           <Pagination pageInfo={pageInfo} />
         </div>

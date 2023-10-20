@@ -28,12 +28,11 @@ function ProductDetails({
   measurementsImage,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
-  const variant =
-    maybeVar === "auto"
-      ? page?.product.image?.length && page?.product.image?.length < 2
-        ? "front-back"
-        : "slider"
-      : maybeVar;
+  const variant = maybeVar === "auto"
+    ? page?.product.image?.length && page?.product.image?.length < 2
+      ? "front-back"
+      : "slider"
+    : maybeVar;
 
   return (
     <>

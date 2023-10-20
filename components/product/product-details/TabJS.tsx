@@ -38,7 +38,7 @@ const setup = ({ rootId }: Props) => {
       const anchorTab = event.target as HTMLAnchorElement;
       const contentId = anchorTab.id.split("-tab")?.[0];
       const tabContent = mainTabContainer.querySelector(
-        `#${contentId}-content`
+        `#${contentId}-content`,
       ) as HTMLDivElement;
       anchorTab.classList.add("tab-active", "border-b-4");
       tabContent.classList.remove("hidden");

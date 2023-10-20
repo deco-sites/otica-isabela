@@ -13,20 +13,20 @@ export type Props = {
 export default function Pagination({ pageInfo }: Props) {
   const firstPage = 1;
   const totalPages = Math.ceil(
-    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage)
+    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
   const eachPageList = Array.from(
     { length: Number(totalPages) },
-    (value, i) => i
+    (value, i) => i,
   );
   const currentPage = pageInfo.currentPage + 1;
   const nextPageNumber = currentPage + 1;
   const prevPageNumber = currentPage - 1;
   const lastPage = totalPages;
-  const shouldRenderFirstPage = currentPage >= 3 ;
+  const shouldRenderFirstPage = currentPage >= 3;
   const shouldRenderLastPage = lastPage !== -1 &&
-  currentPage <= lastPage - 2;
+    currentPage <= lastPage - 2;
   const shouldRenderFirstSpread = currentPage >= firstPage + 3;
   const shouldRenderSecondSpread = currentPage <= lastPage - 3;
 
@@ -76,9 +76,9 @@ export default function Pagination({ pageInfo }: Props) {
           </a>
         )}
         {/* {!firstPage && !lastPage && ( */}
-          <span class="w-10 h-10 bg-blue-200 text-white rounded-full flex items-center justify-center text-sm font-bold">
-            {currentPage}
-          </span>
+        <span class="w-10 h-10 bg-blue-200 text-white rounded-full flex items-center justify-center text-sm font-bold">
+          {currentPage}
+        </span>
         {/* )} */}
         {pageInfo.nextPage && (
           <a
@@ -107,15 +107,18 @@ export default function Pagination({ pageInfo }: Props) {
             {lastPage}
           </a>
         )}
-        {/* <a
+        {
+          /* <a
             aria-label="primeira pagina"
             rel="first"
             href={`?page=${firstPage}`}
             class="w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
           >
             {firstPage}
-          </a> */}
-        {/* {shouldRenderFirstSpread && (
+          </a> */
+        }
+        {
+          /* {shouldRenderFirstSpread && (
           <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
             ...
           </div>
@@ -149,15 +152,18 @@ export default function Pagination({ pageInfo }: Props) {
           <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
             ...
           </div>
-        )} */}
-        {/* <a
+        )} */
+        }
+        {
+          /* <a
             aria-label="ultima pagina"
             rel="last"
             href={`?page=${lastPage}`}
             class="w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
           >
             {lastPage}
-          </a> */}
+          </a> */
+        }
       </>
     );
   }
