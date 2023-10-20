@@ -43,7 +43,7 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`group flex items-center justify-between border border-black font-bold2 rounded-[9px] lg:h-14 py-[5px] px-[22px] xxs:py-[9px] xxs:px-[25px] 2xl:px-[50px] max-lg:w-[250px] w-full
+        class={`group flex items-center justify-between border border-black font-bold2 rounded-[9px] lg:h-14 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12 max-lg:w-[250px] w-full transition-all duration-300 ease-in-out
 		${style[variant]} ${sizing[size].style}`}
         onClick={toggleExperimenter}
       >
