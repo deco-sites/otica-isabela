@@ -13,12 +13,12 @@ export type Props = {
 export default function Pagination({ pageInfo }: Props) {
   const firstPage = 1;
   const totalPages = Math.ceil(
-    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage)
+    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
   const eachPageList = Array.from(
     { length: Number(totalPages) },
-    (value, i) => i
+    (value, i) => i,
   );
   const currentPage = pageInfo.currentPage + 1;
   const nextPageNumber = currentPage + 1;
