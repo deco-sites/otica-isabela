@@ -24,9 +24,8 @@ export default function Pagination({ pageInfo }: Props) {
   const nextPageNumber = currentPage + 1;
   const prevPageNumber = currentPage - 1;
   const lastPage = totalPages;
-  const shouldRenderFirstPage = currentPage >= 3 ;
-  const shouldRenderLastPage = lastPage !== -1 &&
-  currentPage <= lastPage - 2;
+  const shouldRenderFirstPage = currentPage >= 3;
+  const shouldRenderLastPage = lastPage !== -1 && currentPage <= lastPage - 2;
   const shouldRenderFirstSpread = currentPage >= firstPage + 3;
   const shouldRenderSecondSpread = currentPage <= lastPage - 3;
 
@@ -75,11 +74,9 @@ export default function Pagination({ pageInfo }: Props) {
             {prevPageNumber}
           </a>
         )}
-        {/* {!firstPage && !lastPage && ( */}
-          <span class="w-10 h-10 bg-blue-200 text-white rounded-full flex items-center justify-center text-sm font-bold">
-            {currentPage}
-          </span>
-        {/* )} */}
+        <span class="w-10 h-10 bg-blue-200 text-white rounded-full flex items-center justify-center text-sm font-bold">
+          {currentPage}
+        </span>
         {pageInfo.nextPage && (
           <a
             aria-label="proxima pagina"
@@ -107,64 +104,9 @@ export default function Pagination({ pageInfo }: Props) {
             {lastPage}
           </a>
         )}
-        {/* <a
-            aria-label="primeira pagina"
-            rel="first"
-            href={`?page=${firstPage}`}
-            class="w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
-          >
-            {firstPage}
-          </a> */}
-        {/* {shouldRenderFirstSpread && (
-          <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
-            ...
-          </div>
-        )}
-        {pageInfo.previousPage && (
-          <a
-            aria-label="pagina anterior"
-            rel="prev"
-            href={pageInfo.previousPage}
-            class="hidden sm:flex w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full items-center justify-center text-sm font-bold"
-          >
-            {prevPageNumber}
-          </a>
-        )}
-        <span
-          class={`w-10 h-10 bg-red text-white-content rounded-full flex items-center justify-center text-sm font-bold`}
-        >
-          {pageInfo.currentPage}
-        </span>
-        {pageInfo.nextPage && (
-          <a
-            aria-label="proxima pagina"
-            rel="next"
-            href={pageInfo.nextPage}
-            class="hidden sm:flex w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full items-center justify-center text-sm font-bold"
-          >
-            {nextPageNumber}
-          </a>
-        )}
-        {shouldRenderSecondSpread && (
-          <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
-            ...
-          </div>
-        )} */}
-        {/* <a
-            aria-label="ultima pagina"
-            rel="last"
-            href={`?page=${lastPage}`}
-            class="w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
-          >
-            {lastPage}
-          </a> */}
       </>
     );
   }
-
-  console.log("AQUI", pageInfo);
-  console.log("PAGE ATUAL", currentPage);
-  console.log("LISTA", eachPageList);
 
   return (
     <div class="flex justify-center my-5 gap-[10px]">
@@ -195,8 +137,6 @@ export default function Pagination({ pageInfo }: Props) {
           />
         </a>
       )}
-
-      {/* ----------------------------------- */}
     </div>
   );
 }

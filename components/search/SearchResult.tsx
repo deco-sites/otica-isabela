@@ -38,14 +38,6 @@ function Result({
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
-  //   const totalPages = Math.ceil(
-  //     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
-  //   );
-
-  //   const totalPagesArray = Array.from(
-  //     { length: Number(totalPages) },
-  //     (value, i) => i,
-  //   );
 
   return (
     <>
@@ -68,39 +60,6 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          {/* <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo?.previousPage}
-              class="btn btn-ghost join-item"
-              disabled={!pageInfo.previousPage}
-            >
-              <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
-            </a>
-
-            {totalPagesArray.map((page) =>
-              pageInfo.currentPage + 1 === page + 1
-                ? (
-                  <span class="btn btn-ghost join-item border-b-2 border-blue-500 rounded-full">
-                    {page + 1}
-                  </span>
-                )
-                : <span class="btn btn-ghost join-item">{page + 1}</span>
-            )}
-
-            <a
-              aria-label="Próxima página"
-              rel="proxima"
-              href={pageInfo?.nextPage}
-              class="btn btn-ghost join-item"
-              disabled={!pageInfo.nextPage}
-            >
-              <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
-            </a>
-          </div>
-        </div> */}
-
           <Pagination pageInfo={pageInfo} />
         </div>
       </div>
