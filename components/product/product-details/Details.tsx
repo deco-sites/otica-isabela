@@ -7,6 +7,7 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import { useId } from "preact/hooks";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -132,12 +133,12 @@ function Details({ page, variant }: Props) {
                     index={index}
                     class="carousel-item w-full items-center min-h-[540px]"
                   >
-                    <img
+                    <Image
                       class="w-full h-max"
                       src={img.url!}
                       alt={img.alternateName}
-                      width="540px"
-                      height="540px"
+                      width={540}
+                      height={540}
                       loading={index === 0 ? "eager" : "lazy"}
                     />
                   </Slider.Item>
@@ -150,10 +151,15 @@ function Details({ page, variant }: Props) {
               )}
             </div>
 
+            {/* Buy with lens label */}
+            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
+              <span>Compre com lentes de grau e pague só R$ {price}</span>
+            </div>
+
             {/* Dots - Mobile & Desktop */}
             <ul
               id="image-dots"
-              class="w-[90%] mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+              class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
             >
               {images.map((img, index) => (
                 <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
@@ -168,6 +174,14 @@ function Details({ page, variant }: Props) {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Ratings */}
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <Ratings />
+            <a href="#product-review" class="text-lg font-bold">
+              Veja as avaliações
+            </a>
           </div>
 
           {/* Price & Color - Mobile */}
