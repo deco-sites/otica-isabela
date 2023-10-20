@@ -18,7 +18,7 @@ function ShowMore({ reviews, images }: Props) {
       {!isExpanded.value && (
         <div class="text-center">
           <span
-            class="text-sm font-bold underline"
+            class="text-sm font-bold underline cursor-pointer"
             onClick={() => {
               isExpanded.value = true;
             }}
