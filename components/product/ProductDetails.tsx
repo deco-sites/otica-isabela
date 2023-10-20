@@ -1,4 +1,5 @@
 import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
+import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -41,6 +42,7 @@ function ProductDetails({
           {page ? <Details page={page} variant={variant} /> : <NotFound />}
         </div>
       </div>
+      <OtherColorsShelf product={product!} />
       <SpecsDesktop product={product!} measurementsImage={measurementsImage!} />
       <SpecsMobile product={product!} measurementsImage={measurementsImage!} />
     </>
