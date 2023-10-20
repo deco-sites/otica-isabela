@@ -53,7 +53,7 @@ const ProductShelfAndImage = ({
           </div>
           <div class="flex mt-8 lg:hidden">
             <ProductShelf
-              itemsPerPage={{ desktop: 3, mobile: 0 }}
+              itemsPerPage={{ desktop: 3, mobile: 1.5 }}
               products={products}
               isStopwatchEnabled={isStopwatchEnabled}
             />
@@ -66,18 +66,22 @@ const ProductShelfAndImage = ({
               <Source
                 media="(max-width: 983px)"
                 src={mobile ?? desktop}
-                width={350}
+                width={320}
+                height={440}
               />
-              <Source media="(min-width: 984px)" src={desktop} width={700} />
-              {
-                <img
-                  src={mobile ?? desktop}
-                  alt={alt}
-                  class="rounded-xl w-full"
-                  decoding="async"
-                  loading="lazy"
-                />
-              }
+              <Source
+                media="(min-width: 984px)"
+                src={desktop}
+                width={555}
+                height={763}
+              />
+              <img
+                src={mobile ?? desktop}
+                alt={alt}
+                class="rounded-xl w-full"
+                decoding="async"
+                loading="lazy"
+              />
             </Picture>
           </a>
         </div>

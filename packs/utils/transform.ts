@@ -33,6 +33,14 @@ type CategoryPageProps =
   >
   & { filtersUrl: DynamicFilter[] | undefined };
 
+interface ToAdditionalPropertiesProps {
+  properties: ProductInfo[];
+  variants: ColorVariants[];
+  experimentador: string;
+  panels: Panels[];
+  flag?: string;
+}
+
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
@@ -50,9 +58,9 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaTermina,
     Paineis,
     DescricaoSeo,
+    IdSku,
+    OfertaFlag,
   } = product;
-
-  const productImages = Imagens.map((image: Image) => image.Imagem);
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
 
@@ -66,20 +74,17 @@ export function toProduct(product: IsabelaProduct): Product {
     url: toUrl(UrlFriendlyColor),
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai, NomeCategoria]),
-    sku: `${IdProduct}`,
+    sku: `${IdSku}`,
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
-    image: productImages.map((image): ImageObject => ({
-      "@type": "ImageObject" as const,
-      alternateName: Nome,
-      url: image,
-    })),
-    additionalProperty: toAdditionalProperties(
-      productsInfo,
-      ProdutosMaisCores,
-      ImagemExperimentador,
-      Paineis,
-    ),
+    image: toImage(Imagens, Nome),
+    additionalProperty: toAdditionalProperties({
+      properties: productsInfo,
+      variants: ProdutosMaisCores,
+      experimentador: ImagemExperimentador,
+      panels: Paineis,
+      flag: OfertaFlag,
+    }),
     isVariantOf,
     offers: toAggregateOffer(
       ValorOriginal,
@@ -115,13 +120,33 @@ const toUrl = (UrlFriendlyColor: string) =>
   new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
     .href;
 
+const toImage = (
+  imagesFromAPI: Image[],
+  alternateName: string,
+): ImageObject[] =>
+  imagesFromAPI.map(({ Imagem, Video }) => {
+    const [url, additionalType, image] = Video
+      ? [Video, "video", [{
+        "@type": "ImageObject" as const,
+        url: Imagem,
+        alternateName,
+        additionalType: "image",
+      }]]
+      : [Imagem, "image", undefined];
+    return {
+      "@type": "ImageObject" as const,
+      alternateName,
+      url,
+      additionalType,
+      image,
+    };
+  });
+
 const toAdditionalProperties = (
-  properties: ProductInfo[],
-  variants: ColorVariants[],
-  experimentador: string,
-  panels: Panels[],
+  props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
   const additionalProperties: PropertyValue[] = [];
+  const { variants, properties, panels, experimentador, flag } = props;
 
   if (variants.length > 0) {
     additionalProperties.push(
@@ -149,6 +174,17 @@ const toAdditionalProperties = (
       "value": experimentador,
     },
   );
+
+  if (flag) {
+    additionalProperties.push(
+      {
+        "@type": "PropertyValue" as const,
+        "name": "Flag",
+        "propertyID": "flag",
+        "value": flag,
+      },
+    );
+  }
 
   return additionalProperties;
 };
@@ -481,7 +517,9 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     ImagePath,
     UrlFriendly,
     CommentsImgPath,
+    StampImagePath,
   } = testimonial;
+  const stamp = StampImagePath.split("/").pop() ?? "";
   return {
     ratingValue: Stars,
     authorName: NameCustomer,
@@ -491,5 +529,6 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     productPhoto: ImagePath,
     productLink: `${url.origin}/produto/${UrlFriendly}`,
     additionalImage: CommentsImgPath,
+    memberLevel: stamp === "" ? "default" : stamp.replace(/\.[^.]+$/, ""),
   };
 };

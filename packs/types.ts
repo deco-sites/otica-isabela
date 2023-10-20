@@ -63,6 +63,7 @@ export interface Product {
   ValorDesconto: number;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
+  OfertaFlag?: string,
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
   Paineis: Panels[];
@@ -96,6 +97,7 @@ export interface Panels {
 export interface Image {
   Id: number;
   Imagem: string;
+  Video?: string
 }
 
 export interface ProductInfo {
@@ -295,4 +297,15 @@ export interface APIGetTestimonials {
   StampImagePath: string;
   Index: number;
   IdProduto: number;
+}
+
+export interface APIAddNewsletter {
+  wasShopperInserted: boolean;
+}
+
+export interface WishlistItem {
+  /**
+   * TODO: Type Wishlist API Return
+   */
+  tempProp: boolean;
 }

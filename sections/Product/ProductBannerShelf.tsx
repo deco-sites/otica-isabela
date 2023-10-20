@@ -50,11 +50,11 @@ function ProductBannerShelf({
                   {image && (
                     <div class="relative">
                       <Image
-                        class=" rounded-3xl"
+                        class="rounded-3xl w-[350px] h-auto"
                         src={image}
                         alt={label}
-                        width={350}
-                        height={350}
+                        width={350 / 2}
+                        height={350 / 2}
                         loading="lazy"
                       />
                       {buttonLabel && (

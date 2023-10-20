@@ -13,6 +13,7 @@ await start(manifest, {
   plugins: [
     ...plugins(
       {
+        //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
         manifest: decoManifest,
       },
     ),
