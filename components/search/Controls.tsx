@@ -1,5 +1,4 @@
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
+import Filters from '$store/components/search/Filters.tsx';
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
@@ -20,34 +19,14 @@ function SearchControls({
 }: Props) {
   const open = useSignal(false);
 
-  console.log("FILTRO", filters);
 
   return (
-    <div class="flex flex-col items-center ">
-      <div class="flex w-full pt-7 border-b border-base-200 max-lg:hidden">
-        <ul class="flex w-full justify-center flex-row">
-          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529]  cursor-pointer">
-            <p class="mr-1">Formato</p>
-            <Icon class="text-black" size={24} id="ChevronDown" />
-          </li>
-          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p class="mr-1">Material</p>
-            <Icon size={24} id="ChevronDown" />
-          </li>
-          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p class="mr-1">Estilo</p>
-            <Icon size={24} id="ChevronDown" />
-          </li>
-          <li class="flex flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer">
-            <p class="mr-1">Lentes</p>
-            <Icon size={24} id="ChevronDown" />
-          </li>
-        </ul>
+      <div class="flex w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+	  <Filters filters={filters} />
       </div>
 
-      <div class="flex w-full flex-row justify-center items-center my-5">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
+  )
+
 
       {
         /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
@@ -77,8 +56,6 @@ function SearchControls({
         <Filters filters={filters} />
       </Modal> */
       }
-    </div>
-  );
 }
 
 export default SearchControls;
