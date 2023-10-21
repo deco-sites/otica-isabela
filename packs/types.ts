@@ -63,7 +63,7 @@ export interface Product {
   ValorDesconto: number;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
-  OfertaFlag?: string,
+  OfertaFlag?: string;
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
   Paineis: Panels[];
@@ -97,7 +97,7 @@ export interface Panels {
 export interface Image {
   Id: number;
   Imagem: string;
-  Video?: string
+  Video?: string;
 }
 
 export interface ProductInfo {
