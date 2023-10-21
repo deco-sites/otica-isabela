@@ -1,7 +1,5 @@
-import Filters from "$store/components/search/Filters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
@@ -21,6 +19,8 @@ function SearchControls({
   sortOptions,
 }: Props) {
   const open = useSignal(false);
+
+  console.log("FILTRO", filters);
 
   return (
     <div class="flex flex-col items-center ">
@@ -64,7 +64,8 @@ function SearchControls({
       </div> */
       }
 
-      <Modal
+      {
+        /* <Modal
         loading="lazy"
         title="Filtrar"
         mode="sidebar-right"
@@ -74,7 +75,8 @@ function SearchControls({
         }}
       >
         <Filters filters={filters} />
-      </Modal>
+      </Modal> */
+      }
     </div>
   );
 }
