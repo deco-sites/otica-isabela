@@ -12,7 +12,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const { additionalProperty, description } = product;
   const rootId = "items-container";
   const panels = additionalProperty?.filter(
-    (prop) => prop.propertyID === "panel"
+    (prop) => prop.propertyID === "panel",
   );
 
   panels?.unshift(
@@ -27,7 +27,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
       name: "Descrição",
       value: description,
       propertyID: "panel",
-    }
+    },
   );
 
   return (
@@ -64,17 +64,20 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
               {/* Content */}
               <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
-                {id === "medidas" ? (
-                  <ProductDetailsMeasurements
-                    product={product}
-                    measurementsImage={measurementsImage}
-                  />
-                ) : (
-                  <div
-                    class="p-3"
-                    dangerouslySetInnerHTML={{ __html: value! }}
-                  ></div>
-                )}
+                {id === "medidas"
+                  ? (
+                    <ProductDetailsMeasurements
+                      product={product}
+                      measurementsImage={measurementsImage}
+                    />
+                  )
+                  : (
+                    <div
+                      class="p-3"
+                      dangerouslySetInnerHTML={{ __html: value! }}
+                    >
+                    </div>
+                  )}
               </div>
             </div>
           );

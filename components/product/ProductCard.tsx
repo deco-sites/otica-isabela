@@ -1,4 +1,3 @@
-import { Size } from "$store/components/product/Stopwatch.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Stopwatch from "$store/islands/Stopwatch.tsx";
 import ToExperimentButton from "$store/islands/ToExperimentButton.tsx";
@@ -116,7 +115,7 @@ function ProductCard({
       >
         {/* Stopwatch */}
         {isStopwatchEnabled && priceValidUntil && (
-          <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
+          <Stopwatch targetDate={new Date(priceValidUntil)} type="card" />
         )}
         <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
           {/* Product Images */}

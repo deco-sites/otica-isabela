@@ -3,20 +3,15 @@ import { calcRemainingTime } from "$store/sdk/calcRemainingTime.ts";
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-export enum Size {
-  card = "card",
-  header = "header",
-}
-
 interface ItemProps {
   label: string;
   value: number;
-  size: Size;
+  type: "card" | "header";
 }
 
 interface Props {
   targetDate: Date;
-  size: Size;
+  type: "card" | "header";
 }
 
 type Config = {
@@ -41,14 +36,14 @@ const config: Config = {
   },
 };
 
-const style = (prop: string, size: Size) => config[size][prop];
+const style = (prop: string, type: Props["type"]) => config[type][prop];
 
-export function StopwatchItem({ label, value, size }: ItemProps) {
+export function StopwatchItem({ label, value, type }: ItemProps) {
   return (
-    <div class={`text-center ${style("font-size", size)}`}>
+    <div class={`text-center ${style("font-size", type)}`}>
       <p
         id={`item-${label}-value`}
-        class={`${style("font-color", size)} font-bold`}
+        class={`${style("font-color", type)} font-bold`}
       >
         {value}
       </p>
@@ -62,7 +57,7 @@ export function StopwatchItem({ label, value, size }: ItemProps) {
   );
 }
 
-function Stopwatch({ targetDate, size }: Props) {
+function Stopwatch({ targetDate, type }: Props) {
   const timeRemaining = useSignal<number>(0);
 
   useEffect(() => {
@@ -88,7 +83,7 @@ function Stopwatch({ targetDate, size }: Props) {
       class="border border-red-500 rounded-md  w-full max-w-[330px] self-center"
     >
       <div id="stopwatch-content" class="flex rounded-md">
-        {size === Size.card && (
+        {type === "card" && (
           <div
             id="stopwatch-icon"
             class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center"
@@ -98,10 +93,10 @@ function Stopwatch({ targetDate, size }: Props) {
         )}
         <div id="stopwatch" class="w-full text-center my-0 mx-2.5">
           <p
-            class={`${style("font-color", size)} ${
+            class={`${style("font-color", type)} ${
               style(
                 "offer-fs",
-                size,
+                type,
               )
             } font-bold w-full block `}
           >
@@ -111,10 +106,10 @@ function Stopwatch({ targetDate, size }: Props) {
             id="counter"
             class="flex justify-between mt-0 mb-0 ml-auto mr-auto"
           >
-            <StopwatchItem label="Dias" value={days} size={size} />
-            <StopwatchItem label="Horas" value={hours} size={size} />
-            <StopwatchItem label="Minutos" value={minutes} size={size} />
-            <StopwatchItem label="Segundos" value={seconds} size={size} />
+            <StopwatchItem label="Dias" value={days} type={type} />
+            <StopwatchItem label="Horas" value={hours} type={type} />
+            <StopwatchItem label="Minutos" value={minutes} type={type} />
+            <StopwatchItem label="Segundos" value={seconds} type={type} />
           </div>
         </div>
       </div>

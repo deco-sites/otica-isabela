@@ -1,19 +1,19 @@
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/components/ui/SliderJS.tsx";
+import Slider from "deco-sites/otica-isabela/components/ui/Slider.tsx";
+import SliderJS from "deco-sites/otica-isabela/components/ui/SliderJS.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
 import { useId } from "preact/hooks";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "deco-sites/otica-isabela/sdk/useOffer.ts";
+import { formatPrice } from "deco-sites/otica-isabela/sdk/format.ts";
 import { Variant } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 interface Props {
   page: ProductDetailsPage;
@@ -27,15 +27,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages =
-    product.isVariantOf?.hasVariant
-      .flatMap((p) => p.image)
-      .reduce((acc, img) => {
-        if (img?.url) {
-          acc[imageNameFromURL(img.url)] = img.url;
-        }
-        return acc;
-      }, {} as Record<string, string>) ?? {};
+  const allImages = product.isVariantOf?.hasVariant
+    .flatMap((p) => p.image)
+    .reduce((acc, img) => {
+      if (img?.url) {
+        acc[imageNameFromURL(img.url)] = img.url;
+      }
+      return acc;
+    }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -53,15 +52,16 @@ function Details({ page, variant }: Props) {
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color"
+    (prop) => prop.propertyID === "color",
   );
   const colors = colorsList?.map((color) => color.unitCode);
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
+
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -206,10 +206,9 @@ function Details({ page, variant }: Props) {
                 <span
                   class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                   style={{
-                    background:
-                      colors && colors?.length > 1
-                        ? `linear-gradient(${colors.join(", ")})`
-                        : colors?.[0],
+                    background: colors && colors?.length > 1
+                      ? `linear-gradient(${colors.join(", ")})`
+                      : colors?.[0],
                   }}
                 />
               </div>

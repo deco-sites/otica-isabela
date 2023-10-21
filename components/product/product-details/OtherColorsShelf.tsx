@@ -66,9 +66,7 @@ function OtherColorsShelf({ product }: Props) {
 
           {/* Dots */}
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
-            {images?.map((_, index) => (
-              <Slider.Dot index={index} />
-            ))}
+            {images?.map((_, index) => <Slider.Dot index={index} />)}
           </div>
         </div>
       </div>
