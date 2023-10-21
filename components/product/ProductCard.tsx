@@ -89,7 +89,7 @@ function ProductCard({
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center h-full flex-auto flex flex-col p-1 gap-3 lg:gap-4"
+      class="card card-compact w-full text-center px-[30px] mb-14"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -108,21 +108,20 @@ function ProductCard({
           },
         }}
       />
-      {/* Name & Description */}
-      <a
-        href={url && relative(url)}
-        aria-label={name}
-        class="flex flex-col"
-      >
-        {/* Stopwatch */}
+
+      {/* Stopwatch */}
+      <a href={url && relative(url)} aria-label="view product" class="contents">
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={new Date(priceValidUntil)} size={Size.card} />
         )}
-        <figure class="relative" style={{ aspectRatio: `${306} / ${170}` }}>
+        <figure
+          class="relative mb-[10px]"
+          style={{ aspectRatio: `${306} / ${170}` }}
+        >
           {/* Product Images */}
           <Image
             src={front ? front.url! : ""}
-            alt={front ? front.alternateName : name}
+            alt={front ? front.alternateName : url}
             width={210}
             height={210}
             preload={preload}
@@ -130,66 +129,78 @@ function ProductCard({
             decoding="async"
             class="w-full"
           />
-
           {discount > 0 && (
             <span class="absolute right-0 bottom-0 bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] ">
               <Icon id="ArrowDown" width={9} height={9} />-{discount}%
             </span>
           )}
         </figure>
-        <h2 class=" font-semibold text-black   text-base lg:text-lg min-h-[57px] mb-6  ">
-          {name}
-        </h2>
-
-        <p class="text-sm font-normal text-base-200 line-clamp-3 min-h-[42px] mb-2 ">
-          {description?.map(
-            (property, index) =>
-              `${property?.value}: ${property?.name}mm ${
-                index < description.length - 1 ? "/" : ""
-              } `,
-          )}
-        </p>
       </a>
 
-      {/* Available Colors */}
-      <ul class="flex items-center justify-center gap-2 w-full h-5">
-        {availableColors?.map(({ name, url, unitCodes }) => (
-          <li>
-            <a
-              href={url}
-              aria-label={name}
-              title={name}
-              style={{
-                background: unitCodes.length > 1
-                  ? `linear-gradient(${unitCodes.join(", ")})`
-                  : `${unitCodes[0]}`,
-              }}
-              class="block mask mask-circle h-5 w-5 bg-secondary mx-2"
-            />
-          </li>
-        ))}
-      </ul>
-
-      {/* Price & Discount */}
-      <a
-        href={url && relative(url)}
-        aria-label={name}
-        class="flex flex-col gap-2"
-      >
-        <div class="flex flex-row  justify-center items-center gap-3  ">
-          {discount > 0 && (
-            <div class="line-through font-semibold text-sm  text-red-500 lg:text-base">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
+      {/* Name & Description */}
+      <div class="flex flex-col items-center mt-[10px]">
+        <a
+          href={url && relative(url)}
+          aria-label="view product"
+          class="contents"
+        >
+          <div class="flex flex-col">
+            <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
+              {name}
+            </h4>
+            <div class="min-h-[42px] mb-[10px]">
+              <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
+                {description?.map(
+                  (property, index) =>
+                    `${property?.value}: ${property?.name}mm ${
+                      index < description.length - 1 ? "/ " : ""
+                    }`,
+                )}
+              </p>
             </div>
-          )}
-          <div class=" text-blue-200 text-xl lg:text-[28px] font-bold">
-            {formatPrice(price, offers!.priceCurrency!)}
           </div>
-        </div>
-      </a>
+        </a>
 
-      {/* Experimenter */}
-      <ToExperimentButton image={experimenterImage!} size="large" />
+        {/* Available Colors */}
+        <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
+          {availableColors?.map(({ name, url, unitCodes }) => (
+            <li key={unitCodes}>
+              <a href={url} aria-label={name} title={name}>
+                <div
+                  style={{
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : `${unitCodes[0]}`,
+                  }}
+                  class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Price & Discount */}
+        <div class="flex justify-center items-center mb-[10px]">
+          <a
+            href={url && relative(url)}
+            aria-label="view product"
+            class="contents"
+          >
+            <div class="flex flex-row  justify-center items-center gap-3 ">
+              {discount > 0 && (
+                <span class="line-through font-semibold  text-red-500 text-base">
+                  {formatPrice(listPrice, offers!.priceCurrency!)}
+                </span>
+              )}
+              <span class=" text-blue-200 text-[28px] font-bold">
+                {formatPrice(price, offers!.priceCurrency!)}
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <ToExperimentButton image={experimenterImage!} />
+      </div>
     </div>
   );
 }
