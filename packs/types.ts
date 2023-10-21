@@ -71,6 +71,7 @@ export interface Product {
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
   Classificacoes: ProductInfo[];
+  Avaliacoes: number
 }
 
 export interface ColorVariants {
