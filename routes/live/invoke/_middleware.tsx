@@ -3,9 +3,9 @@ import {
   ISABELA_DIAS_CLIENT_COOKIE,
   ISABELA_DIAS_SESSION_COOKIE,
 } from "$store/packs/constants.ts";
+import { Manifest } from "deco-sites/otica-isabela/manifest.gen.ts";
 import { DecoState } from "deco/types.ts";
 import { getCookies } from "std/http/mod.ts";
-import { Manifest } from "deco-sites/otica-isabela/manifest.gen.ts";
 
 export interface Tokens {
   tokenName: string;
