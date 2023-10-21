@@ -1,5 +1,5 @@
 import type { LoaderReturnType } from "$live/types.ts";
-import Breadcrumb from '$store/components/ui/Breadcrumb.tsx';
+import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
@@ -42,7 +42,6 @@ function Result({
 
   console.log("FILTRO", filters);
 
-
   return (
     <>
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
@@ -56,7 +55,7 @@ function Result({
         breadcrumb={breadcrumb}
         displayFilter={layout?.variant === "drawer"}
       />
-	    <div class="flex w-full flex-row justify-center items-center my-5">
+      <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
       <div class="container mt-12 px-4 sm:py-10">

@@ -1,9 +1,9 @@
 import { formatPrice } from "$store/sdk/format.ts";
 import type {
-	Filter,
-	FilterToggle,
-	FilterToggleValue,
-	ProductListingPage,
+  Filter,
+  FilterToggle,
+  FilterToggleValue,
+  ProductListingPage,
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import { parseRange } from "deco-sites/std/utils/filters.ts";
@@ -65,8 +65,9 @@ function ValueItem({ url, selected, label, quantity }: FilterToggleValue) {
 }
 
 function FilterValues({ key, values }: FilterToggle) {
-  const flexDirection =
-    key === "tamanho" || key === "cor" ? "flex-row" : "flex-col";
+  const flexDirection = key === "tamanho" || key === "cor"
+    ? "flex-row"
+    : "flex-col";
 
   return (
     <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
@@ -109,9 +110,7 @@ function Filters({ filters }: Props) {
           <Icon size={24} id="ChevronDown" />
 
           <div class="border bg-gray-scale-100 absolute hidden invisible z-[9] mt-[84px] mb-0 mx-0 pt-10 pb-5 px-[50px] rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible  flex-col top-0 transitionl duration-300 ease-in-out">
-            {filter.values.map((item) => (
-              <span>{item.label}</span>
-            ))}
+            {filter.values.map((item) => <span>{item.label}</span>)}
           </div>
           {/* <FilterValues {...filter} /> */}
         </li>
