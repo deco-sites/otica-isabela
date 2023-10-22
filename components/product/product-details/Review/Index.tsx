@@ -9,12 +9,14 @@ import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
+export type MemberLevel = {
+  level: string;
+  image: LiveImage;
+};
+
 interface Props {
   page: LoaderReturnType<Review[] | null>;
-  memberImages: {
-    vip: LiveImage;
-    gold: LiveImage;
-  };
+  memberImages: MemberLevel[];
 }
 
 function Review({ page, memberImages }: Props) {

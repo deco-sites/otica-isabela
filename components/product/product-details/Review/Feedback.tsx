@@ -1,13 +1,11 @@
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import type { MemberLevel } from "deco-sites/otica-isabela/components/product/product-details/Review/Index.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
 interface Props {
   review: Review;
-  images?: {
-    vip: string;
-    gold: string;
-  };
+  images?: MemberLevel[];
 }
 
 function Feedback(
@@ -21,6 +19,11 @@ function Feedback(
     images,
   }: Props,
 ) {
+  const imgObj = images?.reduce((acc: { [key: string]: string }, curr) => {
+    acc[curr.level] = curr.image;
+    return acc;
+  }, {});
+
   return (
     <div class="border-b flex flex-col gap-5">
       {/* Rating Goes Here */}
@@ -28,7 +31,7 @@ function Feedback(
         <Ratings ratingValue={ratingValue} />
         {memberLevel !== "default" && (
           <Image
-            src={images?.[memberLevel as keyof typeof images]!}
+            src={imgObj?.[memberLevel as keyof typeof images]!}
             width={50}
             height={50}
           />
