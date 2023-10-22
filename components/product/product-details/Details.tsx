@@ -1,5 +1,6 @@
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
+import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
@@ -124,11 +125,7 @@ function Details({ page }: Props) {
                   class="carousel-item w-full items-center min-h-[540px]"
                 >
                   {img.additionalType === "video"
-                    ? (
-                      <video width="540" height="540" controls>
-                        <source src={img.url} type="video/mp4" />
-                      </video>
-                    )
+                    ? <Video src={img.url} width={540} height={540} controls />
                     : (
                       <Image
                         class="w-full h-max"
