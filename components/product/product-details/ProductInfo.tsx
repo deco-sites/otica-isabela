@@ -8,7 +8,12 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
+interface Props {
+  page: ProductDetailsPage;
+  addToCartButtonLabel: string;
+}
+
+function ProductInfo({ page, addToCartButtonLabel }: Props) {
   const { product, breadcrumbList } = page;
   const { productID, offers, name, url, isVariantOf, additionalProperty, sku } =
     product;
@@ -90,7 +95,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] lg:max-w-[80%] w-full flex items-center">
-        <AddToCartButton {...addToCard} />
+        <AddToCartButton {...addToCard} label={addToCartButtonLabel} />
         <div class="ml-2">
           <WishlistButton
             productID={productID}
