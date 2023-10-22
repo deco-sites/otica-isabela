@@ -1,5 +1,5 @@
-import type { ThirdBlock as ThirdBlockProps } from "./Footer.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
+import type { ThirdBlock as ThirdBlockProps } from "./Footer.tsx";
 
 export const ThirdBlock = (
   { securityInformation, hideThirdBlock, logo, payments, support }:
@@ -30,7 +30,9 @@ export const ThirdBlock = (
         {suportLink?.map(({ href, image, label }) => {
           return (
             <a class="flex items-center gap-x-3 pl-6 lg:pl-0" href={href}>
-              {image && <Image width={20} src={image} alt={label} />}
+              {image && (
+                <Image width={20} height={20} src={image} alt={label} />
+              )}
               <span class="text-white font-normal text-xs">{label}</span>
             </a>
           );
