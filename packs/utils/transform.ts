@@ -249,7 +249,7 @@ const toVariantProduct = (
         discountedValue: ValorDesconto,
         priceValidUntil: OfertaTermina,
         stock: master.QtdeEstoque,
-      installment: master.ValorParcelamento,
+        installment: master.ValorParcelamento,
       }),
     };
   }),
@@ -299,8 +299,7 @@ const toPriceSpecification = (
 
   const installmentPrices = Array.from(
     { length: installmentsQty },
-    (_v, i) =>
-      Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
+    (_v, i) => Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
   );
 
   return [
@@ -314,15 +313,20 @@ const toPriceSpecification = (
       priceType: "https://schema.org/SalePrice",
       price,
     },
-    ...installmentPrices.map((value, i): UnitPriceSpecification => ({
-      "@type": "UnitPriceSpecification",
-      priceType: "https://schema.org/SalePrice",
-      priceComponentType: "https://schema.org/Installment",
-      description: i === 0 ? "À vista" : i + 1 + " vezes sem juros",
-      billingDuration: i + 1,
-      billingIncrement: value,
-      price,
-    })),
+    ...installmentPrices.map((value, i): UnitPriceSpecification => {
+      const [description, billingIncrement] = !i
+        ? ["À vista", price]
+        : [i + 1 + " vezes sem juros", value];
+      return {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/SalePrice",
+        priceComponentType: "https://schema.org/Installment",
+        description,
+        billingDuration: i + 1,
+        billingIncrement,
+        price,
+      };
+    }),
   ];
 };
 
