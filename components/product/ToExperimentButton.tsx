@@ -1,7 +1,7 @@
-import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import { BASE_EXPERIMENTER_URL } from "../../sdk/constants/index.ts";
 import { useSignal } from "@preact/signals";
+import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
+import { BASE_EXPERIMENTER_URL } from "deco-sites/otica-isabela/sdk/constants/index.ts";
 import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 
 interface Props {
@@ -17,21 +17,21 @@ const style = {
 
 const sizing = {
   small: {
-    iconW: 21,
-    iconH: 19,
+    iconW: 25,
+    iconH: 23,
     style: "text-xs lg:text-sm",
   },
   large: {
     iconW: 40,
     iconH: 37,
-    style: "text-lg",
+    style: "text-2xl font-bold",
   },
 };
 
 const ToExperimentButton = ({
   image,
   variant = "outlined",
-  size = "small",
+  size = "large",
 }: Props) => {
   const isExperimenting = useSignal(false);
   const device = getDevice();
@@ -42,36 +42,35 @@ const ToExperimentButton = ({
   return (
     <>
       {/* Experimenter */}
-      <div class="w-full flex items-center justify-center">
-        <button
-          class={`w-full px-1 py-2 group flex items-center justify-center border border-black rounded-[4px] gap-2 font-bold sm:py-2 lg:rounded-[9px] lg:gap-3 lg:h-14 ${
-            style[variant]
-          } ${sizing[size].style}`}
-          onClick={toggleExperimenter}
-        >
-          <span class="hidden lg:flex">
-            <Icon
-              id="Camera"
-              class={variant === "outlined"
+      <button
+        class={`group flex items-center justify-between border border-black font-bold2 rounded-[9px] lg:h-14 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12 max-lg:w-[250px] w-full transition-all duration-300 ease-in-out
+		${style[variant]} ${sizing[size].style}`}
+        onClick={toggleExperimenter}
+      >
+        <span class="hidden lg:flex">
+          <Icon
+            id="Camera"
+            class={`${
+              variant === "outlined"
                 ? "group-hover:invert"
-                : "group-hover:invert-0"}
-              width={sizing[size].iconW}
-              height={sizing[size].iconH}
-              filter={variant === "outlined" ? "none" : "invert()"}
-            />
-          </span>
-          <span class="flex lg:hidden">
-            <Icon
-              id="Camera"
-              class="group-hover:invert"
-              width={17}
-              height={17}
-              filter={variant === "outlined" ? "none" : "invert()"}
-            />
-          </span>
-          Experimentar
-        </button>
-      </div>
+                : "group-hover:invert-0"
+            } text-black`}
+            width={sizing[size].iconW}
+            height={sizing[size].iconH}
+            filter={variant === "outlined" ? "none" : "invert()"}
+          />
+        </span>
+        <span class="flex lg:hidden">
+          <Icon
+            id="Camera"
+            class="group-hover:invert text-black"
+            width={sizing[size].iconW}
+            height={sizing[size].iconH}
+            filter={variant === "outlined" ? "none" : "invert()"}
+          />
+        </span>
+        <p>Experimentar</p>
+      </button>
 
       {/* Modal */}
       {isExperimenting.value
