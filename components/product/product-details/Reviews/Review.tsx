@@ -1,6 +1,6 @@
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import ShowMore from "deco-sites/otica-isabela/islands/ShowMore.tsx";
-import Feedback from "deco-sites/otica-isabela/components/product/product-details/Review/Feedback.tsx";
+import Feedback from "deco-sites/otica-isabela/components/product/product-details/Reviews/Feedback.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";

@@ -1,5 +1,5 @@
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
-import type { MemberLevel } from "deco-sites/otica-isabela/components/product/product-details/Review/Index.tsx";
+import type { MemberLevel } from "deco-sites/otica-isabela/components/product/product-details/Reviews/Review.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 

@@ -1,1 +1,1 @@
-export { default } from "$store/components/product/product-details/Review/Index.tsx";
+export { default } from "$store/components/product/product-details/Reviews/Review.tsx";

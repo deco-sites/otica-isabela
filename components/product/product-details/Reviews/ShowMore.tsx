@@ -1,7 +1,7 @@
-import Feedback from "deco-sites/otica-isabela/components/product/product-details/Review/Feedback.tsx";
+import Feedback from "deco-sites/otica-isabela/components/product/product-details/Reviews/Feedback.tsx";
 import { useSignal } from "@preact/signals";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
-import type { MemberLevel } from "deco-sites/otica-isabela/components/product/product-details/Review/Index.tsx";
+import type { MemberLevel } from "deco-sites/otica-isabela/components/product/product-details/Reviews/Review.tsx";
 
 interface Props {
   reviews: Review[];
