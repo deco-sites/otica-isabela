@@ -4,7 +4,7 @@ import paths from "$store/packs/utils/paths.ts";
 import { toProductPage } from "$store/packs/utils/transform.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
-import type { RequestURLParam } from "deco-sites/std/functions/requestToParam.ts";
+import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface Props {
   slug: RequestURLParam;
