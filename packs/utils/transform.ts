@@ -39,6 +39,7 @@ interface ToAdditionalPropertiesProps {
   variants: ColorVariants[];
   experimentador: string;
   panels: Panels[];
+  rating: number;
   flag?: string;
 }
 
@@ -48,6 +49,11 @@ interface ToOfferProps {
   priceValidUntil: string;
   stock: number;
   installment: string;
+}
+
+interface ToDefaultPropertiesProps {
+  id: string;
+  value?: string;
 }
 
 export function toProduct(product: IsabelaProduct): Product {
@@ -70,6 +76,7 @@ export function toProduct(product: IsabelaProduct): Product {
     IdSku,
     OfertaFlag,
     ValorParcelamento,
+    Avaliacoes,
   } = product;
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
@@ -94,6 +101,7 @@ export function toProduct(product: IsabelaProduct): Product {
       experimentador: ImagemExperimentador,
       panels: Paineis,
       flag: OfertaFlag,
+      rating: Avaliacoes,
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -156,16 +164,14 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const additionalProperties: PropertyValue[] = [];
-  const { variants, properties, panels, experimentador, flag } = props;
+  const { variants, properties, panels, experimentador, flag, rating } = props;
 
-  if (variants.length > 0) {
-    additionalProperties.push(
-      ...toProductColorAdditionalProperties(properties, variants),
-    );
-  }
+  const productColorAdditionalProperties = !variants.length
+    ? []
+    : toProductColorAdditionalProperties(properties, variants);
 
-  additionalProperties.push(
+  return [
+    ...productColorAdditionalProperties,
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       "name": item.Nome,
@@ -178,26 +184,12 @@ const toAdditionalProperties = (
       "propertyID": "panel",
       "unitCode": `${p.IdTipoPainel}`,
     })),
-    {
-      "@type": "PropertyValue" as const,
-      "name": "Experimentador",
-      "propertyID": "experimentador",
-      "value": experimentador,
-    },
-  );
-
-  if (flag) {
-    additionalProperties.push(
-      {
-        "@type": "PropertyValue" as const,
-        "name": "Flag",
-        "propertyID": "flag",
-        "value": flag,
-      },
-    );
-  }
-
-  return additionalProperties;
+    ...toDefaultProperties([
+      { id: "experimentador", value: experimentador },
+      { id: "rating", value: String(rating.toFixed(1)) },
+      { id: "flag", value: flag },
+    ]),
+  ];
 };
 
 const toProductColorAdditionalProperties = (
@@ -213,6 +205,16 @@ const toProductColorAdditionalProperties = (
     variant.NomeColor === colorName[0].Nome
   ).flatMap((variant) => toColorPropertyValue(variant));
 };
+
+const toDefaultProperties = (
+  items: ToDefaultPropertiesProps[],
+): PropertyValue[] =>
+  items.filter(({ value }) => !!value).map(({ id, value }) => ({
+    "@type": "PropertyValue" as const,
+    "name": id.replace(/^(.)/, (match) => match.toUpperCase()),
+    "propertyID": id,
+    "value": value,
+  }));
 
 const toColorPropertyValue = (variant: ColorVariants): PropertyValue[] =>
   Object.keys(variant).filter((prop) =>
@@ -247,7 +249,7 @@ const toVariantProduct = (
         discountedValue: ValorDesconto,
         priceValidUntil: OfertaTermina,
         stock: master.QtdeEstoque,
-        installment: master.ValorParcelamento,
+      installment: master.ValorParcelamento,
       }),
     };
   }),
