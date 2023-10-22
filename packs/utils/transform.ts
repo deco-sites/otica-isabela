@@ -24,6 +24,7 @@ import type {
   ProductGroup,
   ProductListingPage,
   PropertyValue,
+  UnitPriceSpecification,
 } from "apps/commerce/types.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
@@ -38,13 +39,15 @@ interface ToAdditionalPropertiesProps {
   variants: ColorVariants[];
   experimentador: string;
   panels: Panels[];
-  rating: number;
   flag?: string;
 }
 
-interface ToDefaultPropertiesProps {
-  id: string;
-  value?: string;
+interface ToOfferProps {
+  originalValue: number;
+  discountedValue: number;
+  priceValidUntil: string;
+  stock: number;
+  installment: string;
 }
 
 export function toProduct(product: IsabelaProduct): Product {
@@ -66,7 +69,7 @@ export function toProduct(product: IsabelaProduct): Product {
     DescricaoSeo,
     IdSku,
     OfertaFlag,
-    Avaliacoes,
+    ValorParcelamento,
   } = product;
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
@@ -91,15 +94,15 @@ export function toProduct(product: IsabelaProduct): Product {
       experimentador: ImagemExperimentador,
       panels: Paineis,
       flag: OfertaFlag,
-      rating: Avaliacoes,
     }),
     isVariantOf,
-    offers: toAggregateOffer(
-      ValorOriginal,
-      ValorDesconto,
-      OfertaTermina,
-      QtdeEstoque,
-    ),
+    offers: toAggregateOffer({
+      originalValue: ValorOriginal,
+      discountedValue: ValorDesconto,
+      priceValidUntil: OfertaTermina,
+      stock: QtdeEstoque,
+      installment: ValorParcelamento,
+    }),
   };
 }
 
@@ -153,14 +156,16 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const { variants, properties, panels, experimentador, flag, rating } = props;
+  const additionalProperties: PropertyValue[] = [];
+  const { variants, properties, panels, experimentador, flag } = props;
 
-  const productColorAdditionalProperties = !variants.length
-    ? []
-    : toProductColorAdditionalProperties(properties, variants);
+  if (variants.length > 0) {
+    additionalProperties.push(
+      ...toProductColorAdditionalProperties(properties, variants),
+    );
+  }
 
-  return [
-    ...productColorAdditionalProperties,
+  additionalProperties.push(
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       "name": item.Nome,
@@ -173,12 +178,26 @@ const toAdditionalProperties = (
       "propertyID": "panel",
       "unitCode": `${p.IdTipoPainel}`,
     })),
-    ...toDefaultProperties([
-      { id: "experimentador", value: experimentador },
-      { id: "rating", value: String(rating.toFixed(1)) },
-      { id: "flag", value: flag },
-    ]),
-  ];
+    {
+      "@type": "PropertyValue" as const,
+      "name": "Experimentador",
+      "propertyID": "experimentador",
+      "value": experimentador,
+    },
+  );
+
+  if (flag) {
+    additionalProperties.push(
+      {
+        "@type": "PropertyValue" as const,
+        "name": "Flag",
+        "propertyID": "flag",
+        "value": flag,
+      },
+    );
+  }
+
+  return additionalProperties;
 };
 
 const toProductColorAdditionalProperties = (
@@ -194,16 +213,6 @@ const toProductColorAdditionalProperties = (
     variant.NomeColor === colorName[0].Nome
   ).flatMap((variant) => toColorPropertyValue(variant));
 };
-
-const toDefaultProperties = (
-  items: ToDefaultPropertiesProps[],
-): PropertyValue[] =>
-  items.filter(({ value }) => !!value).map(({ id, value }) => ({
-    "@type": "PropertyValue" as const,
-    "name": id.replace(/^(.)/, (match) => match.toUpperCase()),
-    "propertyID": id,
-    "value": value,
-  }));
 
 const toColorPropertyValue = (variant: ColorVariants): PropertyValue[] =>
   Object.keys(variant).filter((prop) =>
@@ -223,6 +232,7 @@ const toVariantProduct = (
   "@type": "ProductGroup" as const,
   productGroupID: `${master.IdProduct}`,
   hasVariant: variants.map((variant) => {
+    const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
       category: toCategory([master.NomeCategoriaPai, master.NomeCategoria]),
@@ -232,12 +242,13 @@ const toVariantProduct = (
       sku: `${variant.IdProduct}`,
       additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
-      offers: toAggregateOffer(
-        variant.ValorOriginal,
-        variant.ValorDesconto,
-        variant.OfertaTermina,
-        master.QtdeEstoque,
-      ),
+      offers: toAggregateOffer({
+        originalValue: ValorOriginal,
+        discountedValue: ValorDesconto,
+        priceValidUntil: OfertaTermina,
+        stock: master.QtdeEstoque,
+        installment: master.ValorParcelamento,
+      }),
     };
   }),
   url: toUrl(master.UrlFriendlyColor),
@@ -247,33 +258,71 @@ const toVariantProduct = (
 } ?? []);
 
 const toAggregateOffer = (
-  originalValue: number,
-  discountedValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): AggregateOffer => ({
   "@type": "AggregateOffer",
-  highPrice: originalValue,
-  lowPrice: discountedValue,
+  highPrice: props.originalValue,
+  lowPrice: props.discountedValue,
   offerCount: 1,
   priceCurrency: "BRL",
-  offers: [{ ...toOffer(originalValue, priceValidUntil, stock) }],
+  offers: [{
+    ...toOffer({ ...props }),
+  }],
 });
 
 const toOffer = (
-  originalValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): Offer => ({
   "@type": "Offer",
-  availability: stock > 0
+  availability: props.stock > 0
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
-  price: originalValue,
-  priceSpecification: [],
-  priceValidUntil,
+  price: props.originalValue,
+  priceSpecification: toPriceSpecification(
+    props.originalValue,
+    props.installment,
+  ),
+  priceValidUntil: props.priceValidUntil,
 });
+
+const toPriceSpecification = (
+  price: number,
+  installment: string,
+): UnitPriceSpecification[] => {
+  const match = installment.match(/(\d+)x de ([\d,]+)/);
+
+  if (!match) return [];
+  const installmentsQty = parseInt(match[1], 10);
+
+  const installmentPrices = Array.from(
+    { length: installmentsQty },
+    (_v, i) =>
+      Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
+  );
+
+  return [
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/ListPrice",
+      price,
+    },
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/SalePrice",
+      price,
+    },
+    ...installmentPrices.map((value, i): UnitPriceSpecification => ({
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/SalePrice",
+      priceComponentType: "https://schema.org/Installment",
+      description: i === 0 ? "À vista" : i + 1 + " vezes sem juros",
+      billingDuration: i + 1,
+      billingIncrement: value,
+      price,
+    })),
+  ];
+};
 
 const toBreadcrumbList = (
   { NomeCategoriaPai, NomeCategoria, Nome, UrlFriendlyColor }: IsabelaProduct,
