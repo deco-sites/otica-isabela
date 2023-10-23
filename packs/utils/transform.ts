@@ -24,6 +24,7 @@ import type {
   ProductGroup,
   ProductListingPage,
   PropertyValue,
+  UnitPriceSpecification,
 } from "apps/commerce/types.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
@@ -40,6 +41,14 @@ interface ToAdditionalPropertiesProps {
   panels: Panels[];
   rating: number;
   flag?: string;
+}
+
+interface ToOfferProps {
+  originalValue: number;
+  discountedValue: number;
+  priceValidUntil: string;
+  stock: number;
+  installment: string;
 }
 
 interface ToDefaultPropertiesProps {
@@ -66,6 +75,7 @@ export function toProduct(product: IsabelaProduct): Product {
     DescricaoSeo,
     IdSku,
     OfertaFlag,
+    ValorParcelamento,
     Avaliacoes,
   } = product;
 
@@ -94,12 +104,13 @@ export function toProduct(product: IsabelaProduct): Product {
       rating: Avaliacoes,
     }),
     isVariantOf,
-    offers: toAggregateOffer(
-      ValorOriginal,
-      ValorDesconto,
-      OfertaTermina,
-      QtdeEstoque,
-    ),
+    offers: toAggregateOffer({
+      originalValue: ValorOriginal,
+      discountedValue: ValorDesconto,
+      priceValidUntil: OfertaTermina,
+      stock: QtdeEstoque,
+      installment: ValorParcelamento,
+    }),
   };
 }
 
@@ -223,6 +234,7 @@ const toVariantProduct = (
   "@type": "ProductGroup" as const,
   productGroupID: `${master.IdProduct}`,
   hasVariant: variants.map((variant) => {
+    const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
       category: toCategory([master.NomeCategoriaPai, master.NomeCategoria]),
@@ -232,12 +244,13 @@ const toVariantProduct = (
       sku: `${variant.IdProduct}`,
       additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
-      offers: toAggregateOffer(
-        variant.ValorOriginal,
-        variant.ValorDesconto,
-        variant.OfertaTermina,
-        master.QtdeEstoque,
-      ),
+      offers: toAggregateOffer({
+        originalValue: ValorOriginal,
+        discountedValue: ValorDesconto,
+        priceValidUntil: OfertaTermina,
+        stock: master.QtdeEstoque,
+        installment: master.ValorParcelamento,
+      }),
     };
   }),
   url: toUrl(master.UrlFriendlyColor),
@@ -247,33 +260,75 @@ const toVariantProduct = (
 } ?? []);
 
 const toAggregateOffer = (
-  originalValue: number,
-  discountedValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): AggregateOffer => ({
   "@type": "AggregateOffer",
-  highPrice: originalValue,
-  lowPrice: discountedValue,
+  highPrice: props.originalValue,
+  lowPrice: props.discountedValue,
   offerCount: 1,
   priceCurrency: "BRL",
-  offers: [{ ...toOffer(originalValue, priceValidUntil, stock) }],
+  offers: [{
+    ...toOffer({ ...props }),
+  }],
 });
 
 const toOffer = (
-  originalValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): Offer => ({
   "@type": "Offer",
-  availability: stock > 0
+  availability: props.stock > 0
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
-  price: originalValue,
-  priceSpecification: [],
-  priceValidUntil,
+  price: props.originalValue,
+  priceSpecification: toPriceSpecification(
+    props.originalValue,
+    props.installment,
+  ),
+  priceValidUntil: props.priceValidUntil,
 });
+
+const toPriceSpecification = (
+  price: number,
+  installment: string,
+): UnitPriceSpecification[] => {
+  const match = installment.match(/(\d+)x de ([\d,]+)/);
+
+  if (!match) return [];
+  const installmentsQty = parseInt(match[1], 10);
+
+  const installmentPrices = Array.from(
+    { length: installmentsQty },
+    (_v, i) => Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
+  );
+
+  return [
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/ListPrice",
+      price,
+    },
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/SalePrice",
+      price,
+    },
+    ...installmentPrices.map((value, i): UnitPriceSpecification => {
+      const [description, billingIncrement] = !i
+        ? ["À vista", price]
+        : [i + 1 + " vezes sem juros", value];
+      return {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/SalePrice",
+        priceComponentType: "https://schema.org/Installment",
+        description,
+        billingDuration: i + 1,
+        billingIncrement,
+        price,
+      };
+    }),
+  ];
+};
 
 const toBreadcrumbList = (
   { NomeCategoriaPai, NomeCategoria, Nome, UrlFriendlyColor }: IsabelaProduct,
