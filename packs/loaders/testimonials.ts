@@ -7,7 +7,7 @@ import {
 } from "deco-sites/otica-isabela/packs/types.ts";
 import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
 import { toReview } from "deco-sites/otica-isabela/packs/utils/transform.ts";
-import type { RequestURLParam } from "apps/website/functions/requestToParam.ts"
+import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface Props {
   slug?: RequestURLParam;
