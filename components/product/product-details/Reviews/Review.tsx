@@ -1,6 +1,6 @@
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import ShowMore from "deco-sites/otica-isabela/islands/ShowMore.tsx";
-import Feedback from "deco-sites/otica-isabela/components/product/product-details/Review/Feedback.tsx";
+import Feedback from "deco-sites/otica-isabela/components/product/product-details/Reviews/Feedback.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
@@ -9,12 +9,14 @@ import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
+export type MemberLevel = {
+  level: string;
+  image: LiveImage;
+};
+
 interface Props {
   page: LoaderReturnType<Review[] | null>;
-  memberImages: {
-    vip: LiveImage;
-    gold: LiveImage;
-  };
+  memberImages: MemberLevel[];
 }
 
 function Review({ page, memberImages }: Props) {
@@ -32,7 +34,7 @@ function Review({ page, memberImages }: Props) {
   return (
     <>
       {/* Overview */}
-      <div class="mt-12 bg-[#f8f8f8]">
+      <div class="mt-12 bg-[#f8f8f8] ">
         <div class="container">
           <div id="title-and-rating" class="py-[70px]">
             <h1 class="text-xl text-black font-bold text-center px-[15px] md:text-2xl lg:w-[75%] lg:text-[32px] lg:mx-auto lg:mb-[20px]">
