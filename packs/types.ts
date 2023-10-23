@@ -61,6 +61,7 @@ export interface Product {
   IdSku: number;
   ValorOriginal: number;
   ValorDesconto: number;
+  ValorParcelamento: string;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   OfertaFlag?: string;
@@ -71,7 +72,7 @@ export interface Product {
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
   Classificacoes: ProductInfo[];
-  Avaliacoes: number
+  Avaliacoes: number;
 }
 
 export interface ColorVariants {

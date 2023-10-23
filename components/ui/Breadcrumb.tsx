@@ -17,7 +17,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
               class="font-roboto text-[#222] text-[15px] capitalize hover:underline"
               href={item}
             >
-              {name?.toLocaleLowerCase()}
+              {name?.toLocaleLowerCase().trim()}
             </a>
             {index < items.length - 1 && (
               <span class="my-0 mx-[10px] text-sm text-[#212529]">›</span>

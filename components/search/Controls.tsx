@@ -45,7 +45,7 @@ function SearchControls({
         </ul>
       </div>
 
-      <div class="flex w-full flex-row justify-center items-center my-5">
+      <div class="w-full flex-row justify-center items-center my-5 hidden sm:flex">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
