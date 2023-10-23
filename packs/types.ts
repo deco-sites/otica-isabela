@@ -61,6 +61,7 @@ export interface Product {
   IdSku: number;
   ValorOriginal: number;
   ValorDesconto: number;
+  ValorParcelamento: string;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   OfertaFlag?: string;
