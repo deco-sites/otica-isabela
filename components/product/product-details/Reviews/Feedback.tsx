@@ -20,7 +20,7 @@ function Feedback(
   }: Props,
 ) {
   const imgObj = images?.reduce((acc: { [key: string]: string }, curr) => {
-    acc[curr.level] = curr.image;
+    acc[curr.label] = curr.image;
     return acc;
   }, {});
 

@@ -10,7 +10,8 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export type MemberLevel = {
-  level: string;
+  /** @title Level */
+  label: string;
   image: LiveImage;
 };
 
