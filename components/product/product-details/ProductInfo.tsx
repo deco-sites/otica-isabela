@@ -41,7 +41,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
 
       {/* Ratings */}
-      <Ratings />
+      {/* <Ratings /> */}
 
       {/* Prices */}
       <div class="w-[80%] flex items-center">
