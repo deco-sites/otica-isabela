@@ -56,6 +56,14 @@ interface ToDefaultPropertiesProps {
   value?: string;
 }
 
+interface ToPageFilterValuesProps {
+  filterApi: APIDynamicFilters;
+  filterLabel: string;
+  baseURL: URL;
+  products: IsabelaProduct[];
+  filtersUrl?: DynamicFilter[];
+}
+
 export function toProduct(product: IsabelaProduct): Product {
   const {
     IdProduct,
@@ -421,7 +429,13 @@ const categoryPageProps = (
       label: f[0].NomeTipo,
       quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
       values: f.map((individualFilter) =>
-        toPageFilterValues(individualFilter, produtos, filtersUrl)
+        toPageFilterValues({
+          filterApi: individualFilter,
+          filterLabel: f[0].NomeTipo,
+          products: produtos,
+          baseURL,
+          filtersUrl,
+        })
       ),
     })),
     seo: {
@@ -483,25 +497,48 @@ const groupPageFilters = (
 };
 
 const toPageFilterValues = (
-  filterApi: APIDynamicFilters,
-  products: IsabelaProduct[],
-  filtersUrl: DynamicFilter[] | undefined,
-): FilterToggleValue => ({
-  quantity: countPageFiltersQuantity(
-    products,
-    "typeValue",
-    filterApi.IdTipo,
-    filterApi.Nome,
-  ),
-  label: filterApi.Nome,
-  value: filterApi.Nome,
-  selected: !filtersUrl ? false : filtersUrl.some(
+  props: ToPageFilterValuesProps,
+): FilterToggleValue => {
+  const { products, filterApi, filtersUrl, baseURL, filterLabel } = props;
+  const selected = !filtersUrl ? false : filtersUrl.some(
     (filter) =>
       filter.filterID === filterApi.IdTipo &&
       filter.filterValue === filterApi.Nome,
-  ),
-  url: "",
-});
+  );
+  return {
+    quantity: countPageFiltersQuantity(
+      products,
+      "typeValue",
+      filterApi.IdTipo,
+      filterApi.Nome,
+    ),
+    label: filterApi.Nome,
+    value: filterApi.Nome,
+    selected,
+    url: toPageFilterURL(baseURL, filterLabel, filterApi.Nome, selected).href,
+  };
+};
+
+const toPageFilterURL = (
+  baseURL: URL,
+  filter: string,
+  filterValue: string,
+  selected: boolean,
+): URL => {
+  const modifiedURL = new URL(baseURL.href);
+  const defaultParamsToDelete = ["path", "pathTemplate", "deviceHint"];
+  const filterParamName = `filter.${filter}`;
+
+  defaultParamsToDelete.forEach((p: string) =>
+    modifiedURL.searchParams.delete(p)
+  );
+
+  selected
+    ? modifiedURL.searchParams.delete(filterParamName)
+    : modifiedURL.searchParams.set(filterParamName, filterValue);
+
+  return modifiedURL;
+};
 
 const toPageInfo = (
   { Total, Pagina, Offset }: IsabelaProductData,
