@@ -1,7 +1,7 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { Product, ProductLeaf } from "deco-sites/std/commerce/types.ts";
+import { Product, ProductLeaf } from "apps/commerce/types.ts";
 
 interface Props {
   product: Product;
@@ -15,6 +15,8 @@ function OtherColorsShelf({ product }: Props) {
   const id = "other-colors-shelf";
   const { isVariantOf, sku } = product;
   const { hasVariant } = isVariantOf || {};
+
+  if (hasVariant && hasVariant.length === 1) return null;
 
   const images = hasVariant
     ?.map((variant: Variant) => ({

@@ -288,8 +288,9 @@ const toOffer = (
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
-  price: props.originalValue,
+  price: props.discountedValue || props.originalValue,
   priceSpecification: toPriceSpecification(
+    props.discountedValue,
     props.originalValue,
     props.installment,
   ),
@@ -298,6 +299,7 @@ const toOffer = (
 
 const toPriceSpecification = (
   price: number,
+  listPrice: number,
   installment: string,
 ): UnitPriceSpecification[] => {
   const match = installment.match(/(\d+)x de ([\d,]+)/);
@@ -314,7 +316,7 @@ const toPriceSpecification = (
     {
       "@type": "UnitPriceSpecification",
       priceType: "https://schema.org/ListPrice",
-      price,
+      price: listPrice,
     },
     {
       "@type": "UnitPriceSpecification",

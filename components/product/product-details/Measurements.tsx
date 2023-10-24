@@ -1,5 +1,5 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import { Product, PropertyValue } from "deco-sites/std/commerce/types.ts";
+import { Product, PropertyValue } from "apps/commerce/types.ts";
 
 interface Props {
   product: Product;
