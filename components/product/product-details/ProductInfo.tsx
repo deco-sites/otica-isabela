@@ -42,7 +42,7 @@ function ProductInfo({ page, promotions }: Props) {
   return (
     <>
       {/* Name */}
-      <div class="mb-4">
+      <div class="mb-4 flex flex-start">
         <span class="w-full font-roboto font-medium text-[17px] text-lg">
           {name}
         </span>
