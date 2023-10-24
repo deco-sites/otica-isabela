@@ -3,8 +3,8 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 
@@ -19,9 +19,18 @@ export interface Layout {
   columns: Columns;
 }
 
+interface Color {
+  /**
+   * @title Name
+   */
+  name: string;
+  hex: string;
+}
+
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
   layout?: Layout;
+  filterColors: Color[];
 }
 
 function NotFound() {
@@ -35,12 +44,13 @@ function NotFound() {
 function Result({
   page,
   layout,
+  filterColors,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
-  console.log("FILTRO", filters);
+  console.log("test", filterColors);
 
   return (
     <>
