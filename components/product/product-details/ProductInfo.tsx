@@ -5,13 +5,12 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
-  const { product, breadcrumbList } = page;
-  const { productID, offers, name, url, isVariantOf, additionalProperty, sku } =
-    product;
+function ProductInfo({ page, promotions }: Props) {
+  const { product, breadcrumbList } = page!;
+  const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
@@ -28,26 +27,51 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     name: name!,
   };
 
+  const promotionFlag = additionalProperty?.find(
+    (prop) => prop.propertyID === "flag",
+  )?.value;
+  const promotion = promotions?.find((current) =>
+    current.label === promotionFlag
+  );
+
+  const rating = additionalProperty?.find(
+    (prop) => prop.propertyID === "rating",
+  )?.value;
+  const ratingValue = rating ? parseFloat(rating) : 0;
+
   return (
     <>
       {/* Name */}
-      <div>
-        <span class="font-roboto font-medium text-[17px] text-lg">{name}</span>
+      <div class="mb-4">
+        <span class="w-full font-roboto font-medium text-[17px] text-lg">
+          {name}
+        </span>
+        <div class="ml-2">
+          <WishlistButton
+            variant="icon"
+            productID={productID}
+          />
+        </div>
       </div>
 
       {/* Buy with lens label */}
-      <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
-        <span>Compre com lentes de grau e pague só R$ {price}</span>
-      </div>
+      {promotion
+        ? (
+          <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
+            <span>
+              {promotion.flagText.replace("%value", price!.toString())}
+            </span>
+          </div>
+        )
+        : null}
 
       {/* Ratings */}
-      {/* <Ratings /> */}
 
       {/* Prices */}
-      <div class="w-[80%] flex items-center">
-        <div id="price-container">
-          {listPrice && (
-            <p class="mt-4 mb-4 line-through font-semibold text-sm  text-red-500 lg:text-base">
+      <div class="flex items-normal justify-between">
+        <div class="flex flex-col gap-2">
+          {listPrice !== price && (
+            <p class="line-through font-semibold text-sm  text-red-500 lg:text-base">
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </p>
           )}
@@ -57,30 +81,39 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           <span class="text-sm text-base-300">{installments}</span>
         </div>
 
-        {!!colorsList?.length && (
-          <div id="colors" class="flex items-center ml-2">
-            <p class="text-base-300 font-bold">
-              {colorsList?.[0]?.value?.toUpperCase()}
-            </p>
-            <span
-              class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
-              style={{
-                background: colors && colors?.length > 1
-                  ? `linear-gradient(${colors.join(", ")})`
-                  : colors?.[0],
-              }}
-            />
+        <div class="flex flex-col items-end justify-between ml-2 gap-2">
+          <div>
+            {ratingValue > 0 ? <Ratings ratingValue={ratingValue} /> : null}
           </div>
-        )}
+          {!!colorsList?.length && (
+            <div class="flex gap-2 items-center">
+              <p class="text-base-300 font-bold">
+                {colorsList?.[0]?.value?.toUpperCase()}
+              </p>
+              <span
+                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
+                style={{
+                  background: colors && colors?.length > 1
+                    ? `linear-gradient(${colors.join(", ")})`
+                    : colors?.[0],
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Experimenter */}
-      <div class="mt-4 lg:max-w-[80%]">
-        <ToExperimentButton image={experimenterImage!} variant="filled" />
+      <div class="mt-4">
+        <ToExperimentButton
+          image={experimenterImage!}
+          variant="filled"
+          size="small"
+        />
       </div>
 
       {/* Choose Lens */}
-      <div class="mt-[11px] lg:max-w-[80%] w-full">
+      <div class="mt-[11px] w-full">
         <a href={chooseLensUrl}>
           <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
             Escolher as Lentes
@@ -89,13 +122,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
 
       {/* Add To Cart & Whislist */}
-      <div class="mt-[11px] lg:max-w-[80%] w-full flex items-center">
+      <div class="mt-[11px] w-full flex items-center">
         <AddToCartButton {...addToCard} />
-        <div class="ml-2">
-          <WishlistButton
-            productID={productID}
-          />
-        </div>
       </div>
 
       {/* Analytics Event */}

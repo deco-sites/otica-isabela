@@ -16,6 +16,8 @@ function OtherColorsShelf({ product }: Props) {
   const { isVariantOf, sku } = product;
   const { hasVariant } = isVariantOf || {};
 
+  if (hasVariant && hasVariant.length === 1) return null;
+
   const images = hasVariant
     ?.map((variant: Variant) => ({
       image: variant.Imagem,
