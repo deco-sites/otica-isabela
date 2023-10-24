@@ -1,7 +1,7 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { Product, ProductLeaf } from "deco-sites/std/commerce/types.ts";
+import { Product, ProductLeaf } from "apps/commerce/types.ts";
 
 interface Props {
   product: Product;
