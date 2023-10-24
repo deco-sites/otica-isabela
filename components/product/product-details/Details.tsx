@@ -1,5 +1,6 @@
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
+import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
@@ -122,14 +123,25 @@ function Details({ page, promotions }: Props) {
                   index={index}
                   class="carousel-item w-full items-center"
                 >
-                  <Image
-                    class="w-full h-max"
-                    src={img.url!}
-                    alt={img.alternateName}
-                    width={540}
-                    height={540}
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
+                  {img.additionalType === "video"
+                    ? (
+                      <Video
+                        src={img.url}
+                        width={540}
+                        height={540}
+                        controls
+                      />
+                    )
+                    : (
+                      <Image
+                        class="w-full h-max"
+                        src={img.url!}
+                        alt={img.alternateName}
+                        width={540}
+                        height={540}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    )}
                 </Slider.Item>
               ))}
             </Slider>
@@ -156,7 +168,9 @@ function Details({ page, promotions }: Props) {
                   <Image
                     class="group-disabled:border-base-300"
                     width={92}
-                    src={img.url!}
+                    src={img.additionalType === "video"
+                      ? img?.image?.[0].url!
+                      : img.url!}
                     alt={img.alternateName}
                   />
                 </Slider.Dot>
