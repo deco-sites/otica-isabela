@@ -44,7 +44,7 @@ export const useAddToCart = (
       });
     } finally {
       isAddingToCart.value = false;
-      window.location.href = "/carrinho"
+      window.location.href = "/carrinho";
     }
   }, [sku]);
 
