@@ -527,15 +527,15 @@ const toPageFilterURL = (
 ): URL => {
   const modifiedURL = new URL(baseURL.href);
   const defaultParamsToDelete = ["path", "pathTemplate", "deviceHint"];
+  const filterParamName = `filter.${filter}`;
+
   defaultParamsToDelete.forEach((p: string) =>
     modifiedURL.searchParams.delete(p)
   );
 
-  modifiedURL.searchParams.delete(`filter.${filter}`, filterValue);
-
-  if (!selected) {
-    modifiedURL.searchParams.append(`filter.${filter}`, filterValue);
-  }
+  selected
+    ? modifiedURL.searchParams.delete(filterParamName)
+    : modifiedURL.searchParams.set(filterParamName, filterValue);
 
   return modifiedURL;
 };
