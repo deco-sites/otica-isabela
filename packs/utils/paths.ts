@@ -3,6 +3,12 @@ import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts";
+
+interface GetDynamicFilterProps {
+  IdCategoria: number;
+  IdSubCategoria?: number;
+}
+
 const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
@@ -39,9 +45,9 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
     },
     dynamicFilter: {
-      getDynamicFilters: (category: number) =>
+      getDynamicFilters: (props: GetDynamicFilterProps) =>
         href(`${base}/FiltrosDinamicos?token=${token}`, {
-          idCategoria: category,
+          ...props,
         }),
     },
     cart: {

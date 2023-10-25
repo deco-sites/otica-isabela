@@ -10,21 +10,21 @@ interface Props {
   size?: "small" | "large";
 }
 
-const style = {
+const STYLE = {
   outlined: "bg-white text-black hover:text-white hover:bg-black",
   filled: "bg-black text-white hover:text-black hover:bg-white",
 };
 
-const sizing = {
+const SIZING = {
   small: {
     iconW: 25,
     iconH: 23,
-    style: "text-xs lg:text-sm",
+    style: "text-xs lg:text-sm max-lg:w-auto",
   },
   large: {
     iconW: 40,
     iconH: 37,
-    style: "text-2xl font-bold",
+    style: "lg:text-2xl text-xl max-lg:w-[250px]",
   },
 };
 
@@ -43,8 +43,8 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`group flex items-center justify-between border border-black font-bold2 rounded-[9px] lg:h-14 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12 max-lg:w-[250px] w-full transition-all duration-300 ease-in-out
-		${style[variant]} ${sizing[size].style}`}
+        class={`group flex items-center justify-center gap-4 border border-black font-bold rounded-[9px] lg:h-14 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12 w-full transition-all duration-300 ease-in-out
+		      ${STYLE[variant]} ${SIZING[size].style}`}
         onClick={toggleExperimenter}
       >
         <span class="hidden lg:flex">
@@ -55,8 +55,8 @@ const ToExperimentButton = ({
                 ? "group-hover:invert"
                 : "group-hover:invert-0"
             } text-black`}
-            width={sizing[size].iconW}
-            height={sizing[size].iconH}
+            width={SIZING[size].iconW}
+            height={SIZING[size].iconH}
             filter={variant === "outlined" ? "none" : "invert()"}
           />
         </span>
@@ -64,8 +64,8 @@ const ToExperimentButton = ({
           <Icon
             id="Camera"
             class="group-hover:invert text-black"
-            width={sizing[size].iconW}
-            height={sizing[size].iconH}
+            width={SIZING[size].iconW}
+            height={SIZING[size].iconH}
             filter={variant === "outlined" ? "none" : "invert()"}
           />
         </span>
