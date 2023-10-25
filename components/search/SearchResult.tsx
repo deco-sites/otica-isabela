@@ -45,8 +45,8 @@ export interface Shape {
   label: string;
   /** @title Imagem do Formato */
   image: LiveImage;
-  /** 
-   * @title Altura da imagem 
+  /**
+   * @title Altura da imagem
    * @description Para evitar quebras de layout, apenas a altura é necessaria e as larguras serão sempre 50px.
    */
   height: number;
@@ -92,7 +92,7 @@ function Result({
       </header>
       {filters.length
         ? (
-          <div class="flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+          <div class="lg:flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
             <Filters
               filters={filters}
               filterColors={filterColors}

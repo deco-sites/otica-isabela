@@ -134,8 +134,8 @@ function FilterValues({
     ? "w-[530px] flex-wrap justify-between"
     : "";
   const positionStyles = position === "left"
-    ? "top-full left-0"
-    : "top-full right-0";
+    ? "lg:top-full lg:left-0"
+    : "lg:top-full lg:right-0";
 
   const matchingColors: FilterToggleValueWithHex[] = values?.map(
     (value) => {
@@ -198,7 +198,7 @@ function Filters(
   return (
     <ul class="flex w-full justify-center flex-row">
       {defaultFilters.map((filter, index, array) => (
-        <li class="flex relative leading-relaxed flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
+        <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
           <span>{filter.label}</span>
           <Icon size={24} id="ChevronDown" />
           {isToggle(filter) && (
