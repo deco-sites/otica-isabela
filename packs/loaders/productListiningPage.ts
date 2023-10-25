@@ -137,15 +137,16 @@ const getCategoryPageParams = async (
   if (!category) return null;
 
   const { IdCategoriaPai, Id } = category;
-  const isPrimary = IdCategoriaPai === 0;
+  const isPrimary = !IdCategoriaPai;
   const [primaryCategory, secondaryCategory] = isPrimary
     ? [Id, undefined]
     : [IdCategoriaPai, Id];
 
   const filtersApi = await fetchAPI<APIDynamicFilters[]>(
-    path.dynamicFilter.getDynamicFilters(
-      secondaryCategory ?? primaryCategory,
-    ),
+    path.dynamicFilter.getDynamicFilters({
+      IdCategoria: primaryCategory,
+      IdSubCategoria: secondaryCategory,
+    }),
     { method: "POST" },
   );
 
