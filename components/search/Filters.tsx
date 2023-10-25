@@ -1,9 +1,9 @@
 import { Cor } from "$store/components/search/SearchResult.tsx";
 import type {
-	Filter,
-	FilterToggle,
-	FilterToggleValue,
-	ProductListingPage,
+  Filter,
+  FilterToggle,
+  FilterToggleValue,
+  ProductListingPage,
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
