@@ -1,6 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
-import { Product } from "deco-sites/std/commerce/types.ts";
+import { Product } from "apps/commerce/types.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -12,7 +12,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const { additionalProperty, description } = product;
   const rootId = "items-container";
   const panels = additionalProperty?.filter(
-    (prop) => prop.propertyID === "panel"
+    (prop) => prop.propertyID === "panel",
   );
 
   panels?.unshift(
@@ -27,7 +27,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
       name: "Descrição",
       value: description,
       propertyID: "panel",
-    }
+    },
   );
 
   return (
@@ -64,17 +64,20 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
               {/* Content */}
               <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
-                {id === "medidas" ? (
-                  <ProductDetailsMeasurements
-                    product={product}
-                    measurementsImage={measurementsImage}
-                  />
-                ) : (
-                  <div
-                    class="p-3"
-                    dangerouslySetInnerHTML={{ __html: value! }}
-                  ></div>
-                )}
+                {id === "medidas"
+                  ? (
+                    <ProductDetailsMeasurements
+                      product={product}
+                      measurementsImage={measurementsImage}
+                    />
+                  )
+                  : (
+                    <div
+                      class="p-3"
+                      dangerouslySetInnerHTML={{ __html: value! }}
+                    >
+                    </div>
+                  )}
               </div>
             </div>
           );

@@ -16,6 +16,7 @@
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
+    line-height: 1;
   }
 
   .aboutConfig {

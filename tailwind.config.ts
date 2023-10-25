@@ -7,13 +7,21 @@ export default {
   theme: {
     container: {
       center: true,
+      screens: {
+        sm: "540px",
+        md: "720px",
+        lg: "960px",
+        xl: "1140px",
+      },
     },
     screens: {
+      xxs: "481px",
+      xs: "577px",
       sm: "600px",
       md: "728px",
-      lg: "984px",
+      lg: "993px",
       xl: "1140px",
-      "2xl": "1140px",
+      "2xl": "1200px",
     },
     extend: {
       fontSize: {
@@ -22,7 +30,7 @@ export default {
 
       fontFamily: {
         "bebas-neue": ["Bebas Neue"],
-        "roboto": ["Roboto"],
+        "roboto": ["Roboto", "sans-serif"],
       },
       colors: {
         "red-500": "#d92027",

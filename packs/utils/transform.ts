@@ -24,6 +24,7 @@ import type {
   ProductGroup,
   ProductListingPage,
   PropertyValue,
+  UnitPriceSpecification,
 } from "apps/commerce/types.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
@@ -32,6 +33,36 @@ type CategoryPageProps =
     Omit<ProductListiningPageProps, "pageType" | "term" | "filtersUrl">
   >
   & { filtersUrl: DynamicFilter[] | undefined };
+
+interface ToAdditionalPropertiesProps {
+  properties: ProductInfo[];
+  variants: ColorVariants[];
+  experimentador: string;
+  panels: Panels[];
+  rating: number;
+  flag?: string;
+}
+
+interface ToOfferProps {
+  originalValue: number;
+  discountedValue: number;
+  priceValidUntil: string;
+  stock: number;
+  installment: string;
+}
+
+interface ToDefaultPropertiesProps {
+  id: string;
+  value?: string;
+}
+
+interface ToPageFilterValuesProps {
+  filterApi: APIDynamicFilters;
+  filterLabel: string;
+  baseURL: URL;
+  products: IsabelaProduct[];
+  filtersUrl?: DynamicFilter[];
+}
 
 export function toProduct(product: IsabelaProduct): Product {
   const {
@@ -51,9 +82,10 @@ export function toProduct(product: IsabelaProduct): Product {
     Paineis,
     DescricaoSeo,
     IdSku,
+    OfertaFlag,
+    ValorParcelamento,
+    Avaliacoes,
   } = product;
-
-  const productImages = Imagens.map((image: Image) => image.Imagem);
 
   const productsInfo = Classificacoes.map((productInfo) => productInfo);
 
@@ -70,24 +102,23 @@ export function toProduct(product: IsabelaProduct): Product {
     sku: `${IdSku}`,
     description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
-    image: productImages.map((image): ImageObject => ({
-      "@type": "ImageObject" as const,
-      alternateName: Nome,
-      url: image,
-    })),
-    additionalProperty: toAdditionalProperties(
-      productsInfo,
-      ProdutosMaisCores,
-      ImagemExperimentador,
-      Paineis,
-    ),
+    image: toImage(Imagens, Nome),
+    additionalProperty: toAdditionalProperties({
+      properties: productsInfo,
+      variants: ProdutosMaisCores,
+      experimentador: ImagemExperimentador,
+      panels: Paineis,
+      flag: OfertaFlag,
+      rating: Avaliacoes,
+    }),
     isVariantOf,
-    offers: toAggregateOffer(
-      ValorOriginal,
-      ValorDesconto,
-      OfertaTermina,
-      QtdeEstoque,
-    ),
+    offers: toAggregateOffer({
+      originalValue: ValorOriginal,
+      discountedValue: ValorDesconto,
+      priceValidUntil: OfertaTermina,
+      stock: QtdeEstoque,
+      installment: ValorParcelamento,
+    }),
   };
 }
 
@@ -116,21 +147,39 @@ const toUrl = (UrlFriendlyColor: string) =>
   new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
     .href;
 
+const toImage = (
+  imagesFromAPI: Image[],
+  alternateName: string,
+): ImageObject[] =>
+  imagesFromAPI.map(({ Imagem, Video }) => {
+    const [url, additionalType, image] = Video
+      ? [Video, "video", [{
+        "@type": "ImageObject" as const,
+        url: Imagem,
+        alternateName,
+        additionalType: "image",
+      }]]
+      : [Imagem, "image", undefined];
+    return {
+      "@type": "ImageObject" as const,
+      alternateName,
+      url,
+      additionalType,
+      image,
+    };
+  });
+
 const toAdditionalProperties = (
-  properties: ProductInfo[],
-  variants: ColorVariants[],
-  experimentador: string,
-  panels: Panels[],
+  props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const additionalProperties: PropertyValue[] = [];
+  const { variants, properties, panels, experimentador, flag, rating } = props;
 
-  if (variants.length > 0) {
-    additionalProperties.push(
-      ...toProductColorAdditionalProperties(properties, variants),
-    );
-  }
+  const productColorAdditionalProperties = !variants.length
+    ? []
+    : toProductColorAdditionalProperties(properties, variants);
 
-  additionalProperties.push(
+  return [
+    ...productColorAdditionalProperties,
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       "name": item.Nome,
@@ -143,15 +192,12 @@ const toAdditionalProperties = (
       "propertyID": "panel",
       "unitCode": `${p.IdTipoPainel}`,
     })),
-    {
-      "@type": "PropertyValue" as const,
-      "name": "Experimentador",
-      "propertyID": "experimentador",
-      "value": experimentador,
-    },
-  );
-
-  return additionalProperties;
+    ...toDefaultProperties([
+      { id: "experimentador", value: experimentador },
+      { id: "rating", value: String(rating.toFixed(1)) },
+      { id: "flag", value: flag },
+    ]),
+  ];
 };
 
 const toProductColorAdditionalProperties = (
@@ -167,6 +213,16 @@ const toProductColorAdditionalProperties = (
     variant.NomeColor === colorName[0].Nome
   ).flatMap((variant) => toColorPropertyValue(variant));
 };
+
+const toDefaultProperties = (
+  items: ToDefaultPropertiesProps[],
+): PropertyValue[] =>
+  items.filter(({ value }) => !!value).map(({ id, value }) => ({
+    "@type": "PropertyValue" as const,
+    "name": id.replace(/^(.)/, (match) => match.toUpperCase()),
+    "propertyID": id,
+    "value": value,
+  }));
 
 const toColorPropertyValue = (variant: ColorVariants): PropertyValue[] =>
   Object.keys(variant).filter((prop) =>
@@ -186,6 +242,7 @@ const toVariantProduct = (
   "@type": "ProductGroup" as const,
   productGroupID: `${master.IdProduct}`,
   hasVariant: variants.map((variant) => {
+    const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
       category: toCategory([master.NomeCategoriaPai, master.NomeCategoria]),
@@ -195,12 +252,13 @@ const toVariantProduct = (
       sku: `${variant.IdProduct}`,
       additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
-      offers: toAggregateOffer(
-        variant.ValorOriginal,
-        variant.ValorDesconto,
-        variant.OfertaTermina,
-        master.QtdeEstoque,
-      ),
+      offers: toAggregateOffer({
+        originalValue: ValorOriginal,
+        discountedValue: ValorDesconto,
+        priceValidUntil: OfertaTermina,
+        stock: master.QtdeEstoque,
+        installment: master.ValorParcelamento,
+      }),
     };
   }),
   url: toUrl(master.UrlFriendlyColor),
@@ -210,33 +268,77 @@ const toVariantProduct = (
 } ?? []);
 
 const toAggregateOffer = (
-  originalValue: number,
-  discountedValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): AggregateOffer => ({
   "@type": "AggregateOffer",
-  highPrice: originalValue,
-  lowPrice: discountedValue,
+  highPrice: props.originalValue,
+  lowPrice: props.discountedValue,
   offerCount: 1,
   priceCurrency: "BRL",
-  offers: [{ ...toOffer(originalValue, priceValidUntil, stock) }],
+  offers: [{
+    ...toOffer({ ...props }),
+  }],
 });
 
 const toOffer = (
-  originalValue: number,
-  priceValidUntil: string,
-  stock: number,
+  props: ToOfferProps,
 ): Offer => ({
   "@type": "Offer",
-  availability: stock > 0
+  availability: props.stock > 0
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
-  price: originalValue,
-  priceSpecification: [],
-  priceValidUntil,
+  price: props.discountedValue || props.originalValue,
+  priceSpecification: toPriceSpecification(
+    props.discountedValue,
+    props.originalValue,
+    props.installment,
+  ),
+  priceValidUntil: props.priceValidUntil,
 });
+
+const toPriceSpecification = (
+  price: number,
+  listPrice: number,
+  installment: string,
+): UnitPriceSpecification[] => {
+  const match = installment.match(/(\d+)x de ([\d,]+)/);
+
+  if (!match) return [];
+  const installmentsQty = parseInt(match[1], 10);
+
+  const installmentPrices = Array.from(
+    { length: installmentsQty },
+    (_v, i) => Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
+  );
+
+  return [
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/ListPrice",
+      price: listPrice,
+    },
+    {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/SalePrice",
+      price,
+    },
+    ...installmentPrices.map((value, i): UnitPriceSpecification => {
+      const [description, billingIncrement] = !i
+        ? ["À vista", price]
+        : [i + 1 + " vezes sem juros", value];
+      return {
+        "@type": "UnitPriceSpecification",
+        priceType: "https://schema.org/SalePrice",
+        priceComponentType: "https://schema.org/Installment",
+        description,
+        billingDuration: i + 1,
+        billingIncrement,
+        price,
+      };
+    }),
+  ];
+};
 
 const toBreadcrumbList = (
   { NomeCategoriaPai, NomeCategoria, Nome, UrlFriendlyColor }: IsabelaProduct,
@@ -327,7 +429,13 @@ const categoryPageProps = (
       label: f[0].NomeTipo,
       quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
       values: f.map((individualFilter) =>
-        toPageFilterValues(individualFilter, produtos, filtersUrl)
+        toPageFilterValues({
+          filterApi: individualFilter,
+          filterLabel: f[0].NomeTipo,
+          products: produtos,
+          baseURL,
+          filtersUrl,
+        })
       ),
     })),
     seo: {
@@ -389,25 +497,48 @@ const groupPageFilters = (
 };
 
 const toPageFilterValues = (
-  filterApi: APIDynamicFilters,
-  products: IsabelaProduct[],
-  filtersUrl: DynamicFilter[] | undefined,
-): FilterToggleValue => ({
-  quantity: countPageFiltersQuantity(
-    products,
-    "typeValue",
-    filterApi.IdTipo,
-    filterApi.Nome,
-  ),
-  label: filterApi.Nome,
-  value: filterApi.Nome,
-  selected: !filtersUrl ? false : filtersUrl.some(
+  props: ToPageFilterValuesProps,
+): FilterToggleValue => {
+  const { products, filterApi, filtersUrl, baseURL, filterLabel } = props;
+  const selected = !filtersUrl ? false : filtersUrl.some(
     (filter) =>
       filter.filterID === filterApi.IdTipo &&
       filter.filterValue === filterApi.Nome,
-  ),
-  url: "",
-});
+  );
+  return {
+    quantity: countPageFiltersQuantity(
+      products,
+      "typeValue",
+      filterApi.IdTipo,
+      filterApi.Nome,
+    ),
+    label: filterApi.Nome,
+    value: filterApi.Nome,
+    selected,
+    url: toPageFilterURL(baseURL, filterLabel, filterApi.Nome, selected).href,
+  };
+};
+
+const toPageFilterURL = (
+  baseURL: URL,
+  filter: string,
+  filterValue: string,
+  selected: boolean,
+): URL => {
+  const modifiedURL = new URL(baseURL.href);
+  const defaultParamsToDelete = ["path", "pathTemplate", "deviceHint"];
+  const filterParamName = `filter.${filter}`;
+
+  defaultParamsToDelete.forEach((p: string) =>
+    modifiedURL.searchParams.delete(p)
+  );
+
+  selected
+    ? modifiedURL.searchParams.delete(filterParamName)
+    : modifiedURL.searchParams.set(filterParamName, filterValue);
+
+  return modifiedURL;
+};
 
 const toPageInfo = (
   { Total, Pagina, Offset }: IsabelaProductData,
@@ -482,7 +613,9 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     ImagePath,
     UrlFriendly,
     CommentsImgPath,
+    StampImagePath,
   } = testimonial;
+  const stamp = StampImagePath.split("/").pop() ?? "";
   return {
     ratingValue: Stars,
     authorName: NameCustomer,
@@ -492,5 +625,6 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
     productPhoto: ImagePath,
     productLink: `${url.origin}/produto/${UrlFriendly}`,
     additionalImage: CommentsImgPath,
+    memberLevel: stamp === "" ? "default" : stamp.replace(/\.[^.]+$/, ""),
   };
 };

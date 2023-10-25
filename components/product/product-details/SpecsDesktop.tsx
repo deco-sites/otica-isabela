@@ -1,6 +1,6 @@
 import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
-import { Product } from "deco-sites/std/commerce/types.ts";
+import { Product } from "apps/commerce/types.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -12,7 +12,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const { additionalProperty, description } = product;
   const rootId = "tabs-component";
   const panels = additionalProperty?.filter(
-    (prop) => prop.propertyID === "panel"
+    (prop) => prop.propertyID === "panel",
   );
 
   panels?.unshift(
@@ -27,7 +27,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
       name: "Descrição",
       value: description,
       propertyID: "panel",
-    }
+    },
   );
 
   return (
@@ -107,17 +107,20 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${index === 0 ? "block" : "hidden"}`}
             >
-              {id === "medidas" ? (
-                <ProductDetailsMeasurements
-                  product={product}
-                  measurementsImage={measurementsImage}
-                />
-              ) : (
-                <div
-                  class="p-3"
-                  dangerouslySetInnerHTML={{ __html: value! }}
-                ></div>
-              )}
+              {id === "medidas"
+                ? (
+                  <ProductDetailsMeasurements
+                    product={product}
+                    measurementsImage={measurementsImage}
+                  />
+                )
+                : (
+                  <div
+                    class="p-3"
+                    dangerouslySetInnerHTML={{ __html: value! }}
+                  >
+                  </div>
+                )}
             </div>
           );
         })}

@@ -1,10 +1,9 @@
 import type { LoaderReturnType } from "$live/types.ts";
-import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 
@@ -27,7 +26,7 @@ export interface Props {
 function NotFound() {
   return (
     <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
+      <span>Não encontrado!</span>
     </div>
   );
 }
@@ -36,58 +35,32 @@ function Result({
   page,
   layout,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+  const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
-  const productCategory = products[0]?.category?.replace(">", " ");
+  const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
   return (
     <>
-      <header class="bg-white border-b-2 border-base-200 m-0 py-2 px-0">
+      <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
         <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
           {productCategory}
         </h1>
       </header>
-      <div class="container px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={layout?.variant === "drawer"}
-        />
-
+      <SearchControls
+        sortOptions={sortOptions}
+        filters={filters}
+        breadcrumb={breadcrumb}
+        displayFilter={layout?.variant === "drawer"}
+      />
+      <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
-          {layout?.variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
-              <Filters filters={filters} />
-            </aside>
-          )}
           <div class="flex-grow">
             <ProductGallery products={products} />
           </div>
         </div>
 
         <div class="flex justify-center my-4">
-          <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo.previousPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
-            </a>
-            <span class="btn btn-ghost join-item">
-              Page {pageInfo.currentPage + 1}
-            </span>
-            <a
-              aria-label="next page link"
-              rel="next"
-              href={pageInfo.nextPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
-            </a>
-          </div>
+          <Pagination pageInfo={pageInfo} />
         </div>
       </div>
       <SendEventOnLoad
