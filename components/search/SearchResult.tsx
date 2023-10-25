@@ -1,6 +1,8 @@
-import type { LoaderReturnType } from "$live/types.ts";
+import type { LoaderReturnType, SectionProps } from "$live/types.ts";
+import ProductGallery from "$store/components/product/ProductGallery.tsx";
 import Filters from "$store/components/search/Filters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
@@ -8,18 +10,36 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import ProductGallery from "../product/ProductGallery.tsx";
 
-export interface Cor {
+export type CategoryMenuItem = {
+  /** @title Categoria filha */
+  label: string;
+  link: string;
+};
+
+export interface CategoryMatcher {
   /**
-   * @title Nome da cor
+   * @title Caminho da URL
+   * @description Use /feminino/* para mostrar esse menu em todas as categorias filhas de feminino
    */
   label: string;
-  /** @format color */
+  /** @title Itens do Menu */
+  categoryItems: CategoryMenuItem[];
+}
+
+export interface Color {
+  /**
+   * @title Nome
+   */
+  label: string;
+  /**
+   * @title Cor
+   * @format color
+   */
   hex: string;
 }
 
-export interface OculosImagem {
+export interface GlassesImage {
   /**
    * @title Nome da armação
    * @description Imagens relacionadas aos filtros de Formato e Tipo
@@ -29,8 +49,14 @@ export interface OculosImagem {
 }
 
 export interface Props {
+  /** @title Loader */
   page: LoaderReturnType<ProductListingPage | null>;
-  filterColors: Cor[];
+  /** @title Cores do Filtro */
+  filterColors: Color[];
+  /** @title Esconder Filtros */
+  hideFilters?: string[];
+  /** @title Menu de Categorias */
+  categories: CategoryMatcher[];
 }
 
 function NotFound() {
@@ -44,7 +70,9 @@ function NotFound() {
 function Result({
   page,
   filterColors,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
+  hideFilters,
+  categories,
+}: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
 
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
@@ -59,7 +87,11 @@ function Result({
       {filters.length
         ? (
           <div class="flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-            <Filters filters={filters} filterColors={filterColors} />
+            <Filters
+              filters={filters}
+              filterColors={filterColors}
+              hideFilters={hideFilters}
+            />
             <div class="border-t border-base-200 w-full py-[30px]">
               <div class="container flex justify-end">
                 <a
@@ -82,6 +114,7 @@ function Result({
       <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
+      <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
           <div class="flex-grow">
@@ -114,7 +147,17 @@ function Result({
   );
 }
 
-function SearchResult({ page, ...props }: Props) {
+export const loader = ({ categories = [], ...props }: Props, req: Request) => {
+  const categoryList = categories.find(({ label }) =>
+    new URLPattern({ pathname: label }).test(req.url)
+  );
+
+  return { categories: categoryList?.categoryItems ?? [], ...props };
+};
+
+type ComponentProps = SectionProps<ReturnType<typeof loader>>;
+
+function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
     return <NotFound />;
   }

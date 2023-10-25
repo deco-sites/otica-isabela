@@ -1,4 +1,4 @@
-import { Cor } from "$store/components/search/SearchResult.tsx";
+import { Color } from "$store/components/search/SearchResult.tsx";
 import type {
   Filter,
   FilterToggle,
@@ -9,7 +9,8 @@ import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
 interface Props {
   filters: ProductListingPage["filters"];
-  filterColors: Cor[];
+  filterColors: Color[];
+  hideFilters?: string[];
 }
 
 type FilterToggleValueWithHex = FilterToggleValue & {
@@ -19,7 +20,7 @@ type FilterToggleValueWithHex = FilterToggleValue & {
 type FilterToggleComponent = {
   label: string;
   values: FilterToggleValueWithHex[];
-  filterColorsOptions?: Cor[];
+  filterColorsOptions?: Color[];
 };
 
 const isToggle = (filter: Filter): filter is FilterToggle =>
@@ -103,16 +104,14 @@ function FilterValues({
   );
 }
 
-function Filters({ filters, filterColors }: Props) {
-  // filtros: Tipo|Material|Formato|Estilo|Cor|Idade|Lentes|Tamanho
-  const selectedFilters = [2, 3, 4, 5, 14, 15, 16, 22];
-  const filtersSelectedAndFiltered = filters.filter((filterItem) =>
-    selectedFilters.includes(Number(filterItem.key))
-  );
+function Filters({ filters, filterColors, hideFilters = [] }: Props) {
+  const defaultFilters = filters.filter((filterItem) => {
+    return !hideFilters.includes(filterItem.label);
+  });
 
   return (
     <ul class="flex w-full justify-center flex-row">
-      {filtersSelectedAndFiltered.map((filter) => (
+      {defaultFilters.map((filter) => (
         <li class="flex leading-relaxed flex-row pl-7 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
           <span>{filter.label}</span>
           <Icon size={24} id="ChevronDown" />

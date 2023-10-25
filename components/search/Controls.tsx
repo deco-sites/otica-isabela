@@ -1,4 +1,4 @@
-import { Cor } from "$store/components/search/SearchResult.tsx";
+import { Color } from "$store/components/search/SearchResult.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
@@ -11,7 +11,7 @@ type Props =
     displayFilter?: boolean;
   }
   & {
-    filterColors: Cor[];
+    filterColors: Color[];
   };
 
 function SearchControls({
