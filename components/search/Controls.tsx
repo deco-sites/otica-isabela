@@ -1,4 +1,5 @@
 import Filters from "$store/components/search/Filters.tsx";
+import { Color } from "$store/components/search/SearchResult.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
@@ -9,6 +10,9 @@ type Props =
   >
   & {
     displayFilter?: boolean;
+  }
+  & {
+    filterColors: Color[];
   };
 
 function SearchControls({
@@ -16,12 +20,13 @@ function SearchControls({
   breadcrumb,
   displayFilter,
   sortOptions,
+  filterColors,
 }: Props) {
   const open = useSignal(false);
 
   return (
     <div class="flex w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-      <Filters filters={filters} />
+      <Filters filters={filters} filterColors={filterColors} />
     </div>
   );
 

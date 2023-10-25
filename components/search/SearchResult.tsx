@@ -19,11 +19,11 @@ export interface Layout {
   columns: Columns;
 }
 
-interface Color {
+export interface Color {
   /**
-   * @title Name
+   * @title Nome
    */
-  name: string;
+  label: string;
   hex: string;
 }
 
@@ -50,8 +50,6 @@ function Result({
 
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
-  console.log("test", filterColors);
-
   return (
     <>
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
@@ -62,6 +60,7 @@ function Result({
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
+        filterColors={filterColors}
         breadcrumb={breadcrumb}
         displayFilter={layout?.variant === "drawer"}
       />
