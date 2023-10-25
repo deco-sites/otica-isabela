@@ -7,31 +7,30 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import ProductGallery from "../product/ProductGallery.tsx";
 
-export interface Layout {
+export interface Cor {
   /**
-   * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
-   */
-  variant?: "aside" | "drawer";
-  /**
-   * @description Number of products per line on grid
-   */
-  columns: Columns;
-}
-
-export interface Color {
-  /**
-   * @title Nome
+   * @title Nome da cor
    */
   label: string;
+  /** @format color */
   hex: string;
+}
+
+export interface OculosImagem {
+  /**
+   * @title Nome da armação
+   * @description Imagens relacionadas aos filtros de Formato e Tipo
+   */
+  label: string;
+  image: LiveImage;
 }
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
-  layout?: Layout;
-  filterColors: Color[];
+  filterColors: Cor[];
 }
 
 function NotFound() {
@@ -44,7 +43,6 @@ function NotFound() {
 
 function Result({
   page,
-  layout,
   filterColors,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
@@ -80,7 +78,6 @@ function Result({
         filters={filters}
         filterColors={filterColors}
         breadcrumb={breadcrumb}
-        displayFilter={layout?.variant === "drawer"}
       />
       <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />

@@ -1,4 +1,4 @@
-import { Color } from "$store/components/search/SearchResult.tsx";
+import { Cor } from "$store/components/search/SearchResult.tsx";
 import type {
   Filter,
   FilterToggle,
@@ -9,7 +9,7 @@ import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
 interface Props {
   filters: ProductListingPage["filters"];
-  filterColors: Color[];
+  filterColors: Cor[];
 }
 
 type FilterToggleValueWithHex = FilterToggleValue & {
@@ -19,7 +19,7 @@ type FilterToggleValueWithHex = FilterToggleValue & {
 type FilterToggleComponent = {
   label: string;
   values: FilterToggleValueWithHex[];
-  filterColorsOptions?: Color[];
+  filterColorsOptions?: Cor[];
 };
 
 const isToggle = (filter: Filter): filter is FilterToggle =>
