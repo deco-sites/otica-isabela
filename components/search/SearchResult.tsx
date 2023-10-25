@@ -1,6 +1,7 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
 import Filters from "$store/components/search/Filters.tsx";
+import SelectedFilters from "$store/components/search/SelectedFilters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
@@ -39,12 +40,10 @@ export interface Color {
   hex: string;
 }
 
-export interface GlassesImage {
-  /**
-   * @title Nome da armação
-   * @description Imagens relacionadas aos filtros de Formato e Tipo
-   */
+export interface Shape {
+  /** @title Nome do Formato */
   label: string;
+  /** @title Imagem do Formato */
   image: LiveImage;
 }
 
@@ -53,6 +52,8 @@ export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
   /** @title Cores do Filtro */
   filterColors: Color[];
+  /** @title Icones do filtro de Formato */
+  shapeIcons: Shape[];
   /** @title Esconder Filtros */
   hideFilters?: string[];
   /** @title Menu de Categorias */
@@ -74,7 +75,6 @@ function Result({
   categories,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
   return (
@@ -94,6 +94,7 @@ function Result({
             />
             <div class="border-t border-base-200 w-full py-[30px]">
               <div class="container flex justify-end">
+                <SelectedFilters filters={filters} />
                 <a
                   href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
                   class="uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"

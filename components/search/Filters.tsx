@@ -17,13 +17,13 @@ type FilterToggleValueWithHex = FilterToggleValue & {
   hex?: string;
 };
 
-type FilterToggleComponent = {
+type FilterValuesProps = {
   label: string;
   values: FilterToggleValueWithHex[];
-  filterColorsOptions?: Color[];
+  filterColors?: Color[];
 };
 
-const isToggle = (filter: Filter): filter is FilterToggle =>
+export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function ValueItem({ url, selected, label }: FilterToggleValueWithHex) {
@@ -40,11 +40,45 @@ function ValueItem({ url, selected, label }: FilterToggleValueWithHex) {
   );
 }
 
+function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
+  const orderedAges = values.sort(
+    (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
+  );
+
+  return <>{orderedAges.map((item) => <ValueItem {...item} />)}</>;
+}
+
+function ColorOptions(
+  { matchingColors }: {
+    matchingColors: FilterToggleValueWithHex[];
+  },
+) {
+  return (
+    <>
+      {matchingColors?.map((item) => {
+        const { url, value, hex } = item;
+
+        return (
+          <a href={url}>
+            <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
+              <span
+                style={{ backgroundColor: hex }}
+                class={`border border-solid h-[25px] w-[25px] rounded-full`}
+              />
+              <p class="ml-[10px] font-bold">{value}</p>
+            </div>
+          </a>
+        );
+      })}
+    </>
+  );
+}
+
 function FilterValues({
   label,
   values,
-  filterColorsOptions,
-}: FilterToggleComponent) {
+  filterColors,
+}: FilterValuesProps) {
   const flexDirection =
     label === "Formato" || label === "Cor" || label === "Idade"
       ? "flex-row"
@@ -58,65 +92,46 @@ function FilterValues({
     : "";
 
   const matchingColors: FilterToggleValueWithHex[] = values?.map(
-    (matchingColor) => {
-      const matchedValue = values.find(
-        (value) => value.label === matchingColor.label,
+    (value) => {
+      const matchedColor = filterColors?.find(
+        (color) => color.label === value.label,
       );
-      if (matchedValue !== undefined) {
+      if (matchedColor) {
         return {
-          ...matchedValue,
-          hex: matchingColor.hex,
+          ...value,
+          hex: matchedColor.hex,
         };
       } else {
-        return matchingColor;
+        return value;
       }
     },
   );
 
-  function renderAgeOptions() {
-    const orderedAges = values.sort(
-      (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
-    );
-
-    return orderedAges.map((item) => <ValueItem {...item} />);
-  }
-
-  function renderColorOptions() {
-    return matchingColors?.map((item) => {
-      const { url, selected, value } = item;
-      const hexColor = filterColorsOptions?.find((item) =>
-        item.label === value
-      );
-
-      return (
-        <a href={url}>
-          <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
-            <span
-              style={`background-color:${hexColor?.hex}`}
-              class={`border border-solid h-[25px] w-[25px] rounded-full`}
-            />
-            <p class="ml-[10px] font-bold">{value}</p>
-          </div>
-        </a>
-      );
-    });
-  }
-
-  function renderOptions() {
+  function Options() {
     if (label === "Idade") {
-      return renderAgeOptions();
-    } else if (label === "Cor" && matchingColors) {
-      return renderColorOptions();
-    } else {
-      return values.map((value) => <ValueItem {...value} />);
+      return <AgeOptions values={values} />;
     }
+
+    if (label === "Cor" && matchingColors) {
+      return (
+        <ColorOptions
+          matchingColors={matchingColors}
+        />
+      );
+    }
+
+    return (
+      <>
+        {values.map((value) => <ValueItem {...value} />)}
+      </>
+    );
   }
 
   return (
     <div
       class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mt-[85px] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible ${flexDirection} ${colorAndAgeStyles} ${formatoStyles} top-0 transitionl duration-300 ease-in-out`}
     >
-      {renderOptions()}
+      <Options />
     </div>
   );
 }
@@ -133,7 +148,7 @@ function Filters({ filters, filterColors, hideFilters = [] }: Props) {
           <span>{filter.label}</span>
           <Icon size={24} id="ChevronDown" />
           {isToggle(filter) && (
-            <FilterValues filterColorsOptions={filterColors} {...filter} />
+            <FilterValues filterColors={filterColors} {...filter} />
           )}
         </li>
       ))}

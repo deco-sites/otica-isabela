@@ -634,7 +634,13 @@
           { "hex": "#0e4bef", "label": "Azul" },
           { "hex": "#000000", "label": "Preto" }
         ],
-        "__resolveType": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx"
+        "__resolveType": "deco-sites/otica-isabela/sections/Product/SearchResult.tsx",
+        "shapeIcons": [
+          {
+            "label": "Hexagonal",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c042dbee-2345-4528-af0f-f554d09c5f96"
+          }
+        ]
       },
       {
         "categories": [
