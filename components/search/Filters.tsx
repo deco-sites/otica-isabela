@@ -1,9 +1,9 @@
 import { Color } from "$store/components/search/SearchResult.tsx";
 import type {
-  Filter,
-  FilterToggle,
-  FilterToggleValue,
-  ProductListingPage,
+	Filter,
+	FilterToggle,
+	FilterToggleValue,
+	ProductListingPage,
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
@@ -54,7 +54,7 @@ function FilterValues({
     ? "w-[650px] flex-wrap justify-between pb-5 right-24 [&>*]:w-[23%]"
     : "";
   const formatoStyles = label === "Formato"
-    ? "w-[530px] flex-wrap justify-between"
+    ? "w-[530px] [&>*]:w-[50%] px-[50px] pb-[20px] flex-wrap justify-between"
     : "";
 
   const matchingColors: FilterToggleValueWithHex[] = values?.map(
