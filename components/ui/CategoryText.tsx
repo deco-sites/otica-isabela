@@ -95,25 +95,25 @@ function CategoryText({ category }: SectionProps<ReturnType<typeof loader>>) {
           `,
         }}
       />
-    <div class="container px-8 mb-8">
-      {!!html && (
-        <>
-          <div
-            dangerouslySetInnerHTML={{ __html: html }}
-            style={{
-              overflow: "hidden",
-              maxHeight: isExpanded.value ? "none" : 250,
-            }}
-          />
-          <button
-            class="bg-black text-white px-[20px] py-[10px] text-xs mt-4 rounded-[5px]"
-            onClick={toggleExpand}
-          >
-            {isExpanded.value ? "Ver menos" : "Ver mais"}
-          </button>
-        </>
-      )}
-    </div>
+      <div class="container px-8 mb-8">
+        {!!html && (
+          <>
+            <div
+              dangerouslySetInnerHTML={{ __html: html }}
+              style={{
+                overflow: "hidden",
+                maxHeight: isExpanded.value ? "none" : 250,
+              }}
+            />
+            <button
+              class="bg-black text-white px-[20px] py-[10px] text-xs mt-4 rounded-[5px]"
+              onClick={toggleExpand}
+            >
+              {isExpanded.value ? "Ver menos" : "Ver mais"}
+            </button>
+          </>
+        )}
+      </div>
     </>
   );
 }
