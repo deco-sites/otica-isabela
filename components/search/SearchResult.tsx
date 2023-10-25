@@ -40,6 +40,13 @@ export interface Color {
   hex: string;
 }
 
+export interface Type {
+  /** @title Nome do Tipo */
+  label: string;
+  /** @title Icone do Tipo */
+  icon: LiveImage;
+}
+
 export interface Shape {
   /** @title Nome do Formato */
   label: string;
@@ -57,6 +64,8 @@ export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
   /** @title Cores do Filtro */
   filterColors: Color[];
+  /** @title Icones do filtro de Tipo */
+  typeIcons: Type[];
   /** @title Icones do filtro de Formato */
   shapeIcons: Shape[];
   /** @title Esconder Filtros */
@@ -77,6 +86,7 @@ function Result({
   page,
   filterColors,
   hideFilters,
+  typeIcons,
   shapeIcons,
   categories,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
@@ -97,29 +107,23 @@ function Result({
               filters={filters}
               filterColors={filterColors}
               hideFilters={hideFilters}
+              typeIcons={typeIcons}
               shapeIcons={shapeIcons}
             />
             <div class="border-t border-base-200 w-full py-[30px]">
-              <div class="container flex justify-end items-start">
+              <div class="container flex justify-between items-center">
                 <SelectedFilters filters={filters} />
                 <a
                   href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                  class="uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
                 >
                   Limpar Filtros
                 </a>
               </div>
             </div>
-            <div class="container flex justify-end">
-              <a
-                href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                class="uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-              >
-                Limpar Filtros
-              </a>
-            </div>
           </div>
-      ) : null}
+        )
+        : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
