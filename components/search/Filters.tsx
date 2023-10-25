@@ -33,11 +33,17 @@ type FilterValuesProps = {
 export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
-function ValueItem(
-  { url, selected, label, children, class: _class }:
-    & Omit<FilterToggleValueWithHex, "label">
-    & { label?: string; children?: ComponentChildren; class?: string },
-) {
+function ValueItem({
+  url,
+  selected,
+  label,
+  children,
+  class: _class,
+}: Omit<FilterToggleValueWithHex, "label"> & {
+  label?: string;
+  children?: ComponentChildren;
+  class?: string;
+}) {
   return (
     <a href={url || "#"} class={_class}>
       <div class="flex items-center mb-5">
@@ -57,16 +63,19 @@ function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
   );
 
   return (
-    <>{orderedAges.map((item) => <ValueItem class="lg:w-1/4" {...item} />)}</>
+    <>
+      {orderedAges.map((item) => <ValueItem class="lg:w-1/4" {...item} />)}
+    </>
   );
 }
 
-function TypeOptions(
-  { values, typeIcons }: {
-    values: FilterToggleValueWithHex[];
-    typeIcons: Type[];
-  },
-) {
+function TypeOptions({
+  values,
+  typeIcons,
+}: {
+  values: FilterToggleValueWithHex[];
+  typeIcons: Type[];
+}) {
   return (
     <>
       {values.map(({ label, ...item }) => {
@@ -92,12 +101,13 @@ function TypeOptions(
   );
 }
 
-function ShapeOptions(
-  { values, shapeIcons }: {
-    values: FilterToggleValueWithHex[];
-    shapeIcons: Shape[];
-  },
-) {
+function ShapeOptions({
+  values,
+  shapeIcons,
+}: {
+  values: FilterToggleValueWithHex[];
+  shapeIcons: Shape[];
+}) {
   return (
     <>
       {values.map(({ label, ...item }) => {
@@ -123,11 +133,11 @@ function ShapeOptions(
   );
 }
 
-function ColorOptions(
-  { matchingColors }: {
-    matchingColors: FilterToggleValueWithHex[];
-  },
-) {
+function ColorOptions({
+  matchingColors,
+}: {
+  matchingColors: FilterToggleValueWithHex[];
+}) {
   return (
     <>
       {matchingColors?.map((item) => {
@@ -167,25 +177,24 @@ function FilterValues({
   const formatoStyles = label === "Formato"
     ? "w-[530px] px-[50px] pb-[20px] flex-wrap justify-between"
     : "";
+  const tipoStyles = label === "Tipo" ? "min-w-max" : "";
   const positionStyles = position === "left"
     ? "lg:top-full lg:left-0"
     : "lg:top-full lg:right-0";
 
-  const matchingColors: FilterToggleValueWithHex[] = values?.map(
-    (value) => {
-      const matchedColor = filterColors?.find(
-        (color) => color.label === value.label,
-      );
-      if (matchedColor) {
-        return {
-          ...value,
-          hex: matchedColor.hex,
-        };
-      } else {
-        return value;
-      }
-    },
-  );
+  const matchingColors: FilterToggleValueWithHex[] = values?.map((value) => {
+    const matchedColor = filterColors?.find(
+      (color) => color.label === value.label,
+    );
+    if (matchedColor) {
+      return {
+        ...value,
+        hex: matchedColor.hex,
+      };
+    } else {
+      return value;
+    }
+  });
 
   function Options() {
     if (label === "Tipo") {
@@ -201,11 +210,7 @@ function FilterValues({
     }
 
     if (label === "Cor" && matchingColors) {
-      return (
-        <ColorOptions
-          matchingColors={matchingColors}
-        />
-      );
+      return <ColorOptions matchingColors={matchingColors} />;
     }
 
     return (
@@ -218,7 +223,7 @@ function FilterValues({
   return (
     <div
       class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transitionl duration-300 ease-in-out
-        ${flexDirection} ${colorAndAgeStyles} ${formatoStyles} ${positionStyles}
+        ${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
       `}
     >
       <Options />
@@ -226,9 +231,13 @@ function FilterValues({
   );
 }
 
-function Filters(
-  { filters, filterColors, hideFilters = [], shapeIcons, typeIcons }: Props,
-) {
+function Filters({
+  filters,
+  filterColors,
+  hideFilters = [],
+  shapeIcons,
+  typeIcons,
+}: Props) {
   const defaultFilters = filters.filter((filterItem) => {
     return !hideFilters.includes(filterItem.label);
   });
