@@ -73,33 +73,50 @@ function FilterValues({
     },
   );
 
+  function renderAgeOptions() {
+    const orderedAges = values.sort(
+      (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
+    );
+
+    return orderedAges.map((item) => <ValueItem {...item} />);
+  }
+
+  function renderColorOptions() {
+    return matchingColors?.map((item) => {
+      const { url, selected, value } = item;
+      const hexColor = filterColorsOptions?.find((item) =>
+        item.label === value
+      );
+
+      return (
+        <a href={url}>
+          <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
+            <span
+              style={`background-color:${hexColor?.hex}`}
+              class={`border border-solid h-[25px] w-[25px] rounded-full`}
+            />
+            <p class="ml-[10px] font-bold">{value}</p>
+          </div>
+        </a>
+      );
+    });
+  }
+
+  function renderOptions() {
+    if (label === "Idade") {
+      return renderAgeOptions();
+    } else if (label === "Cor" && matchingColors) {
+      return renderColorOptions();
+    } else {
+      return values.map((value) => <ValueItem {...value} />);
+    }
+  }
+
   return (
     <div
       class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mt-[85px] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible ${flexDirection} ${colorAndAgeStyles} ${formatoStyles} top-0 transitionl duration-300 ease-in-out`}
     >
-      {label === "Cor" && matchingColors
-        ? matchingColors?.map((item) => {
-          const { url, selected, value, hex } = item;
-
-          const hexColor = filterColorsOptions?.find(
-            (item) => item.label === value,
-          );
-
-          return (
-            <a href={url}>
-              <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
-                <span
-                  style={`background-color:${hexColor?.hex}`}
-                  class={`border border-solid h-[25px] w-[25px] rounded-full`}
-                />
-                <p class="ml-[10px] font-bold">{value}</p>
-              </div>
-            </a>
-          );
-        })
-        : values.map((value) => {
-          return <ValueItem {...value} />;
-        })}
+      {renderOptions()}
     </div>
   );
 }
