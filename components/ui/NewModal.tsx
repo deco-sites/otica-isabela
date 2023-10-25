@@ -9,6 +9,7 @@ interface Props {
   class?: string;
   children?: ComponentChildren;
   loading?: "eager" | "lazy";
+  inputClasses?: string;
 }
 
 function Modal(props: Props) {
@@ -17,6 +18,7 @@ function Modal(props: Props) {
     open,
     onClose,
     class: _class = "",
+    inputClasses = "",
     loading = "lazy",
   } = props;
   const lazy = useSignal(loading === "lazy" && !open);
@@ -43,7 +45,7 @@ function Modal(props: Props) {
         id={id}
         checked={open}
         type="checkbox"
-        class="modal-toggle"
+        class={`modal-toggle ${inputClasses}`}
         onChange={(e) => e.currentTarget.checked === false && onClose?.()}
       />
       <div class="modal">

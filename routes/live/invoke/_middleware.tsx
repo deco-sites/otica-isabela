@@ -40,28 +40,19 @@ export const handler = async (
 
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) return res;
 
-  const sessionToken = cookies[ISABELA_DIAS_SESSION_COOKIE] ??
-    (
-      await ctx.state.invoke(
-        "deco-sites/otica-isabela/loaders/store/session.ts",
-      )
-    )?.SessionKey;
-
-  if (!sessionToken) return res;
-
   const customerToken = await ctx.state.invoke(
     "deco-sites/otica-isabela/loaders/store/session.ts",
-    { sessionToken },
+    { sessionToken: cookies[ISABELA_DIAS_SESSION_COOKIE] },
   );
 
   setCookies(res, [
     {
       tokenName: ISABELA_DIAS_CLIENT_COOKIE,
-      tokenValue: String(customerToken?.IdSessionCustomer),
+      tokenValue: String(customerToken.SessionCustomer.IdSessionCustomer),
     },
     {
       tokenName: ISABELA_DIAS_SESSION_COOKIE,
-      tokenValue: sessionToken,
+      tokenValue: customerToken.SessionCustomer.SessionKey,
     },
   ]);
 

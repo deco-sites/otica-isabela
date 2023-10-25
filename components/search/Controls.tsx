@@ -29,24 +29,28 @@ function SearchControls({
       <Filters filters={filters} filterColors={filterColors} />
     </div>
   );
+}
+/* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
 
-  {
-    /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-        <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-          {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
-        </Button>
-      </div> */
-  }
+    <div class="w-full flex-row justify-center items-center my-5 hidden sm:flex">
+      <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+    </div>
 
-  {
-    /* <Modal
+    {
+      /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      <Button
+        class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
+        onClick={() => {
+          open.value = true;
+        }}
+      >
+        Filtrar
+        <Icon id="FilterList" width={16} height={16} />
+        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+      </Button>
+    </div> */
+
+/* <Modal
         loading="lazy"
         title="Filtrar"
         mode="sidebar-right"
@@ -57,7 +61,5 @@ function SearchControls({
       >
         <Filters filters={filters} />
       </Modal> */
-  }
-}
 
 export default SearchControls;

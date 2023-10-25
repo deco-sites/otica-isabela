@@ -29,22 +29,26 @@ export default function Pagination({ pageInfo }: Props) {
   const shouldRenderFirstSpread = currentPage >= firstPage + 3;
   const shouldRenderSecondSpread = currentPage <= lastPage - 3;
 
-  function simplePagination() {
-    return eachPageList.map((page) => (
-      <a
-        aria-label={`pagina ${page + 1}`}
-        rel="page"
-        href={`?page=${page + 1}`}
-        class={`w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold
-		  ${currentPage === page ? "bg-blue-200 text-white" : ""}
+  function SimplePagination() {
+    return (
+      <>
+        {eachPageList.map((page) => (
+          <a
+            aria-label={`pagina ${page + 1}`}
+            rel="page"
+            href={`?page=${page + 1}`}
+            class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
+		  ${currentPage === page ? "bg-blue-200 border-blue-200 text-white" : ""}
 		`}
-      >
-        {page + 1}
-      </a>
-    ));
+          >
+            {page + 1}
+          </a>
+        ))}
+      </>
+    );
   }
 
-  function paginationWithSpread() {
+  function PaginationWithSpread() {
     return (
       <>
         {shouldRenderFirstPage && (
@@ -52,7 +56,7 @@ export default function Pagination({ pageInfo }: Props) {
             aria-label="primeira pagina"
             rel="first"
             href={`?page=${firstPage}`}
-            class={`w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold
+            class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
 		  ${currentPage === firstPage ? "bg-blue-200 text-white" : ""}
 		`}
           >
@@ -60,7 +64,7 @@ export default function Pagination({ pageInfo }: Props) {
           </a>
         )}
         {shouldRenderFirstSpread && (
-          <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
+          <div class="w-10 h-10 text-black flex items-center justify-center text-xl font-bold">
             ...
           </div>
         )}
@@ -69,12 +73,12 @@ export default function Pagination({ pageInfo }: Props) {
             aria-label="pagina anterior"
             rel="prev"
             href={pageInfo.previousPage}
-            class="hidden sm:flex w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full items-center justify-center text-sm font-bold"
+            class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {prevPageNumber}
           </a>
         )}
-        <span class="w-10 h-10 bg-blue-200 text-white rounded-full flex items-center justify-center text-sm font-bold">
+        <span class="w-10 h-10 bg-blue-200 text-white rounded-[9px] flex items-center justify-center text-sm font-bold">
           {currentPage}
         </span>
         {pageInfo.nextPage && (
@@ -82,13 +86,13 @@ export default function Pagination({ pageInfo }: Props) {
             aria-label="proxima pagina"
             rel="next"
             href={pageInfo.nextPage}
-            class="hidden sm:flex w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full items-center justify-center text-sm font-bold"
+            class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {nextPageNumber}
           </a>
         )}
         {shouldRenderSecondSpread && (
-          <div class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-xl font-bold">
+          <div class="w-10 h-10 text-black flex items-center justify-center text-xl font-bold">
             ...
           </div>
         )}
@@ -97,7 +101,7 @@ export default function Pagination({ pageInfo }: Props) {
             aria-label="ultima pagina"
             rel="last"
             href={`?page=${lastPage}`}
-            class={`w-10 h-10 border-2 border-blue-200 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold
+            class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
 		  ${currentPage === lastPage ? "bg-blue-200 text-white" : ""}
 		`}
           >
@@ -121,7 +125,7 @@ export default function Pagination({ pageInfo }: Props) {
           <Icon id="ChevronLeft" size={20} strokeWidth={3} />
         </a>
       )}
-      {!moreThanSevenPages ? simplePagination() : paginationWithSpread()}
+      {!moreThanSevenPages ? <SimplePagination /> : <PaginationWithSpread />}
       {pageInfo.nextPage && (
         <a
           aria-label="proxima pagina"
