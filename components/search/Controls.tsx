@@ -25,9 +25,9 @@ function SearchControls({
   const open = useSignal(false);
 
   return (
-    <div class="flex w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-      <Filters filters={filters} filterColors={filterColors} />
-    </div>
+    <p class="lg:hidden">
+      Filtros mobile;
+    </p>
   );
 }
 /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">

@@ -1,4 +1,5 @@
 import type { LoaderReturnType } from "$live/types.ts";
+import Filters from "$store/components/search/Filters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
@@ -57,6 +58,23 @@ function Result({
           {productCategory}
         </h1>
       </header>
+      {filters.length
+        ? (
+          <div class="flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+            <Filters filters={filters} filterColors={filterColors} />
+            <div class="border-t border-base-200 w-full py-[30px]">
+              <div class="container flex justify-end">
+                <a
+                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                  class="uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                >
+                  Limpar Filtros
+                </a>
+              </div>
+            </div>
+          </div>
+        )
+        : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
