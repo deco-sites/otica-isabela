@@ -1,9 +1,9 @@
-import { Color, Shape } from "$store/components/search/SearchResult.tsx";
+import { Color, Shape, Type } from "$store/components/search/SearchResult.tsx";
 import type {
-	Filter,
-	FilterToggle,
-	FilterToggleValue,
-	ProductListingPage,
+  Filter,
+  FilterToggle,
+  FilterToggleValue,
+  ProductListingPage,
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
@@ -14,6 +14,7 @@ interface Props {
   filterColors: Color[];
   hideFilters?: string[];
   shapeIcons: Shape[];
+  typeIcons: Type[];
 }
 
 type FilterToggleValueWithHex = FilterToggleValue & {
@@ -25,6 +26,7 @@ type FilterValuesProps = {
   values: FilterToggleValueWithHex[];
   filterColors?: Color[];
   shapeIcons: Shape[];
+  typeIcons: Type[];
   position: "left" | "right";
 };
 
@@ -59,6 +61,37 @@ function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
   );
 }
 
+function TypeOptions(
+  { values, typeIcons }: {
+    values: FilterToggleValueWithHex[];
+    typeIcons: Type[];
+  },
+) {
+  return (
+    <>
+      {values.map(({ label, ...item }) => {
+        const typeIcon = typeIcons?.find((icon) => icon.label === label);
+
+        return (
+          <ValueItem {...item}>
+            {typeIcon
+              ? (
+                <Image
+                  src={typeIcon.icon}
+                  alt={typeIcon.label}
+                  width={70}
+                  height={29}
+                />
+              )
+              : null}
+            {label}
+          </ValueItem>
+        );
+      })}
+    </>
+  );
+}
+
 function ShapeOptions(
   { values, shapeIcons }: {
     values: FilterToggleValueWithHex[];
@@ -68,7 +101,7 @@ function ShapeOptions(
   return (
     <>
       {values.map(({ label, ...item }) => {
-        const shapeIcon = shapeIcons.find((icon) => icon.label === label);
+        const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
 
         return (
           <ValueItem {...item} class="lg:w-1/2">
@@ -120,6 +153,7 @@ function FilterValues({
   label,
   values,
   filterColors,
+  typeIcons,
   shapeIcons,
   position,
 }: FilterValuesProps) {
@@ -154,6 +188,10 @@ function FilterValues({
   );
 
   function Options() {
+    if (label === "Tipo") {
+      return <TypeOptions values={values} typeIcons={typeIcons} />;
+    }
+
     if (label === "Formato") {
       return <ShapeOptions values={values} shapeIcons={shapeIcons} />;
     }
@@ -189,7 +227,7 @@ function FilterValues({
 }
 
 function Filters(
-  { filters, filterColors, hideFilters = [], shapeIcons }: Props,
+  { filters, filterColors, hideFilters = [], shapeIcons, typeIcons }: Props,
 ) {
   const defaultFilters = filters.filter((filterItem) => {
     return !hideFilters.includes(filterItem.label);
@@ -203,6 +241,7 @@ function Filters(
           <Icon size={24} id="ChevronDown" />
           {isToggle(filter) && (
             <FilterValues
+              typeIcons={typeIcons}
               shapeIcons={shapeIcons}
               filterColors={filterColors}
               position={index < array.length / 2 ? "left" : "right"}
