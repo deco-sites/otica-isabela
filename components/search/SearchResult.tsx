@@ -45,6 +45,11 @@ export interface Shape {
   label: string;
   /** @title Imagem do Formato */
   image: LiveImage;
+  /** 
+   * @title Altura da imagem 
+   * @description Para evitar quebras de layout, apenas a altura é necessaria e as larguras serão sempre 50px.
+   */
+  height: number;
 }
 
 export interface Props {
@@ -72,6 +77,7 @@ function Result({
   page,
   filterColors,
   hideFilters,
+  shapeIcons,
   categories,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
@@ -91,9 +97,10 @@ function Result({
               filters={filters}
               filterColors={filterColors}
               hideFilters={hideFilters}
+              shapeIcons={shapeIcons}
             />
             <div class="border-t border-base-200 w-full py-[30px]">
-              <div class="container flex justify-end">
+              <div class="container flex justify-end items-start">
                 <SelectedFilters filters={filters} />
                 <a
                   href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
