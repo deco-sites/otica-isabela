@@ -110,9 +110,16 @@ function Result({
                 </a>
               </div>
             </div>
+            <div class="container flex justify-end">
+              <a
+                href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                class="uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+              >
+                Limpar Filtros
+              </a>
+            </div>
           </div>
-        )
-        : null}
+      ) : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}

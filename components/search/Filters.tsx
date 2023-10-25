@@ -150,7 +150,7 @@ function FilterValues({
       } else {
         return value;
       }
-    },
+    }
   );
 
   function Options() {
