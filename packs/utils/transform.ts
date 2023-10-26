@@ -30,7 +30,10 @@ import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 type CategoryPageProps =
   & Required<
-    Omit<ProductListiningPageProps, "pageType" | "term" | "filtersUrl">
+    Omit<
+      ProductListiningPageProps,
+      "pageType" | "term" | "filtersUrl" | "productsData"
+    >
   >
   & { filtersUrl: DynamicFilter[] | undefined };
 
@@ -60,7 +63,6 @@ interface ToPageFilterValuesProps {
   filterApi: APIDynamicFilters;
   filterLabel: string;
   baseURL: URL;
-  products: IsabelaProduct[];
   filtersUrl?: DynamicFilter[];
 }
 
@@ -396,7 +398,6 @@ export const toProductListingPage = (
         category: props.category!,
         filtersApi: props.filtersApi!,
         filtersUrl: props.filtersUrl,
-        productsData,
       },
     )
     : searchPageProps(baseURL, props.term);
@@ -419,20 +420,18 @@ export const toProductListingPage = (
 const categoryPageProps = (
   props: CategoryPageProps,
 ): PLPPageProps => {
-  const { productsData, baseURL, category, filtersApi, filtersUrl } = props;
-  const { produtos } = productsData;
+  const { baseURL, category, filtersApi, filtersUrl } = props;
   return {
     itemListElement: toPageBreadcrumbList(category, baseURL),
     filters: groupPageFilters(filtersApi).map((f) => ({
       "@type": "FilterToggle",
       key: `${f[0].IdTipo}`,
       label: f[0].NomeTipo,
-      quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
+      quantity: 0,
       values: f.map((individualFilter) =>
         toPageFilterValues({
           filterApi: individualFilter,
           filterLabel: f[0].NomeTipo,
-          products: produtos,
           baseURL,
           filtersUrl,
         })
@@ -499,19 +498,14 @@ const groupPageFilters = (
 const toPageFilterValues = (
   props: ToPageFilterValuesProps,
 ): FilterToggleValue => {
-  const { products, filterApi, filtersUrl, baseURL, filterLabel } = props;
+  const { filterApi, filtersUrl, baseURL, filterLabel } = props;
   const selected = !filtersUrl ? false : filtersUrl.some(
     (filter) =>
       filter.filterID === filterApi.IdTipo &&
       filter.filterValue === filterApi.Nome,
   );
   return {
-    quantity: countPageFiltersQuantity(
-      products,
-      "typeValue",
-      filterApi.IdTipo,
-      filterApi.Nome,
-    ),
+    quantity: 0,
     label: filterApi.Nome,
     value: filterApi.Nome,
     selected,
@@ -587,21 +581,6 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
     position: i + 1,
   }));
 };
-
-const countPageFiltersQuantity = (
-  products: IsabelaProduct[],
-  match: "typeId" | "typeValue",
-  typeId: number,
-  typeValue?: string,
-) =>
-  products
-    .filter((product) =>
-      product.Classificacoes.some((item) => {
-        if (match == "typeId") return item.IdTipo === typeId;
-        return item.Nome === typeValue && item.IdTipo === typeId;
-      })
-    )
-    .length;
 
 export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
   const {
