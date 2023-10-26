@@ -534,8 +534,8 @@ const toPageFilterURL = (
   );
 
   selected
-    ? modifiedURL.searchParams.delete(filterParamName)
-    : modifiedURL.searchParams.set(filterParamName, filterValue);
+    ? modifiedURL.searchParams.delete(filterParamName, filterValue)
+    : modifiedURL.searchParams.append(filterParamName, filterValue);
 
   return modifiedURL;
 };
