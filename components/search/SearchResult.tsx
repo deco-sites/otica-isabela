@@ -1,26 +1,77 @@
-import type { LoaderReturnType } from "$live/types.ts";
+import type { LoaderReturnType, SectionProps } from "$live/types.ts";
+import ProductGallery from "$store/components/product/ProductGallery.tsx";
+import Filters from "$store/components/search/Filters.tsx";
+import SelectedFilters from "$store/components/search/SelectedFilters.tsx";
+import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
+import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-export interface Layout {
+export type CategoryMenuItem = {
+  /** @title Categoria filha */
+  label: string;
+  link: string;
+};
+
+export interface CategoryMatcher {
   /**
-   * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
+   * @title Caminho da URL
+   * @description Use /feminino/* para mostrar esse menu em todas as categorias filhas de feminino
    */
-  variant?: "aside" | "drawer";
+  label: string;
+  /** @title Itens do Menu */
+  categoryItems: CategoryMenuItem[];
+}
+
+export interface Color {
   /**
-   * @description Number of products per line on grid
+   * @title Nome
    */
-  columns: Columns;
+  label: string;
+  /**
+   * @title Cor
+   * @format color
+   */
+  hex: string;
+}
+
+export interface Type {
+  /** @title Nome do Tipo */
+  label: string;
+  /** @title Icone do Tipo */
+  icon: LiveImage;
+}
+
+export interface Shape {
+  /** @title Nome do Formato */
+  label: string;
+  /** @title Imagem do Formato */
+  image: LiveImage;
+  /**
+   * @title Altura da imagem
+   * @description Para evitar quebras de layout, apenas a altura é necessaria e as larguras serão sempre 50px.
+   */
+  height: number;
 }
 
 export interface Props {
+  /** @title Loader */
   page: LoaderReturnType<ProductListingPage | null>;
-  layout?: Layout;
+  /** @title Cores do Filtro */
+  filterColors: Color[];
+  /** @title Icones do filtro de Tipo */
+  typeIcons: Type[];
+  /** @title Icones do filtro de Formato */
+  shapeIcons: Shape[];
+  /** @title Esconder Filtros */
+  hideFilters?: string[];
+  /** @title Menu de Categorias */
+  categories: CategoryMatcher[];
 }
 
 function NotFound() {
@@ -33,10 +84,13 @@ function NotFound() {
 
 function Result({
   page,
-  layout,
-}: Omit<Props, "page"> & { page: ProductListingPage }) {
+  filterColors,
+  hideFilters,
+  typeIcons,
+  shapeIcons,
+  categories,
+}: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
   return (
@@ -46,12 +100,40 @@ function Result({
           {productCategory}
         </h1>
       </header>
+      {filters.length
+        ? (
+          <div class="lg:flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+            <Filters
+              filters={filters}
+              filterColors={filterColors}
+              hideFilters={hideFilters}
+              typeIcons={typeIcons}
+              shapeIcons={shapeIcons}
+            />
+            <div class="border-t border-base-200 w-full py-[30px]">
+              <div class="container flex justify-between items-center">
+                <SelectedFilters filters={filters} />
+                <a
+                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                >
+                  Limpar Filtros
+                </a>
+              </div>
+            </div>
+          </div>
+        )
+        : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
+        filterColors={filterColors}
         breadcrumb={breadcrumb}
-        displayFilter={layout?.variant === "drawer"}
       />
+      <div class="flex w-full flex-row justify-center items-center my-5">
+        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+      </div>
+      <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
           <div class="flex-grow">
@@ -84,7 +166,17 @@ function Result({
   );
 }
 
-function SearchResult({ page, ...props }: Props) {
+export const loader = ({ categories = [], ...props }: Props, req: Request) => {
+  const categoryList = categories.find(({ label }) =>
+    new URLPattern({ pathname: label }).test(req.url)
+  );
+
+  return { categories: categoryList?.categoryItems ?? [], ...props };
+};
+
+type ComponentProps = SectionProps<ReturnType<typeof loader>>;
+
+function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
     return <NotFound />;
   }
