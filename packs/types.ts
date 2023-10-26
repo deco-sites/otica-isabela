@@ -2,20 +2,22 @@ import type { Filter, ListItem, Seo } from "apps/commerce/types.ts";
 
 export type Session = {
   SessionCustomer: SessionCustomer;
+  SessionCustomerProducts: string;
+  customer: string;
+  QtdeProducts: number;
 };
 
 export type SessionCustomer = {
-  Company: string;
-  Customer: string;
-  SessionCustomer_CartProduct: unknown[];
   IdSessionCustomer: number;
-  IdCustomer: number;
+  IdCustomer: string;
+  Customer: string;
   SessionKey: string;
   DateAdd: string;
   DateModified: string;
   IdCompany: number;
+  Company: string;
   Deadline: number;
-  PrazoEntrega: number;
+  PrazoEntrega: string;
   ValueFreight: number;
   PostalCode: string;
   IdTypeFreight: number;
@@ -33,6 +35,7 @@ export type SessionCustomer = {
   EmailRecuperacaoCarrinho: boolean;
   EmailRecuperacaoCompra: boolean;
   SourceCliente: string;
+  SessionCustomer_CartProduct: Product[];
 };
 
 export interface ProductData {

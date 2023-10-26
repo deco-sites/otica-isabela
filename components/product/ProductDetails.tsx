@@ -12,31 +12,26 @@ import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { NotFound } from "deco-sites/otica-isabela/components/product/product-details/NotFound.tsx";
 import { getCookies, setCookie } from "std/http/mod.ts";
 
-export type Variant = "front-back" | "slider" | "auto";
+export interface Promotion {
+  label: string;
+  /** @description You can use %value to replace to the product price */
+  flagText: string;
+}
 
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
-  /**
-   * @title Product view
-   * @description Ask for the developer to remove this option since this is here to help development only and should not be used in production
-   */
-  variant?: Variant;
   measurementsImage?: LiveImage;
+  promotions?: Promotion[];
 }
 
 function ProductDetails({
   page,
-  variant: maybeVar = "auto",
   measurementsImage,
+  promotions,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
-  const variant = maybeVar === "auto"
-    ? page?.product.image?.length && page?.product.image?.length < 2
-      ? "front-back"
-      : "slider"
-    : maybeVar;
 
   return (
     <>
@@ -44,7 +39,9 @@ function ProductDetails({
         {/* Stopwatch */}
         <BestOffersHeader priceValidUntil={new Date(priceValidUntil!)} />
         <div class="container py-0 lg:py-[60px]">
-          {page ? <Details page={page} variant={variant} /> : <NotFound />}
+          {page
+            ? <Details page={page} promotions={promotions} />
+            : <NotFound />}
         </div>
       </div>
       <OtherColorsShelf product={product!} />

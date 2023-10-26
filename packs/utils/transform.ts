@@ -30,7 +30,10 @@ import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 type CategoryPageProps =
   & Required<
-    Omit<ProductListiningPageProps, "pageType" | "term" | "filtersUrl">
+    Omit<
+      ProductListiningPageProps,
+      "pageType" | "term" | "filtersUrl" | "productsData"
+    >
   >
   & { filtersUrl: DynamicFilter[] | undefined };
 
@@ -54,6 +57,13 @@ interface ToOfferProps {
 interface ToDefaultPropertiesProps {
   id: string;
   value?: string;
+}
+
+interface ToPageFilterValuesProps {
+  filterApi: APIDynamicFilters;
+  filterLabel: string;
+  baseURL: URL;
+  filtersUrl?: DynamicFilter[];
 }
 
 export function toProduct(product: IsabelaProduct): Product {
@@ -280,8 +290,9 @@ const toOffer = (
     ? "https://schema.org/InStock"
     : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
-  price: props.originalValue,
+  price: props.discountedValue || props.originalValue,
   priceSpecification: toPriceSpecification(
+    props.discountedValue,
     props.originalValue,
     props.installment,
   ),
@@ -290,6 +301,7 @@ const toOffer = (
 
 const toPriceSpecification = (
   price: number,
+  listPrice: number,
   installment: string,
 ): UnitPriceSpecification[] => {
   const match = installment.match(/(\d+)x de ([\d,]+)/);
@@ -306,7 +318,7 @@ const toPriceSpecification = (
     {
       "@type": "UnitPriceSpecification",
       priceType: "https://schema.org/ListPrice",
-      price,
+      price: listPrice,
     },
     {
       "@type": "UnitPriceSpecification",
@@ -386,7 +398,6 @@ export const toProductListingPage = (
         category: props.category!,
         filtersApi: props.filtersApi!,
         filtersUrl: props.filtersUrl,
-        productsData,
       },
     )
     : searchPageProps(baseURL, props.term);
@@ -409,17 +420,21 @@ export const toProductListingPage = (
 const categoryPageProps = (
   props: CategoryPageProps,
 ): PLPPageProps => {
-  const { productsData, baseURL, category, filtersApi, filtersUrl } = props;
-  const { produtos } = productsData;
+  const { baseURL, category, filtersApi, filtersUrl } = props;
   return {
     itemListElement: toPageBreadcrumbList(category, baseURL),
     filters: groupPageFilters(filtersApi).map((f) => ({
       "@type": "FilterToggle",
       key: `${f[0].IdTipo}`,
       label: f[0].NomeTipo,
-      quantity: countPageFiltersQuantity(produtos, "typeId", f[0].IdTipo),
+      quantity: 0,
       values: f.map((individualFilter) =>
-        toPageFilterValues(individualFilter, produtos, filtersUrl)
+        toPageFilterValues({
+          filterApi: individualFilter,
+          filterLabel: f[0].NomeTipo,
+          baseURL,
+          filtersUrl,
+        })
       ),
     })),
     seo: {
@@ -481,25 +496,43 @@ const groupPageFilters = (
 };
 
 const toPageFilterValues = (
-  filterApi: APIDynamicFilters,
-  products: IsabelaProduct[],
-  filtersUrl: DynamicFilter[] | undefined,
-): FilterToggleValue => ({
-  quantity: countPageFiltersQuantity(
-    products,
-    "typeValue",
-    filterApi.IdTipo,
-    filterApi.Nome,
-  ),
-  label: filterApi.Nome,
-  value: filterApi.Nome,
-  selected: !filtersUrl ? false : filtersUrl.some(
+  props: ToPageFilterValuesProps,
+): FilterToggleValue => {
+  const { filterApi, filtersUrl, baseURL, filterLabel } = props;
+  const selected = !filtersUrl ? false : filtersUrl.some(
     (filter) =>
       filter.filterID === filterApi.IdTipo &&
       filter.filterValue === filterApi.Nome,
-  ),
-  url: "",
-});
+  );
+  return {
+    quantity: 0,
+    label: filterApi.Nome,
+    value: filterApi.Nome,
+    selected,
+    url: toPageFilterURL(baseURL, filterLabel, filterApi.Nome, selected).href,
+  };
+};
+
+const toPageFilterURL = (
+  baseURL: URL,
+  filter: string,
+  filterValue: string,
+  selected: boolean,
+): URL => {
+  const modifiedURL = new URL(baseURL.href);
+  const defaultParamsToDelete = ["path", "pathTemplate", "deviceHint"];
+  const filterParamName = `filter.${filter}`;
+
+  defaultParamsToDelete.forEach((p: string) =>
+    modifiedURL.searchParams.delete(p)
+  );
+
+  selected
+    ? modifiedURL.searchParams.delete(filterParamName, filterValue)
+    : modifiedURL.searchParams.append(filterParamName, filterValue);
+
+  return modifiedURL;
+};
 
 const toPageInfo = (
   { Total, Pagina, Offset }: IsabelaProductData,
@@ -548,21 +581,6 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
     position: i + 1,
   }));
 };
-
-const countPageFiltersQuantity = (
-  products: IsabelaProduct[],
-  match: "typeId" | "typeValue",
-  typeId: number,
-  typeValue?: string,
-) =>
-  products
-    .filter((product) =>
-      product.Classificacoes.some((item) => {
-        if (match == "typeId") return item.IdTipo === typeId;
-        return item.Nome === typeValue && item.IdTipo === typeId;
-      })
-    )
-    .length;
 
 export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
   const {

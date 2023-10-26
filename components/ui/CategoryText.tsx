@@ -1,6 +1,6 @@
 import type { SectionProps } from "$live/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useSignal } from "@preact/signals";
 
 export interface Category {
@@ -29,25 +29,92 @@ function CategoryText({ category }: SectionProps<ReturnType<typeof loader>>) {
   const { html } = category;
 
   return (
-    <div class="container px-8 mb-8">
-      {!!html && (
-        <>
-          <div
-            dangerouslySetInnerHTML={{ __html: html }}
-            style={{
-              overflow: "hidden",
-              maxHeight: isExpanded.value ? "none" : 250,
-            }}
-          />
-          <button
-            class="bg-black text-white px-[20px] py-[10px] text-xs mt-4 rounded-[5px]"
-            onClick={toggleExpand}
-          >
-            {isExpanded.value ? "Ver menos" : "Ver mais"}
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `
+          #htmlCategoria h2 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+            font-weight: 600;
+            color: #000;
+          }
+          
+          #htmlCategoria > article > .content h3 {
+              margin: 15px 0 15px 0;
+              font-size: 28px;
+              font-weight: 500;
+              color: #000;
+          }
+          
+          #htmlCategoria > article > .content p {
+              margin: 0 0 10px 0;
+              font-size: 14px;
+              line-height: 25px;
+          }
+          
+          #htmlCategoria > article > .content h2 {
+              margin: 15px 0 15px 0;
+              font-size: 30px;
+              font-weight: 500;
+              color: #000;
+          }
+          
+          #htmlCategoria h2 > span {
+              font-family: roboto;
+              font-size: 14pt;
+          }
+          
+          #htmlCategoria > article > .content a {
+              text-decoration: underline;
+          }
+          
+          #htmlCategoria > article > .content ul {
+              margin: 0 0 0 20px;
+              padding: 10px 0 20px 20px;
+              list-style-type: disc !important;
+              list-style: disc !important;
+          }
+          
+          #htmlCategoria > article > .content ul > li {
+              margin: 0 0 10px 0;
+              font-size: 14px;
+              list-style-type: disc !important;
+              list-style: disc !important;
+          }
+          
+          #htmlCategoria li::marker {
+              unicode-bidi: isolate;
+              font-variant-numeric: tabular-nums;
+              text-transform: none;
+              text-indent: 0px !important;
+              text-align: start !important;
+              text-align-last: start !important;
+          }
+          `,
+        }}
+      />
+      <div class="container px-8 mb-8">
+        {!!html && (
+          <>
+            <div
+              dangerouslySetInnerHTML={{ __html: html }}
+              style={{
+                overflow: "hidden",
+                maxHeight: isExpanded.value ? "none" : 250,
+              }}
+            />
+            <button
+              class="bg-black text-white px-[20px] py-[10px] text-xs mt-4 rounded-[5px]"
+              onClick={toggleExpand}
+            >
+              {isExpanded.value ? "Ver menos" : "Ver mais"}
+            </button>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

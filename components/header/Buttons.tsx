@@ -1,10 +1,7 @@
-import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import { sendEvent } from "$store/sdk/analytics.tsx";
-import { useUI } from "$store/sdk/useUI.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 import { useCart } from "$store/packs/hooks/useCart.ts";
-import { lazy } from "preact/compat";
-import type { NavItemProps } from "./NavItem.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -31,15 +28,13 @@ function MenuButton() {
       aria-label="open menu"
       onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >
-      {
-        <Icon
-          id={!displayMobileMenu.value ? "Bars3" : "XMark"}
-          width={35}
-          height={42}
-          fill={displayMobileMenu.value ? "white" : ""}
-          strokeWidth={0.01}
-        />
-      }
+      <Icon
+        id={!displayMobileMenu.value ? "Bars3" : "XMark"}
+        width={35}
+        height={42}
+        fill={displayMobileMenu.value ? "white" : ""}
+        strokeWidth={0.01}
+      />
     </Button>
   );
 }
@@ -65,11 +60,11 @@ function CartButton() {
   }; */
 
   return (
-    <Button
+    <a
       class="btn btn-circle btn-sm btn-ghost relative"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
-      loading={loading.value}
+      href="/carrinho"
     >
       <div class="indicator">
         {totalItems > 0 && (
@@ -81,7 +76,7 @@ function CartButton() {
           <Icon id="ShoppingCart" width={26} height={25} strokeWidth={2} />
         )}
       </div>
-    </Button>
+    </a>
   );
 }
 

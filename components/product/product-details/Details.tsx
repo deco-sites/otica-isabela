@@ -1,7 +1,8 @@
 import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import Slider from "deco-sites/otica-isabela/components/ui/Slider.tsx";
-import SliderJS from "deco-sites/otica-isabela/components/ui/SliderJS.tsx";
+import Video from "deco-sites/std/components/Video.tsx";
+import Slider from "$store/components/ui/Slider.tsx";
+import SliderJS from "$store/components/ui/SliderJS.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
@@ -10,15 +11,10 @@ import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
 import { useId } from "preact/hooks";
-import { useOffer } from "deco-sites/otica-isabela/sdk/useOffer.ts";
-import { formatPrice } from "deco-sites/otica-isabela/sdk/format.ts";
-import { Variant } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import { formatPrice } from "$store/sdk/format.ts";
+import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-
-interface Props {
-  page: ProductDetailsPage;
-  variant: Variant;
-}
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -43,8 +39,8 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, variant }: Props) {
-  const { product, breadcrumbList } = page;
+function Details({ page, promotions }: Props) {
+  const { product, breadcrumbList } = page!;
   const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -69,209 +65,182 @@ function Details({ page, variant }: Props) {
     name: name!,
   };
 
-  /**
-   * Product slider variant
-   *
-   * Creates a three columned grid on destkop, one for the dots preview, one for the image slider and the other for product info
-   * On mobile, there's one single column with 3 rows. Note that the orders are different from desktop to mobile, that's why
-   * we rearrange each cell with col-start- directives
-   */
-  if (variant === "slider") {
-    return (
-      <>
-        <style
-          type="text/css"
-          dangerouslySetInnerHTML={{
-            __html: `
+  return (
+    <>
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `
             #image-dots::-webkit-scrollbar {
               display: none;
               -ms-overflow-style: none; 
               scrollbar-width: none;
             }
           `,
-          }}
+        }}
+      />
+      {/* Breadcrumb - Desktop */}
+      <div id="breadcrumb" class="hidden lg:block lg:mb-[40px]">
+        <Breadcrumb
+          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
         />
-        {/* Breadcrumb - Desktop */}
-        <div id="breadcrumb" class="hidden lg:block lg:mb-[40px]">
-          <Breadcrumb
-            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+      </div>
+
+      {/* Header - Mobile */}
+      <div
+        id="pdp-mobile-header-container"
+        class="flex items-center justify-between mx-3 mt-4 lg:hidden"
+      >
+        {discount > 0 && (
+          <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
+            <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+          </span>
+        )}
+        <div class="flex items-center">
+          <ShareButton link={url!} />
+          <WishlistButton
+            productID={productID}
           />
         </div>
+        <ToExperimentButton
+          image={experimenterImage!}
+          variant="filled"
+          size="small"
+        />
+      </div>
 
-        {/* Header - Mobile */}
-        <div
-          id="pdp-mobile-header-container"
-          class="flex items-center justify-between mx-3 mt-4 lg:hidden"
-        >
-          {discount > 0 && (
-            <span class="flex px-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
-              <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-            </span>
-          )}
-          <div class="flex items-center">
-            <ShareButton link={url!} />
-            <WishlistButton
-              productID={productID}
-            />
-          </div>
-          <div class="w-full max-w-[120px]">
-            <ToExperimentButton image={experimenterImage!} variant="filled" />
-          </div>
-        </div>
+      {/* Product Name - Mobile */}
+      <div class="my-4 text-center px-8 lg:hidden">
+        <span class="font-roboto font-normal text-lg">{name}</span>
+      </div>
 
-        {/* Product Name - Mobile */}
-        <div class="mt-4 mb-[30px] text-center px-8 lg:hidden">
-          <span class="font-roboto font-normal text-lg">{name}</span>
-        </div>
-
-        {/* Image Slider - Mobile & Desktop */}
-        <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-          <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
-            <div class="relative">
-              <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
-                {images.map((img, index) => (
-                  <Slider.Item
-                    index={index}
-                    class="carousel-item w-full items-center min-h-[540px]"
-                  >
-                    <Image
-                      class="w-full h-max"
-                      src={img.url!}
-                      alt={img.alternateName}
-                      width={540}
-                      height={540}
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
-                  </Slider.Item>
-                ))}
-              </Slider>
-              {discount > 0 && (
-                <span class="hidden absolute right-0 bottom-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
-                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-                </span>
-              )}
-            </div>
-
-            {/* Buy with lens label */}
-            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
-              <span>Compre com lentes de grau e pague só R$ {price}</span>
-            </div>
-
-            {/* Dots - Mobile & Desktop */}
-            <ul
-              id="image-dots"
-              class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
-            >
+      {/* Image Slider - Mobile & Desktop */}
+      <div id={id} class="lg:flex lg:justify-center lg:gap-9">
+        <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
+          <div class="relative">
+            <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
               {images.map((img, index) => (
-                <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
-                  <Slider.Dot index={index}>
-                    <Image
-                      class="group-disabled:border-base-300"
-                      width={92}
-                      src={img.url!}
-                      alt={img.alternateName}
-                    />
-                  </Slider.Dot>
-                </li>
+                <Slider.Item
+                  index={index}
+                  class="carousel-item w-full items-center"
+                >
+                  {img.additionalType === "video"
+                    ? (
+                      <Video
+                        src={img.url}
+                        width={540}
+                        height={540}
+                        controls
+                      />
+                    )
+                    : (
+                      <Image
+                        class="w-full h-max"
+                        src={img.url!}
+                        alt={img.alternateName}
+                        width={540}
+                        height={540}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    )}
+                </Slider.Item>
               ))}
-            </ul>
+            </Slider>
+            {discount > 0 && (
+              <span class="hidden absolute right-0 bottom-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
+                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+              </span>
+            )}
           </div>
 
-          {/* Ratings */}
-          {
-            /* <div class="flex flex-col items-center my-8 lg:hidden">
+          {/* Buy with lens label */}
+          <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
+            <span>Compre com lentes de grau e pague só R$ {price}</span>
+          </div>
+
+          {/* Dots - Mobile & Desktop */}
+          <ul
+            id="image-dots"
+            class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+          >
+            {images.map((img, index) => (
+              <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
+                <Slider.Dot index={index}>
+                  <Image
+                    class="group-disabled:border-base-300"
+                    width={92}
+                    src={img.additionalType === "video"
+                      ? img?.image?.[0].url!
+                      : img.url!}
+                    alt={img.alternateName}
+                  />
+                </Slider.Dot>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Ratings */}
+        {
+          /* <div class="flex flex-col items-center my-8 lg:hidden">
             <Ratings />
             <a href="#product-review" class="text-lg font-bold">
               Veja as avaliações
             </a>
           </div> */
-          }
+        }
 
-          {/* Price & Color - Mobile */}
-          <div class="lg:hidden px-3 flex items-center justify-between mt-4">
-            <div id="price-mobile-container">
-              <div id="price-mobile-content">
-                <p class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
-                  {formatPrice(listPrice, offers!.priceCurrency!)}
-                </p>
-                <p class="mt-1 text-blue-200 text-[27px] font-bold">
-                  {formatPrice(price, offers!.priceCurrency!)}
-                </p>
-              </div>
-              <p class="text-sm text-base-300 font-bold">{installments}</p>
+        {/* Price & Color - Mobile */}
+        <div class="lg:hidden px-3 flex items-center justify-between mt-4">
+          <div id="price-mobile-container">
+            <div id="price-mobile-content">
+              <p class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </p>
+              <p class="mt-1 text-blue-200 text-[27px] font-bold">
+                {formatPrice(price, offers!.priceCurrency!)}
+              </p>
             </div>
-            {!!colorsList?.length && (
-              <div id="colors" class="flex items-center">
-                <p class="text-base-300 font-bold">
-                  {colorsList?.[0]?.value?.toUpperCase()}
-                </p>
-                <span
-                  class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
-                  style={{
-                    background: colors && colors?.length > 1
-                      ? `linear-gradient(${colors.join(", ")})`
-                      : colors?.[0],
-                  }}
-                />
-              </div>
-            )}
+            <p class="text-sm text-base-300 font-bold">{installments}</p>
           </div>
+          {!!colorsList?.length && (
+            <div id="colors" class="flex items-center">
+              <p class="text-base-300 font-bold">
+                {colorsList?.[0]?.value?.toUpperCase()}
+              </p>
+              <span
+                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
+                style={{
+                  background: colors && colors?.length > 1
+                    ? `linear-gradient(${colors.join(", ")})`
+                    : colors?.[0],
+                }}
+              />
+            </div>
+          )}
+        </div>
 
-          {/* Choose Lens & Add To Cart - Mobile */}
-          <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
-            <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-              <a href={chooseLensUrl}>
-                <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
-                  Escolher as Lentes
-                </button>
-              </a>
-            </div>
-            <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-              <AddToCartButton {...addToCard} />
-            </div>
+        {/* Choose Lens & Add To Cart - Mobile */}
+        <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
+          <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
+            <a href={chooseLensUrl}>
+              <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
+                Escolher as Lentes
+              </button>
+            </a>
           </div>
-
-          {/* Product Info - Desktop */}
-          <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-            <ProductInfo page={page} />
+          <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
+            <AddToCartButton {...addToCard} />
           </div>
         </div>
-        <SliderJS rootId={id} borderedDots={true}></SliderJS>
-      </>
-    );
-  }
 
-  /**
-   * Product front-back variant.
-   *
-   * Renders two images side by side both on mobile and on desktop. On mobile, the overflow is
-   * reached causing a scrollbar to be rendered.
-   */
-  return (
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-[50vw_25vw] sm:grid-rows-1 sm:justify-center">
-      {/* Image slider */}
-      <ul class="carousel carousel-center gap-6">
-        {[images[0], images[1] ?? images[0]].map((img, index) => (
-          <li class="carousel-item min-w-[100vw] sm:min-w-[24vw] min-h-[290px]">
-            <Image
-              class="max-h-[290px] h-max"
-              sizes="(max-width: 640px) 100vw, 24vw"
-              src={img.url!}
-              alt={img.alternateName}
-              width={290}
-              // Preload LCP image for better web vitals
-              preload={index === 0}
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          </li>
-        ))}
-      </ul>
-
-      {/* Product Info */}
-      <div class="px-4 sm:pr-0 sm:pl-6">
-        <ProductInfo page={page} />
+        {/* Product Info - Desktop */}
+        <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
+          <ProductInfo page={page} promotions={promotions} />
+        </div>
       </div>
-    </div>
+      <SliderJS rootId={id} borderedDots={true}></SliderJS>
+    </>
   );
 }
 
