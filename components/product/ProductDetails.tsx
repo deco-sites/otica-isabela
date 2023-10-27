@@ -37,7 +37,9 @@ function ProductDetails({
     <>
       <div class="lg:bg-gray-scale-100">
         {/* Stopwatch */}
-        <BestOffersHeader priceValidUntil={new Date(priceValidUntil!)} />
+        {priceValidUntil && (
+          <BestOffersHeader priceValidUntil={new Date(priceValidUntil!)} page={"details"} />
+        )}
         <div class="container py-0 lg:py-[60px]">
           {page
             ? <Details page={page} promotions={promotions} />

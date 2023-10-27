@@ -28,28 +28,31 @@ const config: Config = {
     "font-color": "text-red-500",
     "font-size": "text-sm",
     "offer-fs": "text-xs md:text-sm",
+    "bold": "",
   },
   header: {
     "font-color": "text-white",
     "font-size": "text-2xl md:text-4xl",
     "offer-fs": "text-l md:text-xl",
+    "bold": "font-bold",
   },
 };
 
-const style = (prop: string, type: Props["type"]) => config[type][prop];
+const style = (props: string[], type: Props["type"]) =>
+  props.map((p) => config[type][p]).join(" ");
 
 export function StopwatchItem({ label, value, type }: ItemProps) {
   return (
-    <div class={`text-center ${style("font-size", type)}`}>
+    <div class={`text-center ${style(["font-size"], type)}`}>
       <p
         id={`item-${label}-value`}
-        class={`${style("font-color", type)} font-bold`}
+        class={`${style(["font-color"], type)} font-bold`}
       >
         {value}
       </p>
       <p
         id={`item-${label}-label`}
-        class={`text-black font-bold text-xxs md:text-sm }`}
+        class={`${style(["bold"], type)} text-black text-xxs md:text-sm }`}
       >
         {label}
       </p>
@@ -82,7 +85,10 @@ function Stopwatch({ targetDate, type }: Props) {
       id="stopwatch-container"
       class="border border-red-500 rounded-md  w-full max-w-[330px] self-center"
     >
-      <div id="stopwatch-content" class="flex rounded-md">
+      <div
+        id="stopwatch-content"
+        class="flex rounded-md sm:pt-0 pt-2 sm:pb-0 pb-1"
+      >
         {type === "card" && (
           <div
             id="stopwatch-icon"
@@ -93,12 +99,9 @@ function Stopwatch({ targetDate, type }: Props) {
         )}
         <div id="stopwatch" class="w-full text-center my-0 mx-2.5">
           <p
-            class={`${style("font-color", type)} ${
-              style(
-                "offer-fs",
-                type,
-              )
-            } font-bold w-full block `}
+            class={`${
+              style(["font-color", "offer-fs", "bold"], type)
+            } w-full block `}
           >
             Oferta termina em
           </p>
