@@ -35,7 +35,7 @@ function Review({ page, memberImages }: Props) {
   return (
     <>
       {/* Overview */}
-      <div class="mt-12 bg-[#f8f8f8] ">
+      <div id="product-review" class="mt-12 bg-[#f8f8f8] ">
         <div class="container">
           <div id="title-and-rating" class="py-[70px]">
             <h1 class="text-xl text-black font-bold text-center px-[15px] md:text-2xl lg:w-[75%] lg:text-[32px] lg:mx-auto lg:mb-[20px]">

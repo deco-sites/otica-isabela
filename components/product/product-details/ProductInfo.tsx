@@ -37,7 +37,8 @@ function ProductInfo({ page, promotions }: Props) {
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
   )?.value;
-  const ratingValue = rating ? parseFloat(rating) : 0;
+
+  const ratingValue = rating ? Math.round(parseFloat(rating)) : 0;
 
   return (
     <>
@@ -64,8 +65,6 @@ function ProductInfo({ page, promotions }: Props) {
           </div>
         )
         : null}
-
-      {/* Ratings */}
 
       {/* Prices */}
       <div class="flex items-normal justify-between">

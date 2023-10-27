@@ -64,6 +64,12 @@ function Details({ page, promotions }: Props) {
     name: name!,
   };
 
+  const rating = additionalProperty?.find(
+    (prop) => prop.propertyID === "rating",
+  )?.value;
+
+  const ratingValue = rating ? Math.round(parseFloat(rating)) : 0;
+
   return (
     <>
       <style
@@ -180,14 +186,12 @@ function Details({ page, promotions }: Props) {
         </div>
 
         {/* Ratings */}
-        {
-          /* <div class="flex flex-col items-center my-8 lg:hidden">
-            <Ratings />
-            <a href="#product-review" class="text-lg font-bold">
-              Veja as avaliações
-            </a>
-          </div> */
-        }
+        <div class="flex flex-col items-center my-8 lg:hidden">
+          <Ratings ratingValue={ratingValue} />
+          <a href="#product-review" class="text-lg font-bold">
+            Veja as avaliações
+          </a>
+        </div>
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
