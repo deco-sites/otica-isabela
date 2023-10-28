@@ -29,6 +29,7 @@ type FilterValuesProps = {
   shapeIcons: Shape[];
   typeIcons: Type[];
   position?: "left" | "right";
+  isMobile?: boolean;
 };
 
 export const isToggle = (filter: Filter): filter is FilterToggle =>
@@ -167,6 +168,7 @@ function FilterValues({
   typeIcons,
   shapeIcons,
   position,
+  isMobile = false,
 }: FilterValuesProps) {
   const flexDirection =
     label === "Formato" || label === "Cor" || label === "Idade"
@@ -222,13 +224,23 @@ function FilterValues({
   }
 
   return (
-    <div
-      class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transitionl duration-300 ease-in-out
-        ${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
-      `}
-    >
-      <Options />
-    </div>
+    <>
+      {!isMobile
+        ? (
+          <div
+            class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transitionl duration-300 ease-in-out
+				${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
+			  `}
+          >
+            <Options />
+          </div>
+        )
+        : (
+          <div class="collapse-content">
+            <Options />
+          </div>
+        )}
+    </>
   );
 }
 
@@ -275,9 +287,13 @@ function Filters({
                   {filter.label}
                 </div>
                 {isToggle(filter) && (
-                  <div class="collapse-content">
-                    {filter.values.map((value) => <ValueItem {...value} />)}
-                  </div>
+                  <FilterValues
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                    filterColors={filterColors}
+                    isMobile
+                    {...filter}
+                  />
                 )}
               </li>
             ))}
