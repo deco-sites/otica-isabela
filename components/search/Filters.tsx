@@ -53,7 +53,7 @@ function ValueItem({
           aria-checked={selected}
           class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
         />
-        <span class="flex items-center gap-2.5">{label ?? children}</span>
+        <span class="flex items-center gap-2.5 max-lg:font-medium">{label ?? children}</span>
       </div>
     </a>
   );
@@ -283,7 +283,7 @@ function Filters({
             {defaultFilters.map((filter) => (
               <li key={filter.key} class="collapse collapse-arrow ">
                 <input type="checkbox" />
-                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg">
+                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg font-bold">
                   {filter.label}
                 </div>
                 {isToggle(filter) && (
