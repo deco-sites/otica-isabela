@@ -52,7 +52,7 @@ export function StopwatchItem({ label, value, type }: ItemProps) {
       </p>
       <p
         id={`item-${label}-label`}
-        class={`${style(["bold"], type)} text-black text-xxs md:text-sm }`}
+        class={`${style(["bold"], type)} text-black text-xs md:text-sm }`}
       >
         {label}
       </p>
@@ -83,11 +83,11 @@ function Stopwatch({ targetDate, type }: Props) {
   return (
     <div
       id="stopwatch-container"
-      class="border border-red-500 rounded-md  w-full max-w-[330px] self-center"
+      class="border border-red-500 rounded-md w-auto md:w-full max-w-[330px] self-center"
     >
       <div
         id="stopwatch-content"
-        class="flex rounded-md sm:pt-0 pt-2 sm:pb-0 pb-1"
+        class={`flex rounded-md pt-0 pb-0`}
       >
         {type === "card" && (
           <div
@@ -107,7 +107,7 @@ function Stopwatch({ targetDate, type }: Props) {
           </p>
           <div
             id="counter"
-            class="flex justify-between mt-0 mb-0 ml-auto mr-auto"
+            class="flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 gap-3"
           >
             <StopwatchItem label="Dias" value={days} type={type} />
             <StopwatchItem label="Horas" value={hours} type={type} />

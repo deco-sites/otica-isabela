@@ -10,7 +10,7 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
   const [mainContainerStyles, leftTitleStyles] = page === "home"
     ? ["min-h-[150px] justify-around", "lg:block"]
     : [
-      "sm:min-h-[150px] justify-center lg:justify-around gap-[3rem]",
+      "sm:min-h-[150px] min-h-[100px] justify-center lg:justify-around gap-[3rem]",
       "hidden lg:block",
     ];
   return (
