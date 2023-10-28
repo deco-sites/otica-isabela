@@ -36,7 +36,7 @@ const config: Config = {
     "font-size": "text-2xl md:text-4xl",
     "offer-fs": "text-l md:text-xl",
     "bold": "font-bold",
-    "gap": "gap-3",
+    "gap": "gap-4",
   },
 };
 
