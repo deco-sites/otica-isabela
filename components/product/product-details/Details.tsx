@@ -1,4 +1,4 @@
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
@@ -9,12 +9,12 @@ import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToEx
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
 import { useId } from "preact/hooks";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -57,6 +57,7 @@ function Details({ page, promotions }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
+
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),

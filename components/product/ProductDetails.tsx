@@ -2,6 +2,7 @@ import Details from "deco-sites/otica-isabela/components/product/product-details
 import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
+import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { SectionProps } from "$live/mod.ts";
 import type { LoaderReturnType } from "$live/types.ts";
@@ -29,10 +30,16 @@ function ProductDetails({
   promotions,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
+  const { offers } = product || {};
+  const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
 
   return (
     <>
       <div class="lg:bg-gray-scale-100">
+        {/* Stopwatch */}
+        {priceValidUntil && (
+          <BestOffersHeader priceValidUntil={new Date(priceValidUntil!)} page={"details"} />
+        )}
         <div class="container py-0 lg:py-[60px]">
           {page
             ? <Details page={page} promotions={promotions} />
