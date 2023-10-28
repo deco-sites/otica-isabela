@@ -129,6 +129,9 @@ function Result({
         filters={filters}
         filterColors={filterColors}
         breadcrumb={breadcrumb}
+        hideFilters={hideFilters}
+        typeIcons={typeIcons}
+        shapeIcons={shapeIcons}
       />
       <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />

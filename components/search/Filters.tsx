@@ -15,6 +15,7 @@ interface Props {
   hideFilters?: string[];
   shapeIcons: Shape[];
   typeIcons: Type[];
+  isMobile?: boolean;
 }
 
 type FilterToggleValueWithHex = FilterToggleValue & {
@@ -27,7 +28,8 @@ type FilterValuesProps = {
   filterColors?: Color[];
   shapeIcons: Shape[];
   typeIcons: Type[];
-  position: "left" | "right";
+  position?: "left" | "right";
+  isMobile?: boolean;
 };
 
 export const isToggle = (filter: Filter): filter is FilterToggle =>
@@ -166,6 +168,7 @@ function FilterValues({
   typeIcons,
   shapeIcons,
   position,
+  isMobile = false,
 }: FilterValuesProps) {
   const flexDirection =
     label === "Formato" || label === "Cor" || label === "Idade"
@@ -221,13 +224,23 @@ function FilterValues({
   }
 
   return (
-    <div
-      class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transitionl duration-300 ease-in-out
-        ${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
-      `}
-    >
-      <Options />
-    </div>
+    <>
+      {!isMobile
+        ? (
+          <div
+            class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transitionl duration-300 ease-in-out
+				${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
+			  `}
+          >
+            <Options />
+          </div>
+        )
+        : (
+          <div class="collapse-content">
+            <Options />
+          </div>
+        )}
+    </>
   );
 }
 
@@ -237,29 +250,56 @@ function Filters({
   hideFilters = [],
   shapeIcons,
   typeIcons,
+  isMobile = false,
 }: Props) {
   const defaultFilters = filters.filter((filterItem) => {
     return !hideFilters.includes(filterItem.label);
   });
 
   return (
-    <ul class="flex w-full justify-center flex-row">
-      {defaultFilters.map((filter, index, array) => (
-        <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
-          <span>{filter.label}</span>
-          <Icon size={24} id="ChevronDown" />
-          {isToggle(filter) && (
-            <FilterValues
-              typeIcons={typeIcons}
-              shapeIcons={shapeIcons}
-              filterColors={filterColors}
-              position={index < array.length / 2 ? "left" : "right"}
-              {...filter}
-            />
-          )}
-        </li>
-      ))}
-    </ul>
+    <>
+      {!isMobile
+        ? (
+          <ul class="flex w-full justify-center flex-row">
+            {defaultFilters.map((filter, index, array) => (
+              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
+                <span>{filter.label}</span>
+                <Icon size={24} id="ChevronDown" />
+                {isToggle(filter) && (
+                  <FilterValues
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                    filterColors={filterColors}
+                    position={index < array.length / 2 ? "left" : "right"}
+                    {...filter}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        )
+        : (
+          <ul class="lg:hidden flex w-full justify-center flex-col">
+            {defaultFilters.map((filter) => (
+              <li key={filter.key} class="collapse collapse-arrow ">
+                <input type="checkbox" />
+                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg">
+                  {filter.label}
+                </div>
+                {isToggle(filter) && (
+                  <FilterValues
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                    filterColors={filterColors}
+                    isMobile
+                    {...filter}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+    </>
   );
 }
 
