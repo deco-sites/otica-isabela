@@ -3,8 +3,8 @@ import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
@@ -17,7 +17,7 @@ export interface BannersProps {
 }
 
 export interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
   isStopwatchEnabled?: boolean;
@@ -34,7 +34,7 @@ function ProductBannerShelf({
   return (
     <>
       <div class=" w-full flex flex-col mb-4 lg:mb-8">
-        <IconTitle {...header} />
+        {header ? <HeaderTitle {...header} /> : null}
 
         <div
           id={id}

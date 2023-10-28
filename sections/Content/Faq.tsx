@@ -1,31 +1,36 @@
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "$store/components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "$store/components/ui/HeaderTitle.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import FaqContainer from "$store/islands/FaqContainer.tsx";
 
 export interface Question {
   /**
-   * @title  Duvida
+   * @title Duvida
    */
   label: string;
-
   /**
-   *  @title  Resposta
+   *  @title Resposta
    *  @format html */
   answer: string;
 }
 
 export interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   /**
    * @format color
+   * @title Cor do Fundo
    */
   backgroundColor?: string;
-  desktopImage?: { src: LiveImage; description: string };
-
+  /** @title Imagem */
+  desktopImage?: {
+    /** @title Imagem */
+    src: LiveImage;
+    /** @title Alt */
+    description: string;
+  };
   /**
-   * @title  Duvidas
+   * @title Duvidas
    */
   questions?: Question[];
 }
@@ -56,7 +61,7 @@ export default function FAQ(
     <>
       <div class="w-full flex justify-center items-center bg-gray-scale-100 px-4 lg:px-0 ">
         <div class="w-full max-w-xl  text-center">
-          <IconTitle {...header} />
+          {header ? <HeaderTitle {...header} /> : null}
         </div>
       </div>
 

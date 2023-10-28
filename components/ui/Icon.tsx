@@ -2,71 +2,147 @@ import { asset } from "$fresh/runtime.ts";
 import type { JSX } from "preact";
 
 export type AvailableIcons =
-  | "ArrowsPointingOut"
+  | ActionIcons
+  | ListAndFilterIcons
+  | CommunicationIcons
+  | LocationIcons
+  | RatingIcons
+  | UtilityIcons
+  | ResourceIcons
+  | GlassesIcons
+  | NavigationIcons
+  | PaymentIcons
+  | SocialMediaIcons;
+
+/**
+ * @title Icones de ações
+ * @description Tipos para ícones de ações
+ */
+export type ActionIcons =
+  | "Minus"
+  | "Plus"
+  | "Return"
+  | "Trash"
+  | "XMark"
+  | "CheckMarkCircle"
+  | "Zoom";
+
+/**
+ * @title Icones de listas e filtros
+ * @description Tipos para ícones de listas e filtros
+ */
+export type ListAndFilterIcons =
   | "Bars3"
+  | "FilterList"
+  | "Ruler";
+
+/**
+ * @title Icones de comunicação
+ * @description Tipos para ícones de comunicação
+ */
+export type CommunicationIcons =
+  | "Message"
+  | "Phone"
+  | "ShareButton";
+
+/**
+ * @title Icones de localização
+ * @description Tipos para ícones de localização
+ */
+export type LocationIcons =
+  | "MapPin"
+  | "Locale";
+
+/**
+ * @title Icones de avaliação
+ * @description Tipos para ícones de avaliação
+ */
+export type RatingIcons =
+  | "Heart"
+  | "RatingStar"
+  | "Ratings";
+
+/**
+ * @title Icones de utilitários
+ * @description Tipos para ícones de utilitários
+ */
+export type UtilityIcons =
+  | "QuestionMarkCircle"
+  | "QuestionBox"
+  | "MagnifyingGlass"
+  | "Magnifier"
+  | "Camera"
+  | "Stopwatch"
+  | "Discount"
+  | "Cloud"
+  | "Balloons"
+  | "BalloonsDoubt";
+
+/**
+ * @title Icones de recursos
+ * @description Tipos para ícones de recursos
+ */
+export type ResourceIcons =
+  | "Truck"
+  | "Logo"
+  | "User"
+  | "Filter"
+  | "Order"
+  | "ShoppingCart"
+  | "WishListHeart"
+  | "SuportePremium"
+  | "GarantiaDoProduto"
+  | "RecebaComLentes"
+  | "ProvadorOnline";
+
+/**
+ * @title Icones de óculos
+ * @description Tipos para ícones de óculos
+ */
+export type GlassesIcons =
+  | "MenGlassesLg"
+  | "MenGlasses"
+  | "GlassesAroClosed"
+  | "CatGlasses";
+
+/**
+ * @title Icones de navegação
+ * @description Tipos para ícones de navegação
+ */
+export type NavigationIcons =
+  | "ArrowsPointingOut"
   | "ChevronLeft"
   | "ChevronRight"
   | "ChevronUp"
   | "ChevronDown"
   | "Close"
+  | "ArrowDown";
+
+/**
+ * @title Icones de pagamento
+ * @description Tipos para ícones de pagamento
+ */
+export type PaymentIcons =
   | "CreditCard"
-  | "Deco"
   | "Diners"
-  | "Discord"
-  | "Discount"
   | "Elo"
+  | "Mastercard"
+  | "Pix"
+  | "Visa";
+
+/**
+ * @title Icones de redes sociais
+ * @description Tipos para ícones de redes sociais
+ */
+export type SocialMediaIcons =
   | "Facebook"
-  | "Heart"
   | "Instagram"
   | "Linkedin"
-  | "Logo"
-  | "Filter"
-  | "Order"
-  | "Minus"
-  | "MapPin"
-  | "MagnifyingGlass"
-  | "Mastercard"
-  | "Message"
-  | "Phone"
-  | "Pix"
-  | "Plus"
-  | "QuestionMarkCircle"
-  | "Return"
-  | "Ruler"
-  | "ShoppingCart"
-  | "Star"
-  | "Tiktok"
-  | "Trash"
-  | "Truck"
   | "Twitter"
-  | "User"
-  | "Visa"
   | "WhatsApp"
-  | "XMark"
-  | "Zoom"
-  | "RatingStar"
-  | "YouTube"
-  | "MenGlassesLg"
-  | "BalloonsDoubt"
-  | "Balloons"
-  | "MenGlasses"
-  | "QuestionBox"
-  | "Magnifier"
-  | "CheckMarkCircle"
-  | "Camera"
-  | "ArrowDown"
-  | "GlassesAroClosed"
-  | "CatGlasses"
-  | "Cloud"
-  | "Locale"
-  | "Stopwatch"
-  | "SuportePremium"
-  | "GarantiaDoProduto"
-  | "RecebaComLentes"
-  | "ProvadorOnline"
-  | "WishListHeart"
-  | "ShareButton"
-  | "Ratings";
+  | "Tiktok"
+  | "Discord"
+  | "YouTube";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

@@ -1,5 +1,5 @@
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 
@@ -11,12 +11,15 @@ import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 
 export interface Props {
-  header?: IconTitleProps;
-
+  header?: HeaderProps;
   /**
+   * @title Medalhas de Membros
    * @description Utilize o campo label em Membership Badges para adicionar a classificação do cliente.
    */
   membershipBadges?: MembershipBadgeProps[];
+  /**
+   * @title Loader de Reviews
+   */
   page: LoaderReturnType<Review[] | null>;
 }
 
@@ -27,7 +30,7 @@ export default function Testimonials(
 
   return (
     <>
-      <IconTitle {...header} />
+      {header ? <HeaderTitle {...header} /> : null}
       <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
         <div class="relative w-full px-8" id={id}>
           <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
