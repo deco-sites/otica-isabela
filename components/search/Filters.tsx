@@ -53,7 +53,9 @@ function ValueItem({
           aria-checked={selected}
           class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
         />
-        <span class="flex items-center gap-2.5 max-lg:font-medium">{label ?? children}</span>
+        <span class="flex items-center gap-2.5 max-lg:font-medium">
+          {label ?? children}
+        </span>
       </div>
     </a>
   );
