@@ -15,6 +15,7 @@ interface Props {
   hideFilters?: string[];
   shapeIcons: Shape[];
   typeIcons: Type[];
+  isMobile?: boolean;
 }
 
 type FilterToggleValueWithHex = FilterToggleValue & {
@@ -27,7 +28,7 @@ type FilterValuesProps = {
   filterColors?: Color[];
   shapeIcons: Shape[];
   typeIcons: Type[];
-  position: "left" | "right";
+  position?: "left" | "right";
 };
 
 export const isToggle = (filter: Filter): filter is FilterToggle =>
@@ -237,29 +238,52 @@ function Filters({
   hideFilters = [],
   shapeIcons,
   typeIcons,
+  isMobile = false,
 }: Props) {
   const defaultFilters = filters.filter((filterItem) => {
     return !hideFilters.includes(filterItem.label);
   });
 
   return (
-    <ul class="flex w-full justify-center flex-row">
-      {defaultFilters.map((filter, index, array) => (
-        <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
-          <span>{filter.label}</span>
-          <Icon size={24} id="ChevronDown" />
-          {isToggle(filter) && (
-            <FilterValues
-              typeIcons={typeIcons}
-              shapeIcons={shapeIcons}
-              filterColors={filterColors}
-              position={index < array.length / 2 ? "left" : "right"}
-              {...filter}
-            />
-          )}
-        </li>
-      ))}
-    </ul>
+    <>
+      {!isMobile
+        ? (
+          <ul class="flex w-full justify-center flex-row">
+            {defaultFilters.map((filter, index, array) => (
+              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
+                <span>{filter.label}</span>
+                <Icon size={24} id="ChevronDown" />
+                {isToggle(filter) && (
+                  <FilterValues
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                    filterColors={filterColors}
+                    position={index < array.length / 2 ? "left" : "right"}
+                    {...filter}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        )
+        : (
+          <ul class="lg:hidden flex w-full justify-center flex-col">
+            {defaultFilters.map((filter) => (
+              <li key={filter.key} class="collapse collapse-arrow ">
+                <input type="checkbox" />
+                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg">
+                  {filter.label}
+                </div>
+                {isToggle(filter) && (
+                  <div class="collapse-content">
+                    {filter.values.map((value) => <ValueItem {...value} />)}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+    </>
   );
 }
 
