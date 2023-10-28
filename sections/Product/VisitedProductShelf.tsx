@@ -56,7 +56,7 @@ function VisitedProductShelf({
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
       {header ? <HeaderTitle {...header} /> : null}
       <ProductShelf
-        itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+        itemsPerPage={{ desktop: 3, mobile: 1.2 }}
         products={products}
         itemListName="Produtos Visitados"
         isStopwatchEnabled={isStopwatchEnabled}

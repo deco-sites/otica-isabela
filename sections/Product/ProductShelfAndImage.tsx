@@ -53,7 +53,7 @@ const ProductShelfAndImage = ({
           </div>
           <div class="flex mt-8 lg:hidden">
             <ProductShelf
-              itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+              itemsPerPage={{ desktop: 3, mobile: 1.2 }}
               products={products}
               isStopwatchEnabled={isStopwatchEnabled}
             />

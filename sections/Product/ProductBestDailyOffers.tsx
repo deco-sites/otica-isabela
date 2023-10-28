@@ -22,7 +22,7 @@ function BestDailyOffers({ products }: Props) {
           page={"home"}
         />
         <ProductShelf
-          itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+          itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           itemListName="Ofertas do dia"
           isStopwatchEnabled

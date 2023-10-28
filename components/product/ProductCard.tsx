@@ -93,7 +93,7 @@ function ProductCard({
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center px-[30px] mb-14"
+      class="card card-compact w-full text-center lg:px-[30px]"
       data-deco="view-product"
     >
       <SendEventOnClick

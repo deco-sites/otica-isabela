@@ -38,13 +38,13 @@ function ProductBannerShelf({
 
         <div
           id={id}
-          class="container h-full py-8 flex flex-col gap-8 lg:gap-10 text-base-content mb-8  lg:py-10"
+          class="container h-full flex flex-col gap-8 lg:gap-10 text-base-content py-10"
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
             {banners?.map(({ label, href, image, buttonLabel }, index) => (
               <Slider.Item
                 index={index}
-                class="carousel-item flex flex-col mb-3 lg:mb-8  first:ml-8 lg:first:ml-0"
+                class="carousel-item flex flex-col first:ml-8 lg:first:ml-0"
               >
                 <a href={href} aria-label={label}>
                   {image && (
@@ -76,13 +76,13 @@ function ProductBannerShelf({
         </div>
       </div>
       <SliderJS
-        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
+        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.2 } }}
         rootId={id}
       />
 
       {products && (
         <ProductShelf
-          itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+          itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           isStopwatchEnabled={isStopwatchEnabled}
         />
