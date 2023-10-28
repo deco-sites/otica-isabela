@@ -13,7 +13,7 @@ interface TextLine {
   /** @title Familia da Fonte */
   fontFamily?: "Bebas Neue" | "Roboto";
   /** @title Peso da Fonte */
-  fontWeight?: "normal" | "bold" | "medium";
+  fontWeight?: "normal" | "medium" | "semi-bold" | "bold";
   /** @title Tamanho da Fonte */
   fontSize?: {
     mobile?: "muito pequeno" | "pequeno" | "normal" | "grande" | "muito grande";
