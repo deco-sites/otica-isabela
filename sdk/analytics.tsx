@@ -1,24 +1,7 @@
-import { IS_BROWSER } from "$fresh/runtime.ts";
 import type { AnalyticsEvent } from "apps/commerce/types.ts";
 
-declare global {
-  interface Window {
-    DECO_SITES_STD: {
-      sendAnalyticsEvent: (args: AnalyticsEvent) => void;
-    };
-  }
-}
-
-export const sendEvent = <E extends AnalyticsEvent>(event: E) => {
-  if (typeof window.DECO_SITES_STD?.sendAnalyticsEvent !== "function") {
-    console.info(
-      "Cannot find Analytics section in your page. Press `.` to add Analytics and supress this warning",
-    );
-
-    return;
-  }
-  window.DECO_SITES_STD.sendAnalyticsEvent(event);
-};
+export const sendEvent = <E extends AnalyticsEvent>(event: E) =>
+  window.DECO.events.dispatch(event);
 
 /**
  * This function is usefull for sending events on click. Works with both Server and Islands components
