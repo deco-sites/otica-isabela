@@ -29,12 +29,14 @@ const config: Config = {
     "font-size": "text-sm",
     "offer-fs": "text-xs md:text-sm",
     "bold": "",
+    "gap": "gap-2",
   },
   header: {
     "font-color": "text-white",
     "font-size": "text-2xl md:text-4xl",
     "offer-fs": "text-l md:text-xl",
     "bold": "font-bold",
+    "gap": "gap-3",
   },
 };
 
@@ -107,7 +109,9 @@ function Stopwatch({ targetDate, type }: Props) {
           </p>
           <div
             id="counter"
-            class="flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 gap-3"
+            class={`flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 ${
+              style(["gap"], type)
+            }`}
           >
             <StopwatchItem label="Dias" value={days} type={type} />
             <StopwatchItem label="Horas" value={hours} type={type} />
