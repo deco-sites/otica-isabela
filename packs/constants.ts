@@ -23,3 +23,4 @@ export const SORT_OPTIONS: SortOption[] = [
     label: "Nome",
   },
 ];
+export const RANGE_FILTERS = [17, 18, 19, 21];
