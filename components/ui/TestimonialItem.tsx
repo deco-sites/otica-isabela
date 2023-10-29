@@ -91,22 +91,22 @@ const TestimonialItem = ({
   const secondPart = descriptionSplit.slice(24).join(" ");
 
   return (
-    <div class="flex flex-col items-center text-center border border-blue-300 rounded-xl px-3 py-5 ">
-      <div class="flex items-start justify-center gap-x-2 ">
-        <div class="w-1/3 flex flex-col">
+    <div class="flex border border-blue-300 rounded-xl px-3 py-5 ">
+      <div class="flex justify-around gap-x-2">
+        <div class="flex flex-col h-full">
           {additionalImage && (
             <Image
+              class="rounded-xl h-[205px] xxxs:min-w-[152px] sm:min-w-[197px] lg:min-w-[152px]"
               src={additionalImage}
               alt={productName}
-              width={140}
-              class="rounded-xl w-full"
-              height={200}
+              width={197}
+              height={205}
             />
           )}
 
           <div class="flex flex-col items-start">
-            <span class="text-sm  text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
-              <Icon width={18} height={22} id="Locale" />
+            <span class="text-xs text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
+              <Icon width={15} height={18} id="Locale" />
               {authorCity}
             </span>
             <div class="flex lg:hidden w-full">
@@ -118,7 +118,7 @@ const TestimonialItem = ({
             </div>
           </div>
         </div>
-        <div class="w-2/3 flex flex-col items-center">
+        <div class="flex flex-col items-center">
           <div class="hidden lg:flex w-full">
             <UserInfos
               authorName={authorName}
@@ -154,7 +154,7 @@ const TestimonialItem = ({
             href={productLink}
             class="flex flex-col justify-center items-center "
           >
-            <span class="mb-4 mt-1 font-semibold text-base text-black underline ">
+            <span class="mb-4 mt-1 font-semibold text-[15px] text-black underline text-center">
               {productName}
             </span>
 
