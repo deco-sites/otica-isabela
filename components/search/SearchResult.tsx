@@ -9,7 +9,7 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export type CategoryMenuItem = {
@@ -72,6 +72,8 @@ export interface Props {
   hideFilters?: string[];
   /** @title Menu de Categorias */
   categories: CategoryMatcher[];
+  /** @title Ativar carossel nos itens da galeria? */
+  isSliderEnabled?: boolean;
 }
 
 function NotFound() {
@@ -89,6 +91,7 @@ function Result({
   typeIcons,
   shapeIcons,
   categories,
+  isSliderEnabled,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
@@ -129,6 +132,9 @@ function Result({
         filters={filters}
         filterColors={filterColors}
         breadcrumb={breadcrumb}
+        hideFilters={hideFilters}
+        typeIcons={typeIcons}
+        shapeIcons={shapeIcons}
       />
       <div class="flex w-full flex-row justify-center items-center my-5">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
@@ -137,7 +143,10 @@ function Result({
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
           <div class="flex-grow">
-            <ProductGallery products={products} />
+            <ProductGallery
+              products={products}
+              isSliderEnabled={isSliderEnabled}
+            />
           </div>
         </div>
 

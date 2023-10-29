@@ -63,7 +63,7 @@ const setup = ({
   hideArrowsOnLast,
   borderedDots,
 }: Props) => {
-  const { desktop, mobile } = itemsPerPage ?? {};
+  const { desktop, mobile } = itemsPerPage;
 
   const currentItemsPerPage = window?.matchMedia?.("(min-width: 984px)")
       ?.matches

@@ -3,8 +3,8 @@ import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
@@ -17,7 +17,7 @@ export interface BannersProps {
 }
 
 export interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
   isStopwatchEnabled?: boolean;
@@ -34,17 +34,17 @@ function ProductBannerShelf({
   return (
     <>
       <div class=" w-full flex flex-col mb-4 lg:mb-8">
-        <IconTitle {...header} />
+        {header ? <HeaderTitle {...header} /> : null}
 
         <div
           id={id}
-          class="container h-full py-8 flex flex-col gap-8 lg:gap-10 text-base-content mb-8  lg:py-10"
+          class="container h-full flex flex-col gap-8 lg:gap-10 text-base-content py-10"
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
             {banners?.map(({ label, href, image, buttonLabel }, index) => (
               <Slider.Item
                 index={index}
-                class="carousel-item flex flex-col mb-3 lg:mb-8  first:ml-8 lg:first:ml-0"
+                class="carousel-item flex flex-col first:ml-8 lg:first:ml-0"
               >
                 <a href={href} aria-label={label}>
                   {image && (
@@ -76,13 +76,13 @@ function ProductBannerShelf({
         </div>
       </div>
       <SliderJS
-        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.5 } }}
+        itemsPerPage={{ desktop: { 0: 3 }, mobile: { 0: 1.2 } }}
         rootId={id}
       />
 
       {products && (
         <ProductShelf
-          itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+          itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           isStopwatchEnabled={isStopwatchEnabled}
         />

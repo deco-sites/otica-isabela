@@ -3,7 +3,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useId } from "preact/hooks";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
@@ -33,20 +33,18 @@ function ProductShelf({
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
       <div id={id} class="container flex flex-col px-0 sm:px-5">
-        <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
+        <Slider class="carousel carousel-center sm:carousel-end gap-4 md:gap-6 col-span-full sm:px-0 px-2.5">
           {products?.map((product, index) => (
-            <div class="flex flex-col">
-              <Slider.Item
-                index={index}
-                class="carousel-item w-full  lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 "
-              >
-                <ProductCard
-                  product={product}
-                  itemListName={itemListName}
-                  isStopwatchEnabled={isStopwatchEnabled}
-                />
-              </Slider.Item>
-            </div>
+            <Slider.Item
+              index={index}
+              class="carousel-item w-full flex-col justify-end"
+            >
+              <ProductCard
+                product={product}
+                itemListName={itemListName}
+                isStopwatchEnabled={isStopwatchEnabled}
+              />
+            </Slider.Item>
           ))}
         </Slider>
 
@@ -73,7 +71,7 @@ function ProductShelf({
           perPageDots
         />
 
-        <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
+        <div class="flex flex-row w-full gap-x-3 justify-center items-center sm:py-14 py-10">
           {products.map((_, index) => <Slider.Dot index={index} />)}
         </div>
       </div>

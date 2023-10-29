@@ -27,7 +27,7 @@ const VerticalProductShelf = (
         {arrangedProducts?.map((allProducts, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item  w-full flex flex-col"
+            class="carousel-item w-full flex flex-col gap-8"
           >
             {allProducts.map((product) => (
               <ProductCard
