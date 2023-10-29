@@ -3,7 +3,7 @@ import { ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProductPage } from "$store/packs/utils/transform.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface Props {
@@ -11,8 +11,8 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Dias - Product Details Page
- * @description works on routes /produto/:slug
+ * @title Otica Isabela Dias - Detalhes do Produto
+ * @description funciona em rotas do tipo /produto/:slug
  */
 const loader = async (
   props: Props,
@@ -33,6 +33,7 @@ const loader = async (
     }),
     {
       method: "POST",
+      deco: { cache: "stale-while-revalidate" },
     },
   );
   if (product.Total === 0 && product.produtos.length === 0) {

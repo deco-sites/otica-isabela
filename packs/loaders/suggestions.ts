@@ -3,23 +3,23 @@ import { ProductData } from "$store/packs/types.ts";
 import type { Suggestion } from "apps/commerce/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 
 export interface Props {
   /**
-   * @title Term
-   * @description Term to use on search */
+   * @title Termo
+   * @description Termo para ser usado na busca */
   nome?: string;
   /**
-   * @title Count
-   * @description Limit quantity of items to display
+   * @title Contagem
+   * @description Limite de itens a serem retornados
    * @default 8
    */
   offset: number;
 }
 
 /**
- * @title Otica Isabela Dias - Product Search
+ * @title Otica Isabela Dias - Busca de Produtos
  */
 
 const loader = async (
@@ -34,23 +34,21 @@ const loader = async (
     offset,
   } = props;
 
-  const productSearch = () =>
-    fetchAPI<ProductData>(
-      `${
-        path.product.getProduct({
-          nome,
-          offset,
-          ordenacao: "none",
-        })
-      }`,
-      {
-        method: "POST",
-      },
-    );
-
-  const { produtos, Total } = await Promise.resolve(
-    productSearch(),
+  const productSearch = await fetchAPI<ProductData>(
+    `${
+      path.product.getProduct({
+        nome,
+        offset,
+        ordenacao: "none",
+      })
+    }`,
+    {
+      method: "POST",
+      deco: { cache: "stale-while-revalidate" },
+    },
   );
+
+  const { produtos, Total } = productSearch;
 
   if (Total == 0) return null;
 

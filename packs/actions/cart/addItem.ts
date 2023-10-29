@@ -3,7 +3,7 @@ import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import { ISABELA_DIAS_CLIENT_COOKIE } from "$store/packs/constants.ts";
 import paths from "$store/packs/utils/paths.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 
 export interface Props {
   idProduct: number;
@@ -11,7 +11,7 @@ export interface Props {
 }
 
 /**
- * @title Otica Isabela Dias - Add item
+ * @title Otica Isabela Dias - Adicionar item ao carrinho
  */
 export default async function loader(
   props: Props,

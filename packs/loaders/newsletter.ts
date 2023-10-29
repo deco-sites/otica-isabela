@@ -1,6 +1,6 @@
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 import { APIAddNewsletter } from "$store/packs/types.ts";
 
 export interface Props {
@@ -10,18 +10,18 @@ export interface Props {
   email: string;
 
   /**
-   * @title Phone
+   * @title Telefone
    */
   celular: string;
 
   /**
-   * @title Name
+   * @title Nome
    */
   nome?: string;
 }
 
 /**
- * @title Otica Isabela Dias - Add Newsletter
+ * @title Otica Isabela Dias - Adicionar  Newsletter
  */
 
 const loader = async (
