@@ -93,6 +93,7 @@ function Result({
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase();
 
+
   return (
     <>
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
