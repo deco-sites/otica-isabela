@@ -6,29 +6,36 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import ReviewImagesModal from "deco-sites/otica-isabela/islands/ReviewImagesModal.tsx";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export type MemberLevel = {
-  /** @title Level */
-  label: string;
+  /** @title Nível */
+  level: string;
+
+  /** @title Imagem */
   image: LiveImage;
 };
 
 interface Props {
   page: LoaderReturnType<Review[] | null>;
+  productData: LoaderReturnType<ProductDetailsPage | null>;
   memberImages: MemberLevel[];
 }
 
-function Review({ page, memberImages }: Props) {
+function Review({ page, productData, memberImages }: Props) {
   const reviews = page;
+  const { additionalProperty } = productData?.product || {};
   const id = "review-image-slider";
 
   if (!reviews || !reviews.length) return null;
 
-  const generalRate = reviews.reduce((acc, review) => {
-    return acc + review.ratingValue;
-  }, 0) / reviews.length;
+  const rating = additionalProperty?.find(
+    (prop) => prop.propertyID === "rating",
+  )?.value;
+
+  const ratingValue = rating ? parseFloat(rating) : 0;
 
   const reviewsWithImages = reviews.filter((review) => review.additionalImage);
 
@@ -44,7 +51,7 @@ function Review({ page, memberImages }: Props) {
             </h1>
             <div class="flex justify-center items-center gap-1">
               <h1 class="text-[64px] font-bold text-orange-500">
-                {generalRate.toFixed(1).replace(".", ",")}
+                {ratingValue.toFixed(1).replace(".", ",")}
               </h1>
               <Icon id="Ratings" size={39} />
             </div>
