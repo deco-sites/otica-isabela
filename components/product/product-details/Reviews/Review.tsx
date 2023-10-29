@@ -12,15 +12,22 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export type MemberLevel = {
   /** @title Nível */
+  /** @description Deve ser adicionado o nível do usuário Ex: vip */
   level: string;
 
   /** @title Imagem */
+  /** @description Adicione a imagem que será exibida de acordo com o nível do cliente */
   image: LiveImage;
 };
 
 interface Props {
+  /** Configurações do Loader - (Review) */
   page: LoaderReturnType<Review[] | null>;
+
+  /** Configurações do Loader - (Produto) */
   productData: LoaderReturnType<ProductDetailsPage | null>;
+
+  /** Imagens dos Membros por Nível */
   memberImages: MemberLevel[];
 }
 

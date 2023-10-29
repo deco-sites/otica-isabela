@@ -18,15 +18,25 @@ type ButtonLabel = {
   label: string;
 };
 export interface Promotion {
+  /** @title Texto */
   label: string;
-  /** @description You can use %value to replace to the product price */
+
+  /** @title Texto da Flag */
+  /** @description Você pode usar %value para substituir pelo preço do produto */
   flagText: string;
 }
 
 export interface Props {
+  /** @title Configurações do Loader */
   page: LoaderReturnType<ProductDetailsPage | null>;
+
+  /** @title Imagem das Medidas  */
   measurementsImage?: LiveImage;
+
+  /** @title Configurações de Promoções */
   promotions?: Promotion[];
+
+  /** Label dos Botões por Categoria */
   buttonByCategory?: ButtonLabel[];
 }
 
