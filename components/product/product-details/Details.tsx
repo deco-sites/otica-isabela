@@ -1,4 +1,4 @@
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
@@ -9,12 +9,12 @@ import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToEx
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
 import { useId } from "preact/hooks";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -39,7 +39,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions }: Props) {
+function Details({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
@@ -57,12 +57,21 @@ function Details({ page, promotions }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
+
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
     price: price!,
     name: name!,
   };
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category] = curr.label;
+      return acc;
+    },
+    {},
+  );
 
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
@@ -233,13 +242,20 @@ function Details({ page, promotions }: Props) {
             </a>
           </div>
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton {...addToCard} />
+            <AddToCartButton
+              {...addToCard}
+              label={labels?.[currentCategory!]}
+            />
           </div>
         </div>
 
         {/* Product Info - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-          <ProductInfo page={page} promotions={promotions} />
+          <ProductInfo
+            page={page}
+            promotions={promotions}
+            buttonByCategory={buttonByCategory}
+          />
         </div>
       </div>
       <SliderJS rootId={id} borderedDots={true}></SliderJS>

@@ -1,5 +1,5 @@
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
@@ -8,7 +8,7 @@ import { visitedProductsCookie } from "$store/components/constants.ts";
 import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   isStopwatchEnabled?: boolean;
 }
 
@@ -54,9 +54,9 @@ function VisitedProductShelf({
 
   return (
     <div class="w-full flex flex-col gap-12 lg:gap-16 ">
-      <IconTitle {...header} />
+      {header ? <HeaderTitle {...header} /> : null}
       <ProductShelf
-        itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+        itemsPerPage={{ desktop: 3, mobile: 1.2 }}
         products={products}
         itemListName="Produtos Visitados"
         isStopwatchEnabled={isStopwatchEnabled}

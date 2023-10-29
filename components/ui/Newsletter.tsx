@@ -1,6 +1,6 @@
 import Modal, { Props as ModalProps } from "$store/components/ui/Modal.tsx";
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "./HeaderTitle.tsx";
+import type { Props as HeaderProps } from "./HeaderTitle.tsx";
 import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 import { withManifest } from "$live/clients/withManifest.ts";
@@ -14,22 +14,26 @@ const subscribe = Runtime.create(
 );
 
 export interface Props {
+  /** @title Escoder Newsletter? */
   hideNewsletter?: boolean;
-  newLetterHeader?: IconTitleProps;
+  header?: HeaderProps;
+  /** @title Placeholder dos Campos de Texto */
   placeholder?: {
+    /** @title Campo de Nome */
     nameInput?: string;
+    /** @title Campo de Email */
     mailInput?: string;
+    /** @title Campo de Telefone */
     foneInput?: string;
   };
+  /** @title Texto do botão */
   buttonText?: string;
-
-  /**
-   * @title  WhatsApp redirect link
-   */
-
+  /** @title Link do WhatsApp */
   successRedirectLink?: string;
-
-  /** @format textarea */
+  /**
+   * @format textarea
+   * @title Texto de ajuda
+   */
   helpText?: string;
 }
 
@@ -39,7 +43,7 @@ export default function Newsletter({
   placeholder,
   hideNewsletter,
   successRedirectLink,
-  newLetterHeader,
+  header,
 }: Props) {
   if (hideNewsletter) {
     return null;
@@ -104,7 +108,7 @@ export default function Newsletter({
     <>
       <section class="w-full bg-blue-200  ">
         <div class="flex flex-col justify-center items-center w-full ">
-          <IconTitle {...newLetterHeader} />
+          {header ? <HeaderTitle {...header} /> : null}
           <form
             action="#"
             class="flex flex-col gap-3 w-full md:max-w-[70%] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"

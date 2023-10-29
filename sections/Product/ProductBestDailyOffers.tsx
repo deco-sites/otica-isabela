@@ -17,9 +17,12 @@ function BestDailyOffers({ products }: Props) {
   return (
     priceValidUntil && (
       <div class="w-full flex flex-col gap-12 lg:gap-16 ">
-        <BestOffersHeader priceValidUntil={new Date(priceValidUntil)} />
+        <BestOffersHeader
+          priceValidUntil={new Date(priceValidUntil)}
+          page={"home"}
+        />
         <ProductShelf
-          itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+          itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           itemListName="Ofertas do dia"
           isStopwatchEnabled

@@ -1,5 +1,5 @@
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
@@ -8,7 +8,7 @@ import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import VerticalProductShelf from "$store/components/product/VerticalProductShelf.tsx";
 
 export interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   products?: LoaderReturnType<Product[] | null>;
   image: {
     desktop: ImageType;
@@ -37,7 +37,7 @@ const ProductShelfAndImage = ({
 
   return (
     <section class="flex flex-col">
-      <IconTitle {...header} />
+      {header ? <HeaderTitle {...header} /> : null}
       <div
         class={`w-full container  flex ${
           imageAlign?.mobile === "bottom" ? "flex-col" : "flex-col-reverse"
@@ -53,7 +53,7 @@ const ProductShelfAndImage = ({
           </div>
           <div class="flex mt-8 lg:hidden">
             <ProductShelf
-              itemsPerPage={{ desktop: 3, mobile: 1.5 }}
+              itemsPerPage={{ desktop: 3, mobile: 1.2 }}
               products={products}
               isStopwatchEnabled={isStopwatchEnabled}
             />
