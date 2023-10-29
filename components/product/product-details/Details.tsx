@@ -247,7 +247,11 @@ function Details({ page, promotions, buttonByCategory }: Props) {
 
         {/* Product Info - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-          <ProductInfo page={page} promotions={promotions} />
+          <ProductInfo
+            page={page}
+            promotions={promotions}
+            buttonByCategory={buttonByCategory}
+          />
         </div>
       </div>
       <SliderJS rootId={id} borderedDots={true}></SliderJS>
