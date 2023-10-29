@@ -8,7 +8,7 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
-function ProductInfo({ page, promotions }: Props) {
+function ProductInfo({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -32,6 +32,15 @@ function ProductInfo({ page, promotions }: Props) {
   )?.value;
   const promotion = promotions?.find((current) =>
     current.label === promotionFlag
+  );
+
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category] = curr.label;
+      return acc;
+    },
+    {},
   );
 
   const rating = additionalProperty?.find(
@@ -123,7 +132,7 @@ function ProductInfo({ page, promotions }: Props) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] w-full flex items-center">
-        <AddToCartButton {...addToCard} />
+        <AddToCartButton {...addToCard} label={labels?.[currentCategory!]} />
       </div>
 
       {/* Analytics Event */}

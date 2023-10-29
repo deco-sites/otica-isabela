@@ -13,6 +13,10 @@ import { NotFound } from "deco-sites/otica-isabela/components/product/product-de
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { redirect } from "deco/mod.ts";
 
+type ButtonLabel = {
+  category: string;
+  label: string;
+};
 export interface Promotion {
   label: string;
   /** @description You can use %value to replace to the product price */
@@ -23,12 +27,14 @@ export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
   measurementsImage?: LiveImage;
   promotions?: Promotion[];
+  buttonByCategory?: ButtonLabel[];
 }
 
 function ProductDetails({
   page,
   measurementsImage,
   promotions,
+  buttonByCategory,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
@@ -46,7 +52,13 @@ function ProductDetails({
         )}
         <div class="container py-0 lg:py-[60px]">
           {page
-            ? <Details page={page} promotions={promotions} />
+            ? (
+              <Details
+                page={page}
+                promotions={promotions}
+                buttonByCategory={buttonByCategory}
+              />
+            )
             : <NotFound />}
         </div>
       </div>

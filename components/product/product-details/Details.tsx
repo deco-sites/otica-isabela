@@ -39,7 +39,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions }: Props) {
+function Details({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
@@ -64,6 +64,14 @@ function Details({ page, promotions }: Props) {
     price: price!,
     name: name!,
   };
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category] = curr.label;
+      return acc;
+    },
+    {},
+  );
 
   return (
     <>
@@ -230,13 +238,20 @@ function Details({ page, promotions }: Props) {
             </a>
           </div>
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton {...addToCard} />
+            <AddToCartButton
+              {...addToCard}
+              label={labels?.[currentCategory!]}
+            />
           </div>
         </div>
 
         {/* Product Info - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-          <ProductInfo page={page} promotions={promotions} />
+          <ProductInfo
+            page={page}
+            promotions={promotions}
+            buttonByCategory={buttonByCategory}
+          />
         </div>
       </div>
       <SliderJS rootId={id} borderedDots={true}></SliderJS>
