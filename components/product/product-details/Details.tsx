@@ -39,7 +39,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory }: Props) {
+function Details({ page, promotions, buttonByCategory, videoThumb }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
@@ -184,7 +184,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
                     class="group-disabled:border-base-300"
                     width={92}
                     src={img.additionalType === "video"
-                      ? img?.image?.[0].url!
+                      ? videoThumb!
                       : img.url!}
                     alt={img.alternateName}
                   />

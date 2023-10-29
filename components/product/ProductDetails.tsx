@@ -33,6 +33,9 @@ export interface Props {
   /** @title Imagem das Medidas  */
   measurementsImage?: LiveImage;
 
+  /** @title Thumb para Video */
+  videoThumb?: LiveImage;
+
   /** @title Configurações de Promoções */
   promotions?: Promotion[];
 
@@ -45,6 +48,7 @@ function ProductDetails({
   measurementsImage,
   promotions,
   buttonByCategory,
+  videoThumb,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
@@ -67,6 +71,7 @@ function ProductDetails({
                 page={page}
                 promotions={promotions}
                 buttonByCategory={buttonByCategory}
+                videoThumb={videoThumb}
               />
             )
             : <NotFound />}
