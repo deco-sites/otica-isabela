@@ -32,7 +32,8 @@ function Sort({ sortOptions }: Props) {
 
   return (
     <div class="flex flex-col">
-      {/* {sortOptions
+      {
+        /* {sortOptions
         .map(({ value, label }) => ({
           value,
           label: portugueseMappings[label as keyof typeof portugueseMappings],
@@ -47,7 +48,8 @@ function Sort({ sortOptions }: Props) {
           >
             <span class="flex items-center gap-2.5">{label}</span>
           </div>
-        ))} */}
+        ))} */
+      }
       {sortOptions.map((option) => (
         <div key={option.value} class="flex items-center mb-5">
           <div
