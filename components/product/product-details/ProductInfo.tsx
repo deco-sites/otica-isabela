@@ -46,6 +46,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
   )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
 
   return (
@@ -74,8 +75,6 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
         )
         : null}
 
-      {/* Ratings */}
-
       {/* Prices */}
       <div class="flex items-normal justify-between">
         <div class="flex flex-col gap-2">
@@ -91,9 +90,12 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
         </div>
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          <div>
-            {ratingValue > 0 ? <Ratings ratingValue={ratingValue} /> : null}
-          </div>
+          {ratingValue && (
+            <a href="#product-review">
+              <Ratings ratingValue={ratingValue} />
+            </a>
+          )}
+
           {!!colorsList?.length && (
             <div class="flex gap-2 items-center">
               <p class="text-base-300 font-bold">

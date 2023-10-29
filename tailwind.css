@@ -17,6 +17,7 @@
   html {
     font-family: var(--font-family);
     line-height: 1;
+    scroll-behavior: smooth;
   }
 
   .aboutConfig {

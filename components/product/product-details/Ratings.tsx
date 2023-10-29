@@ -5,13 +5,25 @@ interface Props {
 }
 
 function Ratings({ ratingValue }: Props) {
-  const ratings = Array.from({ length: ratingValue }, (_, index) => index);
+  const totalRatings = 5;
+  const ratings = Array.from({ length: 5 }, (_, index) => index);
+  const percentage = (ratingValue / totalRatings) * 100;
 
   return (
-    <div className="flex items-center gap-[3px]">
-      {ratings.map(() => {
-        return <Icon id="Ratings" size={21} />;
-      })}
+    <div class="relative inline-block">
+      <div
+        class="absolute top-0 left-0 whitespace-nowrap overflow-hidden"
+        style={{ width: `${percentage}%` }}
+      >
+        {ratings.map(() => {
+          return <Icon class="inline" id="Ratings" size={21} />;
+        })}
+      </div>
+      <div>
+        {ratings.map(() => {
+          return <Icon class="inline" id="UnfilledRatings" size={21} />;
+        })}
+      </div>
     </div>
   );
 }
