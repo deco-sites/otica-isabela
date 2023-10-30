@@ -194,11 +194,11 @@ function Details({ page, promotions, buttonByCategory }: Props) {
           </ul>
         </div>
 
-        {/* Ratings */}
+        {/* Ratings - Mobile */}
         <div class="flex flex-col items-center my-8 lg:hidden">
-          <Ratings ratingValue={ratingValue} />
-          <a href="#product-review" class="text-lg font-bold">
-            Veja as avaliações
+          <a href="#product-review" class="text-center">
+            <Ratings ratingValue={ratingValue} />
+            <p class="text-lg font-bold">Veja as avaliações</p>
           </a>
         </div>
 
