@@ -60,6 +60,7 @@ export type LocationIcons =
 export type RatingIcons =
   | "Heart"
   | "RatingStar"
+  | "UnfilledRatings"
   | "Ratings";
 
 /**

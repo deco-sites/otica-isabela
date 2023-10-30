@@ -25,7 +25,7 @@ export const UserInfos = ({
 
   return (
     <div class="flex flex-col w-full">
-      <p class=" w-full text-xs lg:text-base font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 ">
+      <p class="w-full text-xs lg:text-base font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 capitalize">
         {authorName}
         {desktop && (
           <Picture>
@@ -96,10 +96,10 @@ const TestimonialItem = ({
         <div class="flex flex-col h-full">
           {additionalImage && (
             <Image
-              class="rounded-xl h-[205px] xxxs:min-w-[152px] sm:min-w-[197px] lg:min-w-[152px]"
+              class="rounded-xl h-[205px] xxxs:min-w-[152px] sm:min-w-[197px] lg:min-w-[152px] object-cover"
               src={additionalImage}
               alt={productName}
-              width={197}
+              width={114}
               height={205}
             />
           )}
@@ -128,7 +128,7 @@ const TestimonialItem = ({
           </div>
           <label
             for={id}
-            class="text-sm text-start font-normal min-h-[115px] text-black border-b border-b-blue-300 pb-8"
+            class="text-sm text-start w-full font-normal min-h-[95px] text-black border-b border-b-blue-300 pb-8 mb-2.5"
           >
             <input
               type="checkbox"
