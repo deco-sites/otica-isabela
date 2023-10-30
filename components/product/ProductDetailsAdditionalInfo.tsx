@@ -32,7 +32,7 @@ function ProductDetailsScale({ items }: Props) {
             id={`item-${index}-description`}
             class="hidden bg-white rounded-[10px] p-[30px] shadow-inner bottom-[100%] left-0 absolute group-hover:block max-w-[260px]"
           >
-            <p class="text-xs text-justify m-0">{description}</p>
+            <p class="text-xs m-0">{description}</p>
           </div>
         </div>
       ))}
