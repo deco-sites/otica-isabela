@@ -20,7 +20,6 @@ export type Props = Pick<ProductListingPage, "sortOptions">;
 function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
-
   return (
     <div class="flex flex-col">
       {sortOptions.map((option) => (
@@ -34,7 +33,9 @@ function Sort({ sortOptions }: Props) {
             aria-checked={option.value === sort}
             class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
           />
-          <span class="flex items-center gap-2.5 text-lg font-bold">{option.label}</span>
+          <span class="flex items-center gap-2.5 text-lg font-bold">
+            {option.label}
+          </span>
         </div>
       ))}
     </div>

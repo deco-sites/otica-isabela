@@ -128,10 +128,9 @@ function SearchControls({
             <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
           </button>
         </div>
-        <div
-          class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
-        "
-        ></div>
+        <div class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
+        ">
+        </div>
         <div class="flex w-1/2 px-[15px] justify-center items-center">
           <button
             class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
