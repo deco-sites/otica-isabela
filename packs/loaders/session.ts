@@ -12,8 +12,8 @@ interface Props {
 }
 
 /**
-@title Otica Isabela Dias - Session Start
-@description This loader starts the session of the client, returning a token for cart releatable requisitions.
+@title Otica Isabela Dias - Início de Sessão
+@description Esse loader inicia a sessão do cliente, retornando um token para as requisições relacionadas ao cart.
 **/
 
 const loader = async (

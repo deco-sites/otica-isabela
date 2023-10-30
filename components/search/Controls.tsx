@@ -1,6 +1,7 @@
 import Filters from "$store/components/search/Filters.tsx";
 import type { Props as SearchResultProps } from "$store/components/search/SearchResult.tsx";
 import SelectedFilters from "$store/components/search/SelectedFilters.tsx";
+import Sort from "$store/components/search/Sort.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Drawer from "$store/components/ui/Drawer.tsx";
 import { useSignal } from "@preact/signals";
@@ -26,50 +27,94 @@ function SearchControls({
   shapeIcons,
   filterColors,
 }: Props) {
-  const open = useSignal(false);
+  const isOpen = useSignal(false);
+  const isFilter = useSignal(false);
+
+  function openFilter() {
+    isOpen.value = true;
+    isFilter.value = true;
+  }
+
+  function openOrderBy() {
+    isOpen.value = true;
+    isFilter.value = false;
+  }
+
+  function FilterContent() {
+    return (
+      <>
+        <div class="w-full flex flex-col items-center justify-center my-[30px]">
+          <Icon class="text-black" id="Filter" width={50} height={50} />
+          <span class="uppercase text-black text-lg font-bebas-neue">
+            Filtro
+          </span>
+        </div>
+        <div class="w-full">
+          <SelectedFilters class="mb-5" filters={filters} />
+        </div>
+        <div class="w-full">
+          <a
+            href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+            class="whitespace-nowrap uppercase w-full flex items-center justify-center mb-[30px] border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-transparent text-black hover:text-white hover:bg-black"
+          >
+            Limpar Filtros
+          </a>
+        </div>
+        <div class="w-full">
+          <Filters
+            filters={filters}
+            filterColors={filterColors}
+            hideFilters={hideFilters}
+            typeIcons={typeIcons}
+            shapeIcons={shapeIcons}
+            isMobile
+          />
+        </div>
+      </>
+    );
+  }
+
+  function OrderByContent() {
+    return (
+      <>
+        <div class="w-full flex flex-col items-center justify-center my-[30px]">
+          <Icon class="text-black" id="Order" width={50} height={50} />
+          <span class="uppercase text-black text-lg font-bebas-neue">
+            Ordenar
+          </span>
+        </div>
+
+        <div class="w-full">
+          <a
+            href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+            class="whitespace-nowrap uppercase w-full flex items-center justify-center mb-[30px] border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-transparent text-black hover:text-white hover:bg-black"
+          >
+            Limpar Filtros
+          </a>
+        </div>
+        <div class="w-full">
+          {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        </div>
+      </>
+    );
+  }
 
   return (
     <Drawer
-      open={open.value}
+      open={isOpen.value}
       class="lg:hidden"
-      onClose={() => (open.value = false)}
+      onClose={() => (isOpen.value = false)}
       aside={
         <div class="relative bg-white opacity-[0.95] py-[30px] px-[20px] w-full h-full flex flex-col overflow-x-hidden overflow-y-scroll">
           <div class="absolute top-0 right-0">
             <Button
               class="relative btn btn-ghost hover:bg-transparent"
-              onClick={() => (open.value = false)}
+              onClick={() => (isOpen.value = false)}
             >
               <Icon class="text-red-500" id="XMark" size={24} />
             </Button>
           </div>
-          <div class="w-full flex flex-col items-center justify-center my-[30px]">
-            <Icon class="text-black" id="Filter" width={50} height={50} />
-            <span class="uppercase text-black text-lg font-bebas-neue">
-              Filtro
-            </span>
-          </div>
-          <div class="w-full">
-            <SelectedFilters class="mb-5" filters={filters} />
-          </div>
-          <div class="w-full">
-            <a
-              href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-              class="whitespace-nowrap uppercase w-full flex items-center justify-center mb-[30px] border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-transparent text-black hover:text-white hover:bg-black"
-            >
-              Limpar Filtros
-            </a>
-          </div>
-          <div class="w-full">
-            <Filters
-              filters={filters}
-              filterColors={filterColors}
-              hideFilters={hideFilters}
-              typeIcons={typeIcons}
-              shapeIcons={shapeIcons}
-              isMobile
-            />
-          </div>
+          {isFilter.value ? <FilterContent /> : <OrderByContent />}
         </div>
       }
     >
@@ -77,9 +122,7 @@ function SearchControls({
         <div class="flex w-1/2 px-[15px] justify-center items-center">
           <button
             class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
-            onClick={() => {
-              open.value = true;
-            }}
+            onClick={() => openFilter()}
           >
             <Icon class="text-base-200" id="Filter" width={50} height={50} />
             <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
@@ -91,7 +134,7 @@ function SearchControls({
         <div class="flex w-1/2 px-[15px] justify-center items-center">
           <button
             class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
-            onClick={() => {}}
+            onClick={() => openOrderBy()}
           >
             <Icon class="text-base-200" id="Order" width={50} height={50} />
             <span class="uppercase text-base-200 font-bebas-neue">Ordenar</span>
@@ -101,24 +144,5 @@ function SearchControls({
     </Drawer>
   );
 }
-/* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-
-    <div class="w-full flex-row justify-center items-center my-5 hidden sm:flex">
-      <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-    </div>
-
-    {
-      /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-      <Button
-        class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
-        onClick={() => {
-          open.value = true;
-        }}
-      >
-        Filtrar
-        <Icon id="FilterList" width={16} height={16} />
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
-      </Button>
-    </div> */
 
 export default SearchControls;

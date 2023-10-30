@@ -14,7 +14,7 @@ import type {
   StoreProps,
 } from "deco-sites/otica-isabela/apps/site.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
 
 interface PLPPageParams {
   productApiProps: Partial<
@@ -35,8 +35,8 @@ type Props = Omit<
 >;
 
 /**
- * @title Otica Isabela Dias - Product Listining Page
- * @description Works on routes /busca using the querystring "termo" to search the products OR in categories pages on routes /$category.
+ * @title Otica Isabela Dias - Página de Listagem de Produtos
+ * @description Funciona em rotas do tipo /busca usando a querystring "termo" OU em páginas de categoria em rotas do tipo /$categoria.
  */
 const loaders = async (
   props: Props,
@@ -56,9 +56,12 @@ const loaders = async (
       !val || val.toString().length === 0
     );
 
-  const pageParams = isCategoryPage
-    ? await getCategoryPageParams(url, config!, props).then((data) => data)
-    : getSearchPageParams(url, props, filtrosDinamicos);
+  const [pageParams, deco] = isCategoryPage
+    ? [
+      await getCategoryPageParams(url, config!, props).then((data) => data),
+      { cache: "stale-while-revalidate" } as DecoRequestInit["deco"],
+    ]
+    : [getSearchPageParams(url, props, filtrosDinamicos), undefined];
 
   if (!pageParams) return null;
 
@@ -68,7 +71,7 @@ const loaders = async (
       ...pageParams.productApiProps,
       ...getSearchParams(url, ordenacao),
     }),
-    { method: "POST" },
+    { method: "POST", deco },
   );
 
   if (!products.produtos.length) return null;
@@ -127,7 +130,7 @@ const getCategoryPageParams = async (
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
-    { method: "POST" },
+    { method: "POST", deco: { cache: "stale-while-revalidate" } },
   ).then((categories) =>
     categories.filter(({ UrlFriendly }) =>
       UrlFriendly === lastCategorySlug
@@ -147,7 +150,7 @@ const getCategoryPageParams = async (
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
     }),
-    { method: "POST" },
+    { method: "POST", deco: { cache: "stale-while-revalidate" } },
   );
 
   const filtrosDinamicos = filtersApi.length > 0

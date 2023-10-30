@@ -32,7 +32,7 @@ export default function Testimonials(
     <>
       {header ? <HeaderTitle {...header} /> : null}
       <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
-        <div class="relative w-full px-8" id={id}>
+        <div class="relative w-full" id={id}>
           <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
             {page?.map((review, index) => (
               <Slider.Item
