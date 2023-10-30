@@ -83,11 +83,7 @@ function SearchControls({
             Ordenar
           </span>
         </div>
-        {
-          /* <div class="w-full">
-          <SelectedFilters class="mb-5" filters={filters} />
-        </div> */
-        }
+
         <div class="w-full">
           <a
             href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
@@ -132,9 +128,10 @@ function SearchControls({
             <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
           </button>
         </div>
-        <div class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
-        ">
-        </div>
+        <div
+          class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
+        "
+        ></div>
         <div class="flex w-1/2 px-[15px] justify-center items-center">
           <button
             class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
@@ -148,23 +145,5 @@ function SearchControls({
     </Drawer>
   );
 }
-/* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-
-    <div class="w-full flex-row justify-center items-center my-5 hidden sm:flex">
-      <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-    </div>
-
-    {
-      /* <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-      <Button
-        class={displayFilter ? "btn-ghost" : "btn-ghost lg:hidden"}
-        onClick={() => {
-          open.value = true;
-        }}
-      >
-        Filtrar
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
-      </Button>
-    </div> */
 
 export default SearchControls;
