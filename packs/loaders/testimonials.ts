@@ -17,7 +17,7 @@ export interface Props {
   ordenacao?: "ultimosAdicionados" | "none";
 
   /**
-    * @title Contagem
+   * @title Contagem
    * @description Limite de itens a serem retornados
    * @default 9 */
   offset?: number;
