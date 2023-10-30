@@ -1,4 +1,6 @@
-import Icon from "$store/components/ui/Icon.tsx";
+import ProductCardImage from "$store/components/product/ProductCardImage.tsx";
+import Slider from "$store/components/ui/Slider.tsx";
+import SliderJS from "$store/islands/SliderJS.tsx";
 import Stopwatch from "$store/islands/Stopwatch.tsx";
 import ToExperimentButton from "$store/islands/ToExperimentButton.tsx";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
@@ -6,8 +8,8 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import Image from "deco-sites/std/components/Image.tsx";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { useId } from "preact/hooks";
 
 export interface Layout {
   basics?: {
@@ -42,10 +44,10 @@ interface Props {
   /** Preload card image */
   preload?: boolean;
   carouselImage?: boolean;
-
   /** @description used for analytics event */
   itemListName?: string;
   isStopwatchEnabled?: boolean;
+  isSliderEnabled?: boolean;
 }
 
 const relative = (url: string) => {
@@ -58,7 +60,10 @@ function ProductCard({
   preload,
   itemListName,
   isStopwatchEnabled,
+  isSliderEnabled,
 }: Props) {
+  const imageContainerId = useId();
+
   const {
     url,
     productID,
@@ -88,7 +93,7 @@ function ProductCard({
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center px-[30px] mb-14"
+      class="card card-compact w-full text-center lg:px-[30px]"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -109,31 +114,45 @@ function ProductCard({
       />
 
       {/* Stopwatch */}
-      <a href={url && relative(url)} aria-label="view product" class="contents">
+      <a
+        href={url && relative(url)}
+        aria-label="view product"
+        class="contents"
+        id={imageContainerId}
+      >
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={new Date(priceValidUntil)} type="card" />
         )}
-        <figure
-          class="relative mb-[10px]"
-          style={{ aspectRatio: `${306} / ${170}` }}
-        >
-          {/* Product Images */}
-          <Image
-            src={front ? front.url! : ""}
-            alt={front ? front.alternateName : url}
-            width={210}
-            height={210}
-            preload={preload}
-            loading={preload ? "eager" : "lazy"}
-            decoding="async"
-            class="w-full"
-          />
-          {discount > 0 && (
-            <span class="absolute right-0 bottom-0 bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] ">
-              <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-            </span>
+        {isSliderEnabled
+          ? (
+            <>
+              <Slider class="carousel carousel-center w-full scrollbar-none gap-6">
+                {images?.map((image, index) => (
+                  <Slider.Item
+                    index={index}
+                    key={index}
+                    class="carousel-item w-full"
+                  >
+                    <ProductCardImage
+                      url={image.url!}
+                      alt={image.alternateName!}
+                      preload={preload && index === 0}
+                      discount={discount}
+                    />
+                  </Slider.Item>
+                ))}
+              </Slider>
+              <SliderJS rootId={imageContainerId} />
+            </>
+          )
+          : (
+            <ProductCardImage
+              url={front.url!}
+              alt={front.alternateName!}
+              preload={preload}
+              discount={discount}
+            />
           )}
-        </figure>
       </a>
 
       {/* Name & Description */}

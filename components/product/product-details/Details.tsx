@@ -39,7 +39,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions }: Props) {
+function Details({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
     product;
@@ -64,6 +64,20 @@ function Details({ page, promotions }: Props) {
     price: price!,
     name: name!,
   };
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category] = curr.label;
+      return acc;
+    },
+    {},
+  );
+
+  const rating = additionalProperty?.find(
+    (prop) => prop.propertyID === "rating",
+  )?.value;
+
+  const ratingValue = rating ? parseFloat(rating) : 0;
 
   return (
     <>
@@ -181,14 +195,12 @@ function Details({ page, promotions }: Props) {
         </div>
 
         {/* Ratings */}
-        {
-          /* <div class="flex flex-col items-center my-8 lg:hidden">
-            <Ratings />
-            <a href="#product-review" class="text-lg font-bold">
-              Veja as avaliações
-            </a>
-          </div> */
-        }
+        <div class="flex flex-col items-center my-8 lg:hidden">
+          <Ratings ratingValue={ratingValue} />
+          <a href="#product-review" class="text-lg font-bold">
+            Veja as avaliações
+          </a>
+        </div>
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
@@ -230,13 +242,20 @@ function Details({ page, promotions }: Props) {
             </a>
           </div>
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton {...addToCard} />
+            <AddToCartButton
+              {...addToCard}
+              label={labels?.[currentCategory!]}
+            />
           </div>
         </div>
 
         {/* Product Info - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-          <ProductInfo page={page} promotions={promotions} />
+          <ProductInfo
+            page={page}
+            promotions={promotions}
+            buttonByCategory={buttonByCategory}
+          />
         </div>
       </div>
       <SliderJS rootId={id} borderedDots={true}></SliderJS>

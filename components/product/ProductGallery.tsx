@@ -9,14 +9,20 @@ export interface Columns {
 
 export interface Props {
   products: Product[] | null;
+  isSliderEnabled?: boolean;
 }
 
-function ProductGallery({ products }: Props) {
+function ProductGallery({ products, isSliderEnabled }: Props) {
   return (
     <div class="grid grid-cols-1 gap-4 items-center
 	xs:grid-cols-2 lg:grid-cols-3">
       {products?.map((product, index) => (
-        <ProductCard product={product} preload={index === 0} />
+        <ProductCard
+          product={product}
+          preload={index < 3}
+          isSliderEnabled={isSliderEnabled}
+          isStopwatchEnabled
+        />
       ))}
     </div>
   );

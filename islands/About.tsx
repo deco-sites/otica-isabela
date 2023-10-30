@@ -1,9 +1,9 @@
-import { IconTitle } from "$store/components/ui/IconTitle.tsx";
-import type { IconTitleProps } from "$store/components/ui/IconTitle.tsx";
+import { HeaderTitle } from "../components/ui/HeaderTitle.tsx";
+import type { Props as HeaderProps } from "../components/ui/HeaderTitle.tsx";
 import { useSignal } from "@preact/signals";
 
 interface Props {
-  header?: IconTitleProps;
+  header?: HeaderProps;
   /**
    * @title Primeira Parte
    * @description Texto que sempre estará visível'
@@ -22,7 +22,7 @@ const About = ({ header, firstPart, secondPart }: Props) => {
 
   return (
     <>
-      <IconTitle {...header} />
+      {header ? <HeaderTitle {...header} /> : null}
       <div class="container px-4 lg:px-0">
         <span
           class="w-full text-start  "

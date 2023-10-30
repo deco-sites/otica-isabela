@@ -84,22 +84,19 @@ function Stopwatch({ targetDate, type }: Props) {
 
   return (
     <div
-      id="stopwatch-container"
-      class="border border-red-500 rounded-md w-auto md:w-full max-w-[330px] self-center"
+      class={`border border-red-500 rounded-md w-auto md:w-full max-w-[330px] self-center ${
+        type === "card" ? "mb-2" : ""
+      }`}
     >
       <div
-        id="stopwatch-content"
         class={`flex rounded-md pt-0 pb-0`}
       >
         {type === "card" && (
-          <div
-            id="stopwatch-icon"
-            class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center"
-          >
+          <div class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center">
             <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}
-        <div id="stopwatch" class="w-full text-center my-0 mx-2.5">
+        <div class="w-full text-center my-0 mx-2.5">
           <p
             class={`${
               style(["font-color", "offer-fs", "bold"], type)
@@ -108,7 +105,6 @@ function Stopwatch({ targetDate, type }: Props) {
             Oferta termina em
           </p>
           <div
-            id="counter"
             class={`flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 ${
               style(["gap"], type)
             }`}

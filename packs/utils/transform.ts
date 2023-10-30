@@ -16,6 +16,9 @@ import {
 import type {
   AggregateOffer,
   BreadcrumbList,
+  Filter,
+  FilterRange,
+  FilterToggle,
   FilterToggleValue,
   ImageObject,
   Offer,
@@ -26,7 +29,10 @@ import type {
   PropertyValue,
   UnitPriceSpecification,
 } from "apps/commerce/types.ts";
-import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
+import {
+  RANGE_FILTERS,
+  SORT_OPTIONS,
+} from "deco-sites/otica-isabela/packs/constants.ts";
 
 type CategoryPageProps =
   & Required<
@@ -59,7 +65,13 @@ interface ToDefaultPropertiesProps {
   value?: string;
 }
 
-interface ToPageFilterValuesProps {
+interface ToPageFiltersProps {
+  filters: APIDynamicFilters[];
+  baseURL: URL;
+  filtersUrl?: DynamicFilter[];
+}
+
+interface ToToggleFilterValuesProps {
   filterApi: APIDynamicFilters;
   filterLabel: string;
   baseURL: URL;
@@ -423,24 +435,55 @@ const categoryPageProps = (
   const { baseURL, category, filtersApi, filtersUrl } = props;
   return {
     itemListElement: toPageBreadcrumbList(category, baseURL),
-    filters: groupPageFilters(filtersApi).map((f) => ({
-      "@type": "FilterToggle",
-      key: `${f[0].IdTipo}`,
-      label: f[0].NomeTipo,
-      quantity: 0,
-      values: f.map((individualFilter) =>
-        toPageFilterValues({
-          filterApi: individualFilter,
-          filterLabel: f[0].NomeTipo,
-          baseURL,
-          filtersUrl,
-        })
-      ),
-    })),
+    filters: groupPageFilters(filtersApi).map((f) =>
+      toPageFilters({ filters: f, baseURL, filtersUrl })
+    ),
     seo: {
       title: category!.Title_SEO,
       description: category!.PageDescription_SEO ?? category!.Description_SEO,
       canonical: "",
+    },
+  };
+};
+
+const toPageFilters = (
+  props: ToPageFiltersProps,
+): Filter => {
+  const { filters } = props;
+  return RANGE_FILTERS.includes(filters[0].IdTipo)
+    ? toRangeFilter(filters)
+    : toToggleFilter({ ...props });
+};
+
+const toToggleFilter = (
+  props: ToPageFiltersProps,
+): FilterToggle => {
+  const { filters, baseURL, filtersUrl } = props;
+  return {
+    "@type": "FilterToggle",
+    key: `${filters[0].IdTipo}`,
+    label: filters[0].NomeTipo,
+    quantity: 0,
+    values: filters.map((individualFilter) =>
+      toToggleFilterValues({
+        filterApi: individualFilter,
+        filterLabel: filters[0].NomeTipo,
+        baseURL,
+        filtersUrl,
+      })
+    ),
+  };
+};
+
+const toRangeFilter = (f: APIDynamicFilters[]): FilterRange => {
+  const values = f.map(({ Nome }) => Number(Nome));
+  return {
+    "@type": "FilterRange",
+    key: `${f[0].IdTipo}`,
+    label: f[0].NomeTipo,
+    values: {
+      min: Math.min(...values),
+      max: Math.max(...values),
     },
   };
 };
@@ -495,8 +538,8 @@ const groupPageFilters = (
   return orderedFilters.filter((item) => item.length > 0);
 };
 
-const toPageFilterValues = (
-  props: ToPageFilterValuesProps,
+const toToggleFilterValues = (
+  props: ToToggleFilterValuesProps,
 ): FilterToggleValue => {
   const { filterApi, filtersUrl, baseURL, filterLabel } = props;
   const selected = !filtersUrl ? false : filtersUrl.some(

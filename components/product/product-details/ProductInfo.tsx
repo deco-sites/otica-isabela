@@ -1,14 +1,14 @@
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
-function ProductInfo({ page, promotions }: Props) {
+function ProductInfo({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -34,9 +34,19 @@ function ProductInfo({ page, promotions }: Props) {
     current.label === promotionFlag
   );
 
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category] = curr.label;
+      return acc;
+    },
+    {},
+  );
+
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
   )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
 
   return (
@@ -65,8 +75,6 @@ function ProductInfo({ page, promotions }: Props) {
         )
         : null}
 
-      {/* Ratings */}
-
       {/* Prices */}
       <div class="flex items-normal justify-between">
         <div class="flex flex-col gap-2">
@@ -82,9 +90,12 @@ function ProductInfo({ page, promotions }: Props) {
         </div>
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          <div>
-            {ratingValue > 0 ? <Ratings ratingValue={ratingValue} /> : null}
-          </div>
+          {ratingValue && (
+            <a href="#product-review">
+              <Ratings ratingValue={ratingValue} />
+            </a>
+          )}
+
           {!!colorsList?.length && (
             <div class="flex gap-2 items-center">
               <p class="text-base-300 font-bold">
@@ -123,7 +134,7 @@ function ProductInfo({ page, promotions }: Props) {
 
       {/* Add To Cart & Whislist */}
       <div class="mt-[11px] w-full flex items-center">
-        <AddToCartButton {...addToCard} />
+        <AddToCartButton {...addToCard} label={labels?.[currentCategory!]} />
       </div>
 
       {/* Analytics Event */}
