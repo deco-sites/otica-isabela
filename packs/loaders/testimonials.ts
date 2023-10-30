@@ -5,31 +5,32 @@ import {
   ProductData,
   Review,
 } from "deco-sites/otica-isabela/packs/types.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 import { toReview } from "deco-sites/otica-isabela/packs/utils/transform.ts";
 import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface Props {
   slug?: RequestURLParam;
   /**
-   * @title Sort
-   * @description search sort parameter */
+   * @title Ordenação
+   */
   ordenacao?: "ultimosAdicionados" | "none";
 
   /**
-   * @title Offset
+    * @title Contagem
+   * @description Limite de itens a serem retornados
    * @default 9 */
   offset?: number;
 
   /**
-   * @title Only With Photos
+   * @title ApenasDepoimentosComFoto
    */
   somenteFoto?: boolean;
 }
 
 /**
- * @title Otica Isabela Dias - Testimonials
- * @description This loader gets testimonials from store customers. It can be used to get testimonials from a specific product or all testimonials
+ * @title Otica Isabela Dias - Depoimentos
+ * @description Esse loader retorna depoimentos dos clientes. Pode ser usado tanto para depoimentos de produtos no geral quanto para depoimentos de produtos específicos.
  */
 
 const loader = async (
@@ -59,6 +60,7 @@ const loader = async (
     }),
     {
       method: "POST",
+      deco: { cache: "stale-while-revalidate" },
     },
   );
 

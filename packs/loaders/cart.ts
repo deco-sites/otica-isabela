@@ -5,12 +5,12 @@ import {
   OrderForm,
   ProductsCart,
 } from "deco-sites/otica-isabela/packs/types.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI } from "apps/utils/fetch.ts";
 import { getCookies } from "std/http/mod.ts";
 
 /**
-@title Otica Isabela Dias - Get Cart
-@description This loader get the client cart from his ID
+@title Otica Isabela Dias - Dados do carrinho
+@description Esse loader pega os dados do carrinho a partir do ID do cliente.
 **/
 const loader = async (
   _props: null,

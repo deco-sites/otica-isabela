@@ -132,75 +132,73 @@ export interface Review {
 
 export interface GetProductProps {
   /**
-   * @title Term
-   * @description Term to use on search */
+   * @title Termo
+   * @description Term a ser usado na pesquisa */
   nome?: string;
 
   /**
-   * @title Product IDs
-   * @description Define several products IDs */
+   * @title IDs dos Produtos
+   * @description Inclua diversos IDs de produtos na busca */
   id?: string[];
 
   /**
-   * @title Collection
-   * @description Search by collection ID */
+   * @title ID da Coleção
+   */
   idColecaoProdutos?: number;
 
   /**
-   * @title CategoryID
-   * @description Search by category ID */
+   * @title ID da Categoria
+   */
   IdCategoria?: number;
 
   /**
-   * @title SubcategoryID
-   * @description Search by subcategory ID */
+   * @title ID da Subcategoria
+   */
   IdSubCategoria?: number;
 
   /**
-   * @title Count
-   * @description Limit quantity of items to display
+   * @title Contagem
+   * @description Limite de itens a serem retornados
    * @default 9
    */
   offset: number;
 
   /**
-   * @title Dynamic filters
-   * @description Define dinamic filters for the query. Its not possible to use them with "Term" parameter */
+   * @title Filtros dinâmicos
+   * @description Defina diversos filtros dinâmicos para a busca. Não é possível usá-los com o parâmetro "Termo" preenchido */
 
   filtrosDinamicos?: DynamicFilter[];
 
   /**
-   * @title isStopwatch
-   * @description Only return products with promotions */
+   * @title ApenasPromocoes
+   */
   somenteCronometrosAtivos?: boolean;
 
   /**
-   * @title Sort
-   * @description search sort parameter */
+   * @title Ordenação
+   */
   ordenacao: "none" | "mais-vendidos" | "ofertas" | "menor-preco" | "nome";
 
   /**
    * @title SLUG
-   * @description search by product SLUG */
+   * @description Busque pela SLUG de um produto */
   url?: string;
 
   /**
-   * @title Page
-   * @description Pagination of the products */
+   * @title Pagina
+   * @description Paginação dos produtos */
   page?: number;
 }
 
 export interface DynamicFilter {
   /**
-   * @title Filter ID
-   * @description The ID of the filter.
+   * @title ID do Filtro.
    */
 
   filterID: number;
 
   /**
-   * @title Filter Value
-   * @description The value of the filter.
+   * @title Valor
    */
 
   filterValue: string;

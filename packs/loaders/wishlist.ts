@@ -2,7 +2,7 @@
 import paths from "$store/packs/utils/paths.ts"; */
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { WishlistItem } from "deco-sites/otica-isabela/packs/types.ts";
-/* import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+/* import { fetchAPI } from "apps/utils/fetch.ts";
 import { getCookies } from "std/http/mod.ts"; */
 
 /**

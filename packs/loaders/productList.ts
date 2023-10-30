@@ -3,10 +3,10 @@ import { GetProductProps, ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "apps/commerce/types.ts";
-import { fetchAPI } from "deco-sites/std/utils/fetch.ts";
+import { fetchAPI, DecoRequestInit } from "apps/utils/fetch.ts";
 
 /**
- * @title Otica Isabela Dias - Product List
+ * @title Otica Isabela Dias - Listagem de Produtos
  */
 
 const loader = async (
@@ -23,6 +23,10 @@ const loader = async (
     id,
   } = props;
 
+  const deco = somenteCronometrosAtivos
+    ? undefined
+    : { cache: "stale-while-revalidate" } as DecoRequestInit["deco"];
+
   const productsData = await fetchAPI<ProductData>(
     path.product.getProduct({
       ...props,
@@ -33,6 +37,7 @@ const loader = async (
     }),
     {
       method: "POST",
+      deco,
     },
   );
 
