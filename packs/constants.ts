@@ -24,3 +24,5 @@ export const SORT_OPTIONS: SortOption[] = [
   },
 ];
 export const RANGE_FILTERS = [17, 18, 19, 21];
+
+export const DECO_CACHE_OPTION = "stale-while-revalidate"

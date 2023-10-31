@@ -15,6 +15,7 @@ import type {
 } from "deco-sites/otica-isabela/apps/site.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
+import { DECO_CACHE_OPTION } from "$store/packs/constants.ts"
 
 interface PLPPageParams {
   productApiProps: Partial<
@@ -59,7 +60,7 @@ const loaders = async (
   const [pageParams, deco] = isCategoryPage
     ? [
       await getCategoryPageParams(url, config!, props).then((data) => data),
-      { cache: "stale-while-revalidate" } as DecoRequestInit["deco"],
+      { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"],
     ]
     : [getSearchPageParams(url, props, filtrosDinamicos), undefined];
 
@@ -130,7 +131,7 @@ const getCategoryPageParams = async (
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
-    { method: "POST", deco: { cache: "stale-while-revalidate" } },
+    { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
   ).then((categories) =>
     categories.filter(({ UrlFriendly }) =>
       UrlFriendly === lastCategorySlug
@@ -150,7 +151,7 @@ const getCategoryPageParams = async (
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
     }),
-    { method: "POST", deco: { cache: "stale-while-revalidate" } },
+    { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
   );
 
   const filtrosDinamicos = filtersApi.length > 0
