@@ -18,7 +18,7 @@ function BestDailyOffers({ products }: Props) {
     priceValidUntil && (
       <div class="w-full flex flex-col gap-12 lg:gap-16 ">
         <BestOffersHeader
-          priceValidUntil={new Date(priceValidUntil)}
+          priceValidUntil={new Date(`${priceValidUntil} GMT-0300`)}
           page={"home"}
         />
         <ProductShelf
