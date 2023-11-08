@@ -1,52 +1,49 @@
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Navbar from "./Navbar.tsx";
-import type { NavItemProps } from "./NavItem.tsx";
-import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
-import PromotionalBar from "$store/islands/PromotionalBar.tsx";
-import type { GiftValueReachInfosProps } from "./PromotionalBar.tsx";
-import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
+import PromotionalBar from "$store/islands/PromotionalBar.tsx";
+import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
+import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
+import type { NavItemProps } from "./NavItem.tsx";
+import Navbar from "./Navbar.tsx";
+import type { GiftValueReachInfosProps } from "./PromotionalBar.tsx";
 
 export interface Props {
   /**
-   * @title Store logo
-   * @description Logo used on header
+   * @title Logo da loja
+   * @description Logo utilizada no topo da loja
    */
-
   storeLogo?: BasicImageAndLinkProps;
-  /** @title Search Bar */
 
+  /** @title Barra de Pesquisa */
   searchbar?: SearchbarProps;
 
   /**
-   * @title Navigation items
-   * @description Navigation items used both on mobile and desktop menus
+   * @title Itens de navegação
+   * @description Itens de navegação dos menus desktop e mobile
    */
   navItems?: NavItemProps[];
 
   /**
-   * @title Link to Login
+   * @title Link de Login
    */
-
   loginLink?: IconLoginLinkProps;
 
   /**
-   * @title  Icon Navigation
-   * @description Navigation with icons
+   * @title  Ícones de Navegação
+   * @description Navegação com ícones
    */
-
   IconNavigation?: IconNavigationType[];
 
   /**
-   * @title  Gift Value Reach Infos
-   * @description Configure the base value for comparison and the texts to be displayed
+   * @title  Informações de valor da barra de presente
+   * @description Configure o valor base para comparação e os textos a serem apresentados
    */
 
   giftValueReachInfos?: GiftValueReachInfosProps;
 
   /**
-   * @title  Promotional Top Banner
+   * @title Top Banner Promocional
    */
 
   promotionalTopBanner?: {
