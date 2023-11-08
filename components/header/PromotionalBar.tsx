@@ -2,9 +2,21 @@ import { useCart } from "$store/packs/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 
 export interface GiftValueReachInfosProps {
+  /**
+   * @title  Valor de base
+   */
   baseValue?: number;
+  /**
+   * @title  Texto antes do valor
+   */
   beforeText?: string;
+  /**
+   * @title  Texto após o valor
+   */
   afterText?: string;
+  /**
+   * @title  Texto de sucesso
+   */
   successText?: string;
   activate?: boolean;
 }
