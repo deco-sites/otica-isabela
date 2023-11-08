@@ -39,8 +39,6 @@ export const PromotionalBar = ({ giftValueReachInfos }: Props) => {
     0,
   ) ?? 0;
 
-  console.log("TOTAL", total);
-
   if (!activate || !baseValue || baseValue <= 0) {
     return null;
   }
