@@ -4,7 +4,7 @@ import type { Suggestion } from "apps/commerce/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
-import { DECO_CACHE_OPTION } from "$store/packs/constants.ts"
+import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 
 export interface Props {
   /**

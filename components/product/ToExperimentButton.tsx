@@ -24,12 +24,14 @@ const SIZING = {
   small: {
     iconW: 25,
     iconH: 23,
-    style: "text-xs lg:text-sm max-lg:w-auto rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
+    style:
+      "text-xs lg:text-sm max-lg:w-auto rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
   },
   large: {
     iconW: 40,
     iconH: 37,
-    style: "lg:text-2xl text-xl max-lg:w-[250px] rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
+    style:
+      "lg:text-2xl text-xl max-lg:w-[250px] rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
   },
 };
 

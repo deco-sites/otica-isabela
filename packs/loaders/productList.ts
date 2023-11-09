@@ -4,7 +4,7 @@ import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
-import { DECO_CACHE_OPTION } from "$store/packs/constants.ts"
+import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 /**
  * @title Otica Isabela Dias - Listagem de Produtos
  */
