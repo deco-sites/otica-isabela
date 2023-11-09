@@ -3,7 +3,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 
 export interface GiftValueReachInfosProps {
   /**
-   * @title  Valor de base
+   * @title  Valor para aplicar a promoção
    */
   baseValue?: number;
   /**
