@@ -18,6 +18,9 @@ export interface GiftValueReachInfosProps {
    * @title  Texto de sucesso
    */
   successText?: string;
+  /**
+   * @title  Ativar?
+   */
   activate?: boolean;
 }
 
