@@ -1,9 +1,9 @@
-import { useMemo } from "preact/compat";
-import type { Image as imageType } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
+import type { Image as imageType } from "deco-sites/std/components/types.ts";
+import { useMemo } from "preact/compat";
 
-import { navbarModalBaseWidth } from "./constants.ts";
 import { IS_BROWSER } from "$fresh/runtime.ts";
+import { navbarModalBaseWidth } from "./constants.ts";
 
 export interface NavItemProps {
   label: string;
@@ -61,29 +61,28 @@ export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
       </a>
       <div
         style={{ ...modalAlignment }}
-        class=" hidden hover:flex group-hover:flex w-full absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-8"
+        class=" hidden hover:flex group-hover:flex w-full absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-8 transition duration-300 ease-in-out"
       >
-        {filteredChildren?.map((
-          { desktopMenuImage, href, label },
-        ) =>
-          desktopMenuImage?.src && (
-            <a href={href} class="m-0 p-0">
-              <div class="p-6 flex flex-col justify-center gap-y-4">
-                <Image
-                  class="rounded-xl p-0"
-                  src={desktopMenuImage.src}
-                  alt={desktopMenuImage?.alt ?? "Drop down menu image"}
-                  width={280}
-                  height={280}
-                />
-                <div class="w-full text-center">
-                  <span class="font-medium text-lg text-blue-200 uppercase">
-                    {label}
-                  </span>
+        {filteredChildren?.map(
+          ({ desktopMenuImage, href, label }) =>
+            desktopMenuImage?.src && (
+              <a href={href} class="m-0 p-0">
+                <div class="p-6 flex flex-col justify-center gap-y-4">
+                  <Image
+                    class="rounded-xl p-0"
+                    src={desktopMenuImage.src}
+                    alt={desktopMenuImage?.alt ?? "Dropdown menu image"}
+                    width={280}
+                    height={280}
+                  />
+                  <div class="w-full text-center">
+                    <span class="font-medium text-lg text-blue-200 uppercase">
+                      {label}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          )
+              </a>
+            )
         )}
       </div>
     </div>

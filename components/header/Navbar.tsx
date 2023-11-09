@@ -1,15 +1,15 @@
+import Modals from "$store/components/header/Modals.tsx";
+import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
+import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import NavItem from "../../islands/NavItem.tsx";
-import { IconNavigation as IconNavigationComponent } from "./IconNavigation.tsx";
-import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
-import type { NavItemProps } from "./NavItem.tsx";
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
-import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
 import { IconLoginLink } from "./IconLoginLink.tsx";
-import Modals from "$store/components/header/Modals.tsx";
+import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
+import { IconNavigation } from "./IconNavigation.tsx";
+import type { NavItemProps } from "./NavItem.tsx";
 
 function Navbar(
   { items, searchbar, storeLogo, IconNavigationItems, loginLink }: {
@@ -45,7 +45,7 @@ function Navbar(
           <div class="flex flex-row  gap-x-4  justify-center items-baseline  lg:items-center ">
             <IconLoginLink {...loginLink} />
 
-            <IconNavigationComponent items={IconNavigationItems} />
+            <IconNavigation items={IconNavigationItems} />
 
             <Buttons variant="cart" />
           </div>
