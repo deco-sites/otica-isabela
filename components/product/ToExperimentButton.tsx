@@ -7,7 +7,7 @@ import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 interface Props {
   image: string;
   variant?: "outlined" | "filled";
-  size?: "small" | "large";
+  size?: "tiny" | "small" | "large";
 }
 
 const STYLE = {
@@ -16,15 +16,20 @@ const STYLE = {
 };
 
 const SIZING = {
+  tiny: {
+    iconW: 16,
+    iconH: 14,
+    style: "text-xs rounded-[4px] lg:text-sm max-lg:w-auto gap-[10px] p-[10px]",
+  },
   small: {
     iconW: 25,
     iconH: 23,
-    style: "text-xs lg:text-sm max-lg:w-auto",
+    style: "text-xs lg:text-sm max-lg:w-auto rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
   },
   large: {
     iconW: 40,
     iconH: 37,
-    style: "lg:text-2xl text-xl max-lg:w-[250px]",
+    style: "lg:text-2xl text-xl max-lg:w-[250px] rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
   },
 };
 
@@ -43,7 +48,7 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`group flex items-center justify-center gap-4 border border-black font-bold rounded-[9px] lg:h-14 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12 w-full transition-all duration-300 ease-in-out
+        class={`group flex items-center justify-center border border-black font-bold lg:h-14 w-full transition-all duration-300 ease-in-out
 		      ${STYLE[variant]} ${SIZING[size].style}`}
         onClick={toggleExperimenter}
       >

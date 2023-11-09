@@ -27,7 +27,7 @@ function OtherColorsShelf({ product }: Props) {
     }))
     .filter((variant) => variant.sku !== sku);
 
-  if (!images) return null;
+  if (!images || images.length === 1) return null;
 
   return (
     <div class="mt-10">
