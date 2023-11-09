@@ -15,7 +15,7 @@ import type {
 } from "deco-sites/otica-isabela/apps/site.ts";
 import { SORT_OPTIONS } from "deco-sites/otica-isabela/packs/constants.ts";
 import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
-import { DECO_CACHE_OPTION } from "$store/packs/constants.ts"
+import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 
 interface PLPPageParams {
   productApiProps: Partial<
