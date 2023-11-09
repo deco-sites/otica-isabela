@@ -3,7 +3,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 
 export interface GiftValueReachInfosProps {
   /**
-   * @title  Valor de base
+   * @title  Valor para aplicar a promoção
    */
   baseValue?: number;
   /**
@@ -18,6 +18,9 @@ export interface GiftValueReachInfosProps {
    * @title  Texto de sucesso
    */
   successText?: string;
+  /**
+   * @title  Ativar?
+   */
   activate?: boolean;
 }
 
@@ -30,16 +33,9 @@ export const PromotionalBar = ({ giftValueReachInfos }: Props) => {
     giftValueReachInfos ?? {};
 
   const { cart } = useCart();
-  const test = useCart();
 
   const total =
     cart.value?.products.reduce((total, p) => total + p.ValorDesconto, 0) ?? 0;
-  const discounts = cart.value?.products.reduce(
-    (total, p) => total + p.ValorOriginal - p.ValorDesconto,
-    0,
-  ) ?? 0;
-
-  console.log("TOTAL", total);
 
   if (!activate || !baseValue || baseValue <= 0) {
     return null;
