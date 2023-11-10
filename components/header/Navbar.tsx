@@ -31,12 +31,14 @@ function Navbar(
             />
           </div>
 
-          {!!storeLogo && (
-            <BasicImageAndLink
-              {...storeLogo}
-              width={{ desktop: 240, mobile: 200 }}
-            />
-          )}
+          <div class="flex w-full p-0 ">
+            {!!storeLogo && (
+              <BasicImageAndLink
+                {...storeLogo}
+                width={{ desktop: 240, mobile: 200 }}
+              />
+            )}
+          </div>
 
           <div class=" hidden lg:flex flex-col w-full max-w-[33%] ">
             <Searchbar {...searchbar} />

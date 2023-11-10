@@ -32,7 +32,7 @@ function MenuButton() {
         id={!displayMobileMenu.value ? "Bars3" : "XMark"}
         width={35}
         height={42}
-        fill={displayMobileMenu.value ? "white" : ""}
+        class="text-white"
         strokeWidth={0.01}
       />
     </Button>

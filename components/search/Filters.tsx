@@ -1,9 +1,9 @@
 import { Color, Shape, Type } from "$store/components/search/SearchResult.tsx";
 import type {
-	Filter,
-	FilterToggle,
-	FilterToggleValue,
-	ProductListingPage,
+  Filter,
+  FilterToggle,
+  FilterToggleValue,
+  ProductListingPage,
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
