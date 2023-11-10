@@ -2,6 +2,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import { calcRemainingTime } from "$store/sdk/calcRemainingTime.ts";
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
+import { dateGMT } from "$store/components/constants.ts";
 
 interface ItemProps {
   label: string;
@@ -10,7 +11,7 @@ interface ItemProps {
 }
 
 interface Props {
-  targetDate: Date;
+  targetDate: string;
   type: "card" | "header";
 }
 
@@ -68,8 +69,9 @@ function Stopwatch({ targetDate, type }: Props) {
   useEffect(() => {
     if (!targetDate) return;
 
+    const date = new Date(`${targetDate} ${dateGMT}`);
     const interval = setInterval(() => {
-      timeRemaining.value = calcRemainingTime(targetDate);
+      timeRemaining.value = calcRemainingTime(date);
     }, 999);
 
     return () => {

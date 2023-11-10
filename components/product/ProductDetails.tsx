@@ -56,7 +56,7 @@ function ProductDetails({
         {/* Stopwatch */}
         {priceValidUntil && (
           <BestOffersHeader
-            priceValidUntil={new Date(priceValidUntil!)}
+            priceValidUntil={priceValidUntil!}
             page={"details"}
           />
         )}
