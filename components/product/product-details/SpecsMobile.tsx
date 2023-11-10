@@ -31,7 +31,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   );
 
   return (
-    <div id="specs-mobile" class="border-t border-gray-300 lg:hidden">
+    <div id="specs-mobile" class="border-t border-gray-300 lg:hidden mt-8">
       <style
         type="text/css"
         dangerouslySetInnerHTML={{

@@ -5,6 +5,8 @@ interface Props {
 }
 
 function ShareButton({ link }: Props) {
+  if (!window || typeof window === "undefined") return null;
+
   return (
     <button
       class="btn border-0 bg-transparent"
