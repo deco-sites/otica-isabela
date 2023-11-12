@@ -73,7 +73,13 @@ function CartButton() {
           </span>
         )}
         {!loading.value && (
-          <Icon id="ShoppingCart" width={26} height={25} strokeWidth={2} />
+          <Icon
+            id="ShoppingCart"
+            width={26}
+            height={25}
+            strokeWidth={2}
+            style={{ color: "black" }}
+          />
         )}
       </div>
     </a>

@@ -11,10 +11,22 @@ export const ToExperimentButton = () => {
     <div class="w-full flex items-center justify-center">
       <button class="flex items-center justify-center h-14 gap-x-3 group btn btn-outline w-60 lg:w-full border-black font-bold text-xl lg:text-2xl text-black hover:text-white hover:bg-black py-2">
         <span class="hidden lg:flex">
-          <Icon id="Camera" class="group-hover:invert" width={40} height={37} />
+          <Icon
+            id="Camera"
+            class="group-hover:invert"
+            width={40}
+            height={37}
+            style={{ color: "black" }}
+          />
         </span>
         <span class="flex lg:hidden">
-          <Icon id="Camera" class="group-hover:invert" width={25} height={23} />
+          <Icon
+            id="Camera"
+            class="group-hover:invert"
+            width={25}
+            height={23}
+            style={{ color: "black" }}
+          />
         </span>
         Experimentar
       </button>

@@ -53,6 +53,7 @@ export const UserInfos = ({
               width={21}
               height={21}
               id="RatingStar"
+              style={{ color: "#F37121" }}
             />
           ))}
         </div>
@@ -106,7 +107,7 @@ const TestimonialItem = ({
 
           <div class="flex flex-col items-start">
             <span class="text-xs text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
-              <Icon width={15} height={18} id="Locale" />
+              <Icon width={15} height={18} id="Locale" style={{ color: "#D92027" }} />
               {authorCity}
             </span>
             <div class="flex lg:hidden w-full">
