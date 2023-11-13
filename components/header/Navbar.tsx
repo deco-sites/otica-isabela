@@ -31,12 +31,13 @@ function Navbar(
             />
           </div>
 
-          <div class="flex w-full p-0 ">
+          <div class="w-full flex justify-center p-0">
             {!!storeLogo && (
               <BasicImageAndLink
                 {...storeLogo}
-                width={{ desktop: 240, mobile: 200 }}
+                width={{ desktop: 248, mobile: 345 }}
               />
+
             )}
           </div>
 

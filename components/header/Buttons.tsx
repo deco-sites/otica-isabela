@@ -24,14 +24,14 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-sm btn-ghost px-0 z-50"
+      class="btn-sm btn-ghost px-0 z-50 h-full"
       aria-label="open menu"
       onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >
       <Icon
         id={!displayMobileMenu.value ? "Bars3" : "XMark"}
-        width={35}
-        height={42}
+        width={45}
+        height={48}
         class="text-white"
         strokeWidth={0.01}
       />
