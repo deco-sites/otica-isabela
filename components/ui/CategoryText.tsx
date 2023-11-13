@@ -126,7 +126,7 @@ function CategoryText({ category }: SectionProps<ReturnType<typeof loader>>) {
 }
 
 export interface Props {
-  /** @title Categoria */
+  /** @title Categorias */
   categories?: Category[];
 }
 
