@@ -30,6 +30,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
   const promotionFlag = additionalProperty?.find(
     (prop) => prop.propertyID === "flag",
   )?.value;
+
   const promotion = promotions?.find((current) =>
     current.label === promotionFlag
   );

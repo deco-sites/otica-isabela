@@ -73,6 +73,14 @@ function Details({ page, promotions, buttonByCategory }: Props) {
     {},
   );
 
+  const promotionFlag = additionalProperty?.find(
+    (prop) => prop.propertyID === "flag",
+  )?.value;
+
+  const promotion = promotions?.find((current) =>
+    current.label === promotionFlag
+  );
+
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
   )?.value;
@@ -119,12 +127,12 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         <ToExperimentButton
           image={experimenterImage!}
           variant="filled"
-          size="small"
+          size="tiny"
         />
       </div>
 
       {/* Product Name - Mobile */}
-      <div class="my-4 text-center px-8 lg:hidden">
+      <div class="mt-4 text-center px-8 lg:hidden">
         <span class="font-roboto font-normal text-lg">{name}</span>
       </div>
 
@@ -168,9 +176,11 @@ function Details({ page, promotions, buttonByCategory }: Props) {
           </div>
 
           {/* Buy with lens label */}
-          <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] md:w-[90%] lg:hidden">
-            <span>Compre com lentes de grau e pague só R$ {price}</span>
-          </div>
+          {promotion && (
+            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
+              {promotion.flagText.replace("%value", price!.toString())}
+            </div>
+          )}
 
           {/* Dots - Mobile & Desktop */}
           <ul
