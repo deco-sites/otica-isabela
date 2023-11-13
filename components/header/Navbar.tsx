@@ -31,7 +31,7 @@ function Navbar({
       <div class="container flex flex-col justify-center items-center w-full p-6 pb-0   ">
         <div
           class={`flex flex-row justify-between items-center  w-full ${
-            navBarSpace ? "gap-1 mb-2" : "gap-2 mb-4"
+            navBarSpace ? "gap-1 mb-2 lg:gap-3 lg:mb-4" : "gap-3 mb-4"
           }`}
         >
           <div class=" flex lg:hidden">
@@ -62,7 +62,7 @@ function Navbar({
 
           <div
             class={`flex flex-row  ${
-              navBarSpace ? "gap-x-2" : "gap-x-4"
+              navBarSpace ? "gap-x-2 lg:gap-x-4" : "gap-x-4"
             }  justify-center items-baseline lg:items-center`}
           >
             <IconLoginLink {...loginLink} />
@@ -82,9 +82,7 @@ function Navbar({
         </div>
 
         <div
-          class={`hidden lg:flex flex-row justify-center items-center ${
-            navBarSpace ? "gap-x-2" : "gap-x-4"
-          }  `}
+          class={`hidden lg:flex flex-row justify-center items-center gap-x-4`}
         >
           {items
             ?.filter(({ mobileOnly }) => mobileOnly !== true)

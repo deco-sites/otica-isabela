@@ -15,8 +15,7 @@ export interface Props {
    */
   storeLogo?: BasicImageAndLinkProps;
   /**
-   * @title  Espaçamento Header
-   * @description Diminui os espaçamentos do header
+   * @title Melhorar espaçamentos do header?
    */
   navBarSpace?: boolean;
   /** @title Barra de Pesquisa */
