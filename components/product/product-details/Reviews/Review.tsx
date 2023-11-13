@@ -76,13 +76,22 @@ function Review({ page, productData, memberImages }: Props) {
                           index={index}
                           class="carousel-item w-full justify-center"
                         >
-                          <Image
-                            class="rounded-[9px] cursor-pointer"
-                            src={review.additionalImage}
-                            alt={review.reviewDescription}
-                            width={157}
-                            height={205}
-                          />
+                          {review.additionalImage
+                            ? (
+                              <Image
+                                class="rounded-[9px] cursor-pointer"
+                                src={review.additionalImage}
+                                alt={review.reviewDescription}
+                                width={157}
+                                height={205}
+                              />
+                            )
+                            : (
+                              <div
+                                class="w-full bg-gray-400 rounded-[9px] cursor-pointer"
+                                style={{ height: 205 }}
+                              />
+                            )}
                         </Slider.Item>
 
                         {/* Modal */}
