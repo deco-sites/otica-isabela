@@ -14,34 +14,31 @@ export interface Props {
    * @description Logo utilizada no topo da loja
    */
   storeLogo?: BasicImageAndLinkProps;
-
+  /**
+   * @title Melhorar espaçamentos do header?
+   */
+  navBarSpace?: boolean;
   /** @title Barra de Pesquisa */
   searchbar?: SearchbarProps;
-
   /**
    * @title Itens de navegação
    * @description Itens de navegação dos menus desktop e mobile
    */
   navItems?: NavItemProps[];
-
   /**
    * @title Link de Login
    */
   loginLink?: IconLoginLinkProps;
-
   /**
    * @title  Ícones de Navegação
    * @description Navegação com ícones
    */
   IconNavigation?: IconNavigationType[];
-
   /**
    * @title  Informações de valor da barra de presente
    * @description Configure o valor base para comparação e os textos a serem apresentados
    */
-
   giftValueReachInfos?: GiftValueReachInfosProps;
-
   /**
    * @title Top Banner Promocional
    */
@@ -60,6 +57,7 @@ function Header({
   giftValueReachInfos,
   loginLink,
   promotionalTopBanner,
+  navBarSpace,
 }: Props) {
   const { activate, image } = promotionalTopBanner ?? {};
 
@@ -82,6 +80,7 @@ function Header({
           items={navItems}
           searchbar={searchbar}
           loginLink={loginLink}
+          navBarSpace={navBarSpace}
         />
 
         <PromotionalBar giftValueReachInfos={giftValueReachInfos} />

@@ -1,20 +1,20 @@
-import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
-import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
-import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
+import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import Video from "deco-sites/std/components/Video.tsx";
 import { useId } from "preact/hooks";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { formatPrice } from "$store/sdk/format.ts";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
-import type { ProductDetailsPage } from "apps/commerce/types.ts";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -95,7 +95,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
           __html: `
             #image-dots::-webkit-scrollbar {
               display: none;
-              -ms-overflow-style: none; 
+              -ms-overflow-style: none;
               scrollbar-width: none;
             }
           `,
