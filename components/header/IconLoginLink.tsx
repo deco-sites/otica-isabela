@@ -11,7 +11,13 @@ export const IconLoginLink = (
   return (
     <a href={"/identificacao"} aria-label="Log in">
       <div className="flex gap-x-2 items-center">
-        <Icon id="User" width={26} height={24} strokeWidth={0.4} style={{ color: "#F8F8F8" }} />
+        <Icon
+          id="User"
+          width={26}
+          height={24}
+          strokeWidth={0.4}
+          style={{ color: "#F8F8F8" }}
+        />
 
         <div className="hidden lg:flex flex-col   items-start text-white text-xs">
           <span className="hover:text-blue-200 whitespace-nowrap font-normal">
