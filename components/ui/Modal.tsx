@@ -133,7 +133,7 @@ const Modal = ({
                     width={36}
                     height={36}
                     strokeWidth={1}
-                    fill="white"
+                    style={{ color: "white" }}
                   />
                 )}
                 <span class={`text-2xl ${titleStyle[mode]}`}>{title}</span>

@@ -101,6 +101,7 @@ function Searchbar({
               id="Magnifier"
               size={25}
               strokeWidth={0.01}
+              style={{ color: "#000000" }}
             />
           </form>
         </div>

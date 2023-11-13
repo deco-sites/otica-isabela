@@ -14,7 +14,7 @@ const subscribe = Runtime.create(
 );
 
 export interface Props {
-  /** @title Escoder Newsletter? */
+  /** @title Esconder Newsletter? */
   hideNewsletter?: boolean;
   header?: HeaderProps;
   /** @title Placeholder dos Campos de Texto */
