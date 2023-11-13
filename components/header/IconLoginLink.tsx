@@ -10,7 +10,7 @@ export const IconLoginLink = (
 ) => {
   return (
     <a href={"/identificacao"} aria-label="Log in">
-      <div className="flex gap-x-2 items-center  pt-[7px]">
+      <div className="flex gap-x-2 items-center">
         <Icon id="User" width={26} height={24} strokeWidth={0.4} />
 
         <div className="hidden lg:flex flex-col   items-start text-white text-xs">

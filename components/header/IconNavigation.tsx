@@ -26,7 +26,7 @@ export const IconNavigation = ({ items }: Props) => {
             aria-label={`${title}-${href}`}
             class={`${
               mobileVisibility ? "flex" : "hidden lg:flex"
-            } flex-col justify-center items-center`}
+            } flex-col justify-center items-center group`}
           >
             <Icon
               id={icon}
@@ -35,7 +35,7 @@ export const IconNavigation = ({ items }: Props) => {
               height={24}
               strokeWidth={0.4}
             />
-            <span class=" hidden lg:flex text-white text-xs hover:text-blue-200 font-normal whitespace-nowrap">
+            <span class=" hidden lg:flex text-white text-xs group-hover:text-blue-200 font-normal whitespace-nowrap">
               {title}
             </span>
           </a>

@@ -25,17 +25,26 @@ export default {
       "2xl": "1200px",
     },
     extend: {
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.2s ease-in-out",
+      },
       fontSize: {
-        "xxs": "0.5rem",
+        xxs: "0.5rem",
       },
 
       fontFamily: {
         "bebas-neue": ["Bebas Neue"],
-        "roboto": ["Roboto", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         "red-500": "#d92027",
-        "danger": "#f3ae3f",
+        danger: "#f3ae3f",
         "gray-scale-100": "#f8f8f8",
         "base-200": "#a6a6a6",
         "base-300": "#757575",
@@ -44,7 +53,7 @@ export default {
         "blue-100": "#a8e3ff",
         "blue-200": "#42c3ff",
         "blue-300": "#00a7f5",
-        "success": " #00ff2a",
+        success: " #00ff2a",
         "success-content": "#9ec54d",
         "orange-600": "#eb7f24",
       },
