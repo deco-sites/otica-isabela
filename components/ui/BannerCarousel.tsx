@@ -126,7 +126,6 @@ function BannerCarousel({ images, preload, interval }: Props) {
       <Buttons />
 
       <SliderJS
-        hideArrowsOnLast
         rootId={id}
         interval={interval && interval * 1e3}
         infinite

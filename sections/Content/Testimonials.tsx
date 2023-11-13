@@ -52,7 +52,6 @@ export default function Testimonials(
           </div>
 
           <SliderJS
-            perPageDots={true}
             itemsPerPage={{ desktop: { 0: 2 }, mobile: { 0: 1 } }}
             rootId={id}
           />

@@ -9,9 +9,6 @@ interface Props {
     mobile: Record<number, number>;
     desktop: Record<number, number>;
   };
-  perPageDots?: boolean;
-  hideArrowsOnLast?: boolean;
-  borderedDots?: boolean;
 }
 
 const ATTRIBUTES = {
@@ -59,9 +56,6 @@ const setup = ({
   interval,
   infinite,
   itemsPerPage = { desktop: { 0: 1 }, mobile: { 0: 1 } },
-  perPageDots,
-  hideArrowsOnLast,
-  borderedDots,
 }: Props) => {
   const { desktop, mobile } = itemsPerPage;
 
@@ -78,9 +72,15 @@ const setup = ({
   const items = root?.querySelectorAll<HTMLLIElement>(
     `[${ATTRIBUTES["data-slider-item"]}]`,
   );
-  const prev = root?.querySelector(`[${ATTRIBUTES['data-slide="prev"']}]`);
-  const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
-  const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
+  const prev = root?.querySelector<HTMLButtonElement>(
+    `[${ATTRIBUTES['data-slide="prev"']}]`,
+  );
+  const next = root?.querySelector<HTMLButtonElement>(
+    `[${ATTRIBUTES['data-slide="next"']}]`,
+  );
+  const dots = root?.querySelectorAll<HTMLButtonElement>(
+    `[${ATTRIBUTES["data-dot"]}]`,
+  );
   const [, perPage] = Object.entries(currentItemsPerPage)
     .sort(([widthA], [widthB]) => Number(widthB) - Number(widthA))
     .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];
@@ -126,7 +126,7 @@ const setup = ({
     slider.scrollTo({
       top: 0,
       behavior: scroll,
-      left: item.offsetLeft,
+      left: item.offsetLeft - root.offsetLeft,
     });
   };
 
@@ -155,48 +155,14 @@ const setup = ({
     (elements) =>
       elements.forEach((item) => {
         const index = Number(item.target.getAttribute("data-slider-item")) || 0;
-
-        const dotIndex = perPageDots
-          ? Math.floor(index / Math.floor(perPage))
-          : index;
-        const dot = dots?.item(dotIndex);
+        const dot = dots?.item(index);
 
         const indices = getElementsInsideContainer();
-        const isShowingLast = indices[indices.length - 1] === items.length - 1;
 
-        if (hideArrowsOnLast) {
-          if (isShowingLast) {
-            next?.classList.add("hidden");
-            prev?.classList.remove("hidden");
-          } else {
-            next?.classList.remove("hidden");
-            prev?.classList.add("hidden");
-          }
-        }
-
-        if (perPageDots) {
-          const floorElementsPerPage = Math.floor(perPage);
-          const firstElementIndex = floorElementsPerPage * dotIndex;
-
-          if (items.length > 2 && perPage > 1) {
-            dots?.item(items.length - 1).classList.add("hidden");
-          }
-
-          if (index === firstElementIndex) {
-            if (item.isIntersecting) {
-              dot?.setAttribute("disabled", "");
-            } else {
-              dot?.removeAttribute("disabled");
-            }
-          }
+        if (item.isIntersecting) {
+          dot?.setAttribute("disabled", "");
         } else {
-          if (item.isIntersecting) {
-            dot?.setAttribute("disabled", "");
-            borderedDots && dot?.parentElement?.classList.add("border-2");
-          } else {
-            dot?.removeAttribute("disabled");
-            borderedDots && dot?.parentElement?.classList.remove("border-2");
-          }
+          dot?.removeAttribute("disabled");
         }
 
         if (!infinite) {
@@ -230,14 +196,12 @@ const setup = ({
     observer.observe(item);
   });
 
-  for (let it = 0; it < (dots?.length ?? 0); it++) {
-    dots
-      ?.item(it)
-      .addEventListener(
-        "click",
-        () => goToItem(perPageDots ? it * Math.floor(perPage) : it),
-      );
-  }
+  dots?.forEach((dot, it) => {
+    if (it % Math.floor(perPage) !== 0) {
+      dot.style.display = "none";
+    }
+    dots?.item(it).addEventListener("click", () => goToItem(it));
+  });
 
   prev?.addEventListener("click", onClickPrev);
   next?.addEventListener("click", onClickNext);
@@ -247,12 +211,7 @@ const setup = ({
   // Unregister callbacks
   return () => {
     for (let it = 0; it < (dots?.length ?? 0); it++) {
-      dots
-        ?.item(it)
-        .removeEventListener(
-          "click",
-          () => goToItem(perPageDots ? it * perPage : it),
-        );
+      dots?.item(it).removeEventListener("click", () => goToItem(it));
     }
 
     prev?.removeEventListener("click", onClickPrev);
@@ -270,9 +229,6 @@ function Slider({
   interval,
   infinite = false,
   itemsPerPage,
-  perPageDots = false,
-  hideArrowsOnLast = false,
-  borderedDots = false,
 }: Props) {
   useEffect(
     () =>
@@ -282,9 +238,6 @@ function Slider({
         interval,
         infinite,
         itemsPerPage,
-        perPageDots,
-        hideArrowsOnLast,
-        borderedDots,
       }),
     [
       rootId,
@@ -292,8 +245,6 @@ function Slider({
       interval,
       infinite,
       itemsPerPage,
-      perPageDots,
-      hideArrowsOnLast,
     ],
   );
 
