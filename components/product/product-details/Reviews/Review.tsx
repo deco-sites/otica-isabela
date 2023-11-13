@@ -60,7 +60,7 @@ function Review({ page, productData, memberImages }: Props) {
               <h1 class="text-[64px] font-bold text-orange-500">
                 {ratingValue.toFixed(1).replace(".", ",")}
               </h1>
-              <Icon id="Ratings" size={39} />
+              <Icon id="Ratings" size={39} style={{ color: "#F37121" }} />
             </div>
             <h1 class="text-lg text-center">Pontuação geral</h1>
 
