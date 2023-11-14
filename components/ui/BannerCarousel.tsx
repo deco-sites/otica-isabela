@@ -1,10 +1,9 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import { useId } from "preact/hooks";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useId } from "preact/hooks";
 
 /**
  * @titleBy alt
@@ -39,18 +38,10 @@ export interface Props {
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
+  const { alt, mobile, desktop, action } = image;
 
   return (
-    <a
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
-    >
+    <a href={action?.href ?? "#"} aria-label={action?.label}>
       <Picture preload={lcp}>
         <Source
           media="(max-width: 767px)"
@@ -121,15 +112,15 @@ function BannerCarousel({ images, preload, interval }: Props) {
             <BannerItem image={image} lcp={index === 0 && preload} />
           </Slider.Item>
         ))}
+        <div class="flex  w-full justify-center items-center gap-x-4">
+          {images?.map((_, index) => {
+            return <Slider.Dot index={index} />;
+          })}
+        </div>
       </Slider>
-
       <Buttons />
 
-      <SliderJS
-        rootId={id}
-        interval={interval && interval * 1e3}
-        infinite
-      />
+      <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
   );
 }
