@@ -22,6 +22,7 @@ export const useAddToCart = ({
   navigateToCart = false,
 }: Options) => {
   const isAddingToCart = useSignal(false);
+
   const { addItems } = useCart();
 
   const onClick = useCallback(
@@ -59,5 +60,5 @@ export const useAddToCart = ({
     [sku],
   );
 
-  return { onClick, loading: false };
+  return { onClick, loading: isAddingToCart.value };
 };

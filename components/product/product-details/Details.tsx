@@ -1,6 +1,5 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
-import { useCart } from "$store/packs/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
@@ -42,7 +41,6 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 };
 
 function Details({ page, promotions, buttonByCategory }: Props) {
-  const { loading } = useCart();
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -238,7 +236,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
           <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
             <a href={chooseLensUrl}>
-              <ChooseLensButton {...addToCard} loading={loading.value} />
+              <ChooseLensButton {...addToCard} />
             </a>
           </div>
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">

@@ -1,5 +1,4 @@
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-import { useCart } from "$store/packs/hooks/useCart.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
@@ -11,7 +10,6 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 
 function ProductInfo({ page, promotions, buttonByCategory }: Props) {
-  const { loading } = useCart();
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -127,7 +125,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
       {/* Choose Lens */}
       <div class="mt-[11px] w-full">
         <a href={chooseLensUrl}>
-          <ChooseLensButton {...addToCard} loading={loading.value} />
+          <ChooseLensButton {...addToCard} />
         </a>
       </div>
 
