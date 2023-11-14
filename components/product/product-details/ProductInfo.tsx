@@ -91,7 +91,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
         </div>
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          {ratingValue && (
+          {!!ratingValue && (
             <a href="#product-review">
               <Ratings ratingValue={ratingValue} />
             </a>

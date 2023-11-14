@@ -8,7 +8,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
   const items = [{ name: "Ótica Isabela Dias", item: "/" }, ...itemListElement];
 
   return (
-    <ul class="flex items-baseline">
+    <ul class="flex justify-center items-baseline flex-wrap whitespace-nowrap mx-2">
       {items
         .filter(({ name, item }) => name && item)
         .map(({ name, item }, index) => (
