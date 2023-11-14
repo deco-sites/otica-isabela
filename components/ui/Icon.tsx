@@ -95,7 +95,8 @@ export type ResourceIcons =
   | "SuportePremium"
   | "GarantiaDoProduto"
   | "RecebaComLentes"
-  | "ProvadorOnline";
+  | "ProvadorOnline"
+  | "Home";
 
 /**
  * @title Icones de óculos
