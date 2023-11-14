@@ -5,11 +5,9 @@ interface Props {
 }
 
 function Breadcrumb({ itemListElement = [] }: Props) {
-  const items = [{ name: "Ótica Isabela Dias", item: "/" }, ...itemListElement];
-
   return (
     <ul class="flex items-baseline">
-      {items
+      {itemListElement
         .filter(({ name, item }) => name && item)
         .map(({ name, item }, index) => (
           <li>
@@ -19,7 +17,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
             >
               {name?.toLocaleLowerCase().trim()}
             </a>
-            {index < items.length - 1 && (
+            {index < itemListElement.length - 1 && (
               <span class="my-0 mx-[10px] text-sm text-[#212529]">›</span>
             )}
           </li>
