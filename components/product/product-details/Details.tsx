@@ -258,7 +258,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
           />
         </div>
       </div>
-      <SliderJS rootId={id} borderedDots={true}></SliderJS>
+      <SliderJS rootId={id} />
     </>
   );
 }

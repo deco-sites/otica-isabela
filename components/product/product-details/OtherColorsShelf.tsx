@@ -63,7 +63,6 @@ function OtherColorsShelf({ product }: Props) {
               mobile: { 0: 1 },
             }}
             rootId={id}
-            perPageDots
           />
 
           {/* Dots */}

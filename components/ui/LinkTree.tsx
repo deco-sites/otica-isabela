@@ -38,7 +38,7 @@ function LinkTree({
         <div class="rounded-full w-min bg-base-100 p-4">
           {avatar
             ? <Image src={avatar} width={150} height={150} />
-            : <Icon id="Logo" size={150} />}
+            : <Icon id="Logo" size={150} style={{ color: "#161616" }} />}
         </div>
         <span class="font-medium text-xl text-base-100">{title}</span>
         <span class="text-base-100">{description}</span>

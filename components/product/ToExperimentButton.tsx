@@ -65,6 +65,7 @@ const ToExperimentButton = ({
             width={SIZING[size].iconW}
             height={SIZING[size].iconH}
             filter={variant === "outlined" ? "none" : "invert()"}
+            style={{ color: "black" }}
           />
         </span>
         <span class="flex lg:hidden">
@@ -74,6 +75,7 @@ const ToExperimentButton = ({
             width={SIZING[size].iconW}
             height={SIZING[size].iconH}
             filter={variant === "outlined" ? "none" : "invert()"}
+            style={{ color: "black" }}
           />
         </span>
         <p>Experimentar</p>

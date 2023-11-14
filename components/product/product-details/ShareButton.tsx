@@ -12,7 +12,7 @@ function ShareButton({ link }: Props) {
       class="btn border-0 bg-transparent"
       onClick={() => navigator.share({ url: link })}
     >
-      <Icon id="ShareButton" size={22} />
+      <Icon id="ShareButton" size={22} style={{ color: "black" }} />
     </button>
   );
 }

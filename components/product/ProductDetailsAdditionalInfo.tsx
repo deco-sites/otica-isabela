@@ -26,7 +26,7 @@ function ProductDetailsScale({ items }: Props) {
             index >= applyBorder ? "md:border-b-0" : ""
           } lg:border-r lg:border-b-0 lg:py-0 relative group`}
         >
-          <Icon id={icon} size={31} />
+          <Icon id={icon} size={31} style={{ color: "#42C3FF" }} />
           <span class="text-lg font-roboto">{label}</span>
           <div
             id={`item-${index}-description`}

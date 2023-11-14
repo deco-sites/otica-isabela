@@ -24,15 +24,15 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-sm btn-ghost px-0 z-50"
+      class="btn-sm btn-ghost px-0 z-50 h-full"
       aria-label="open menu"
       onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >
       <Icon
         id={!displayMobileMenu.value ? "Bars3" : "XMark"}
-        width={35}
-        height={42}
-        fill={displayMobileMenu.value ? "white" : ""}
+        width={45}
+        height={48}
+        class="text-white"
         strokeWidth={0.01}
       />
     </Button>
@@ -73,7 +73,13 @@ function CartButton() {
           </span>
         )}
         {!loading.value && (
-          <Icon id="ShoppingCart" width={26} height={25} strokeWidth={2} />
+          <Icon
+            id="ShoppingCart"
+            width={26}
+            height={25}
+            strokeWidth={2}
+            style={{ color: "black" }}
+          />
         )}
       </div>
     </a>

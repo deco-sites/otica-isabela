@@ -122,10 +122,7 @@ function ProductCard({
         id={imageContainerId}
       >
         {isStopwatchEnabled && priceValidUntil && (
-          <Stopwatch
-            targetDate={stopWatchDate}
-            type="card"
-          />
+          <Stopwatch targetDate={priceValidUntil} type="card" />
         )}
         {isSliderEnabled
           ? (

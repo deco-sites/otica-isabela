@@ -43,7 +43,6 @@ const VerticalProductShelf = (
       </div>
 
       <SliderJS
-        perPageDots
         rootId={id}
       />
     </div>

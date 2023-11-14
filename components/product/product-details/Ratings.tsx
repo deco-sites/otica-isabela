@@ -16,12 +16,26 @@ function Ratings({ ratingValue }: Props) {
         style={{ width: `${percentage}%` }}
       >
         {ratings.map(() => {
-          return <Icon class="inline" id="Ratings" size={21} />;
+          return (
+            <Icon
+              class="inline"
+              id="Ratings"
+              size={21}
+              style={{ color: "#F37121" }}
+            />
+          );
         })}
       </div>
       <div>
         {ratings.map(() => {
-          return <Icon class="inline" id="UnfilledRatings" size={21} />;
+          return (
+            <Icon
+              class="inline"
+              id="UnfilledRatings"
+              size={21}
+              style={{ color: "#666463" }}
+            />
+          );
         })}
       </div>
     </div>

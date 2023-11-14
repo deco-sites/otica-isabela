@@ -44,6 +44,7 @@ function WishlistButton({ variant = "icon", productID }: Props) {
         id="WishListHeart"
         size={24}
         strokeWidth={2}
+        style={{ color: "black" }}
         /* fill={inWishlist ? "black" : "none"} */
       />
       {/* {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"} */}

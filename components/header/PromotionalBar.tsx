@@ -49,7 +49,7 @@ export const PromotionalBar = ({ giftValueReachInfos }: Props) => {
 
   return (
     <div class="flex flex-col bg-black   justify-center items-center w-full   ">
-      <p class="  pb-1 text-white  font-medium">
+      <p class="pb-2 text-white  font-medium">
         {porcentWidthValue >= 100 ? successText : warningText}
       </p>
       <div class="w-full h-2 bg-secondary ">

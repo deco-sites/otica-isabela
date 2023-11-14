@@ -4,12 +4,19 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useSignal } from "@preact/signals";
 
 export interface Category {
-  /** @description RegExp to enable this text category on the current URL. Use /feminino/* to display this text category on feminino category  */
+  /** @title Categoria */
+  /** @description Descrição da categoria */
+  label?: string;
+
+  /** @title Identificador */
+  /** @description Valor utilizado para ativar o texto cadastrado para a categoria selecionada. Use /feminino/* para exibir o texto na categoria "feminino" */
   matcher: string;
+
+  /** @title Configurações do Loader */
   page: LoaderReturnType<ProductListingPage | null>;
 
   /**
-   * @title Description
+   * @title Texto a Exibir na Categoria
    * @format html
    */
   html?: string;
@@ -119,6 +126,7 @@ function CategoryText({ category }: SectionProps<ReturnType<typeof loader>>) {
 }
 
 export interface Props {
+  /** @title Categorias */
   categories?: Category[];
 }
 

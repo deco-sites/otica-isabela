@@ -1,5 +1,5 @@
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 
 export interface BasicImageAndLinkProps {
   src?: { desktop?: ImageType; mobile?: ImageType };
@@ -20,7 +20,7 @@ export const BasicImageAndLink = (
 
   if (!href || href === "") {
     return (
-      <Picture>
+      <Picture class="w-full">
         <Source
           media="(max-width: 983px)"
           src={src?.mobile ?? ""}
