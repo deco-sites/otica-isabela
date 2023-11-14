@@ -1,20 +1,22 @@
-import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
-import Video from "deco-sites/std/components/Video.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import { useCart } from "$store/packs/hooks/useCart.ts";
+import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
+import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
-import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
+import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
+import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import Video from "deco-sites/std/components/Video.tsx";
 import { useId } from "preact/hooks";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { formatPrice } from "$store/sdk/format.ts";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
-import type { ProductDetailsPage } from "apps/commerce/types.ts";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -40,9 +42,9 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 };
 
 function Details({ page, promotions, buttonByCategory }: Props) {
+  const { loading } = useCart();
   const { product, breadcrumbList } = page!;
-  const { name, productID, offers, isVariantOf, additionalProperty, url, sku } =
-    product;
+  const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -57,7 +59,6 @@ function Details({ page, promotions, buttonByCategory }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
-
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -77,8 +78,8 @@ function Details({ page, promotions, buttonByCategory }: Props) {
     (prop) => prop.propertyID === "flag",
   )?.value;
 
-  const promotion = promotions?.find((current) =>
-    current.label === promotionFlag
+  const promotion = promotions?.find(
+    (current) => current.label === promotionFlag,
   );
 
   const rating = additionalProperty?.find(
@@ -95,7 +96,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
           __html: `
             #image-dots::-webkit-scrollbar {
               display: none;
-              -ms-overflow-style: none; 
+              -ms-overflow-style: none;
               scrollbar-width: none;
             }
           `,
@@ -120,9 +121,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton
-            productID={productID}
-          />
+          <WishlistButton productID={productID} />
         </div>
         <ToExperimentButton
           image={experimenterImage!}
@@ -147,14 +146,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
                   class="carousel-item w-full items-center"
                 >
                   {img.additionalType === "video"
-                    ? (
-                      <Video
-                        src={img.url}
-                        width={540}
-                        height={540}
-                        controls
-                      />
-                    )
+                    ? <Video src={img.url} width={540} height={540} controls />
                     : (
                       <Image
                         class="w-full h-max"
@@ -246,9 +238,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
           <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
             <a href={chooseLensUrl}>
-              <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
-                Escolher as Lentes
-              </button>
+              <ChooseLensButton {...addToCard} loading={loading.value} />
             </a>
           </div>
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">

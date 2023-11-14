@@ -1,7 +1,7 @@
-import { useSignal } from "@preact/signals";
-import { useCallback } from "preact/hooks";
 import { useCart } from "$store/packs/hooks/useCart.ts";
+import { useSignal } from "@preact/signals";
 import { sendEvent } from "deco-sites/otica-isabela/sdk/analytics.tsx";
+import { useCallback } from "preact/hooks";
 
 export interface Options {
   idProduct: number;
@@ -11,42 +11,53 @@ export interface Options {
    * sku name
    */
   name: string;
+  navigateToCart?: boolean;
 }
 
-export const useAddToCart = (
-  { idProduct, sku, price, name }: Options,
-) => {
+export const useAddToCart = ({
+  idProduct,
+  sku,
+  price,
+  name,
+  navigateToCart = false,
+}: Options) => {
   const isAddingToCart = useSignal(false);
   const { addItems } = useCart();
 
-  const onClick = useCallback(async (e: MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const onClick = useCallback(
+    async (e: MouseEvent) => {
+      e.stopPropagation();
 
-    try {
-      isAddingToCart.value = true;
-      await addItems({
-        idProduct,
-        sku,
-      });
+      try {
+        isAddingToCart.value = true;
+        await addItems({
+          idProduct,
+          sku,
+        });
 
-      sendEvent({
-        name: "add_to_cart",
-        params: {
-          items: [{
-            item_id: idProduct,
-            quantity: 1,
-            price,
-            item_name: name,
-            item_variant: String(sku),
-          }],
-        },
-      });
-    } finally {
-      isAddingToCart.value = false;
-      window.location.href = "/carrinho";
-    }
-  }, [sku]);
+        sendEvent({
+          name: "add_to_cart",
+          params: {
+            items: [
+              {
+                item_id: idProduct,
+                quantity: 1,
+                price,
+                item_name: name,
+                item_variant: String(sku),
+              },
+            ],
+          },
+        });
+      } finally {
+        isAddingToCart.value = false;
+        if (navigateToCart) {
+          window.location.href = "/carrinho";
+        }
+      }
+    },
+    [sku],
+  );
 
   return { onClick, loading: false };
 };
