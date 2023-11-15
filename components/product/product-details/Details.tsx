@@ -101,9 +101,9 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         }}
       />
       {/* Breadcrumb - Desktop */}
-      <div id="breadcrumb" class="hidden lg:block lg:mb-[40px]">
+      <div id="breadcrumb" class="block mb-[20px] lg:mb-[40px] text-center md:text-left">
         <Breadcrumb
-          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          itemListElement={breadcrumbList?.itemListElement}
         />
       </div>
 
