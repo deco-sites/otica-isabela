@@ -51,8 +51,8 @@ export interface Product {
   IdCategoria: number;
   NomeCategoriaPai: string;
   NomeCategoria: string;
-  UrlFriendlyCategoriaPai: string,
-  UrlFriendlyCategoria: string,
+  UrlFriendlyCategoriaPai: string;
+  UrlFriendlyCategoria: string;
   QtdeEstoque: number;
   Nome: string;
   Codigo: string;
