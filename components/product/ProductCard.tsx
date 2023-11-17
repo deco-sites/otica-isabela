@@ -75,6 +75,7 @@ function ProductCard({
 
   const id = `product-card-${productID}`;
   const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
+  const stopWatchDate = String(new Date(`${priceValidUntil} GMT-0300`));
 
   const [front] = images ?? [];
 

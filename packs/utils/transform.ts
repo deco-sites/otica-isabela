@@ -355,46 +355,59 @@ const toPriceSpecification = (
 };
 
 const toBreadcrumbList = (
-  { NomeCategoriaPai, NomeCategoria, Nome, UrlFriendlyColor }: IsabelaProduct,
+  {
+    NomeCategoriaPai,
+    NomeCategoria,
+    UrlFriendlyCategoriaPai,
+    UrlFriendlyCategoria,
+  }: IsabelaProduct,
   baseURL: string,
 ): BreadcrumbList => {
-  const categories = toCategory([NomeCategoriaPai, NomeCategoria]).split(/[>]/);
+  const categories = !NomeCategoriaPai
+    ? [
+      {
+        name: NomeCategoria,
+        url: UrlFriendlyCategoriaPai,
+      },
+    ]
+    : [
+      {
+        name: NomeCategoriaPai,
+        url: UrlFriendlyCategoriaPai,
+      },
+      {
+        name: NomeCategoria,
+        url: UrlFriendlyCategoria,
+      },
+    ];
 
   return {
     "@type": "BreadcrumbList",
     itemListElement: [
-      ...categories.map((name, index) => ({
+      {
+        "@type": "ListItem" as const,
+        name: "Ótica Isabela Dias",
+        item: "/",
+        position: 1,
+      },
+      ...categories.map(({ name }, index) => ({
         "@type": "ListItem" as const,
         name,
         item: new URL(
           `/${
-            categories
-              .slice(0, index + 1)
-              .join("/")
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .replace(/\s+/g, "-")
+            Object.values(categories).slice(0, index + 1).map((c) => c.url!)
+              .join(
+                "/",
+              )
           }`,
           baseURL,
         ).href,
-        position: index + 1,
+        position: index + 2,
       })),
-      {
-        "@type": "ListItem",
-        name: Nome,
-        item: toProductCanonicalUrl(baseURL, UrlFriendlyColor).href,
-        position: categories.length + 1,
-      },
     ],
     numberOfItems: categories.length + 1,
   };
 };
-
-const toProductCanonicalUrl = (
-  baseURL: string,
-  productSlug: string,
-): URL => new URL(`/produto/${productSlug}`, baseURL);
 
 //<<---- ProductListiningPage ---->>
 
