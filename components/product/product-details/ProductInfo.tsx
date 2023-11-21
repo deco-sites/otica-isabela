@@ -1,12 +1,13 @@
-import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
-import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { formatPrice } from "$store/sdk/format.ts";
-import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
+import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
+import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
+import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
+import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 
 function ProductInfo({ page, promotions, buttonByCategory }: Props) {
   const { product, breadcrumbList } = page!;
@@ -31,8 +32,8 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
     (prop) => prop.propertyID === "flag",
   )?.value;
 
-  const promotion = promotions?.find((current) =>
-    current.label === promotionFlag
+  const promotion = promotions?.find(
+    (current) => current.label === promotionFlag,
   );
 
   const currentCategory = breadcrumbList?.itemListElement[0].name;
@@ -58,10 +59,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
           {name}
         </span>
         <div class="ml-2">
-          <WishlistButton
-            variant="icon"
-            productID={productID}
-          />
+          <WishlistButton variant="icon" productID={productID} />
         </div>
       </div>
 
@@ -127,9 +125,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
       {/* Choose Lens */}
       <div class="mt-[11px] w-full">
         <a href={chooseLensUrl}>
-          <button class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-[15px] min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
-            Escolher as Lentes
-          </button>
+          <ChooseLensButton {...addToCard} />
         </a>
       </div>
 
