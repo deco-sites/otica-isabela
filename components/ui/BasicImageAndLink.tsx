@@ -65,11 +65,13 @@ export const BasicImageAndLink = (
           media="(max-width: 983px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
+          height={40}
         />
         <Source
           media="(min-width: 984px)"
           src={src?.desktop ?? ""}
           width={width?.desktop ?? 0}
+          height={58}
         />
         {
           <img
