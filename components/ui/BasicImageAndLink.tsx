@@ -79,7 +79,7 @@ export const BasicImageAndLink = (
               !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
             }`}
             decoding="async"
-            loading="lazy"
+            loading="eager"
           />
         }
       </Picture>
