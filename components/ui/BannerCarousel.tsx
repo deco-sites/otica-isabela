@@ -113,7 +113,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
           </Slider.Item>
         ))}
       </Slider>
-      <div class=" absolute bottom-1 flex  w-full justify-center items-center gap-x-4">
+      <div class=" absolute bottom-3 flex  w-full justify-center items-center gap-x-4">
         {images?.map((_, index) => {
           return <Slider.Dot index={index} />;
         })}
