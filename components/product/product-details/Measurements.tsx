@@ -46,19 +46,13 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const aro = getProp("Aro");
 
   return (
-    <div class="w-full flex pt-8 items-center xl:gap-48 flex-wrap">
-      <div id="img" class="relative w-full xl:max-w-[550px]">
+    <div class="w-full flex pt-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
+      <div id="img" class="relative xl:max-w-[550px]">
         <div id="specs" class="font-bold font-roboto text-xs lg:text-base">
-          <SpecItem item={frente_total!} classes="left-[45%] top-[5%]" />
-          <SpecItem
-            item={altura!}
-            classes="right-0 bottom-[25%] xl:right-[-10%] xl:bottom-[50%]"
-          />
-          <SpecItem item={ponte!} classes="left-[47%] top-[50%]" />
-          <SpecItem
-            item={largura!}
-            classes="bottom-[12%] right-[26%]  lg:bottom-[10%] lg:right-[22%]"
-          />
+          <SpecItem item={frente_total!} classes="right-[45%]" />
+          <SpecItem item={altura!} classes="right-[3%] bottom-[50%] lg:right-[-10%]" />
+          <SpecItem item={ponte!} classes="left-[45%] bottom-[40%]" />
+          <SpecItem item={largura!} classes="right-[22%] bottom-[8%]" />
         </div>
         <Image
           src={image![0].url!}
@@ -68,7 +62,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
         />
         <Image
           src={measurementsImage}
-          class="absolute left-3 lg:left-4 top-0 z-10"
+          class="absolute left-2 lg:left-4 top-0 z-10"
           width={580}
           height={380}
           alt="medidas-do-oculos"
@@ -76,7 +70,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
       </div>
       <div
         id="measurements"
-        class="w-[95%] m-auto mt-2 lg:max-w-[390px] lg:mt-auto"
+        class="w-[95%] m-auto mt-2 lg:max-w-[390px] lg:mt-auto text-base"
       >
         <DescriptionItem item={altura!} />
         <DescriptionItem item={largura!} />
