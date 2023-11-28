@@ -73,6 +73,8 @@ function BannerTextButton(
             class="w-full rounded-lg"
             src={image?.mobile ?? image?.desktop}
             alt={image.alt}
+            decoding="async"
+            loading="lazy"
           />
         </Picture>
       </a>

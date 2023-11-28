@@ -71,13 +71,14 @@ export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
         {filteredChildren.map(({ desktopMenuImage, href, label }) =>
           desktopMenuImage?.src
             ? (
-              <a class="m-0 p-0" href={href}>
+              <a class="m-0 p-0" href={href} key={label}>
                 <div class="mx-2 flex flex-col justify-center items-center gap-y-4">
                   <Image
-                    class="rounded-[20px] object-cover	 p-0 max-2xl:w-[200px] h-[280px]"
+                    class="rounded-[20px] object-cover	p-0 max-2xl:w-[200px] h-[280px]"
                     src={desktopMenuImage.src}
                     alt={desktopMenuImage?.alt ?? "Dropdown menu image"}
                     width={280}
+                    height={280}
                   />
                   <div class="w-full text-center">
                     <span class="font-medium text-lg text-blue-200 uppercase">
