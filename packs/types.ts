@@ -314,3 +314,7 @@ export interface WishlistItem {
    */
   tempProp: boolean;
 }
+
+export interface AuthData {
+  customerName?: string;
+}
