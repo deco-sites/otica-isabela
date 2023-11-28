@@ -2,17 +2,22 @@ import { useComputed, useSignal } from "@preact/signals";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useWishlist } from "$store/packs/hooks/useWishlist.ts";
+import type { LoaderReturnType } from "$live/types.ts";
+import { AuthData } from "$store/packs/types.ts";
 
 interface Props {
   productID: string;
   variant?: "icon" | "full";
+  customer: LoaderReturnType<AuthData>;
 }
 
-function WishlistButton({ variant = "icon", productID }: Props) {
+function WishlistButton(
+  { variant = "icon", productID, customer }: Props,
+) {
   const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
 
-  /*  const isUserLoggedIn = Boolean(user.value?.email); */
+  const isUserLoggedIn = Boolean(customer.customerName);
   const inWishlist = false;
 
   return (
@@ -25,6 +30,11 @@ function WishlistButton({ variant = "icon", productID }: Props) {
       onClick={async (e) => {
         e.stopPropagation();
         e.preventDefault();
+
+        if (!isUserLoggedIn) {
+          window.location.href = "/identificacao";
+
+        }
 
         if (loading.value) {
           return;
