@@ -26,7 +26,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
 
   return {
     session: {
-      initSession: () => href(`${base}/InicioSessao?token=${token}&tipoRetorno=completo`),
+      initSession: () => href(`${base}/InicioSessao?token=${token}`),
     },
     product: {
       getProduct: (props: GetProductProps) => {

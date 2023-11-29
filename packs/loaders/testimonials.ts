@@ -46,7 +46,12 @@ const loader = async (
 
   const idproduto = slug
     ? await getProductIdBySlug(
-      path.product.getProduct({ offset: 1, ordenacao: "none", url: slug }),
+      path.product.getProduct({
+        offset: 1,
+        ordenacao: "none",
+        url: slug,
+        tipoRetorno: "simples",
+      }),
     )
     : undefined;
 

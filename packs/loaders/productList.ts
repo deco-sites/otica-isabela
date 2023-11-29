@@ -10,7 +10,7 @@ import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
  */
 
 const loader = async (
-  props: Omit<GetProductProps, "url" | "page">,
+  props: Omit<GetProductProps, "url" | "page" | "tipoRetorno">,
   _req: Request,
   ctx: AppContext,
 ): Promise<Product[] | null> => {
@@ -34,6 +34,7 @@ const loader = async (
       idColecaoProdutos: idColecaoProdutos ?? 0,
       somenteCronometrosAtivos: somenteCronometrosAtivos ?? false,
       id: id,
+      tipoRetorno: "simples",
     }),
     {
       method: "POST",

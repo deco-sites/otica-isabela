@@ -25,6 +25,7 @@ interface PLPPageParams {
       | "page"
       | "offset"
       | "ordenacao"
+      | "tipoRetorno"
     >
   >;
   plpProps: Omit<ProductListiningPageProps, "productsData" | "baseURL">;
@@ -32,7 +33,7 @@ interface PLPPageParams {
 
 type Props = Omit<
   GetProductProps,
-  "IdCategoria" | "IdSubCategoria" | "url" | "page"
+  "IdCategoria" | "IdSubCategoria" | "url" | "page" | "tipoRetorno"
 >;
 
 /**
@@ -69,6 +70,7 @@ const loaders = async (
   const products = await fetchAPI<ProductData>(
     path.product.getProduct({
       offset: offset,
+      tipoRetorno: "simples",
       ...pageParams.productApiProps,
       ...getSearchParams(url, ordenacao),
     }),
@@ -180,7 +182,7 @@ const getCategoryPageParams = async (
 const getSearchParams = (
   url: URL,
   sortBy?: GetProductProps["ordenacao"],
-): Omit<GetProductProps, "offset"> => {
+): Omit<GetProductProps, "offset" | "tipoRetorno"> => {
   const ordenacao =
     SORT_OPTIONS.find(({ value }) => value == url.searchParams.get("sort"))
       ?.value ??
