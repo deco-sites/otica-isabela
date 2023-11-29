@@ -191,7 +191,7 @@ export interface GetProductProps {
    * @description Paginação dos produtos */
   page?: number;
 
-  tipoRetorno?: "simples" | "completo";
+  tipoRetorno: "simples" | "completo";
 }
 
 export interface DynamicFilter {

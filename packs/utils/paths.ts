@@ -35,7 +35,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         );
 
         return href(
-          `${base}/Produtos?token=${token}&tipoRetorno=completo${dynamicFiltersString}`,
+          `${base}/Produtos?token=${token}${dynamicFiltersString}`,
           { ...props, filtrosDinamicos: undefined },
         );
       },

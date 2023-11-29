@@ -31,6 +31,7 @@ const loader = async (
       url: slug,
       offset: 1,
       ordenacao: "none",
+      tipoRetorno: "completo",
     }),
     {
       method: "POST",
