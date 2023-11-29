@@ -26,7 +26,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
 
   return {
     session: {
-      initSession: () => href(`${base}/InicioSessao?token=${token}&tipoRetorno=completo`),
+      initSession: () => href(`${base}/InicioSessao?token=${token}`),
     },
     product: {
       getProduct: (props: GetProductProps) => {
@@ -35,7 +35,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         );
 
         return href(
-          `${base}/Produtos?token=${token}${dynamicFiltersString}`,
+          `${base}/Produtos?token=${token}&tipoRetorno=completo${dynamicFiltersString}`,
           { ...props, filtrosDinamicos: undefined },
         );
       },
