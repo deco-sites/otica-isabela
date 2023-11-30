@@ -15,8 +15,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
     (prop) => prop.propertyID === "panel",
   );
 
-  console.log("aqui", additionalProperty);
-
   panels?.unshift(
     {
       "@type": "PropertyValue",
