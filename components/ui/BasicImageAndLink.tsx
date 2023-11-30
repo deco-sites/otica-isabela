@@ -25,7 +25,7 @@ export const BasicImageAndLink = (
           media="(max-width: 983px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
-          height={40}
+          height={50}
         />
         <Source
           media="(min-width: 984px)"
@@ -65,7 +65,7 @@ export const BasicImageAndLink = (
           media="(max-width: 983px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
-          height={40}
+          height={50}
         />
         <Source
           media="(min-width: 984px)"

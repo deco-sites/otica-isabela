@@ -1,5 +1,5 @@
-import Image from "deco-sites/std/components/Image.tsx";
 import { Product, PropertyValue } from "apps/commerce/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 interface Props {
   product: Product;
@@ -65,6 +65,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           width={550}
           height={307}
           alt="medidas"
+          loading="lazy"
         />
         <Image
           src={measurementsImage}
@@ -72,6 +73,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           width={580}
           height={380}
           alt="medidas-do-oculos"
+          loading="lazy"
         />
       </div>
       <div

@@ -1,6 +1,6 @@
-import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
-import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { Product } from "apps/commerce/types.ts";
+import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
+import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -14,6 +14,8 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
   );
+
+  console.log("aqui", additionalProperty);
 
   panels?.unshift(
     {
@@ -40,13 +42,13 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           #descricao-content > div > p:last-child {
             display: none
           }
-          
+
           #descricao-content > div > p {
             margin: 0 0 10px;
             font-size: 15px;
             font-weight: 400;
           }
-          
+
           #descricao-content p:nth-child(-n+7) > span {
             display: flex;
           }
@@ -54,18 +56,18 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           .collapse-content p:nth-child(-n+7) > span {
             display: flex;
           }
-          
+
           #descricao-content > div > p > span > img {
             height: 20px;
           }
-          
-          #como-fazemos-as-lentes-de-grau-content iframe, 
-          #como-comprar-content iframe { 
+
+          #como-fazemos-as-lentes-de-grau-content iframe,
+          #como-comprar-content iframe {
             width: 100%;
           }
           @media (min-width: 1140px) {
-            #como-fazemos-as-lentes-de-grau-content iframe, 
-            #como-comprar-content iframe { 
+            #como-fazemos-as-lentes-de-grau-content iframe,
+            #como-comprar-content iframe {
               height: 624px;
             }
           }
