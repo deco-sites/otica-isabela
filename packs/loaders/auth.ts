@@ -1,5 +1,8 @@
 import { getCookies } from "std/http/mod.ts";
-import { ISABELA_DIAS_NAME_COOKIE } from "$store/packs/constants.ts";
+import {
+  ISABELA_DIAS_NAME_COOKIE,
+  ISABELA_DIAS_IMAGE_COOKIE,
+} from "$store/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 /**
 @title Otica Isabela Dias - Customer
@@ -8,7 +11,10 @@ import { AuthData } from "$store/packs/types.ts";
 
 const loader = (_props: unknown, req: Request, _ctx: unknown): AuthData => {
   const cookies = getCookies(req.headers);
-  return { customerName: cookies[ISABELA_DIAS_NAME_COOKIE] };
+  return {
+    customerName: cookies[ISABELA_DIAS_NAME_COOKIE],
+    customerImage: cookies[ISABELA_DIAS_IMAGE_COOKIE],
+  };
 };
 
 export default loader;

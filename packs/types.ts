@@ -319,4 +319,5 @@ export interface WishlistItem {
 
 export interface AuthData {
   customerName?: string;
+  customerImage?: string
 }

@@ -2,6 +2,7 @@ import { SortOption } from "apps/commerce/types.ts";
 export const ISABELA_DIAS_SESSION_COOKIE = "IsabelaDias_SessionCustomerKey";
 export const ISABELA_DIAS_CLIENT_COOKIE = "IsabelaDias_CustomerKey";
 export const ISABELA_DIAS_NAME_COOKIE = "IsabelaDias_SessionCustomerName"
+export const ISABELA_DIAS_IMAGE_COOKIE = "IsabelaDias_SessionCustomerPhoto"
 export const SORT_OPTIONS: SortOption[] = [
   {
     value: "none",

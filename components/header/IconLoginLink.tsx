@@ -1,11 +1,12 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import { AuthData } from "$store/packs/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface IconLoginLinkProps {
   greetingText?: string;
   callToActionText?: string;
-  customer: LoaderReturnType<AuthData>;
+  customer?: LoaderReturnType<AuthData>;
 }
 
 export const IconLoginLink = (
@@ -13,16 +14,30 @@ export const IconLoginLink = (
 ) => {
   return (
     <a href={"/identificacao"} aria-label="Log in">
-      <div className="flex gap-x-2 items-center">
-        <Icon
-          id="User"
-          width={26}
-          height={24}
-          strokeWidth={0.4}
-          style={{ color: "#F8F8F8" }}
-        />
+      <div className="flex gap-x-2 items-center w-max">
+        {!customer?.customerImage
+          ? (
+            <Icon
+              id="User"
+              width={26}
+              height={24}
+              strokeWidth={0.4}
+              style={{ color: "#F8F8F8" }}
+            />
+          )
+          : (
+            <Image
+              src={customer?.customerImage}
+              alt="Icon"
+              width={26}
+              height={24}
+              style={{ color: "#F8F8F8" }}
+              loading="lazy"
+              class="rounded-full"
+            />
+          )}
 
-        {!customer.customerName
+        {!customer?.customerName
           ? (
             <div className="hidden lg:flex flex-col items-start text-white text-xs">
               <span className="hover:text-blue-200 whitespace-nowrap font-normal">
@@ -36,7 +51,7 @@ export const IconLoginLink = (
           : (
             <div className="hidden lg:flex flex-col items-start text-white text-xs">
               <span className="hover:text-blue-200 whitespace-nowrap font-normal">
-                OLÁ, {customer.customerName.toUpperCase()}!
+                OLÁ, {customer?.customerName.toUpperCase()}!
               </span>
             </div>
           )}
