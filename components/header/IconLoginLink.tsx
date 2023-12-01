@@ -1,32 +1,60 @@
 import Icon from "$store/components/ui/Icon.tsx";
+import type { LoaderReturnType } from "$live/types.ts";
+import { AuthData } from "$store/packs/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface IconLoginLinkProps {
   greetingText?: string;
   callToActionText?: string;
+  customer?: LoaderReturnType<AuthData>;
 }
 
 export const IconLoginLink = (
-  { greetingText, callToActionText }: IconLoginLinkProps,
+  { greetingText, callToActionText, customer }: IconLoginLinkProps,
 ) => {
   return (
     <a href={"/identificacao"} aria-label="Log in">
-      <div className="flex gap-x-2 items-center">
-        <Icon
-          id="User"
-          width={26}
-          height={24}
-          strokeWidth={0.4}
-          style={{ color: "#F8F8F8" }}
-        />
+      <div className="flex gap-x-2 items-center w-max">
+        {!customer?.customerImage
+          ? (
+            <Icon
+              id="User"
+              width={26}
+              height={24}
+              strokeWidth={0.4}
+              style={{ color: "#F8F8F8" }}
+            />
+          )
+          : (
+            <Image
+              src={customer?.customerImage}
+              alt="Icon"
+              width={26}
+              height={24}
+              style={{ color: "#F8F8F8" }}
+              loading="lazy"
+              class="rounded-full"
+            />
+          )}
 
-        <div className="hidden lg:flex flex-col   items-start text-white text-xs">
-          <span className="hover:text-blue-200 whitespace-nowrap font-normal">
-            {greetingText ?? "Olá, bem-vindo!"}
-          </span>
-          <span className="hover:text-blue-200 whitespace-nowrap font-semibold">
-            {callToActionText ?? "Login ou cadastre-se"}
-          </span>
-        </div>
+        {!customer?.customerName
+          ? (
+            <div className="hidden lg:flex flex-col items-start text-white text-xs">
+              <span className="hover:text-blue-200 whitespace-nowrap font-normal">
+                {greetingText ?? "Olá, bem-vindo!"}
+              </span>
+              <span className="hover:text-blue-200 whitespace-nowrap font-semibold">
+                {callToActionText ?? "Login ou cadastre-se"}
+              </span>
+            </div>
+          )
+          : (
+            <div className="hidden lg:flex flex-col items-start text-white text-xs">
+              <span className="hover:text-blue-200 whitespace-nowrap font-normal">
+                OLÁ, {customer?.customerName.toUpperCase()}!
+              </span>
+            </div>
+          )}
       </div>
     </a>
   );
