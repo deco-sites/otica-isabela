@@ -21,13 +21,13 @@ export const BasicImageAndLink = ({ alt, href, src, width, height }: Props) => {
     return (
       <Picture class="w-full">
         <Source
-          media="(max-width: 983px)"
+          media="(max-width: 992px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
           height={height?.mobile ?? 0}
         />
         <Source
-          media="(min-width: 984px)"
+          media="(min-width: 993px)"
           src={src?.desktop ?? ""}
           width={width?.desktop ?? 0}
           height={height?.desktop ?? 0}
@@ -61,13 +61,13 @@ export const BasicImageAndLink = ({ alt, href, src, width, height }: Props) => {
     >
       <Picture>
         <Source
-          media="(max-width: 983px)"
+          media="(max-width: 992px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
           height={height?.mobile ?? 0}
         />
         <Source
-          media="(min-width: 984px)"
+          media="(min-width: 993px)"
           src={src?.desktop ?? ""}
           width={width?.desktop ?? 0}
           height={height?.desktop ?? 0}
