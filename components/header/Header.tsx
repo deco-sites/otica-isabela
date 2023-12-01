@@ -71,7 +71,10 @@ function Header({
         </div>
         {activate && (
           <div class="flex items-center justify-center">
-            <BasicImageAndLink {...image} />
+            <BasicImageAndLink
+              {...image}
+              height={{ desktop: 32, mobile: 32 }}
+            />
           </div>
         )}
         <Navbar
