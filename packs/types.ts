@@ -343,3 +343,8 @@ export interface WishlistItem {
   Imagens?: string
   Classificacoes?: ProductInfo[]
 }
+
+export interface AuthData {
+  customerName?: string;
+  customerImage?: string
+}

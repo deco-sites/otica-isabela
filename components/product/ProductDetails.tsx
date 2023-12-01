@@ -12,6 +12,7 @@ import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
+import { AuthData } from "$store/packs/types.ts";
 
 type ButtonLabel = {
   category: string;
@@ -38,6 +39,8 @@ export interface Props {
 
   /** Label dos Botões por Categoria */
   buttonByCategory?: ButtonLabel[];
+
+  customer: LoaderReturnType<AuthData>;
 }
 
 function ProductDetails({
@@ -45,6 +48,7 @@ function ProductDetails({
   measurementsImage,
   promotions,
   buttonByCategory,
+  customer
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
@@ -67,6 +71,7 @@ function ProductDetails({
                 page={page}
                 promotions={promotions}
                 buttonByCategory={buttonByCategory}
+                customer={customer}
               />
             )
             : <NotFound />}
