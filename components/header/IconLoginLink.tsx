@@ -12,28 +12,29 @@ export interface IconLoginLinkProps {
 export const IconLoginLink = (
   { greetingText, callToActionText, customer }: IconLoginLinkProps,
 ) => {
+  const isLogged = !!customer?.customerName;
   return (
     <a href={"/identificacao"} aria-label="Log in">
       <div className="flex gap-x-2 items-center w-max">
-        {!customer?.customerImage
+        {isLogged && !!customer?.customerImage
           ? (
-            <Icon
-              id="User"
-              width={26}
-              height={24}
-              strokeWidth={0.4}
-              style={{ color: "#F8F8F8" }}
-            />
-          )
-          : (
             <Image
-              src={customer?.customerImage}
+              src={customer!.customerImage}
               alt="Icon"
               width={26}
               height={24}
               style={{ color: "#F8F8F8" }}
               loading="lazy"
               class="rounded-full"
+            />
+          )
+          : (
+            <Icon
+              id="User"
+              width={26}
+              height={24}
+              strokeWidth={0.4}
+              style={{ color: "#F8F8F8" }}
             />
           )}
 

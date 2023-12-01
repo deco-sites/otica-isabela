@@ -18,7 +18,7 @@ function WishlistButton(
   const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
 
-  const isUserLoggedIn = Boolean(customer.customerName);
+  const isUserLoggedIn = Boolean(customer?.customerName);
   const inWishlist = false;
 
   return (
