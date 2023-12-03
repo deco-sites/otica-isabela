@@ -126,7 +126,7 @@ const setup = ({
     slider.scrollTo({
       top: 0,
       behavior: scroll,
-      left: item.offsetLeft - root.offsetLeft,
+      left: item.offsetLeft,
     });
   };
 
