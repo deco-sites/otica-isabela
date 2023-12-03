@@ -40,7 +40,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory }: Props) {
+function Details({ page, promotions, buttonByCategory, customer }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -122,7 +122,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton productID={productID} />
+          <WishlistButton productID={productID} customer={customer}/>
         </div>
         <ToExperimentButton
           image={experimenterImage!}
@@ -256,6 +256,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
             page={page}
             promotions={promotions}
             buttonByCategory={buttonByCategory}
+            customer={customer}
           />
         </div>
       </div>

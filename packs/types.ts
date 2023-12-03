@@ -60,19 +60,19 @@ export interface Product {
   DescricaoSeo?: string;
   KeywordsSeo: string;
   TituloSeo?: string;
-  TagH1: string;
-  TagH2: string;
-  TagH3: string;
+  TagH1?: string;
+  TagH2?: string;
+  TagH3?: string;
   IdSku: number;
   ValorOriginal: number;
   ValorDesconto: number;
-  ValorParcelamento: string;
+  ValorParcelamento?: string;
   OfertaSeraLiberada: string;
   OfertaTermina: string;
   OfertaFlag?: string;
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
-  Paineis: Panels[];
+  Paineis?: Panels[];
   Imagens: Image[];
   ImagemExperimentador: string;
   UrlFriendlyColor: string;
@@ -190,6 +190,8 @@ export interface GetProductProps {
    * @title Pagina
    * @description Paginação dos produtos */
   page?: number;
+
+  tipoRetorno: "simples" | "completo";
 }
 
 export interface DynamicFilter {
@@ -313,4 +315,9 @@ export interface WishlistItem {
    * TODO: Type Wishlist API Return
    */
   tempProp: boolean;
+}
+
+export interface AuthData {
+  customerName?: string;
+  customerImage?: string
 }
