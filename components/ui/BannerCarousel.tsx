@@ -1,10 +1,9 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import { useId } from "preact/hooks";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useId } from "preact/hooks";
 
 /**
  * @titleBy alt
@@ -39,18 +38,10 @@ export interface Props {
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
+  const { alt, mobile, desktop, action } = image;
 
   return (
-    <a
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
-    >
+    <a href={action?.href ?? "#"} aria-label={action?.label}>
       <Picture preload={lcp}>
         <Source
           media="(max-width: 767px)"
@@ -110,9 +101,9 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
+      class="relative grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
     >
-      <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
+      <Slider class="carousel relative carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (
           <Slider.Item
             index={index}
@@ -122,14 +113,14 @@ function BannerCarousel({ images, preload, interval }: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
+      <div class=" absolute bottom-3 flex  w-full justify-center items-center gap-x-4">
+        {images?.map((_, index) => {
+          return <Slider.Dot index={index} />;
+        })}
+      </div>
       <Buttons />
 
-      <SliderJS
-        rootId={id}
-        interval={interval && interval * 1e3}
-        infinite
-      />
+      <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
   );
 }

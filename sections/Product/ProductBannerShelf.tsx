@@ -10,9 +10,18 @@ import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 
 export interface BannersProps {
+  /** @title Identificação do Banner */
   label: string;
+
+  /** @title URL do Banner */
+  /** @description Caminho para onde o usuário será redirecionado ao clicar no banner */
   href?: string;
+
+  /** @title Texto do Botão */
+  /** @description Texto que será exibido no botão que será adicionado por cima da imagem */
   buttonLabel?: string;
+
+  /** @title Imagem */
   image: LiveImage;
 }
 
@@ -58,7 +67,7 @@ function ProductBannerShelf({
                         loading="lazy"
                       />
                       {buttonLabel && (
-                        <button class="absolute border-orange-600 border rounded-md pr-14 pl-14 pt-1 pb-1 left-[4.5rem] bottom-[1rem] text-orange-600">
+                        <button class="absolute translate-x-[-50%] whitespace-nowrap border-orange-600 border rounded-md px-14 py-2 left-[50%] bottom-[1rem] text-orange-600 hover:text-white hover:bg-orange-600 transition-all duration-300 ease-in-out text-sm">
                           {buttonLabel}
                         </button>
                       )}

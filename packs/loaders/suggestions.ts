@@ -41,6 +41,7 @@ const loader = async (
         nome,
         offset,
         ordenacao: "none",
+        tipoRetorno: "simples",
       })
     }`,
     {

@@ -47,8 +47,8 @@ interface ToAdditionalPropertiesProps {
   properties: ProductInfo[];
   variants: ColorVariants[];
   experimentador: string;
-  panels: Panels[];
   rating: number;
+  panels?: Panels[];
   flag?: string;
 }
 
@@ -57,7 +57,7 @@ interface ToOfferProps {
   discountedValue: number;
   priceValidUntil: string;
   stock: number;
-  installment: string;
+  installment?: string;
 }
 
 interface ToDefaultPropertiesProps {
@@ -114,7 +114,7 @@ export function toProduct(product: IsabelaProduct): Product {
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai, NomeCategoria]),
     sku: `${IdSku}`,
-    description: Paineis.find((p) => p.IdTipoPainel == 11)?.Descricao ??
+    description: Paineis?.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
     image: toImage(Imagens, Nome),
     additionalProperty: toAdditionalProperties({
@@ -199,13 +199,13 @@ const toAdditionalProperties = (
       "name": item.Nome,
       "value": item.Tipo,
     })),
-    ...panels.filter(({ IdTipoPainel }) => IdTipoPainel != 11).map((p) => ({
+    ...panels?.filter(({ IdTipoPainel }) => IdTipoPainel != 11).map((p) => ({
       "@type": "PropertyValue" as const,
       "name": p.TipoPainel,
       "value": p.Descricao,
       "propertyID": "panel",
       "unitCode": `${p.IdTipoPainel}`,
-    })),
+    })) ?? [],
     ...toDefaultProperties([
       { id: "experimentador", value: experimentador },
       { id: "rating", value: String(rating.toFixed(1)) },
@@ -314,17 +314,11 @@ const toOffer = (
 const toPriceSpecification = (
   price: number,
   listPrice: number,
-  installment: string,
+  installment?: string,
 ): UnitPriceSpecification[] => {
-  const match = installment.match(/(\d+)x de ([\d,]+)/);
+  const match = installment?.match(/(\d+)x de ([\d,]+)/) ?? null;
 
-  if (!match) return [];
-  const installmentsQty = parseInt(match[1], 10);
-
-  const installmentPrices = Array.from(
-    { length: installmentsQty },
-    (_v, i) => Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
-  );
+  const installments = match ? toInstallments(price, match) : [];
 
   return [
     {
@@ -337,21 +331,35 @@ const toPriceSpecification = (
       priceType: "https://schema.org/SalePrice",
       price,
     },
-    ...installmentPrices.map((value, i): UnitPriceSpecification => {
-      const [description, billingIncrement] = !i
-        ? ["À vista", price]
-        : [i + 1 + " vezes sem juros", value];
-      return {
-        "@type": "UnitPriceSpecification",
-        priceType: "https://schema.org/SalePrice",
-        priceComponentType: "https://schema.org/Installment",
-        description,
-        billingDuration: i + 1,
-        billingIncrement,
-        price,
-      };
-    }),
+    ...installments,
   ];
+};
+
+const toInstallments = (
+  price: number,
+  match: RegExpMatchArray,
+): UnitPriceSpecification[] => {
+  const installmentsQty = parseInt(match[1], 10);
+
+  const installmentPrices = Array.from(
+    { length: installmentsQty },
+    (_v, i) => Number((Math.floor(price / (i + 1) * 100) / 100).toFixed(2)),
+  );
+
+  return installmentPrices.map((value, i): UnitPriceSpecification => {
+    const [description, billingIncrement] = !i
+      ? ["À vista", price]
+      : [i + 1 + " vezes sem juros", value];
+    return {
+      "@type": "UnitPriceSpecification",
+      priceType: "https://schema.org/SalePrice",
+      priceComponentType: "https://schema.org/Installment",
+      description,
+      billingDuration: i + 1,
+      billingIncrement,
+      price,
+    };
+  });
 };
 
 const toBreadcrumbList = (

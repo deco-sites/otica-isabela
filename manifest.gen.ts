@@ -12,8 +12,9 @@ import * as $$$6 from "./loaders/product/productListiningPage.ts";
 import * as $$$7 from "./loaders/product/suggestions.ts";
 import * as $$$8 from "./loaders/product/testimonials.ts";
 import * as $$$9 from "./loaders/product/wishlist.ts";
-import * as $$$10 from "./loaders/store/newsletter.ts";
-import * as $$$11 from "./loaders/store/session.ts";
+import * as $$$10 from "./loaders/store/auth.ts";
+import * as $$$11 from "./loaders/store/newsletter.ts";
+import * as $$$12 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryText.tsx";
 import * as $$$$$$2 from "./sections/Content/About.tsx";
@@ -61,8 +62,9 @@ const manifest = {
     "deco-sites/otica-isabela/loaders/product/suggestions.ts": $$$7,
     "deco-sites/otica-isabela/loaders/product/testimonials.ts": $$$8,
     "deco-sites/otica-isabela/loaders/product/wishlist.ts": $$$9,
-    "deco-sites/otica-isabela/loaders/store/newsletter.ts": $$$10,
-    "deco-sites/otica-isabela/loaders/store/session.ts": $$$11,
+    "deco-sites/otica-isabela/loaders/store/auth.ts": $$$10,
+    "deco-sites/otica-isabela/loaders/store/newsletter.ts": $$$11,
+    "deco-sites/otica-isabela/loaders/store/session.ts": $$$12,
   },
   "sections": {
     "deco-sites/otica-isabela/sections/Category/CategoryBanner.tsx": $$$$$$0,

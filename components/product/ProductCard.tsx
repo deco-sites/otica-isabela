@@ -41,10 +41,10 @@ export interface Layout {
 
 interface Props {
   product: Product;
-  /** Preload card image */
+  /** Pré carregar imagem do card */
   preload?: boolean;
   carouselImage?: boolean;
-  /** @description used for analytics event */
+  /** @description usado para eventos do analytics */
   itemListName?: string;
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
@@ -75,7 +75,6 @@ function ProductCard({
 
   const id = `product-card-${productID}`;
   const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
-  const stopWatchDate = String(new Date(`${priceValidUntil} GMT-0300`));
 
   const [front] = images ?? [];
 
