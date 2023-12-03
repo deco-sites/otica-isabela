@@ -198,12 +198,14 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         </div>
 
         {/* Ratings - Mobile */}
-        <div class="flex flex-col items-center my-8 lg:hidden">
-          <a href="#product-review" class="text-center">
-            <Ratings ratingValue={ratingValue} />
-            <p class="text-lg font-bold">Veja as avaliações</p>
-          </a>
-        </div>
+        {!!ratingValue && (
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <a href="#product-review" class="text-center">
+              <Ratings ratingValue={ratingValue} />
+              <p class="text-lg font-bold">Veja as avaliações</p>
+            </a>
+          </div>
+        )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
