@@ -311,10 +311,37 @@ export interface APIAddNewsletter {
 }
 
 export interface WishlistItem {
-  /**
-   * TODO: Type Wishlist API Return
-   */
-  tempProp: boolean;
+  IdProduct: number
+  Nome: string
+  ValorOriginal: number
+  ValorDesconto: number
+  OfertaSeraLiberada?: string
+  OfertaTermina?: string
+  PorcentagemDesconto: number
+  ProdutosMaisCores: ColorVariants[]
+  Imagem: string
+  ImagemExperimentador: string
+  UrlFriendlyColor: string
+  Altura: string
+  Largura: string
+  Ponte: string
+  Hastes: string
+  FrenteTotal: string
+  Aro: string
+  ArmacaoGratis: boolean
+  ValorArmacaoSeComprarLentes: number
+  Codigo: string
+  IdSku: number
+  Tamanho: string
+  DescricaoSeo?: string
+  KeywordsSeo?: string
+  TituloSeo?: string
+  TagH1?: string
+  TagH2?: string
+  TagH3?: string
+  Paineis?: string
+  Imagens?: string
+  Classificacoes?: ProductInfo[]
 }
 
 export interface AuthData {
