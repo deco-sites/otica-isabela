@@ -85,6 +85,10 @@ const paths = ({ token, publicUrl }: StoreProps) => {
           idProduto: idProduct,
           idClienteSessao: clientSession,
         }),
+      getWishlist: (clientSession: number) =>
+        href(`${base}/DadosFavoritoProduto?token=${token}`, {
+          idClienteSessao: clientSession,
+        }),
     },
   };
 };

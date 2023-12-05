@@ -1,4 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
+import type { BreadcrumbList } from "apps/commerce/types.ts";
 
 export type Props = {
   pageInfo: {
@@ -8,17 +9,36 @@ export type Props = {
     records?: number;
     recordPerPage?: number;
   };
+  breadcrumb: BreadcrumbList;
 };
 
-export default function Pagination({ pageInfo }: Props) {
+interface PageParams {
+  page: number;
+  href: string;
+}
+
+export default function Pagination({ pageInfo, breadcrumb }: Props) {
+  const { nextPage, previousPage } = pageInfo;
   const firstPage = 1;
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
-  const eachPageList = Array.from(
+  const pageParams =
+    new URL(breadcrumb.itemListElement.pop()!.item).searchParams;
+
+  const eachPageParams: PageParams[] = Array.from(
     { length: Number(totalPages) },
-    (value, i) => i,
+    (_value, i) => {
+      pageParams.set(
+        "page",
+        `${i + 1}`,
+      );
+      return {
+        page: i + 1,
+        href: pageParams.toString(),
+      };
+    },
   );
   const currentPage = pageInfo.currentPage + 1;
   const nextPageNumber = currentPage + 1;
@@ -32,16 +52,16 @@ export default function Pagination({ pageInfo }: Props) {
   function SimplePagination() {
     return (
       <>
-        {eachPageList.map((page) => (
+        {eachPageParams.map(({ page, href }) => (
           <a
-            aria-label={`pagina ${page + 1}`}
+            aria-label={`pagina ${page}`}
             rel="page"
-            href={`?page=${page + 1}`}
+            href={`?${href}`}
             class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
 		  ${currentPage === page ? "bg-blue-200 border-blue-200 text-white" : ""}
 		`}
           >
-            {page + 1}
+            {page}
           </a>
         ))}
       </>
@@ -55,7 +75,7 @@ export default function Pagination({ pageInfo }: Props) {
           <a
             aria-label="primeira pagina"
             rel="first"
-            href={`?page=${firstPage}`}
+            href={`?${eachPageParams[0].href}`}
             class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
 		  ${currentPage === firstPage ? "bg-blue-200 text-white" : ""}
 		`}
@@ -68,11 +88,11 @@ export default function Pagination({ pageInfo }: Props) {
             ...
           </div>
         )}
-        {pageInfo.previousPage && (
+        {previousPage && (
           <a
             aria-label="pagina anterior"
             rel="prev"
-            href={pageInfo.previousPage}
+            href={previousPage}
             class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {prevPageNumber}
@@ -81,11 +101,11 @@ export default function Pagination({ pageInfo }: Props) {
         <span class="w-10 h-10 bg-blue-200 text-white rounded-[9px] flex items-center justify-center text-sm font-bold">
           {currentPage}
         </span>
-        {pageInfo.nextPage && (
+        {nextPage && (
           <a
             aria-label="proxima pagina"
             rel="next"
-            href={pageInfo.nextPage}
+            href={nextPage}
             class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {nextPageNumber}
@@ -100,7 +120,7 @@ export default function Pagination({ pageInfo }: Props) {
           <a
             aria-label="ultima pagina"
             rel="last"
-            href={`?page=${lastPage}`}
+            href={`?${eachPageParams.pop()?.href}`}
             class={`w-10 h-10 border text-black border-black rounded-[9px] flex items-center justify-center text-sm font-bold
 		  ${currentPage === lastPage ? "bg-blue-200 text-white" : ""}
 		`}
@@ -114,23 +134,23 @@ export default function Pagination({ pageInfo }: Props) {
 
   return (
     <div class="flex justify-center my-5 gap-[10px]">
-      {pageInfo.previousPage && (
+      {previousPage && (
         <a
           aria-label="pagina anterior"
           rel="prev"
-          href={pageInfo.previousPage}
-          disabled={!pageInfo.previousPage}
+          href={previousPage}
+          disabled={!previousPage}
           class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
         >
           <Icon id="ChevronLeft" size={20} strokeWidth={3} />
         </a>
       )}
       {!moreThanSevenPages ? <SimplePagination /> : <PaginationWithSpread />}
-      {pageInfo.nextPage && (
+      {nextPage && (
         <a
           aria-label="proxima pagina"
           rel="next"
-          href={pageInfo.nextPage}
+          href={nextPage}
           class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
         >
           <Icon

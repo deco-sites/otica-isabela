@@ -30,6 +30,10 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
     },
   );
 
+  const test = document.getElementById("tab-content-image");
+
+  console.log(test);
+
   return (
     <div class="hidden lg:block border-t border-gray-200 mt-8">
       <style
@@ -116,6 +120,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 )
                 : (
                   <div
+                    id="tab-content-image"
                     class="p-3"
                     dangerouslySetInnerHTML={{ __html: value! }}
                   >

@@ -7,7 +7,7 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="inline-flex items-baseline">
+    <ul class="inline-flex justify-center items-baseline flex-wrap whitespace-nowrap mx-2">
       {itemListElement
         .filter(({ name, item }) => name && item)
         .map(({ name, item }, index) => (

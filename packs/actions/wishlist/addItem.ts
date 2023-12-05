@@ -19,20 +19,18 @@ export default async function loader(
 ): Promise<WishlistItem[]> {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
-  const clientToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
+  const customerToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
 
-  if (!clientToken) {
+  if (!customerToken) {
     return [];
   }
 
   const { idProduct } = props;
 
-  const wishlistWithProduct = await fetchAPI<boolean>(
-    path.wishlist.addWishlist(idProduct, Number(clientToken)),
+  const wishlist = await fetchAPI<WishlistItem[]>(
+    path.wishlist.addWishlist(idProduct, Number(customerToken)),
     { method: "POST" },
   );
 
-  return [{
-    tempProp: wishlistWithProduct,
-  }];
+  return wishlist;
 }

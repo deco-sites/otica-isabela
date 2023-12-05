@@ -1,6 +1,7 @@
 import ProductCard from "$store/components/product/ProductCard.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useId } from "preact/hooks";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
@@ -18,6 +19,33 @@ export interface Props {
   isStopwatchEnabled?: boolean;
 }
 
+function Buttons() {
+  return (
+    <>
+      <div class="flex items-center justify-start z-10 absolute top-2/4 -left-2">
+        <Slider.PrevButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tr-3xl rounded-br-3xl cursor-pointer">
+          <Icon
+            size={35}
+            class="text-base-300"
+            id="ChevronLeft"
+            strokeWidth={3}
+          />
+        </Slider.PrevButton>
+      </div>
+      <div class="flex items-center justify-end z-10 absolute top-2/4 -right-2">
+        <Slider.NextButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tl-3xl rounded-bl-3xl pl-2 cursor-pointer">
+          <Icon
+            size={35}
+            class="text-base-300"
+            id="ChevronRight"
+            strokeWidth={3}
+          />
+        </Slider.NextButton>
+      </div>
+    </>
+  );
+}
+
 function ProductShelf({
   products,
   itemListName,
@@ -32,7 +60,7 @@ function ProductShelf({
 
   return (
     <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
-      <div id={id} class="container flex flex-col px-0 sm:px-5">
+      <div id={id} class="container flex flex-col px-0 sm:px-5 relative">
         <Slider class="carousel carousel-center sm:carousel-end gap-4 md:gap-6 col-span-full sm:px-0 px-2.5">
           {products?.map((product, index) => (
             <Slider.Item
@@ -47,6 +75,8 @@ function ProductShelf({
             </Slider.Item>
           ))}
         </Slider>
+
+        <Buttons />
 
         <SendEventOnLoad
           event={{
