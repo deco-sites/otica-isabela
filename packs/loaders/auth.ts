@@ -1,7 +1,7 @@
 import { getCookies } from "std/http/mod.ts";
 import {
-  ISABELA_DIAS_NAME_COOKIE,
   ISABELA_DIAS_IMAGE_COOKIE,
+  ISABELA_DIAS_NAME_COOKIE,
 } from "$store/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 /**

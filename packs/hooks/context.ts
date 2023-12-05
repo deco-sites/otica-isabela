@@ -20,7 +20,7 @@ const context = {
 let queue = Promise.resolve();
 let abort = () => {};
 const enqueue = (
-  cb: (signal: AbortSignal) => Promise<Partial<Context>> | Partial<Context>
+  cb: (signal: AbortSignal) => Promise<Partial<Context>> | Partial<Context>,
 ) => {
   abort();
 
@@ -62,7 +62,7 @@ const load = async (signal: AbortSignal) => {
         key: "deco-sites/otica-isabela/loaders/product/wishlist.ts",
       },
     },
-    { signal }
+    { signal },
   );
 
   return {
@@ -76,7 +76,7 @@ if (IS_BROWSER) {
 
   document.addEventListener(
     "visibilitychange",
-    () => document.visibilityState === "visible" && enqueue(load)
+    () => document.visibilityState === "visible" && enqueue(load),
   );
 }
 

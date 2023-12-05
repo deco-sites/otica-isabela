@@ -9,7 +9,6 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 
-
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
   itemListName?: string;
@@ -46,7 +45,6 @@ function Buttons() {
     </>
   );
 }
-
 
 function ProductShelf({
   products,

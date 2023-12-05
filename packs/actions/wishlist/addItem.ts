@@ -32,5 +32,5 @@ export default async function loader(
     { method: "POST" },
   );
 
-  return wishlist
+  return wishlist;
 }

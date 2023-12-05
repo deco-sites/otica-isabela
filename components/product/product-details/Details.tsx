@@ -122,7 +122,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton productID={productID} customer={customer}/>
+          <WishlistButton productID={productID} customer={customer} />
         </div>
         <ToExperimentButton
           image={experimenterImage!}

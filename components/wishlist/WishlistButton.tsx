@@ -18,10 +18,9 @@ function WishlistButton(
   const fetching = useSignal(false);
 
   const isUserLoggedIn = !!customer?.customerName;
-  const inWishlist =
-    !!Object.values(wishlist?.value).filter((product) =>
-      product?.IdProduct === Number(productID)
-    )!.length;
+  const inWishlist = !!Object.values(wishlist?.value).filter((product) =>
+    product?.IdProduct === Number(productID)
+  )!.length;
 
   return (
     <Button
@@ -57,7 +56,7 @@ function WishlistButton(
         id="Heart"
         size={35}
         strokeWidth={1}
-        fill={inWishlist ? "black" : "none"} 
+        fill={inWishlist ? "black" : "none"}
       />
     </Button>
   );
