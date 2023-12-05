@@ -40,7 +40,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory }: Props) {
+function Details({ page, promotions, buttonByCategory, customer }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -120,7 +120,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton productID={productID} />
+          <WishlistButton productID={productID} customer={customer}/>
         </div>
         <ToExperimentButton
           image={experimenterImage!}
@@ -199,12 +199,14 @@ function Details({ page, promotions, buttonByCategory }: Props) {
         </div>
 
         {/* Ratings - Mobile */}
-        <div class="flex flex-col items-center my-8 lg:hidden">
-          <a href="#product-review" class="text-center">
-            <Ratings ratingValue={ratingValue} />
-            <p class="text-lg font-bold">Veja as avaliações</p>
-          </a>
-        </div>
+        {!!ratingValue && (
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <a href="#product-review" class="text-center">
+              <Ratings ratingValue={ratingValue} />
+              <p class="text-lg font-bold">Veja as avaliações</p>
+            </a>
+          </div>
+        )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
@@ -257,6 +259,7 @@ function Details({ page, promotions, buttonByCategory }: Props) {
             page={page}
             promotions={promotions}
             buttonByCategory={buttonByCategory}
+            customer={customer}
           />
         </div>
       </div>

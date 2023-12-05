@@ -34,6 +34,7 @@ export const IconNavigation = ({ items }: Props) => {
               width={26}
               height={24}
               strokeWidth={0.4}
+              class="text-white"
             />
             <span class=" hidden lg:flex text-white text-xs group-hover:text-blue-200 font-normal whitespace-nowrap">
               {title}

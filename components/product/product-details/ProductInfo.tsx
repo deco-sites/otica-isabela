@@ -9,7 +9,7 @@ import Ratings from "deco-sites/otica-isabela/components/product/product-details
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 
-function ProductInfo({ page, promotions, buttonByCategory }: Props) {
+function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -59,7 +59,11 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
           {name}
         </span>
         <div class="ml-2">
-          <WishlistButton variant="icon" productID={productID} />
+          <WishlistButton
+            variant="icon"
+            productID={productID}
+            customer={customer}
+          />
         </div>
       </div>
 
@@ -89,7 +93,7 @@ function ProductInfo({ page, promotions, buttonByCategory }: Props) {
         </div>
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          {ratingValue && (
+          {!!ratingValue && (
             <a href="#product-review">
               <Ratings ratingValue={ratingValue} />
             </a>
