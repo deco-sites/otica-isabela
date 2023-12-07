@@ -74,6 +74,7 @@ function Header({
             <BasicImageAndLink
               {...image}
               height={{ desktop: 32, mobile: 32 }}
+              width={{ desktop: 0, mobile: 0 }}
             />
           </div>
         )}
