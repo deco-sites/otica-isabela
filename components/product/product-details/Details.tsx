@@ -253,7 +253,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
           </div>
         </div>
 
-        {/* Product Info - Desktop */}
+        {/* Product Details - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
           <ProductInfo
             page={page}

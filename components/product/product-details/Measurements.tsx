@@ -75,7 +75,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
       </div>
       <div
         id="measurements"
-        class="w-[95%] m-auto mt-2 lg:max-w-[390px] lg:mt-auto text-base"
+        class="w-[95%] m-auto mt-2 lg:max-w-[246px] lg:mt-auto text-base"
       >
         <DescriptionItem item={altura!} />
         <DescriptionItem item={largura!} />

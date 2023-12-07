@@ -30,10 +30,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
     },
   );
 
-  const test = document.getElementById("tab-content-image");
-
-  console.log(test);
-
   return (
     <div class="hidden lg:block border-t border-gray-200 mt-8">
       <style
@@ -105,6 +101,13 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .toLocaleLowerCase()
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
+
+          const pattern = /width="\d+" height="\d+"/g;
+          const newValue = value
+            ?.replace(/<img/g, '<img loading="lazy" ')
+            ?.replace(pattern, ' width="500" height="500"')
+            .replace(/<iframe/g, '<iframe loading="lazy" ');
+
           return (
             <div
               id={`${id}-content`}
@@ -120,9 +123,8 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 )
                 : (
                   <div
-                    id="tab-content-image"
                     class="p-3"
-                    dangerouslySetInnerHTML={{ __html: value! }}
+                    dangerouslySetInnerHTML={{ __html: newValue! }}
                   >
                   </div>
                 )}

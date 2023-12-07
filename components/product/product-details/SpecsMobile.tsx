@@ -1,6 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { Product } from "apps/commerce/types.ts";
+import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -36,7 +36,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
         type="text/css"
         dangerouslySetInnerHTML={{
           __html: `
-          .collapse-content iframe { 
+          .collapse-content iframe {
             width: 100%;
           }
 
@@ -52,6 +52,12 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             .toLocaleLowerCase()
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
+
+          const pattern = /width="\d+" height="\d+"/g;
+          const newValue = value
+            ?.replace(/<img/g, '<img loading="lazy" ')
+            ?.replace(pattern, ' width="382" height="382"')
+            .replace(/<iframe/g, '<iframe loading="lazy" ');
 
           return (
             <div class="collapse rounded-none">
@@ -74,7 +80,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
                   : (
                     <div
                       class="p-3"
-                      dangerouslySetInnerHTML={{ __html: value! }}
+                      dangerouslySetInnerHTML={{ __html: newValue! }}
                     >
                     </div>
                   )}
