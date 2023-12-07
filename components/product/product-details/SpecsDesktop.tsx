@@ -102,10 +102,16 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          const pattern = /width="\d+" height="\d+"/g;
           const newValue = value
             ?.replace(/<img/g, '<img loading="lazy" ')
-            ?.replace(pattern, ' width="500" height="500"')
+            ?.replace(
+              /style="width: 20px !important;"/g,
+              'width="20" height="20" ',
+            )
+            ?.replace(
+              /alt="" width="700" height="700"/g,
+              'alt="acessorios inclusos" width="500" height="500"',
+            )
             .replace(/<iframe/g, '<iframe loading="lazy" ');
 
           return (

@@ -56,7 +56,14 @@ function SpecsMobile({ product, measurementsImage }: Props) {
           const pattern = /width="\d+" height="\d+"/g;
           const newValue = value
             ?.replace(/<img/g, '<img loading="lazy" ')
-            ?.replace(pattern, ' width="382" height="382"')
+            ?.replace(
+              /style="width: 20px !important;"/g,
+              'width="20" height="20" ',
+            )
+            ?.replace(
+              /alt="" width="700" height="700"/g,
+              'alt="acessorios inclusos" width="382" height="382"',
+            )
             .replace(/<iframe/g, '<iframe loading="lazy" ');
 
           return (
