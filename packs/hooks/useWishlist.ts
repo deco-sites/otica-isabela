@@ -10,11 +10,12 @@ const wrap = <T>(
   action: (
     props?: T,
     init?: RequestInit | undefined,
-  ) => Promise<WishlistItem[] | null>,
+  ) => Promise<WishlistItem[]>,
 ) =>
 (props?: T) =>
   storeState.enqueue(async (signal) => ({
     wishlist: await action(props, { signal }),
+    loading: false,
   }));
 
 const addItem = wrap(

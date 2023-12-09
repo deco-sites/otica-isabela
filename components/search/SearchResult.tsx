@@ -151,7 +151,7 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          <Pagination pageInfo={pageInfo} />
+          <Pagination pageInfo={pageInfo} breadcrumb={breadcrumb} />
         </div>
       </div>
       <SendEventOnLoad

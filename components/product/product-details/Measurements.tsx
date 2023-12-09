@@ -50,7 +50,10 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
       <div id="img" class="relative xl:max-w-[550px]">
         <div id="specs" class="font-bold font-roboto text-xs lg:text-base">
           <SpecItem item={frente_total!} classes="right-[45%]" />
-          <SpecItem item={altura!} classes="right-[3%] bottom-[50%] lg:right-[-10%]" />
+          <SpecItem
+            item={altura!}
+            classes="right-[3%] bottom-[50%] lg:right-[-10%]"
+          />
           <SpecItem item={ponte!} classes="left-[45%] bottom-[40%]" />
           <SpecItem item={largura!} classes="right-[22%] bottom-[8%]" />
         </div>

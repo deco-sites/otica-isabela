@@ -48,7 +48,7 @@ function ProductDetails({
   measurementsImage,
   promotions,
   buttonByCategory,
-  customer
+  customer,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
