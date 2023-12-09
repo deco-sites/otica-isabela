@@ -17,13 +17,14 @@ const nameMapping = {
 } as const;
 
 export const getDescriptions = (properties: PropertyValue[]) => {
-  return properties?.filter((property) =>
-    targetNames.some((targetName) => property?.value?.includes(targetName))
-  )
-    ?.map((property) => {
-      const mappedName =
-        nameMapping[property.value as keyof typeof nameMapping] ||
-        property.value;
-      return { ...property, value: mappedName, name: property.name };
-    });
+  return targetNames.map((name) => {
+    const match = properties.find((prop) => prop?.value?.includes(name));
+
+    return {
+      ...match,
+      value:
+        nameMapping[match?.value as keyof typeof nameMapping] || match?.value,
+      name: match?.name,
+    };
+  });
 };
