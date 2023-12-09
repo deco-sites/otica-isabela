@@ -18,7 +18,7 @@ export async function loader(
   ctx: AppContext,
 ) {
   const cookies = getCookies(req.headers);
-  const currentIds: string | undefined = cookies?.[visitedProductsCookie];
+  const currentIds: string | undefined = "";
   const splitedIds = currentIds?.split(":");
 
   if (!splitedIds?.length) {

@@ -7,7 +7,7 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="inline-flex justify-center items-baseline flex-wrap whitespace-nowrap mx-2">
+    <ul class="inline-flex justify-center items-baseline flex-wrap whitespace-nowrap mx-0 xxs:mx-2 truncate">
       {itemListElement
         .filter(({ name, item }) => name && item)
         .map(({ name, item }, index) => (
@@ -34,7 +34,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
                 : name?.toLocaleLowerCase().trim()}
             </a>
             {index < itemListElement.length - 1 && (
-              <span class="my-0 mx-[10px] text-sm text-[#212529]">›</span>
+              <span class="my-0 mx-[5px] xxs:mx-[10px] text-sm text-[#212529]">›</span>
             )}
           </li>
         ))}

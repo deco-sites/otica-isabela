@@ -57,6 +57,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
+
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -115,14 +116,14 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         id="pdp-mobile-header-container"
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
-        {discount > 0 && (
-          <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
-            <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-          </span>
-        )}
-        <div class="flex items-center">
+        <div class="flex items-center gap-1 sm:gap-2">
           <ShareButton link={url!} />
           <WishlistButton productID={productID} customer={customer} />
+          {!!ratingValue && (
+            <a href="#product-review">
+              <Ratings ratingValue={ratingValue} />
+            </a>
+          )}
         </div>
         <ToExperimentButton
           image={experimenterImage!}
@@ -131,14 +132,9 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         />
       </div>
 
-      {/* Product Name - Mobile */}
-      <div class="mt-4 text-center px-8 lg:hidden">
-        <span class="font-roboto font-normal text-lg">{name}</span>
-      </div>
-
       {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-        <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
+        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
             <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
               {images.map((img, index) => (
@@ -161,8 +157,22 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                 </Slider.Item>
               ))}
             </Slider>
+
+            <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
+              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+            <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
+              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+
+            {/* Product Name - Mobile */}
+            <div class="mt-4 text-center px-8 lg:hidden">
+              <span class="font-roboto font-normal text-lg">{name}</span>
+            </div>
+
+            {/* Discount Span - Mobile & Desktop */}
             {discount > 0 && (
-              <span class="hidden absolute right-0 bottom-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
+              <span class="absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] right-4 bottom-20 lg:right-0 lg:bottom-2 lg:top-auto">
                 <Icon id="ArrowDown" width={9} height={9} />-{discount}%
               </span>
             )}
@@ -178,7 +188,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
           {/* Dots - Mobile & Desktop */}
           <ul
             id="image-dots"
-            class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+            class="w-[90%] lg:mt-2 hidden lg:flex overflow-auto lg:max-w-[540px] gap-1"
           >
             {images.map((img, index) => (
               <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
@@ -196,16 +206,6 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
             ))}
           </ul>
         </div>
-
-        {/* Ratings - Mobile */}
-        {!!ratingValue && (
-          <div class="flex flex-col items-center my-8 lg:hidden">
-            <a href="#product-review" class="text-center">
-              <Ratings ratingValue={ratingValue} />
-              <p class="text-lg font-bold">Veja as avaliações</p>
-            </a>
-          </div>
-        )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
