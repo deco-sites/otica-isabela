@@ -1,6 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
+import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -53,18 +54,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          const pattern = /width="\d+" height="\d+"/g;
-          const newValue = value
-            ?.replace(/<img/g, '<img loading="lazy" ')
-            ?.replace(
-              /style="width: 20px !important;"/g,
-              'width="20" height="20" ',
-            )
-            ?.replace(
-              /alt="" width="700" height="700"/g,
-              'alt="acessorios inclusos" width="382" height="382"',
-            )
-            .replace(/<iframe/g, '<iframe loading="lazy" ');
+          const replacedValues = value && replaceHtml(value, "382");
 
           return (
             <div class="collapse rounded-none">
@@ -87,7 +77,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
                   : (
                     <div
                       class="p-3"
-                      dangerouslySetInnerHTML={{ __html: newValue! }}
+                      dangerouslySetInnerHTML={{ __html: replacedValues! }}
                     >
                     </div>
                   )}

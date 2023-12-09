@@ -1,6 +1,7 @@
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
+import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -102,17 +103,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          const newValue = value
-            ?.replace(/<img/g, '<img loading="lazy" ')
-            ?.replace(
-              /style="width: 20px !important;"/g,
-              'width="20" height="20" ',
-            )
-            ?.replace(
-              /alt="" width="700" height="700"/g,
-              'alt="acessorios inclusos" width="500" height="500"',
-            )
-            .replace(/<iframe/g, '<iframe loading="lazy" ');
+          const replacedValues = value && replaceHtml(value, "500");
 
           return (
             <div
@@ -130,7 +121,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 : (
                   <div
                     class="p-3"
-                    dangerouslySetInnerHTML={{ __html: newValue! }}
+                    dangerouslySetInnerHTML={{ __html: replacedValues! }}
                   >
                   </div>
                 )}

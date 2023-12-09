@@ -145,7 +145,15 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                   class="carousel-item w-full items-center"
                 >
                   {img.additionalType === "video"
-                    ? <Video src={img.url} width={350} height={350} controls />
+                    ? (
+                      <Video
+                        src={img.url}
+                        loading="lazy"
+                        width={350}
+                        height={350}
+                        controls
+                      />
+                    )
                     : (
                       <Image
                         class="w-full h-max"
