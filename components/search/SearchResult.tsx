@@ -116,12 +116,17 @@ function Result({
             <div class="border-t border-base-200 w-full py-[30px]">
               <div class="container flex justify-between items-center">
                 <SelectedFilters filters={filters} />
-                <a
-                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-                >
-                  Limpar Filtros
-                </a>
+                <div class="flex gap-4">
+                  <button class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px]">
+                    Aplicar Filtro
+                  </button>
+                  <a
+                    href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                    class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                  >
+                    Limpar Filtros
+                  </a>
+                </div>
               </div>
             </div>
           </div>

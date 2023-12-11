@@ -7,6 +7,8 @@ import type {
 } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
+import SizeOptions from "deco-sites/otica-isabela/components/search/SizeOptions.tsx";
+import RangeFiltersJS from "deco-sites/otica-isabela/islands/RangeFiltersJS.tsx";
 import { ComponentChildren } from "preact";
 
 interface Props {
@@ -30,12 +32,13 @@ type FilterValuesProps = {
   typeIcons: Type[];
   position?: "left" | "right";
   isMobile?: boolean;
+  rangeOptions?: Filter[] | null;
 };
 
 export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
-function ValueItem({
+export function ValueItem({
   url,
   selected,
   label,
@@ -171,6 +174,7 @@ function FilterValues({
   shapeIcons,
   position,
   isMobile = false,
+  rangeOptions,
 }: FilterValuesProps) {
   const flexDirection =
     label === "Formato" || label === "Cor" || label === "Idade"
@@ -218,6 +222,17 @@ function FilterValues({
       return <ColorOptions matchingColors={matchingColors} />;
     }
 
+    if (label === "Tamanho") {
+      const rootId = "size-options-container";
+
+      return (
+        <div id={rootId}>
+          <SizeOptions values={values} rangeOptions={rangeOptions!} />
+          <RangeFiltersJS rootId={rootId} />
+        </div>
+      );
+    }
+
     return (
       <>
         {values.map((value) => <ValueItem {...value} />)}
@@ -254,12 +269,38 @@ function Filters({
   typeIcons,
   isMobile = false,
 }: Props) {
-  const defaultFilters = filters.filter((filterItem) => {
-    return !hideFilters.includes(filterItem.label);
-  });
+  const rangeFilters =
+    filters.filter((filter) => filter["@type"] === "FilterRange") || [];
+  const defaultFilters = filters.filter((filter) =>
+    filter["@type"] !== "FilterRange"
+  );
 
   return (
     <>
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `
+            #filter-range-input {
+              background: linear-gradient(#42c3ff,#42c3ff) no-repeat center;
+              background-size: 100% 2px;
+              appearance: none;
+              padding: 0 2px;
+            }
+
+            #filter-range-input::-webkit-slider-thumb {
+              pointer-events: all;
+              border: 2px solid #42c3ff;
+              height: 24px;
+              width: 24px;
+              border-radius: 50%;
+              background: #FFFFFF;
+              cursor: pointer;
+              -webkit-appearance: none;
+            }
+          `,
+        }}
+      />
       {!isMobile
         ? (
           <ul class="flex w-full justify-center flex-row">
@@ -273,6 +314,9 @@ function Filters({
                     shapeIcons={shapeIcons}
                     filterColors={filterColors}
                     position={index < array.length / 2 ? "left" : "right"}
+                    rangeOptions={filter.label === "Tamanho"
+                      ? rangeFilters
+                      : null}
                     {...filter}
                   />
                 )}
@@ -293,6 +337,9 @@ function Filters({
                     typeIcons={typeIcons}
                     shapeIcons={shapeIcons}
                     filterColors={filterColors}
+                    rangeOptions={filter.label === "Tamanho"
+                      ? rangeFilters
+                      : null}
                     isMobile
                     {...filter}
                   />
