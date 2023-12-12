@@ -43,7 +43,11 @@ function SizeOptions(
               <div>
                 <p class="text-xs font-normal">{option.label}</p>
               </div>
-              <div class="relative w-[200px] h-[35px]">
+              <div
+                id="range-filter-input-container"
+                data-input-label={option.label}
+                class="relative w-[200px] h-[35px]"
+              >
                 <input
                   data-input-item-min={id}
                   min={min}
