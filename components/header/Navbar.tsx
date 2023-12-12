@@ -48,7 +48,7 @@ function Navbar({
               <BasicImageAndLink
                 {...storeLogo}
                 width={{ desktop: 345, mobile: 345 }}
-                height={{ desktop: 72, mobile: 64 }}
+                height={{ desktop: 70, mobile: 60 }}
               />
             )}
           </div>
