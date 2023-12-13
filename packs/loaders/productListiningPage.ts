@@ -52,7 +52,6 @@ const loaders = async (
 
   const hasSearchParam = url.pathname.includes("busca");
 
-  //ref
   const isCategoryPage =
     !hasSearchParam &&
     Object.values(searchPageProps).every(
