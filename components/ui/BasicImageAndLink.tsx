@@ -9,10 +9,11 @@ export interface BasicImageAndLinkProps {
 
 interface Props extends BasicImageAndLinkProps {
   width?: { desktop: number; mobile: number };
+  height?: { desktop: number; mobile: number };
 }
 
 export const BasicImageAndLink = (
-  { alt, href, src, width }: Props,
+  { alt, href, src, width, height }: Props,
 ) => {
   if (!src) {
     return null;
@@ -22,16 +23,16 @@ export const BasicImageAndLink = (
     return (
       <Picture class="w-full">
         <Source
-          media="(max-width: 983px)"
+          media="(max-width: 992px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
-          height={40}
+          height={height?.mobile ?? 0}
         />
         <Source
-          media="(min-width: 984px)"
+          media="(min-width: 993px)"
           src={src?.desktop ?? ""}
           width={width?.desktop ?? 0}
-          height={58}
+          height={height?.desktop ?? 0}
         />
         {
           <img
@@ -62,16 +63,16 @@ export const BasicImageAndLink = (
     >
       <Picture>
         <Source
-          media="(max-width: 983px)"
+          media="(max-width: 992px)"
           src={src?.mobile ?? ""}
           width={width?.mobile ?? 0}
-          height={40}
+          height={height?.mobile ?? 0}
         />
         <Source
-          media="(min-width: 984px)"
+          media="(min-width: 993px)"
           src={src?.desktop ?? ""}
           width={width?.desktop ?? 0}
-          height={58}
+          height={height?.desktop ?? 0}
         />
         {
           <img

@@ -22,8 +22,8 @@ export const getDescriptions = (properties: PropertyValue[]) => {
 
     return {
       ...match,
-      value:
-        nameMapping[match?.value as keyof typeof nameMapping] || match?.value,
+      value: nameMapping[match?.value as keyof typeof nameMapping] ||
+        match?.value,
       name: match?.name,
     };
   });
