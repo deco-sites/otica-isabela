@@ -120,11 +120,14 @@ function Result({
                 <div class="flex gap-4">
                   <button
                     id="apply-range-filters"
-                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px]"
+                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
                   >
                     Aplicar Filtro
                   </button>
-                  <ApplyRangeFiltersJS rootId="size-options-container" />
+                  <ApplyRangeFiltersJS
+                    rootId="size-options-container"
+                    buttonId="apply-range-filters"
+                  />
                   <a
                     href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
                     class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"

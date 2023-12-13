@@ -2,6 +2,7 @@ import { useEffect } from "preact/hooks";
 
 interface Props {
   rootId: string;
+  buttonId: string;
 }
 
 const allowedRangeFilters = [
@@ -35,27 +36,29 @@ function buildParams(rootElement: HTMLElement) {
     const minValue = minInput?.getAttribute("value");
     const maxValue = maxInput?.getAttribute("value");
 
-    if (min !== minValue || max !== maxValue) {
+    if ((minValue && min !== minValue) || (maxValue && max !== maxValue)) {
       url.searchParams.append(`filter.${label!}`, `${minValue}:${maxValue}`);
     }
   });
 
-  window.location.href = url.href;
+  if (window.location.href !== url.href) {
+    window.location.href = url.href;
+  }
 }
 
-function setup({ rootId }: Props) {
+function setup({ rootId, buttonId }: Props) {
   const root = document.getElementById(rootId);
-  const applyButton = document.getElementById("apply-range-filters");
+  const applyButton = document.getElementById(buttonId);
 
   applyButton?.addEventListener("click", () => {
     buildParams(root!);
   });
 }
 
-function ApplyRangeFilters({ rootId }: Props) {
+function ApplyRangeFilters({ rootId, buttonId }: Props) {
   useEffect(() => {
-    setup({ rootId });
-  }, [rootId]);
+    setup({ rootId, buttonId });
+  }, [rootId, buttonId]);
 
   return <div data-apply-range-filters-controller-js />;
 }

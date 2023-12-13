@@ -7,6 +7,7 @@ import Drawer from "$store/components/ui/Drawer.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import ApplyRangeFiltersJS from "deco-sites/otica-isabela/islands/ApplyRangeFiltersJS.tsx";
 
 type Props = {
   filters: ProductListingPage["filters"];
@@ -59,6 +60,16 @@ function SearchControls({
           >
             Limpar Filtros
           </a>
+          <button
+            id="apply-range-filters-mobile"
+            class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+          >
+            FILTRAR
+          </button>
+          <ApplyRangeFiltersJS
+            rootId="size-options-container-mobile"
+            buttonId="apply-range-filters-mobile"
+          />
         </div>
         <div class="w-full">
           <Filters

@@ -205,7 +205,7 @@ function FilterValues({
     }
   });
 
-  function Options() {
+  function Options({ isMobile }: { isMobile: boolean }) {
     if (label === "Tipo") {
       return <TypeOptions values={values} typeIcons={typeIcons} />;
     }
@@ -223,7 +223,7 @@ function FilterValues({
     }
 
     if (label === "Tamanho") {
-      const rootId = "size-options-container";
+      const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
 
       return (
         <div id={rootId}>
@@ -249,12 +249,12 @@ function FilterValues({
 				${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
 			  `}
           >
-            <Options />
+            <Options isMobile={isMobile} />
           </div>
         )
         : (
           <div class="collapse-content">
-            <Options />
+            <Options isMobile={isMobile} />
           </div>
         )}
     </>

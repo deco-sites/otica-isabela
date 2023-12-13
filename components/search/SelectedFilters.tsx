@@ -26,6 +26,15 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
           </li>
         </a>
       ))}
+
+      <li
+        id="personalized-filter"
+        class={`flex items-center text-base-400 text-base cursor-pointer py-1 px-6 rounded-[5px] mr-5 border border-solid border-base-400 ${_class}`}
+        style={{ display: "none" }}
+      >
+        <p>Personalizado</p>
+        <Icon class="text-base-200 ml-2" size={12} id="Close" />
+      </li>
     </ul>
   );
 }
