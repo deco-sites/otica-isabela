@@ -629,18 +629,23 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
   const categories = [category.CategoriaPai ?? null, category].filter(
     (p) => p != null
   );
-  return categories.map((c, i) => ({
-    "@type": "ListItem" as const,
-    name: c.Nome,
-    item: new URL(
-      `/${categories
-        .slice(0, i + 1)
-        .map(({ UrlFriendly }) => UrlFriendly)
-        .join("/")}`,
-      url.origin
-    ).href,
-    position: i + 1,
-  }));
+  const params = url.searchParams;
+  const breadcrumbList = categories.map((c, i) => {
+    const lastElement = categories.length === i + 1;
+    return {
+      "@type": "ListItem" as const,
+      name: c.Nome,
+      item: new URL(
+        `/${categories
+          .slice(0, i + 1)
+          .map(({ UrlFriendly }) => UrlFriendly)
+          .join("/")}${lastElement ? "?" + params.toString() : ""}`,
+        url.origin
+      ).href,
+      position: i + 1,
+    };
+  });
+  return breadcrumbList;
 };
 
 export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
