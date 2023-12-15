@@ -12,7 +12,9 @@ interface Props extends BasicImageAndLinkProps {
   height?: { desktop: number; mobile: number };
 }
 
-export const BasicImageAndLink = ({ alt, href, src, width, height }: Props) => {
+export const BasicImageAndLink = (
+  { alt, href, src, width, height }: Props,
+) => {
   if (!src) {
     return null;
   }

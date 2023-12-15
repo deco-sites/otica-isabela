@@ -166,7 +166,7 @@ function ProductCard({
             <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
               {name}
             </h4>
-            <div class="min-h-[42px] mb-[10px]">
+            <div class="lg:min-w-[306px] min-h-[42px] mb-[10px]">
               <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
                 {description?.map(
                   (property, index) =>
