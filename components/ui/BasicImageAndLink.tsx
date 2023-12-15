@@ -40,7 +40,7 @@ export const BasicImageAndLink = (
             alt={alt}
             class={`${
               !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
-            }`}
+            } "aspect-auto"`}
             decoding="async"
             loading="eager"
           />
@@ -80,7 +80,7 @@ export const BasicImageAndLink = (
             alt={alt}
             class={`${
               !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
-            }`}
+            } "aspect-auto"`}
             decoding="async"
             loading="eager"
           />
