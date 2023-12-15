@@ -54,7 +54,8 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          const replacedValues = value && replaceHtml(value, "382");
+          const replacedValues = value && replaceHtml(value);
+          //size 382
 
           return (
             <div class="collapse rounded-none">
