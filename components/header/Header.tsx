@@ -64,9 +64,7 @@ function Header({
   return (
     <>
       <header class="bg-black">
-        <div
-          class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30"
-        />
+        <div class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30" />
         {activate && (
           <div class="flex items-center justify-center">
             <BasicImageAndLink

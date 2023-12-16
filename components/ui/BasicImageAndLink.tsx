@@ -3,9 +3,9 @@ import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 
 export interface BasicImageAndLinkProps {
   /** @title Imagens */
-  src?: { 
-    desktop?: ImageType; 
-    mobile?: ImageType 
+  src?: {
+    desktop?: ImageType;
+    mobile?: ImageType;
   };
   alt?: string;
   href?: string;
