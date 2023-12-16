@@ -63,17 +63,22 @@ export interface Props {
   /** @title Loader */
   page: LoaderReturnType<ProductListingPage | null>;
   /** @title Cores do Filtro */
-  filterColors: Color[];
+  filterColors?: Color[];
   /** @title Icones do filtro de Tipo */
-  typeIcons: Type[];
+  typeIcons?: Type[];
   /** @title Icones do filtro de Formato */
-  shapeIcons: Shape[];
+  shapeIcons?: Shape[];
   /** @title Esconder Filtros */
   hideFilters?: string[];
   /** @title Menu de Categorias */
-  categories: CategoryMatcher[];
+  categories?: CategoryMatcher[];
   /** @title Ativar carossel nos itens da galeria? */
   isSliderEnabled?: boolean;
+  /**
+   * @title Titulo da pagina
+   * @description Obrigatório para paginas de coleção
+   */
+  pageName?: string;
 }
 
 function NotFound() {
@@ -86,15 +91,16 @@ function NotFound() {
 
 function Result({
   page,
-  filterColors,
-  hideFilters,
-  typeIcons,
-  shapeIcons,
-  categories,
+  filterColors = [],
+  hideFilters = [],
+  typeIcons = [],
+  shapeIcons = [],
+  categories = [],
   isSliderEnabled,
+  pageName,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-  const productCategory = seo?.title.split(" - ")[0].toUpperCase();
+  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
 
   return (
     <>
@@ -136,9 +142,13 @@ function Result({
         typeIcons={typeIcons}
         shapeIcons={shapeIcons}
       />
-      <div class="flex w-full flex-row justify-center items-center my-5">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
+      {!breadcrumb?.itemListElement?.length
+        ? null
+        : (
+          <div class="flex w-full flex-row justify-center items-center my-5">
+            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+          </div>
+        )}
       <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">

@@ -22,10 +22,10 @@ function SearchControls({
   filters,
   breadcrumb,
   sortOptions,
-  hideFilters,
-  typeIcons,
-  shapeIcons,
-  filterColors,
+  hideFilters = [],
+  typeIcons = [],
+  shapeIcons = [],
+  filterColors = [],
 }: Props) {
   const isOpen = useSignal(false);
   const isFilter = useSignal(false);
