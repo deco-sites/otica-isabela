@@ -158,7 +158,7 @@ const toCategory = (category: Array<string>) =>
     .join(">");
 
 const toUrl = (UrlFriendlyColor: string) =>
-  new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
+  new URL(UrlFriendlyColor, "https://secure.oticaisabeladias.com.br/produto/")
     .href;
 
 const toImage = (
@@ -173,7 +173,7 @@ const toImage = (
         [
           {
             "@type": "ImageObject" as const,
-            url: Imagem,
+            url: `https://secure.oticaisabeladias.com.br${Imagem}`,
             alternateName,
             additionalType: "image",
           },
