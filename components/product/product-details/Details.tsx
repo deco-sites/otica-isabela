@@ -105,9 +105,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         id="breadcrumb"
         class="block mb-[20px] lg:mb-[40px] text-center md:text-left"
       >
-        <Breadcrumb
-          itemListElement={breadcrumbList?.itemListElement}
-        />
+        <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
 
       {/* Header - Mobile */}
@@ -147,14 +145,24 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                   class="carousel-item w-full items-center"
                 >
                   {img.additionalType === "video"
-                    ? <Video src={img.url} width={540} height={540} controls />
+                    ? (
+                      <Video
+                        src={img.url}
+                        loading="lazy"
+                        width={350}
+                        height={350}
+                        class="w-full"
+                        controls
+                      />
+                    )
                     : (
                       <Image
                         class="w-full h-max"
                         src={img.url!}
                         alt={img.alternateName}
-                        width={540}
-                        height={540}
+                        width={350}
+                        height={350}
+                        preload={index === 0}
                         loading={index === 0 ? "eager" : "lazy"}
                       />
                     )}
@@ -174,7 +182,6 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
               {promotion.flagText.replace("%value", price!.toString())}
             </div>
           )}
-
           {/* Dots - Mobile & Desktop */}
           <ul
             id="image-dots"
@@ -186,10 +193,12 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                   <Image
                     class="group-disabled:border-base-300"
                     width={92}
+                    height={92}
                     src={img.additionalType === "video"
                       ? img?.image?.[0].url!
                       : img.url!}
                     alt={img.alternateName}
+                    loading="lazy"
                   />
                 </Slider.Dot>
               </li>
@@ -252,7 +261,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
           </div>
         </div>
 
-        {/* Product Info - Desktop */}
+        {/* Product Details - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
           <ProductInfo
             page={page}

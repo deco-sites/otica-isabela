@@ -24,8 +24,9 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
-  const pageParams =
-    new URL(breadcrumb.itemListElement.pop()!.item).searchParams;
+  const pageParams = breadcrumb.itemListElement.length
+    ? new URL(breadcrumb.itemListElement.pop()!.item).searchParams
+    : new URLSearchParams();
 
   const eachPageParams: PageParams[] = Array.from(
     { length: Number(totalPages) },

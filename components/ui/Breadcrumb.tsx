@@ -7,34 +7,36 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="inline-flex justify-center items-baseline flex-wrap whitespace-nowrap mx-2">
+    <ul class="mx-2 text-left">
       {itemListElement
         .filter(({ name, item }) => name && item)
         .map(({ name, item }, index) => (
-          <li>
+          <li class="inline align-middle text-left leading-[21px]">
             <a
-              class="font-roboto text-[#222] text-[12px] sm:text-[15px] capitalize hover:underline"
+              class={`${
+                index === 0 ? "inline-block align-middle" : ""
+              } font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline`}
               href={item}
             >
               {index === 0
                 ? (
                   <>
-                    <div class="sm:hidden items-center inline-flex justify-center">
-                      <Icon
-                        class="text-black"
-                        id="Home"
-                        size={15}
-                      />
-                    </div>
-                    <div class="hidden sm:inline-flex">
+                    <Icon
+                      class="text-black sm:hidden"
+                      id="Home"
+                      size={16}
+                    />
+                    <span class="hidden sm:inline align-middle">
                       {name?.toLocaleLowerCase().trim()}
-                    </div>
+                    </span>
                   </>
                 )
                 : name?.toLocaleLowerCase().trim()}
             </a>
             {index < itemListElement.length - 1 && (
-              <span class="my-0 mx-[10px] text-sm text-[#212529]">›</span>
+              <span class="my-0 mx-[10px] text-sm text-[#212529] inline align-middle">
+                ›
+              </span>
             )}
           </li>
         ))}

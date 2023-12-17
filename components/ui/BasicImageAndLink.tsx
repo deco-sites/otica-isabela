@@ -2,7 +2,11 @@ import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 
 export interface BasicImageAndLinkProps {
-  src?: { desktop?: ImageType; mobile?: ImageType };
+  /** @title Imagens */
+  src?: {
+    desktop?: ImageType;
+    mobile?: ImageType;
+  };
   alt?: string;
   href?: string;
 }
@@ -34,17 +38,15 @@ export const BasicImageAndLink = (
           width={width?.desktop ?? 0}
           height={height?.desktop ?? 0}
         />
-        {
-          <img
-            src={src.mobile ?? src?.desktop ?? ""}
-            alt={alt}
-            class={`${
-              !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
-            }`}
-            decoding="async"
-            loading="eager"
-          />
-        }
+        <img
+          src={src.mobile ?? src?.desktop ?? ""}
+          alt={alt}
+          class={`${
+            !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
+          } aspect-auto w-full`}
+          decoding="async"
+          loading="eager"
+        />
       </Picture>
     );
   }
@@ -80,7 +82,7 @@ export const BasicImageAndLink = (
             alt={alt}
             class={`${
               !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
-            }`}
+            } aspect-auto w-full`}
             decoding="async"
             loading="eager"
           />
