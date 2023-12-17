@@ -5,11 +5,11 @@ import type {
   FilterToggleValue,
   ProductListingPage,
 } from "apps/commerce/types.ts";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
 import SizeOptions from "deco-sites/otica-isabela/components/search/SizeOptions.tsx";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import RangeFiltersJS from "deco-sites/otica-isabela/islands/RangeFiltersJS.tsx";
-import { ComponentChildren } from "preact";
+import ValueItem from "deco-sites/otica-isabela/islands/ValueItem.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 
 interface Props {
   filters: ProductListingPage["filters"];
@@ -20,7 +20,7 @@ interface Props {
   isMobile?: boolean;
 }
 
-type FilterToggleValueWithHex = FilterToggleValue & {
+export type FilterToggleValueWithHex = FilterToggleValue & {
   hex?: string;
 };
 
@@ -38,40 +38,18 @@ type FilterValuesProps = {
 export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
-export function ValueItem({
-  url,
-  selected,
-  label,
-  children,
-  class: _class,
-}: Omit<FilterToggleValueWithHex, "label"> & {
-  label?: string;
-  children?: ComponentChildren;
-  class?: string;
-}) {
-  return (
-    <a href={url || "#"} class={_class}>
-      <div class="flex items-center mb-5">
-        <div
-          aria-checked={selected}
-          class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
-        />
-        <span class="flex items-center gap-2.5 max-lg:font-medium">
-          {label ?? children}
-        </span>
-      </div>
-    </a>
-  );
-}
-
-function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
+function AgeOptions(
+  { values, type }: { values: FilterToggleValueWithHex[]; type: string },
+) {
   const orderedAges = values.sort(
     (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
   );
 
   return (
     <>
-      {orderedAges.map((item) => <ValueItem class="lg:w-1/4" {...item} />)}
+      {orderedAges.map((item) => (
+        <ValueItem type={type} class="lg:w-1/4" {...item} />
+      ))}
     </>
   );
 }
@@ -79,9 +57,11 @@ function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
 function TypeOptions({
   values,
   typeIcons,
+  type,
 }: {
   values: FilterToggleValueWithHex[];
   typeIcons: Type[];
+  type: string;
 }) {
   return (
     <>
@@ -89,7 +69,7 @@ function TypeOptions({
         const typeIcon = typeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem {...item}>
+          <ValueItem type={type} {...item} label={label}>
             {typeIcon
               ? (
                 <Image
@@ -111,9 +91,11 @@ function TypeOptions({
 function ShapeOptions({
   values,
   shapeIcons,
+  type,
 }: {
   values: FilterToggleValueWithHex[];
   shapeIcons: Shape[];
+  type: string;
 }) {
   return (
     <>
@@ -121,7 +103,7 @@ function ShapeOptions({
         const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem {...item} class="lg:w-1/2">
+          <ValueItem {...item} type={type} class="lg:w-1/2" label={label}>
             {shapeIcon
               ? (
                 <Image
@@ -142,16 +124,18 @@ function ShapeOptions({
 
 function ColorOptions({
   matchingColors,
+  type,
 }: {
   matchingColors: FilterToggleValueWithHex[];
+  type: string;
 }) {
   return (
     <>
       {matchingColors?.map((item) => {
-        const { url, value, hex } = item;
+        const { value, hex } = item;
 
         return (
-          <a href={url} class="lg:w-1/4">
+          <ValueItem hideCheckbox type={type} {...item} class="lg:w-1/4">
             <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
               <span
                 style={{ backgroundColor: hex }}
@@ -159,7 +143,7 @@ function ColorOptions({
               />
               <p class="ml-[10px] font-bold">{value}</p>
             </div>
-          </a>
+          </ValueItem>
         );
       })}
     </>
@@ -207,19 +191,21 @@ function FilterValues({
 
   function Options({ isMobile }: { isMobile: boolean }) {
     if (label === "Tipo") {
-      return <TypeOptions values={values} typeIcons={typeIcons} />;
+      return <TypeOptions type={label} values={values} typeIcons={typeIcons} />;
     }
 
     if (label === "Formato") {
-      return <ShapeOptions values={values} shapeIcons={shapeIcons} />;
+      return (
+        <ShapeOptions type={label} values={values} shapeIcons={shapeIcons} />
+      );
     }
 
     if (label === "Idade") {
-      return <AgeOptions values={values} />;
+      return <AgeOptions type={label} values={values} />;
     }
 
     if (label === "Cor" && matchingColors) {
-      return <ColorOptions matchingColors={matchingColors} />;
+      return <ColorOptions type={label} matchingColors={matchingColors} />;
     }
 
     if (label === "Tamanho") {
@@ -227,7 +213,11 @@ function FilterValues({
 
       return (
         <div id={rootId}>
-          <SizeOptions values={values} rangeOptions={rangeOptions!} />
+          <SizeOptions
+            values={values}
+            type={label}
+            rangeOptions={rangeOptions!}
+          />
           <RangeFiltersJS rootId={rootId} />
         </div>
       );
@@ -235,7 +225,7 @@ function FilterValues({
 
     return (
       <>
-        {values.map((value) => <ValueItem {...value} />)}
+        {values.map((value) => <ValueItem type={label} {...value} />)}
       </>
     );
   }
@@ -253,7 +243,7 @@ function FilterValues({
           </div>
         )
         : (
-          <div class="collapse-content">
+          <div class="collapse-content flex flex-wrap gap-3">
             <Options isMobile={isMobile} />
           </div>
         )}

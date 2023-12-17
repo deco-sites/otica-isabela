@@ -1,3 +1,4 @@
+import { selectedFilters } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
 import { useEffect } from "preact/hooks";
 
 interface Props {
@@ -18,6 +19,16 @@ function buildParams(rootElement: HTMLElement) {
   allowedRangeFilters.forEach((filter) => {
     url.searchParams.delete(`filter.${filter}`);
   });
+
+  for (const [key, value] of url.searchParams.entries()) {
+    if (
+      !selectedFilters.peek().some((filter) =>
+        filter.label === value && `filter.${filter.type}` === key
+      )
+    ) {
+      url.searchParams.delete(key, value);
+    }
+  }
 
   const rangeFilters =
     rootElement?.querySelectorAll("#range-filter-input-container") || [];
@@ -41,8 +52,14 @@ function buildParams(rootElement: HTMLElement) {
     }
   });
 
+  selectedFilters.value.forEach(({ type, label }) => {
+    if (url.searchParams.has(`filter.${type}`, label)) return;
+
+    url.searchParams.append(`filter.${type}`, label);
+  });
+
   if (window.location.href !== url.href) {
-    window.location.href = url.href;
+    return url.href;
   }
 }
 
@@ -51,7 +68,13 @@ function setup({ rootId, buttonId }: Props) {
   const applyButton = document.getElementById(buttonId);
 
   applyButton?.addEventListener("click", () => {
-    buildParams(root!);
+    const url = buildParams(root!);
+    if (url) {
+      applyButton.classList.add("loading");
+      applyButton.style.fontSize = "0px";
+      applyButton.classList.remove("px-[20px]");
+      window.location.href = url;
+    }
   });
 }
 

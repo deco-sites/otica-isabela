@@ -1,7 +1,7 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
 import Filters from "$store/components/search/Filters.tsx";
-import SelectedFilters from "$store/components/search/SelectedFilters.tsx";
+import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";

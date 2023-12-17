@@ -1,6 +1,6 @@
-import { ValueItem } from "./Filters.tsx";
 import type { JSX } from "preact";
 import type { Filter, FilterToggleValue } from "apps/commerce/types.ts";
+import ValueItem from "deco-sites/otica-isabela/islands/ValueItem.tsx";
 
 function IconOptions({ label }: { label: string }) {
   const options: Record<string, () => JSX.Element> = {
@@ -68,15 +68,16 @@ function IconOptions({ label }: { label: string }) {
 }
 
 function SizeOptions(
-  { values, rangeOptions }: {
+  { values, rangeOptions, type }: {
     values: FilterToggleValue[];
     rangeOptions: Filter[];
+    type: string;
   },
 ) {
   return (
     <div class="lg:flex lg:gap-6">
       <div>
-        {values.map((value) => <ValueItem {...value} />)}
+        {values.map((value) => <ValueItem type={type} {...value} />)}
         {rangeOptions && (
           <div class="flex items-center mb-5">
             <div
