@@ -35,6 +35,8 @@ type Props = Omit<
   "IdCategoria" | "IdSubCategoria" | "url" | "page" | "tipoRetorno"
 >;
 
+export const cache = "stale-while-revalidate";
+
 /**
  * @title Otica Isabela Dias - Página de Listagem de Produtos
  * @description Funciona em rotas do tipo /busca usando a querystring "termo" OU em páginas de categoria em rotas do tipo /$categoria.
