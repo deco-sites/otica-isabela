@@ -70,7 +70,7 @@ function setup({ rootId, buttonId }: Props) {
   applyButton?.addEventListener("click", () => {
     const url = buildParams(root!);
     if (url) {
-      applyButton.querySelector('span')?.classList.add('loading')
+      applyButton.querySelector("span")?.classList.add("loading");
       window.location.href = url;
     }
   });

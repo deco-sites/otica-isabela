@@ -29,7 +29,7 @@ export interface Props {
   somenteFoto?: boolean;
 }
 
-export const cache = 'stale-while-revalidate'
+export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Depoimentos

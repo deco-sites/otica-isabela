@@ -1,1 +1,1 @@
-export { default, cache } from "$store/packs/loaders/productList.ts";
+export { cache, default } from "$store/packs/loaders/productList.ts";
