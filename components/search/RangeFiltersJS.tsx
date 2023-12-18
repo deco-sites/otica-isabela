@@ -12,7 +12,7 @@ type URLParams = {
 
 type InputType = "min" | "max";
 
-const allowedRangeFilters = [
+export const allowedRangeFilters = [
   "Altura da Lente",
   "Largura da Lente",
   "Largura da Ponte",
@@ -35,26 +35,37 @@ function resetCustomFilters(url: URL) {
   }
 }
 
-function handleSelectedCustomFilters(urlParams: URLParams) {
+function handleSelectedCustomFilters(root: HTMLElement, urlParams: URLParams) {
   const hasCustomFilterApplied = urlParams.some((param) =>
     allowedRangeFilters.includes(param.key.split("filter.")[1])
   );
 
+  const selectedBox = document.querySelector<HTMLElement>(
+    "#personalized-filter",
+  );
+
   if (hasCustomFilterApplied) {
-    const selectedBox = document.querySelector<HTMLElement>(
-      "#personalized-filter",
-    );
-
     selectedBox?.style.removeProperty("display");
-    selectedBox?.addEventListener("click", () => {
-      const url = new URL(window.location.href);
-
-      resetCustomFilters(url);
-    });
   }
+
+  selectedBox?.addEventListener("click", () => {
+    if (!hasCustomFilterApplied) {
+      selectedBox.style.display = "none";
+      handleToggleCustomFilters(root, urlParams, true);
+      return;
+    }
+
+    const url = new URL(window.location.href);
+
+    resetCustomFilters(url);
+  });
 }
 
-function handleToggleCustomFilters(root: HTMLElement, urlParams: URLParams) {
+function handleToggleCustomFilters(
+  root: HTMLElement,
+  urlParams: URLParams,
+  preventListener = false,
+) {
   const customFiltersContainer = root?.querySelector<HTMLElement>(
     "#custom-filters",
   );
@@ -72,7 +83,15 @@ function handleToggleCustomFilters(root: HTMLElement, urlParams: URLParams) {
       "true",
     );
     customFiltersContainer!.style.display = "block";
+  } else {
+    customFiltersCheckbox?.setAttribute(
+      "aria-checked",
+      "false",
+    );
+    customFiltersContainer!.style.display = "none";
   }
+
+  if (preventListener) return;
 
   customFiltersCheckbox?.addEventListener("click", () => {
     const currStatus = customFiltersCheckbox.getAttribute("aria-checked");
@@ -81,6 +100,10 @@ function handleToggleCustomFilters(root: HTMLElement, urlParams: URLParams) {
       "aria-checked",
       currStatus === "true" ? "false" : "true",
     );
+
+    document.querySelector<HTMLElement>(
+      "#personalized-filter",
+    )!.style.display = currStatus === "true" ? "none" : "flex";
 
     customFiltersContainer!.style.display = currStatus === "false"
       ? "block"
@@ -135,7 +158,7 @@ function setup({ rootId }: Props) {
     value,
   }));
 
-  handleSelectedCustomFilters(urlParams);
+  handleSelectedCustomFilters(root!, urlParams);
   handleToggleCustomFilters(root!, urlParams);
   handleInputs(root!, urlParams, "min");
   handleInputs(root!, urlParams, "max");
@@ -144,7 +167,7 @@ function setup({ rootId }: Props) {
 function FiltersJS({ rootId }: Props) {
   useEffect(() => {
     setup({ rootId });
-  }, [rootId, selectedFilters.value]);
+  }, [rootId]);
 
   return <div data-range-filter-controller-js />;
 }

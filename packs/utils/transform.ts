@@ -626,9 +626,7 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
   const categories = [category.CategoriaPai ?? null, category].filter(
     (p) => p != null,
   );
-  const params = url.searchParams;
   const breadcrumbList = categories.map((c, i) => {
-    const lastElement = categories.length === i + 1;
     return {
       "@type": "ListItem" as const,
       name: c.Nome,
@@ -638,7 +636,7 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
             .slice(0, i + 1)
             .map(({ UrlFriendly }) => UrlFriendly)
             .join("/")
-        }${lastElement ? "?" + params.toString() : ""}`,
+        }`,
         url.origin,
       ).href,
       position: i + 1,
