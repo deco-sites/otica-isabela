@@ -128,7 +128,7 @@ function Result({
                     id="apply-range-filters"
                     class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
                   >
-                    Aplicar Filtro
+                    <span>Aplicar Filtro</span>
                   </button>
                   <ApplyRangeFiltersJS
                     rootId="size-options-container"

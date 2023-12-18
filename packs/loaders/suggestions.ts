@@ -19,10 +19,11 @@ export interface Props {
   offset: number;
 }
 
+export const cache = 'stale-while-revalidate'
+
 /**
  * @title Otica Isabela Dias - Busca de Produtos
  */
-
 const loader = async (
   props: Props,
   _req: Request,

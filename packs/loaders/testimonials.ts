@@ -29,11 +29,12 @@ export interface Props {
   somenteFoto?: boolean;
 }
 
+export const cache = 'stale-while-revalidate'
+
 /**
  * @title Otica Isabela Dias - Depoimentos
  * @description Esse loader retorna depoimentos dos clientes. Pode ser usado tanto para depoimentos de produtos no geral quanto para depoimentos de produtos específicos.
  */
-
 const loader = async (
   props: Props,
   req: Request,

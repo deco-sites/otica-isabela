@@ -1,3 +1,4 @@
+import { selectedFilters } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
 import { useEffect } from "preact/hooks";
 
 interface Props {
@@ -40,17 +41,15 @@ function handleSelectedCustomFilters(urlParams: URLParams) {
   );
 
   if (hasCustomFilterApplied) {
-    const selectedBoxes = document.querySelectorAll<HTMLElement>(
+    const selectedBox = document.querySelector<HTMLElement>(
       "#personalized-filter",
     );
 
-    selectedBoxes.forEach((box) => {
-      box!.style.removeProperty("display");
-      box!.addEventListener("click", () => {
-        const url = new URL(window.location.href);
+    selectedBox?.style.removeProperty("display");
+    selectedBox?.addEventListener("click", () => {
+      const url = new URL(window.location.href);
 
-        resetCustomFilters(url);
-      });
+      resetCustomFilters(url);
     });
   }
 }
@@ -145,7 +144,7 @@ function setup({ rootId }: Props) {
 function FiltersJS({ rootId }: Props) {
   useEffect(() => {
     setup({ rootId });
-  }, [rootId]);
+  }, [rootId, selectedFilters.value]);
 
   return <div data-range-filter-controller-js />;
 }

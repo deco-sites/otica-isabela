@@ -37,7 +37,7 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
   );
 
   return (
-    <ul class="w-full flex flex-wrap">
+    <ul class="w-full flex flex-wrap gap-y-3">
       {selectedFilters.value.map((item) => (
         <button
           key={item.label}

@@ -5,10 +5,12 @@ import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
 import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
+
+export const cache = 'stale-while-revalidate'
+
 /**
  * @title Otica Isabela Dias - Listagem de Produtos
  */
-
 const loader = async (
   props: Omit<GetProductProps, "url" | "page" | "tipoRetorno">,
   _req: Request,

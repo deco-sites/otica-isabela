@@ -69,7 +69,7 @@ function SearchControls({
             id="apply-range-filters-mobile"
             class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
           >
-            FILTRAR
+            <span>FILTRAR</span>
           </button>
           <ApplyRangeFiltersJS
             rootId="size-options-container-mobile"

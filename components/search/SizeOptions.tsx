@@ -77,9 +77,11 @@ function SizeOptions(
   return (
     <div class="lg:flex lg:gap-6">
       <div>
-        {values.map((value) => <ValueItem type={type} {...value} />)}
+        {values.map((value) => (
+          <ValueItem type={type} {...value} class="h-fit" />
+        ))}
         {rangeOptions && (
-          <div class="flex items-center mb-5">
+          <div class="flex items-center">
             <div
               id="custom-filters-checkbox"
               aria-checked={false}

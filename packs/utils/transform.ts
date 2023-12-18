@@ -101,8 +101,6 @@ export function toProduct(product: IsabelaProduct): Product {
     Avaliacoes,
   } = product;
 
-  const productsInfo = Classificacoes.map((productInfo) => productInfo);
-
   const isVariantOf = product.ProdutosMaisCores
     ? toVariantProduct(product, product.ProdutosMaisCores)
     : undefined;
@@ -118,7 +116,7 @@ export function toProduct(product: IsabelaProduct): Product {
       DescricaoSeo,
     image: toImage(Imagens, Nome),
     additionalProperty: toAdditionalProperties({
-      properties: productsInfo,
+      properties: Classificacoes,
       variants: ProdutosMaisCores,
       experimentador: ImagemExperimentador,
       panels: Paineis,
