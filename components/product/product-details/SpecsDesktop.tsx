@@ -1,5 +1,6 @@
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
+import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
 import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
 import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
@@ -55,21 +56,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           .collapse-content p:nth-child(-n+7) > span {
             display: flex;
           }
-
-          #descricao-content > div > p > span > img {
-            height: 20px;
-          }
-
-          #como-fazemos-as-lentes-de-grau-content iframe,
-          #como-comprar-content iframe {
-            width: 100%;
-          }
-          @media (min-width: 1140px) {
-            #como-fazemos-as-lentes-de-grau-content iframe,
-            #como-comprar-content iframe {
-              height: 624px;
-            }
-          }
           `,
         }}
       />
@@ -103,7 +89,36 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          const replacedValues = value && replaceHtml(value, "500");
+          const replacedValues = value && replaceHtml(value);
+
+          const videoId = replacedValues?.match(
+            /(?:\/(?:embed\/|watch\?v=)|youtu\.be\/)([a-zA-Z0-9_-]+)/,
+          )?.[1];
+          const ytUrl = `https://www.youtube.com/embed/${videoId}`;
+
+          function ContentVariations() {
+            if (id === "medidas") {
+              return (
+                <ProductDetailsMeasurements
+                  product={product}
+                  measurementsImage={measurementsImage}
+                />
+              );
+            }
+            if (
+              id === "como-comprar" ||
+              id === "como-fazemos-as-lentes-de-grau"
+            ) {
+              return <LazyIframe videoUrl={ytUrl} />;
+            }
+            return (
+              <div
+                class="p-3 [&>span]:flex [&>span]:items-center"
+                dangerouslySetInnerHTML={{ __html: replacedValues! }}
+              >
+              </div>
+            );
+          }
 
           return (
             <div
@@ -111,20 +126,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${index === 0 ? "block" : "hidden"}`}
             >
-              {id === "medidas"
-                ? (
-                  <ProductDetailsMeasurements
-                    product={product}
-                    measurementsImage={measurementsImage}
-                  />
-                )
-                : (
-                  <div
-                    class="p-3"
-                    dangerouslySetInnerHTML={{ __html: replacedValues! }}
-                  >
-                  </div>
-                )}
+              <ContentVariations />
             </div>
           );
         })}
