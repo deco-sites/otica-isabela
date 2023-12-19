@@ -56,10 +56,13 @@ function SpecsMobile({ product, measurementsImage }: Props) {
             .replace(/[?]/g, "");
 
           const replacedValues = value && replaceHtml(value);
-          //size 382
-          const ytUrl = "https://www.youtube.com/embed/3O7IfmroTT8";
 
-          function ContentsVariations() {
+          const videoId = replacedValues?.match(
+            /(?:\/(?:embed\/|watch\?v=)|youtu\.be\/)([a-zA-Z0-9_-]+)/,
+          )?.[1];
+          const ytUrl = `https://www.youtube.com/embed/${videoId}`;
+
+          function ContentVariations() {
             if (id === "medidas") {
               return (
                 <ProductDetailsMeasurements
@@ -94,7 +97,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
               {/* Content */}
               <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
-                <ContentsVariations />
+                <ContentVariations />
               </div>
             </div>
           );

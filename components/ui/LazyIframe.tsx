@@ -5,9 +5,6 @@ export interface VideoProps {
 }
 
 const LazyIframe = ({ videoUrl }: VideoProps) => {
-  //   const videoSrc = `${videoUrl}`;
-  //   const videoSrc = `https://www.youtube.com/embed/${videoId}?color=white`;
-
   useEffect(() => {
     const lazyIframes = document.querySelectorAll(".lazy-iframe");
     const observer = new IntersectionObserver(

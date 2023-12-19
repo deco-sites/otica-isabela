@@ -17,8 +17,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
     (prop) => prop.propertyID === "panel",
   );
 
-  console.log("AQUI", additionalProperty);
-
   panels?.unshift(
     {
       "@type": "PropertyValue",
@@ -92,10 +90,13 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .replace(/[?]/g, "");
 
           const replacedValues = value && replaceHtml(value);
-          // size 500
-          const ytUrl = "https://www.youtube.com/embed/3O7IfmroTT8";
 
-          function TabsVariations() {
+          const videoId = replacedValues?.match(
+            /(?:\/(?:embed\/|watch\?v=)|youtu\.be\/)([a-zA-Z0-9_-]+)/,
+          )?.[1];
+          const ytUrl = `https://www.youtube.com/embed/${videoId}`;
+
+          function ContentVariations() {
             if (id === "medidas") {
               return (
                 <ProductDetailsMeasurements
@@ -125,7 +126,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${index === 0 ? "block" : "hidden"}`}
             >
-              <TabsVariations />
+              <ContentVariations />
             </div>
           );
         })}
