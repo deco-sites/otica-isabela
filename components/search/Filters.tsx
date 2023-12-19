@@ -5,9 +5,11 @@ import type {
   FilterToggleValue,
   ProductListingPage,
 } from "apps/commerce/types.ts";
+import SizeOptions from "deco-sites/otica-isabela/components/search/SizeOptions.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import RangeFiltersJS from "deco-sites/otica-isabela/islands/RangeFiltersJS.tsx";
+import ValueItem from "deco-sites/otica-isabela/islands/ValueItem.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { ComponentChildren } from "preact";
 
 interface Props {
   filters: ProductListingPage["filters"];
@@ -18,7 +20,7 @@ interface Props {
   isMobile?: boolean;
 }
 
-type FilterToggleValueWithHex = FilterToggleValue & {
+export type FilterToggleValueWithHex = FilterToggleValue & {
   hex?: string;
 };
 
@@ -30,45 +32,24 @@ type FilterValuesProps = {
   typeIcons: Type[];
   position?: "left" | "right";
   isMobile?: boolean;
+  rangeOptions?: Filter[] | null;
 };
 
 export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
-function ValueItem({
-  url,
-  selected,
-  label,
-  children,
-  class: _class,
-}: Omit<FilterToggleValueWithHex, "label"> & {
-  label?: string;
-  children?: ComponentChildren;
-  class?: string;
-}) {
-  return (
-    <a href={url || "#"} class={_class}>
-      <div class="flex items-center mb-5">
-        <div
-          aria-checked={selected}
-          class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
-        />
-        <span class="flex items-center gap-2.5 max-lg:font-medium">
-          {label ?? children}
-        </span>
-      </div>
-    </a>
-  );
-}
-
-function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
+function AgeOptions(
+  { values, type }: { values: FilterToggleValueWithHex[]; type: string },
+) {
   const orderedAges = values.sort(
     (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
   );
 
   return (
     <>
-      {orderedAges.map((item) => <ValueItem class="lg:w-1/4" {...item} />)}
+      {orderedAges.map((item) => (
+        <ValueItem type={type} class="lg:w-1/4" {...item} />
+      ))}
     </>
   );
 }
@@ -76,9 +57,11 @@ function AgeOptions({ values }: { values: FilterToggleValueWithHex[] }) {
 function TypeOptions({
   values,
   typeIcons,
+  type,
 }: {
   values: FilterToggleValueWithHex[];
   typeIcons: Type[];
+  type: string;
 }) {
   return (
     <>
@@ -86,7 +69,7 @@ function TypeOptions({
         const typeIcon = typeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem {...item}>
+          <ValueItem type={type} {...item} label={label}>
             {typeIcon
               ? (
                 <Image
@@ -108,9 +91,11 @@ function TypeOptions({
 function ShapeOptions({
   values,
   shapeIcons,
+  type,
 }: {
   values: FilterToggleValueWithHex[];
   shapeIcons: Shape[];
+  type: string;
 }) {
   return (
     <>
@@ -118,7 +103,7 @@ function ShapeOptions({
         const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem {...item} class="lg:w-1/2">
+          <ValueItem {...item} type={type} class="lg:w-1/2" label={label}>
             {shapeIcon
               ? (
                 <Image
@@ -139,16 +124,18 @@ function ShapeOptions({
 
 function ColorOptions({
   matchingColors,
+  type,
 }: {
   matchingColors: FilterToggleValueWithHex[];
+  type: string;
 }) {
   return (
     <>
       {matchingColors?.map((item) => {
-        const { url, value, hex } = item;
+        const { value, hex } = item;
 
         return (
-          <a href={url} class="lg:w-1/4">
+          <ValueItem hideCheckbox type={type} {...item} class="lg:w-1/4">
             <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
               <span
                 style={{ backgroundColor: hex }}
@@ -156,7 +143,7 @@ function ColorOptions({
               />
               <p class="ml-[10px] font-bold">{value}</p>
             </div>
-          </a>
+          </ValueItem>
         );
       })}
     </>
@@ -171,6 +158,7 @@ function FilterValues({
   shapeIcons,
   position,
   isMobile = false,
+  rangeOptions,
 }: FilterValuesProps) {
   const flexDirection =
     label === "Formato" || label === "Cor" || label === "Idade"
@@ -201,26 +189,43 @@ function FilterValues({
     }
   });
 
-  function Options() {
+  function Options({ isMobile }: { isMobile: boolean }) {
     if (label === "Tipo") {
-      return <TypeOptions values={values} typeIcons={typeIcons} />;
+      return <TypeOptions type={label} values={values} typeIcons={typeIcons} />;
     }
 
     if (label === "Formato") {
-      return <ShapeOptions values={values} shapeIcons={shapeIcons} />;
+      return (
+        <ShapeOptions type={label} values={values} shapeIcons={shapeIcons} />
+      );
     }
 
     if (label === "Idade") {
-      return <AgeOptions values={values} />;
+      return <AgeOptions type={label} values={values} />;
     }
 
     if (label === "Cor" && matchingColors) {
-      return <ColorOptions matchingColors={matchingColors} />;
+      return <ColorOptions type={label} matchingColors={matchingColors} />;
+    }
+
+    if (label === "Tamanho") {
+      const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
+
+      return (
+        <div id={rootId}>
+          <SizeOptions
+            values={values}
+            type={label}
+            rangeOptions={rangeOptions!}
+          />
+          <RangeFiltersJS rootId={rootId} />
+        </div>
+      );
     }
 
     return (
       <>
-        {values.map((value) => <ValueItem {...value} />)}
+        {values.map((value) => <ValueItem type={label} {...value} />)}
       </>
     );
   }
@@ -230,16 +235,16 @@ function FilterValues({
       {!isMobile
         ? (
           <div
-            class={`text-black font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transition duration-300 ease-in-out
+            class={`text-black justify-start font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transition duration-300 ease-in-out
 				${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
 			  `}
           >
-            <Options />
+            <Options isMobile={isMobile} />
           </div>
         )
         : (
-          <div class="collapse-content">
-            <Options />
+          <div class="collapse-content flex flex-wrap gap-3">
+            <Options isMobile={isMobile} />
           </div>
         )}
     </>
@@ -254,12 +259,38 @@ function Filters({
   typeIcons,
   isMobile = false,
 }: Props) {
-  const defaultFilters = filters.filter((filterItem) => {
-    return !hideFilters.includes(filterItem.label);
-  });
+  const rangeFilters =
+    filters.filter((filter) => filter["@type"] === "FilterRange") || [];
+  const defaultFilters = filters.filter((filter) =>
+    filter["@type"] !== "FilterRange"
+  );
 
   return (
     <>
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `
+            #filter-range-input {
+              background: linear-gradient(#42c3ff,#42c3ff) no-repeat center;
+              background-size: 100% 2px;
+              appearance: none;
+              padding: 0 2px;
+            }
+
+            #filter-range-input::-webkit-slider-thumb {
+              pointer-events: all;
+              border: 2px solid #42c3ff;
+              height: 24px;
+              width: 24px;
+              border-radius: 50%;
+              background: #FFFFFF;
+              cursor: pointer;
+              -webkit-appearance: none;
+            }
+          `,
+        }}
+      />
       {!isMobile
         ? (
           <ul class="flex w-full justify-center flex-row">
@@ -273,6 +304,9 @@ function Filters({
                     shapeIcons={shapeIcons}
                     filterColors={filterColors}
                     position={index < array.length / 2 ? "left" : "right"}
+                    rangeOptions={filter.label === "Tamanho"
+                      ? rangeFilters
+                      : null}
                     {...filter}
                   />
                 )}
@@ -293,6 +327,9 @@ function Filters({
                     typeIcons={typeIcons}
                     shapeIcons={shapeIcons}
                     filterColors={filterColors}
+                    rangeOptions={filter.label === "Tamanho"
+                      ? rangeFilters
+                      : null}
                     isMobile
                     {...filter}
                   />

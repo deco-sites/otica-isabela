@@ -1,4 +1,5 @@
 import { visitedProductsCookie } from "$store/components/constants.ts";
+import { AuthData } from "$store/packs/types.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
@@ -12,7 +13,6 @@ import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
-import { AuthData } from "$store/packs/types.ts";
 
 type ButtonLabel = {
   category: string;
@@ -64,7 +64,7 @@ function ProductDetails({
             page={"details"}
           />
         )}
-        <div class="container py-[30px] lg:py-[60px]">
+        <div class="container py-[20px] lg:py-[40px]">
           {page
             ? (
               <Details

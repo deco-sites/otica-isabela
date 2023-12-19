@@ -22,7 +22,7 @@ export interface Props {
 function Buttons() {
   return (
     <>
-      <div class="flex items-center justify-start z-10 absolute top-2/4 -left-2">
+      <div class="flex items-center justify-start z-10 absolute top-[46%] left-0">
         <Slider.PrevButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tr-3xl rounded-br-3xl cursor-pointer">
           <Icon
             size={35}
@@ -32,7 +32,7 @@ function Buttons() {
           />
         </Slider.PrevButton>
       </div>
-      <div class="flex items-center justify-end z-10 absolute top-2/4 -right-2">
+      <div class="flex items-center justify-end z-10 absolute top-[46%] right-0">
         <Slider.NextButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tl-3xl rounded-bl-3xl pl-2 cursor-pointer">
           <Icon
             size={35}

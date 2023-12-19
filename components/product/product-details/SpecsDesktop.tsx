@@ -1,6 +1,7 @@
-import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
-import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import { Product } from "apps/commerce/types.ts";
+import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
+import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
+import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
@@ -40,13 +41,13 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           #descricao-content > div > p:last-child {
             display: none
           }
-          
+
           #descricao-content > div > p {
             margin: 0 0 10px;
             font-size: 15px;
             font-weight: 400;
           }
-          
+
           #descricao-content p:nth-child(-n+7) > span {
             display: flex;
           }
@@ -54,18 +55,18 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           .collapse-content p:nth-child(-n+7) > span {
             display: flex;
           }
-          
+
           #descricao-content > div > p > span > img {
             height: 20px;
           }
-          
-          #como-fazemos-as-lentes-de-grau-content iframe, 
-          #como-comprar-content iframe { 
+
+          #como-fazemos-as-lentes-de-grau-content iframe,
+          #como-comprar-content iframe {
             width: 100%;
           }
           @media (min-width: 1140px) {
-            #como-fazemos-as-lentes-de-grau-content iframe, 
-            #como-comprar-content iframe { 
+            #como-fazemos-as-lentes-de-grau-content iframe,
+            #como-comprar-content iframe {
               height: 624px;
             }
           }
@@ -101,6 +102,9 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .toLocaleLowerCase()
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
+
+          const replacedValues = value && replaceHtml(value, "500");
+
           return (
             <div
               id={`${id}-content`}
@@ -117,7 +121,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 : (
                   <div
                     class="p-3"
-                    dangerouslySetInnerHTML={{ __html: value! }}
+                    dangerouslySetInnerHTML={{ __html: replacedValues! }}
                   >
                   </div>
                 )}
