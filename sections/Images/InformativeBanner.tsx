@@ -16,7 +16,8 @@ const InformativeBanner = ({ image, hidden }: Props) => {
         image?.src?.desktop ? "lg:flex" : "hidden"
       }  items-center justify-center bg-black py-3`}
     >
-      <BasicImageAndLink {...image} />
+      <BasicImageAndLink {...image} height={{ desktop: 32, mobile: 32 }}
+              width={{ desktop: 1275, mobile: 425 }} />
     </div>
   );
 };
