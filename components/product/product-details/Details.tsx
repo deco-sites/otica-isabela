@@ -40,7 +40,9 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory, customer }: Props) {
+function Details(
+  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
+) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);

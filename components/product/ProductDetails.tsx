@@ -27,6 +27,21 @@ export interface Promotion {
   flagText: string;
 }
 
+export interface MobileOptions {
+  /** @title Localização da Flag */
+  discountTagLocation: "Top" | "Bottom";
+
+  /** @title Localização do Nome */
+  nameLocation: "Top" | "Bottom";
+
+  /** @title Localização das estrelas */
+  starsLocation: "Top" | "Bottom";
+  
+  /** @title Mostrar thumbnails do produto */
+  /** @default false*/
+  showProductTumbnails: boolean;
+}
+
 export interface Props {
   /** @title Configurações do Loader */
   page: LoaderReturnType<ProductDetailsPage | null>;
@@ -41,6 +56,8 @@ export interface Props {
   buttonByCategory?: ButtonLabel[];
 
   customer: LoaderReturnType<AuthData>;
+
+  mobileOptions?: MobileOptions;
 }
 
 function ProductDetails({
