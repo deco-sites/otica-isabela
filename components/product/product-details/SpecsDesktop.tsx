@@ -113,7 +113,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             }
             return (
               <div
-                class="p-3"
+                class="p-3 [&>span]:flex [&>span]:items-center"
                 dangerouslySetInnerHTML={{ __html: replacedValues! }}
               >
               </div>
