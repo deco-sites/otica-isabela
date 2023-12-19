@@ -111,7 +111,7 @@ export default function Newsletter({
           {header ? <HeaderTitle {...header} /> : null}
           <form
             action="#"
-            class="flex flex-col gap-3 w-full md:max-w-[70%] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"
+            class="flex flex-col gap-3 w-full md:max-w-[600px] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"
             onSubmit={handleSubmit}
           >
             <input
@@ -145,7 +145,7 @@ export default function Newsletter({
             </button>
 
             {helpText && (
-              <p class="text-[10px] text-white  font-normal text-xs md:text-base text-center  md:max-w-[60%]">
+              <p class="text-[10px] text-white  font-normal text-xs md:text-base text-center  md:max-w-[70%]">
                 {helpText}
               </p>
             )}

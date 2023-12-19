@@ -1,12 +1,13 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
 import Filters from "$store/components/search/Filters.tsx";
-import SelectedFilters from "$store/components/search/SelectedFilters.tsx";
+import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
+import ApplyRangeFiltersJS from "deco-sites/otica-isabela/islands/ApplyRangeFiltersJS.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
@@ -63,17 +64,22 @@ export interface Props {
   /** @title Loader */
   page: LoaderReturnType<ProductListingPage | null>;
   /** @title Cores do Filtro */
-  filterColors: Color[];
+  filterColors?: Color[];
   /** @title Icones do filtro de Tipo */
-  typeIcons: Type[];
+  typeIcons?: Type[];
   /** @title Icones do filtro de Formato */
-  shapeIcons: Shape[];
+  shapeIcons?: Shape[];
   /** @title Esconder Filtros */
   hideFilters?: string[];
   /** @title Menu de Categorias */
-  categories: CategoryMatcher[];
+  categories?: CategoryMatcher[];
   /** @title Ativar carossel nos itens da galeria? */
   isSliderEnabled?: boolean;
+  /**
+   * @title Titulo da pagina
+   * @description Obrigatório para paginas de coleção
+   */
+  pageName?: string;
 }
 
 function NotFound() {
@@ -86,15 +92,16 @@ function NotFound() {
 
 function Result({
   page,
-  filterColors,
-  hideFilters,
-  typeIcons,
-  shapeIcons,
-  categories,
+  filterColors = [],
+  hideFilters = [],
+  typeIcons = [],
+  shapeIcons = [],
+  categories = [],
   isSliderEnabled,
+  pageName,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-  const productCategory = seo?.title.split(" - ")[0].toUpperCase();
+  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
 
   return (
     <>
@@ -116,12 +123,24 @@ function Result({
             <div class="border-t border-base-200 w-full py-[30px]">
               <div class="container flex justify-between items-center">
                 <SelectedFilters filters={filters} />
-                <a
-                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-                >
-                  Limpar Filtros
-                </a>
+                <div class="flex gap-4">
+                  <button
+                    id="apply-range-filters"
+                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                  >
+                    <span>Aplicar Filtro</span>
+                  </button>
+                  <ApplyRangeFiltersJS
+                    rootId="size-options-container"
+                    buttonId="apply-range-filters"
+                  />
+                  <a
+                    href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                    class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                  >
+                    Limpar Filtros
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -136,9 +155,13 @@ function Result({
         typeIcons={typeIcons}
         shapeIcons={shapeIcons}
       />
-      <div class="flex w-full flex-row justify-center items-center my-5">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
+      {!breadcrumb?.itemListElement?.length
+        ? null
+        : (
+          <div class="flex w-full flex-row justify-center items-center my-5">
+            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+          </div>
+        )}
       <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">

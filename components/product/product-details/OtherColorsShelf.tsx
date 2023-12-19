@@ -1,7 +1,8 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
 import { Product, ProductLeaf } from "apps/commerce/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
+import { useId } from "preact/hooks";
 
 interface Props {
   product: Product;
@@ -12,8 +13,8 @@ type Variant = ProductLeaf & {
 };
 
 function OtherColorsShelf({ product }: Props) {
-  const id = "other-colors-shelf";
-  const { isVariantOf, sku } = product;
+  const id = `other-colors-shelf-${useId()}`;
+  const { isVariantOf, productID } = product;
   const { hasVariant } = isVariantOf || {};
 
   if (hasVariant && hasVariant.length === 1) return null;
@@ -25,7 +26,7 @@ function OtherColorsShelf({ product }: Props) {
       url: variant.url,
       sku: variant.sku,
     }))
-    .filter((variant) => variant.sku !== sku);
+    .filter((variant) => variant.sku !== productID);
 
   if (!images || images.length === 1) return null;
 

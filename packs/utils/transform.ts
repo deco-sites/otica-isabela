@@ -101,8 +101,6 @@ export function toProduct(product: IsabelaProduct): Product {
     Avaliacoes,
   } = product;
 
-  const productsInfo = Classificacoes.map((productInfo) => productInfo);
-
   const isVariantOf = product.ProdutosMaisCores
     ? toVariantProduct(product, product.ProdutosMaisCores)
     : undefined;
@@ -118,7 +116,7 @@ export function toProduct(product: IsabelaProduct): Product {
       DescricaoSeo,
     image: toImage(Imagens, Nome),
     additionalProperty: toAdditionalProperties({
-      properties: productsInfo,
+      properties: Classificacoes,
       variants: ProdutosMaisCores,
       experimentador: ImagemExperimentador,
       panels: Paineis,
@@ -158,7 +156,7 @@ const toCategory = (category: Array<string>) =>
     .join(">");
 
 const toUrl = (UrlFriendlyColor: string) =>
-  new URL(UrlFriendlyColor, "https://www.oticaisabeladias.com.br/produto/")
+  new URL(UrlFriendlyColor, "https://secure.oticaisabeladias.com.br/produto/")
     .href;
 
 const toImage = (
@@ -173,7 +171,7 @@ const toImage = (
         [
           {
             "@type": "ImageObject" as const,
-            url: Imagem,
+            url: `https://secure.oticaisabeladias.com.br${Imagem}`,
             alternateName,
             additionalType: "image",
           },
@@ -628,9 +626,7 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
   const categories = [category.CategoriaPai ?? null, category].filter(
     (p) => p != null,
   );
-  const params = url.searchParams;
   const breadcrumbList = categories.map((c, i) => {
-    const lastElement = categories.length === i + 1;
     return {
       "@type": "ListItem" as const,
       name: c.Nome,
@@ -640,7 +636,7 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
             .slice(0, i + 1)
             .map(({ UrlFriendly }) => UrlFriendly)
             .join("/")
-        }${lastElement ? "?" + params.toString() : ""}`,
+        }`,
         url.origin,
       ).href,
       position: i + 1,

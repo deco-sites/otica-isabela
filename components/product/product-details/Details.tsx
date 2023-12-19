@@ -151,6 +151,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                         loading="lazy"
                         width={350}
                         height={350}
+                        class="w-full"
                         controls
                       />
                     )
@@ -181,7 +182,6 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
               {promotion.flagText.replace("%value", price!.toString())}
             </div>
           )}
-
           {/* Dots - Mobile & Desktop */}
           <ul
             id="image-dots"

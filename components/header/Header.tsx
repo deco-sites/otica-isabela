@@ -64,17 +64,13 @@ function Header({
   return (
     <>
       <header class="bg-black">
-        <div
-          id="overlayHeader"
-          class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30"
-        >
-        </div>
+        <div class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30" />
         {activate && (
           <div class="flex items-center justify-center">
             <BasicImageAndLink
               {...image}
-              height={{ desktop: 32, mobile: 32 }}
-              width={{ desktop: 1400, mobile: 0 }}
+              height={{ desktop: 45, mobile: 51 }}
+              width={{ desktop: 1275, mobile: 425 }}
             />
           </div>
         )}

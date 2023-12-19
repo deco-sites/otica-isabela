@@ -15,7 +15,6 @@ interface Props {
 @title Otica Isabela Dias - Início de Sessão
 @description Esse loader inicia a sessão do cliente, retornando um token para as requisições relacionadas ao cart.
 **/
-
 const loader = async (
   props: Props,
   _req: Request,

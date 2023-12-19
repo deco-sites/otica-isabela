@@ -64,7 +64,7 @@ function ProductDetails({
             page={"details"}
           />
         )}
-        <div class="container py-[30px] lg:py-[60px]">
+        <div class="container py-[20px] lg:py-[40px]">
           {page
             ? (
               <Details
