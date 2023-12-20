@@ -7,7 +7,7 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="mx-2 text-left">
+    <ul class="mx-3 text-left whitespace-nowrap overflow-hidden truncate ...">
       <li class="inline align-middle text-left leading-[21px]">
         <a
           class="inline-block align-middle font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
