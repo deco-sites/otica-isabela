@@ -122,7 +122,11 @@ function Details(
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton productID={productID} customer={customer} />
+          <WishlistButton
+            variant="icon"
+            productID={productID}
+            customer={customer}
+          />
         </div>
         <ToExperimentButton
           image={experimenterImage!}
