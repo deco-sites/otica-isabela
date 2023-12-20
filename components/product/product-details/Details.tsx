@@ -221,9 +221,11 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
           <div id="price-mobile-container">
             <div id="price-mobile-content">
-              <p class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
-                {formatPrice(listPrice, offers!.priceCurrency!)}
-              </p>
+              {discount > 0 && (
+                <span class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
+                  {formatPrice(listPrice, offers!.priceCurrency!)}
+                </span>
+              )}
               <p class="mt-1 text-blue-200 text-[27px] font-bold">
                 {formatPrice(price, offers!.priceCurrency!)}
               </p>
