@@ -13,16 +13,11 @@ function Breadcrumb({ itemListElement = [] }: Props) {
           class="inline-block align-middle font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
           href="/"
         >
-          <Icon
-            class="text-black sm:hidden"
-            id="Home"
-            size={16}
-          />
-          <span class="hidden sm:inline align-middle">
+          <span class="inline-block align-middle">
             Ótica Isabela Dias
           </span>
         </a>
-        <span class="my-0 mx-[10px] text-sm text-[#212529] inline align-middle">
+        <span class="my-0 mx-[5px] sm:mx-[10px] text-sm text-[#212529] inline align-middle">
           ›
         </span>
       </li>
@@ -31,13 +26,13 @@ function Breadcrumb({ itemListElement = [] }: Props) {
         .map(({ name, item }, index) => (
           <li class="inline align-middle text-left leading-[21px]">
             <a
-              class="font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
+              class="inline font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
               href={item}
             >
               {name?.toLocaleLowerCase().trim()}
             </a>
             {index < itemListElement.length - 1 && (
-              <span class="my-0 mx-[10px] text-sm text-[#212529] inline align-middle">
+              <span class="my-0 mx-[5px] sm:mx-[10px] text-sm text-[#212529] inline align-middle">
                 ›
               </span>
             )}
