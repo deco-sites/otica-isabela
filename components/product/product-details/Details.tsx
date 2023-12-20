@@ -40,9 +40,7 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details(
-  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
-) {
+function Details({ page, promotions, buttonByCategory, customer }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -55,7 +53,8 @@ function Details(
   const colorsList = additionalProperty?.filter(
     (prop) => prop.propertyID === "color",
   );
-  const colors = colorsList?.map((color) => color.unitCode);
+  const colors = colorsList?.map(({ unitCode }) => unitCode);
+  const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
@@ -122,11 +121,7 @@ function Details(
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton
-            variant="icon"
-            productID={productID}
-            customer={customer}
-          />
+          <WishlistButton productID={productID} customer={customer} />
         </div>
         <ToExperimentButton
           image={experimenterImage!}
@@ -238,7 +233,7 @@ function Details(
           {!!colorsList?.length && (
             <div id="colors" class="flex items-center">
               <p class="text-base-300 font-bold">
-                {colorsList?.[0]?.value?.toUpperCase()}
+                {colorsName?.join(" / ").toUpperCase()}
               </p>
               <span
                 class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"

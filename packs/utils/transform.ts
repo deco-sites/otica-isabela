@@ -188,14 +188,10 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps
 ): PropertyValue[] => {
-  const { variants, properties, panels, experimentador, flag, rating } = props;
-
-  const productColorAdditionalProperties = !variants.length
-    ? []
-    : toProductColorAdditionalProperties(properties, variants);
+  const { properties, panels, experimentador, flag, rating } = props;
 
   return [
-    ...productColorAdditionalProperties,
+    ...toProductColorAdditionalProperties(properties),
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       name: item.Nome,
@@ -220,16 +216,19 @@ const toAdditionalProperties = (
 
 const toProductColorAdditionalProperties = (
   properties: ProductInfo[],
-  variants: ColorVariants[]
 ): PropertyValue[] | [] => {
   const colorName = Object.values(properties).filter(
     (value) => value.IdTipo === 14 || value.Tipo === "Cor"
   );
 
   if (colorName.length === 0) return [];
-  return Object.values(variants)
-    .filter((variant) => variant.NomeColor === colorName[0].Nome)
-    .flatMap((variant) => toColorPropertyValue(variant));
+  return colorName.map(({ Nome, Cor }) => ({
+    "@type": "PropertyValue" as const,
+    name: "Cor",
+    value: Nome,
+    propertyID: "color",
+    unitCode: Cor,
+  }));
 };
 
 const toDefaultProperties = (
