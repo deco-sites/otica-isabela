@@ -34,9 +34,11 @@ export interface MobileOptions {
   /** @title Localização do Nome */
   nameLocation: "Header" | "Bottom";
 
-  /** @title Localização das estrelas */
-  starsLocation: "Top" | "Bottom";
-  
+  /** @title Localização das estrelas
+   * @description Caso o Flag de oferta também esteja localizado no "Header", as estrelas irão automaticamente seguir a opção "Bottom".
+   */
+  starsLocation: "Header" | "Bottom";
+
   /** @title Mostrar thumbnails do produto */
   /** @default false*/
   showProductTumbnails: boolean;
@@ -57,7 +59,7 @@ export interface Props {
 
   customer: LoaderReturnType<AuthData>;
 
-  mobileOptions?: MobileOptions;
+  mobileOptions: MobileOptions;
 }
 
 function ProductDetails({
@@ -66,7 +68,7 @@ function ProductDetails({
   promotions,
   buttonByCategory,
   customer,
-  mobileOptions
+  mobileOptions,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};

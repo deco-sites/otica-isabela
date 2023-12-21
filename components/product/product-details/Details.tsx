@@ -45,6 +45,7 @@ function Details(
 ) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
+  const { discountTagLocation, nameLocation, starsLocation, showProductTumbnails } = mobileOptions
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -117,7 +118,7 @@ function Details(
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
         {/* Discount Span - Mobile (Header) */}
-        {discount > 0 && mobileOptions?.discountTagLocation === "Header" && (
+        {discount > 0 && discountTagLocation === "Header" && (
           <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
             <Icon id="ArrowDown" width={9} height={9} />-{discount}%
           </span>
@@ -126,6 +127,14 @@ function Details(
           <ShareButton link={url!} />
           <WishlistButton productID={productID} customer={customer} />
         </div>
+
+        {/* Ratings - Mobile (Header) */}
+        {!!ratingValue && starsLocation === "Header" &&
+          discountTagLocation !== "Header" && (
+          <a href="#product-review">
+            <Ratings ratingValue={ratingValue} />
+          </a>
+        )}
         <ToExperimentButton
           image={experimenterImage!}
           variant="filled"
@@ -134,7 +143,7 @@ function Details(
       </div>
 
       {/* Product Name - Mobile (Header) */}
-      {mobileOptions?.nameLocation === "Header" && (
+      {nameLocation === "Header" && (
         <div class="mt-4 text-center px-8 lg:hidden">
           <span class="font-roboto font-normal text-lg">{name}</span>
         </div>
@@ -177,14 +186,14 @@ function Details(
             </Slider>
 
             {/* Product Name - Mobile (Bottom) */}
-            {mobileOptions?.nameLocation === "Bottom" && (
+            {nameLocation === "Bottom" && (
               <div class="mt-4 text-center px-8 lg:hidden">
                 <span class="font-roboto font-normal text-lg">{name}</span>
               </div>
             )}
 
             {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && mobileOptions?.discountTagLocation !== "Header" &&
+            {discount > 0 && discountTagLocation !== "Header" &&
               (
                 <span
                   class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
@@ -229,15 +238,18 @@ function Details(
           </ul>
         </div>
 
-        {/* Ratings - Mobile */}
-        {!!ratingValue && (
-          <div class="flex flex-col items-center my-8 lg:hidden">
-            <a href="#product-review" class="text-center">
-              <Ratings ratingValue={ratingValue} />
-              <p class="text-lg font-bold">Veja as avaliações</p>
-            </a>
-          </div>
-        )}
+        {/* Ratings - Mobile (Bottom) */}
+        {!!ratingValue &&
+          (starsLocation === "Bottom" ||
+            discountTagLocation === "Header") &&
+          (
+            <div class="flex flex-col items-center my-8 lg:hidden">
+              <a href="#product-review" class="text-center">
+                <Ratings ratingValue={ratingValue} />
+                <p class="text-lg font-bold">Veja as avaliações</p>
+              </a>
+            </div>
+          )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
@@ -293,6 +305,7 @@ function Details(
             promotions={promotions}
             buttonByCategory={buttonByCategory}
             customer={customer}
+            mobileOptions={mobileOptions}
           />
         </div>
       </div>
