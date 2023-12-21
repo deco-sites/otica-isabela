@@ -16,6 +16,7 @@ import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
 import { useId } from "preact/hooks";
+import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -302,19 +303,12 @@ function Details(
         </div>
 
         {/* Choose Lens & Add To Cart - Mobile */}
-        <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
-          <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-            <a href={chooseLensUrl}>
-              <ChooseLensButton {...addToCard} />
-            </a>
-          </div>
-          <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton
-              {...addToCard}
-              label={labels?.[currentCategory!]}
-            />
-          </div>
-        </div>
+        <CartModalMobile
+          chooseLensUrl={chooseLensUrl}
+          addToCard={addToCard}
+          labels={labels}
+          currentCategory={currentCategory!}
+        />
 
         {/* Product Details - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
