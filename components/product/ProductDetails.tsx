@@ -29,7 +29,7 @@ export interface Promotion {
 
 export interface MobileOptions {
   /** @title Localização da Flag */
-  discountTagLocation: "Top" | "Bottom";
+  discountTagLocation: "Header" | "Image Bottom" | "Image Top";
 
   /** @title Localização do Nome */
   nameLocation: "Top" | "Bottom";
@@ -66,6 +66,7 @@ function ProductDetails({
   promotions,
   buttonByCategory,
   customer,
+  mobileOptions
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
@@ -89,6 +90,7 @@ function ProductDetails({
                 promotions={promotions}
                 buttonByCategory={buttonByCategory}
                 customer={customer}
+                mobileOptions={mobileOptions}
               />
             )
             : <NotFound />}

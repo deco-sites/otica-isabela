@@ -40,7 +40,9 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory, customer }: Props) {
+function Details(
+  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
+) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -114,7 +116,8 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         id="pdp-mobile-header-container"
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
-        {discount > 0 && (
+        {/* Discount Span - Mobile (TOP) */}
+        {discount > 0 && mobileOptions?.discountTagLocation === "Header" && (
           <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
             <Icon id="ArrowDown" width={9} height={9} />-{discount}%
           </span>
@@ -170,11 +173,21 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                 </Slider.Item>
               ))}
             </Slider>
-            {discount > 0 && (
-              <span class="hidden absolute right-0 bottom-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
-                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-              </span>
-            )}
+
+            {/* Discount Span - Mobile (BOTTOM) & Desktop */}
+            {discount > 0 && mobileOptions?.discountTagLocation !== "Header" &&
+              (
+                <span
+                  class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+                  right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
+                    mobileOptions!.discountTagLocation === "Image Bottom"
+                      ? "bottom-20"
+                      : "top-2"
+                  }`}
+                >
+                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+                </span>
+              )}
           </div>
 
           {/* Buy with lens label */}
