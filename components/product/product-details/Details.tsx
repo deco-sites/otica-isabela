@@ -308,6 +308,7 @@ function Details(
           addToCard={addToCard}
           labels={labels}
           currentCategory={currentCategory!}
+          observableTag="header"
         />
 
         {/* Product Details - Desktop */}
