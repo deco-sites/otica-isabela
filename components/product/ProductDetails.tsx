@@ -32,7 +32,7 @@ export interface MobileOptions {
   discountTagLocation: "Header" | "Image Bottom" | "Image Top";
 
   /** @title Localização do Nome */
-  nameLocation: "Top" | "Bottom";
+  nameLocation: "Header" | "Bottom";
 
   /** @title Localização das estrelas */
   starsLocation: "Top" | "Bottom";

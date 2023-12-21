@@ -116,7 +116,7 @@ function Details(
         id="pdp-mobile-header-container"
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
-        {/* Discount Span - Mobile (TOP) */}
+        {/* Discount Span - Mobile (Header) */}
         {discount > 0 && mobileOptions?.discountTagLocation === "Header" && (
           <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
             <Icon id="ArrowDown" width={9} height={9} />-{discount}%
@@ -133,14 +133,16 @@ function Details(
         />
       </div>
 
-      {/* Product Name - Mobile */}
-      <div class="mt-4 text-center px-8 lg:hidden">
-        <span class="font-roboto font-normal text-lg">{name}</span>
-      </div>
+      {/* Product Name - Mobile (Header) */}
+      {mobileOptions?.nameLocation === "Header" && (
+        <div class="mt-4 text-center px-8 lg:hidden">
+          <span class="font-roboto font-normal text-lg">{name}</span>
+        </div>
+      )}
 
       {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-        <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
+        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
             <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
               {images.map((img, index) => (
@@ -174,7 +176,14 @@ function Details(
               ))}
             </Slider>
 
-            {/* Discount Span - Mobile (BOTTOM) & Desktop */}
+            {/* Product Name - Mobile (Bottom) */}
+            {mobileOptions?.nameLocation === "Bottom" && (
+              <div class="mt-4 text-center px-8 lg:hidden">
+                <span class="font-roboto font-normal text-lg">{name}</span>
+              </div>
+            )}
+
+            {/* Discount Span - Mobile (Image) & Desktop */}
             {discount > 0 && mobileOptions?.discountTagLocation !== "Header" &&
               (
                 <span
