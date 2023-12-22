@@ -42,6 +42,12 @@ export interface MobileOptions {
   /** @title Mostrar thumbnails do produto */
   /** @default false*/
   showProductTumbnails: boolean;
+
+  /**
+   * @title Seção "Escolher as Lentes" e "Adicionar ao Carrinho"
+   * @description Mostrar botões "ESCOLHER AS LENTES" e "ADICIONAR AO CARRINHO" após o seguinte elemento não ser mais mostrado
+   */
+  displayModalAfter: "Header" | "Product Images" | "Experimentador Section";
 }
 
 export interface Props {

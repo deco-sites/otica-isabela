@@ -10,8 +10,6 @@ import Ratings from "deco-sites/otica-isabela/components/product/product-details
 import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
-import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
-import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
@@ -51,6 +49,7 @@ function Details(
     nameLocation,
     starsLocation,
     showProductTumbnails,
+    displayModalAfter,
   } = mobileOptions;
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
@@ -120,7 +119,7 @@ function Details(
 
       {/* Header - Mobile */}
       <div
-        id="pdp-mobile-header-container"
+        id={`experimentador-section-${id}`}
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
         {/* Discount Span - Mobile (Header) */}
@@ -159,7 +158,10 @@ function Details(
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
         <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
-            <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
+            <Slider
+              id={`product-images-${id}`}
+              class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+            >
               {images.map((img, index) => (
                 <Slider.Item
                   index={index}
@@ -308,7 +310,14 @@ function Details(
           addToCard={addToCard}
           labels={labels}
           currentCategory={currentCategory!}
-          observableTag="header"
+          observableElement={displayModalAfter === "Header"
+            ? { type: "Tag", value: "header" }
+            : {
+              type: "Id",
+              value: `${
+                displayModalAfter.toLowerCase().replace(/\s+/g, "-")
+              }-${id}`,
+            }}
         />
 
         {/* Product Details - Desktop */}

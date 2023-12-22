@@ -7,7 +7,7 @@ export interface Props {
   addToCard: AddToCart;
   labels?: Labels;
   currentCategory: string;
-  observableTag: string;
+  observableElement: ObservableElement;
 }
 
 interface AddToCart {
@@ -21,40 +21,52 @@ interface Labels {
   [key: string]: string;
 }
 
-const setup = (observableTag: string) => {
-  const elements = document.getElementsByTagName(observableTag);
-  const header = elements?.item(0);
-  if (!elements || !header) {
+interface ObservableElement {
+  type: "Tag" | "Id";
+  value: string;
+}
+
+const setup = ({ value, type }: ObservableElement) => {
+  const observableElement = type === "Tag"
+    ? document.getElementsByTagName(value)?.item(0)
+    : document.getElementById(value);
+
+  if (!observableElement) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
-      { elements, header },
+      { observableElement },
     );
     return;
   }
+  const cartElement = document.getElementById("cart-modal-mobile");
   const observer = new IntersectionObserver(
     (elements) =>
       elements.forEach((item) => {
         if (item.isIntersecting) {
-          /* console.log("na tela"); */
+          cartElement!.setAttribute("hidden", "");
         } else {
-          /* console.log("não tá na tela"); */
+          cartElement!.removeAttribute("hidden");
         }
       }),
     { threshold: 0.1 },
   );
 
-  observer.observe(header);
+  observer.observe(observableElement);
 };
 
 function CartModalMobile(
-  { chooseLensUrl, addToCard, labels, currentCategory, observableTag }: Props,
+  { chooseLensUrl, addToCard, labels, currentCategory, observableElement }:
+    Props,
 ) {
   useEffect(
-    () => setup(observableTag),
-    [observableTag],
+    () => setup(observableElement),
+    [observableElement],
   );
   return (
-    <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
+    <div
+      class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden transition-all duration-300 ease-in-out"
+      id="cart-modal-mobile"
+    >
       <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
         <a href={chooseLensUrl}>
           <ChooseLensButton {...addToCard} />
