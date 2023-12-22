@@ -1,6 +1,4 @@
 import type { SectionProps } from "$live/types.ts";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useSignal } from "@preact/signals";
 
 export interface Category {
@@ -11,9 +9,6 @@ export interface Category {
   /** @title Identificador */
   /** @description Valor utilizado para ativar o texto cadastrado para a categoria selecionada. Use /feminino/* para exibir o texto na categoria "feminino" */
   matcher: string;
-
-  /** @title Configurações do Loader */
-  page: LoaderReturnType<ProductListingPage | null>;
 
   /**
    * @title Texto a Exibir na Categoria
