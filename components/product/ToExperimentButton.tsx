@@ -107,7 +107,7 @@ const ToExperimentButton = ({
                 class="w-full"
                 width="640"
                 height="480"
-                src={`${BASE_EXPERIMENTER_URL}?oculos=${image}&tipo=${device}`}
+                src={`/view/experimentador.html?oculos=${image}&tipo=${device}`}
               >
               </iframe>
             </div>
