@@ -3,7 +3,7 @@
     "deco-sites/otica-isabela/": "./",
     "$store/": "./",
     "deco-sites/std/": "https://denopkg.com/deco-sites/std@1.22.11/",
-    "$live/": "https://denopkg.com/deco-cx/deco@1.48.1/",
+    "$live/": "https://denopkg.com/deco-cx/deco@1.48.7/",
     "$fresh/": "https://deno.land/x/fresh@1.5.2/",
     "preact": "https://esm.sh/preact@10.18.1",
     "preact/": "https://esm.sh/preact@10.18.1/",
@@ -13,8 +13,8 @@
     "std/": "https://deno.land/std@0.190.0/",
     "partytown/": "https://denopkg.com/deco-cx/partytown@0.4.8/",
     "daisyui": "npm:daisyui@3.5.0",
-    "deco/": "https://denopkg.com/deco-cx/deco@1.48.1/",
-    "apps/": "https://denopkg.com/deco-cx/apps@0.25.5/"
+    "deco/": "https://denopkg.com/deco-cx/deco@1.48.7/",
+    "apps/": "https://denopkg.com/deco-cx/apps@0.25.11/"
   },
   "tasks": {
     "start": "deno task bundle && DECO_SITE_NAME=otica-isabela deno run -A --unstable --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",
