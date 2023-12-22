@@ -1,7 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import { useSignal } from "@preact/signals";
 import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
-import { BASE_EXPERIMENTER_URL } from "deco-sites/otica-isabela/sdk/constants/index.ts";
 import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
 
 interface Props {
