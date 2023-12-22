@@ -1,4 +1,6 @@
 import type { AnalyticsEvent } from "apps/commerce/types.ts";
+import { scriptAsDataURI } from "apps/utils/dataURI.ts";
+import { Script } from "$store/components/Script.tsx";
 
 export const sendEvent = <E extends AnalyticsEvent>(event: E) =>
   window.DECO.events.dispatch(event);
@@ -10,29 +12,42 @@ export const SendEventOnClick = <E extends AnalyticsEvent>({ event, id }: {
   event: E;
   id: string;
 }) => (
-  <script
-    dangerouslySetInnerHTML={{
-      __html:
-        `addEventListener("load", () => document.getElementById("${id}")?.addEventListener("click", () => (${sendEvent})(${
-          JSON.stringify(event)
-        })))`,
-    }}
-  >
-  </script>
+  <Script>
+    <script
+      src={scriptAsDataURI(
+        (id: string, event: AnalyticsEvent) => {
+          const elem = document.getElementById(id);
+
+          if (!elem) {
+            return console.warn(
+              `Could not find element ${id}. Click event will not be send. This will cause loss in analytics`,
+            );
+          }
+
+          elem.addEventListener("click", () => {
+            window.DECO.events.dispatch(event);
+          });
+        },
+        id,
+        event,
+      )}
+    />
+  </Script>
 );
 
-/**
- * This componente should be used when want to send event for rendered componentes.
- * This behavior is usefull for view_* events.
- */
 export const SendEventOnLoad = <E extends AnalyticsEvent>(
   { event }: { event: E },
 ) => (
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `addEventListener("load", () => (${sendEvent})(${
-        JSON.stringify(event)
-      }))`,
-    }}
-  />
+  <Script>
+    <script
+      src={scriptAsDataURI(
+        (_event: E) => {
+          document.addEventListener("load", () => (
+            window.DECO.events.dispatch(event)
+          ));
+        },
+        event,
+      )}
+    />
+  </Script>
 );
