@@ -43,9 +43,9 @@ const setup = ({ value, type }: ObservableElement) => {
     (elements) =>
       elements.forEach((item) => {
         if (item.isIntersecting) {
-          cartElement!.setAttribute("hidden", "");
+          cartElement!.classList.add("hidden");
         } else {
-          cartElement!.removeAttribute("hidden");
+          cartElement!.classList.remove("hidden");
         }
       }),
     { threshold: 0.1 },
@@ -64,7 +64,7 @@ function CartModalMobile(
   );
   return (
     <div
-      class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden transition-all duration-300 ease-in-out"
+      class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out"
       id="cart-modal-mobile"
     >
       <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
