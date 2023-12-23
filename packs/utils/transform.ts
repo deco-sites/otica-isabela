@@ -545,7 +545,6 @@ const groupPageFilters = (
 ): APIDynamicFilters[][] => {
   const orderedFilters: APIDynamicFilters[][] = [];
   const actualFilter: APIDynamicFilters[] = [];
-  console.log(filtersApi);
 
   filtersApi.forEach((filter) => {
     const { IdTipo } = filter;
