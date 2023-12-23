@@ -36,7 +36,6 @@ function Navbar({
         >
           <div class=" flex lg:hidden">
             <Buttons variant="menu" />
-            <Modals menuItems={items} />
           </div>
 
           <div

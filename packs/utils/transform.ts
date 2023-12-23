@@ -537,14 +537,21 @@ const groupPageFilters = (
   filtersApi: APIDynamicFilters[]
 ): APIDynamicFilters[][] => {
   const orderedFilters: APIDynamicFilters[][] = [];
+  const actualFilter: APIDynamicFilters[] = [];
+  console.log(filtersApi);
 
   filtersApi.forEach((filter) => {
     const { IdTipo } = filter;
-    orderedFilters[IdTipo] = orderedFilters[IdTipo] ?? [];
-    orderedFilters[IdTipo].push(filter);
+    if (!actualFilter.length || actualFilter[0].IdTipo === IdTipo) {
+      actualFilter.push(filter);
+    } else {
+      orderedFilters.push([...actualFilter]);
+      actualFilter.splice(0, actualFilter.length);
+      actualFilter.push(filter);
+    }
   });
 
-  return orderedFilters.filter((item) => item.length > 0);
+  return orderedFilters;
 };
 
 const toToggleFilterValues = (

@@ -7,17 +7,22 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="mx-3 text-left whitespace-nowrap overflow-hidden truncate ...">
+    <ul class="mx-2 text-left">
       <li class="inline align-middle text-left leading-[21px]">
         <a
           class="inline-block align-middle font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
           href="/"
         >
-          <span class="inline-block align-middle">
+          <Icon
+            class="text-black sm:hidden"
+            id="Home"
+            size={16}
+          />
+          <span class="hidden sm:inline align-middle">
             Ótica Isabela Dias
           </span>
         </a>
-        <span class="my-0 mx-[5px] sm:mx-[10px] text-sm text-[#212529] inline align-middle">
+        <span class="my-0 mx-[10px] text-sm text-[#212529] inline align-middle">
           ›
         </span>
       </li>
@@ -26,13 +31,13 @@ function Breadcrumb({ itemListElement = [] }: Props) {
         .map(({ name, item }, index) => (
           <li class="inline align-middle text-left leading-[21px]">
             <a
-              class="inline font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
+              class="font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
               href={item}
             >
               {name?.toLocaleLowerCase().trim()}
             </a>
             {index < itemListElement.length - 1 && (
-              <span class="my-0 mx-[5px] sm:mx-[10px] text-sm text-[#212529] inline align-middle">
+              <span class="my-0 mx-[10px] text-sm text-[#212529] inline align-middle">
                 ›
               </span>
             )}
