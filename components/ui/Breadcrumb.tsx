@@ -7,18 +7,13 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="mx-2 text-left">
+    <ul class="mx-3 text-left">
       <li class="inline align-middle text-left leading-[21px]">
         <a
           class="inline-block align-middle font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
           href="/"
         >
-          <Icon
-            class="text-black sm:hidden"
-            id="Home"
-            size={16}
-          />
-          <span class="hidden sm:inline align-middle">
+          <span class="inline-block align-middle">
             Ótica Isabela Dias
           </span>
         </a>
