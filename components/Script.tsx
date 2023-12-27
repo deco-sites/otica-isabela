@@ -36,7 +36,6 @@ export const RenderScripts = () => {
                 .getElementById(
                   "scripts",
                 ) as HTMLTemplateElement | null;
-              console.log(template?.content);
               template?.content
                 ? document.body.append(...template.content.childNodes)
                 : undefined;

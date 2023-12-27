@@ -6,6 +6,7 @@ interface Props {
   alt: string;
   discount: number;
   preload?: boolean;
+  promotion?: string;
 }
 
 const ProductCardImage = ({
@@ -13,12 +14,20 @@ const ProductCardImage = ({
   alt,
   preload,
   discount,
+  promotion,
 }: Props) => {
   return (
     <figure
       class="relative mb-[10px]"
       style={{ aspectRatio: `${306} / ${170}` }}
     >
+      {promotion
+        ? (
+          <div class="border-[#f37121] border text-[#f37121] rounded-[3px] text-[10px] text-center p-2 absolute right-0 top-1">
+            {promotion}
+          </div>
+        )
+        : null}
       {/* Product Images */}
       <Image
         src={url}
