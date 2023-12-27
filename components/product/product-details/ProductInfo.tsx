@@ -73,7 +73,10 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
         ? (
           <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
             <span>
-              {promotion.flagText.replace("%value", price!.toString())}
+              {promotion.flagText.replace(
+                "%value",
+                formatPrice(price, offers!.priceCurrency!) ?? "",
+              )}
             </span>
           </div>
         )

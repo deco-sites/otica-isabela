@@ -52,7 +52,7 @@ function ImagesModal({ reviews, selected }: Props) {
           class="absolute right-0 z-10 bg-black rounded-[10px] p-[10px]"
           onClick={toggleModal}
         >
-          <Icon id="XMark" size={10} fill="white" />
+          <Icon id="XMark" size={10} class="text-white" />
         </div>
         <div id="image-container" class="relative">
           {selectedReview.value.image
