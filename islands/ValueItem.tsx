@@ -14,6 +14,7 @@ export default function ValueItem({
   label: string;
   type: string;
   hideCheckbox?: boolean;
+  isSelected?: boolean;
   children?: ComponentChildren;
   class?: string;
 }) {

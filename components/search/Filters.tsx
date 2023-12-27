@@ -130,13 +130,23 @@ function ColorOptions({
   type: string;
 }) {
   return (
-    <>
+    <div className="max-md:grid max-md:grid-cols-2 max-md:gap-4">
       {matchingColors?.map((item) => {
-        const { value, hex } = item;
+        const { value, hex, selected } = item;
 
         return (
-          <ValueItem hideCheckbox type={type} {...item} class="lg:w-1/4">
-            <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
+          <ValueItem
+            hideCheckbox
+            type={type}
+            key={value}
+            {...item}
+            class="lg:w-1/4"
+          >
+            <div
+              class={`flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200 ${
+                selected ? "border border-base-200" : ""
+              }`}
+            >
               <span
                 style={{ backgroundColor: hex }}
                 class={`border border-solid h-[25px] w-[25px] rounded-full`}
@@ -146,7 +156,7 @@ function ColorOptions({
           </ValueItem>
         );
       })}
-    </>
+    </div>
   );
 }
 
@@ -254,7 +264,6 @@ function FilterValues({
 function Filters({
   filters,
   filterColors,
-  hideFilters = [],
   shapeIcons,
   typeIcons,
   isMobile = false,

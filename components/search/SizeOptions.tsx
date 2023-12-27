@@ -75,10 +75,10 @@ function SizeOptions(
   },
 ) {
   return (
-    <div class="lg:flex lg:gap-6">
-      <div>
+    <>
+      <div class="lg:flex lg:gap-6">
         {values.map((value) => (
-          <ValueItem type={type} {...value} class="h-fit" />
+          <ValueItem type={type} {...value} class="h-fit flex" />
         ))}
         {rangeOptions && (
           <div class="flex items-center">
@@ -147,7 +147,7 @@ function SizeOptions(
           );
         })}
       </div>
-    </div>
+    </>
   );
 }
 
