@@ -27,6 +27,29 @@ export interface Promotion {
   flagText: string;
 }
 
+export interface MobileOptions {
+  /** @title Localização da Flag */
+  discountTagLocation: "Header" | "Image Bottom" | "Image Top";
+
+  /** @title Localização do Nome */
+  nameLocation: "Header" | "Bottom";
+
+  /** @title Localização das estrelas
+   * @description Caso o Flag de oferta também esteja localizado no "Header", as estrelas irão automaticamente seguir a opção "Bottom".
+   */
+  starsLocation: "Header" | "Bottom";
+
+  /** @title Mostrar thumbnails do produto */
+  /** @default false*/
+  showProductTumbnails: boolean;
+
+  /**
+   * @title Seção "Escolher as Lentes" e "Adicionar ao Carrinho"
+   * @description Mostrar botões "ESCOLHER AS LENTES" e "ADICIONAR AO CARRINHO" após o seguinte elemento não ser mais mostrado
+   */
+  displayModalAfter: "Header" | "Product Images" | "Experimentador Section";
+}
+
 export interface Props {
   /** @title Configurações do Loader */
   page: LoaderReturnType<ProductDetailsPage | null>;
@@ -41,6 +64,8 @@ export interface Props {
   buttonByCategory?: ButtonLabel[];
 
   customer: LoaderReturnType<AuthData>;
+
+  mobileOptions: MobileOptions;
 }
 
 function ProductDetails({
@@ -49,6 +74,7 @@ function ProductDetails({
   promotions,
   buttonByCategory,
   customer,
+  mobileOptions,
 }: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
@@ -72,6 +98,7 @@ function ProductDetails({
                 promotions={promotions}
                 buttonByCategory={buttonByCategory}
                 customer={customer}
+                mobileOptions={mobileOptions}
               />
             )
             : <NotFound />}

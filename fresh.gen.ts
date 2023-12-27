@@ -8,29 +8,30 @@ import * as $2 from "./routes/styles.css.ts";
 import * as $$0 from "./islands/About.tsx";
 import * as $$1 from "./islands/AddToCartButton.tsx";
 import * as $$2 from "./islands/ApplyRangeFiltersJS.tsx";
-import * as $$3 from "./islands/CategoryText.tsx";
-import * as $$4 from "./islands/ChooseLensButton.tsx";
-import * as $$5 from "./islands/FaqContainer.tsx";
-import * as $$6 from "./islands/HeaderButton.tsx";
-import * as $$7 from "./islands/HeaderModals.tsx";
-import * as $$8 from "./islands/HeaderSearchbar.tsx";
-import * as $$9 from "./islands/LazyIframe.tsx";
-import * as $$10 from "./islands/NavItem.tsx";
-import * as $$11 from "./islands/Newsletter.tsx";
-import * as $$12 from "./islands/ProductImageZoom.tsx";
-import * as $$13 from "./islands/PromotionalBar.tsx";
-import * as $$14 from "./islands/RangeFiltersJS.tsx";
-import * as $$15 from "./islands/ReviewImagesModal.tsx";
-import * as $$16 from "./islands/SearchControls.tsx";
-import * as $$17 from "./islands/SelectedFilters.tsx";
-import * as $$18 from "./islands/ShareButton.tsx";
-import * as $$19 from "./islands/ShowMore.tsx";
-import * as $$20 from "./islands/SliderJS.tsx";
-import * as $$21 from "./islands/Stopwatch.tsx";
-import * as $$22 from "./islands/TabJS.tsx";
-import * as $$23 from "./islands/ToExperimentButton.tsx";
-import * as $$24 from "./islands/ValueItem.tsx";
-import * as $$25 from "./islands/WishlistButton.tsx";
+import * as $$3 from "./islands/CartModalMobile.tsx";
+import * as $$4 from "./islands/CategoryText.tsx";
+import * as $$5 from "./islands/ChooseLensButton.tsx";
+import * as $$6 from "./islands/FaqContainer.tsx";
+import * as $$7 from "./islands/HeaderButton.tsx";
+import * as $$8 from "./islands/HeaderModals.tsx";
+import * as $$9 from "./islands/HeaderSearchbar.tsx";
+import * as $$10 from "./islands/LazyIframe.tsx";
+import * as $$11 from "./islands/NavItem.tsx";
+import * as $$12 from "./islands/Newsletter.tsx";
+import * as $$13 from "./islands/ProductImageZoom.tsx";
+import * as $$14 from "./islands/PromotionalBar.tsx";
+import * as $$15 from "./islands/RangeFiltersJS.tsx";
+import * as $$16 from "./islands/ReviewImagesModal.tsx";
+import * as $$17 from "./islands/SearchControls.tsx";
+import * as $$18 from "./islands/SelectedFilters.tsx";
+import * as $$19 from "./islands/ShareButton.tsx";
+import * as $$20 from "./islands/ShowMore.tsx";
+import * as $$21 from "./islands/SliderJS.tsx";
+import * as $$22 from "./islands/Stopwatch.tsx";
+import * as $$23 from "./islands/TabJS.tsx";
+import * as $$24 from "./islands/ToExperimentButton.tsx";
+import * as $$25 from "./islands/ValueItem.tsx";
+import * as $$26 from "./islands/WishlistButton.tsx";
 
 const manifest = {
   routes: {
@@ -42,29 +43,30 @@ const manifest = {
     "./islands/About.tsx": $$0,
     "./islands/AddToCartButton.tsx": $$1,
     "./islands/ApplyRangeFiltersJS.tsx": $$2,
-    "./islands/CategoryText.tsx": $$3,
-    "./islands/ChooseLensButton.tsx": $$4,
-    "./islands/FaqContainer.tsx": $$5,
-    "./islands/HeaderButton.tsx": $$6,
-    "./islands/HeaderModals.tsx": $$7,
-    "./islands/HeaderSearchbar.tsx": $$8,
-    "./islands/LazyIframe.tsx": $$9,
-    "./islands/NavItem.tsx": $$10,
-    "./islands/Newsletter.tsx": $$11,
-    "./islands/ProductImageZoom.tsx": $$12,
-    "./islands/PromotionalBar.tsx": $$13,
-    "./islands/RangeFiltersJS.tsx": $$14,
-    "./islands/ReviewImagesModal.tsx": $$15,
-    "./islands/SearchControls.tsx": $$16,
-    "./islands/SelectedFilters.tsx": $$17,
-    "./islands/ShareButton.tsx": $$18,
-    "./islands/ShowMore.tsx": $$19,
-    "./islands/SliderJS.tsx": $$20,
-    "./islands/Stopwatch.tsx": $$21,
-    "./islands/TabJS.tsx": $$22,
-    "./islands/ToExperimentButton.tsx": $$23,
-    "./islands/ValueItem.tsx": $$24,
-    "./islands/WishlistButton.tsx": $$25,
+    "./islands/CartModalMobile.tsx": $$3,
+    "./islands/CategoryText.tsx": $$4,
+    "./islands/ChooseLensButton.tsx": $$5,
+    "./islands/FaqContainer.tsx": $$6,
+    "./islands/HeaderButton.tsx": $$7,
+    "./islands/HeaderModals.tsx": $$8,
+    "./islands/HeaderSearchbar.tsx": $$9,
+    "./islands/LazyIframe.tsx": $$10,
+    "./islands/NavItem.tsx": $$11,
+    "./islands/Newsletter.tsx": $$12,
+    "./islands/ProductImageZoom.tsx": $$13,
+    "./islands/PromotionalBar.tsx": $$14,
+    "./islands/RangeFiltersJS.tsx": $$15,
+    "./islands/ReviewImagesModal.tsx": $$16,
+    "./islands/SearchControls.tsx": $$17,
+    "./islands/SelectedFilters.tsx": $$18,
+    "./islands/ShareButton.tsx": $$19,
+    "./islands/ShowMore.tsx": $$20,
+    "./islands/SliderJS.tsx": $$21,
+    "./islands/Stopwatch.tsx": $$22,
+    "./islands/TabJS.tsx": $$23,
+    "./islands/ToExperimentButton.tsx": $$24,
+    "./islands/ValueItem.tsx": $$25,
+    "./islands/WishlistButton.tsx": $$26,
   },
   baseUrl: import.meta.url,
 };
