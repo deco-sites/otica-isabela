@@ -5,7 +5,7 @@ import type {
 
 const bestInstallment = (
   acc: UnitPriceSpecification | null,
-  curr: UnitPriceSpecification
+  curr: UnitPriceSpecification,
 ) => {
   if (curr.priceComponentType !== "https://schema.org/Installment") {
     return acc;
@@ -36,7 +36,7 @@ const bestInstallment = (
 
 const installmentToString = (
   installment: UnitPriceSpecification,
-  sellingPrice: number
+  sellingPrice: number,
 ) => {
   const { billingDuration, billingIncrement, price } = installment;
 
@@ -54,7 +54,7 @@ const installmentToString = (
 export const useOffer = (aggregateOffer?: AggregateOffer) => {
   const offer = aggregateOffer?.offers[0];
   const listPrice = offer?.priceSpecification.find(
-    (spec) => spec.priceType === "https://schema.org/ListPrice"
+    (spec) => spec.priceType === "https://schema.org/ListPrice",
   );
   const installment = offer?.priceSpecification.reduce(bestInstallment, null);
   const seller = offer?.seller;
@@ -66,7 +66,8 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
     listPrice: listPrice?.price,
     availability,
     seller,
-    installments:
-      installment && price ? installmentToString(installment, price) : null,
+    installments: installment && price
+      ? installmentToString(installment, price)
+      : null,
   };
 };
