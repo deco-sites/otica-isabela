@@ -20,7 +20,8 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
   const colorsList = additionalProperty?.filter(
     (prop) => prop.propertyID === "color",
   );
-  const colors = colorsList?.map((color) => color.unitCode);
+  const colors = colorsList?.map(({ unitCode }) => unitCode);
+  const colorsName = colorsList?.map(({ value }) => value);
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -72,7 +73,10 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
         ? (
           <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
             <span>
-              {promotion.flagText.replace("%value", price!.toString())}
+              {promotion.flagText.replace(
+                "%value",
+                formatPrice(price, offers!.priceCurrency!) ?? "",
+              )}
             </span>
           </div>
         )
@@ -102,7 +106,7 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
           {!!colorsList?.length && (
             <div class="flex gap-2 items-center">
               <p class="text-base-300 font-bold">
-                {colorsList?.[0]?.value?.toUpperCase()}
+                {colorsName?.join(" / ").toUpperCase()}
               </p>
               <span
                 class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"

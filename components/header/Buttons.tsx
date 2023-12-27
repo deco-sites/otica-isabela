@@ -44,21 +44,6 @@ function CartButton() {
   const { loading, cart } = useCart();
   const totalItems = cart.value?.products.length ?? 0;
 
-  /* const onClick = () => {
-    displayCart.value = true;
-    sendEvent({
-      name: "view_cart",
-      params: {
-        currency: cart.value ? currencyCode! : "",
-        value: total?.value
-          ? (total?.value - (discounts?.value ?? 0)) / 100
-          : 0,
-
-        items: cart.value ? mapItemsToAnalyticsItems(cart.value) : [],
-      },
-    });
-  }; */
-
   return (
     <a
       class="btn btn-circle btn-sm btn-ghost relative"

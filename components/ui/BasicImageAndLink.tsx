@@ -26,12 +26,16 @@ export const BasicImageAndLink = (
   if (!href || href === "") {
     return (
       <Picture class="w-full">
-        <Source
-          media="(max-width: 992px)"
-          src={src?.mobile ?? ""}
-          width={width?.mobile ?? 0}
-          height={height?.mobile ?? 0}
-        />
+        {src?.mobile
+          ? (
+            <Source
+              media="(max-width: 992px)"
+              src={src?.mobile ?? ""}
+              width={width?.mobile ?? 0}
+              height={height?.mobile ?? 0}
+            />
+          )
+          : null}
         <Source
           media="(min-width: 993px)"
           src={src?.desktop ?? ""}

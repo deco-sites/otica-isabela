@@ -25,7 +25,7 @@ function WishlistButton(
   return (
     <Button
       class={variant === "icon"
-        ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto"
+        ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
         : "btn-primary btn-outline gap-2"}
       loading={fetching.value}
       aria-label="Add to wishlist"

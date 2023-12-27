@@ -190,14 +190,10 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const { variants, properties, panels, experimentador, flag, rating } = props;
-
-  const productColorAdditionalProperties = !variants.length
-    ? []
-    : toProductColorAdditionalProperties(properties, variants);
+  const { properties, panels, experimentador, flag, rating } = props;
 
   return [
-    ...productColorAdditionalProperties,
+    ...toProductColorAdditionalProperties(properties),
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       name: item.Nome,
@@ -222,16 +218,19 @@ const toAdditionalProperties = (
 
 const toProductColorAdditionalProperties = (
   properties: ProductInfo[],
-  variants: ColorVariants[],
 ): PropertyValue[] | [] => {
   const colorName = Object.values(properties).filter(
     (value) => value.IdTipo === 14 || value.Tipo === "Cor",
   );
 
   if (colorName.length === 0) return [];
-  return Object.values(variants)
-    .filter((variant) => variant.NomeColor === colorName[0].Nome)
-    .flatMap((variant) => toColorPropertyValue(variant));
+  return colorName.map(({ Nome, Cor }) => ({
+    "@type": "PropertyValue" as const,
+    name: "Cor",
+    value: Nome,
+    propertyID: "color",
+    unitCode: Cor,
+  }));
 };
 
 const toDefaultProperties = (
@@ -398,12 +397,6 @@ const toBreadcrumbList = (
   return {
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem" as const,
-        name: "Ótica Isabela Dias",
-        item: "/",
-        position: 1,
-      },
       ...categories.map(({ name }, index) => ({
         "@type": "ListItem" as const,
         name,
@@ -416,10 +409,10 @@ const toBreadcrumbList = (
           }`,
           baseURL,
         ).href,
-        position: index + 2,
+        position: index + 1,
       })),
     ],
-    numberOfItems: categories.length + 1,
+    numberOfItems: categories.length,
   };
 };
 
@@ -545,14 +538,20 @@ const groupPageFilters = (
   filtersApi: APIDynamicFilters[],
 ): APIDynamicFilters[][] => {
   const orderedFilters: APIDynamicFilters[][] = [];
+  const actualFilter: APIDynamicFilters[] = [];
 
   filtersApi.forEach((filter) => {
     const { IdTipo } = filter;
-    orderedFilters[IdTipo] = orderedFilters[IdTipo] ?? [];
-    orderedFilters[IdTipo].push(filter);
+    if (!actualFilter.length || actualFilter[0].IdTipo === IdTipo) {
+      actualFilter.push(filter);
+    } else {
+      orderedFilters.push([...actualFilter]);
+      actualFilter.splice(0, actualFilter.length);
+      actualFilter.push(filter);
+    }
   });
 
-  return orderedFilters.filter((item) => item.length > 0);
+  return orderedFilters;
 };
 
 const toToggleFilterValues = (

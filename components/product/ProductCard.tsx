@@ -73,6 +73,9 @@ function ProductCard({
     additionalProperty,
   } = product;
 
+  const promotionFlag = additionalProperty?.find(
+    (prop) => prop.propertyID === "flag",
+  )?.value;
   const id = `product-card-${productID}`;
   const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
 
@@ -117,7 +120,6 @@ function ProductCard({
       <a
         href={url && relative(url)}
         aria-label="view product"
-        class="contents"
         id={imageContainerId}
       >
         {isStopwatchEnabled && priceValidUntil && (
@@ -138,6 +140,7 @@ function ProductCard({
                       alt={image.alternateName!}
                       preload={preload && index === 0}
                       discount={discount}
+                      promotion={index === 0 ? promotionFlag : ""}
                     />
                   </Slider.Item>
                 ))}
@@ -151,6 +154,7 @@ function ProductCard({
               alt={front.alternateName!}
               preload={preload}
               discount={discount}
+              promotion={promotionFlag}
             />
           )}
       </a>

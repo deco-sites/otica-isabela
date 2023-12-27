@@ -10,12 +10,11 @@ import Ratings from "deco-sites/otica-isabela/components/product/product-details
 import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
-import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
-import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
 import { useId } from "preact/hooks";
+import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -40,9 +39,18 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details({ page, promotions, buttonByCategory, customer }: Props) {
+function Details(
+  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
+) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
+  const {
+    discountTagLocation,
+    nameLocation,
+    starsLocation,
+    showProductTumbnails,
+    displayModalAfter,
+  } = mobileOptions;
   const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -53,7 +61,8 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
   const colorsList = additionalProperty?.filter(
     (prop) => prop.propertyID === "color",
   );
-  const colors = colorsList?.map((color) => color.unitCode);
+  const colors = colorsList?.map(({ unitCode }) => unitCode);
+  const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
@@ -110,10 +119,11 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
 
       {/* Header - Mobile */}
       <div
-        id="pdp-mobile-header-container"
+        id={`experimentador-section-${id}`}
         class="flex items-center justify-between mx-3 mt-4 lg:hidden"
       >
-        {discount > 0 && (
+        {/* Discount Span - Mobile (Header) */}
+        {discount > 0 && discountTagLocation === "Header" && (
           <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
             <Icon id="ArrowDown" width={9} height={9} />-{discount}%
           </span>
@@ -122,6 +132,14 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
           <ShareButton link={url!} />
           <WishlistButton productID={productID} customer={customer} />
         </div>
+
+        {/* Ratings - Mobile (Header) */}
+        {!!ratingValue && starsLocation === "Header" &&
+          discountTagLocation !== "Header" && (
+          <a href="#product-review">
+            <Ratings ratingValue={ratingValue} />
+          </a>
+        )}
         <ToExperimentButton
           image={experimenterImage!}
           variant="filled"
@@ -129,16 +147,21 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         />
       </div>
 
-      {/* Product Name - Mobile */}
-      <div class="mt-4 text-center px-8 lg:hidden">
-        <span class="font-roboto font-normal text-lg">{name}</span>
-      </div>
+      {/* Product Name - Mobile (Header) */}
+      {nameLocation === "Header" && (
+        <div class="mt-4 text-center px-8 lg:hidden">
+          <span class="font-roboto font-normal text-lg">{name}</span>
+        </div>
+      )}
 
       {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-        <div class="relative flex flex-col items-center w-full lg:max-w-[540px]">
+        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
-            <Slider class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]">
+            <Slider
+              id={`product-images-${id}`}
+              class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+            >
               {images.map((img, index) => (
                 <Slider.Item
                   index={index}
@@ -169,11 +192,28 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
                 </Slider.Item>
               ))}
             </Slider>
-            {discount > 0 && (
-              <span class="hidden absolute right-0 bottom-2 bg-[#d92027] gap-x-[2px] rounded text-sm lg:flex justify-center items-center text-white p-[2px] ">
-                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-              </span>
+
+            {/* Product Name - Mobile (Bottom) */}
+            {nameLocation === "Bottom" && (
+              <div class="mt-4 text-center px-8 lg:hidden">
+                <span class="font-roboto font-normal text-lg">{name}</span>
+              </div>
             )}
+
+            {/* Discount Span - Mobile (Image) & Desktop */}
+            {discount > 0 && discountTagLocation !== "Header" &&
+              (
+                <span
+                  class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+                  right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
+                    mobileOptions!.discountTagLocation === "Image Bottom"
+                      ? "bottom-20"
+                      : "top-2"
+                  }`}
+                >
+                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+                </span>
+              )}
           </div>
 
           {/* Buy with lens label */}
@@ -183,46 +223,64 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
             </div>
           )}
           {/* Dots - Mobile & Desktop */}
-          <ul
-            id="image-dots"
-            class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
-          >
-            {images.map((img, index) => (
-              <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
-                <Slider.Dot index={index}>
-                  <Image
-                    class="group-disabled:border-base-300"
-                    width={92}
-                    height={92}
-                    src={img.additionalType === "video"
-                      ? img?.image?.[0].url!
-                      : img.url!}
-                    alt={img.alternateName}
-                    loading="lazy"
-                  />
-                </Slider.Dot>
-              </li>
-            ))}
-          </ul>
+          {showProductTumbnails === true
+            ? (
+              <ul
+                id="image-dots"
+                class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
+              >
+                {images.map((img, index) => (
+                  <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
+                    <Slider.Dot index={index}>
+                      <Image
+                        class="group-disabled:border-base-300"
+                        width={92}
+                        height={92}
+                        src={img.additionalType === "video"
+                          ? img?.image?.[0].url!
+                          : img.url!}
+                        alt={img.alternateName}
+                        loading="lazy"
+                      />
+                    </Slider.Dot>
+                  </li>
+                ))}
+              </ul>
+            )
+            : (
+              <>
+                <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
+                  <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+                </Slider.PrevButton>
+                <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
+                  <Icon size={20} id="ChevronRight" strokeWidth={3} />
+                </Slider.NextButton>
+              </>
+            )}
         </div>
 
-        {/* Ratings - Mobile */}
-        {!!ratingValue && (
-          <div class="flex flex-col items-center my-8 lg:hidden">
-            <a href="#product-review" class="text-center">
-              <Ratings ratingValue={ratingValue} />
-              <p class="text-lg font-bold">Veja as avaliações</p>
-            </a>
-          </div>
-        )}
+        {/* Ratings - Mobile (Bottom) */}
+        {!!ratingValue &&
+          (starsLocation === "Bottom" ||
+            discountTagLocation === "Header") &&
+          (
+            <div class="flex flex-col items-center my-8 lg:hidden">
+              <a href="#product-review" class="text-center">
+                <Ratings ratingValue={ratingValue} />
+                <p class="text-lg font-bold">Veja as avaliações</p>
+              </a>
+            </div>
+          )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
           <div id="price-mobile-container">
             <div id="price-mobile-content">
-              <p class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
-                {formatPrice(listPrice, offers!.priceCurrency!)}
-              </p>
+              {discount > 0 && (
+                <span class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
+                  {formatPrice(listPrice, offers!.priceCurrency!)}
+                </span>
+              )}
               <p class="mt-1 text-blue-200 text-[27px] font-bold">
                 {formatPrice(price, offers!.priceCurrency!)}
               </p>
@@ -232,7 +290,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
           {!!colorsList?.length && (
             <div id="colors" class="flex items-center">
               <p class="text-base-300 font-bold">
-                {colorsList?.[0]?.value?.toUpperCase()}
+                {colorsName?.join(" / ").toUpperCase()}
               </p>
               <span
                 class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
@@ -247,19 +305,20 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
         </div>
 
         {/* Choose Lens & Add To Cart - Mobile */}
-        <div class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden">
-          <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-            <a href={chooseLensUrl}>
-              <ChooseLensButton {...addToCard} />
-            </a>
-          </div>
-          <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton
-              {...addToCard}
-              label={labels?.[currentCategory!]}
-            />
-          </div>
-        </div>
+        <CartModalMobile
+          chooseLensUrl={chooseLensUrl}
+          addToCard={addToCard}
+          labels={labels}
+          currentCategory={currentCategory!}
+          observableElement={displayModalAfter === "Header"
+            ? { type: "Tag", value: "header" }
+            : {
+              type: "Id",
+              value: `${
+                displayModalAfter.toLowerCase().replace(/\s+/g, "-")
+              }-${id}`,
+            }}
+        />
 
         {/* Product Details - Desktop */}
         <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
@@ -268,6 +327,7 @@ function Details({ page, promotions, buttonByCategory, customer }: Props) {
             promotions={promotions}
             buttonByCategory={buttonByCategory}
             customer={customer}
+            mobileOptions={mobileOptions}
           />
         </div>
       </div>

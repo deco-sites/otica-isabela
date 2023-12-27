@@ -8,6 +8,7 @@ import * as $styles_css from "./routes/styles.css.ts";
 import * as $About from "./islands/About.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
+import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
 import * as $ChooseLensButton from "./islands/ChooseLensButton.tsx";
 import * as $FaqContainer from "./islands/FaqContainer.tsx";
@@ -43,6 +44,7 @@ const manifest = {
     "./islands/About.tsx": $About,
     "./islands/AddToCartButton.tsx": $AddToCartButton,
     "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
+    "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
     "./islands/ChooseLensButton.tsx": $ChooseLensButton,
     "./islands/FaqContainer.tsx": $FaqContainer,

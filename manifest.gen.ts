@@ -32,21 +32,20 @@ import * as $$$$$$13 from "./sections/Images/InformativeBanner.tsx";
 import * as $$$$$$14 from "./sections/Images/ShoppableBanner.tsx";
 import * as $$$$$$15 from "./sections/Links/LinkTree.tsx";
 import * as $$$$$$16 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$17 from "./sections/Miscellaneous/CampaignTimer.tsx";
-import * as $$$$$$18 from "./sections/Miscellaneous/CookieConsent.tsx";
-import * as $$$$$$19 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$20 from "./sections/Product/Details/ProductDetailsAdditionalInfo.tsx";
-import * as $$$$$$21 from "./sections/Product/Details/ProductReviews.tsx";
-import * as $$$$$$22 from "./sections/Product/ProductBannerShelf.tsx";
-import * as $$$$$$23 from "./sections/Product/ProductBestDailyOffers.tsx";
-import * as $$$$$$24 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$25 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$26 from "./sections/Product/ProductShelfAndImage.tsx";
-import * as $$$$$$27 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$28 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$29 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$30 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$31 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$17 from "./sections/Miscellaneous/CookieConsent.tsx";
+import * as $$$$$$18 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$19 from "./sections/Product/Details/ProductDetailsAdditionalInfo.tsx";
+import * as $$$$$$20 from "./sections/Product/Details/ProductReviews.tsx";
+import * as $$$$$$21 from "./sections/Product/ProductBannerShelf.tsx";
+import * as $$$$$$22 from "./sections/Product/ProductBestDailyOffers.tsx";
+import * as $$$$$$23 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$24 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$25 from "./sections/Product/ProductShelfAndImage.tsx";
+import * as $$$$$$26 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$27 from "./sections/Product/VisitedProductShelf.tsx";
+import * as $$$$$$28 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$29 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$30 from "./sections/Theme/Theme.tsx";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 
@@ -84,29 +83,27 @@ const manifest = {
     "deco-sites/otica-isabela/sections/Images/ShoppableBanner.tsx": $$$$$$14,
     "deco-sites/otica-isabela/sections/Links/LinkTree.tsx": $$$$$$15,
     "deco-sites/otica-isabela/sections/Links/Shortcuts.tsx": $$$$$$16,
-    "deco-sites/otica-isabela/sections/Miscellaneous/CampaignTimer.tsx":
-      $$$$$$17,
     "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx":
-      $$$$$$18,
-    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$19,
+      $$$$$$17,
+    "deco-sites/otica-isabela/sections/Newsletter/Newsletter.tsx": $$$$$$18,
     "deco-sites/otica-isabela/sections/Product/Details/ProductDetailsAdditionalInfo.tsx":
-      $$$$$$20,
+      $$$$$$19,
     "deco-sites/otica-isabela/sections/Product/Details/ProductReviews.tsx":
-      $$$$$$21,
+      $$$$$$20,
     "deco-sites/otica-isabela/sections/Product/ProductBannerShelf.tsx":
-      $$$$$$22,
+      $$$$$$21,
     "deco-sites/otica-isabela/sections/Product/ProductBestDailyOffers.tsx":
-      $$$$$$23,
-    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$24,
-    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$25,
+      $$$$$$22,
+    "deco-sites/otica-isabela/sections/Product/ProductDetails.tsx": $$$$$$23,
+    "deco-sites/otica-isabela/sections/Product/ProductShelf.tsx": $$$$$$24,
     "deco-sites/otica-isabela/sections/Product/ProductShelfAndImage.tsx":
-      $$$$$$26,
-    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$27,
+      $$$$$$25,
+    "deco-sites/otica-isabela/sections/Product/SearchResult.tsx": $$$$$$26,
     "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx":
-      $$$$$$28,
-    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$29,
-    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$30,
-    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$31,
+      $$$$$$27,
+    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$28,
+    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$29,
+    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$30,
   },
   "apps": {
     "deco-sites/otica-isabela/apps/decohub.ts": $$$$$$$$$$$0,
