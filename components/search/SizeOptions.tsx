@@ -76,7 +76,7 @@ function SizeOptions(
 ) {
   return (
     <>
-      <div class="lg:flex lg:gap-6">
+      <div class="flex flex-col gap-6 pr-10">
         {values.map((value) => (
           <ValueItem type={type} {...value} class="h-fit flex" />
         ))}
@@ -95,7 +95,7 @@ function SizeOptions(
       </div>
       <div
         id="custom-filters"
-        class="lg:border-l border-black px-6"
+        class="lg:border-l border-black pl-10"
         style={{ display: "none" }}
       >
         {rangeOptions.map((option) => {

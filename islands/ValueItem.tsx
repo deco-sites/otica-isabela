@@ -14,7 +14,6 @@ export default function ValueItem({
   label: string;
   type: string;
   hideCheckbox?: boolean;
-  isSelected?: boolean;
   children?: ComponentChildren;
   class?: string;
 }) {
@@ -31,11 +30,12 @@ export default function ValueItem({
             url,
             label,
           });
+        console.log("aquiii", filters);
         selectedFilters.value = filters;
       }}
       class={_class}
     >
-      <div class="flex items-center mb-5">
+      <div class="flex items-center">
         {hideCheckbox ? null : (
           <div
             aria-checked={_selected}
