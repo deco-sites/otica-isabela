@@ -145,7 +145,7 @@ function ColorOptions({
             <div class="flex items-center p-[5px] hover:border hover:p-1 rounded-[5px] border-base-200">
               <span
                 style={{ backgroundColor: hex }}
-                class={`border border-solid h-[25px] w-[25px] rounded-full`}
+                class={`border border-solid h-[26px] w-[26px] rounded-full`}
               />
               <p class="ml-[10px] font-bold">{value}</p>
             </div>
