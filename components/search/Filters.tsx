@@ -216,7 +216,7 @@ function FilterValues({
       const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
 
       return (
-        <div id={rootId} class="flex">
+        <div id={rootId} class={`${isMobile} ? "flex-col" : ""`}>
           <SizeOptions
             values={values}
             type={label}

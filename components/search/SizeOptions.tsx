@@ -95,7 +95,7 @@ function SizeOptions(
       </div>
       <div
         id="custom-filters"
-        class="lg:border-l border-black pl-10"
+        class="pt-2 after:lg:border-l border-black lg:pl-10 lg:pt-0"
         style={{ display: "none" }}
       >
         {rangeOptions.map((option) => {
