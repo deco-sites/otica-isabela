@@ -133,20 +133,16 @@ function ColorOptions({
     <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-lg:gap-y-4 max-lg:gap-x-8">
       {matchingColors?.map((item) => {
         const { value, hex, selected } = item;
-
         return (
           <ValueItem
             hideCheckbox
             type={type}
             key={value}
             {...item}
+            hasSelected={selected}
             class="w-full"
           >
-            <div
-              class={`flex items-center p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200 ${
-                selected ? "border border-base-200" : ""
-              }`}
-            >
+            <div class="flex items-center p-[5px] hover:border hover:p-1 rounded-[5px] border-base-200">
               <span
                 style={{ backgroundColor: hex }}
                 class={`border border-solid h-[25px] w-[25px] rounded-full`}
