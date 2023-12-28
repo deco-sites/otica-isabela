@@ -11,11 +11,10 @@ const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
   menuItems?: MenuProps["items"];
-  searchbar?: SearchbarProps;
 }
 
-function Modals({ menuItems, searchbar }: Props) {
-  const { displayCart, displaySearchbar, displayMobileMenu } = useUI();
+function Modals({ menuItems }: Props) {
+  const { displayMobileMenu } = useUI();
 
   const fallback = (
     <div class="flex justify-center items-center w-full h-full">
@@ -26,7 +25,7 @@ function Modals({ menuItems, searchbar }: Props) {
   return (
     <>
       {displayMobileMenu.value && !!menuItems?.length && (
-        <Suspense fallback={null}>
+        <Suspense fallback={fallback}>
           <Menu
             closeMenu={() =>
               displayMobileMenu.value = false}
@@ -34,34 +33,6 @@ function Modals({ menuItems, searchbar }: Props) {
           />
         </Suspense>
       )}
-      <Modal
-        title="Buscar"
-        mode="sidebar-right"
-        loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
-        onClose={() => {
-          displaySearchbar.value = false;
-        }}
-      >
-        <Suspense fallback={fallback}>
-          <Searchbar {...searchbar} />
-        </Suspense>
-      </Modal>
-
-      <Modal
-        title="Minha sacola"
-        mode="sidebar-right"
-        loading="lazy"
-        open={displayCart.value}
-        onClose={() => {
-          displayCart.value = false;
-        }}
-      >
-        <Suspense fallback={fallback}>
-          <Cart />
-        </Suspense>
-      </Modal>
     </>
   );
 }

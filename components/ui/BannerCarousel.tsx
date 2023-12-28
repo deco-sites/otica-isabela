@@ -1,18 +1,15 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
+import type { ImageWidget } from "apps/admin/widgets.ts";
 import { useId } from "preact/hooks";
 
-/**
- * @titleBy alt
- */
 export interface Banner {
   /** @description desktop otimized image */
-  desktop: LiveImage;
+  desktop: ImageWidget;
   /** @description mobile otimized image */
-  mobile: LiveImage;
+  mobile: ImageWidget;
   /** @description Image's alt text */
   alt: string;
   action?: {
@@ -54,8 +51,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           media="(min-width: 768px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
-          width={1440}
-          height={464}
+          width={1024}
+          height={332}
         />
         <img
           class="w-full h-auto"
