@@ -147,7 +147,7 @@ function ColorOptions({
                 style={{ backgroundColor: hex }}
                 class={`border border-solid h-6 w-6 rounded-full`}
               />
-              <p class="ml-[10px] font-bold whitespace-nowrap	">{value}</p>
+              <p class="ml-[10px] font-bold whitespace-nowrap">{value}</p>
             </div>
           </ValueItem>
         );
