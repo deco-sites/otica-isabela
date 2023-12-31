@@ -187,7 +187,7 @@ function ProductCard({
         <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
           {availableColors?.map(({ name, url, unitCodes }) => (
             <li key={unitCodes}>
-              <a href={url} aria-label={name} title={name}>
+              <a href={`produto${url}`} aria-label={name} title={name}>
                 <div
                   style={{
                     background: unitCodes.length > 1
