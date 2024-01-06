@@ -2,73 +2,74 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_app.tsx";
-import * as $1 from "./routes/live/invoke/_middleware.tsx";
-import * as $2 from "./routes/styles.css.ts";
-import * as $$0 from "./islands/About.tsx";
-import * as $$1 from "./islands/AddToCartButton.tsx";
-import * as $$2 from "./islands/ApplyRangeFiltersJS.tsx";
-import * as $$3 from "./islands/CartModalMobile.tsx";
-import * as $$4 from "./islands/CategoryText.tsx";
-import * as $$5 from "./islands/ChooseLensButton.tsx";
-import * as $$6 from "./islands/FaqContainer.tsx";
-import * as $$7 from "./islands/HeaderButton.tsx";
-import * as $$8 from "./islands/HeaderModals.tsx";
-import * as $$9 from "./islands/HeaderSearchbar.tsx";
-import * as $$10 from "./islands/LazyIframe.tsx";
-import * as $$11 from "./islands/NavItem.tsx";
-import * as $$12 from "./islands/Newsletter.tsx";
-import * as $$13 from "./islands/ProductImageZoom.tsx";
-import * as $$14 from "./islands/PromotionalBar.tsx";
-import * as $$15 from "./islands/RangeFiltersJS.tsx";
-import * as $$16 from "./islands/ReviewImagesModal.tsx";
-import * as $$17 from "./islands/SearchControls.tsx";
-import * as $$18 from "./islands/SelectedFilters.tsx";
-import * as $$19 from "./islands/ShareButton.tsx";
-import * as $$20 from "./islands/ShowMore.tsx";
-import * as $$21 from "./islands/SliderJS.tsx";
-import * as $$22 from "./islands/Stopwatch.tsx";
-import * as $$23 from "./islands/TabJS.tsx";
-import * as $$24 from "./islands/ToExperimentButton.tsx";
-import * as $$25 from "./islands/ValueItem.tsx";
-import * as $$26 from "./islands/WishlistButton.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $live_invoke_middleware from "./routes/live/invoke/_middleware.tsx";
+import * as $styles_css from "./routes/styles.css.ts";
+import * as $About from "./islands/About.tsx";
+import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
+import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
+import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
+import * as $CategoryText from "./islands/CategoryText.tsx";
+import * as $ChooseLensButton from "./islands/ChooseLensButton.tsx";
+import * as $FaqContainer from "./islands/FaqContainer.tsx";
+import * as $HeaderButton from "./islands/HeaderButton.tsx";
+import * as $HeaderModals from "./islands/HeaderModals.tsx";
+import * as $HeaderSearchbar from "./islands/HeaderSearchbar.tsx";
+import * as $LazyIframe from "./islands/LazyIframe.tsx";
+import * as $NavItem from "./islands/NavItem.tsx";
+import * as $Newsletter from "./islands/Newsletter.tsx";
+import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
+import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
+import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
+import * as $ReviewImagesModal from "./islands/ReviewImagesModal.tsx";
+import * as $SearchControls from "./islands/SearchControls.tsx";
+import * as $SelectedFilters from "./islands/SelectedFilters.tsx";
+import * as $ShareButton from "./islands/ShareButton.tsx";
+import * as $ShowMore from "./islands/ShowMore.tsx";
+import * as $SliderJS from "./islands/SliderJS.tsx";
+import * as $Stopwatch from "./islands/Stopwatch.tsx";
+import * as $TabJS from "./islands/TabJS.tsx";
+import * as $ToExperimentButton from "./islands/ToExperimentButton.tsx";
+import * as $ValueItem from "./islands/ValueItem.tsx";
+import * as $WishlistButton from "./islands/WishlistButton.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/live/invoke/_middleware.tsx": $1,
-    "./routes/styles.css.ts": $2,
+    "./routes/_app.tsx": $_app,
+    "./routes/live/invoke/_middleware.tsx": $live_invoke_middleware,
+    "./routes/styles.css.ts": $styles_css,
   },
   islands: {
-    "./islands/About.tsx": $$0,
-    "./islands/AddToCartButton.tsx": $$1,
-    "./islands/ApplyRangeFiltersJS.tsx": $$2,
-    "./islands/CartModalMobile.tsx": $$3,
-    "./islands/CategoryText.tsx": $$4,
-    "./islands/ChooseLensButton.tsx": $$5,
-    "./islands/FaqContainer.tsx": $$6,
-    "./islands/HeaderButton.tsx": $$7,
-    "./islands/HeaderModals.tsx": $$8,
-    "./islands/HeaderSearchbar.tsx": $$9,
-    "./islands/LazyIframe.tsx": $$10,
-    "./islands/NavItem.tsx": $$11,
-    "./islands/Newsletter.tsx": $$12,
-    "./islands/ProductImageZoom.tsx": $$13,
-    "./islands/PromotionalBar.tsx": $$14,
-    "./islands/RangeFiltersJS.tsx": $$15,
-    "./islands/ReviewImagesModal.tsx": $$16,
-    "./islands/SearchControls.tsx": $$17,
-    "./islands/SelectedFilters.tsx": $$18,
-    "./islands/ShareButton.tsx": $$19,
-    "./islands/ShowMore.tsx": $$20,
-    "./islands/SliderJS.tsx": $$21,
-    "./islands/Stopwatch.tsx": $$22,
-    "./islands/TabJS.tsx": $$23,
-    "./islands/ToExperimentButton.tsx": $$24,
-    "./islands/ValueItem.tsx": $$25,
-    "./islands/WishlistButton.tsx": $$26,
+    "./islands/About.tsx": $About,
+    "./islands/AddToCartButton.tsx": $AddToCartButton,
+    "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
+    "./islands/CartModalMobile.tsx": $CartModalMobile,
+    "./islands/CategoryText.tsx": $CategoryText,
+    "./islands/ChooseLensButton.tsx": $ChooseLensButton,
+    "./islands/FaqContainer.tsx": $FaqContainer,
+    "./islands/HeaderButton.tsx": $HeaderButton,
+    "./islands/HeaderModals.tsx": $HeaderModals,
+    "./islands/HeaderSearchbar.tsx": $HeaderSearchbar,
+    "./islands/LazyIframe.tsx": $LazyIframe,
+    "./islands/NavItem.tsx": $NavItem,
+    "./islands/Newsletter.tsx": $Newsletter,
+    "./islands/ProductImageZoom.tsx": $ProductImageZoom,
+    "./islands/PromotionalBar.tsx": $PromotionalBar,
+    "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,
+    "./islands/ReviewImagesModal.tsx": $ReviewImagesModal,
+    "./islands/SearchControls.tsx": $SearchControls,
+    "./islands/SelectedFilters.tsx": $SelectedFilters,
+    "./islands/ShareButton.tsx": $ShareButton,
+    "./islands/ShowMore.tsx": $ShowMore,
+    "./islands/SliderJS.tsx": $SliderJS,
+    "./islands/Stopwatch.tsx": $Stopwatch,
+    "./islands/TabJS.tsx": $TabJS,
+    "./islands/ToExperimentButton.tsx": $ToExperimentButton,
+    "./islands/ValueItem.tsx": $ValueItem,
+    "./islands/WishlistButton.tsx": $WishlistButton,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;

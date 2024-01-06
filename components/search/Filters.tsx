@@ -48,7 +48,7 @@ function AgeOptions(
   return (
     <>
       {orderedAges.map((item) => (
-        <ValueItem type={type} class="lg:w-1/4" {...item} />
+        <ValueItem type={type} class="w-full" {...item} />
       ))}
     </>
   );
@@ -130,23 +130,29 @@ function ColorOptions({
   type: string;
 }) {
   return (
-    <>
+    <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-lg:gap-y-4 max-lg:gap-x-8">
       {matchingColors?.map((item) => {
-        const { value, hex } = item;
-
+        const { value, hex, selected } = item;
         return (
-          <ValueItem hideCheckbox type={type} {...item} class="lg:w-1/4">
-            <div class="flex items-center mb-5 p-[5px] hover:border hover:p-1 rounded-[5px] border-solid border-base-200">
+          <ValueItem
+            hideCheckbox
+            type={type}
+            key={value}
+            {...item}
+            hasSelected={selected}
+            class="w-full"
+          >
+            <div class="flex items-center p-[5px] hover:border hover:p-1 rounded-[5px] border-base-200">
               <span
                 style={{ backgroundColor: hex }}
-                class={`border border-solid h-[25px] w-[25px] rounded-full`}
+                class={`border border-solid h-6 w-6 rounded-full`}
               />
-              <p class="ml-[10px] font-bold">{value}</p>
+              <p class="ml-[10px] font-bold whitespace-nowrap">{value}</p>
             </div>
           </ValueItem>
         );
       })}
-    </>
+    </div>
   );
 }
 
@@ -160,15 +166,13 @@ function FilterValues({
   isMobile = false,
   rangeOptions,
 }: FilterValuesProps) {
-  const flexDirection =
-    label === "Formato" || label === "Cor" || label === "Idade"
-      ? "flex-row"
-      : "flex-col";
-  const colorAndAgeStyles = label === "Cor" || label === "Idade"
-    ? "w-[650px] flex-wrap justify-between pb-5"
-    : "";
-  const formatoStyles = label === "Formato"
-    ? "w-[530px] px-[50px] pb-[20px] flex-wrap justify-between"
+  const flexDirection = label === "Formato" || label === "Idade"
+    ? "flex-row"
+    : "flex-col";
+  const ageStyles = label === "Idade" ? "w-[550px] pb-5 grid-cols-4" : "";
+  const colorStyles = label === "Cor" ? "w-[650px] pb-5" : "";
+  const shapeStyles = label === "Formato"
+    ? "w-[530px] px-[50px] pb-[20px] grid grid-cols-2 gap-6"
     : "";
   const tipoStyles = label === "Tipo" ? "min-w-max" : "";
   const positionStyles = position === "left"
@@ -212,7 +216,7 @@ function FilterValues({
       const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
 
       return (
-        <div id={rootId}>
+        <div id={rootId} class="lg:flex">
           <SizeOptions
             values={values}
             type={label}
@@ -235,15 +239,14 @@ function FilterValues({
       {!isMobile
         ? (
           <div
-            class={`text-black justify-start font-medium text-sm border bg-gray-scale-100 absolute hidden invisible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 group-hover:flex group-hover:visible top-0 transition duration-300 ease-in-out
-				${flexDirection} ${colorAndAgeStyles} ${tipoStyles} ${formatoStyles} ${positionStyles}
+            class={`grid gap-6 justify-start font-medium text-black text-sm border bg-gray-scale-100 absolute invisible group-hover:visible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 top-0 transition duration-300 ease-in-out ${flexDirection} ${ageStyles} ${colorStyles} ${tipoStyles} ${shapeStyles} ${positionStyles}
 			  `}
           >
             <Options isMobile={isMobile} />
           </div>
         )
         : (
-          <div class="collapse-content flex flex-wrap gap-3">
+          <div class="collapse-content grid gap-6">
             <Options isMobile={isMobile} />
           </div>
         )}
@@ -254,7 +257,6 @@ function FilterValues({
 function Filters({
   filters,
   filterColors,
-  hideFilters = [],
   shapeIcons,
   typeIcons,
   isMobile = false,
@@ -295,7 +297,7 @@ function Filters({
         ? (
           <ul class="flex w-full justify-center flex-row">
             {defaultFilters.map((filter, index, array) => (
-              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group">
+              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
                 <span>{filter.label}</span>
                 <Icon size={24} id="ChevronDown" />
                 {isToggle(filter) && (

@@ -10,14 +10,16 @@ export default function ValueItem({
   children,
   hideCheckbox,
   class: _class,
+  hasSelected,
 }: Omit<FilterToggleValueWithHex, "label"> & {
   label: string;
   type: string;
   hideCheckbox?: boolean;
   children?: ComponentChildren;
   class?: string;
+  hasSelected?: boolean;
 }) {
-  const _selected = selected ||
+  const isSelected = selected ||
     selectedFilters.value.some((value) => label === value.label);
   return (
     <button
@@ -34,14 +36,18 @@ export default function ValueItem({
       }}
       class={_class}
     >
-      <div class="flex items-center mb-5">
+      <div class="flex items-center">
         {hideCheckbox ? null : (
           <div
-            aria-checked={_selected}
+            aria-checked={isSelected}
             class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
           />
         )}
-        <span class="flex items-center gap-2.5 max-lg:font-medium">
+        <span
+          class={`${
+            (hasSelected || isSelected) ? "border" : ""
+          } rounded-[5px] border-base-200 flex items-center gap-2.5 max-lg:font-medium`}
+        >
           {children ?? label}
         </span>
       </div>
