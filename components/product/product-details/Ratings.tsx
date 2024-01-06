@@ -12,7 +12,7 @@ function Ratings({ ratingValue }: Props) {
   return (
     <div class="relative inline-block">
       <div
-        class="absolute top-0 left-0"
+        class="absolute top-0 left-0 whitespace-nowrap overflow-hidden"
         style={{ width: `${percentage}%` }}
       >
         {ratings.map(() => {
