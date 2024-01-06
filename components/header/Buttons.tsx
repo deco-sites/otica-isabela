@@ -41,7 +41,7 @@ function MenuButton() {
 
 function CartButton() {
   const { displayCart } = useUI();
-  const { loading, cart } = useCart();
+  const { cart } = useCart();
   const totalItems = cart.value?.products.length ?? 0;
 
   return (
@@ -57,15 +57,13 @@ function CartButton() {
             {totalItems > 9 ? "9+" : totalItems}
           </span>
         )}
-        {!loading.value && (
-          <Icon
-            id="ShoppingCart"
-            width={26}
-            height={25}
-            strokeWidth={2}
-            style={{ color: "black" }}
-          />
-        )}
+        <Icon
+          class="text-white"
+          id="ShoppingCart"
+          width={26}
+          height={25}
+          strokeWidth={2}
+        />
       </div>
     </a>
   );
