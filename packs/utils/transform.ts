@@ -118,7 +118,7 @@ export function toProduct(product: IsabelaProduct): Product {
     additionalProperty: toAdditionalProperties({
       properties: Classificacoes,
       variants: ProdutosMaisCores,
-      experimentador: ImagemExperimentador.replace('www.', 'secure.'),
+      experimentador: ImagemExperimentador.replace("www.", "secure."),
       panels: Paineis,
       flag: OfertaFlag,
       rating: Avaliacoes,
