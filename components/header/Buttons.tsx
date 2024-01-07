@@ -58,7 +58,7 @@ function CartButton() {
           </span>
         )}
         <Icon
-          class="text-white"
+          class="text-black"
           id="ShoppingCart"
           width={26}
           height={25}
