@@ -9,7 +9,7 @@ import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 export interface Layout {
   basics?: {
@@ -120,7 +120,7 @@ function ProductCard({
       <a
         href={url && relative(url)}
         aria-label="view product"
-        id={imageContainerId}
+        id={`product-card-${productID}-${imageContainerId}`}
       >
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={priceValidUntil} type="card" />

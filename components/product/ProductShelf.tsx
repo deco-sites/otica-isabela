@@ -3,11 +3,11 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import { useId } from "preact/hooks";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
