@@ -9,17 +9,19 @@ const sw = () =>
     navigator && navigator.serviceWorker &&
     navigator.serviceWorker.register("/sw.js"));
 
-const wasm = async () => {
-  try {
-    const wasmItem = await fetch(
+const wasm = () => {
+  globalThis.addEventListener("load", () => {
+    fetch(
       "/scripts/experimentador/utils/master-tryon.wasm",
-    );
-    (globalThis as any).objWasm = wasmItem.clone();
-    await wasmItem.arrayBuffer();
-    (globalThis as any).arquivosCache = true;
-  } catch (err) {
-    (globalThis as any).arquivosCache = true;
-  }
+    ).then(async (result) => {
+      (globalThis as any).objWasm = result.clone();
+      await result.arrayBuffer();
+
+      (globalThis as any).arquivosCache = true;
+    }).catch((error) => {
+      (globalThis as any).arquivosCache = true;
+    });
+  });
 };
 
 function App(props: AppProps) {
