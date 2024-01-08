@@ -128,7 +128,7 @@ function ProductCard({
         {isSliderEnabled
           ? (
             <>
-              <Slider class="carousel carousel-center w-full scrollbar-none gap-6">
+              <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px]">
                 {images?.map((image, index) => (
                   <Slider.Item
                     index={index}
