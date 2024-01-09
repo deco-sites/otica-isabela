@@ -94,6 +94,7 @@ function Details(
   )?.value;
 
   const ratingValue = rating ? parseFloat(rating) : 0;
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
   return (
     <>
@@ -312,6 +313,7 @@ function Details(
           chooseLensUrl={chooseLensUrl}
           addToCard={addToCard}
           labels={labels}
+          text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
           currentCategory={currentCategory!}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }

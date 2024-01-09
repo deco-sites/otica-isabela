@@ -51,6 +51,7 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
   )?.value;
 
   const ratingValue = rating ? parseFloat(rating) : 0;
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
   return (
     <>
@@ -122,25 +123,39 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
       </div>
 
       {/* Experimenter */}
-      <div class="mt-4">
-        <ToExperimentButton
-          image={experimenterImage!}
-          variant="filled"
-          size="small"
-        />
-      </div>
+      {!isLentes
+        ? (
+          <div class="mt-4">
+            <ToExperimentButton
+              image={experimenterImage!}
+              variant="filled"
+              size="small"
+            />
+          </div>
+        )
+        : null}
 
       {/* Choose Lens */}
       <div class="mt-[11px] w-full">
         <a href={chooseLensUrl}>
-          <ChooseLensButton {...addToCard} />
+          <ChooseLensButton
+            {...addToCard}
+            text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
+          />
         </a>
       </div>
 
       {/* Add To Cart & Whislist */}
-      <div class="mt-[11px] w-full flex items-center">
-        <AddToCartButton {...addToCard} label={labels?.[currentCategory!]} />
-      </div>
+      {!isLentes
+        ? (
+          <div class="mt-[11px] w-full flex items-center">
+            <AddToCartButton
+              {...addToCard}
+              label={labels?.[currentCategory!]}
+            />
+          </div>
+        )
+        : null}
 
       {/* Analytics Event */}
       <SendEventOnLoad

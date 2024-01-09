@@ -33,7 +33,9 @@ function OtherColorsShelf({ product }: Props) {
   return (
     <div class="mt-10">
       <h1 class="text-[32px] text-black text-center font-roboto font-bold">
-        Mais cores
+        {product?.category?.includes("Lentes de Contato")
+          ? "Mais opções"
+          : "Mais cores"}
       </h1>
       <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-10">
         <div id={id} class="container flex flex-col px-0 sm:px-5">
@@ -42,15 +44,15 @@ function OtherColorsShelf({ product }: Props) {
               <div class="flex flex-col">
                 <Slider.Item
                   index={index}
-                  class="carousel-item w-full lg:first:pl-0 first:pl-4 last:pr-4  lg:last:pr-0 justify-center items-center"
+                  class="carousel-item w-full justify-center items-center"
                 >
                   <a href={url}>
                     <Image
                       class="max-w-[260px] md:max-w-[100%]"
                       src={image!}
                       alt={alternateName}
-                      width={340}
-                      height={190}
+                      width={260}
+                      height={260}
                     />
                   </a>
                 </Slider.Item>

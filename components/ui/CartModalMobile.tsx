@@ -8,6 +8,7 @@ export interface Props {
   labels?: Labels;
   currentCategory: string;
   observableElement: ObservableElement;
+  text: string;
 }
 
 interface AddToCart {
@@ -55,8 +56,14 @@ const setup = ({ value, type }: ObservableElement) => {
 };
 
 function CartModalMobile(
-  { chooseLensUrl, addToCard, labels, currentCategory, observableElement }:
-    Props,
+  {
+    chooseLensUrl,
+    addToCard,
+    labels,
+    currentCategory,
+    observableElement,
+    text,
+  }: Props,
 ) {
   useEffect(
     () => setup(observableElement),
@@ -69,7 +76,7 @@ function CartModalMobile(
     >
       <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
         <a href={chooseLensUrl}>
-          <ChooseLensButton {...addToCard} />
+          <ChooseLensButton {...addToCard} text={text} />
         </a>
       </div>
       <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">

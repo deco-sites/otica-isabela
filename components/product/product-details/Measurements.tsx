@@ -45,6 +45,15 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const hastes = getProp("Hastes");
   const aro = getProp("Aro");
 
+  if (
+    !altura ||
+    !largura ||
+    !ponte ||
+    !frente_total ||
+    !hastes ||
+    !aro
+  ) return null;
+
   return (
     <div class="w-full flex pt-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
       <div id="img" class="relative xl:max-w-[550px]">
