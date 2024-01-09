@@ -1,4 +1,4 @@
-import type { SecondBlock as SecondBlockProps } from "./Footer.tsx";
+import type { ISecondBlock as SecondBlockProps } from "./Footer.tsx";
 
 export const SecondBlock = (
   { links, hideSecondBlock }: SecondBlockProps,

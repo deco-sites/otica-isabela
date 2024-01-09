@@ -1,5 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import type { FirstBlock as FirstBlockProps } from "./Footer.tsx";
+import type { IFirstBlock as FirstBlockProps } from "./Footer.tsx";
 
 export const FirstBlock = (
   { socialLinks, firstLabel = "", secondLabel = "", hideFirstBlock }:
