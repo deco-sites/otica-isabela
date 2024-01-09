@@ -141,11 +141,15 @@ function Details(
             <Ratings ratingValue={ratingValue} />
           </a>
         )}
-        <ToExperimentButton
-          image={experimenterImage!}
-          variant="filled"
-          size="tiny"
-        />
+        {!isLentes
+          ? (
+            <ToExperimentButton
+              image={experimenterImage!}
+              variant="filled"
+              size="tiny"
+            />
+          )
+          : null}
       </div>
 
       {/* Product Name - Mobile (Header) */}
@@ -313,7 +317,7 @@ function Details(
           chooseLensUrl={chooseLensUrl}
           addToCard={addToCard}
           labels={labels}
-          text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
+          isLentes={!!isLentes}
           currentCategory={currentCategory!}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }

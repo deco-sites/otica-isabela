@@ -8,7 +8,7 @@ export interface Props {
   labels?: Labels;
   currentCategory: string;
   observableElement: ObservableElement;
-  text: string;
+  isLentes: boolean;
 }
 
 interface AddToCart {
@@ -62,7 +62,7 @@ function CartModalMobile(
     labels,
     currentCategory,
     observableElement,
-    text,
+    isLentes,
   }: Props,
 ) {
   useEffect(
@@ -76,15 +76,22 @@ function CartModalMobile(
     >
       <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
         <a href={chooseLensUrl}>
-          <ChooseLensButton {...addToCard} text={text} />
+          <ChooseLensButton
+            {...addToCard}
+            text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
+          />
         </a>
       </div>
-      <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-        <AddToCartButton
-          {...addToCard}
-          label={labels?.[currentCategory!]}
-        />
-      </div>
+      {!isLentes
+        ? (
+          <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
+            <AddToCartButton
+              {...addToCard}
+              label={labels?.[currentCategory!]}
+            />
+          </div>
+        )
+        : null}
     </div>
   );
 }

@@ -15,15 +15,19 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const rootId = "items-container";
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
-  );
+  ) ?? [];
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
-  panels?.unshift(
-    {
+  if (!isLentes) {
+    panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
       propertyID: "panel",
-    },
+    });
+  }
+
+  panels.unshift(
     {
       "@type": "PropertyValue",
       name: "Descrição",
