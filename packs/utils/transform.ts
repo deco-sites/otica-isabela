@@ -538,15 +538,17 @@ const groupPageFilters = (
   filtersApi: APIDynamicFilters[],
 ): APIDynamicFilters[][] => {
   return filtersApi.reduce<APIDynamicFilters[][]>((acc, filter) => {
-    const accIndex = acc.findIndex(aux => aux.some(item => item.IdTipo === filter.IdTipo))
+    const accIndex = acc.findIndex((aux) =>
+      aux.some((item) => item.IdTipo === filter.IdTipo)
+    );
 
     if (acc[accIndex]) {
       acc[accIndex].push(filter);
-      return acc
+      return acc;
     }
-      
-    return [...acc, [filter]]
-  }, [])
+
+    return [...acc, [filter]];
+  }, []);
 };
 
 const toToggleFilterValues = (
