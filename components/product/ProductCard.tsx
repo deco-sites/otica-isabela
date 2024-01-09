@@ -167,39 +167,47 @@ function ProductCard({
           class="contents"
         >
           <div class="flex flex-col">
-            <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
+            <h4 class="font-semibold text-black text-lg leading-none h-[50px]">
               {name}
             </h4>
-            <div class="lg:min-w-[306px] min-h-[42px] mb-[10px]">
-              <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
-                {description?.map(
-                  (property, index) =>
-                    `${property?.value}: ${property?.name}mm ${
-                      index < description.length - 1 ? "/ " : ""
-                    }`,
-                )}
-              </p>
-            </div>
+            {description.length
+              ? (
+                <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
+                  <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
+                    {description?.map(
+                      (property, index) =>
+                        `${property?.value}: ${property?.name}mm ${
+                          index < description.length - 1 ? "/ " : ""
+                        }`,
+                    )}
+                  </p>
+                </div>
+              )
+              : null}
           </div>
         </a>
 
         {/* Available Colors */}
-        <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
-          {availableColors?.map(({ name, url, unitCodes }) => (
-            <li key={unitCodes}>
-              <a href={`produto${url}`} aria-label={name} title={name}>
-                <div
-                  style={{
-                    background: unitCodes.length > 1
-                      ? `linear-gradient(${unitCodes.join(", ")})`
-                      : `${unitCodes[0]}`,
-                  }}
-                  class="mask mask-circle h-5 w-5 bg-secondary mx-2"
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
+        {availableColors.length
+          ? (
+            <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
+              {availableColors?.map(({ name, url, unitCodes }) => (
+                <li key={unitCodes}>
+                  <a href={`produto${url}`} aria-label={name} title={name}>
+                    <div
+                      style={{
+                        background: unitCodes.length > 1
+                          ? `linear-gradient(${unitCodes.join(", ")})`
+                          : `${unitCodes[0]}`,
+                      }}
+                      class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+          : null}
 
         {/* Price & Discount */}
         <div class="flex justify-center items-center mb-[10px]">
