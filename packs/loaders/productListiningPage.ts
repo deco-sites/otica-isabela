@@ -145,7 +145,7 @@ const getCategoryPageParams = async (
     }),
     { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
   );
-
+  
   const filtrosDinamicos = filtersApi.length > 0
     ? matchDynamicFilters(url, filtersApi, extraParams.filtrosDinamicos)
     : undefined;

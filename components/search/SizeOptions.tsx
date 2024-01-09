@@ -106,7 +106,7 @@ function SizeOptions(
           const id = option.label.toLowerCase().replace(/\s/g, "-");
 
           return (
-            <div class="border-b border-[#a6a6a6] mt-3">
+            <div class="border-b last:border-none border-[#a6a6a6] mt-3">
               <div class="flex justify-between">
                 <p class="text-xs font-normal">{option.label}</p>
                 <div>

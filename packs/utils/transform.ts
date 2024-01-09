@@ -537,21 +537,16 @@ const searchPageProps = (url: URL, term?: string): PLPPageProps => {
 const groupPageFilters = (
   filtersApi: APIDynamicFilters[],
 ): APIDynamicFilters[][] => {
-  const orderedFilters: APIDynamicFilters[][] = [];
-  const actualFilter: APIDynamicFilters[] = [];
+  return filtersApi.reduce<APIDynamicFilters[][]>((acc, filter) => {
+    const accIndex = acc.findIndex(aux => aux.some(item => item.IdTipo === filter.IdTipo))
 
-  filtersApi.forEach((filter) => {
-    const { IdTipo } = filter;
-    if (!actualFilter.length || actualFilter[0].IdTipo === IdTipo) {
-      actualFilter.push(filter);
-    } else {
-      orderedFilters.push([...actualFilter]);
-      actualFilter.splice(0, actualFilter.length);
-      actualFilter.push(filter);
+    if (acc[accIndex]) {
+      acc[accIndex].push(filter);
+      return acc
     }
-  });
-
-  return orderedFilters;
+      
+    return [...acc, [filter]]
+  }, [])
 };
 
 const toToggleFilterValues = (
