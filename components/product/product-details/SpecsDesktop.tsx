@@ -15,15 +15,19 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const rootId = "tabs-component";
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
-  );
+  ) ?? [];
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
-  panels?.unshift(
-    {
+  if (!isLentes) {
+    panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
       propertyID: "panel",
-    },
+    });
+  }
+
+  panels.unshift(
     {
       "@type": "PropertyValue",
       name: "Descrição",
@@ -62,7 +66,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
       <div id={rootId} class="mt-1 container">
         <div class="tabs w-[90%] mb-2 flex justify-between m-auto">
           {/* Tabs Buttons */}
-          {panels?.map(({ name }, index) => {
+          {panels.filter((panel) => Boolean(panel)).map(({ name }, index) => {
             const id = replaceSpecialCharacters(name!)
               .toLocaleLowerCase()
               .replaceAll(" ", "-")
