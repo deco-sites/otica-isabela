@@ -30,24 +30,30 @@ const calculateModalAlignment = (
 ) => {
   if (!IS_BROWSER || !filteredChildren) return {};
 
-  const alignment: Record<string, string> = {};
   const childrenLength = filteredChildren.length;
   const modalWidth = childrenLength * navbarModalBaseWidth;
   const screenWidth = window?.innerWidth ?? 0;
+  const maxWidth = `${modalWidth}px`;
 
-  alignment[childrenLength >= 2 ? "left" : "marginLeft"] = childrenLength >= 2
-    ? `${(screenWidth - modalWidth) / 2}px`
-    : `-${navbarModalBaseWidth / 3}px`;
+  if (childrenLength >= 2) {
+    return {
+      maxWidth,
+      left: `${(screenWidth - modalWidth) / 2}px`,
+    };
+  }
 
   return {
-    ...alignment,
-    maxWidth: `${modalWidth}px`,
+    transform: "translateX(-26%)",
+    maxWidth,
   };
 };
 
 export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
   const filteredChildren = useMemo(
-    () => navbarItems?.filter((item) => !item.mobileOnly) || [],
+    () =>
+      navbarItems?.filter((item) =>
+        !item.mobileOnly && item.desktopMenuImage?.src
+      ) || [],
     [navbarItems],
   );
 
