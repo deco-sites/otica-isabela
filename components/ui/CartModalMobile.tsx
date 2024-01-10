@@ -87,7 +87,7 @@ function CartModalMobile(
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={labels?.[currentCategory!]}
+              label={labels?.[currentCategory.toLowerCase()!]}
             />
           </div>
         )
