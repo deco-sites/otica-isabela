@@ -123,7 +123,7 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
       </div>
 
       {/* Experimenter */}
-      {!isLentes
+      {!isLentes && experimenterImage
         ? (
           <div class="mt-4">
             <ToExperimentButton

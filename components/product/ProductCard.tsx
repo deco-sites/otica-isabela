@@ -229,7 +229,7 @@ function ProductCard({
           </a>
         </div>
 
-        <ToExperimentButton image={experimenterImage!} />
+        {experimenterImage ? <ToExperimentButton image={experimenterImage} /> : null}
       </div>
     </div>
   );

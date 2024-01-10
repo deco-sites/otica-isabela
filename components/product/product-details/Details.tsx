@@ -141,7 +141,7 @@ function Details(
             <Ratings ratingValue={ratingValue} />
           </a>
         )}
-        {!isLentes
+        {!isLentes && experimenterImage
           ? (
             <ToExperimentButton
               image={experimenterImage!}
