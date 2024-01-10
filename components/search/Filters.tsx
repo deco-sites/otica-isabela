@@ -136,6 +136,7 @@ function ColorOptions({
         return (
           <ValueItem
             hideCheckbox
+            withBorder
             type={type}
             key={value}
             {...item}

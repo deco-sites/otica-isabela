@@ -9,18 +9,20 @@ export default function ValueItem({
   type,
   children,
   hideCheckbox,
+  withBorder,
   class: _class,
-  hasSelected,
 }: Omit<FilterToggleValueWithHex, "label"> & {
   label: string;
   type: string;
   hideCheckbox?: boolean;
+  withBorder?: boolean;
   children?: ComponentChildren;
   class?: string;
   hasSelected?: boolean;
 }) {
-  const isSelected = selected ||
-    selectedFilters.value.some((value) => label === value.label);
+  const isSelected = selectedFilters.value.some((value) =>
+    label === value.label
+  );
   return (
     <button
       onClick={() => {
@@ -45,7 +47,7 @@ export default function ValueItem({
         )}
         <span
           class={`${
-            (hasSelected || isSelected) ? "border" : ""
+            isSelected && withBorder ? "border" : ""
           } rounded-[5px] border-base-200 flex items-center gap-2.5 max-lg:font-medium`}
         >
           {children ?? label}

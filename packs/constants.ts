@@ -1,8 +1,10 @@
 import { SortOption } from "apps/commerce/types.ts";
-export const ISABELA_DIAS_SESSION_COOKIE = "IsabelaDias_Deco_SessionCustomerKey";
+export const ISABELA_DIAS_SESSION_COOKIE =
+  "IsabelaDias_Deco_SessionCustomerKey";
 export const ISABELA_DIAS_CLIENT_COOKIE = "IsabelaDias_Deco_SessionCustomer";
 export const ISABELA_DIAS_NAME_COOKIE = "IsabelaDias_Deco_SessionCustomerName";
-export const ISABELA_DIAS_IMAGE_COOKIE = "IsabelaDias_Deco_SessionCustomerPhoto";
+export const ISABELA_DIAS_IMAGE_COOKIE =
+  "IsabelaDias_Deco_SessionCustomerPhoto";
 export const SORT_OPTIONS: SortOption[] = [
   {
     value: "none",
