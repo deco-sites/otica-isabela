@@ -60,12 +60,13 @@ export interface Props {
   /** @title Configurações de Promoções */
   promotions?: Promotion[];
 
-  /** Label dos Botões por Categoria */
+  /** @title Botão de Adicionar no Carrinho por Categoria */
   buttonByCategory?: ButtonLabel[];
 
-  customer: LoaderReturnType<AuthData>;
-
+  /** @title Botão de Passo a Passo por Categoria */
+  stepButtonByCategory?: ButtonLabel[];
   mobileOptions: MobileOptions;
+  customer: LoaderReturnType<AuthData>;
 }
 
 function ProductDetails({
@@ -73,6 +74,7 @@ function ProductDetails({
   measurementsImage,
   promotions,
   buttonByCategory,
+  stepButtonByCategory,
   customer,
   mobileOptions,
 }: SectionProps<typeof loader>) {
@@ -97,6 +99,7 @@ function ProductDetails({
                 page={page}
                 promotions={promotions}
                 buttonByCategory={buttonByCategory}
+                stepButtonByCategory={stepButtonByCategory}
                 customer={customer}
                 mobileOptions={mobileOptions}
               />
