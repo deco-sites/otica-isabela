@@ -10,6 +10,7 @@ import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import Button from "deco-sites/otica-isabela/components/ui/Button.tsx";
 
 export interface Layout {
   basics?: {
@@ -49,11 +50,6 @@ interface Props {
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
 }
-
-const relative = (url: string) => {
-  const link = new URL(url);
-  return `${link.pathname}${link.search}`;
-};
 
 function ProductCard({
   product,
@@ -118,7 +114,7 @@ function ProductCard({
 
       {/* Stopwatch */}
       <a
-        href={url && relative(url)}
+        href={url}
         aria-label="view product"
         id={`product-card-${productID}-${imageContainerId}`}
       >
@@ -162,7 +158,7 @@ function ProductCard({
       {/* Name & Description */}
       <div class="flex flex-col items-center mt-[10px]">
         <a
-          href={url && relative(url)}
+          href={url}
           aria-label="view product"
           class="contents"
         >
@@ -212,7 +208,7 @@ function ProductCard({
         {/* Price & Discount */}
         <div class="flex justify-center items-center mb-[10px]">
           <a
-            href={url && relative(url)}
+            href={url}
             aria-label="view product"
             class="contents"
           >
@@ -231,7 +227,13 @@ function ProductCard({
 
         {experimenterImage
           ? <ToExperimentButton image={experimenterImage} />
-          : null}
+          : (
+            <a href={url} class="block w-full">
+              <Button class="text-white bg-orange-500 rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
+                Comprar
+              </Button>
+            </a>
+          )}
       </div>
     </div>
   );
