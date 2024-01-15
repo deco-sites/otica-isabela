@@ -266,7 +266,10 @@ const toVariantProduct = (
     const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
-      category: toCategory([master.NomeCategoriaPai.trim(), master.NomeCategoria.trim()]),
+      category: toCategory([
+        master.NomeCategoriaPai.trim(),
+        master.NomeCategoria.trim(),
+      ]),
       productID: `${variant.IdProduct}`,
       url: toUrl(variant.UrlFriendlyColor),
       name: variant.Nome.trim(),
