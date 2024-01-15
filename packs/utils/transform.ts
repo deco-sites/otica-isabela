@@ -155,7 +155,7 @@ const toCategory = (category: Array<string>) =>
     .map((word) => (word.endsWith(" ") ? word.slice(0, -1) : word))
     .join(">");
 
-const toUrl = (UrlFriendlyColor: string) => `/produto/${UrlFriendlyColor}`
+const toUrl = (UrlFriendlyColor: string) => `/produto/${UrlFriendlyColor}`;
 
 const toImage = (
   imagesFromAPI: Image[],
@@ -169,7 +169,8 @@ const toImage = (
         [
           {
             "@type": "ImageObject" as const,
-            url: new URL(Imagem, "https://secure.oticaisabeladias.com.br/").href,
+            url:
+              new URL(Imagem, "https://secure.oticaisabeladias.com.br/").href,
             alternateName,
             additionalType: "image",
           },
