@@ -31,7 +31,8 @@ function OtherColorsShelf({ product }: Props) {
   return (
     <div class="mt-10">
       <h1 class="text-[32px] text-black text-center font-roboto font-bold">
-        {product?.category?.includes("Lentes de Contato") || product?.category?.includes("Acessórios")
+        {product?.category?.includes("Lentes de Contato") ||
+            product?.category?.includes("Acessórios")
           ? "Mais opções"
           : "Mais cores"}
       </h1>
