@@ -110,7 +110,7 @@ export function toProduct(product: IsabelaProduct): Product {
     productID: `${IdProduct}`,
     url: toUrl(UrlFriendlyColor),
     name: Nome.trim(),
-    category: toCategory([NomeCategoriaPai, NomeCategoria]),
+    category: toCategory([NomeCategoriaPai.trim(), NomeCategoria.trim()]),
     sku: `${IdSku}`,
     description: Paineis?.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
@@ -266,7 +266,7 @@ const toVariantProduct = (
     const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
-      category: toCategory([master.NomeCategoriaPai, master.NomeCategoria]),
+      category: toCategory([master.NomeCategoriaPai.trim(), master.NomeCategoria.trim()]),
       productID: `${variant.IdProduct}`,
       url: toUrl(variant.UrlFriendlyColor),
       name: variant.Nome.trim(),
@@ -379,17 +379,17 @@ const toBreadcrumbList = (
   const categories = !NomeCategoriaPai
     ? [
       {
-        name: NomeCategoria,
+        name: NomeCategoria.trim(),
         url: UrlFriendlyCategoriaPai,
       },
     ]
     : [
       {
-        name: NomeCategoriaPai,
+        name: NomeCategoriaPai.trim(),
         url: UrlFriendlyCategoriaPai,
       },
       {
-        name: NomeCategoria,
+        name: NomeCategoria.trim(),
         url: UrlFriendlyCategoria,
       },
     ];
