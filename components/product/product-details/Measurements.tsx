@@ -45,6 +45,8 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const hastes = getProp("Hastes");
   const aro = getProp("Aro");
 
+  const measurementsImg = additionalProperty?.find((p) => p.propertyID === "measurementsImg")?.value;
+
   if (
     !altura ||
     !largura ||
@@ -67,7 +69,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           <SpecItem item={largura!} classes="right-[22%] bottom-[8%]" />
         </div>
         <Image
-          src={image![0].url!}
+          src={measurementsImg! || image![0].url!}
           width={550}
           height={307}
           alt="medidas"
