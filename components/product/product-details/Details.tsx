@@ -40,7 +40,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 };
 
 function Details(
-  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
+  {
+    page,
+    promotions,
+    buttonByCategory,
+    stepButtonByCategory,
+    customer,
+    mobileOptions,
+  }: Props,
 ) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
@@ -74,6 +81,13 @@ function Details(
   };
   const currentCategory = breadcrumbList?.itemListElement[0].name;
   const labels = buttonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category.toLowerCase()] = curr.label;
+      return acc;
+    },
+    {},
+  );
+  const stepLabels = stepButtonByCategory?.reduce(
     (acc: { [key: string]: string }, curr) => {
       acc[curr.category.toLowerCase()] = curr.label;
       return acc;
@@ -312,6 +326,7 @@ function Details(
           chooseLensUrl={chooseLensUrl}
           addToCard={addToCard}
           labels={labels}
+          stepLabels={stepLabels}
           isLentes={!!isLentes}
           currentCategory={currentCategory!}
           observableElement={displayModalAfter === "Header"
@@ -329,9 +344,9 @@ function Details(
           <ProductInfo
             page={page}
             promotions={promotions}
-            buttonByCategory={buttonByCategory}
+            labels={labels}
+            stepLabels={stepLabels}
             customer={customer}
-            mobileOptions={mobileOptions}
           />
         </div>
       </div>

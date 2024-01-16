@@ -45,7 +45,9 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const hastes = getProp("Hastes");
   const aro = getProp("Aro");
 
-  const measurementsImg = additionalProperty?.find((p) => p.propertyID === "measurementsImg")?.value;
+  const measurementsImg = additionalProperty?.find((p) =>
+    p.propertyID === "measurementsImg"
+  )?.value;
 
   if (
     !altura ||

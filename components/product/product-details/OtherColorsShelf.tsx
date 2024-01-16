@@ -28,12 +28,11 @@ function OtherColorsShelf({ product }: Props) {
     }))
     .filter((variant) => variant.sku !== productID);
 
-  if (!images || images.length === 1) return null;
-
   return (
     <div class="mt-10">
       <h1 class="text-[32px] text-black text-center font-roboto font-bold">
-        {product?.category?.includes("Lentes de Contato")
+        {product?.category?.includes("Lentes de Contato") ||
+            product?.category?.includes("Acessórios")
           ? "Mais opções"
           : "Mais cores"}
       </h1>

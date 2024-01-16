@@ -5,7 +5,8 @@ import { useEffect } from "preact/hooks";
 export interface Props {
   chooseLensUrl: string;
   addToCard: AddToCart;
-  labels?: Labels;
+  labels?: Record<string, string>;
+  stepLabels?: Record<string, string>;
   currentCategory: string;
   observableElement: ObservableElement;
   isLentes: boolean;
@@ -60,9 +61,9 @@ function CartModalMobile(
     chooseLensUrl,
     addToCard,
     labels,
+    stepLabels,
     currentCategory,
     observableElement,
-    isLentes,
   }: Props,
 ) {
   useEffect(
@@ -74,20 +75,24 @@ function CartModalMobile(
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
       id="cart-modal-mobile"
     >
-      <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-        <a href={chooseLensUrl}>
-          <ChooseLensButton
-            {...addToCard}
-            text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
-          />
-        </a>
-      </div>
-      {!isLentes
+      {stepLabels?.[currentCategory.toLowerCase()!]
+        ? (
+          <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
+            <a href={chooseLensUrl}>
+              <ChooseLensButton
+                {...addToCard}
+                text={stepLabels[currentCategory.toLowerCase()!]}
+              />
+            </a>
+          </div>
+        )
+        : null}
+      {labels?.[currentCategory.toLowerCase()!]
         ? (
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={labels?.[currentCategory.toLowerCase()!]}
+              label={labels[currentCategory.toLowerCase()!]}
             />
           </div>
         )

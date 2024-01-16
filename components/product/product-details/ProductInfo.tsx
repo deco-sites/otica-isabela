@@ -2,14 +2,29 @@ import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
+import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
+import type {
+  Promotion,
+} from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
+import { AuthData } from "deco-sites/otica-isabela/packs/types.ts";
+import { LoaderReturnType } from "deco/mod.ts";
 
-function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
+interface Props {
+  page: LoaderReturnType<ProductDetailsPage | null>;
+  promotions?: Promotion[];
+  labels?: Record<string, string>;
+  stepLabels?: Record<string, string>;
+  customer: LoaderReturnType<AuthData>;
+}
+
+function ProductInfo(
+  { page, promotions, labels, stepLabels, customer }: Props,
+) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
   const { price, listPrice, installments } = useOffer(offers);
@@ -38,13 +53,6 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
   );
 
   const currentCategory = breadcrumbList?.itemListElement[0].name;
-  const labels = buttonByCategory?.reduce(
-    (acc: { [key: string]: string }, curr) => {
-      acc[curr.category] = curr.label;
-      return acc;
-    },
-    {},
-  );
 
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
@@ -136,14 +144,18 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
         : null}
 
       {/* Choose Lens */}
-      <div class="mt-[11px] w-full">
-        <a href={chooseLensUrl}>
-          <ChooseLensButton
-            {...addToCard}
-            text={isLentes ? "Selecionar o Grau" : "Escolher as Lentes"}
-          />
-        </a>
-      </div>
+      {stepLabels?.[currentCategory!.toLowerCase()]
+        ? (
+          <div class="mt-[11px] w-full">
+            <a href={chooseLensUrl}>
+              <ChooseLensButton
+                {...addToCard}
+                text={stepLabels[currentCategory!.toLowerCase()]}
+              />
+            </a>
+          </div>
+        )
+        : null}
 
       {/* Add To Cart & Whislist */}
       {!isLentes
@@ -151,7 +163,7 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
           <div class="mt-[11px] w-full flex items-center">
             <AddToCartButton
               {...addToCard}
-              label={labels?.[currentCategory!]}
+              label={labels?.[currentCategory!.toLowerCase()]}
             />
           </div>
         )
