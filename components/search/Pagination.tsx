@@ -8,8 +8,7 @@ export type Props = {
     previousPage?: string;
     records?: number;
     recordPerPage?: number;
-  };
-  breadcrumb: BreadcrumbList;
+  }
 };
 
 interface PageParams {
@@ -17,9 +16,8 @@ interface PageParams {
   href: string;
 }
 
-export default function Pagination({ pageInfo, breadcrumb }: Props) {
+export default function Pagination({ pageInfo }: Props) {
   const { nextPage, previousPage } = pageInfo;
-  console.log(pageInfo);
   const firstPage = 1;
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
