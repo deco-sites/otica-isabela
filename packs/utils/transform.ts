@@ -630,8 +630,8 @@ const toPageInfo = (
   }
 
   return {
-    nextPage: hasNextPage ? `?${nextPage}` : undefined,
-    previousPage: hasPreviousPage ? `?${previousPage}` : undefined,
+    nextPage: hasNextPage ? `?${nextPage.toString()}` : undefined,
+    previousPage: hasPreviousPage ? `?${previousPage.toString()}` : undefined,
     currentPage: Pagina - 1,
     records: Total,
     recordPerPage: Offset,

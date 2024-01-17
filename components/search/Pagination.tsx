@@ -19,14 +19,13 @@ interface PageParams {
 
 export default function Pagination({ pageInfo, breadcrumb }: Props) {
   const { nextPage, previousPage } = pageInfo;
+  console.log(pageInfo)
   const firstPage = 1;
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
-  const pageParams = breadcrumb.itemListElement.length
-    ? new URL(breadcrumb.itemListElement.pop()!.item).searchParams
-    : new URLSearchParams();
+  const pageParams = new URLSearchParams(nextPage ?? previousPage)
 
   const eachPageParams: PageParams[] = Array.from(
     { length: Number(totalPages) },
