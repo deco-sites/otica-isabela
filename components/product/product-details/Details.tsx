@@ -245,29 +245,37 @@ function Details(
             </div>
           )}
           {/* Dots - Mobile & Desktop */}
-          <ul
-            id="image-dots"
-            class={`w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1 ${
-              showProductTumbnails ? "" : "max-lg:hidden"
-            }`}
-          >
-            {images.map((img, index) => (
-              <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
-                <Slider.Dot index={index}>
-                  <Image
-                    class="group-disabled:border-base-300"
-                    width={92}
-                    height={92}
-                    src={img.additionalType === "video"
-                      ? img?.image?.[0].url!
-                      : img.url!}
-                    alt={img.alternateName}
-                    loading="lazy"
-                  />
-                </Slider.Dot>
-              </li>
-            ))}
-          </ul>
+          <div class="relative">
+            <ul
+              id="image-dots"
+              class={`carousel carousel-center w-[90%] lg:mt-2 flex lg:max-w-[540px] gap-1 mx-auto ${
+                showProductTumbnails ? "" : "max-lg:hidden"
+              }`}
+            >
+              {images.map((img, index) => (
+                <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
+                  <Slider.Dot index={index}>
+                    <Image
+                      class="group-disabled:border-base-300"
+                      width={92}
+                      height={92}
+                      src={img.additionalType === "video"
+                        ? img?.image?.[0].url!
+                        : img.url!}
+                      alt={img.alternateName}
+                      loading="lazy"
+                    />
+                  </Slider.Dot>
+                </li>
+              ))}
+            </ul>
+            <Slider.PrevButton class="hidden lg:block absolute left-0 top-[40%]">
+              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+            <Slider.NextButton class="hidden lg:block absolute right-0 top-[40%]">
+              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+          </div>
           <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
             <Icon size={20} id="ChevronLeft" strokeWidth={3} />
           </Slider.PrevButton>

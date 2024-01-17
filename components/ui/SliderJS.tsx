@@ -78,6 +78,9 @@ const setup = ({
   const next = root?.querySelector<HTMLButtonElement>(
     `[${ATTRIBUTES['data-slide="next"']}]`,
   );
+
+  const thumbs = root?.querySelector<HTMLElement>("#image-dots");
+
   const dots = root?.querySelectorAll<HTMLButtonElement>(
     `[${ATTRIBUTES["data-dot"]}]`,
   );
@@ -121,6 +124,14 @@ const setup = ({
       );
 
       return;
+    }
+
+    if (thumbs) {
+      thumbs.scrollTo({
+        top: 0,
+        behavior: scroll,
+        left: item.offsetLeft,
+      });
     }
 
     slider.scrollTo({

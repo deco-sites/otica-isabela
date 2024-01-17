@@ -28,7 +28,7 @@ export interface Promotion {
 }
 
 export interface MobileOptions {
-  /** @title Localização da Flag */
+  /** @title Localização da Tag de Desconto */
   discountTagLocation: "Header" | "Image Bottom" | "Image Top";
 
   /** @title Localização do Nome */
