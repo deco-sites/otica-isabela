@@ -50,6 +50,7 @@ interface ToAdditionalPropertiesProps {
   rating: number;
   panels?: Panels[];
   flag?: string;
+  measurementsImg: string;
 }
 
 interface ToOfferProps {
@@ -99,6 +100,7 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaFlag,
     ValorParcelamento,
     Avaliacoes,
+    ImagemMedidas,
   } = product;
 
   const isVariantOf = product.ProdutosMaisCores
@@ -122,6 +124,7 @@ export function toProduct(product: IsabelaProduct): Product {
       panels: Paineis,
       flag: OfertaFlag,
       rating: Avaliacoes,
+      measurementsImg: ImagemMedidas,
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -189,7 +192,8 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const { properties, panels, experimentador, flag, rating } = props;
+  const { properties, panels, experimentador, flag, rating, measurementsImg } =
+    props;
 
   return [
     ...toProductColorAdditionalProperties(properties),
@@ -212,6 +216,20 @@ const toAdditionalProperties = (
       { id: "rating", value: String(rating.toFixed(1)) },
       { id: "flag", value: flag },
     ]),
+    ...toMeasurementsImgAdditionalProperties(measurementsImg),
+  ];
+};
+
+const toMeasurementsImgAdditionalProperties = (
+  imgUrl: string,
+): PropertyValue[] | [] => {
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Imagem Medidas",
+      value: imgUrl,
+      propertyID: "measurementsImg",
+    },
   ];
 };
 
