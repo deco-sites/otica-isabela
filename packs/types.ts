@@ -78,6 +78,7 @@ export interface Product {
   UrlFriendlyColor: string;
   Classificacoes: ProductInfo[];
   Avaliacoes: number;
+  ImagemMedidas: string;
 }
 
 export interface ColorVariants {
