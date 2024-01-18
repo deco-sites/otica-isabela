@@ -8,7 +8,7 @@ export type Props = {
     previousPage?: string;
     records?: number;
     recordPerPage?: number;
-  }
+  };
 };
 
 interface PageParams {
