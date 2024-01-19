@@ -1,3 +1,4 @@
+import { Head } from "$fresh/runtime.ts";
 import Icon from "$store/components/ui/Icon.tsx";
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
@@ -38,20 +39,22 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
   return (
     <div id="specs-mobile" class="border-t border-gray-300 lg:hidden mt-8">
-      <style
-        type="text/css"
-        dangerouslySetInnerHTML={{
-          __html: `
-          .collapse-content iframe {
-            width: 100%;
-          }
+      <Head>
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              .collapse-content iframe {
+                width: 100%;
+              }
 
-          .collapse input[type="checkbox"] {
-            min-height: 45px
-          }
+              .collapse input[type="checkbox"] {
+                min-height: 45px
+              }
           `,
-        }}
-      />
+          }}
+        />
+      </Head>
       <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-4">
         {panels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
@@ -91,7 +94,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
           }
 
           return (
-            <div class="collapse rounded-none">
+            <div class="collapse rounded-none" key={id}>
               {/* Title */}
               <input type="checkbox" />
               <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase text-sm min-h-[45px] max-h-[45px]">
@@ -100,7 +103,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
               </div>
 
               {/* Content */}
-              <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
+              <div class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0`}>
                 <ContentVariations />
               </div>
             </div>
