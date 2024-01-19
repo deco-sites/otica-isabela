@@ -17,9 +17,10 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
   ) ?? [];
-  const isLentes = product?.category?.includes("Lentes de Contato");
+  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
+    product?.category?.includes("Acessórios");
 
-  if (!isLentes) {
+  if (!hasNotMeasures) {
     panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",

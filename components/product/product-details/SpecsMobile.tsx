@@ -1,10 +1,10 @@
-import { Head } from "$fresh/runtime.ts";
 import Icon from "$store/components/ui/Icon.tsx";
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
 import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
+import { Head } from "$fresh/runtime.ts";
 
 interface Props {
   product: Product;
@@ -17,9 +17,10 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
   ) ?? [];
-  const isLentes = product?.category?.includes("Lentes de Contato");
+  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
+    product?.category?.includes("Acessórios");
 
-  if (!isLentes) {
+  if (!hasNotMeasures) {
     panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",
@@ -103,7 +104,9 @@ function SpecsMobile({ product, measurementsImage }: Props) {
               </div>
 
               {/* Content */}
-              <div class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0`}>
+              <div
+                class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0`}
+              >
                 <ContentVariations />
               </div>
             </div>
