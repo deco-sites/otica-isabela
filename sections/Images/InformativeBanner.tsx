@@ -18,6 +18,7 @@ const InformativeBanner = ({ image, hidden }: Props) => {
     >
       <BasicImageAndLink
         {...image}
+        preload
         height={{ desktop: 32, mobile: 32 }}
         width={{ desktop: 1275, mobile: 425 }}
       />

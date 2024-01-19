@@ -14,10 +14,11 @@ export interface BasicImageAndLinkProps {
 interface Props extends BasicImageAndLinkProps {
   width?: { desktop: number; mobile: number };
   height?: { desktop: number; mobile: number };
+  preload?: boolean;
 }
 
 export const BasicImageAndLink = (
-  { alt, href, src, width, height }: Props,
+  { alt, href, src, width, height, preload }: Props,
 ) => {
   if (!src) {
     return null;
@@ -25,7 +26,7 @@ export const BasicImageAndLink = (
 
   if (!href || href === "") {
     return (
-      <Picture class="w-full">
+      <Picture class="w-full" preload={preload}>
         {src?.mobile
           ? (
             <Source
@@ -49,7 +50,9 @@ export const BasicImageAndLink = (
             !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
           } aspect-auto w-full`}
           decoding="async"
-          loading="eager"
+          loading={preload ? "eager" : "lazy"}
+          width={width?.desktop ?? width?.mobile}
+          height={height?.desktop ?? height?.mobile}
         />
       </Picture>
     );
@@ -67,7 +70,7 @@ export const BasicImageAndLink = (
           : ""
       }`}
     >
-      <Picture>
+      <Picture preload={preload}>
         <Source
           media="(max-width: 992px)"
           src={src?.mobile ?? ""}
@@ -88,7 +91,9 @@ export const BasicImageAndLink = (
               !src?.mobile ? "max-lg:hidden" : !src?.desktop ? "lg:hidden" : ""
             } aspect-auto w-full`}
             decoding="async"
-            loading="eager"
+            loading={preload ? "eager" : "lazy"}
+            width={width?.mobile ?? width?.desktop}
+            height={height?.mobile ?? height?.desktop}
           />
         }
       </Picture>
