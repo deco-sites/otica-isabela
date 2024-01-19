@@ -109,6 +109,10 @@
   animation: progress-frame ease normal;
 }
 
+[data-manifest-key="website/sections/Rendering/Deferred.tsx"] {
+  height: 0;
+}
+
 @keyframes progress-frame {
   0% {
     --dot-progress: 0%;
