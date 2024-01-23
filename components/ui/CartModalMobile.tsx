@@ -65,7 +65,7 @@ function CartModalMobile(
     stepLabels,
     currentCategory,
     observableElement,
-    isAllowedToAddLens
+    isAllowedToAddLens,
   }: Props,
 ) {
   useEffect(
