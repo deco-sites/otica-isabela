@@ -10,6 +10,7 @@ export interface Props {
   currentCategory: string;
   observableElement: ObservableElement;
   isLentes: boolean;
+  isAllowedToAddLens: boolean;
 }
 
 interface AddToCart {
@@ -64,6 +65,7 @@ function CartModalMobile(
     stepLabels,
     currentCategory,
     observableElement,
+    isAllowedToAddLens
   }: Props,
 ) {
   useEffect(
@@ -75,7 +77,7 @@ function CartModalMobile(
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
       id="cart-modal-mobile"
     >
-      {stepLabels?.[currentCategory.toLowerCase()!]
+      {stepLabels?.[currentCategory.toLowerCase()!] && isAllowedToAddLens
         ? (
           <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
             <a href={chooseLensUrl}>

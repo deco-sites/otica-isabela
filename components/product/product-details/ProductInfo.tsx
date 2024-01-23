@@ -58,6 +58,10 @@ function ProductInfo(
     (prop) => prop.propertyID === "rating",
   )?.value;
 
+  const isAllowedToAddLens = additionalProperty?.find(
+    (prop) => prop.propertyID === "isAllowedToAddLens",
+  )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
 
@@ -80,15 +84,15 @@ function ProductInfo(
       {/* Buy with lens label */}
       {promotion
         ? (
-          <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
-            <span>
-              {promotion.flagText.replace(
-                "%value",
-                formatPrice(price, offers!.priceCurrency!) ?? "",
-              )}
-            </span>
-          </div>
-        )
+        <div class="sm:hidden lg:block bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
+          <span>
+            {promotion.flagText.replace(
+              "%value",
+              formatPrice(price, offers!.priceCurrency!) ?? "",
+            )}
+          </span>
+        </div>
+      )
         : null}
 
       {/* Prices */}
@@ -121,8 +125,8 @@ function ProductInfo(
                 class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                 style={{
                   background: colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
+                      ? `linear-gradient(${colors.join(", ")})`
+                      : colors?.[0],
                 }}
               />
             </div>
@@ -133,40 +137,39 @@ function ProductInfo(
       {/* Experimenter */}
       {!isLentes && experimenterImage
         ? (
-          <div class="mt-4">
-            <ToExperimentButton
-              image={experimenterImage!}
-              variant="filled"
-              size="small"
-            />
-          </div>
-        )
+        <div class="mt-4">
+          <ToExperimentButton
+            image={experimenterImage!}
+            variant="filled"
+            size="small"
+          />
+        </div>
+      )
         : null}
 
       {/* Choose Lens */}
-      {stepLabels?.[currentCategory!.toLowerCase()]
-        ? (
-          <div class="mt-[11px] w-full">
-            <a href={chooseLensUrl}>
-              <ChooseLensButton
-                {...addToCard}
-                text={stepLabels[currentCategory!.toLowerCase()]}
-              />
-            </a>
-          </div>
-        )
+      {stepLabels?.[currentCategory!.toLowerCase()] && isAllowedToAddLens ? (
+        <div class="mt-[11px] w-full">
+          <a href={chooseLensUrl}>
+            <ChooseLensButton
+              {...addToCard}
+              text={stepLabels[currentCategory!.toLowerCase()]}
+            />
+          </a>
+        </div>
+      )
         : null}
 
       {/* Add To Cart & Whislist */}
       {!isLentes
         ? (
-          <div class="mt-[11px] w-full flex items-center">
-            <AddToCartButton
-              {...addToCard}
-              label={labels?.[currentCategory!.toLowerCase()]}
-            />
-          </div>
-        )
+        <div class="mt-[11px] w-full flex items-center">
+          <AddToCartButton
+            {...addToCard}
+            label={labels?.[currentCategory!.toLowerCase()]}
+          />
+        </div>
+      )
         : null}
 
       {/* Analytics Event */}
