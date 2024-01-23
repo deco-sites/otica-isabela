@@ -107,6 +107,10 @@ function Details(
     (prop) => prop.propertyID === "rating",
   )?.value;
 
+  const isAllowedToAddLens = additionalProperty?.find(
+    (prop) => prop.propertyID === "isAllowedToAddLens",
+  )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
 
@@ -337,6 +341,7 @@ function Details(
           stepLabels={stepLabels}
           isLentes={!!isLentes}
           currentCategory={currentCategory!}
+          isAllowedToAddLens={isAllowedToAddLens}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }
             : {
@@ -345,6 +350,7 @@ function Details(
                 displayModalAfter.toLowerCase().replace(/\s+/g, "-")
               }-${id}`,
             }}
+          
         />
 
         {/* Product Details - Desktop */}

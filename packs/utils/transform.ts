@@ -36,11 +36,11 @@ import {
 
 type CategoryPageProps =
   & Required<
-    Omit<
-      ProductListiningPageProps,
-      "pageType" | "term" | "filtersUrl" | "productsData"
-    >
+  Omit<
+    ProductListiningPageProps,
+    "pageType" | "term" | "filtersUrl" | "productsData"
   >
+>
   & { filtersUrl: DynamicFilter[] | undefined };
 
 interface ToAdditionalPropertiesProps {
@@ -51,6 +51,7 @@ interface ToAdditionalPropertiesProps {
   panels?: Panels[];
   flag?: string;
   measurementsImg: string;
+  isAllowedToAddLens: boolean;
 }
 
 interface ToOfferProps {
@@ -101,6 +102,7 @@ export function toProduct(product: IsabelaProduct): Product {
     ValorParcelamento,
     Avaliacoes,
     ImagemMedidas,
+    PodeAdicionarLente
   } = product;
 
   const isVariantOf = product.ProdutosMaisCores
@@ -125,6 +127,7 @@ export function toProduct(product: IsabelaProduct): Product {
       flag: OfertaFlag,
       rating: Avaliacoes,
       measurementsImg: ImagemMedidas,
+      isAllowedToAddLens: PodeAdicionarLente
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -167,18 +170,18 @@ const toImage = (
   imagesFromAPI.map(({ Imagem, Video }) => {
     const [url, additionalType, image] = Video
       ? [
-        Video,
-        "video",
-        [
-          {
-            "@type": "ImageObject" as const,
-            url:
+          Video,
+          "video",
+          [
+            {
+              "@type": "ImageObject" as const,
+              url:
               new URL(Imagem, "https://secure.oticaisabeladias.com.br/").href,
-            alternateName,
-            additionalType: "image",
-          },
-        ],
-      ]
+              alternateName,
+              additionalType: "image",
+            },
+          ],
+        ]
       : [Imagem, "image", undefined];
     return {
       "@type": "ImageObject" as const,
@@ -192,7 +195,7 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const { properties, panels, experimentador, flag, rating, measurementsImg } =
+  const { properties, panels, experimentador, flag, rating, measurementsImg, isAllowedToAddLens } =
     props;
 
   return [
@@ -217,6 +220,20 @@ const toAdditionalProperties = (
       { id: "flag", value: flag },
     ]),
     ...toMeasurementsImgAdditionalProperties(measurementsImg),
+    ...toIsAllowedToAddLens(isAllowedToAddLens)
+  ];
+};
+
+const toIsAllowedToAddLens = (
+  isAllowedToAddLens: boolean
+): PropertyValue[] | [] => {
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Pode Adicionar Lentes",
+      value: isAllowedToAddLens,
+      propertyID: "isAllowedToAddLens",
+    },
   ];
 };
 
@@ -277,36 +294,36 @@ const toVariantProduct = (
   master: IsabelaProduct,
   variants: ColorVariants[],
 ): ProductGroup => ({
-  "@type": "ProductGroup" as const,
-  productGroupID: `${master.IdProduct}`,
-  hasVariant: variants.map((variant) => {
-    const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
-    return {
-      "@type": "Product" as const,
-      category: toCategory([
-        master.NomeCategoriaPai.trim(),
-        master.NomeCategoria.trim(),
-      ]),
-      productID: `${variant.IdProduct}`,
-      url: toUrl(variant.UrlFriendlyColor),
-      name: variant.Nome.trim(),
-      sku: `${variant.IdProduct}`,
-      additionalProperty: toColorPropertyValue(variant),
-      Imagem: variant.Imagem,
-      offers: toAggregateOffer({
-        originalValue: ValorOriginal,
-        discountedValue: ValorDesconto,
-        priceValidUntil: OfertaTermina,
-        stock: master.QtdeEstoque,
-        installment: master.ValorParcelamento,
-      }),
-    };
-  }),
-  url: toUrl(master.UrlFriendlyColor),
-  name: master.Nome,
-  additionalProperty: [],
-  model: `${master.IdProduct}`,
-} ?? []);
+    "@type": "ProductGroup" as const,
+    productGroupID: `${master.IdProduct}`,
+    hasVariant: variants.map((variant) => {
+      const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
+      return {
+        "@type": "Product" as const,
+        category: toCategory([
+          master.NomeCategoriaPai.trim(),
+          master.NomeCategoria.trim(),
+        ]),
+        productID: `${variant.IdProduct}`,
+        url: toUrl(variant.UrlFriendlyColor),
+        name: variant.Nome.trim(),
+        sku: `${variant.IdProduct}`,
+        additionalProperty: toColorPropertyValue(variant),
+        Imagem: variant.Imagem,
+        offers: toAggregateOffer({
+          originalValue: ValorOriginal,
+          discountedValue: ValorDesconto,
+          priceValidUntil: OfertaTermina,
+          stock: master.QtdeEstoque,
+          installment: master.ValorParcelamento,
+        }),
+      };
+    }),
+    url: toUrl(master.UrlFriendlyColor),
+    name: master.Nome,
+    additionalProperty: [],
+    model: `${master.IdProduct}`,
+  } ?? []);
 
 const toAggregateOffer = (props: ToOfferProps): AggregateOffer => ({
   "@type": "AggregateOffer",
@@ -324,8 +341,8 @@ const toAggregateOffer = (props: ToOfferProps): AggregateOffer => ({
 const toOffer = (props: ToOfferProps): Offer => ({
   "@type": "Offer",
   availability: props.stock > 0
-    ? "https://schema.org/InStock"
-    : "https://schema.org/OutOfStock",
+      ? "https://schema.org/InStock"
+      : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
   price: props.discountedValue || props.originalValue,
   priceSpecification: toPriceSpecification(
@@ -398,21 +415,21 @@ const toBreadcrumbList = (
 ): BreadcrumbList => {
   const categories = !NomeCategoriaPai
     ? [
-      {
-        name: NomeCategoria.trim(),
-        url: UrlFriendlyCategoriaPai,
-      },
-    ]
+        {
+          name: NomeCategoria.trim(),
+          url: UrlFriendlyCategoriaPai,
+        },
+      ]
     : [
-      {
-        name: NomeCategoriaPai.trim(),
-        url: UrlFriendlyCategoriaPai,
-      },
-      {
-        name: NomeCategoria.trim(),
-        url: UrlFriendlyCategoria,
-      },
-    ];
+        {
+          name: NomeCategoriaPai.trim(),
+          url: UrlFriendlyCategoriaPai,
+        },
+        {
+          name: NomeCategoria.trim(),
+          url: UrlFriendlyCategoria,
+        },
+      ];
 
   return {
     "@type": "BreadcrumbList",
@@ -423,9 +440,9 @@ const toBreadcrumbList = (
         item: new URL(
           `/${
             Object.values(categories)
-              .slice(0, index + 1)
-              .map((c) => c.url!)
-              .join("/")
+            .slice(0, index + 1)
+            .map((c) => c.url!)
+            .join("/")
           }`,
           baseURL,
         ).href,
@@ -444,13 +461,13 @@ export const toProductListingPage = (
   const { productsData, pageType, baseURL } = props;
   const { produtos } = productsData;
   const { itemListElement, filters, seo } = pageType == "category"
-    ? categoryPageProps({
-      baseURL,
-      category: props.category!,
-      filtersApi: props.filtersApi!,
-      filtersUrl: props.filtersUrl,
-    })
-    : searchPageProps(baseURL, props.term);
+      ? categoryPageProps({
+          baseURL,
+          category: props.category!,
+          filtersApi: props.filtersApi!,
+          filtersUrl: props.filtersUrl,
+        })
+      : searchPageProps(baseURL, props.term);
 
   return {
     "@type": "ProductListingPage",
@@ -523,25 +540,25 @@ const toRangeFilter = (f: APIDynamicFilters[]): FilterRange => {
 const searchPageProps = (url: URL, term?: string): PLPPageProps => {
   const pathsItemList = url.pathname.includes("busca")
     ? [
-      {
-        "@type": "ListItem" as const,
-        name: "BUSCA",
-        item: new URL(`/busca`, url.origin).href,
-        position: 1,
-      },
-    ]
+        {
+          "@type": "ListItem" as const,
+          name: "BUSCA",
+          item: new URL(`/busca`, url.origin).href,
+          position: 1,
+        },
+      ]
     : [];
 
   const termItemList = term && pathsItemList.length
-    ? [
-      {
-        "@type": "ListItem" as const,
-        name: term.toUpperCase(),
-        item: new URL(`${url.pathname}?termo=${term}`, url.origin).href,
-        position: pathsItemList.length + 1,
-      },
-    ]
-    : [];
+      ? [
+          {
+            "@type": "ListItem" as const,
+            name: term.toUpperCase(),
+            item: new URL(`${url.pathname}?termo=${term}`, url.origin).href,
+            position: pathsItemList.length + 1,
+          },
+        ]
+      : [];
 
   return {
     itemListElement: [...pathsItemList, ...termItemList],
@@ -576,10 +593,10 @@ const toToggleFilterValues = (
 ): FilterToggleValue => {
   const { filterApi, filtersUrl, baseURL, filterLabel } = props;
   const selected = !filtersUrl ? false : filtersUrl.some(
-    (filter) =>
-      filter.filterID === filterApi.IdTipo &&
-      filter.filterValue === filterApi.Nome,
-  );
+        (filter) =>
+          filter.filterID === filterApi.IdTipo &&
+          filter.filterValue === filterApi.Nome,
+      );
   return {
     quantity: 0,
     label: filterApi.Nome,
@@ -649,9 +666,9 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
       item: new URL(
         `/${
           categories
-            .slice(0, i + 1)
-            .map(({ UrlFriendly }) => UrlFriendly)
-            .join("/")
+          .slice(0, i + 1)
+          .map(({ UrlFriendly }) => UrlFriendly)
+          .join("/")
         }`,
         url.origin,
       ).href,

@@ -79,6 +79,7 @@ export interface Product {
   Classificacoes: ProductInfo[];
   Avaliacoes: number;
   ImagemMedidas: string;
+  PodeAdicionarLente: boolean;
 }
 
 export interface ColorVariants {
