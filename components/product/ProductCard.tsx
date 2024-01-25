@@ -229,8 +229,8 @@ function ProductCard({
           ? <ToExperimentButton image={experimenterImage} />
           : (
             <a href={url} class="block w-full">
-              <Button class="text-white bg-orange-500 rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-orange-500 hover:bg-white hover:border-orange-500">
-                Comprar
+              <Button class="text-black bg-transparent rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-white hover:bg-black border border-black">
+                Ver Produto
               </Button>
             </a>
           )}
