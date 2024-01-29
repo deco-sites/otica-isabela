@@ -8,10 +8,6 @@ export const ISABELA_DIAS_IMAGE_COOKIE =
   "IsabelaDias_LojaDeco_SessionCustomerPhoto";
 export const SORT_OPTIONS: SortOption[] = [
   {
-    value: "none",
-    label: "Relevância",
-  },
-  {
     value: "mais-vendidos",
     label: "Mais vendidos",
   },
@@ -22,10 +18,6 @@ export const SORT_OPTIONS: SortOption[] = [
   {
     value: "menor-preco",
     label: "Menor preço",
-  },
-  {
-    value: "nome",
-    label: "Nome",
   },
 ];
 export const RANGE_FILTERS = [17, 18, 19, 21];

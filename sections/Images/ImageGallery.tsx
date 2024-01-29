@@ -15,7 +15,7 @@ export interface Banner {
   /**
    * @description Adicione um link
    */
-  href: string;
+  href?: string;
 }
 
 export type BorderRadius =
@@ -135,11 +135,36 @@ function Banner(
   const radiusDesktop = RADIUS.desktop[borderRadius?.desktop ?? "none"];
   const radiusMobile = RADIUS.mobile[borderRadius?.desktop ?? "none"];
 
-  return (
-    <a
-      href={props.href}
-      class={`overflow-hidden ${radiusDesktop} ${radiusMobile}`}
-    >
+  return props.href
+    ? (
+      <a
+        href={props.href}
+        class={`overflow-hidden ${radiusDesktop} ${radiusMobile}`}
+      >
+        <Picture>
+          <Source
+            width={190}
+            height={190}
+            media="(max-width: 767px)"
+            src={srcMobile}
+          />
+          <Source
+            width={640}
+            height={420}
+            media="(min-width: 768px)"
+            src={srcDesktop || srcMobile}
+          />
+          <img
+            class="w-full h-full object-cover"
+            src={srcMobile}
+            alt={alt}
+            decoding="async"
+            loading="lazy"
+          />
+        </Picture>
+      </a>
+    )
+    : (
       <Picture>
         <Source
           width={190}
@@ -161,8 +186,7 @@ function Banner(
           loading="lazy"
         />
       </Picture>
-    </a>
-  );
+    );
 }
 
 export default function Gallery(props: Props) {
