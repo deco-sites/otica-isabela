@@ -99,15 +99,6 @@ function SearchControls({
             Ordenar
           </span>
         </div>
-
-        <div class="w-full">
-          <a
-            href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-            class="whitespace-nowrap uppercase w-full flex items-center justify-center mb-[30px] border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-transparent text-black hover:text-white hover:bg-black"
-          >
-            Limpar Filtros
-          </a>
-        </div>
         <div class="w-full">
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>

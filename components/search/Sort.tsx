@@ -9,9 +9,30 @@ const useSort = () =>
     return urlSearchParams.get(SORT_QUERY_PARAM) ?? "";
   }, []);
 
+const resetOtherOptions = (param: string) => {
+  const options = document.querySelectorAll("[data-sort-option]");
+  options.forEach((option) => {
+    if (option.getAttribute("value") !== param) {
+      option.setAttribute("aria-checked", "false");
+    }
+  });
+
+  return;
+};
+
 const applySort = (param: string) => {
+  const el = document.querySelector(`[value=${param}]`);
   const urlSearchParams = new URLSearchParams(window.location.search);
-  urlSearchParams.set(SORT_QUERY_PARAM, param);
+  const sortStatus = el?.getAttribute("aria-checked");
+
+  el?.setAttribute("aria-checked", sortStatus === "true" ? "false" : "true");
+  if (sortStatus === "true") {
+    urlSearchParams.delete(SORT_QUERY_PARAM, param);
+  } else {
+    urlSearchParams.set(SORT_QUERY_PARAM, param);
+  }
+  resetOtherOptions(param);
+
   window.location.search = urlSearchParams.toString();
 };
 
@@ -29,6 +50,7 @@ function Sort({ sortOptions }: Props) {
           class="flex items-center mb-5"
         >
           <div
+            data-sort-option={option.value}
             value={option.value}
             aria-checked={option.value === sort}
             class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
