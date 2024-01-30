@@ -80,12 +80,11 @@ function CartModalMobile(
       {stepLabels?.[currentCategory.toLowerCase()!] && isAllowedToAddLens
         ? (
           <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-            <a href={chooseLensUrl}>
-              <ChooseLensButton
-                {...addToCard}
-                text={stepLabels[currentCategory.toLowerCase()!]}
-              />
-            </a>
+            <ChooseLensButton
+              {...addToCard}
+              text={stepLabels[currentCategory.toLowerCase()!]}
+              chooseLensUrl={chooseLensUrl}
+            />
           </div>
         )
         : null}

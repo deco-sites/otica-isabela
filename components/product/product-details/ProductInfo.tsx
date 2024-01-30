@@ -151,12 +151,11 @@ function ProductInfo(
       {stepLabels?.[currentCategory!.toLowerCase()] && isAllowedToAddLens
         ? (
           <div class="mt-[11px] w-full">
-            <a href={chooseLensUrl}>
-              <ChooseLensButton
-                {...addToCard}
-                text={stepLabels[currentCategory!.toLowerCase()]}
-              />
-            </a>
+            <ChooseLensButton
+              {...addToCard}
+              text={stepLabels[currentCategory!.toLowerCase()]}
+              chooseLensUrl={chooseLensUrl}
+            />
           </div>
         )
         : null}
