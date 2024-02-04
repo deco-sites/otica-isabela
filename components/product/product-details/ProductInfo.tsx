@@ -111,7 +111,7 @@ function ProductInfo(
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
           {!!ratingValue && (
-            <a href="#product-review">
+            <a href="#product-review" aria-label="Veja as avaliações!">
               <Ratings ratingValue={ratingValue} />
             </a>
           )}

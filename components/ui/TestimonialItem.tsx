@@ -166,7 +166,7 @@ const TestimonialItem = ({
 
             <Image
               src={productPhoto}
-              alt={productName}
+              alt={`Imagem-${productName}`}
               width={150}
               height={60}
             />

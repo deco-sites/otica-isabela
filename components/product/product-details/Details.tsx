@@ -155,7 +155,10 @@ function Details(
         {/* Ratings - Mobile (Header) */}
         {!!ratingValue && starsLocation === "Header" &&
           discountTagLocation !== "Header" && (
-          <a href="#product-review">
+          <a
+            href="#product-review"
+            aria-label="Veja as avaliações!"
+          >
             <Ratings ratingValue={ratingValue} />
           </a>
         )}
@@ -294,7 +297,11 @@ function Details(
             discountTagLocation === "Header") &&
           (
             <div class="flex flex-col items-center my-8 lg:hidden">
-              <a href="#product-review" class="text-center">
+              <a
+                href="#product-review"
+                class="text-center"
+                aria-label="Veja as avaliações!"
+              >
                 <Ratings ratingValue={ratingValue} />
                 <p class="text-lg font-bold">Veja as avaliações</p>
               </a>

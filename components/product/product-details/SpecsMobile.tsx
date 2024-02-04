@@ -97,7 +97,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
           return (
             <div class="collapse rounded-none" key={id}>
               {/* Title */}
-              <input type="checkbox" />
+              <input type="checkbox" aria-label={name} />
               <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase text-sm min-h-[45px] max-h-[45px]">
                 {name}
                 <Icon id="ArrowDown" size={10} filter="invert(1)" />

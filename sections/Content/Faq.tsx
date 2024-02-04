@@ -39,8 +39,15 @@ function Question({ label, answer }: Question) {
   return (
     <>
       <div className="collapse collapse-arrow">
-        <input type="radio" name="faq-help-accordion" />
-        <label className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100">
+        <input
+          id={`${label}-collapse`}
+          type="radio"
+          name="faq-help-accordion"
+        />
+        <label
+          for={`${label}-collapse`}
+          className="collapse-title text-black font-semibold text-[22px]  rounded-3xl  bg-gray-100"
+        >
           {label}
         </label>
         <div className="collapse-content mt-3 rounded-2xl text-black  bg-gray-100 text-base mb-2">
