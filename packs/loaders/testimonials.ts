@@ -27,7 +27,7 @@ export interface Props {
    * @title ApenasDepoimentosComFoto
    */
   somenteFoto?: boolean;
-  tipo?: '' | 'home' | 'produto' 
+  tipo?: "" | "home" | "produto";
 }
 
 export const cache = "stale-while-revalidate";
@@ -65,7 +65,7 @@ const loader = async (
       offset: offset ?? 9,
       somenteFoto: somenteFoto ?? false,
       idproduto,
-      tipo: tipo ?? idproduto ? 'produto' : 'home'
+      tipo: tipo ?? idproduto ? "produto" : "home",
     }),
     {
       method: "POST",
