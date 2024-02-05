@@ -4,6 +4,7 @@ import { Options as Props, useAddToCart } from "$store/sdk/useAddToCart.ts";
 interface ChooseLensProps extends Props {
   loading?: boolean;
   text: string;
+  chooseLensUrl: string;
 }
 
 export const ChooseLensButton = ({
@@ -12,12 +13,14 @@ export const ChooseLensButton = ({
   price,
   name,
   text,
+  chooseLensUrl,
 }: ChooseLensProps) => {
   const cart = useAddToCart({
     idProduct,
     sku,
     price,
     name,
+    chooseLensUrl,
   });
 
   return (
