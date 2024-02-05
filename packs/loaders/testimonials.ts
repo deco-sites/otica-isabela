@@ -27,6 +27,7 @@ export interface Props {
    * @title ApenasDepoimentosComFoto
    */
   somenteFoto?: boolean;
+  tipo?: '' | 'home' | 'produto' 
 }
 
 export const cache = "stale-while-revalidate";
@@ -42,7 +43,7 @@ const loader = async (
 ): Promise<Review[] | null> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
-  const { slug, ordenacao, offset, somenteFoto } = props;
+  const { slug, ordenacao, offset, somenteFoto, tipo } = props;
   const url = new URL(req.url);
 
   const idproduto = slug
@@ -64,6 +65,7 @@ const loader = async (
       offset: offset ?? 9,
       somenteFoto: somenteFoto ?? false,
       idproduto,
+      tipo: tipo ?? idproduto ? 'produto' : 'home'
     }),
     {
       method: "POST",
