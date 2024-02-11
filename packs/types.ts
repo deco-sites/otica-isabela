@@ -80,6 +80,7 @@ export interface Product {
   Avaliacoes: number;
   ImagemMedidas: string;
   PodeAdicionarLente: boolean;
+  LentesContatoSemGrau: boolean;
 }
 
 export interface ColorVariants {
