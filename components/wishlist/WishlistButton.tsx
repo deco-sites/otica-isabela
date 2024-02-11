@@ -4,6 +4,7 @@ import { useWishlist } from "$store/packs/hooks/useWishlist.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 interface Props {
   productID: string;
@@ -16,11 +17,17 @@ function WishlistButton(
 ) {
   const { loading, addItem, removeItem, wishlist } = useWishlist();
   const fetching = useSignal(false);
+  const isAdded = useSignal(false);
 
   const isUserLoggedIn = !!customer?.customerName;
-  const inWishlist = !!Object.values(wishlist?.value).filter((product) =>
-    product?.IdProduct === Number(productID)
-  )!.length;
+
+  useEffect(() => {
+    if (wishlist?.value) {
+      isAdded.value = !!Object.values(wishlist?.value).filter((product) =>
+        product?.IdProduct === Number(productID)
+      )!.length;
+    }
+  }, []);
 
   return (
     <Button
@@ -44,20 +51,22 @@ function WishlistButton(
 
         try {
           fetching.value = true;
-          inWishlist
-            ? await removeItem({ idProduct: Number(productID) }!)
-            : await addItem({ idProduct: Number(productID) }!);
+
+          if (isAdded.value) {
+            await removeItem({ idProduct: Number(productID) }!);
+            isAdded.value = false;
+          } else {
+            await addItem({ idProduct: Number(productID) }!);
+            isAdded.value = true;
+          }
         } finally {
           fetching.value = false;
         }
       }}
     >
-      <Icon
-        id="Heart"
-        size={35}
-        strokeWidth={1}
-        fill={inWishlist ? "black" : "none"}
-      />
+      {isAdded.value === true
+        ? <Icon id="AddedHeart" size={35} strokeWidth={1} />
+        : <Icon id="Heart" size={35} strokeWidth={1} />}
     </Button>
   );
 }
