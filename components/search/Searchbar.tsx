@@ -39,6 +39,7 @@ export interface EditableProps {
    * TODO: Receive querystring from parameter in the server-side
    */
   query?: string;
+  device?: string;
 }
 
 export type Props = EditableProps;
@@ -48,6 +49,7 @@ function Searchbar({
   action = "/s",
   name = "q",
   query,
+  device,
 }: EditableProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { setSearch, suggestions, loading } = useSuggestions();
@@ -71,9 +73,16 @@ function Searchbar({
             action={action}
             class="group flex flex-row justify-between items-center border border-none w-full pr-1 pl-3"
           >
+            <label
+              id={`search-input-label-${device}`}
+              class="hidden"
+              for={`search-input-${device}`}
+            >
+              {placeholder}
+            </label>
             <input
               ref={searchInputRef}
-              id="search-input"
+              id={`search-input-${device}`}
               class="flex outline-none placeholder-shown:sibling:hidden font-extralight text-sm text-start w-4/5"
               name={name}
               defaultValue={query}
@@ -91,8 +100,8 @@ function Searchbar({
                 }
               }}
               placeholder={placeholder}
-              role="combobox"
-              aria-controls="search-suggestion"
+              aria-required={true}
+              aria-labelledby={`search-input-label-${device}`}
               autocomplete="off"
             />
 

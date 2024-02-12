@@ -58,7 +58,7 @@ function Navbar({
               navBarSpace ? "max-w-1/2" : "max-w-1/4"
             }`}
           >
-            <Searchbar {...searchbar} />
+            <Searchbar {...searchbar} device="desktop" />
           </div>
 
           <div
@@ -79,7 +79,7 @@ function Navbar({
             navBarSpace ? "mb-4" : "mb-8"
           }`}
         >
-          <Searchbar {...searchbar} />
+          <Searchbar {...searchbar} device="mobile" />
         </div>
 
         <div

@@ -163,9 +163,9 @@ function ProductCard({
           class="contents"
         >
           <div class="flex flex-col">
-            <h4 class="font-semibold text-black text-lg leading-none h-[50px]">
+            <p class="font-semibold text-black text-lg leading-none h-[50px]">
               {name}
-            </h4>
+            </p>
             {description.length
               ? (
                 <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
