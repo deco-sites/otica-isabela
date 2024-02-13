@@ -9,6 +9,7 @@ function ShareButton({ link }: Props) {
 
   return (
     <button
+      aria-label="Share"
       class="btn border-0 bg-transparent"
       onClick={() => navigator.share({ url: link })}
     >
