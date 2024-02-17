@@ -11,6 +11,7 @@ export interface Props {
   observableElement: ObservableElement;
   isLentes: boolean;
   isAllowedToAddLens: boolean;
+  isLensWithoutPrescription: string;
 }
 
 interface AddToCart {
@@ -31,8 +32,8 @@ interface ObservableElement {
 
 const setup = ({ value, type }: ObservableElement) => {
   const observableElement = type === "Tag"
-    ? document.getElementsByTagName(value)?.item(0)
-    : document.getElementById(value);
+      ? document.getElementsByTagName(value)?.item(0)
+      : document.getElementById(value);
 
   if (!observableElement) {
     console.warn(
@@ -57,47 +58,50 @@ const setup = ({ value, type }: ObservableElement) => {
   observer.observe(observableElement);
 };
 
-function CartModalMobile(
-  {
-    chooseLensUrl,
-    addToCard,
-    labels,
-    stepLabels,
-    currentCategory,
-    observableElement,
-    isAllowedToAddLens,
-  }: Props,
-) {
-  useEffect(
-    () => setup(observableElement),
-    [observableElement],
-  );
+function CartModalMobile({
+  chooseLensUrl,
+  addToCard,
+  labels,
+  stepLabels,
+  currentCategory,
+  observableElement,
+  isAllowedToAddLens,
+  isLensWithoutPrescription,
+}: Props) {
+  useEffect(() => setup(observableElement), [observableElement]);
+
+  const handleStepsLabel = () => {
+    if (isLensWithoutPrescription) {
+      return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
+    }
+
+    return stepLabels?.[currentCategory!.toLowerCase()];
+  };
+
+  const stepLabel = handleStepsLabel();
+
   return (
     <div
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
       id="cart-modal-mobile"
     >
-      {stepLabels?.[currentCategory.toLowerCase()!] && isAllowedToAddLens
-        ? (
-          <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
-            <ChooseLensButton
-              {...addToCard}
-              text={stepLabels[currentCategory.toLowerCase()!]}
-              chooseLensUrl={chooseLensUrl}
-            />
-          </div>
-        )
-        : null}
-      {labels?.[currentCategory.toLowerCase()!]
-        ? (
-          <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
-            <AddToCartButton
-              {...addToCard}
-              label={labels[currentCategory.toLowerCase()!]}
-            />
-          </div>
-        )
-        : null}
+      {stepLabel && isAllowedToAddLens && (
+        <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
+          <ChooseLensButton
+            {...addToCard}
+            text={stepLabel}
+            chooseLensUrl={chooseLensUrl}
+          />
+        </div>
+      )}
+      {labels?.[currentCategory.toLowerCase()!] ? (
+        <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
+          <AddToCartButton
+            {...addToCard}
+            label={labels[currentCategory.toLowerCase()!]}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

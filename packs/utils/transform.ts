@@ -34,14 +34,12 @@ import {
   SORT_OPTIONS,
 } from "deco-sites/otica-isabela/packs/constants.ts";
 
-type CategoryPageProps =
-  & Required<
-    Omit<
-      ProductListiningPageProps,
-      "pageType" | "term" | "filtersUrl" | "productsData"
-    >
+type CategoryPageProps = Required<
+  Omit<
+    ProductListiningPageProps,
+    "pageType" | "term" | "filtersUrl" | "productsData"
   >
-  & { filtersUrl: DynamicFilter[] | undefined };
+> & { filtersUrl: DynamicFilter[] | undefined };
 
 interface ToAdditionalPropertiesProps {
   properties: ProductInfo[];
@@ -52,6 +50,7 @@ interface ToAdditionalPropertiesProps {
   flag?: string;
   measurementsImg: string;
   isAllowedToAddLens: boolean;
+  isLensWithoutPrescription: boolean;
 }
 
 interface ToOfferProps {
@@ -103,6 +102,7 @@ export function toProduct(product: IsabelaProduct): Product {
     Avaliacoes,
     ImagemMedidas,
     PodeAdicionarLente,
+    LentesContatoSemGrau,
   } = product;
 
   const isVariantOf = product.ProdutosMaisCores
@@ -116,8 +116,8 @@ export function toProduct(product: IsabelaProduct): Product {
     name: Nome.trim(),
     category: toCategory([NomeCategoriaPai.trim(), NomeCategoria.trim()]),
     sku: `${IdSku}`,
-    description: Paineis?.find((p) => p.IdTipoPainel == 11)?.Descricao ??
-      DescricaoSeo,
+    description:
+      Paineis?.find((p) => p.IdTipoPainel == 11)?.Descricao ?? DescricaoSeo,
     image: toImage(Imagens, Nome),
     additionalProperty: toAdditionalProperties({
       properties: Classificacoes,
@@ -128,6 +128,7 @@ export function toProduct(product: IsabelaProduct): Product {
       rating: Avaliacoes,
       measurementsImg: ImagemMedidas,
       isAllowedToAddLens: PodeAdicionarLente,
+      isLensWithoutPrescription: LentesContatoSemGrau,
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -142,7 +143,7 @@ export function toProduct(product: IsabelaProduct): Product {
 
 export function toProductPage(
   product: IsabelaProduct,
-  baseURL: string,
+  baseURL: string
 ): ProductDetailsPage {
   return {
     "@type": "ProductDetailsPage",
@@ -165,23 +166,23 @@ const toUrl = (UrlFriendlyColor: string) => `/produto/${UrlFriendlyColor}`;
 
 const toImage = (
   imagesFromAPI: Image[],
-  alternateName: string,
+  alternateName: string
 ): ImageObject[] =>
   imagesFromAPI.map(({ Imagem, Video }) => {
     const [url, additionalType, image] = Video
       ? [
-        Video,
-        "video",
-        [
-          {
-            "@type": "ImageObject" as const,
-            url:
-              new URL(Imagem, "https://secure.oticaisabeladias.com.br/").href,
-            alternateName,
-            additionalType: "image",
-          },
-        ],
-      ]
+          Video,
+          "video",
+          [
+            {
+              "@type": "ImageObject" as const,
+              url: new URL(Imagem, "https://secure.oticaisabeladias.com.br/")
+                .href,
+              alternateName,
+              additionalType: "image",
+            },
+          ],
+        ]
       : [Imagem, "image", undefined];
     return {
       "@type": "ImageObject" as const,
@@ -193,7 +194,7 @@ const toImage = (
   });
 
 const toAdditionalProperties = (
-  props: ToAdditionalPropertiesProps,
+  props: ToAdditionalPropertiesProps
 ): PropertyValue[] => {
   const {
     properties,
@@ -203,6 +204,7 @@ const toAdditionalProperties = (
     rating,
     measurementsImg,
     isAllowedToAddLens,
+    isLensWithoutPrescription,
   } = props;
 
   return [
@@ -228,12 +230,25 @@ const toAdditionalProperties = (
     ]),
     ...toMeasurementsImgAdditionalProperties(measurementsImg),
     ...toIsAllowedToAddLens(isAllowedToAddLens),
+    ...toIsLensWithoutPrescription(isLensWithoutPrescription),
   ];
 };
 
-const toIsAllowedToAddLens = (
-  isAllowedToAddLens: boolean,
+const toIsLensWithoutPrescription = (
+  toIsLensWithoutPrescription: boolean
 ): PropertyValue[] => {
+  if (!toIsLensWithoutPrescription) return [];
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Lens sem grau",
+      value: String(toIsLensWithoutPrescription),
+      propertyID: "isLensWithoutPrescription",
+    },
+  ];
+};
+
+const toIsAllowedToAddLens = (isAllowedToAddLens: boolean): PropertyValue[] => {
   if (!isAllowedToAddLens) return [];
   return [
     {
@@ -245,7 +260,7 @@ const toIsAllowedToAddLens = (
 };
 
 const toMeasurementsImgAdditionalProperties = (
-  imgUrl: string,
+  imgUrl: string
 ): PropertyValue[] | [] => {
   return [
     {
@@ -258,10 +273,10 @@ const toMeasurementsImgAdditionalProperties = (
 };
 
 const toProductColorAdditionalProperties = (
-  properties: ProductInfo[],
+  properties: ProductInfo[]
 ): PropertyValue[] | [] => {
   const colorName = Object.values(properties).filter(
-    (value) => value.IdTipo === 14 || value.Tipo === "Cor",
+    (value) => value.IdTipo === 14 || value.Tipo === "Cor"
   );
 
   if (colorName.length === 0) return [];
@@ -275,7 +290,7 @@ const toProductColorAdditionalProperties = (
 };
 
 const toDefaultProperties = (
-  items: ToDefaultPropertiesProps[],
+  items: ToDefaultPropertiesProps[]
 ): PropertyValue[] =>
   items
     .filter(({ value }) => !!value)
@@ -299,38 +314,39 @@ const toColorPropertyValue = (variant: ColorVariants): PropertyValue[] =>
 
 const toVariantProduct = (
   master: IsabelaProduct,
-  variants: ColorVariants[],
-): ProductGroup => ({
-  "@type": "ProductGroup" as const,
-  productGroupID: `${master.IdProduct}`,
-  hasVariant: variants.map((variant) => {
-    const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
-    return {
-      "@type": "Product" as const,
-      category: toCategory([
-        master.NomeCategoriaPai.trim(),
-        master.NomeCategoria.trim(),
-      ]),
-      productID: `${variant.IdProduct}`,
-      url: toUrl(variant.UrlFriendlyColor),
-      name: variant.Nome.trim(),
-      sku: `${variant.IdProduct}`,
-      additionalProperty: toColorPropertyValue(variant),
-      Imagem: variant.Imagem,
-      offers: toAggregateOffer({
-        originalValue: ValorOriginal,
-        discountedValue: ValorDesconto,
-        priceValidUntil: OfertaTermina,
-        stock: master.QtdeEstoque,
-        installment: master.ValorParcelamento,
-      }),
-    };
-  }),
-  url: toUrl(master.UrlFriendlyColor),
-  name: master.Nome,
-  additionalProperty: [],
-  model: `${master.IdProduct}`,
-} ?? []);
+  variants: ColorVariants[]
+): ProductGroup =>
+  ({
+    "@type": "ProductGroup" as const,
+    productGroupID: `${master.IdProduct}`,
+    hasVariant: variants.map((variant) => {
+      const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
+      return {
+        "@type": "Product" as const,
+        category: toCategory([
+          master.NomeCategoriaPai.trim(),
+          master.NomeCategoria.trim(),
+        ]),
+        productID: `${variant.IdProduct}`,
+        url: toUrl(variant.UrlFriendlyColor),
+        name: variant.Nome.trim(),
+        sku: `${variant.IdProduct}`,
+        additionalProperty: toColorPropertyValue(variant),
+        Imagem: variant.Imagem,
+        offers: toAggregateOffer({
+          originalValue: ValorOriginal,
+          discountedValue: ValorDesconto,
+          priceValidUntil: OfertaTermina,
+          stock: master.QtdeEstoque,
+          installment: master.ValorParcelamento,
+        }),
+      };
+    }),
+    url: toUrl(master.UrlFriendlyColor),
+    name: master.Nome,
+    additionalProperty: [],
+    model: `${master.IdProduct}`,
+  } ?? []);
 
 const toAggregateOffer = (props: ToOfferProps): AggregateOffer => ({
   "@type": "AggregateOffer",
@@ -347,15 +363,16 @@ const toAggregateOffer = (props: ToOfferProps): AggregateOffer => ({
 
 const toOffer = (props: ToOfferProps): Offer => ({
   "@type": "Offer",
-  availability: props.stock > 0
-    ? "https://schema.org/InStock"
-    : "https://schema.org/OutOfStock",
+  availability:
+    props.stock > 0
+      ? "https://schema.org/InStock"
+      : "https://schema.org/OutOfStock",
   inventoryLevel: { value: undefined },
   price: props.discountedValue || props.originalValue,
   priceSpecification: toPriceSpecification(
     props.discountedValue,
     props.originalValue,
-    props.installment,
+    props.installment
   ),
   priceValidUntil: props.priceValidUntil,
 });
@@ -363,7 +380,7 @@ const toOffer = (props: ToOfferProps): Offer => ({
 const toPriceSpecification = (
   price: number,
   listPrice: number,
-  installment?: string,
+  installment?: string
 ): UnitPriceSpecification[] => {
   const match = installment?.match(/(\d+)x de ([\d,]+)/) ?? null;
 
@@ -386,13 +403,12 @@ const toPriceSpecification = (
 
 const toInstallments = (
   price: number,
-  match: RegExpMatchArray,
+  match: RegExpMatchArray
 ): UnitPriceSpecification[] => {
   const installmentsQty = parseInt(match[1], 10);
 
-  const installmentPrices = Array.from(
-    { length: installmentsQty },
-    (_v, i) => Number((Math.floor((price / (i + 1)) * 100) / 100).toFixed(2)),
+  const installmentPrices = Array.from({ length: installmentsQty }, (_v, i) =>
+    Number((Math.floor((price / (i + 1)) * 100) / 100).toFixed(2))
   );
 
   return installmentPrices.map((value, i): UnitPriceSpecification => {
@@ -418,25 +434,25 @@ const toBreadcrumbList = (
     UrlFriendlyCategoriaPai,
     UrlFriendlyCategoria,
   }: IsabelaProduct,
-  baseURL: string,
+  baseURL: string
 ): BreadcrumbList => {
   const categories = !NomeCategoriaPai
     ? [
-      {
-        name: NomeCategoria.trim(),
-        url: UrlFriendlyCategoriaPai,
-      },
-    ]
+        {
+          name: NomeCategoria.trim(),
+          url: UrlFriendlyCategoriaPai,
+        },
+      ]
     : [
-      {
-        name: NomeCategoriaPai.trim(),
-        url: UrlFriendlyCategoriaPai,
-      },
-      {
-        name: NomeCategoria.trim(),
-        url: UrlFriendlyCategoria,
-      },
-    ];
+        {
+          name: NomeCategoriaPai.trim(),
+          url: UrlFriendlyCategoriaPai,
+        },
+        {
+          name: NomeCategoria.trim(),
+          url: UrlFriendlyCategoria,
+        },
+      ];
 
   return {
     "@type": "BreadcrumbList",
@@ -445,13 +461,11 @@ const toBreadcrumbList = (
         "@type": "ListItem" as const,
         name,
         item: new URL(
-          `/${
-            Object.values(categories)
-              .slice(0, index + 1)
-              .map((c) => c.url!)
-              .join("/")
-          }`,
-          baseURL,
+          `/${Object.values(categories)
+            .slice(0, index + 1)
+            .map((c) => c.url!)
+            .join("/")}`,
+          baseURL
         ).href,
         position: index + 1,
       })),
@@ -463,18 +477,19 @@ const toBreadcrumbList = (
 // <<---- ProductListiningPage ---->>
 
 export const toProductListingPage = (
-  props: ProductListiningPageProps,
+  props: ProductListiningPageProps
 ): ProductListingPage => {
   const { productsData, pageType, baseURL } = props;
   const { produtos } = productsData;
-  const { itemListElement, filters, seo } = pageType == "category"
-    ? categoryPageProps({
-      baseURL,
-      category: props.category!,
-      filtersApi: props.filtersApi!,
-      filtersUrl: props.filtersUrl,
-    })
-    : searchPageProps(baseURL, props.term);
+  const { itemListElement, filters, seo } =
+    pageType == "category"
+      ? categoryPageProps({
+          baseURL,
+          category: props.category!,
+          filtersApi: props.filtersApi!,
+          filtersUrl: props.filtersUrl,
+        })
+      : searchPageProps(baseURL, props.term);
 
   return {
     "@type": "ProductListingPage",
@@ -547,25 +562,26 @@ const toRangeFilter = (f: APIDynamicFilters[]): FilterRange => {
 const searchPageProps = (url: URL, term?: string): PLPPageProps => {
   const pathsItemList = url.pathname.includes("busca")
     ? [
-      {
-        "@type": "ListItem" as const,
-        name: "BUSCA",
-        item: new URL(`/busca`, url.origin).href,
-        position: 1,
-      },
-    ]
+        {
+          "@type": "ListItem" as const,
+          name: "BUSCA",
+          item: new URL(`/busca`, url.origin).href,
+          position: 1,
+        },
+      ]
     : [];
 
-  const termItemList = term && pathsItemList.length
-    ? [
-      {
-        "@type": "ListItem" as const,
-        name: term.toUpperCase(),
-        item: new URL(`${url.pathname}?termo=${term}`, url.origin).href,
-        position: pathsItemList.length + 1,
-      },
-    ]
-    : [];
+  const termItemList =
+    term && pathsItemList.length
+      ? [
+          {
+            "@type": "ListItem" as const,
+            name: term.toUpperCase(),
+            item: new URL(`${url.pathname}?termo=${term}`, url.origin).href,
+            position: pathsItemList.length + 1,
+          },
+        ]
+      : [];
 
   return {
     itemListElement: [...pathsItemList, ...termItemList],
@@ -579,7 +595,7 @@ const searchPageProps = (url: URL, term?: string): PLPPageProps => {
 };
 
 const groupPageFilters = (
-  filtersApi: APIDynamicFilters[],
+  filtersApi: APIDynamicFilters[]
 ): APIDynamicFilters[][] => {
   return filtersApi.reduce<APIDynamicFilters[][]>((acc, filter) => {
     const accIndex = acc.findIndex((aux) =>
@@ -596,14 +612,16 @@ const groupPageFilters = (
 };
 
 const toToggleFilterValues = (
-  props: ToToggleFilterValuesProps,
+  props: ToToggleFilterValuesProps
 ): FilterToggleValue => {
   const { filterApi, filtersUrl, baseURL, filterLabel } = props;
-  const selected = !filtersUrl ? false : filtersUrl.some(
-    (filter) =>
-      filter.filterID === filterApi.IdTipo &&
-      filter.filterValue === filterApi.Nome,
-  );
+  const selected = !filtersUrl
+    ? false
+    : filtersUrl.some(
+        (filter) =>
+          filter.filterID === filterApi.IdTipo &&
+          filter.filterValue === filterApi.Nome
+      );
   return {
     quantity: 0,
     label: filterApi.Nome,
@@ -617,7 +635,7 @@ const toPageFilterURL = (
   baseURL: URL,
   filter: string,
   filterValue: string,
-  selected: boolean,
+  selected: boolean
 ): URL => {
   const modifiedURL = new URL(baseURL.href);
   const defaultParamsToDelete = ["path", "pathTemplate", "deviceHint", "page"];
@@ -636,7 +654,7 @@ const toPageFilterURL = (
 
 const toPageInfo = (
   { Total, Pagina, Offset }: IsabelaProductData,
-  params: URLSearchParams,
+  params: URLSearchParams
 ) => {
   const totalPages = Math.ceil(Total / Offset);
 
@@ -664,20 +682,18 @@ const toPageInfo = (
 
 const toPageBreadcrumbList = (category: Category, url: URL) => {
   const categories = [category.CategoriaPai ?? null, category].filter(
-    (p) => p != null,
+    (p) => p != null
   );
   const breadcrumbList = categories.map((c, i) => {
     return {
       "@type": "ListItem" as const,
       name: c.Nome,
       item: new URL(
-        `/${
-          categories
-            .slice(0, i + 1)
-            .map(({ UrlFriendly }) => UrlFriendly)
-            .join("/")
-        }`,
-        url.origin,
+        `/${categories
+          .slice(0, i + 1)
+          .map(({ UrlFriendly }) => UrlFriendly)
+          .join("/")}`,
+        url.origin
       ).href,
       position: i + 1,
     };
