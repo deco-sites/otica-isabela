@@ -298,7 +298,7 @@ function Filters({
         ? (
           <ul class="flex w-full justify-center flex-row">
             {defaultFilters.map((filter, index, array) => (
-              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
+              <li class="flex relative leading-relaxed flex-row px-3.5 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200 py-1">
                 <span>{filter.label}</span>
                 <Icon size={24} id="ChevronDown" />
                 {isToggle(filter) && (
