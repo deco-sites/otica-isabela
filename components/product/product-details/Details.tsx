@@ -23,14 +23,15 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   };
 
   const images = product.image ?? [];
-  const allImages = product.isVariantOf?.hasVariant
-    .flatMap((p) => p.image)
-    .reduce((acc, img) => {
-      if (img?.url) {
-        acc[imageNameFromURL(img.url)] = img.url;
-      }
-      return acc;
-    }, {} as Record<string, string>) ?? {};
+  const allImages =
+    product.isVariantOf?.hasVariant
+      .flatMap((p) => p.image)
+      .reduce((acc, img) => {
+        if (img?.url) {
+          acc[imageNameFromURL(img.url)] = img.url;
+        }
+        return acc;
+      }, {} as Record<string, string>) ?? {};
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
@@ -39,16 +40,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details(
-  {
-    page,
-    promotions,
-    buttonByCategory,
-    stepButtonByCategory,
-    customer,
-    mobileOptions,
-  }: Props,
-) {
+function Details({
+  page,
+  promotions,
+  buttonByCategory,
+  stepButtonByCategory,
+  customer,
+  mobileOptions,
+}: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const {
@@ -63,15 +62,15 @@ function Details(
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador",
+    (prop) => prop.propertyID === "experimentador"
   )?.value;
   const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
+    (prop) => prop.propertyID === "color"
   );
   const colors = colorsList?.map(({ unitCode }) => unitCode);
   const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
   );
   const addToCard = {
     idProduct: Number(productID),
@@ -85,34 +84,38 @@ function Details(
       acc[curr.category.toLowerCase()] = curr.label;
       return acc;
     },
-    {},
+    {}
   );
   const stepLabels = stepButtonByCategory?.reduce(
     (acc: { [key: string]: string }, curr) => {
       acc[curr.category.toLowerCase()] = curr.label;
       return acc;
     },
-    {},
+    {}
   );
 
   const promotionFlag = additionalProperty?.find(
-    (prop) => prop.propertyID === "flag",
+    (prop) => prop.propertyID === "flag"
   )?.value;
 
   const promotion = promotions?.find(
-    (current) => current.label === promotionFlag,
+    (current) => current.label === promotionFlag
   );
 
   const rating = additionalProperty?.find(
-    (prop) => prop.propertyID === "rating",
+    (prop) => prop.propertyID === "rating"
   )?.value;
 
   const isAllowedToAddLens = additionalProperty?.some(
-    (prop) => prop.propertyID === "isAllowedToAddLens",
+    (prop) => prop.propertyID === "isAllowedToAddLens"
   );
 
   const isLensWithoutPrescription = additionalProperty?.find(
-    (prop) => prop.propertyID === "isLensWithoutPrescription",
+    (prop) => prop.propertyID === "isLensWithoutPrescription"
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription"
   )?.value;
 
   const ratingValue = rating ? parseFloat(rating) : 0;
@@ -157,30 +160,31 @@ function Details(
         </div>
 
         {/* Ratings - Mobile (Header) */}
-        {!!ratingValue && starsLocation === "Header" &&
+        {!!ratingValue &&
+          starsLocation === "Header" &&
           discountTagLocation !== "Header" && (
-          <a
-            href="#product-review"
-            aria-label="Veja as avaliações!"
-          >
-            <Ratings ratingValue={ratingValue} />
-          </a>
-        )}
-        {!isLentes && experimenterImage
-          ? (
-            <ToExperimentButton
-              image={experimenterImage!}
-              variant="filled"
-              size="tiny"
-            />
-          )
-          : null}
+            <a href="#product-review" aria-label="Veja as avaliações!">
+              <Ratings ratingValue={ratingValue} />
+            </a>
+          )}
+        {!isLentes && experimenterImage ? (
+          <ToExperimentButton
+            image={experimenterImage!}
+            variant="filled"
+            size="tiny"
+          />
+        ) : null}
       </div>
 
       {/* Product Name - Mobile (Header) */}
       {nameLocation === "Header" && (
-        <div class="mt-4 text-center px-8 lg:hidden">
+        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
           <span class="font-roboto font-normal text-lg">{name}</span>
+          {lensDescription && (
+            <span class="font-roboto font-medium text-xs">
+              {lensDescription}
+            </span>
+          )}
         </div>
       )}
 
@@ -197,53 +201,55 @@ function Details(
                   index={index}
                   class="carousel-item w-full items-center"
                 >
-                  {img.additionalType === "video"
-                    ? (
-                      <Video
-                        src={img.url}
-                        loading="lazy"
-                        width={350}
-                        height={350}
-                        class="w-full"
-                        controls
-                      />
-                    )
-                    : (
-                      <Image
-                        class="w-full h-max"
-                        src={img.url!}
-                        alt={img.alternateName}
-                        width={350}
-                        height={350}
-                        preload={index === 0}
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    )}
+                  {img.additionalType === "video" ? (
+                    <Video
+                      src={img.url}
+                      loading="lazy"
+                      width={350}
+                      height={350}
+                      class="w-full"
+                      controls
+                    />
+                  ) : (
+                    <Image
+                      class="w-full h-max"
+                      src={img.url!}
+                      alt={img.alternateName}
+                      width={350}
+                      height={350}
+                      preload={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                  )}
                 </Slider.Item>
               ))}
             </Slider>
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
-              <div class="mt-4 text-center px-8 lg:hidden">
+              <div class="mt-4 mb-4 text-center px-8 lg:hidden flex flex-col">
                 <span class="font-roboto font-normal text-lg">{name}</span>
+                {lensDescription && (
+                  <span class="font-roboto font-medium text-xs">
+                    {lensDescription}
+                  </span>
+                )}
               </div>
             )}
 
             {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && discountTagLocation !== "Header" &&
-              (
-                <span
-                  class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+            {discount > 0 && discountTagLocation !== "Header" && (
+              <span
+                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
                   right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
                     mobileOptions!.discountTagLocation === "Image Bottom"
                       ? "bottom-20"
                       : "top-2"
                   }`}
-                >
-                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-                </span>
-              )}
+              >
+                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+              </span>
+            )}
           </div>
 
           {/* Buy with lens label */}
@@ -251,7 +257,7 @@ function Details(
             <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
               {promotion.flagText.replace(
                 "%value",
-                formatPrice(price, offers!.priceCurrency!)!,
+                formatPrice(price, offers!.priceCurrency!)!
               )}
             </div>
           )}
@@ -270,9 +276,11 @@ function Details(
                       class="group-disabled:border-base-300"
                       width={92}
                       height={92}
-                      src={img.additionalType === "video"
-                        ? img?.image?.[0].url!
-                        : img.url!}
+                      src={
+                        img.additionalType === "video"
+                          ? img?.image?.[0].url!
+                          : img.url!
+                      }
                       alt={img.alternateName}
                       loading="lazy"
                     />
@@ -297,9 +305,7 @@ function Details(
 
         {/* Ratings - Mobile (Bottom) */}
         {!!ratingValue &&
-          (starsLocation === "Bottom" ||
-            discountTagLocation === "Header") &&
-          (
+          (starsLocation === "Bottom" || discountTagLocation === "Header") && (
             <div class="flex flex-col items-center my-8 lg:hidden">
               <a
                 href="#product-review"
@@ -335,9 +341,10 @@ function Details(
               <span
                 class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
                 style={{
-                  background: colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
+                  background:
+                    colors && colors?.length > 1
+                      ? `linear-gradient(${colors.join(", ")})`
+                      : colors?.[0],
                 }}
               />
             </div>
@@ -354,14 +361,16 @@ function Details(
           currentCategory={currentCategory!}
           isAllowedToAddLens={!!isAllowedToAddLens}
           isLensWithoutPrescription={isLensWithoutPrescription!}
-          observableElement={displayModalAfter === "Header"
-            ? { type: "Tag", value: "header" }
-            : {
-              type: "Id",
-              value: `${
-                displayModalAfter.toLowerCase().replace(/\s+/g, "-")
-              }-${id}`,
-            }}
+          observableElement={
+            displayModalAfter === "Header"
+              ? { type: "Tag", value: "header" }
+              : {
+                  type: "Id",
+                  value: `${displayModalAfter
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}-${id}`,
+                }
+          }
         />
 
         {/* Product Details - Desktop */}

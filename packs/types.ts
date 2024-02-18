@@ -81,6 +81,7 @@ export interface Product {
   ImagemMedidas: string;
   PodeAdicionarLente: boolean;
   LentesContatoSemGrau: boolean;
+  FraseLentesContato: string;
 }
 
 export interface ColorVariants {

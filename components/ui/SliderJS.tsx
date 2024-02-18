@@ -60,7 +60,7 @@ const setup = ({
   const { desktop, mobile } = itemsPerPage;
 
   const currentItemsPerPage = window?.matchMedia?.("(min-width: 984px)")
-      ?.matches
+    ?.matches
     ? desktop
     : mobile;
 
@@ -141,7 +141,9 @@ const setup = ({
     });
   };
 
-  const onClickPrev = () => {
+  const onClickPrev = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
 
@@ -151,7 +153,9 @@ const setup = ({
     goToItem(isShowingFirst ? items.length - 1 : (pageIndex - 1) * perPage);
   };
 
-  const onClickNext = () => {
+  const onClickNext = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;

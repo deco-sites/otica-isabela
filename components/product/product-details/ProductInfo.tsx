@@ -4,9 +4,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type {
-  Promotion,
-} from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
+import type { Promotion } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
@@ -63,7 +61,11 @@ function ProductInfo(
   );
 
   const isLensWithoutPrescription = additionalProperty?.find(
-    (prop) => prop.propertyID === "isLensWithoutPrescription",
+    (prop) => prop.propertyID === "isLensWithoutPrescription"
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription"
   )?.value;
 
   const ratingValue = rating ? parseFloat(rating) : 0;
@@ -83,9 +85,16 @@ function ProductInfo(
     <>
       {/* Name */}
       <div class="mb-4 flex flex-start">
-        <span class="w-full font-roboto font-medium text-[17px] text-lg">
-          {name}
-        </span>
+        <div class="flex flex-col">
+          <span class="w-full font-roboto font-medium text-[17px] text-lg">
+            {name}
+          </span>
+          {lensDescription && (
+            <span class="font-roboto font-medium text-sm">
+              {lensDescription}
+            </span>
+          )}
+        </div>
         <div class="ml-2">
           <WishlistButton
             variant="icon"
