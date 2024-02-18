@@ -15,9 +15,19 @@ interface Props {
    * @description Texto que aparecerá ao clicar em 'ver mais'
    * @format html */
   secondPart?: string;
+  /**
+   * @title Ver mais (botão)
+   * @description Controla se irá ou não exibir o botão 'Ver mais'
+   */
+  shouldShowSeeMoreButton?: boolean;
 }
 
-const About = ({ header, firstPart, secondPart }: Props) => {
+const About = ({
+  header,
+  firstPart,
+  secondPart,
+  shouldShowSeeMoreButton,
+}: Props) => {
   const showText = useSignal(false);
 
   return (
@@ -27,8 +37,7 @@ const About = ({ header, firstPart, secondPart }: Props) => {
         <span
           class="w-full text-start  "
           dangerouslySetInnerHTML={{
-            __html: firstPart ??
-              "",
+            __html: firstPart ?? "",
           }}
         />
         {secondPart && (
@@ -41,13 +50,14 @@ const About = ({ header, firstPart, secondPart }: Props) => {
                 }}
               />
             )}
-
-            <button
-              onClick={() => showText.value = !showText.value}
-              class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block"
-            >
-              {showText.value ? "ver menos" : "ver mais"}
-            </button>
+            {shouldShowSeeMoreButton && (
+              <button
+                onClick={() => (showText.value = !showText.value)}
+                class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block"
+              >
+                {showText.value ? "ver menos" : "ver mais"}
+              </button>
+            )}
           </>
         )}
       </div>
