@@ -51,6 +51,7 @@ interface ToAdditionalPropertiesProps {
   measurementsImg: string;
   isAllowedToAddLens: boolean;
   isLensWithoutPrescription: boolean;
+  lensDescription: string;
 }
 
 interface ToOfferProps {
@@ -103,6 +104,7 @@ export function toProduct(product: IsabelaProduct): Product {
     ImagemMedidas,
     PodeAdicionarLente,
     LentesContatoSemGrau,
+    FraseLentesContato,
   } = product;
 
   const isVariantOf = product.ProdutosMaisCores
@@ -129,6 +131,7 @@ export function toProduct(product: IsabelaProduct): Product {
       measurementsImg: ImagemMedidas,
       isAllowedToAddLens: PodeAdicionarLente,
       isLensWithoutPrescription: LentesContatoSemGrau,
+      lensDescription: FraseLentesContato,
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -205,6 +208,7 @@ const toAdditionalProperties = (
     measurementsImg,
     isAllowedToAddLens,
     isLensWithoutPrescription,
+    lensDescription,
   } = props;
 
   return [
@@ -231,6 +235,19 @@ const toAdditionalProperties = (
     ...toMeasurementsImgAdditionalProperties(measurementsImg),
     ...toIsAllowedToAddLens(isAllowedToAddLens),
     ...toIsLensWithoutPrescription(isLensWithoutPrescription),
+    ...toLensDescription(lensDescription),
+  ];
+};
+
+const toLensDescription = (lensDescription: string): PropertyValue[] => {
+  if (!lensDescription) return [];
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Descrição Lentes",
+      value: lensDescription,
+      propertyID: "lensDescription",
+    },
   ];
 };
 
