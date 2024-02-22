@@ -59,10 +59,11 @@ const setup = ({
 }: Props) => {
   const { desktop, mobile } = itemsPerPage;
 
-  const currentItemsPerPage = window?.matchMedia?.("(min-width: 984px)")
-      ?.matches
-    ? desktop
-    : mobile;
+  const currentItemsPerPage =
+    globalThis.window?.matchMedia?.("(min-width: 984px)")
+        ?.matches
+      ? desktop
+      : mobile;
 
   const root = document.getElementById(rootId);
   const slider = root?.querySelector<HTMLUListElement>(
@@ -86,7 +87,7 @@ const setup = ({
   );
   const [, perPage] = Object.entries(currentItemsPerPage)
     .sort(([widthA], [widthB]) => Number(widthB) - Number(widthA))
-    .find(([width]) => Number(width) <= window.innerWidth) ?? [0, 1];
+    .find(([width]) => Number(width) <= globalThis.window.innerWidth) ?? [0, 1];
 
   if (!root || !slider || !items || items.length === 0) {
     console.warn(

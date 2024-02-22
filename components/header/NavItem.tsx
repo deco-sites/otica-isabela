@@ -32,7 +32,7 @@ const calculateModalAlignment = (
 
   const childrenLength = filteredChildren.length;
   const modalWidth = childrenLength * navbarModalBaseWidth;
-  const screenWidth = window?.innerWidth ?? 0;
+  const screenWidth = globalThis.window?.innerWidth ?? 0;
   const maxWidth = `${modalWidth}px`;
 
   if (childrenLength >= 2) {
