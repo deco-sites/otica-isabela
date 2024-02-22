@@ -39,16 +39,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details(
-  {
-    page,
-    promotions,
-    buttonByCategory,
-    stepButtonByCategory,
-    customer,
-    mobileOptions,
-  }: Props,
-) {
+function Details({
+  page,
+  promotions,
+  buttonByCategory,
+  stepButtonByCategory,
+  customer,
+  mobileOptions,
+}: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const {
@@ -111,6 +109,14 @@ function Details(
     (prop) => prop.propertyID === "isAllowedToAddLens",
   );
 
+  const isLensWithoutPrescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "isLensWithoutPrescription",
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription",
+  )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
 
@@ -153,12 +159,10 @@ function Details(
         </div>
 
         {/* Ratings - Mobile (Header) */}
-        {!!ratingValue && starsLocation === "Header" &&
+        {!!ratingValue &&
+          starsLocation === "Header" &&
           discountTagLocation !== "Header" && (
-          <a
-            href="#product-review"
-            aria-label="Veja as avaliações!"
-          >
+          <a href="#product-review" aria-label="Veja as avaliações!">
             <Ratings ratingValue={ratingValue} />
           </a>
         )}
@@ -175,8 +179,13 @@ function Details(
 
       {/* Product Name - Mobile (Header) */}
       {nameLocation === "Header" && (
-        <div class="mt-4 text-center px-8 lg:hidden">
+        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
           <span class="font-roboto font-normal text-lg">{name}</span>
+          {lensDescription && (
+            <span class="font-roboto font-medium text-xs">
+              {lensDescription}
+            </span>
+          )}
         </div>
       )}
 
@@ -221,25 +230,29 @@ function Details(
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
-              <div class="mt-4 text-center px-8 lg:hidden">
+              <div class="mt-4 mb-4 text-center px-8 lg:hidden flex flex-col">
                 <span class="font-roboto font-normal text-lg">{name}</span>
+                {lensDescription && (
+                  <span class="font-roboto font-medium text-xs">
+                    {lensDescription}
+                  </span>
+                )}
               </div>
             )}
 
             {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && discountTagLocation !== "Header" &&
-              (
-                <span
-                  class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+            {discount > 0 && discountTagLocation !== "Header" && (
+              <span
+                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
                   right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
-                    mobileOptions!.discountTagLocation === "Image Bottom"
-                      ? "bottom-20"
-                      : "top-2"
-                  }`}
-                >
-                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-                </span>
-              )}
+                  mobileOptions!.discountTagLocation === "Image Bottom"
+                    ? "bottom-20"
+                    : "top-2"
+                }`}
+              >
+                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+              </span>
+            )}
           </div>
 
           {/* Buy with lens label */}
@@ -293,20 +306,18 @@ function Details(
 
         {/* Ratings - Mobile (Bottom) */}
         {!!ratingValue &&
-          (starsLocation === "Bottom" ||
-            discountTagLocation === "Header") &&
-          (
-            <div class="flex flex-col items-center my-8 lg:hidden">
-              <a
-                href="#product-review"
-                class="text-center"
-                aria-label="Veja as avaliações!"
-              >
-                <Ratings ratingValue={ratingValue} />
-                <p class="text-lg font-bold">Veja as avaliações</p>
-              </a>
-            </div>
-          )}
+          (starsLocation === "Bottom" || discountTagLocation === "Header") && (
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <a
+              href="#product-review"
+              class="text-center"
+              aria-label="Veja as avaliações!"
+            >
+              <Ratings ratingValue={ratingValue} />
+              <p class="text-lg font-bold">Veja as avaliações</p>
+            </a>
+          </div>
+        )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
@@ -349,12 +360,15 @@ function Details(
           isLentes={!!isLentes}
           currentCategory={currentCategory!}
           isAllowedToAddLens={!!isAllowedToAddLens}
+          isLensWithoutPrescription={isLensWithoutPrescription!}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }
             : {
               type: "Id",
               value: `${
-                displayModalAfter.toLowerCase().replace(/\s+/g, "-")
+                displayModalAfter
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
               }-${id}`,
             }}
         />

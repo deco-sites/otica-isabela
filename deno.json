@@ -17,7 +17,7 @@
     "apps/": "https://denopkg.com/deco-cx/apps@0.27.4/"
   },
   "tasks": {
-    "start": "deno task bundle && DECO_SITE_NAME=otica-isabela deno run -A --unstable --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",
+    "start": "deno task bundle && DECO_SITE_NAME=otica-isabela deno run -A --unstable-kv --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",
     "gen": "deno run -A dev.ts --gen-only",
     "component": "deno eval 'import \"deco/scripts/component.ts\"'",
     "release": "deno eval 'import \"deco/scripts/release.ts\"'",

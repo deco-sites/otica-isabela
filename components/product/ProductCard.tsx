@@ -141,7 +141,10 @@ function ProductCard({
                   </Slider.Item>
                 ))}
               </Slider>
-              <SliderJS rootId={imageContainerId} />
+
+              <SliderJS
+                rootId={`product-card-${productID}-${imageContainerId}`}
+              />
             </>
           )
           : (
@@ -157,11 +160,7 @@ function ProductCard({
 
       {/* Name & Description */}
       <div class="flex flex-col items-center mt-[10px]">
-        <a
-          href={url}
-          aria-label="view product"
-          class="contents"
-        >
+        <a href={url} aria-label="view product" class="contents">
           <div class="flex flex-col">
             <p class="font-semibold text-black text-lg leading-none h-[50px]">
               {name}
@@ -207,11 +206,7 @@ function ProductCard({
 
         {/* Price & Discount */}
         <div class="flex justify-center items-center mb-[10px]">
-          <a
-            href={url}
-            aria-label="view product"
-            class="contents"
-          >
+          <a href={url} aria-label="view product" class="contents">
             <div class="flex flex-row  justify-center items-center gap-3 ">
               {discount > 0 && (
                 <span class="line-through font-semibold  text-red-500 text-base">

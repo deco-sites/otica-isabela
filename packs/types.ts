@@ -80,6 +80,8 @@ export interface Product {
   Avaliacoes: number;
   ImagemMedidas: string;
   PodeAdicionarLente: boolean;
+  LentesContatoSemGrau: boolean;
+  FraseLentesContato: string;
 }
 
 export interface ColorVariants {
@@ -177,7 +179,7 @@ export interface GetProductProps {
    * @title Apenas Promocoes
    */
   somenteCronometrosAtivos?: boolean;
-  
+
   /**
    * @title Exibir produtos de cronometro da Home
    */
