@@ -20,7 +20,7 @@ export default function Pagination({ pageInfo }: Props) {
   const { nextPage, previousPage } = pageInfo;
   const firstPage = 1;
   const totalPages = Math.ceil(
-    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage)
+    Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
   const pageParams = new URLSearchParams(nextPage ?? previousPage);
@@ -33,7 +33,7 @@ export default function Pagination({ pageInfo }: Props) {
         page: i + 1,
         href: pageParams.toString(),
       };
-    }
+    },
   );
   const currentPage = pageInfo.currentPage + 1;
   const nextPageNumber = currentPage + 1;

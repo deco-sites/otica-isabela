@@ -174,9 +174,14 @@ export interface GetProductProps {
   filtrosDinamicos?: DynamicFilter[];
 
   /**
-   * @title ApenasPromocoes
+   * @title Apenas Promocoes
    */
   somenteCronometrosAtivos?: boolean;
+  
+  /**
+   * @title Exibir produtos de cronometro da Home
+   */
+  ofertasDia?: boolean;
 
   /**
    * @title Ordenação

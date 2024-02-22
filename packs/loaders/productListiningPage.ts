@@ -92,7 +92,7 @@ const getSearchPageParams = (
   extraParams: Props,
   filtrosDinamicos?: DynamicFilter[],
 ): PLPageParams => {
-  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos } = extraParams;
+  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos, ofertasDia } = extraParams;
 
   return {
     productApiProps: {
@@ -101,6 +101,7 @@ const getSearchPageParams = (
       idColecaoProdutos,
       filtrosDinamicos,
       somenteCronometrosAtivos,
+      ofertasDia
     },
     plpProps: {
       term: url.searchParams.get("termo") ?? nome,
@@ -118,7 +119,7 @@ const getCategoryPageParams = async (
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
   if (!lastCategorySlug) return null;
 
-  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos } = extraParams;
+  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos, ofertasDia } = extraParams;
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
@@ -159,6 +160,7 @@ const getCategoryPageParams = async (
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
       somenteCronometrosAtivos,
+      ofertasDia,
     },
     plpProps: {
       category,

@@ -22,10 +22,11 @@ const loader = async (
     nome,
     idColecaoProdutos,
     somenteCronometrosAtivos,
+    ofertasDia,
     id,
   } = props;
 
-  const deco = somenteCronometrosAtivos
+  const deco = somenteCronometrosAtivos || ofertasDia
     ? undefined
     : { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"];
 
@@ -35,6 +36,7 @@ const loader = async (
       nome: nome ?? "",
       idColecaoProdutos: idColecaoProdutos ?? 0,
       somenteCronometrosAtivos: somenteCronometrosAtivos ?? false,
+      ofertasDia: ofertasDia ?? false,
       id: id,
       tipoRetorno: "simples",
     }),
