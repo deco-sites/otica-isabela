@@ -35,13 +35,7 @@ type Props = Omit<
   "IdCategoria" | "IdSubCategoria" | "url" | "page" | "tipoRetorno"
 >;
 
-export const cache = "stale-while-revalidate";
-
-export const cacheKey = (_props: unknown, req: Request, _ctx: AppContext) => {
-  const url = new URL(req.url);
-
-  return url.href;
-};
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Página de Listagem de Produtos

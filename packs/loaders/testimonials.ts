@@ -30,7 +30,7 @@ export interface Props {
   tipo?: "" | "home" | "produto";
 }
 
-export const cache = "stale-while-revalidate";
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Depoimentos
