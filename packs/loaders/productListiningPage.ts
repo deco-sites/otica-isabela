@@ -37,6 +37,12 @@ type Props = Omit<
 
 export const cache = "stale-while-revalidate";
 
+export const cacheKey = (_props: unknown, req: Request, _ctx: AppContext) => {
+  const url = new URL(req.url);
+
+  return url.href;
+};
+
 /**
  * @title Otica Isabela Dias - Página de Listagem de Produtos
  * @description Funciona em rotas do tipo /busca usando a querystring "termo" OU em páginas de categoria em rotas do tipo /$categoria.
