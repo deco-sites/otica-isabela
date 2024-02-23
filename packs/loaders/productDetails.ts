@@ -13,7 +13,6 @@ export interface Props {
 
 // export const cache = "stale-while-revalidate";
 
-
 /**
  * @title Otica Isabela Dias - Detalhes do Produto
  * @description funciona em rotas do tipo /produto/:slug
