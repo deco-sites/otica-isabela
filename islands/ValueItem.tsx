@@ -11,7 +11,7 @@ export default function ValueItem({
   hideCheckbox,
   withBorder,
   class: _class,
-}: Omit<FilterToggleValueWithHex, "label"> & {
+}: Omit<FilterToggleValueWithHex, "label" | "children"> & {
   label: string;
   type: string;
   hideCheckbox?: boolean;
