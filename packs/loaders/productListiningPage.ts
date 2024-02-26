@@ -35,7 +35,7 @@ type Props = Omit<
   "IdCategoria" | "IdSubCategoria" | "url" | "page" | "tipoRetorno"
 >;
 
-export const cache = "stale-while-revalidate";
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Página de Listagem de Produtos

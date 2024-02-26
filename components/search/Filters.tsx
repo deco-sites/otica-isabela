@@ -65,7 +65,7 @@ function TypeOptions({
 }) {
   return (
     <>
-      {values.map(({ label, ...item }) => {
+      {values.map(({ label, children, ...item }) => {
         const typeIcon = typeIcons?.find((icon) => icon.label === label);
 
         return (
@@ -99,7 +99,7 @@ function ShapeOptions({
 }) {
   return (
     <>
-      {values.map(({ label, ...item }) => {
+      {values.map(({ label, children, ...item }) => {
         const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
 
         return (
@@ -131,7 +131,7 @@ function ColorOptions({
 }) {
   return (
     <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-lg:gap-y-4 max-lg:gap-x-8">
-      {matchingColors?.map((item) => {
+      {matchingColors?.map(({ children, ...item }) => {
         const { value, hex, selected } = item;
         return (
           <ValueItem
@@ -298,7 +298,7 @@ function Filters({
         ? (
           <ul class="flex w-full justify-center flex-row">
             {defaultFilters.map((filter, index, array) => (
-              <li class="flex relative leading-relaxed flex-row px-3.5 pb-7 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
+              <li class="flex relative leading-relaxed flex-row px-3.5 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200 py-1">
                 <span>{filter.label}</span>
                 <Icon size={24} id="ChevronDown" />
                 {isToggle(filter) && (

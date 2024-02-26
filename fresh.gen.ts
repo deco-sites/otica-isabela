@@ -4,7 +4,6 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $live_invoke_middleware from "./routes/live/invoke/_middleware.tsx";
-import * as $styles_css from "./routes/styles.css.ts";
 import * as $About from "./islands/About.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
@@ -38,7 +37,6 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/live/invoke/_middleware.tsx": $live_invoke_middleware,
-    "./routes/styles.css.ts": $styles_css,
   },
   islands: {
     "./islands/About.tsx": $About,
