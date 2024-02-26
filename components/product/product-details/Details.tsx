@@ -182,7 +182,7 @@ function Details({
         <div class="mt-4 mb-4 text-center px-8 lg:hidden">
           <span class="font-roboto font-normal text-lg">{name}</span>
           {lensDescription && (
-            <span class="font-roboto font-medium text-xs">
+            <span class="font-roboto font-medium text-sm">
               {lensDescription}
             </span>
           )}
@@ -233,7 +233,7 @@ function Details({
               <div class="mt-4 mb-4 text-center px-8 lg:hidden flex flex-col">
                 <span class="font-roboto font-normal text-lg">{name}</span>
                 {lensDescription && (
-                  <span class="font-roboto font-medium text-xs">
+                  <span class="font-roboto font-medium text-sm">
                     {lensDescription}
                   </span>
                 )}
