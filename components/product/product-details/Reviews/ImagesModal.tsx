@@ -8,7 +8,6 @@ import { useSignal } from "@preact/signals";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
-
 interface Props {
   reviews: Review[];
   selected: Review;

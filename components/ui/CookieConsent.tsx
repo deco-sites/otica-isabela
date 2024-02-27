@@ -1,6 +1,5 @@
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
-
 const script = (id: string) => `
 const callback = () => {
   const KEY = 'store-cookie-consent';
