@@ -1,5 +1,6 @@
 import ProductCard from "$store/components/product/ProductCard.tsx";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Product } from "apps/commerce/types.ts";

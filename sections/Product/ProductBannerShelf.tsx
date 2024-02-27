@@ -1,7 +1,8 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
 import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
