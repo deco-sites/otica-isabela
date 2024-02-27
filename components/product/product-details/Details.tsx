@@ -13,7 +13,8 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {

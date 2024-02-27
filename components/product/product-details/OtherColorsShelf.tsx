@@ -2,7 +2,8 @@ import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { Product, ProductLeaf } from "apps/commerce/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 
 interface Props {
   product: Product;

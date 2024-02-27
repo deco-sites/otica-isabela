@@ -1,4 +1,5 @@
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 
 const script = (id: string) => `
 const callback = () => {
