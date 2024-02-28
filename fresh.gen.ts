@@ -10,6 +10,7 @@ import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
 import * as $ChooseLensButton from "./islands/ChooseLensButton.tsx";
+import * as $CouponListScript from "./islands/CouponListScript.tsx";
 import * as $FaqContainer from "./islands/FaqContainer.tsx";
 import * as $HeaderButton from "./islands/HeaderButton.tsx";
 import * as $HeaderModals from "./islands/HeaderModals.tsx";
@@ -30,6 +31,8 @@ import * as $Stopwatch from "./islands/Stopwatch.tsx";
 import * as $TabJS from "./islands/TabJS.tsx";
 import * as $ToExperimentButton from "./islands/ToExperimentButton.tsx";
 import * as $ValueItem from "./islands/ValueItem.tsx";
+import * as $Video_Button from "./islands/Video/Button.tsx";
+import * as $Video_Modal from "./islands/Video/Modal.tsx";
 import * as $WishlistButton from "./islands/WishlistButton.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -45,6 +48,7 @@ const manifest = {
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
     "./islands/ChooseLensButton.tsx": $ChooseLensButton,
+    "./islands/CouponListScript.tsx": $CouponListScript,
     "./islands/FaqContainer.tsx": $FaqContainer,
     "./islands/HeaderButton.tsx": $HeaderButton,
     "./islands/HeaderModals.tsx": $HeaderModals,
@@ -65,6 +69,8 @@ const manifest = {
     "./islands/TabJS.tsx": $TabJS,
     "./islands/ToExperimentButton.tsx": $ToExperimentButton,
     "./islands/ValueItem.tsx": $ValueItem,
+    "./islands/Video/Button.tsx": $Video_Button,
+    "./islands/Video/Modal.tsx": $Video_Modal,
     "./islands/WishlistButton.tsx": $WishlistButton,
   },
   baseUrl: import.meta.url,

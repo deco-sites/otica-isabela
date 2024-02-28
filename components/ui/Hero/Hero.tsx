@@ -1,0 +1,89 @@
+import Background, {
+  IBackgroundColor,
+  IBackgroundImage,
+} from "deco-sites/otica-isabela/components/ui/Hero/Background.tsx";
+import BreadCrumb, {
+  IBreadCrumb,
+} from "deco-sites/otica-isabela/components/ui/Hero/Breadcrumb.tsx";
+import Text, { IText } from "deco-sites/otica-isabela/components/ui/Text.tsx";
+import { Alignments } from "deco-sites/otica-isabela/sdk/utils.ts";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
+interface IPadding {
+  /**
+   * @default 12
+   */
+  top: number;
+  /**
+   * @default 12
+   */
+  right: number;
+  /**
+   * @default 12
+   */
+  bottom: number;
+  /**
+   * @default 12
+   */
+  left: number;
+}
+
+interface IStyle {
+  height?: string;
+  padding?: IPadding;
+  gap?: number;
+  /**
+   * @default true
+   */
+  container?: boolean;
+}
+
+type NoSubtitle = null;
+
+export interface IContent {
+  align: "left" | "center" | "right";
+  title: IText;
+  subtitle: IText | NoSubtitle;
+}
+
+interface Props {
+  content: IContent;
+  background: IBackgroundColor | IBackgroundImage;
+  breadcrumbs?: IBreadCrumb;
+  style?: IStyle;
+}
+
+export default function Hero({
+  content,
+  background,
+  breadcrumbs,
+  style,
+}: Props) {
+  const id = useId();
+  const { title, subtitle, align } = content;
+  const { padding, gap, height, container } = style || {};
+
+  return (
+    <Background
+      id={id}
+      style={{
+        padding: `${padding?.top ?? 0}px ${padding?.right ?? 0}px ${
+          padding?.bottom ?? 0
+        }px ${padding?.left ?? 0}px`,
+        minHeight: height,
+      }}
+      props={background}
+    >
+      <div
+        style={{ gap }}
+        class={"flex flex-col" + (container ? " container" : "")}
+      >
+        {breadcrumbs && <BreadCrumb {...breadcrumbs} />}
+        <div class={Alignments[align] || Alignments.center}>
+          <Text {...title} />
+          {subtitle && <Text {...subtitle} />}
+        </div>
+      </div>
+    </Background>
+  );
+}
