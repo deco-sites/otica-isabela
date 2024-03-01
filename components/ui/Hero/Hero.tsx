@@ -38,17 +38,23 @@ interface IStyle {
   container?: boolean;
 }
 
+/**
+ * @title Remove Subtitle
+ */
 type NoSubtitle = null;
+/**
+ * @title No Background
+ */
+type NoBackground = null;
 
 export interface IContent {
-  align: "left" | "center" | "right";
   title: IText;
   subtitle: IText | NoSubtitle;
 }
 
 interface Props {
   content: IContent;
-  background: IBackgroundColor | IBackgroundImage;
+  background: IBackgroundColor | IBackgroundImage | NoBackground;
   breadcrumbs?: IBreadCrumb;
   style?: IStyle;
 }
@@ -60,7 +66,7 @@ export default function Hero({
   style,
 }: Props) {
   const id = useId();
-  const { title, subtitle, align } = content;
+  const { title, subtitle } = content;
   const { padding, gap, height, container } = style || {};
 
   return (
@@ -79,7 +85,7 @@ export default function Hero({
         class={"flex flex-col" + (container ? " container" : "")}
       >
         {breadcrumbs && <BreadCrumb {...breadcrumbs} />}
-        <div class={Alignments[align] || Alignments.center}>
+        <div>
           <Text {...title} />
           {subtitle && <Text {...subtitle} />}
         </div>

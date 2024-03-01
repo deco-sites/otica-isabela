@@ -127,13 +127,17 @@ export default function CardsWithImage({
       }}
     >
       <ul
-        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)] p-5" +
-          (container ? " container" : "")}
+        class={
+          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)] p-5 md:px-0" +
+          (container ? " container" : "")
+        }
         style={{
           gap: `${gap}px`,
         }}
       >
-        {cards.map((card, index) => <Card key={index} {...card} />)}
+        {cards.map((card, index) => (
+          <Card key={index} {...card} />
+        ))}
       </ul>
     </div>
   );

@@ -19,6 +19,7 @@ interface IIcon {
    * @default #2f3136
    */
   color: string;
+  verticalAlign: "top" | "middle" | "bottom";
 }
 
 /**
@@ -41,6 +42,12 @@ interface Props {
   backgroundColor: string;
 }
 
+const verticalAlign = {
+  top: "self-start",
+  middle: "self-center",
+  bottom: "self-end",
+};
+
 export default function Tip({ text, icon, backgroundColor, image }: Props) {
   return (
     <div
@@ -53,7 +60,9 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
           style={{ color: icon.color }}
           strokeWidth={icon.strokeWidth}
           size={icon.size}
-          class="flex-shrink-0"
+          class={`flex-shrink-0 ${
+            verticalAlign[icon.verticalAlign] ?? "self-start"
+          }`}
         />
         <div class="" dangerouslySetInnerHTML={{ __html: text }} />
       </div>

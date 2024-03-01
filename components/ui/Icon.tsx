@@ -80,6 +80,7 @@ export type UtilityIcons =
  * @description Tipos para ícones de recursos
  */
 export type ResourceIcons =
+  | "Bulb"
   | "Truck"
   | "Logo"
   | "User"

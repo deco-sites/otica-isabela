@@ -35,6 +35,15 @@ interface IButton {
 }
 
 /**
+ * @title Add two buttons
+ */
+interface ITwoButtons {
+  flexDirection: "row" | "column";
+  first: IButton;
+  second: IButton;
+}
+
+/**
  * @title Add Tag
  */
 interface ITag {
@@ -86,8 +95,19 @@ interface IText {
    * @default top
    */
   verticalAlign: "top" | "center" | "bottom";
+  /**
+   * @description e.g: 100%, 500px, 50vw, 50%, etc...
+   */
+  maxWidth?: string;
+  /**
+   * @description e.g: 100%, 500px, 50vw, 50%, etc...
+   */
+  maxWidthMobile?: string;
 }
 
+/**
+ * @title {{label}}
+ */
 interface ILink {
   image: IImage;
   label: string;
@@ -104,6 +124,9 @@ interface ILink {
   colorHover: string;
 }
 
+/**
+ * @title Add Links
+ */
 interface ILinksGrid {
   /**
    * @default 4
@@ -135,8 +158,12 @@ interface Props {
    * @default 12
    */
   spaceBetweenTextAndMedia?: number;
+  /**
+   * @default 12
+   */
+  spaceBetweenTextAndMediaMobile?: number;
   media: IImageProps | IVideoProps | NoImage;
-  button: IButton | NoButton;
+  button: IButton | ITwoButtons | NoButton;
   linksGrid: ILinksGrid | NoLinks;
   /**
    * @default true
@@ -203,7 +230,7 @@ const HorizontalAlign = {
   left: "flex-start",
   center: "center",
   right: "flex-end",
-  full: undefined,
+  full: "stretch",
 };
 
 const isVideo = (
@@ -218,6 +245,12 @@ const isImage = (
   return media !== null && "desktop" in media;
 };
 
+const isSingleButton = (
+  button: IButton | ITwoButtons | NoButton
+): button is IButton => {
+  return button !== null && "label" in button;
+};
+
 export default function RichText({
   text,
   media,
@@ -225,12 +258,16 @@ export default function RichText({
   container,
   linksGrid,
   spaceBetweenTextAndMedia,
+  spaceBetweenTextAndMediaMobile,
 }: Props) {
   return (
     <div
-      style={{ gap: `${spaceBetweenTextAndMedia ?? 20}px` }}
+      style={{
+        "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
+        "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
+      }}
       class={
-        "grid grid-cols-1 md:grid-cols-2 grid-rows-1" +
+        "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
         (container ? " container" : "")
       }
     >
@@ -254,7 +291,11 @@ export default function RichText({
             : "")
         }
       >
-        <div dangerouslySetInnerHTML={{ __html: text.content }} />
+        <div
+          style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
+          class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)]"
+          dangerouslySetInnerHTML={{ __html: text.content }}
+        />
         {linksGrid && (
           <ul
             style={{
@@ -276,14 +317,16 @@ export default function RichText({
                       width={image.width}
                       height={image.height}
                     />
-                    <span>{label}</span>
+                    <span class="underline">{label}</span>
                   </a>
                 </li>
               )
             )}
           </ul>
         )}
-        {button && (
+        {button === null ? (
+          <></>
+        ) : isSingleButton(button) ? (
           <a
             href={button.href}
             class="text-center p-3 rounded-md min-w-52"
@@ -295,6 +338,34 @@ export default function RichText({
           >
             {button.label}
           </a>
+        ) : (
+          <div
+            style={{ flexDirection: button.flexDirection }}
+            class="flex items-center gap-3"
+          >
+            <a
+              href={button.first.href}
+              class="text-center p-3 rounded-md min-w-52"
+              style={{
+                backgroundColor: button.first.color,
+                color: button.first.labelColor,
+                alignSelf: HorizontalAlign[button.first.horizontalAlign],
+              }}
+            >
+              {button.first.label}
+            </a>
+            <a
+              href={button.second.href}
+              class="text-center p-3 rounded-md min-w-52"
+              style={{
+                backgroundColor: button.second.color,
+                color: button.second.labelColor,
+                alignSelf: HorizontalAlign[button.second.horizontalAlign],
+              }}
+            >
+              {button.second.label}
+            </a>
+          </div>
         )}
       </div>
     </div>

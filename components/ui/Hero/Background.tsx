@@ -21,7 +21,7 @@ export interface IBackgroundImage {
 }
 
 const isBackgroundImage = (
-  backgroud: IBackgroundColor | IBackgroundImage,
+  backgroud: IBackgroundColor | IBackgroundImage
 ): backgroud is IBackgroundImage => {
   return !("color" in backgroud);
 };
@@ -35,10 +35,18 @@ export default function Background({
 }: {
   id?: string;
   style?: Record<string, string | number | undefined>;
-  props: IBackgroundColor | IBackgroundImage;
+  props: IBackgroundColor | IBackgroundImage | null;
   class?: string;
   children: ComponentChildren;
 }) {
+  if (!props) {
+    return (
+      <div style={style} id={id} class={className}>
+        {children}
+      </div>
+    );
+  }
+
   if (isBackgroundImage(props)) {
     const preload = props.desktop.preload || props.mobile.preload;
     const fetchPriority = preload ? "high" : "low";

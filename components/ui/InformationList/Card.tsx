@@ -2,23 +2,19 @@ import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
 import Image from "apps/website/components/Image.tsx";
 
 /**
- * @title {{header}}
+ * @title Card
  */
 export interface Props {
   image: IImage;
   /**
-   * @default Header
-   */
-  header: string;
-  /**
-   * @default Content
-   * @format textarea
+   * @default <p>Content</p>
+   * @format html
    */
   text: string;
   href: string;
 }
 
-export default function Card({ image, header, text, href }: Props) {
+export default function Card({ image, text, href }: Props) {
   return (
     <li class="flex group gap-[var(--card-gap)] transition-all overflow-clip">
       <a href={href} class="order-[var(--card-image-order)] shrink-0">
@@ -30,14 +26,7 @@ export default function Card({ image, header, text, href }: Props) {
           alt={image.alt}
         />
       </a>
-      <a class="flex flex-col" href={href}>
-        <h2 class="text-[var(--header-color)] group-hover:text-[var(--header-hover)] group-hover:[text-decoration:var(--header-text-decoration)] font-bold text-lg">
-          {header}
-        </h2>
-        <p class="mt-[var(--text-spacing)] text-[var(--text-color)] group-hover:text-[var(--text-hover)] break-words">
-          {text}
-        </p>
-      </a>
+      <div dangerouslySetInnerHTML={{ __html: text }} />
     </li>
   );
 }

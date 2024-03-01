@@ -18,7 +18,7 @@ export default function Video({ thumbnail, videoUrl }: Props) {
 
   return (
     <div class="relative">
-      <Image class="w-full object-cover" {...thumbnail} />
+      <Image class="w-full object-cover h-full" {...thumbnail} />
       <Button
         modalId={id}
         class="absolute inset-0 bg-black/50 flex justify-center items-center"

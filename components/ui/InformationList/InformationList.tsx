@@ -19,28 +19,6 @@ interface Colors {
    * @default #ffffff
    */
   background: string;
-  /**
-   * @format color
-   * @default #2f3136
-   */
-  header: string;
-  /**
-   * @format color
-   */
-  headerOnHover?: string;
-  /**
-   * @default false
-   */
-  underlineHeaderOnHover: boolean;
-  /**
-   * @format color
-   * @default #2f3136
-   */
-  text: string;
-  /**
-   * @format color
-   */
-  textOnHover?: string;
 }
 
 interface Spacing {
@@ -56,10 +34,6 @@ interface Spacing {
    * @default true
    */
   container: boolean;
-  /**
-   * @default 12
-   */
-  betweenHeaderAndText: number;
   /**
    * @default 12
    */
@@ -83,21 +57,8 @@ interface Props {
 
 export default function InformationList({ cards, columns, style }: Props) {
   const { colors, spacing } = style;
-  const {
-    background,
-    header,
-    headerOnHover,
-    underlineHeaderOnHover,
-    text,
-    textOnHover,
-  } = colors;
-  const {
-    gap,
-    padding,
-    container,
-    betweenHeaderAndText,
-    betweenImageAndContent,
-  } = spacing;
+  const { background } = colors;
+  const { gap, padding, container, betweenImageAndContent } = spacing;
 
   return (
     <div
@@ -105,27 +66,23 @@ export default function InformationList({ cards, columns, style }: Props) {
         backgroundColor: background,
         "--m-cols": `repeat(${columns.mobile}, minmax(0, 1fr))`,
         "--d-cols": `repeat(${columns.desktop}, minmax(0, 1fr))`,
-        "--header-color": header,
-        "--header-hover": headerOnHover ?? header,
-        "--header-text-decoration": underlineHeaderOnHover
-          ? "underline"
-          : "none",
-        "--text-color": text,
-        "--text-hover": textOnHover ?? text,
-        "--text-spacing": `${betweenHeaderAndText}px`,
         "--card-gap": `${betweenImageAndContent}px`,
         "--card-image-order": style.cardImagePosition === "left" ? "-1" : "2",
       }}
     >
       <ul
-        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
-          (container ? " container" : "")}
+        class={
+          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
+          (container ? " container" : "")
+        }
         style={{
           gap: `${gap}px`,
           padding: `${padding}px`,
         }}
       >
-        {cards.map((card, index) => <Card key={index} {...card} />)}
+        {cards.map((card, index) => (
+          <Card key={index} {...card} />
+        ))}
       </ul>
     </div>
   );

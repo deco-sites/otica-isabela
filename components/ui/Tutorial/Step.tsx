@@ -8,42 +8,42 @@ interface IIcon {
    */
   size: number;
   /**
-   * @default 16
+   * @default 2
    */
   strokeWidth: number;
+  verticalAlign: "top" | "middle" | "bottom";
 }
 
+const verticalAlign = {
+  top: "self-start",
+  middle: "self-center",
+  bottom: "self-end",
+};
+
 /**
- * @title {{header}}
+ * @title Step
  */
 export interface Props {
   /**
-   * @default Header
-   */
-  header: string;
-  /**
-   * @format textarea
-   * @default Content
+   * @format html
+   * @default <p>Content</p>
    */
   text: string;
   icon: IIcon;
 }
 
-export default function Step({ icon, header, text }: Props) {
+export default function Step({ icon, text }: Props) {
   return (
     <li class="flex gap-[var(--card-gap)] transition-all overflow-clip">
       <Icon
         id={icon.id}
         size={icon.size}
         strokeWidth={icon.strokeWidth}
-        class="text-[var(--icon-color)] shrink-0"
+        class={`text-[var(--icon-color)] shrink-0 ${
+          verticalAlign[icon.verticalAlign] ?? "self-start"
+        }`}
       />
-      <div class="flex flex-col">
-        <h2 class="text-[var(--header-color)] font-bold text-lg">{header}</h2>
-        <p class="mt-[var(--text-spacing)] text-[var(--text-color)] break-words">
-          {text}
-        </p>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: text }} />
     </li>
   );
 }
