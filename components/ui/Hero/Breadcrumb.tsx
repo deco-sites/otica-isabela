@@ -1,15 +1,23 @@
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { ITextStyle } from "deco-sites/otica-isabela/sdk/types.ts";
-import { Alignments, parseStyle } from "deco-sites/otica-isabela/sdk/utils.ts";
+import { Alignments } from "deco-sites/otica-isabela/sdk/utils.ts";
 
 /**
- * @title {{{label}}}
+ * @title {{name}}
  */
 interface IBreadCrumbItem {
+  /**
+   * @description Organization purpose only
+   */
+  name: string;
+  /**
+   * @format html
+   */
   label: string;
-  href: string;
 }
 
+/**
+ * @title Add Breadcrumb
+ */
 export interface IBreadCrumb {
   align: "left" | "center" | "right";
   items: IBreadCrumbItem[];
@@ -17,46 +25,35 @@ export interface IBreadCrumb {
    * @default 12
    */
   separatorSize: number;
-  textStyle?: ITextStyle;
+  /**
+   * @format color
+   * @default #000000
+   */
+  separatorColor: string;
 }
 
 export default function BreadCrumb({
   align,
   items,
   separatorSize,
-  textStyle,
+  separatorColor,
 }: IBreadCrumb) {
   if (!items.length) return <></>;
 
-  const style = textStyle && parseStyle(textStyle);
-
   return (
     <ul
-      style={{
-        ...style,
-        ...(textStyle?.hoverColor && { "--hover-color": textStyle.hoverColor }),
-      }}
-      class={"flex items-center gap-1" +
-        (Alignments[align] || Alignments.left) +
-        (textStyle?.color ? " group" : "")}
+      class={"flex items-center gap-1" + (Alignments[align] || Alignments.left)}
     >
       {items.map((item, index) => (
         <>
-          <li key={index}>
-            <a
-              class={"hover:underline" +
-                (textStyle?.color
-                  ? " group-hover:text-[var(--hover-color)]"
-                  : "")}
-              href={item.href}
-              aria-current={index === items.length - 1 ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          </li>
+          <li
+            class="hover:underline"
+            key={index}
+            dangerouslySetInnerHTML={{ __html: item.label }}
+          ></li>
           {index !== items.length - 1 && (
-            <li key={index + "-separator"}>
-              <Icon id="Separator" size={separatorSize} />
+            <li style={{ color: separatorColor }} key={index + "-separator"}>
+              <Icon id="ChevronRight" size={separatorSize} strokeWidth={2} />
             </li>
           )}
         </>

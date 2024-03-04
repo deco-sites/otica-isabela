@@ -38,6 +38,7 @@ interface IButton {
  * @title Add two buttons
  */
 interface ITwoButtons {
+  justifyContent?: "flex-start" | "center" | "flex-end";
   flexDirection: "row" | "column";
   first: IButton;
   second: IButton;
@@ -135,6 +136,13 @@ interface ILinksGrid {
   links: ILink[];
 }
 
+interface Padding {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+}
+
 /**
  * @title No Image
  */
@@ -168,7 +176,13 @@ interface Props {
   /**
    * @default true
    */
-  container: boolean;
+  container?: boolean;
+  /**
+   * @format color
+   */
+  backgroundColor?: string;
+  desktopPadding?: Padding;
+  mobilePadding?: Padding;
 }
 
 function ResponsiveImage({ mobile, desktop, tag, href }: IImageProps) {
@@ -259,15 +273,29 @@ export default function RichText({
   linksGrid,
   spaceBetweenTextAndMedia,
   spaceBetweenTextAndMediaMobile,
+  backgroundColor,
+  desktopPadding,
+  mobilePadding,
 }: Props) {
   return (
     <div
       style={{
+        backgroundColor,
+        "--d-pt": `${desktopPadding?.top ?? 0}px`,
+        "--d-pr": `${desktopPadding?.right ?? 0}px`,
+        "--d-pb": `${desktopPadding?.bottom ?? 0}px`,
+        "--d-pl": `${desktopPadding?.left ?? 0}px`,
+        "--m-pt": `${mobilePadding?.top ?? 0}px`,
+        "--m-pr": `${mobilePadding?.right ?? 0}px`,
+        "--m-pb": `${mobilePadding?.bottom ?? 0}px`,
+        "--m-pl": `${mobilePadding?.left ?? 0}px`,
         "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
         "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
       }}
       class={
         "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
+        " pt-[var(--m-pt)] pr-[var(--m-pr)] pb-[var(--m-pb)] pl-[var(--m-pl)]" +
+        " md:pt-[var(--d-pt)] md:pr-[var(--d-pr)] md:pb-[var(--d-pb)] md:pl-[var(--d-pl)]" +
         (container ? " container" : "")
       }
     >
@@ -293,7 +321,7 @@ export default function RichText({
       >
         <div
           style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
-          class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)]"
+          class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
           dangerouslySetInnerHTML={{ __html: text.content }}
         />
         {linksGrid && (
@@ -308,7 +336,7 @@ export default function RichText({
                 <li>
                   <a
                     href={href}
-                    class="flex flex-col gap-2 justify-center items-center hover:text-[var(--hover)] text-[var(--color)] hover:underline"
+                    class="flex flex-col gap-2 justify-center items-center hover:text-[var(--hover)] text-[var(--color)] hover:underline text-center"
                     style={{ "--color": color, "--hover": colorHover }}
                   >
                     <Image
@@ -329,7 +357,7 @@ export default function RichText({
         ) : isSingleButton(button) ? (
           <a
             href={button.href}
-            class="text-center p-3 rounded-md min-w-52"
+            class="text-center py-3 px-4 rounded-md min-w-52"
             style={{
               backgroundColor: button.color,
               color: button.labelColor,
@@ -340,12 +368,15 @@ export default function RichText({
           </a>
         ) : (
           <div
-            style={{ flexDirection: button.flexDirection }}
-            class="flex items-center gap-3"
+            style={{
+              "--flex-direction": button.flexDirection,
+              "--justify-content": button.justifyContent,
+            }}
+            class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
           >
             <a
               href={button.first.href}
-              class="text-center p-3 rounded-md min-w-52"
+              class="text-center py-3 px-4 rounded-md min-w-52"
               style={{
                 backgroundColor: button.first.color,
                 color: button.first.labelColor,
@@ -356,7 +387,7 @@ export default function RichText({
             </a>
             <a
               href={button.second.href}
-              class="text-center p-3 rounded-md min-w-52"
+              class="text-center py-3 px-4 rounded-md min-w-52"
               style={{
                 backgroundColor: button.second.color,
                 color: button.second.labelColor,

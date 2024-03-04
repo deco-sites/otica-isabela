@@ -6,7 +6,6 @@ import BreadCrumb, {
   IBreadCrumb,
 } from "deco-sites/otica-isabela/components/ui/Hero/Breadcrumb.tsx";
 import Text, { IText } from "deco-sites/otica-isabela/components/ui/Text.tsx";
-import { Alignments } from "deco-sites/otica-isabela/sdk/utils.ts";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 interface IPadding {
@@ -46,6 +45,10 @@ type NoSubtitle = null;
  * @title No Background
  */
 type NoBackground = null;
+/**
+ * @title No BreadCrumbs
+ */
+type NoBreadcrumbs = null;
 
 export interface IContent {
   title: IText;
@@ -55,7 +58,7 @@ export interface IContent {
 interface Props {
   content: IContent;
   background: IBackgroundColor | IBackgroundImage | NoBackground;
-  breadcrumbs?: IBreadCrumb;
+  breadcrumbs?: IBreadCrumb | NoBreadcrumbs;
   style?: IStyle;
 }
 

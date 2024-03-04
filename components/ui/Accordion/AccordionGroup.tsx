@@ -201,7 +201,7 @@ export default function AccordionGroup({
               <OpenButton id={id} index={index} />
               <div
                 class={
-                  "w-full min-h-14 col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4" +
+                  "w-full min-h-14 h-fit col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4" +
                   (isDeep
                     ? " peer-checked/open:underline text-lg text-zinc-800 peer-checked/open:text-black peer-checked/open:font-medium"
                     : " font-medium text-xl") +

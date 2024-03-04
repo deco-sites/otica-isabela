@@ -17,17 +17,14 @@ interface IButton {
    * @default #2f3136
    */
   backgroundColor: string;
-  /**
-   * @format color
-   * @default #2f3030
-   */
-  backgroundColorOnHover: string;
 }
 
 export interface Props {
   product: Product[] | null;
-  header: string;
-  description: string;
+  /**
+   * @format html
+   */
+  text: string;
   button: IButton;
   image: IImage;
   /**
@@ -43,8 +40,7 @@ export interface Props {
 
 export default function SingleProductShelf({
   product: productList,
-  header,
-  description,
+  text,
   button,
   image,
   imagePosition = "right",
@@ -88,8 +84,7 @@ export default function SingleProductShelf({
           (imagePosition === "left" ? " order-2" : "")
         }
       >
-        <h2 class="text-xl font-bold text-black">{header}</h2>
-        <p class="text-black">{description}</p>
+        <div dangerouslySetInnerHTML={{ __html: text }} />
         <Image
           key={skuId}
           src={imageUrl}
@@ -141,10 +136,9 @@ export default function SingleProductShelf({
           href={product.url}
           style={{
             "--bg-color": button.backgroundColor,
-            "--bg-color-hover": button.backgroundColorOnHover,
             color: button.labelColor,
           }}
-          class="bg-[var(--bg-color)] hover:bg-[var(--bg-color-hover)] transition-all text-center py-3 rounded-md min-w-20 px-5 self-center"
+          class="bg-[var(--bg-color)] transition-all text-center py-3 rounded-md min-w-20 px-5 self-center"
         >
           {button.label}
         </a>

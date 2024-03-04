@@ -4,8 +4,8 @@ import { ComponentChildren } from "preact";
 export interface Navigation {
   label: string;
   href: string;
-  content: Section[];
   navigations?: Navigation[];
+  content: Section[];
   /**
    * @description If not provided, the label field will be used
    */

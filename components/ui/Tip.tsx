@@ -64,7 +64,10 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
             verticalAlign[icon.verticalAlign] ?? "self-start"
           }`}
         />
-        <div class="" dangerouslySetInnerHTML={{ __html: text }} />
+        <div
+          style={{ width: `calc(100% - ${icon.size}px - 20px)` }}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </div>
       {image && <Image class="mx-auto" {...image} />}
     </div>
