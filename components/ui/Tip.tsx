@@ -54,7 +54,7 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
       style={{ backgroundColor }}
       class="flex gap-5 container px-10 py-5 rounded items-center flex-wrap"
     >
-      <div class="flex gap-5">
+      <div class="flex gap-5 w-full">
         <Icon
           id={icon.id}
           style={{ color: icon.color }}
@@ -65,7 +65,10 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
           }`}
         />
         <div
-          style={{ width: `calc(100% - ${icon.size}px - 20px)` }}
+          style={{
+            width: `calc(100% - ${icon.size}px - 20px)`,
+            wordWrap: "break-word",
+          }}
           dangerouslySetInnerHTML={{ __html: text }}
         />
       </div>
