@@ -12,14 +12,24 @@ interface IIcon {
    * @default 2
    */
   strokeWidth: number;
+  /**
+   * @format color
+   * @default #2f3136
+   */
+  color: string;
 }
 
 /**
- * @title {{text}}
+ * @title {{name}}
  */
 interface IInformationList {
+  /**
+   * @description Organization purpose only
+   */
+  name: string;
   icon: IIcon;
   /**
+   * @format html
    * @default Content
    */
   text: string;
@@ -27,11 +37,7 @@ interface IInformationList {
 
 interface IInfomation {
   /**
-   * @default Header
-   */
-  header: string;
-  /**
-   * @default Content
+   * @format html
    */
   text: string;
   list: IInformationList[];
@@ -46,30 +52,26 @@ interface IInfomation {
   /**
    * @default 12
    */
-  spaceBetweenHeaderAndText: number;
-  /**
-   * @default 12
-   */
   spaceBetweenTextAndInformations: number;
 }
 
 /**
- * @title {{header}}
+ * @title {{name}}
  */
 interface IStep {
   /**
-   * @default Header
+   * @description Organization purpose only
    */
-  header: string;
+  name: string;
   /**
-   * @default Content
+   * @format html
    */
   text: string;
 }
 
 interface ITutorial {
   /**
-   * @default Header
+   * @format html
    */
   header: string;
   steps: IStep[];
@@ -81,10 +83,6 @@ interface ITutorial {
    * @default 12
    */
   spaceBetweenCards: number;
-  /**
-   * @default 4
-   */
-  spaceBetweenCardHeaderAndCardText: number;
 }
 
 interface Props {
@@ -99,7 +97,7 @@ interface Props {
    * @format color
    * @default #ffffff
    */
-  color: string;
+  dividerColor: string;
   /**
    * @default 12
    */
@@ -114,29 +112,21 @@ export default function Tutorial({
   information,
   tutorial,
   backgroundColor,
-  color,
+  dividerColor,
   invert,
   spaceBetweenSections,
 }: Props) {
   return (
     <div style={{ backgroundColor }}>
-      <div
-        class="flex justify-center flex-col md:flex-row items-stretch p-5 md:p-10 container"
-        style={{ color }}
-      >
+      <div class="flex justify-center flex-col md:flex-row items-stretch p-5 md:p-10 container">
         <div class={"md:w-1/2" + (invert ? " order-2" : "")}>
-          <h2 class="font-bold text-2xl">{information.header}</h2>
-          <p
-            style={{ marginTop: `${information.spaceBetweenHeaderAndText}px` }}
-          >
-            {information.text}
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: information.text }}></div>
           <ul
             style={{
               gap: information.spaceBetweenInformations,
               marginTop: `${information.spaceBetweenTextAndInformations}px`,
             }}
-            class="grid grid-cols-2"
+            class="grid grid-cols-1 md:grid-cols-2"
           >
             {information.list.map((item, index) => (
               <li
@@ -145,21 +135,24 @@ export default function Tutorial({
                 style={{ gap: `${information.spaceBetweenIconAndContent}px` }}
               >
                 <Icon class="shrink-0" {...item.icon} />
-                <p>{item.text}</p>
+                <div dangerouslySetInnerHTML={{ __html: item.text }} />
               </li>
             ))}
           </ul>
         </div>
         <div
           class={
-            "md:w-1/2 border-current" +
+            "md:w-1/2" +
             (invert
               ? " mb-[var(--space)] pb-[var(--space)] border-b md:mb-0 md:pb-0 md:border-b-0 md:mr-[var(--space)] md:pr-[var(--space)] md:border-r"
               : " mt-[var(--space)] pt-[var(--space)] border-t md:mt-0 md:pt-0 md:border-t-0 md:ml-[var(--space)] md:pl-[var(--space)] md:border-l")
           }
-          style={{ "--space": `${spaceBetweenSections}px` }}
+          style={{
+            "--space": `${spaceBetweenSections}px`,
+            borderColor: dividerColor,
+          }}
         >
-          <h2 class="font-bold text-2xl">{tutorial.header}</h2>
+          <div dangerouslySetInnerHTML={{ __html: tutorial.header }} />
           <ul
             style={{
               gap: `${tutorial.spaceBetweenCards}px`,
@@ -171,13 +164,8 @@ export default function Tutorial({
               <li
                 key={index}
                 class="flex flex-col"
-                style={{
-                  gap: `${tutorial.spaceBetweenCardHeaderAndCardText}px`,
-                }}
-              >
-                <h3 class="font-bold">{step.header}</h3>
-                <p>{step.text}</p>
-              </li>
+                dangerouslySetInnerHTML={{ __html: step.text }}
+              />
             ))}
           </ul>
         </div>

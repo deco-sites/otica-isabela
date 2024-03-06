@@ -8,6 +8,10 @@ interface Columns {
    */
   desktop: number;
   /**
+   * @default 2
+   */
+  tablet?: number;
+  /**
    * @default 1
    */
   mobile: number;
@@ -19,37 +23,6 @@ interface Colors {
    * @default #ffffff
    */
   background: string;
-  /**
-   * @format color
-   * @default #2f3136
-   */
-  header: string;
-  /**
-   * @format color
-   */
-  headerOnHover?: string;
-  /**
-   * @default false
-   */
-  underlineHeaderOnHover: boolean;
-  /**
-   * @format color
-   * @default #2f3136
-   */
-  text: string;
-  /**
-   * @format color
-   */
-  textOnHover?: string;
-  /**
-   * @format color
-   * @default #b47d2e
-   */
-  link: string;
-  /**
-   * @format color
-   */
-  linkOnHover?: string;
 }
 
 interface Spacing {
@@ -64,15 +37,7 @@ interface Spacing {
   /**
    * @default 12
    */
-  betweenImageAndHeader: number;
-  /**
-   * @default 12
-   */
-  betweenHeaderAndContent: number;
-  /**
-   * @default 12
-   */
-  betweenContentAndLink: number;
+  betweenImageAndContent: number;
 }
 
 interface Props {
@@ -88,47 +53,24 @@ export default function CardsWithImage({
   colors,
   spacing,
 }: Props) {
-  const {
-    background,
-    header,
-    text,
-    link,
-    headerOnHover,
-    underlineHeaderOnHover,
-    linkOnHover,
-    textOnHover,
-  } = colors;
-  const {
-    container,
-    gap,
-    betweenImageAndHeader,
-    betweenHeaderAndContent,
-    betweenContentAndLink,
-  } = spacing;
+  const { background } = colors;
+  const { container, gap, betweenImageAndContent } = spacing;
 
   return (
     <div
       style={{
         backgroundColor: background,
         "--m-cols": `repeat(${columns.mobile}, minmax(0, 1fr))`,
+        "--t-cols": `repeat(${
+          columns.tablet ?? columns.desktop
+        }, minmax(0, 1fr))`,
         "--d-cols": `repeat(${columns.desktop}, minmax(0, 1fr))`,
-        "--header-color": header,
-        "--content-color": text,
-        "--link-color": link,
-        "--header-hover": headerOnHover ?? header,
-        "--content-hover": textOnHover ?? text,
-        "--link-hover": linkOnHover ?? link,
-        "--header-spacing": `${betweenImageAndHeader}px`,
-        "--content-spacing": `${betweenHeaderAndContent}px`,
-        "--link-spacing": `${betweenContentAndLink}px`,
-        "--header-text-decoration": underlineHeaderOnHover
-          ? "underline"
-          : "none",
+        "--content-spacing": `${betweenImageAndContent}px`,
       }}
     >
       <ul
         class={
-          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)] p-5 md:px-0" +
+          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--t-cols)] lg:grid-cols-[var(--d-cols)] p-5 md:px-0" +
           (container ? " container" : "")
         }
         style={{

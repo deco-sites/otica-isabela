@@ -1,6 +1,5 @@
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { Fragment } from "preact";
+import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
 
 interface Props {
   desktop: IImage;
@@ -21,7 +20,7 @@ export default function ResponsiveImage({
   const fetchPriority = preload ? "high" : "low";
   const loading = preload ? "eager" : "lazy";
 
-  const Component = href ? "a" : Fragment;
+  const Component = href ? "a" : "div";
   const props = href ? { href } : {};
 
   return (

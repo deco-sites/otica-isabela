@@ -65,7 +65,7 @@ interface WrapperProps {
    * @default 0
    */
   paddingLeft?: number;
-  style?: "default" | "alternative";
+  style?: "default" | "alternative" | "alternative 2";
 }
 
 interface Props {
@@ -165,6 +165,7 @@ function Wrapper({
   );
 }
 
+// Good luck to the next developer who will maintain this code
 export default function AccordionGroup({
   contents = [],
   __c,
@@ -207,7 +208,11 @@ export default function AccordionGroup({
                     : " font-medium text-xl") +
                   (style === "default"
                     ? " peer-checked/open:[--closed-icon-visibility:none] peer-checked/open:[--opened-icon-visibility:block]"
-                    : " peer-checked/open:[--icon-rotate:180deg] justify-between")
+                    : style === "alternative"
+                    ? " peer-checked/open:[--icon-rotate:180deg] justify-between"
+                    : style === "alternative 2"
+                    ? " peer-checked/open:[--icon-rotate:180deg] justify-start"
+                    : "")
                 }
               >
                 {isDeep ? (
@@ -236,7 +241,7 @@ export default function AccordionGroup({
                     id="ChevronDown"
                     size={18}
                     strokeWidth={3}
-                    class="transition-all order-2"
+                    class="transition-all order-2 shrink-0"
                     style={{ rotate: "var(--icon-rotate, 0deg)" }}
                   />
                 )}

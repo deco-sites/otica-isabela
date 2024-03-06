@@ -1,9 +1,9 @@
+import Image from "apps/website/components/Image.tsx";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
 import Video, {
   Props as IVideo,
 } from "deco-sites/otica-isabela/components/ui/VideoModal/Video.tsx";
-import Image from "apps/website/components/Image.tsx";
+import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
 import { Fragment } from "preact";
 
 /**
@@ -181,6 +181,10 @@ interface Props {
    * @format color
    */
   backgroundColor?: string;
+  /**
+   * @default false
+   */
+  backgroundBypassContainer?: boolean;
   desktopPadding?: Padding;
   mobilePadding?: Padding;
 }
@@ -269,136 +273,141 @@ export default function RichText({
   text,
   media,
   button,
-  container,
+  container = false,
   linksGrid,
   spaceBetweenTextAndMedia,
   spaceBetweenTextAndMediaMobile,
   backgroundColor,
+  backgroundBypassContainer = false,
   desktopPadding,
   mobilePadding,
 }: Props) {
+  const Wrapper = backgroundBypassContainer ? "div" : Fragment;
+
   return (
-    <div
-      style={{
-        backgroundColor,
-        "--d-pt": `${desktopPadding?.top ?? 0}px`,
-        "--d-pr": `${desktopPadding?.right ?? 0}px`,
-        "--d-pb": `${desktopPadding?.bottom ?? 0}px`,
-        "--d-pl": `${desktopPadding?.left ?? 0}px`,
-        "--m-pt": `${mobilePadding?.top ?? 0}px`,
-        "--m-pr": `${mobilePadding?.right ?? 0}px`,
-        "--m-pb": `${mobilePadding?.bottom ?? 0}px`,
-        "--m-pl": `${mobilePadding?.left ?? 0}px`,
-        "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
-        "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
-      }}
-      class={
-        "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
-        " pt-[var(--m-pt)] pr-[var(--m-pr)] pb-[var(--m-pb)] pl-[var(--m-pl)]" +
-        " md:pt-[var(--d-pt)] md:pr-[var(--d-pr)] md:pb-[var(--d-pb)] md:pl-[var(--d-pl)]" +
-        (container ? " container" : "")
-      }
-    >
-      {isVideo(media) ? (
-        <Video {...media} />
-      ) : isImage(media) ? (
-        <ResponsiveImage {...media} />
-      ) : null}
+    <Wrapper style={{ backgroundColor }}>
       <div
+        style={{
+          backgroundColor,
+          "--d-pt": `${desktopPadding?.top ?? 0}px`,
+          "--d-pr": `${desktopPadding?.right ?? 0}px`,
+          "--d-pb": `${desktopPadding?.bottom ?? 0}px`,
+          "--d-pl": `${desktopPadding?.left ?? 0}px`,
+          "--m-pt": `${mobilePadding?.top ?? 0}px`,
+          "--m-pr": `${mobilePadding?.right ?? 0}px`,
+          "--m-pb": `${mobilePadding?.bottom ?? 0}px`,
+          "--m-pl": `${mobilePadding?.left ?? 0}px`,
+          "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
+          "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
+        }}
         class={
-          "p-4 md:p-0 flex flex-col gap-3" +
-          (media
-            ? media.position === "right"
-              ? " md:-order-1"
-              : ""
-            : " col-span-2") +
-          (text.verticalAlign === "center"
-            ? " self-center"
-            : text.verticalAlign === "bottom"
-            ? " self-end"
-            : "")
+          "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
+          " pt-[var(--m-pt)] pr-[var(--m-pr)] pb-[var(--m-pb)] pl-[var(--m-pl)]" +
+          " md:pt-[var(--d-pt)] md:pr-[var(--d-pr)] md:pb-[var(--d-pb)] md:pl-[var(--d-pl)]" +
+          (container ? " container" : "")
         }
       >
+        {isVideo(media) ? (
+          <Video {...media} />
+        ) : isImage(media) ? (
+          <ResponsiveImage {...media} />
+        ) : null}
         <div
-          style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
-          class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
-          dangerouslySetInnerHTML={{ __html: text.content }}
-        />
-        {linksGrid && (
-          <ul
-            style={{
-              gridTemplateColumns: `repeat(${linksGrid.columns}, minmax(0, 1fr))`,
-            }}
-            class="grid justify-between gap-4 w-full"
-          >
-            {linksGrid.links.map(
-              ({ href, color, colorHover, image, label }) => (
-                <li>
-                  <a
-                    href={href}
-                    class="flex flex-col gap-2 justify-center items-center hover:text-[var(--hover)] text-[var(--color)] hover:underline text-center"
-                    style={{ "--color": color, "--hover": colorHover }}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={image.width}
-                      height={image.height}
-                    />
-                    <span class="underline">{label}</span>
-                  </a>
-                </li>
-              )
-            )}
-          </ul>
-        )}
-        {button === null ? (
-          <></>
-        ) : isSingleButton(button) ? (
-          <a
-            href={button.href}
-            class="text-center py-3 px-4 rounded-md min-w-52"
-            style={{
-              backgroundColor: button.color,
-              color: button.labelColor,
-              alignSelf: HorizontalAlign[button.horizontalAlign],
-            }}
-          >
-            {button.label}
-          </a>
-        ) : (
+          class={
+            "p-4 md:p-0 flex flex-col gap-3" +
+            (media
+              ? media.position === "right"
+                ? " md:-order-1"
+                : ""
+              : " col-span-2") +
+            (text.verticalAlign === "center"
+              ? " self-center"
+              : text.verticalAlign === "bottom"
+              ? " self-end"
+              : "")
+          }
+        >
           <div
-            style={{
-              "--flex-direction": button.flexDirection,
-              "--justify-content": button.justifyContent,
-            }}
-            class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
-          >
+            style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
+            class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
+            dangerouslySetInnerHTML={{ __html: text.content }}
+          />
+          {linksGrid && (
+            <ul
+              style={{
+                gridTemplateColumns: `repeat(${linksGrid.columns}, minmax(0, 1fr))`,
+              }}
+              class="grid justify-between gap-4 w-full"
+            >
+              {linksGrid.links.map(
+                ({ href, color, colorHover, image, label }) => (
+                  <li>
+                    <a
+                      href={href}
+                      class="flex flex-col gap-2 justify-center items-center hover:text-[var(--hover)] text-[var(--color)] hover:underline text-center"
+                      style={{ "--color": color, "--hover": colorHover }}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                      />
+                      <span class="underline">{label}</span>
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
+          )}
+          {button === null ? (
+            <></>
+          ) : isSingleButton(button) ? (
             <a
-              href={button.first.href}
+              href={button.href}
               class="text-center py-3 px-4 rounded-md min-w-52"
               style={{
-                backgroundColor: button.first.color,
-                color: button.first.labelColor,
-                alignSelf: HorizontalAlign[button.first.horizontalAlign],
+                backgroundColor: button.color,
+                color: button.labelColor,
+                alignSelf: HorizontalAlign[button.horizontalAlign],
               }}
             >
-              {button.first.label}
+              {button.label}
             </a>
-            <a
-              href={button.second.href}
-              class="text-center py-3 px-4 rounded-md min-w-52"
+          ) : (
+            <div
               style={{
-                backgroundColor: button.second.color,
-                color: button.second.labelColor,
-                alignSelf: HorizontalAlign[button.second.horizontalAlign],
+                "--flex-direction": button.flexDirection,
+                "--justify-content": button.justifyContent,
               }}
+              class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
             >
-              {button.second.label}
-            </a>
-          </div>
-        )}
+              <a
+                href={button.first.href}
+                class="text-center py-3 px-4 rounded-md min-w-52"
+                style={{
+                  backgroundColor: button.first.color,
+                  color: button.first.labelColor,
+                  alignSelf: HorizontalAlign[button.first.horizontalAlign],
+                }}
+              >
+                {button.first.label}
+              </a>
+              <a
+                href={button.second.href}
+                class="text-center py-3 px-4 rounded-md min-w-52"
+                style={{
+                  backgroundColor: button.second.color,
+                  color: button.second.labelColor,
+                  alignSelf: HorizontalAlign[button.second.horizontalAlign],
+                }}
+              >
+                {button.second.label}
+              </a>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
