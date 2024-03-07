@@ -10,6 +10,7 @@ import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
 import * as $ChooseLensButton from "./islands/ChooseLensButton.tsx";
+import * as $ContactForm from "./islands/ContactForm.tsx";
 import * as $CouponListScript from "./islands/CouponListScript.tsx";
 import * as $FaqContainer from "./islands/FaqContainer.tsx";
 import * as $HeaderButton from "./islands/HeaderButton.tsx";
@@ -48,6 +49,7 @@ const manifest = {
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
     "./islands/ChooseLensButton.tsx": $ChooseLensButton,
+    "./islands/ContactForm.tsx": $ContactForm,
     "./islands/CouponListScript.tsx": $CouponListScript,
     "./islands/FaqContainer.tsx": $FaqContainer,
     "./islands/HeaderButton.tsx": $HeaderButton,

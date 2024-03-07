@@ -1,13 +1,24 @@
+import { ImageWidget } from "apps/admin/widgets.ts";
+
 /**
  * @title Add Image
  */
 export interface IImage {
   /**
-   * @format image-uri
+   * @title Imagem
    */
-  src: string;
+  src: ImageWidget;
+  /**
+   * @title Descreva a imagem
+   */
   alt: string;
+  /**
+   * @title Largura da imagem
+   */
   width: number;
+  /**
+   * @title Altura da imagem
+   */
   height: number;
   /**
    * @default false
