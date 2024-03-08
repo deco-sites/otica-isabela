@@ -41,9 +41,9 @@ function BannerTextButton(
         } `}
       >
         {title && (
-          <h1 class="text-4xl text-blue-300 font-bold lg:mt-6 ">
+          <h2 class="text-4xl text-blue-300 font-bold lg:mt-6 ">
             {title}
-          </h1>
+          </h2>
         )}
         <p
           class={` w-full text-black text-lg lg:text-2xl font-normal ${
