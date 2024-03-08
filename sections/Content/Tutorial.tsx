@@ -1,1 +1,4 @@
-export { default } from "deco-sites/otica-isabela/components/ui/Tutorial/Tutorial.tsx";
+export {
+  default,
+  loader,
+} from "deco-sites/otica-isabela/components/ui/Tutorial/Tutorial.tsx";

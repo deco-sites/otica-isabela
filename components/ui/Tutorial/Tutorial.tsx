@@ -1,6 +1,7 @@
 import Step, {
   Props as StepProps,
 } from "deco-sites/otica-isabela/components/ui/Tutorial/Step.tsx";
+import { FnContext } from "deco/mod.ts";
 
 interface Colors {
   /**
@@ -45,7 +46,17 @@ interface Props {
   spacing: Spacing;
 }
 
-export default function Tutorial({ header, steps, colors, spacing }: Props) {
+export function loader(props: Props, _req: Request, ctx: FnContext) {
+  return { ...props, isMobile: ctx.device === "mobile" };
+}
+
+export default function Tutorial({
+  header,
+  steps,
+  colors,
+  spacing,
+  isMobile,
+}: ReturnType<typeof loader>) {
   const {
     betweenTextAndCards,
     betweenCards,
@@ -72,7 +83,7 @@ export default function Tutorial({ header, steps, colors, spacing }: Props) {
         }}
       >
         {steps.map((step, index) => (
-          <Step key={index} {...step} />
+          <Step key={index} {...step} isMobile={isMobile} />
         ))}
       </ul>
     </div>

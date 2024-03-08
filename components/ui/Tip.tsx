@@ -57,16 +57,13 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
           style={{ color: icon.color }}
           strokeWidth={icon.strokeWidth}
           size={icon.size}
-          class={`flex-shrink-0 ${
-            verticalAlign[icon.verticalAlign] ?? "self-start"
-          }`}
+          class={
+            "flex-shrink-0 " +
+            `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
+          }
         />
         <div class="flex justify-between gap-3 flex-wrap">
-          <div
-            class="w-fit"
-            style={{ wordWrap: "break-word" }}
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: text }} />
           {image && <Image {...image} />}
         </div>
       </div>

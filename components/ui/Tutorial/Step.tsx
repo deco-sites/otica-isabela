@@ -26,24 +26,62 @@ const verticalAlign = {
 export interface Props {
   /**
    * @format html
+   * @default <h2>Step</h2>
+   */
+  header: string;
+  /**
+   * @format html
    * @default <p>Content</p>
    */
   text: string;
   icon: IIcon;
+  /**
+   * @ignore
+   */
+  isMobile: boolean;
 }
 
-export default function Step({ icon, text }: Props) {
+export default function Step({ icon, header, text, isMobile }: Props) {
   return (
-    <li class="flex gap-[var(--card-gap)] transition-all overflow-clip">
-      <Icon
-        id={icon.id}
-        size={icon.size}
-        strokeWidth={icon.strokeWidth}
-        class={`text-[var(--icon-color)] shrink-0 ${
-          verticalAlign[icon.verticalAlign] ?? "self-start"
-        }`}
-      />
-      <div dangerouslySetInnerHTML={{ __html: text }} />
+    <li
+      class={
+        "flex gap-[var(--card-gap)] transition-all overflow-clip" +
+        (isMobile ? " flex-col" : "")
+      }
+    >
+      {isMobile ? (
+        <>
+          <div class="flex gap-3 items-center">
+            <Icon
+              id={icon.id}
+              size={icon.size}
+              strokeWidth={icon.strokeWidth}
+              class={
+                "text-[var(--icon-color)] shrink-0 " +
+                `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
+              }
+            />
+            <div dangerouslySetInnerHTML={{ __html: header }} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
+        </>
+      ) : (
+        <>
+          <Icon
+            id={icon.id}
+            size={icon.size}
+            strokeWidth={icon.strokeWidth}
+            class={
+              "text-[var(--icon-color)] shrink-0 " +
+              `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
+            }
+          />
+          <div class="space-y-2">
+            <div dangerouslySetInnerHTML={{ __html: header }} />
+            <div dangerouslySetInnerHTML={{ __html: text }} />
+          </div>
+        </>
+      )}
     </li>
   );
 }

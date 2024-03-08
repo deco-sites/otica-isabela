@@ -109,7 +109,10 @@ export default function Institutional({
                   style={{ rotate: "var(--icon-rotate, 0deg)" }}
                 />
               </div>
-              <div class="invisible col-start-1 row-start-2 min-h-0 peer-checked:visible peer-checked:min-h-fit transition-all container px-4 peer-checked:pb-4">
+              <div
+                style={{ "--color-active": activeColor, "--color": color }}
+                class="invisible col-start-1 row-start-2 min-h-0 peer-checked:visible peer-checked:min-h-fit transition-all container px-4 peer-checked:pb-4"
+              >
                 <SideMenuNavigation
                   activeNavigations={hrefs}
                   navigation={navigations}

@@ -4,7 +4,9 @@ import Video, {
   Props as IVideo,
 } from "deco-sites/otica-isabela/components/ui/VideoModal/Video.tsx";
 import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { useId } from "preact/hooks";
 import { Fragment } from "preact";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 
 /**
  * @title Add Button
@@ -19,15 +21,18 @@ interface IButton {
    */
   href: string;
   /**
+   * @title Background Color
    * @format color
    * @default #2f3136
    */
   color: string;
   /**
+   * @title Text Color
    * @format color
    * @default #f3f3f3
    */
   labelColor: string;
+  style?: "filled" | "outlined";
   /**
    * @default left
    */
@@ -160,11 +165,22 @@ type NoTag = null;
  */
 type NoLinks = null;
 
+/**
+ * @title See More
+ * @format html
+ */
+type AddSeeMore = string;
+/**
+ * @title Remove See More
+ */
+type RemoveSeeMore = null;
+
 interface Props {
   text: IText & {
     desktopPadding?: Padding;
     mobilePadding?: Padding;
   };
+  seeMore?: RemoveSeeMore | AddSeeMore;
   /**
    * @default 12
    */
@@ -272,8 +288,34 @@ const isSingleButton = (
   return button !== null && "label" in button;
 };
 
+function Button({
+  color,
+  horizontalAlign,
+  href,
+  label,
+  labelColor,
+  style = "filled",
+}: IButton) {
+  return (
+    <a
+      href={href}
+      class="text-center py-3 px-4 rounded-md min-w-52"
+      style={{
+        ...(style === "filled"
+          ? { backgroundColor: color }
+          : { border: `1px solid ${color}` }),
+        color: labelColor,
+        alignSelf: HorizontalAlign[horizontalAlign],
+      }}
+    >
+      {label}
+    </a>
+  );
+}
+
 export default function RichText({
   text,
+  seeMore,
   media,
   button,
   container = false,
@@ -286,26 +328,33 @@ export default function RichText({
   mobilePadding,
 }: Props) {
   const Wrapper = backgroundBypassContainer ? "div" : Fragment;
+  const id = useId();
 
   return (
     <Wrapper style={{ backgroundColor }}>
       <div
         style={{
           backgroundColor,
+          // desktopPadding
           "--d-pt": `${desktopPadding?.top ?? 0}px`,
           "--d-pr": `${desktopPadding?.right ?? 0}px`,
           "--d-pb": `${desktopPadding?.bottom ?? 0}px`,
           "--d-pl": `${desktopPadding?.left ?? 0}px`,
+          // mobilePadding
           "--m-pt": `${mobilePadding?.top ?? 0}px`,
           "--m-pr": `${mobilePadding?.right ?? 12}px`,
           "--m-pb": `${mobilePadding?.bottom ?? 0}px`,
           "--m-pl": `${mobilePadding?.left ?? 12}px`,
+          // spaceBetweenTextAndMedia
           "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
+          // spaceBetweenTextAndMediaMobile
           "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
+          // mobile textPadding
           "--t-m-pt": `${text.mobilePadding?.top ?? 0}px`,
           "--t-m-pr": `${text.mobilePadding?.right ?? 0}px`,
           "--t-m-pb": `${text.mobilePadding?.bottom ?? 0}px`,
           "--t-m-pl": `${text.mobilePadding?.left ?? 0}px`,
+          // desktop textPadding
           "--t-d-pt": `${text.desktopPadding?.top ?? 0}px`,
           "--t-d-pr": `${text.desktopPadding?.right ?? 0}px`,
           "--t-d-pb": `${text.desktopPadding?.bottom ?? 0}px`,
@@ -338,15 +387,45 @@ export default function RichText({
               : "")
           }
         >
+          {seeMore && <input id={id} type="checkbox" class="hidden peer" />}
           <div
             style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
             class={
-              "max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6" +
+              " peer-checked:hidden max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6" +
               " pt-[var(--t-m-pt)] pr-[var(--t-m-pr)] pb-[var(--t-m-pb)] pl-[var(--t-m-pl)]" +
               " md:pt-[var(--t-d-pt)] md:pr-[var(--t-d-pr)] md:pb-[var(--t-d-pb)] md:pl-[var(--t-d-pl)]"
             }
             dangerouslySetInnerHTML={{ __html: text.content }}
           />
+          {seeMore && (
+            <>
+              <div
+                style={{
+                  "--d-mw": text.maxWidth,
+                  "--m-mw": text.maxWidthMobile,
+                }}
+                class={
+                  "peer-checked:block hidden max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6" +
+                  " pt-[var(--t-m-pt)] pr-[var(--t-m-pr)] pb-[var(--t-m-pb)] pl-[var(--t-m-pl)]" +
+                  " md:pt-[var(--t-d-pt)] md:pr-[var(--t-d-pr)] md:pb-[var(--t-d-pb)] md:pl-[var(--t-d-pl)]"
+                }
+                dangerouslySetInnerHTML={{ __html: seeMore }}
+              />
+              <label
+                htmlFor={id}
+                class="container w-full peer-checked:[--icon-rotate:-90deg] cursor-pointer flex gap-3 items-center"
+              >
+                <p class="font-bold">Ver mais</p>
+                <Icon
+                  id="ChevronRight"
+                  size={14}
+                  strokeWidth={3}
+                  class="transition-all"
+                  style={{ rotate: "var(--icon-rotate, 0deg)" }}
+                />
+              </label>
+            </>
+          )}
           {linksGrid && (
             <ul
               style={{
@@ -378,17 +457,7 @@ export default function RichText({
           {button === null ? (
             <></>
           ) : isSingleButton(button) ? (
-            <a
-              href={button.href}
-              class="text-center py-3 px-4 rounded-md min-w-52"
-              style={{
-                backgroundColor: button.color,
-                color: button.labelColor,
-                alignSelf: HorizontalAlign[button.horizontalAlign],
-              }}
-            >
-              {button.label}
-            </a>
+            <Button {...button} />
           ) : (
             <div
               style={{
@@ -397,28 +466,8 @@ export default function RichText({
               }}
               class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
             >
-              <a
-                href={button.first.href}
-                class="text-center py-3 px-4 rounded-md min-w-52"
-                style={{
-                  backgroundColor: button.first.color,
-                  color: button.first.labelColor,
-                  alignSelf: HorizontalAlign[button.first.horizontalAlign],
-                }}
-              >
-                {button.first.label}
-              </a>
-              <a
-                href={button.second.href}
-                class="text-center py-3 px-4 rounded-md min-w-52"
-                style={{
-                  backgroundColor: button.second.color,
-                  color: button.second.labelColor,
-                  alignSelf: HorizontalAlign[button.second.horizontalAlign],
-                }}
-              >
-                {button.second.label}
-              </a>
+              <Button {...button.first} />
+              <Button {...button.second} />
             </div>
           )}
         </div>
