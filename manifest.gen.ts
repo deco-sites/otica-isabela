@@ -12,7 +12,7 @@ import * as $$$4 from "./loaders/product/productDetails.ts";
 import * as $$$5 from "./loaders/product/productList.ts";
 import * as $$$6 from "./loaders/product/productListiningPage.ts";
 import * as $$$7 from "./loaders/product/suggestions.ts";
-import * as $$$8 from "./loaders/product/testimonials.ts";
+import * as $$$8 from "./loaders/product/testimonials.ts"; 
 import * as $$$9 from "./loaders/product/wishlist.ts";
 import * as $$$10 from "./loaders/store/auth.ts";
 import * as $$$11 from "./loaders/store/newsletter.ts";
