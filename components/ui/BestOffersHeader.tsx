@@ -22,9 +22,9 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
 
         <div class="hidden lg:block">
           <p class="text-white text-l md:text-xl font-bold">As melhores</p>
-          <h1 class="text-white text-3xl md:text-5xl font-bebas-neue">
-            OFERTAS DO DIA
-          </h1>
+          <h2 class="text-white text-3xl md:text-5xl font-bebas-neue uppercase">
+            Ofertas do dia
+          </h2>
         </div>
         <div class="md:min-w-[330px] xl:min-w-[450px]">
           <Stopwatch targetDate={priceValidUntil} type="header" />
