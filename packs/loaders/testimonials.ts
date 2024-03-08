@@ -68,7 +68,7 @@ const loader = async (
       tipo: tipo ?? idproduto ? "produto" : "home",
     }),
     {
-      method: "GET",
+      method: "POST",
       deco: { cache: DECO_CACHE_OPTION },
     },
   );
