@@ -114,6 +114,7 @@ export type NavigationIcons =
   | "ChevronRight"
   | "ChevronUp"
   | "ChevronDown"
+  | "BigChevronDown"
   | "Close"
   | "ArrowDown";
 
