@@ -50,10 +50,7 @@ const verticalAlign = {
 
 export default function Tip({ text, icon, backgroundColor, image }: Props) {
   return (
-    <div
-      style={{ backgroundColor }}
-      class="flex gap-5 container px-10 py-5 rounded items-center flex-wrap"
-    >
+    <div style={{ backgroundColor }} class="container px-10 py-5 rounded">
       <div class="flex gap-5 w-full">
         <Icon
           id={icon.id}
@@ -64,15 +61,15 @@ export default function Tip({ text, icon, backgroundColor, image }: Props) {
             verticalAlign[icon.verticalAlign] ?? "self-start"
           }`}
         />
-        <div
-          style={{
-            width: `calc(100% - ${icon.size}px - 20px)`,
-            wordWrap: "break-word",
-          }}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
+        <div class="flex justify-between gap-3 flex-wrap">
+          <div
+            class="w-fit"
+            style={{ wordWrap: "break-word" }}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+          {image && <Image {...image} />}
+        </div>
       </div>
-      {image && <Image class="mx-auto" {...image} />}
     </div>
   );
 }

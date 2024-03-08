@@ -161,7 +161,10 @@ type NoTag = null;
 type NoLinks = null;
 
 interface Props {
-  text: IText;
+  text: IText & {
+    desktopPadding?: Padding;
+    mobilePadding?: Padding;
+  };
   /**
    * @default 12
    */
@@ -294,11 +297,19 @@ export default function RichText({
           "--d-pb": `${desktopPadding?.bottom ?? 0}px`,
           "--d-pl": `${desktopPadding?.left ?? 0}px`,
           "--m-pt": `${mobilePadding?.top ?? 0}px`,
-          "--m-pr": `${mobilePadding?.right ?? 0}px`,
+          "--m-pr": `${mobilePadding?.right ?? 12}px`,
           "--m-pb": `${mobilePadding?.bottom ?? 0}px`,
-          "--m-pl": `${mobilePadding?.left ?? 0}px`,
+          "--m-pl": `${mobilePadding?.left ?? 12}px`,
           "--d-gap": `${spaceBetweenTextAndMedia ?? 20}px`,
           "--m-gap": `${spaceBetweenTextAndMediaMobile ?? 20}px`,
+          "--t-m-pt": `${text.mobilePadding?.top ?? 0}px`,
+          "--t-m-pr": `${text.mobilePadding?.right ?? 0}px`,
+          "--t-m-pb": `${text.mobilePadding?.bottom ?? 0}px`,
+          "--t-m-pl": `${text.mobilePadding?.left ?? 0}px`,
+          "--t-d-pt": `${text.desktopPadding?.top ?? 0}px`,
+          "--t-d-pr": `${text.desktopPadding?.right ?? 0}px`,
+          "--t-d-pb": `${text.desktopPadding?.bottom ?? 0}px`,
+          "--t-d-pl": `${text.desktopPadding?.left ?? 0}px`,
         }}
         class={
           "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
@@ -314,10 +325,10 @@ export default function RichText({
         ) : null}
         <div
           class={
-            "p-4 md:p-0 flex flex-col gap-3" +
+            "py-4 md:p-0 flex flex-col gap-3" +
             (media
               ? media.position === "right"
-                ? " md:-order-1"
+                ? " -order-1"
                 : ""
               : " col-span-2") +
             (text.verticalAlign === "center"
@@ -329,7 +340,11 @@ export default function RichText({
         >
           <div
             style={{ "--d-mw": text.maxWidth, "--m-mw": text.maxWidthMobile }}
-            class="max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
+            class={
+              "max-w-[var(--m-mw)] md:max-w-[var(--d-mw)] [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6" +
+              " pt-[var(--t-m-pt)] pr-[var(--t-m-pr)] pb-[var(--t-m-pb)] pl-[var(--t-m-pl)]" +
+              " md:pt-[var(--t-d-pt)] md:pr-[var(--t-d-pr)] md:pb-[var(--t-d-pb)] md:pl-[var(--t-d-pl)]"
+            }
             dangerouslySetInnerHTML={{ __html: text.content }}
           />
           {linksGrid && (

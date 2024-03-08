@@ -82,7 +82,7 @@ export default function Institutional({
   return (
     <div>
       <div class="bg-[#efefef] lg:bg-transparent py-5">
-        <ul class="flex items-center gap-1 container text-xs px-4 sm:px-0">
+        <ul class="flex items-center gap-1 container text-xs px-3 sm:px-0">
           <li>
             <a href="/">Home</a>
           </li>
@@ -99,11 +99,11 @@ export default function Institutional({
                 htmlFor="menu"
                 class="cursor-pointer col-start-1 row-start-1 z-10"
               />
-              <div class="container w-full min-h-14 col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4 sm:p-0 justify-between peer-checked:[--icon-rotate:180deg]">
+              <div class="container w-full h-fit min-h-14 col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4 sm:p-0 justify-between peer-checked:[--icon-rotate:90deg]">
                 <h2 class="font-bold">{header}</h2>
                 <Icon
-                  id="ChevronDown"
-                  size={18}
+                  id="ChevronRight"
+                  size={24}
                   strokeWidth={3}
                   class="transition-all"
                   style={{ rotate: "var(--icon-rotate, 0deg)" }}
