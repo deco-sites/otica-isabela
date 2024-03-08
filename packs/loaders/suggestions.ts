@@ -46,7 +46,7 @@ const loader = async (
       })
     }`,
     {
-      method: "POST",
+      method: "GET",
       deco: { cache: DECO_CACHE_OPTION },
     },
   );

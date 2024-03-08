@@ -125,7 +125,7 @@ const getCategoryPageParams = async (
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
-    { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
+    { method: "GET", deco: { cache: DECO_CACHE_OPTION } },
   ).then(
     (categories) =>
       categories.filter(

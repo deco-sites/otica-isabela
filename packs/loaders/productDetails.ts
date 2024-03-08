@@ -36,7 +36,7 @@ const loader = async (
       tipoRetorno: "completo",
     }),
     {
-      method: "POST",
+      method: "GET",
       deco: { cache: DECO_CACHE_OPTION },
     },
   );

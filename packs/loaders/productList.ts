@@ -39,7 +39,7 @@ const loader = async (
       tipoRetorno: "simples",
     }),
     {
-      method: "POST",
+      method: "GET",
       deco,
     },
   );
