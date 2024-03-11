@@ -54,7 +54,7 @@ export default function Background({
     const { mobile, desktop } = props;
 
     return (
-      <div id={id} style={style} class={"relative z-0 " + className}>
+      <div id={id} style={style} class={"relative z-0" + ` ${className ?? ""}`}>
         <Picture preload={preload} class="absolute inset-0 -z-[1]">
           <Source
             src={mobile.src}

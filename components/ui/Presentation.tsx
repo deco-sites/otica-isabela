@@ -54,7 +54,7 @@ export default function ({
           width={mobile.width}
           height={mobile.height}
         />
-        <img src={desktop.src} alt={desktop.alt} class="max-w-[unset]" />
+        <img src={desktop.src} alt={desktop.alt} />
       </Picture>
     </div>
   );
