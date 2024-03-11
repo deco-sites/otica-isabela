@@ -99,6 +99,8 @@ export type ResourceIcons =
  * @description Tipos para ícones de óculos
  */
 export type GlassesIcons =
+  | "Bifocal"
+  | "Progressive"
   | "MenGlassesLg"
   | "MenGlasses"
   | "GlassesAroClosed"
