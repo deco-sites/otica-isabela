@@ -38,6 +38,10 @@ interface Spacing {
    * @default 12
    */
   betweenImageAndContent: number;
+  /**
+   * @default 12
+   */
+  betweenImageAndContentMobile?: number;
 }
 
 interface Style {
@@ -47,6 +51,11 @@ interface Style {
    * @default left
    */
   cardImagePosition: "left" | "right";
+  /**
+   * @title Card text in columns on mobile
+   * @description If true, the card text will be in columns on mobile
+   */
+  cardColOnMobile?: boolean;
 }
 
 interface Props {
@@ -56,9 +65,15 @@ interface Props {
 }
 
 export default function InformationList({ cards, columns, style }: Props) {
-  const { colors, spacing } = style;
+  const { colors, spacing, cardImagePosition, cardColOnMobile } = style;
   const { background } = colors;
-  const { gap, padding, container, betweenImageAndContent } = spacing;
+  const {
+    gap,
+    padding,
+    container,
+    betweenImageAndContent,
+    betweenImageAndContentMobile,
+  } = spacing;
 
   return (
     <div
@@ -67,7 +82,10 @@ export default function InformationList({ cards, columns, style }: Props) {
         "--m-cols": `repeat(${columns.mobile}, minmax(0, 1fr))`,
         "--d-cols": `repeat(${columns.desktop}, minmax(0, 1fr))`,
         "--card-gap": `${betweenImageAndContent}px`,
-        "--card-image-order": style.cardImagePosition === "left" ? "-1" : "2",
+        "--m-card-gap": `${
+          betweenImageAndContentMobile ?? betweenImageAndContent
+        }px`,
+        "--card-image-order": cardImagePosition === "left" ? "-1" : "2",
       }}
     >
       <ul
@@ -81,7 +99,7 @@ export default function InformationList({ cards, columns, style }: Props) {
         }}
       >
         {cards.map((card, index) => (
-          <Card key={index} {...card} />
+          <Card key={index} {...card} columnOnMobile={cardColOnMobile} />
         ))}
       </ul>
     </div>
