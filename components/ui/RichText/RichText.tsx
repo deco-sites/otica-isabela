@@ -163,12 +163,38 @@ const isSingleButton = (
 };
 
 export default function RichText({
-  text,
+  text = {
+    content:
+      "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, at. Quae nam quam vitae doloremque amet. Saepe voluptas adipisci, enim, earum iste vero ab nostrum iusto quam impedit omnis voluptatum!</p>",
+    verticalAlign: "center",
+  },
   seeMore,
-  media,
-  button,
+  media = {
+    desktop: {
+      src: "https://via.placeholder.com/200x100",
+      alt: "Placeholder",
+      width: 200,
+      height: 100,
+    },
+    mobile: {
+      src: "https://via.placeholder.com/100x100",
+      alt: "Placeholder",
+      width: 100,
+      height: 100,
+    },
+    position: "left",
+    tag: null,
+  },
+  button = {
+    color: "#d39d4e",
+    labelColor: "#ffffff",
+    href: "/",
+    style: "filled",
+    horizontalAlign: "left",
+    label: "button",
+  },
   container = false,
-  linksGrid,
+  linksGrid = null,
   spaceBetweenTextAndMedia,
   spaceBetweenTextAndMediaMobile,
   backgroundColor,

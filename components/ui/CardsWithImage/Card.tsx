@@ -6,6 +6,7 @@ import Image from "apps/website/components/Image.tsx";
  */
 export interface Props {
   /**
+   * @title Name
    * @description Organization purpose only
    */
   header: string;

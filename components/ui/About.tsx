@@ -1,6 +1,6 @@
-import { HeaderTitle } from "../components/ui/HeaderTitle.tsx";
-import type { Props as HeaderProps } from "../components/ui/HeaderTitle.tsx";
-import { useSignal } from "@preact/signals";
+import type { Props as HeaderProps } from "./HeaderTitle.tsx";
+import { HeaderTitle } from "./HeaderTitle.tsx";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 interface Props {
   header?: HeaderProps;
@@ -28,12 +28,13 @@ const About = ({
   secondPart,
   shouldShowSeeMoreButton,
 }: Props) => {
-  const showText = useSignal(false);
+  const id = useId();
 
   return (
     <>
       {header ? <HeaderTitle {...header} /> : null}
       <div class="container px-4 lg:px-0">
+        <input type="checkbox" name="see-more" id={id} class="peer hidden" />
         <span
           class="w-full text-start  "
           dangerouslySetInnerHTML={{
@@ -42,21 +43,20 @@ const About = ({
         />
         {secondPart && (
           <>
-            {showText.value && (
-              <span
-                class="w-full text-start my-6 "
-                dangerouslySetInnerHTML={{
-                  __html: secondPart ?? "",
-                }}
-              />
-            )}
+            <span
+              class="w-full text-start my-6 peer-checked:block hidden"
+              dangerouslySetInnerHTML={{
+                __html: secondPart ?? "",
+              }}
+            />
             {shouldShowSeeMoreButton && (
-              <button
-                onClick={() => (showText.value = !showText.value)}
-                class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block"
+              <label
+                htmlFor={id}
+                class="text-white text-xs bg-black px-6 py-3 my-4 rounded-lg inline-block peer-checked:[&>span:nth-child(2)]:hidden [&>span:first-child]:hidden peer-checked:[&>span:first-child]:block cursor-pointer"
               >
-                {showText.value ? "ver menos" : "ver mais"}
-              </button>
+                <span>ver menos</span>
+                <span>ver mais</span>
+              </label>
             )}
           </>
         )}

@@ -165,9 +165,30 @@ function Wrapper({
   );
 }
 
+const contentExample = [
+  {
+    title: "Example",
+    children: [
+      { type: "html" as const, title: "Example", content: "<p>Example</p>" },
+    ],
+  },
+  {
+    title: "Example",
+    children: [
+      { type: "html" as const, title: "Example", content: "<p>Example</p>" },
+    ],
+  },
+  {
+    title: "Example",
+    children: [
+      { type: "html" as const, title: "Example", content: "<p>Example</p>" },
+    ],
+  },
+];
+
 // Good luck to the next developer who will maintain this code
 export default function AccordionGroup({
-  contents = [],
+  contents = contentExample,
   __c,
   style: _style,
 }: Props) {

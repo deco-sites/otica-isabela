@@ -64,7 +64,30 @@ interface Props {
   style: Style;
 }
 
-export default function InformationList({ cards, columns, style }: Props) {
+const card: CardProps = {
+  image: {
+    alt: "Placeholder",
+    height: 100,
+    width: 200,
+    src: "https://via.placeholder.com/200x100",
+  },
+  text: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>",
+};
+
+export default function InformationList({
+  cards = [card, card, card],
+  columns = { desktop: 1, mobile: 1 },
+  style = {
+    cardImagePosition: "left",
+    colors: { background: "#ffffff" },
+    spacing: {
+      betweenImageAndContent: 32,
+      container: true,
+      gap: 32,
+      padding: 0,
+    },
+  },
+}: Props) {
   const { colors, spacing, cardImagePosition, cardColOnMobile } = style;
   const { background } = colors;
   const {

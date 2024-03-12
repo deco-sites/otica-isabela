@@ -53,14 +53,50 @@ interface Props {
   style?: Style;
 }
 
-export default function Cards({ cards, columns, style: style }: Props) {
+const card: ICard = {
+  content: {
+    text: '<p style="text-align:center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>',
+    color: "#000000",
+    onHover: null,
+  },
+  header: {
+    text: '<h2 style="font-size:32px;font-weight:bold">Header</h2>',
+    color: "#000000",
+    onHover: null,
+  },
+  name: "Name",
+  href: "/",
+  icon: {
+    color: "#000000",
+    id: "Bulb",
+    onHover: null,
+    size: 24,
+    strokeWidth: 2,
+  },
+};
+
+const cardsExample: ICard[] = [card, card, card];
+const columnsExample: Columns = { desktop: 3, mobile: 1 };
+
+export default function Cards({
+  cards = cardsExample,
+  columns = columnsExample,
+  style = {
+    gap: 32,
+    backgroundColor: "#f6f6f6",
+    padding: { top: 32, right: 0, bottom: 32, left: 0 },
+    container: true,
+  },
+}: Props) {
   const { container, backgroundColor, ..._style } = style ?? ({} as Style);
 
   return (
     <div style={{ backgroundColor }}>
       <ul
-        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
-          (container ? " container" : "")}
+        class={
+          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
+          (container ? " container" : "")
+        }
         style={{
           ..._style,
           padding: `${_style.padding?.top ?? 0}px ${

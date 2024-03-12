@@ -17,9 +17,19 @@ interface Props {
   showIframe?: boolean;
 }
 
+const image: IImage = {
+  src: "https://fakeimg.pl/600x400",
+  alt: "Fake Image",
+  width: 600,
+  height: 400,
+};
+
 export default function DeferredIframe({
-  thumbnail,
-  iframeUrl,
+  thumbnail = {
+    desktop: image,
+    mobile: image,
+  },
+  iframeUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
   container = true,
   showIframe = false,
 }: Props) {

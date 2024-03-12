@@ -48,7 +48,18 @@ const verticalAlign = {
   bottom: "self-end",
 };
 
-export default function Tip({ text, icon, backgroundColor, image }: Props) {
+export default function Tip({
+  text = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, dignissimos quia rerum ipsum iusto ex ipsam distinctio neque laborum pariatur ut tenetur reprehenderit iure dolor dolorem, beatae vero possimus repellat!</p>",
+  icon = {
+    color: "#2f3136",
+    id: "Bulb",
+    size: 24,
+    strokeWidth: 2,
+    verticalAlign: "middle",
+  },
+  backgroundColor = "#f6f6f6",
+  image,
+}: Props) {
   return (
     <div style={{ backgroundColor }} class="container px-10 py-5 rounded">
       <div class="flex gap-5 w-full">
