@@ -13,7 +13,15 @@ export interface Props {
   videoUrl: string;
 }
 
-export default function Video({ thumbnail, videoUrl }: Props) {
+export default function Video({
+  thumbnail = {
+    alt: "placeholder",
+    height: 400,
+    width: 600,
+    src: "https://fakeimg.pl/600x400",
+  },
+  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+}: Props) {
   const id = useId();
 
   return (

@@ -11,7 +11,23 @@ interface Props {
   coupons: CouponProps[];
 }
 
-export default function CouponList({ header, coupons }: Props) {
+const coupon: CouponProps = {
+  button: {
+    href: "#",
+    label: "Get Coupon",
+  },
+  code: "123456",
+  header: "Coupon",
+  modal: {
+    content: "<p>Modal content</p>",
+    label: "Terms & Conditions",
+  },
+};
+
+export default function CouponList({
+  header = "Header",
+  coupons = [coupon, coupon, coupon],
+}: Props) {
   return (
     <div class="container">
       <div class="p-5 md:px-0 md:py-10">

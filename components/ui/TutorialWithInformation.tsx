@@ -109,12 +109,67 @@ interface Props {
 }
 
 export default function Tutorial({
-  information,
-  tutorial,
-  backgroundColor,
-  dividerColor,
-  invert,
-  spaceBetweenSections,
+  information = {
+    list: [
+      {
+        icon: {
+          id: "Bulb",
+          color: "#ffffff",
+          size: 24,
+          strokeWidth: 2,
+        },
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+      {
+        icon: {
+          id: "Bulb",
+          color: "#ffffff",
+          size: 24,
+          strokeWidth: 2,
+        },
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+      {
+        icon: {
+          id: "Bulb",
+          color: "#ffffff",
+          size: 24,
+          strokeWidth: 2,
+        },
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+    ],
+    spaceBetweenIconAndContent: 12,
+    spaceBetweenInformations: 12,
+    spaceBetweenTextAndInformations: 12,
+    text: "<p style='color:white'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam impedit earum deserunt veniam maiores ex quidem sequi odit blanditiis totam ullam similique suscipit voluptatum nulla, adipisci minus accusamus tenetur labore.</p>",
+  },
+  tutorial = {
+    header: "<h3 style='color:white'>Header</h3>",
+    spaceBetweenCards: 12,
+    spaceBetweenHeaderAndCards: 12,
+    steps: [
+      {
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+      {
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+      {
+        name: "Name",
+        text: "<p style='color:white'>Content</p>",
+      },
+    ],
+  },
+  backgroundColor = "#205589",
+  dividerColor = "#ffffff",
+  invert = false,
+  spaceBetweenSections = 12,
 }: Props) {
   return (
     <div style={{ backgroundColor }}>

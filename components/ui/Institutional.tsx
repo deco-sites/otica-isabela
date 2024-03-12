@@ -63,12 +63,16 @@ export function loader(props: Props, req: Request, ctx: FnContext) {
 }
 
 export default function Institutional({
-  header,
-  breadcrumb,
-  navigations,
-  url,
-  style,
-  isMobile,
+  header = "Instutional",
+  breadcrumb = { href: "/", label: "Institutional" },
+  navigations = [
+    { content: [], href: "/", label: "Home" },
+    { content: [], href: "/", label: "Home" },
+    { content: [], href: "/", label: "Home" },
+  ],
+  url = "/",
+  style = { activeColor: "#d6a35a", color: "#000000" },
+  isMobile = false,
 }: SectionProps<typeof loader>) {
   const path = new URL(url).pathname;
   const { hrefs, navigation } = findNavigationAndParents(navigations, path) ?? {

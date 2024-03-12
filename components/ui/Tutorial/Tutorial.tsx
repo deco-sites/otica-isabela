@@ -50,12 +50,29 @@ export function loader(props: Props, _req: Request, ctx: FnContext) {
   return { ...props, isMobile: ctx.device === "mobile" };
 }
 
+const step: StepProps = {
+  header: "<h3>Step</h3>",
+  text: "<p>Content</p>",
+  icon: {
+    id: "Bulb",
+    size: 24,
+    strokeWidth: 2,
+    verticalAlign: "middle",
+  },
+  isMobile: false,
+};
+
 export default function Tutorial({
-  header,
-  steps,
-  colors,
-  spacing,
-  isMobile,
+  header = "<h2 style='font-weight:bold;font-size:24px;'>Header</h2>",
+  steps = [step, step, step],
+  colors = { cardsBackground: "#f3f4f4", icon: "#2f3136" },
+  spacing = {
+    betweenCards: 32,
+    betweenIconAndContent: 24,
+    betweenTextAndCards: 32,
+    container: true,
+  },
+  isMobile = false,
 }: ReturnType<typeof loader>) {
   const {
     betweenTextAndCards,

@@ -1,9 +1,9 @@
-import { useEffect } from "preact/hooks";
-import intlTelInput from "npm:intl-tel-input";
+import { useSignal } from "@preact/signals";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { effect, useSignal } from "@preact/signals";
 import useModal from "deco-sites/otica-isabela/components/ui/useModal.tsx";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import intlTelInput from "npm:intl-tel-input";
+import { useEffect } from "preact/hooks";
 
 /**
  * @titleBy subject
@@ -25,7 +25,20 @@ interface Props {
   availabilities: Availability[];
 }
 
-export default function ({ title, subjects, availabilities }: Props) {
+const subject: Subject = {
+  subject: "Subject",
+};
+
+const availability: Availability = {
+  availability: "Availability",
+};
+
+export default function ({
+  title = "Title",
+  subjects = [subject, subject, subject],
+  availabilities = [availability, availability, availability],
+}: Props) {
+  // deno-lint-ignore no-explicit-any
   const intl = useSignal({} as Record<string, any>);
   const formErrors = useSignal({
     name: "",
@@ -118,17 +131,6 @@ export default function ({ title, subjects, availabilities }: Props) {
         modalInput.checked = true;
       }, 100);
     }
-
-    // console.log({
-    //   name,
-    //   email,
-    //   phone,
-    //   subject,
-    //   availability,
-    //   message,
-    //   extensions,
-    //   errors: formErrors.value,
-    // });
   }
 
   return (

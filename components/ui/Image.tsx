@@ -52,10 +52,17 @@ interface Props {
   maxWidth?: number;
 }
 
+const image: IImage = {
+  src: "https://fakeimg.pl/600x400",
+  width: 600,
+  height: 400,
+  alt: "Placeholder",
+};
+
 export default function ResponsiveImage({
-  mobile,
-  desktop,
-  tab,
+  mobile = image,
+  desktop = image,
+  tab = null,
   href,
   maxWidth,
   container,

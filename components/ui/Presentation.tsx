@@ -17,12 +17,18 @@ interface Props {
   mobile: IImage;
 }
 
+const image = {
+  src: "https://fakeimg.pl/600x400",
+  width: 600,
+  height: 400,
+  alt: "Placeholder",
+};
+
 export default function ({
-  backgroundColor,
-  text,
-  desktop,
-  mobile,
-  isMobile,
+  backgroundColor = "#f5f5f5",
+  text = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+  desktop = image,
+  mobile = image,
 }: ReturnType<typeof loader>) {
   return (
     <div

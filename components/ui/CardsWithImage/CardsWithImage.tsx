@@ -47,11 +47,22 @@ interface Props {
   spacing: Spacing;
 }
 
+const card: CardProps = {
+  image: {
+    src: "https://via.placeholder.com/150",
+    alt: "Placeholder",
+    width: 150,
+    height: 150,
+  },
+  text: "<h2 style='font-size:24px;font-weight:bold;'>Card</h2><p style='text-align:left;'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur, non reiciendis quos voluptates vero aliquid rerum impedit culpa. Nostrum quia nobis, iure saepe veritatis voluptatem vel facilis nemo magni dolor.</p>",
+  header: "Card",
+};
+
 export default function CardsWithImage({
-  cards,
-  columns,
-  colors,
-  spacing,
+  cards = [card, card, card],
+  columns = { desktop: 3, mobile: 1 },
+  colors = { background: "#ffffff" },
+  spacing = { betweenImageAndContent: 12, container: true, gap: 32 },
 }: Props) {
   const { background } = colors;
   const { container, gap, betweenImageAndContent } = spacing;
