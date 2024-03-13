@@ -244,7 +244,7 @@ export default function AccordionGroup({
                       id="Plus"
                       size={18}
                       strokeWidth={3}
-                      class="text-gray-400"
+                      class="text-gray-400 shrink-0"
                       style={{
                         display: "var(--closed-icon-visibility, block)",
                       }}
@@ -253,7 +253,7 @@ export default function AccordionGroup({
                       id="Minus"
                       size={18}
                       strokeWidth={3}
-                      class="text-gray-400"
+                      class="text-gray-400 shrink-0"
                       style={{ display: "var(--opened-icon-visibility, none)" }}
                     />
                   </>

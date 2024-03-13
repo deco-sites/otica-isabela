@@ -77,21 +77,19 @@ export default function Card({ header, content, icon, href, style }: ICard) {
           ...(onHover && { "--shadow-hover": `${onHover}` }),
         }}
         href={href}
-        class="bg-white md:flex-col flex md:justify-center items-center p-5 transition-all group hover:shadow-[0_0_10px_var(--shadow-hover)]"
+        class="bg-white md:flex-col flex justify-center items-center p-5 transition-all group hover:shadow-[0_0_10px_var(--shadow-hover)]"
       >
         <Icon
           style={{ "--icon-color": icon.color, "--icon-hover": icon.onHover }}
           strokeWidth={icon.strokeWidth}
-          class="text-[var(--icon-color)] group-hover:text-[var(--icon-hover)] transition-all"
+          class="text-[var(--icon-color)] group-hover:text-[var(--icon-hover)] transition-all shrink-0"
           id={icon.id}
           size={icon.size}
         />
-        <Text {...header} />
-        {content && (
-          <div class="hidden md:inline">
-            <Text {...content} />
-          </div>
-        )}
+        <div class="flex flex-col items-start md:items-center justify-center gap-1">
+          <Text {...header} />
+          {content && <Text {...content} />}
+        </div>
       </a>
     </>
   );
