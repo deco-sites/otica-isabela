@@ -46,12 +46,10 @@ export default function SideMenuNavigation({
           return (
             <li class="mt-2">
               <a
-                class={
-                  "hover:text-[var(--color-active)] hover:underline" +
+                class={"hover:text-[var(--color-active)] hover:underline" +
                   (isActive
                     ? " text-[var(--color-active)]"
-                    : " text-[var(--color)]")
-                }
+                    : " text-[var(--color)]")}
                 href={nav.href}
               >
                 {nav.label}

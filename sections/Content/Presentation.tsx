@@ -1,1 +1,1 @@
-export { default, loader } from '$store/components/ui/Presentation.tsx'
+export { default, loader } from "$store/components/ui/Presentation.tsx";

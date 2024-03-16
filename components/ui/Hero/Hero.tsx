@@ -64,7 +64,8 @@ interface Props {
 
 const contentExample: IContent = {
   title: {
-    text: "<h1 style='font-size:32px;font-weight:bold;text-align:center;'>Title</h1><p style='text-align:center;'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>",
+    text:
+      "<h1 style='font-size:32px;font-weight:bold;text-align:center;'>Title</h1><p style='text-align:center;'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>",
     color: "#000000",
     onHover: null,
   },

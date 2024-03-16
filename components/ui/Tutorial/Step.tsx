@@ -44,44 +44,40 @@ export interface Props {
 export default function Step({ icon, header, text, isMobile }: Props) {
   return (
     <li
-      class={
-        "flex gap-[var(--card-gap)] transition-all overflow-clip" +
-        (isMobile ? " flex-col" : "")
-      }
+      class={"flex gap-[var(--card-gap)] transition-all overflow-clip" +
+        (isMobile ? " flex-col" : "")}
     >
-      {isMobile ? (
-        <>
-          <div class="flex gap-3 items-center">
+      {isMobile
+        ? (
+          <>
+            <div class="flex gap-3 items-center">
+              <Icon
+                id={icon.id}
+                size={icon.size}
+                strokeWidth={icon.strokeWidth}
+                class={"text-[var(--icon-color)] shrink-0 " +
+                  `${verticalAlign[icon.verticalAlign] ?? "self-start"}`}
+              />
+              <div dangerouslySetInnerHTML={{ __html: header }} />
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: text }} />
+          </>
+        )
+        : (
+          <>
             <Icon
               id={icon.id}
               size={icon.size}
               strokeWidth={icon.strokeWidth}
-              class={
-                "text-[var(--icon-color)] shrink-0 " +
-                `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
-              }
+              class={"text-[var(--icon-color)] shrink-0 " +
+                `${verticalAlign[icon.verticalAlign] ?? "self-start"}`}
             />
-            <div dangerouslySetInnerHTML={{ __html: header }} />
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: text }} />
-        </>
-      ) : (
-        <>
-          <Icon
-            id={icon.id}
-            size={icon.size}
-            strokeWidth={icon.strokeWidth}
-            class={
-              "text-[var(--icon-color)] shrink-0 " +
-              `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
-            }
-          />
-          <div class="space-y-2">
-            <div dangerouslySetInnerHTML={{ __html: header }} />
-            <div dangerouslySetInnerHTML={{ __html: text }} />
-          </div>
-        </>
-      )}
+            <div class="space-y-2">
+              <div dangerouslySetInnerHTML={{ __html: header }} />
+              <div dangerouslySetInnerHTML={{ __html: text }} />
+            </div>
+          </>
+        )}
     </li>
   );
 }

@@ -21,7 +21,7 @@ export interface IBackgroundImage {
 }
 
 const isBackgroundImage = (
-  backgroud: IBackgroundColor | IBackgroundImage
+  backgroud: IBackgroundColor | IBackgroundImage,
 ): backgroud is IBackgroundImage => {
   return !("color" in backgroud);
 };

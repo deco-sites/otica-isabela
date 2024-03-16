@@ -145,19 +145,19 @@ interface Props {
 }
 
 const isVideo = (
-  media: ResponsiveImageProps | IVideoProps | NoImage
+  media: ResponsiveImageProps | IVideoProps | NoImage,
 ): media is IVideoProps => {
   return media !== null && "videoUrl" in media;
 };
 
 const isImage = (
-  media: ResponsiveImageProps | IVideoProps | NoImage
+  media: ResponsiveImageProps | IVideoProps | NoImage,
 ): media is ResponsiveImageProps => {
   return media !== null && "desktop" in media;
 };
 
 const isSingleButton = (
-  button: ButtonProps | ITwoButtons | NoButton
+  button: ButtonProps | ITwoButtons | NoButton,
 ): button is ButtonProps => {
   return button !== null && "label" in button;
 };
@@ -235,32 +235,26 @@ export default function RichText({
           "--t-d-pb": `${text.desktopPadding?.bottom ?? 0}px`,
           "--t-d-pl": `${text.desktopPadding?.left ?? 0}px`,
         }}
-        class={
-          "grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
+        class={"grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
           " pt-[var(--m-pt)] pr-[var(--m-pr)] pb-[var(--m-pb)] pl-[var(--m-pl)]" +
           " md:pt-[var(--d-pt)] md:pr-[var(--d-pr)] md:pb-[var(--d-pb)] md:pl-[var(--d-pl)]" +
-          (container ? " container" : "")
-        }
+          (container ? " container" : "")}
       >
-        {isVideo(media) ? (
-          <Video {...media} />
-        ) : isImage(media) ? (
-          <ResponsiveImage {...media} />
-        ) : null}
+        {isVideo(media)
+          ? <Video {...media} />
+          : isImage(media)
+          ? <ResponsiveImage {...media} />
+          : null}
         <div
-          class={
-            "py-4 md:p-0 flex flex-col gap-3" +
+          class={"py-4 md:p-0 flex flex-col gap-3" +
             (media
-              ? media.position === "right"
-                ? " -order-1"
-                : ""
+              ? media.position === "right" ? " -order-1" : ""
               : " col-span-2") +
             (text.verticalAlign === "center"
               ? " self-center"
               : text.verticalAlign === "bottom"
               ? " self-end"
-              : "")
-          }
+              : "")}
         >
           {seeMore && <input id={id} type="checkbox" class="hidden peer" />}
           <Content {...text} />
@@ -285,7 +279,8 @@ export default function RichText({
           {linksGrid && (
             <ul
               style={{
-                gridTemplateColumns: `repeat(${linksGrid.columns}, minmax(0, 1fr))`,
+                gridTemplateColumns:
+                  `repeat(${linksGrid.columns}, minmax(0, 1fr))`,
               }}
               class="grid justify-between gap-4 w-full"
             >
@@ -306,26 +301,26 @@ export default function RichText({
                       <span class="underline">{label}</span>
                     </a>
                   </li>
-                )
+                ),
               )}
             </ul>
           )}
-          {button === null ? (
-            <></>
-          ) : isSingleButton(button) ? (
-            <Button {...button} />
-          ) : (
-            <div
-              style={{
-                "--flex-direction": button.flexDirection,
-                "--justify-content": button.justifyContent,
-              }}
-              class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
-            >
-              <Button {...button.first} />
-              <Button {...button.second} />
-            </div>
-          )}
+          {button === null
+            ? <></>
+            : isSingleButton(button)
+            ? <Button {...button} />
+            : (
+              <div
+                style={{
+                  "--flex-direction": button.flexDirection,
+                  "--justify-content": button.justifyContent,
+                }}
+                class="flex items-center gap-3 flex-col md:[flex-direction:var(--flex-direction)] md:[justify-content:var(--justify-content)]"
+              >
+                <Button {...button.first} />
+                <Button {...button.second} />
+              </div>
+            )}
         </div>
       </div>
     </Wrapper>

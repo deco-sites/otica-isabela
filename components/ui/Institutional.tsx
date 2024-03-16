@@ -34,7 +34,7 @@ interface Props {
 
 function findNavigationAndParents(
   navigations: Navigation[],
-  pathname: string
+  pathname: string,
 ): null | { navigation: Navigation; hrefs: string[] } {
   for (const navigation of navigations) {
     if (navigation.href === pathname) {

@@ -25,7 +25,7 @@ export default function CouponListScript() {
           {
             duration: 3000,
             easing: "ease-in-out",
-          }
+          },
         );
       }
       navigator.clipboard.writeText(code);
@@ -41,7 +41,7 @@ export default function CouponListScript() {
       }
 
       const dialog = document.getElementById(
-        modalId
+        modalId,
       ) as HTMLDialogElement | null;
       if (!dialog) {
         return;

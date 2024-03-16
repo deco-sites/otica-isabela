@@ -50,7 +50,8 @@ export default function BreadCrumb({
             class="hover:underline"
             key={index}
             dangerouslySetInnerHTML={{ __html: item.label }}
-          ></li>
+          >
+          </li>
           {index !== items.length - 1 && (
             <li style={{ color: separatorColor }} key={index + "-separator"}>
               <Icon id="ChevronRight" size={separatorSize} strokeWidth={2} />

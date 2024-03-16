@@ -40,17 +40,13 @@ function Wrapper({
 export default function Card({ image, text, href, columnOnMobile }: Props) {
   return (
     <li
-      class={
-        "flex group gap-[var(--m-card-gap)] md:gap-[var(--card-gap)] transition-all overflow-clip" +
-        (columnOnMobile ? " flex-col md:flex-row" : "")
-      }
+      class={"flex group gap-[var(--m-card-gap)] md:gap-[var(--card-gap)] transition-all overflow-clip" +
+        (columnOnMobile ? " flex-col md:flex-row" : "")}
     >
       <Wrapper
         href={href}
-        class={
-          "order-[var(--card-image-order)] shrink-0" +
-          (columnOnMobile ? " self-center" : "")
-        }
+        class={"order-[var(--card-image-order)] shrink-0" +
+          (columnOnMobile ? " self-center" : "")}
       >
         <Image
           class="object-cover rounded-md"

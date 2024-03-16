@@ -36,24 +36,22 @@ export default function ({
 }: ReturnType<typeof loader>) {
   return (
     <div
-      class={
-        "w-[95%] flex flex-col min-[768px]:flex-row justify-center items-center mx-auto gap-y-10 mb-5 min-[768px]:mb-[90px] " +
+      class={"w-[95%] flex flex-col min-[768px]:flex-row justify-center items-center mx-auto gap-y-10 mb-5 min-[768px]:mb-[90px] " +
         (isSmall ? " max-w-[1200px]" : "max-w-[1920px]") +
-        (isMobile && removeTextBgOnMobile ? " max-[768px]:!bg-transparent" : "")
-      }
+        (isMobile && removeTextBgOnMobile
+          ? " max-[768px]:!bg-transparent"
+          : "")}
       style={{
         backgroundColor,
       }}
     >
       <div
         dangerouslySetInnerHTML={{ __html: text }}
-        class={
-          "min-[768px]:w-1/2 min-[768px]:p-5 min-[1000px]:p-20 min-[768px]:text-base max-w-3xl text-sm leading-[1.5] text-black h-full flex flex-col justify-center max-[768px]:items-center max-[768px]:text-center" +
+        class={"min-[768px]:w-1/2 min-[768px]:p-5 min-[1000px]:p-20 min-[768px]:text-base max-w-3xl text-sm leading-[1.5] text-black h-full flex flex-col justify-center max-[768px]:items-center max-[768px]:text-center" +
           " [&_:is(h1,h2)]:text-2xl min-[768px]:[&_:is(h1,h2)]:text-4xl [&_:is(h1,h2)]:mb-3 [&_:is(h1,h2)]:font-semibold [&_:is(h1,h2)]:!leading-[1.1]" +
           " [&_p]:max-w-[450px]" +
           " [&_a:hover]:text-[#d39d4e] [&_a]:underline" +
-          " min-[768px]:[&_p:has(br)]:h-2.5 min-[850px]:[&_p:has(br)]:h-[unset]"
-        }
+          " min-[768px]:[&_p:has(br)]:h-2.5 min-[850px]:[&_p:has(br)]:h-[unset]"}
       />
       <Picture class="min-[768px]:w-1/2">
         <Source

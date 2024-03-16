@@ -72,7 +72,7 @@ function ProductShelf({
 
   for (const variant of hasVariant) {
     const color = variant.additionalProperty?.find(
-      (prop) => prop.propertyID === "color"
+      (prop) => prop.propertyID === "color",
     );
 
     if (color) {
@@ -100,12 +100,10 @@ function ProductShelf({
       <div class="flex gap-2 justify-center items-center">
         {[...colors.values()].map((color) => (
           <button
-            class={
-              "w-[30px] h-[30px] border-2 p-0.5 rounded-full" +
+            class={"w-[30px] h-[30px] border-2 p-0.5 rounded-full" +
               (color.skuId === skuId
                 ? " border-zinc-300"
-                : " border-transparent")
-            }
+                : " border-transparent")}
             key={color.skuId}
             disabled={color.skuId === skuId}
             {...usePartialSection({ props: { skuId: color.skuId } })}
@@ -163,10 +161,8 @@ export default function SingleProductShelf({
   return (
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 container">
       <div
-        class={
-          "flex flex-col gap-3" +
-          (imagePosition === "left" ? " md:order-2" : "")
-        }
+        class={"flex flex-col gap-3" +
+          (imagePosition === "left" ? " md:order-2" : "")}
       >
         <div dangerouslySetInnerHTML={{ __html: text }} />
         {!isMobile && (

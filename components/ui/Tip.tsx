@@ -49,7 +49,8 @@ const verticalAlign = {
 };
 
 export default function Tip({
-  text = "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, dignissimos quia rerum ipsum iusto ex ipsam distinctio neque laborum pariatur ut tenetur reprehenderit iure dolor dolorem, beatae vero possimus repellat!</p>",
+  text =
+    "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, dignissimos quia rerum ipsum iusto ex ipsam distinctio neque laborum pariatur ut tenetur reprehenderit iure dolor dolorem, beatae vero possimus repellat!</p>",
   icon = {
     color: "#2f3136",
     id: "Bulb",
@@ -68,10 +69,8 @@ export default function Tip({
           style={{ color: icon.color }}
           strokeWidth={icon.strokeWidth}
           size={icon.size}
-          class={
-            "flex-shrink-0 " +
-            `${verticalAlign[icon.verticalAlign] ?? "self-start"}`
-          }
+          class={"flex-shrink-0 " +
+            `${verticalAlign[icon.verticalAlign] ?? "self-start"}`}
         />
         <div class="flex justify-between gap-3 flex-wrap">
           <div dangerouslySetInnerHTML={{ __html: text }} />

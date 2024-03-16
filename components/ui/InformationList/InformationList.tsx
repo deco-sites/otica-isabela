@@ -71,7 +71,8 @@ const card: CardProps = {
     width: 200,
     src: "https://via.placeholder.com/200x100",
   },
-  text: "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>",
+  text:
+    "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>",
 };
 
 export default function InformationList({
@@ -112,10 +113,8 @@ export default function InformationList({
       }}
     >
       <ul
-        class={
-          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
-          (container ? " container" : "")
-        }
+        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
+          (container ? " container" : "")}
         style={{
           gap: `${gap}px`,
           padding: `${padding}px`,

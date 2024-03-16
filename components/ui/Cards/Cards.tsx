@@ -55,7 +55,8 @@ interface Props {
 
 const card: ICard = {
   content: {
-    text: '<p style="text-align:center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>',
+    text:
+      '<p style="text-align:center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fuga at? Sit expedita tempora laudantium, sapiente dolorum vitae, facilis nam laborum ex debitis est praesentium aperiam rem, quibusdam quae commodi.</p>',
     color: "#000000",
     onHover: null,
   },
@@ -93,10 +94,8 @@ export default function Cards({
   return (
     <div style={{ backgroundColor }}>
       <ul
-        class={
-          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
-          (container ? " container" : "")
-        }
+        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--d-cols)]" +
+          (container ? " container" : "")}
         style={{
           ..._style,
           padding: `${_style.padding?.top ?? 0}px ${

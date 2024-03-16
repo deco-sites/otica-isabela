@@ -54,7 +54,8 @@ const card: CardProps = {
     width: 150,
     height: 150,
   },
-  text: "<h2 style='font-size:24px;font-weight:bold;'>Card</h2><p style='text-align:left;'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur, non reiciendis quos voluptates vero aliquid rerum impedit culpa. Nostrum quia nobis, iure saepe veritatis voluptatem vel facilis nemo magni dolor.</p>",
+  text:
+    "<h2 style='font-size:24px;font-weight:bold;'>Card</h2><p style='text-align:left;'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur, non reiciendis quos voluptates vero aliquid rerum impedit culpa. Nostrum quia nobis, iure saepe veritatis voluptatem vel facilis nemo magni dolor.</p>",
   header: "Card",
 };
 
@@ -80,17 +81,13 @@ export default function CardsWithImage({
       }}
     >
       <ul
-        class={
-          "grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--t-cols)] lg:grid-cols-[var(--d-cols)] p-5 md:px-0" +
-          (container ? " container" : "")
-        }
+        class={"grid grid-cols-[var(--m-cols)] md:grid-cols-[var(--t-cols)] lg:grid-cols-[var(--d-cols)] p-5 md:px-0" +
+          (container ? " container" : "")}
         style={{
           gap: `${gap}px`,
         }}
       >
-        {cards.map((card, index) => (
-          <Card key={index} {...card} />
-        ))}
+        {cards.map((card, index) => <Card key={index} {...card} />)}
       </ul>
     </div>
   );

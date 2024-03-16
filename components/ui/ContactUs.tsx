@@ -87,10 +87,8 @@ export default function ({
               {card.title}
             </strong>
             <div
-              class={
-                " text-[#646464] text-lg leading-[1.3]" +
-                " [&_strong]:text-black [&_strong]:text-base text-center max-[768px]:ml-auto"
-              }
+              class={" text-[#646464] text-lg leading-[1.3]" +
+                " [&_strong]:text-black [&_strong]:text-base text-center max-[768px]:ml-auto"}
             >
               <div
                 dangerouslySetInnerHTML={{

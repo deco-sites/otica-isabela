@@ -145,7 +145,8 @@ export default function Tutorial({
     spaceBetweenIconAndContent: 12,
     spaceBetweenInformations: 12,
     spaceBetweenTextAndInformations: 12,
-    text: "<p style='color:white'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam impedit earum deserunt veniam maiores ex quidem sequi odit blanditiis totam ullam similique suscipit voluptatum nulla, adipisci minus accusamus tenetur labore.</p>",
+    text:
+      "<p style='color:white'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam impedit earum deserunt veniam maiores ex quidem sequi odit blanditiis totam ullam similique suscipit voluptatum nulla, adipisci minus accusamus tenetur labore.</p>",
   },
   tutorial = {
     header: "<h3 style='color:white'>Header</h3>",
@@ -196,12 +197,10 @@ export default function Tutorial({
           </ul>
         </div>
         <div
-          class={
-            "md:w-1/2" +
+          class={"md:w-1/2" +
             (invert
               ? " mb-[var(--space)] pb-[var(--space)] border-b md:mb-0 md:pb-0 md:border-b-0 md:mr-[var(--space)] md:pr-[var(--space)] md:border-r"
-              : " mt-[var(--space)] pt-[var(--space)] border-t md:mt-0 md:pt-0 md:border-t-0 md:ml-[var(--space)] md:pl-[var(--space)] md:border-l")
-          }
+              : " mt-[var(--space)] pt-[var(--space)] border-t md:mt-0 md:pt-0 md:border-t-0 md:ml-[var(--space)] md:pl-[var(--space)] md:border-l")}
           style={{
             "--space": `${spaceBetweenSections}px`,
             borderColor: dividerColor,

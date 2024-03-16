@@ -120,7 +120,10 @@ function OpenRadioState({ id, index }: { id: string; index: number }) {
 
 function RenderHtml({ content }: { content: string }) {
   return (
-    <div class="px-4 pb-4" dangerouslySetInnerHTML={{ __html: content }} />
+    <div
+      class="px-4 pb-4"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 }
 
@@ -202,18 +205,14 @@ export default function AccordionGroup({
   return (
     <Wrapper {...wrapperProps} isDeep={isDeep}>
       {__cc.map((content, index) =>
-        isHtmlChild(content) ? (
-          <RenderHtml content={content.content} />
-        ) : (
+        isHtmlChild(content) ? <RenderHtml content={content.content} /> : (
           <>
             {/* This is used to close all accordions at once */}
             <CloseRadioState id={id} />
             <div
               key={index}
-              class={
-                "peer-checked/close:[--close-all:hidden] grid grid-rows-[auto_0fr] [&:has(>input[type='radio']:checked)]:grid-rows-[auto_1fr] transition-[grid-template-rows] duration-200 overflow-hidden relative group border-t border-gray-300" +
-                (!isDeep ? " last-of-type:border-b container" : "")
-              }
+              class={"peer-checked/close:[--close-all:hidden] grid grid-rows-[auto_0fr] [&:has(>input[type='radio']:checked)]:grid-rows-[auto_1fr] transition-[grid-template-rows] duration-200 overflow-hidden relative group border-t border-gray-300" +
+                (!isDeep ? " last-of-type:border-b container" : "")}
             >
               {/* This is used to check if our accordion is open or not */}
               <OpenRadioState id={id} index={index} />
@@ -222,8 +221,7 @@ export default function AccordionGroup({
               {/* Open button is visible by default */}
               <OpenButton id={id} index={index} />
               <div
-                class={
-                  "w-full min-h-14 h-fit col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4" +
+                class={"w-full min-h-14 h-fit col-start-1 row-start-1 cursor-pointer flex gap-3 items-center p-4" +
                   (isDeep
                     ? " peer-checked/open:underline md:text-lg text-zinc-800 peer-checked/open:text-black peer-checked/open:font-medium"
                     : " font-medium text-xl") +
@@ -233,47 +231,46 @@ export default function AccordionGroup({
                     ? " peer-checked/open:[--icon-rotate:180deg] justify-between"
                     : style === "alternative 2"
                     ? " peer-checked/open:[--icon-rotate:180deg] justify-start"
-                    : "")
-                }
+                    : "")}
               >
-                {isDeep ? (
-                  <></>
-                ) : style === "default" ? (
-                  <>
+                {isDeep ? <></> : style === "default"
+                  ? (
+                    <>
+                      <Icon
+                        id="Plus"
+                        size={18}
+                        strokeWidth={3}
+                        class="text-gray-400 shrink-0"
+                        style={{
+                          display: "var(--closed-icon-visibility, block)",
+                        }}
+                      />
+                      <Icon
+                        id="Minus"
+                        size={18}
+                        strokeWidth={3}
+                        class="text-gray-400 shrink-0"
+                        style={{
+                          display: "var(--opened-icon-visibility, none)",
+                        }}
+                      />
+                    </>
+                  )
+                  : (
                     <Icon
-                      id="Plus"
+                      id="ChevronDown"
                       size={18}
                       strokeWidth={3}
-                      class="text-gray-400 shrink-0"
-                      style={{
-                        display: "var(--closed-icon-visibility, block)",
-                      }}
+                      class="transition-all order-2 shrink-0"
+                      style={{ rotate: "var(--icon-rotate, 0deg)" }}
                     />
-                    <Icon
-                      id="Minus"
-                      size={18}
-                      strokeWidth={3}
-                      class="text-gray-400 shrink-0"
-                      style={{ display: "var(--opened-icon-visibility, none)" }}
-                    />
-                  </>
-                ) : (
-                  <Icon
-                    id="ChevronDown"
-                    size={18}
-                    strokeWidth={3}
-                    class="transition-all order-2 shrink-0"
-                    style={{ rotate: "var(--icon-rotate, 0deg)" }}
-                  />
-                )}
+                  )}
                 <h2>{content.title}</h2>
               </div>
               <div class="invisible col-start-1 row-start-2 min-h-0 peer-checked/open:visible peer-checked/open:min-h-fit transition-all">
-                {isAccordion(content) ? (
-                  <AccordionGroup __c={content.children} />
-                ) : (
-                  <RenderHtml content={content.content} />
-                )}
+                {isAccordion(content)
+                  ? <AccordionGroup __c={content.children} />
+                  : <RenderHtml content={content.content} />}
               </div>
             </div>
           </>

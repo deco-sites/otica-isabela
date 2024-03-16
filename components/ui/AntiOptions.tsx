@@ -32,53 +32,49 @@ export default function ({
       </h2>
       <p class="text-center mb-11">{description}</p>
       <div class="max-w-[1200px] mx-auto w-[95%]">
-        {isMobile ? (
-          <div class="flex flex-col gap-10">
-            {options.map((chunk) => (
-              <div
-                dangerouslySetInnerHTML={{ __html: chunk }}
-                class={
-                  "px-10" +
-                  " [&_strong]:text-xl [&_strong]:font-medium [&_strong]:leading-none" +
-                  " [&_p]:font-light [&_p:not(:has(:is(strong,a)))]:leading-[1.3]" +
-                  " [&_a]:text-[#d39d4e] [&_a]:text-sm [&_a]:underline [&_a:hover]:text-[#b47d2e]" +
-                  " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"
-                }
-              />
-            ))}
-          </div>
-        ) : (
-          <div class="flex">
-            <div class="flex flex-col w-1/2 border-r border-r-[#b9b9b9]">
-              {left.map((chunk) => (
+        {isMobile
+          ? (
+            <div class="flex flex-col gap-10">
+              {options.map((chunk) => (
                 <div
                   dangerouslySetInnerHTML={{ __html: chunk }}
-                  class={
-                    "min-h-44 px-10" +
+                  class={"px-10" +
                     " [&_strong]:text-xl [&_strong]:font-medium [&_strong]:leading-none" +
                     " [&_p]:font-light [&_p:not(:has(:is(strong,a)))]:leading-[1.3]" +
                     " [&_a]:text-[#d39d4e] [&_a]:text-sm [&_a]:underline [&_a:hover]:text-[#b47d2e]" +
-                    " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"
-                  }
+                    " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"}
                 />
               ))}
             </div>
-            <div class="flex flex-col w-1/2">
-              {right.map((chunk) => (
-                <div
-                  dangerouslySetInnerHTML={{ __html: chunk }}
-                  class={
-                    "min-h-44 pr-10 pl-7 min-[1000px]:pl-[72px]" +
-                    " [&_strong]:text-xl [&_strong]:font-medium [&_strong]:leading-none" +
-                    " [&_p]:font-light [&_p:not(:has(:is(strong,a)))]:leading-[1.3]" +
-                    " [&_a]:text-[#d39d4e] [&_a]:text-sm [&_a]:underline [&_a:hover]:text-[#b47d2e]" +
-                    " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"
-                  }
-                />
-              ))}
+          )
+          : (
+            <div class="flex">
+              <div class="flex flex-col w-1/2 border-r border-r-[#b9b9b9]">
+                {left.map((chunk) => (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: chunk }}
+                    class={"min-h-44 px-10" +
+                      " [&_strong]:text-xl [&_strong]:font-medium [&_strong]:leading-none" +
+                      " [&_p]:font-light [&_p:not(:has(:is(strong,a)))]:leading-[1.3]" +
+                      " [&_a]:text-[#d39d4e] [&_a]:text-sm [&_a]:underline [&_a:hover]:text-[#b47d2e]" +
+                      " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"}
+                  />
+                ))}
+              </div>
+              <div class="flex flex-col w-1/2">
+                {right.map((chunk) => (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: chunk }}
+                    class={"min-h-44 pr-10 pl-7 min-[1000px]:pl-[72px]" +
+                      " [&_strong]:text-xl [&_strong]:font-medium [&_strong]:leading-none" +
+                      " [&_p]:font-light [&_p:not(:has(:is(strong,a)))]:leading-[1.3]" +
+                      " [&_a]:text-[#d39d4e] [&_a]:text-sm [&_a]:underline [&_a:hover]:text-[#b47d2e]" +
+                      " [&_sup]:text-[9px] [&_sup]:relative [&_sup]:-top-2.5"}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
     </div>
   );
