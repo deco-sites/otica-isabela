@@ -1,10 +1,13 @@
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { GetProductProps, ProductData } from "$store/packs/types.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProduct } from "$store/packs/utils/transform.ts";
 import type { Product } from "apps/commerce/types.ts";
-import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
-import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
+import {
+  // DecoRequestInit, 
+  fetchAPI
+} from "apps/utils/fetch.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+// import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 
 /**
  * @title Otica Isabela Dias - Listagem de Produtos
@@ -24,9 +27,9 @@ const loader = async (
     id,
   } = props;
 
-  const deco = somenteCronometrosAtivos || ofertasDia
-    ? undefined
-    : { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"];
+  // const deco = somenteCronometrosAtivos || ofertasDia
+  //   ? undefined
+  //   : { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"];
 
   const productsData = await fetchAPI<ProductData>(
     path.product.getProduct({
@@ -40,7 +43,7 @@ const loader = async (
     }),
     {
       method: "GET",
-      deco,
+      // deco,
     },
   );
 
