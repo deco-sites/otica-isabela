@@ -14,7 +14,7 @@ export const IconLoginLink = (
 ) => {
   const isLogged = !!customer?.customerName;
   return (
-    <a href={"/identificacao"} aria-label="Log in">
+    <a href={"/identificacao"} className="hidden lg:flex" aria-label="Log in">
       <div className="flex gap-x-2 items-center w-max">
         {isLogged && !!customer?.customerImage
           ? (
