@@ -33,7 +33,7 @@ const calculateModalAlignment = (
   const alignment: Record<string, string> = {};
   const childrenLength = filteredChildren.length;
   const modalWidth = childrenLength * navbarModalBaseWidth;
-  const screenWidth = window?.innerWidth ?? 0;
+  const screenWidth = globalThis.innerWidth ?? 0;
 
   alignment[childrenLength >= 2 ? "left" : "marginLeft"] = childrenLength >= 2
     ? `${(screenWidth - modalWidth) / 2}px`
