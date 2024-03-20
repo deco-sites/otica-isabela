@@ -6,7 +6,7 @@ import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useSignal } from "@preact/signals";
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 interface Props {
   reviews: Review[];
@@ -49,10 +49,10 @@ function ImagesModal({ reviews, selected }: Props) {
         onClose={toggleModal}
       >
         <div
-          class="absolute right-0 z-10 bg-black rounded-[10px] p-[10px]"
+          class="absolute right-0 z-10 bg-black rounded-[10px] p-[10px] cursor-pointer"
           onClick={toggleModal}
         >
-          <Icon id="XMark" size={10} class="text-white" />
+          <Icon id="XMark" size={20} class="text-white" />
         </div>
         <div id="image-container" class="relative">
           {selectedReview.value.image

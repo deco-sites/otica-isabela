@@ -1,0 +1,16 @@
+import { useUI } from "deco-sites/otica-isabela/sdk/useUI.ts";
+import type { JSX } from "preact";
+
+export type Props = Omit<JSX.IntrinsicElements["button"], "onClick"> & {
+  modalId: string;
+};
+
+export default function VideoButton({ children, modalId, ...props }: Props) {
+  const { displayVideoModal } = useUI();
+
+  return (
+    <button {...props} onClick={() => (displayVideoModal.value = modalId)}>
+      {children}
+    </button>
+  );
+}

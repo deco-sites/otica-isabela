@@ -10,6 +10,10 @@ export interface Props {
 
   pins: Pin[];
 
+  /**
+   * @title Texto ser exibido
+   * @format html
+   */
   text?: string;
   title?: string;
   link?: {
@@ -100,7 +104,7 @@ export default function ShoppableBanner(props: Props) {
         </figure>
         <div class="card-body">
           <h2 class="card-title">{title}</h2>
-          <p>{text}</p>
+          {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
           <div class="card-actions justify-end">
             <a class="btn btn-primary" href={link?.href}>{link?.text}</a>
           </div>

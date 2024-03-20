@@ -19,6 +19,8 @@ export type AvailableIcons =
  * @description Tipos para ícones de ações
  */
 export type ActionIcons =
+  | "Play"
+  | "Copy"
   | "Minus"
   | "Plus"
   | "Return"
@@ -31,27 +33,19 @@ export type ActionIcons =
  * @title Icones de listas e filtros
  * @description Tipos para ícones de listas e filtros
  */
-export type ListAndFilterIcons =
-  | "Bars3"
-  | "FilterList"
-  | "Ruler";
+export type ListAndFilterIcons = "Bars3" | "FilterList" | "Ruler";
 
 /**
  * @title Icones de comunicação
  * @description Tipos para ícones de comunicação
  */
-export type CommunicationIcons =
-  | "Message"
-  | "Phone"
-  | "ShareButton";
+export type CommunicationIcons = "Message" | "Phone" | "ShareButton";
 
 /**
  * @title Icones de localização
  * @description Tipos para ícones de localização
  */
-export type LocationIcons =
-  | "MapPin"
-  | "Locale";
+export type LocationIcons = "MapPin" | "Locale";
 
 /**
  * @title Icones de avaliação
@@ -59,6 +53,7 @@ export type LocationIcons =
  */
 export type RatingIcons =
   | "Heart"
+  | "AddedHeart"
   | "Star"
   | "RatingStar"
   | "UnfilledRatings"
@@ -85,6 +80,7 @@ export type UtilityIcons =
  * @description Tipos para ícones de recursos
  */
 export type ResourceIcons =
+  | "Bulb"
   | "Truck"
   | "Logo"
   | "User"
@@ -103,6 +99,8 @@ export type ResourceIcons =
  * @description Tipos para ícones de óculos
  */
 export type GlassesIcons =
+  | "Bifocal"
+  | "Progressive"
   | "MenGlassesLg"
   | "MenGlasses"
   | "GlassesAroClosed"
@@ -118,6 +116,7 @@ export type NavigationIcons =
   | "ChevronRight"
   | "ChevronUp"
   | "ChevronDown"
+  | "BigChevronDown"
   | "Close"
   | "ArrowDown";
 

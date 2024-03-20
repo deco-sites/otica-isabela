@@ -9,7 +9,8 @@ import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import Button from "deco-sites/otica-isabela/components/ui/Button.tsx";
 
 export interface Layout {
   basics?: {
@@ -49,11 +50,6 @@ interface Props {
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
 }
-
-const relative = (url: string) => {
-  const link = new URL(url);
-  return `${link.pathname}${link.search}`;
-};
 
 function ProductCard({
   product,
@@ -118,9 +114,9 @@ function ProductCard({
 
       {/* Stopwatch */}
       <a
-        href={url && relative(url)}
+        href={url}
         aria-label="view product"
-        id={imageContainerId}
+        id={`product-card-${productID}-${imageContainerId}`}
       >
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={priceValidUntil} type="card" />
@@ -128,7 +124,7 @@ function ProductCard({
         {isSliderEnabled
           ? (
             <>
-              <Slider class="carousel carousel-center w-full scrollbar-none gap-6">
+              <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px]">
                 {images?.map((image, index) => (
                   <Slider.Item
                     index={index}
@@ -145,7 +141,10 @@ function ProductCard({
                   </Slider.Item>
                 ))}
               </Slider>
-              <SliderJS rootId={imageContainerId} />
+
+              <SliderJS
+                rootId={`product-card-${productID}-${imageContainerId}`}
+              />
             </>
           )
           : (
@@ -161,53 +160,53 @@ function ProductCard({
 
       {/* Name & Description */}
       <div class="flex flex-col items-center mt-[10px]">
-        <a
-          href={url && relative(url)}
-          aria-label="view product"
-          class="contents"
-        >
+        <a href={url} aria-label="view product" class="contents">
           <div class="flex flex-col">
-            <h4 class="font-semibold text-black mb-6 text-lg leading-none h-[50px]">
+            <p class="font-semibold text-black text-lg leading-none h-[50px]">
               {name}
-            </h4>
-            <div class="lg:min-w-[306px] min-h-[42px] mb-[10px]">
-              <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
-                {description?.map(
-                  (property, index) =>
-                    `${property?.value}: ${property?.name}mm ${
-                      index < description.length - 1 ? "/ " : ""
-                    }`,
-                )}
-              </p>
-            </div>
+            </p>
+            {description.length
+              ? (
+                <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
+                  <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
+                    {description?.map(
+                      (property, index) =>
+                        `${property?.value}: ${property?.name}mm ${
+                          index < description.length - 1 ? "/ " : ""
+                        }`,
+                    )}
+                  </p>
+                </div>
+              )
+              : null}
           </div>
         </a>
 
         {/* Available Colors */}
-        <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
-          {availableColors?.map(({ name, url, unitCodes }) => (
-            <li key={unitCodes}>
-              <a href={`produto${url}`} aria-label={name} title={name}>
-                <div
-                  style={{
-                    background: unitCodes.length > 1
-                      ? `linear-gradient(${unitCodes.join(", ")})`
-                      : `${unitCodes[0]}`,
-                  }}
-                  class="mask mask-circle h-5 w-5 bg-secondary mx-2"
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
+        {availableColors.length
+          ? (
+            <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
+              {availableColors?.map(({ name, url, unitCodes }) => (
+                <li key={unitCodes}>
+                  <a href={`/produto${url}`} aria-label={name} title={name}>
+                    <div
+                      style={{
+                        background: unitCodes.length > 1
+                          ? `linear-gradient(${unitCodes.join(", ")})`
+                          : `${unitCodes[0]}`,
+                      }}
+                      class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+          : null}
 
         {/* Price & Discount */}
         <div class="flex justify-center items-center mb-[10px]">
-          <a
-            href={url && relative(url)}
-            aria-label="view product"
-            class="contents"
-          >
+          <a href={url} aria-label="view product" class="contents">
             <div class="flex flex-row  justify-center items-center gap-3 ">
               {discount > 0 && (
                 <span class="line-through font-semibold  text-red-500 text-base">
@@ -221,7 +220,15 @@ function ProductCard({
           </a>
         </div>
 
-        <ToExperimentButton image={experimenterImage!} />
+        {experimenterImage
+          ? <ToExperimentButton image={experimenterImage} />
+          : (
+            <a href={url} class="block w-full">
+              <Button class="text-black bg-transparent rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-white hover:bg-black border border-black">
+                Ver Produto
+              </Button>
+            </a>
+          )}
       </div>
     </div>
   );

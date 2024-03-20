@@ -2,15 +2,28 @@ import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
+import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
+import type { Promotion } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
 import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
+import { AuthData } from "deco-sites/otica-isabela/packs/types.ts";
+import { LoaderReturnType } from "deco/mod.ts";
 
-function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
+interface Props {
+  page: LoaderReturnType<ProductDetailsPage | null>;
+  promotions?: Promotion[];
+  labels?: Record<string, string>;
+  stepLabels?: Record<string, string>;
+  customer: LoaderReturnType<AuthData>;
+}
+
+function ProductInfo(
+  { page, promotions, labels, stepLabels, customer }: Props,
+) {
   const { product, breadcrumbList } = page!;
   const {
     productID,
@@ -47,27 +60,50 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
   );
 
   const currentCategory = breadcrumbList?.itemListElement[0].name;
-  const labels = buttonByCategory?.reduce(
-    (acc: { [key: string]: string }, curr) => {
-      acc[curr.category] = curr.label;
-      return acc;
-    },
-    {},
-  );
 
   const rating = additionalProperty?.find(
     (prop) => prop.propertyID === "rating",
   )?.value;
 
+  const isAllowedToAddLens = additionalProperty?.find(
+    (prop) => prop.propertyID === "isAllowedToAddLens",
+  );
+
+  const isLensWithoutPrescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "isLensWithoutPrescription",
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription",
+  )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
+  const isLentes = product?.category?.includes("Lentes de Contato");
+
+  const handleStepsLabel = () => {
+    if (isLensWithoutPrescription) {
+      return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
+    }
+
+    return stepLabels?.[currentCategory!.toLowerCase()];
+  };
+
+  const stepLabel = handleStepsLabel();
 
   return (
     <>
       {/* Name */}
-      <div class="mb-4 flex items-center justify-between">
-        <span class="w-full font-roboto font-medium text-[17px] text-lg">
-          {name}
-        </span>
+      <div class="mb-4 flex flex-start">
+        <div class="flex flex-col">
+          <span class="w-full font-roboto font-medium text-[17px] text-lg">
+            {name}
+          </span>
+          {lensDescription && (
+            <span class="font-roboto font-medium text-sm">
+              {lensDescription}
+            </span>
+          )}
+        </div>
         <div class="ml-2">
           <WishlistButton
             variant="icon"
@@ -118,7 +154,7 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
           {!!ratingValue && (
-            <a href="#product-review">
+            <a href="#product-review" aria-label="Veja as avaliações!">
               <Ratings ratingValue={ratingValue} />
             </a>
           )}
@@ -142,25 +178,38 @@ function ProductInfo({ page, promotions, buttonByCategory, customer }: Props) {
       </div>
 
       {/* Experimenter */}
-      <div class="mt-4">
-        <ToExperimentButton
-          image={experimenterImage!}
-          variant="filled"
-          size="small"
-        />
-      </div>
+      {!isLentes && experimenterImage
+        ? (
+          <div class="mt-4">
+            <ToExperimentButton
+              image={experimenterImage!}
+              variant="filled"
+              size="small"
+            />
+          </div>
+        )
+        : null}
 
       {/* Choose Lens */}
-      <div class="mt-[11px] w-full">
-        <a href={chooseLensUrl}>
-          <ChooseLensButton {...addToCard} />
-        </a>
-      </div>
+      {stepLabel && isAllowedToAddLens && (
+        <div class="mt-[11px] w-full">
+          <ChooseLensButton
+            {...addToCard}
+            text={stepLabel}
+            chooseLensUrl={chooseLensUrl}
+          />
+        </div>
+      )}
 
       {/* Add To Cart & Whislist */}
-      <div class="mt-[11px] w-full flex items-center">
-        <AddToCartButton {...addToCard} label={labels?.[currentCategory!]} />
-      </div>
+      {!isLentes && (
+        <div class="mt-[11px] w-full flex items-center">
+          <AddToCartButton
+            {...addToCard}
+            label={labels?.[currentCategory!.toLowerCase()]}
+          />
+        </div>
+      )}
 
       {/* Analytics Event */}
       <SendEventOnLoad

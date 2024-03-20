@@ -23,6 +23,8 @@ function WhatsApp({ image, link }: Props) {
         height={50}
         src={image ?? ""}
         alt="WhatsApp"
+        loading="eager"
+        preload
       />
     </a>
   );

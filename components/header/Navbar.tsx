@@ -30,7 +30,7 @@ function Navbar({
     <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
       <div class="container flex flex-col justify-center items-center w-full p-6 pb-0   ">
         <div
-          class={`flex flex-row justify-between items-center  w-full ${
+          class={`flex flex-row justify-between items-center w-full relative ${
             navBarSpace ? "gap-1 mb-2 lg:gap-3 lg:mb-4" : "gap-3 mb-4"
           }`}
         >
@@ -58,7 +58,7 @@ function Navbar({
               navBarSpace ? "max-w-1/2" : "max-w-1/4"
             }`}
           >
-            <Searchbar {...searchbar} />
+            <Searchbar {...searchbar} device="desktop" />
           </div>
 
           <div
@@ -79,7 +79,7 @@ function Navbar({
             navBarSpace ? "mb-4" : "mb-8"
           }`}
         >
-          <Searchbar {...searchbar} />
+          <Searchbar {...searchbar} device="mobile" />
         </div>
 
         <div

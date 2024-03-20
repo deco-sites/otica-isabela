@@ -12,6 +12,7 @@ export interface Options {
    */
   name: string;
   navigateToCart?: boolean;
+  chooseLensUrl?: string;
 }
 
 export const useAddToCart = ({
@@ -20,6 +21,7 @@ export const useAddToCart = ({
   price,
   name,
   navigateToCart = false,
+  chooseLensUrl,
 }: Options) => {
   const isAddingToCart = useSignal(false);
 
@@ -27,6 +29,7 @@ export const useAddToCart = ({
 
   const onClick = useCallback(
     async (e: MouseEvent) => {
+      e.preventDefault();
       e.stopPropagation();
 
       try {
@@ -52,6 +55,10 @@ export const useAddToCart = ({
         });
       } finally {
         isAddingToCart.value = false;
+        if (chooseLensUrl && chooseLensUrl !== "") {
+          window.location.href = chooseLensUrl;
+        }
+
         if (navigateToCart) {
           window.location.href = "/carrinho";
         }

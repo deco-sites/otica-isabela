@@ -19,7 +19,7 @@ export interface Props {
   offset: number;
 }
 
-export const cache = "stale-while-revalidate";
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Busca de Produtos
@@ -46,7 +46,7 @@ const loader = async (
       })
     }`,
     {
-      method: "POST",
+      method: "GET",
       deco: { cache: DECO_CACHE_OPTION },
     },
   );

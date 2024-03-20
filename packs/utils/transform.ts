@@ -50,6 +50,10 @@ interface ToAdditionalPropertiesProps {
   rating: number;
   panels?: Panels[];
   flag?: string;
+  measurementsImg: string;
+  isAllowedToAddLens: boolean;
+  isLensWithoutPrescription: boolean;
+  lensDescription: string;
 }
 
 interface ToOfferProps {
@@ -99,6 +103,10 @@ export function toProduct(product: IsabelaProduct): Product {
     OfertaFlag,
     ValorParcelamento,
     Avaliacoes,
+    ImagemMedidas,
+    PodeAdicionarLente,
+    LentesContatoSemGrau,
+    FraseLentesContato,
   } = product;
 
   const isVariantOf = product.ProdutosMaisCores
@@ -110,7 +118,7 @@ export function toProduct(product: IsabelaProduct): Product {
     productID: `${IdProduct}`,
     url: toUrl(UrlFriendlyColor),
     name: Nome.trim(),
-    category: toCategory([NomeCategoriaPai, NomeCategoria]),
+    category: toCategory([NomeCategoriaPai.trim(), NomeCategoria.trim()]),
     sku: `${IdSku}`,
     description: Paineis?.find((p) => p.IdTipoPainel == 11)?.Descricao ??
       DescricaoSeo,
@@ -118,10 +126,14 @@ export function toProduct(product: IsabelaProduct): Product {
     additionalProperty: toAdditionalProperties({
       properties: Classificacoes,
       variants: ProdutosMaisCores,
-      experimentador: ImagemExperimentador,
+      experimentador: ImagemExperimentador?.replace("www.", "secure."),
       panels: Paineis,
       flag: OfertaFlag,
       rating: Avaliacoes,
+      measurementsImg: ImagemMedidas,
+      isAllowedToAddLens: PodeAdicionarLente,
+      isLensWithoutPrescription: LentesContatoSemGrau,
+      lensDescription: FraseLentesContato,
     }),
     isVariantOf,
     offers: toAggregateOffer({
@@ -155,9 +167,7 @@ const toCategory = (category: Array<string>) =>
     .map((word) => (word.endsWith(" ") ? word.slice(0, -1) : word))
     .join(">");
 
-const toUrl = (UrlFriendlyColor: string) =>
-  new URL(UrlFriendlyColor, "https://secure.oticaisabeladias.com.br/produto/")
-    .href;
+const toUrl = (UrlFriendlyColor: string) => `/produto/${UrlFriendlyColor}`;
 
 const toImage = (
   imagesFromAPI: Image[],
@@ -171,7 +181,8 @@ const toImage = (
         [
           {
             "@type": "ImageObject" as const,
-            url: `https://secure.oticaisabeladias.com.br${Imagem}`,
+            url: new URL(Imagem, "https://secure.oticaisabeladias.com.br/")
+              .href,
             alternateName,
             additionalType: "image",
           },
@@ -190,7 +201,17 @@ const toImage = (
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps,
 ): PropertyValue[] => {
-  const { properties, panels, experimentador, flag, rating } = props;
+  const {
+    properties,
+    panels,
+    experimentador,
+    flag,
+    rating,
+    measurementsImg,
+    isAllowedToAddLens,
+    isLensWithoutPrescription,
+    lensDescription,
+  } = props;
 
   return [
     ...toProductColorAdditionalProperties(properties),
@@ -213,6 +234,60 @@ const toAdditionalProperties = (
       { id: "rating", value: String(rating.toFixed(1)) },
       { id: "flag", value: flag },
     ]),
+    ...toMeasurementsImgAdditionalProperties(measurementsImg),
+    ...toIsAllowedToAddLens(isAllowedToAddLens),
+    ...toIsLensWithoutPrescription(isLensWithoutPrescription),
+    ...toLensDescription(lensDescription),
+  ];
+};
+
+const toLensDescription = (lensDescription: string): PropertyValue[] => {
+  if (!lensDescription) return [];
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Descrição Lentes",
+      value: lensDescription,
+      propertyID: "lensDescription",
+    },
+  ];
+};
+
+const toIsLensWithoutPrescription = (
+  toIsLensWithoutPrescription: boolean,
+): PropertyValue[] => {
+  if (!toIsLensWithoutPrescription) return [];
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Lens sem grau",
+      value: String(toIsLensWithoutPrescription),
+      propertyID: "isLensWithoutPrescription",
+    },
+  ];
+};
+
+const toIsAllowedToAddLens = (isAllowedToAddLens: boolean): PropertyValue[] => {
+  if (!isAllowedToAddLens) return [];
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Pode Adicionar Lentes",
+      propertyID: "isAllowedToAddLens",
+    },
+  ];
+};
+
+const toMeasurementsImgAdditionalProperties = (
+  imgUrl: string,
+): PropertyValue[] | [] => {
+  return [
+    {
+      "@type": "PropertyValue" as const,
+      name: "Imagem Medidas",
+      value: imgUrl,
+      propertyID: "measurementsImg",
+    },
   ];
 };
 
@@ -266,7 +341,10 @@ const toVariantProduct = (
     const { ValorOriginal, ValorDesconto, OfertaTermina } = variant;
     return {
       "@type": "Product" as const,
-      category: toCategory([master.NomeCategoriaPai, master.NomeCategoria]),
+      category: toCategory([
+        master.NomeCategoriaPai.trim(),
+        master.NomeCategoria.trim(),
+      ]),
       productID: `${variant.IdProduct}`,
       url: toUrl(variant.UrlFriendlyColor),
       name: variant.Nome.trim(),
@@ -379,17 +457,17 @@ const toBreadcrumbList = (
   const categories = !NomeCategoriaPai
     ? [
       {
-        name: NomeCategoria,
+        name: NomeCategoria.trim(),
         url: UrlFriendlyCategoriaPai,
       },
     ]
     : [
       {
-        name: NomeCategoriaPai,
+        name: NomeCategoriaPai.trim(),
         url: UrlFriendlyCategoriaPai,
       },
       {
-        name: NomeCategoria,
+        name: NomeCategoria.trim(),
         url: UrlFriendlyCategoria,
       },
     ];
@@ -537,21 +615,18 @@ const searchPageProps = (url: URL, term?: string): PLPPageProps => {
 const groupPageFilters = (
   filtersApi: APIDynamicFilters[],
 ): APIDynamicFilters[][] => {
-  const orderedFilters: APIDynamicFilters[][] = [];
-  const actualFilter: APIDynamicFilters[] = [];
+  return filtersApi.reduce<APIDynamicFilters[][]>((acc, filter) => {
+    const accIndex = acc.findIndex((aux) =>
+      aux.some((item) => item.IdTipo === filter.IdTipo)
+    );
 
-  filtersApi.forEach((filter) => {
-    const { IdTipo } = filter;
-    if (!actualFilter.length || actualFilter[0].IdTipo === IdTipo) {
-      actualFilter.push(filter);
-    } else {
-      orderedFilters.push([...actualFilter]);
-      actualFilter.splice(0, actualFilter.length);
-      actualFilter.push(filter);
+    if (acc[accIndex]) {
+      acc[accIndex].push(filter);
+      return acc;
     }
-  });
 
-  return orderedFilters;
+    return [...acc, [filter]];
+  }, []);
 };
 
 const toToggleFilterValues = (
@@ -613,8 +688,8 @@ const toPageInfo = (
   }
 
   return {
-    nextPage: hasNextPage ? `?${nextPage}` : undefined,
-    previousPage: hasPreviousPage ? `?${previousPage}` : undefined,
+    nextPage: hasNextPage ? `?${nextPage.toString()}` : undefined,
+    previousPage: hasPreviousPage ? `?${previousPage.toString()}` : undefined,
     currentPage: Pagina - 1,
     records: Total,
     recordPerPage: Offset,

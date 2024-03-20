@@ -2,7 +2,8 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 import { Review } from "deco-sites/otica-isabela/packs/types.ts";
 
 export interface MembershipBadgeProps {
@@ -166,7 +167,7 @@ const TestimonialItem = ({
 
             <Image
               src={productPhoto}
-              alt={productName}
+              alt={`Imagem-${productName}`}
               width={150}
               height={60}
             />

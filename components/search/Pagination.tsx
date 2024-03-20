@@ -9,7 +9,6 @@ export type Props = {
     records?: number;
     recordPerPage?: number;
   };
-  breadcrumb: BreadcrumbList;
 };
 
 interface PageParams {
@@ -17,24 +16,19 @@ interface PageParams {
   href: string;
 }
 
-export default function Pagination({ pageInfo, breadcrumb }: Props) {
+export default function Pagination({ pageInfo }: Props) {
   const { nextPage, previousPage } = pageInfo;
   const firstPage = 1;
   const totalPages = Math.ceil(
     Number(pageInfo?.records) / Number(pageInfo?.recordPerPage),
   );
   const moreThanSevenPages = totalPages > firstPage + 6;
-  const pageParams = breadcrumb.itemListElement.length
-    ? new URL(breadcrumb.itemListElement.pop()!.item).searchParams
-    : new URLSearchParams();
+  const pageParams = new URLSearchParams(nextPage ?? previousPage);
 
   const eachPageParams: PageParams[] = Array.from(
     { length: Number(totalPages) },
     (_value, i) => {
-      pageParams.set(
-        "page",
-        `${i + 1}`,
-      );
+      pageParams.set("page", `${i + 1}`);
       return {
         page: i + 1,
         href: pageParams.toString(),
@@ -47,8 +41,6 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
   const lastPage = totalPages;
   const shouldRenderFirstPage = currentPage >= 3;
   const shouldRenderLastPage = lastPage !== -1 && currentPage <= lastPage - 2;
-  const shouldRenderFirstSpread = currentPage >= firstPage + 3;
-  const shouldRenderSecondSpread = currentPage <= lastPage - 3;
 
   function SimplePagination() {
     return (
@@ -84,17 +76,12 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
             {firstPage}
           </a>
         )}
-        {shouldRenderFirstSpread && (
-          <div class="w-10 h-10 text-black flex items-center justify-center text-xl font-bold">
-            ...
-          </div>
-        )}
         {previousPage && (
           <a
             aria-label="pagina anterior"
             rel="prev"
             href={previousPage}
-            class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
+            class="flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {prevPageNumber}
           </a>
@@ -107,15 +94,10 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
             aria-label="proxima pagina"
             rel="next"
             href={nextPage}
-            class="hidden sm:flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
+            class="flex w-10 h-10 border text-black border-black rounded-[9px] items-center justify-center text-sm font-bold"
           >
             {nextPageNumber}
           </a>
-        )}
-        {shouldRenderSecondSpread && (
-          <div class="w-10 h-10 text-black flex items-center justify-center text-xl font-bold">
-            ...
-          </div>
         )}
         {shouldRenderLastPage && (
           <a
@@ -141,9 +123,14 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
           rel="prev"
           href={previousPage}
           disabled={!previousPage}
-          class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
+          class="w-10 h-10 border bg-blue-200 rounded-[9px] flex items-center justify-center text-sm font-bold"
         >
-          <Icon id="ChevronLeft" size={20} strokeWidth={3} />
+          <Icon
+            id="ChevronLeft"
+            size={20}
+            strokeWidth={3}
+            style={{ color: "white" }}
+          />
         </a>
       )}
       {!moreThanSevenPages ? <SimplePagination /> : <PaginationWithSpread />}
@@ -152,13 +139,14 @@ export default function Pagination({ pageInfo, breadcrumb }: Props) {
           aria-label="proxima pagina"
           rel="next"
           href={nextPage}
-          class="w-10 h-10 text-blue-200 rounded-full flex items-center justify-center text-sm font-bold"
+          class="w-10 h-10 border bg-blue-200 rounded-[9px] flex items-center justify-center text-sm font-bold"
         >
           <Icon
             id="ChevronLeft"
             size={20}
             strokeWidth={3}
             class={"rotate-180"}
+            style={{ color: "white" }}
           />
         </a>
       )}

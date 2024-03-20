@@ -13,7 +13,8 @@ import WishlistButton from "deco-sites/otica-isabela/components/wishlist/Wishlis
 import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
-import { useId } from "preact/hooks";
+import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
@@ -39,9 +40,14 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   });
 };
 
-function Details(
-  { page, promotions, buttonByCategory, customer, mobileOptions }: Props,
-) {
+function Details({
+  page,
+  promotions,
+  buttonByCategory,
+  stepButtonByCategory,
+  customer,
+  mobileOptions,
+}: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const {
@@ -75,7 +81,14 @@ function Details(
   const currentCategory = breadcrumbList?.itemListElement[0].name;
   const labels = buttonByCategory?.reduce(
     (acc: { [key: string]: string }, curr) => {
-      acc[curr.category] = curr.label;
+      acc[curr.category.toLowerCase()] = curr.label;
+      return acc;
+    },
+    {},
+  );
+  const stepLabels = stepButtonByCategory?.reduce(
+    (acc: { [key: string]: string }, curr) => {
+      acc[curr.category.toLowerCase()] = curr.label;
       return acc;
     },
     {},
@@ -93,7 +106,20 @@ function Details(
     (prop) => prop.propertyID === "rating",
   )?.value;
 
+  const isAllowedToAddLens = additionalProperty?.some(
+    (prop) => prop.propertyID === "isAllowedToAddLens",
+  );
+
+  const isLensWithoutPrescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "isLensWithoutPrescription",
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription",
+  )?.value;
+
   const ratingValue = rating ? parseFloat(rating) : 0;
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
   return (
     <>
@@ -134,23 +160,33 @@ function Details(
         </div>
 
         {/* Ratings - Mobile (Header) */}
-        {!!ratingValue && starsLocation === "Header" &&
+        {!!ratingValue &&
+          starsLocation === "Header" &&
           discountTagLocation !== "Header" && (
-          <a href="#product-review">
+          <a href="#product-review" aria-label="Veja as avaliações!">
             <Ratings ratingValue={ratingValue} />
           </a>
         )}
-        <ToExperimentButton
-          image={experimenterImage!}
-          variant="filled"
-          size="tiny"
-        />
+        {!isLentes && experimenterImage
+          ? (
+            <ToExperimentButton
+              image={experimenterImage!}
+              variant="filled"
+              size="tiny"
+            />
+          )
+          : null}
       </div>
 
       {/* Product Name - Mobile (Header) */}
       {nameLocation === "Header" && (
-        <div class="mt-4 text-center px-8 lg:hidden">
+        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
           <span class="font-roboto font-normal text-lg">{name}</span>
+          {lensDescription && (
+            <span class="font-roboto font-medium text-sm">
+              {lensDescription}
+            </span>
+          )}
         </div>
       )}
 
@@ -195,82 +231,94 @@ function Details(
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
-              <div class="mt-4 text-center px-8 lg:hidden">
+              <div class="mt-4 mb-4 text-center px-8 lg:hidden flex flex-col">
                 <span class="font-roboto font-normal text-lg">{name}</span>
+                {lensDescription && (
+                  <span class="font-roboto font-medium text-sm">
+                    {lensDescription}
+                  </span>
+                )}
               </div>
             )}
 
             {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && discountTagLocation !== "Header" &&
-              (
-                <span
-                  class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+            {discount > 0 && discountTagLocation !== "Header" && (
+              <span
+                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
                   right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
-                    mobileOptions!.discountTagLocation === "Image Bottom"
-                      ? "bottom-20"
-                      : "top-2"
-                  }`}
-                >
-                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-                </span>
-              )}
+                  mobileOptions!.discountTagLocation === "Image Bottom"
+                    ? "bottom-20"
+                    : "top-2"
+                }`}
+              >
+                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+              </span>
+            )}
           </div>
 
           {/* Buy with lens label */}
           {promotion && (
             <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
-              {promotion.flagText.replace("%value", price!.toString())}
+              {promotion.flagText.replace(
+                "%value",
+                formatPrice(price, offers!.priceCurrency!)!,
+              )}
             </div>
           )}
           {/* Dots - Mobile & Desktop */}
-          {showProductTumbnails === true
-            ? (
-              <ul
-                id="image-dots"
-                class="w-[90%] lg:mt-2 flex overflow-auto lg:max-w-[540px] gap-1"
-              >
-                {images.map((img, index) => (
-                  <li class="min-w-[92px] flex items-center px-1 bg-white border-black">
-                    <Slider.Dot index={index}>
-                      <Image
-                        class="group-disabled:border-base-300"
-                        width={92}
-                        height={92}
-                        src={img.additionalType === "video"
-                          ? img?.image?.[0].url!
-                          : img.url!}
-                        alt={img.alternateName}
-                        loading="lazy"
-                      />
-                    </Slider.Dot>
-                  </li>
-                ))}
-              </ul>
-            )
-            : (
-              <>
-                <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
-                  <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-                </Slider.PrevButton>
-                <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
-                  <Icon size={20} id="ChevronRight" strokeWidth={3} />
-                </Slider.NextButton>
-              </>
-            )}
+          <div class="relative">
+            <ul
+              id="image-dots"
+              class={`carousel carousel-center w-[90%] lg:mt-2 flex lg:max-w-[540px] gap-1 mx-auto ${
+                showProductTumbnails ? "" : "max-lg:hidden"
+              }`}
+            >
+              {images.map((img, index) => (
+                <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
+                  <Slider.Dot index={index}>
+                    <Image
+                      class="group-disabled:border-base-300"
+                      width={92}
+                      height={92}
+                      src={img.additionalType === "video"
+                        ? img?.image?.[0].url!
+                        : img.url!}
+                      alt={img.alternateName}
+                      loading="lazy"
+                    />
+                  </Slider.Dot>
+                </li>
+              ))}
+            </ul>
+            <Slider.PrevButton class="hidden lg:block absolute left-0 top-[40%]">
+              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+            </Slider.PrevButton>
+            <Slider.NextButton class="hidden lg:block absolute right-0 top-[40%]">
+              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+            </Slider.NextButton>
+          </div>
+          <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
+            <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+          </Slider.PrevButton>
+          <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
+            <Icon size={20} id="ChevronRight" strokeWidth={3} />
+          </Slider.NextButton>
         </div>
 
         {/* Ratings - Mobile (Bottom) */}
         {!!ratingValue &&
-          (starsLocation === "Bottom" ||
-            discountTagLocation === "Header") &&
-          (
-            <div class="flex flex-col items-center my-8 lg:hidden">
-              <a href="#product-review" class="text-center">
-                <Ratings ratingValue={ratingValue} />
-                <p class="text-lg font-bold">Veja as avaliações</p>
-              </a>
-            </div>
-          )}
+          (starsLocation === "Bottom" || discountTagLocation === "Header") && (
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <a
+              href="#product-review"
+              class="text-center"
+              aria-label="Veja as avaliações!"
+            >
+              <Ratings ratingValue={ratingValue} />
+              <p class="text-lg font-bold">Veja as avaliações</p>
+            </a>
+          </div>
+        )}
 
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
@@ -309,13 +357,19 @@ function Details(
           chooseLensUrl={chooseLensUrl}
           addToCard={addToCard}
           labels={labels}
+          stepLabels={stepLabels}
+          isLentes={!!isLentes}
           currentCategory={currentCategory!}
+          isAllowedToAddLens={!!isAllowedToAddLens}
+          isLensWithoutPrescription={isLensWithoutPrescription!}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }
             : {
               type: "Id",
               value: `${
-                displayModalAfter.toLowerCase().replace(/\s+/g, "-")
+                displayModalAfter
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
               }-${id}`,
             }}
         />
@@ -325,9 +379,9 @@ function Details(
           <ProductInfo
             page={page}
             promotions={promotions}
-            buttonByCategory={buttonByCategory}
+            labels={labels}
+            stepLabels={stepLabels}
             customer={customer}
-            mobileOptions={mobileOptions}
           />
         </div>
       </div>

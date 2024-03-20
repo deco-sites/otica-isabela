@@ -51,7 +51,7 @@ function MenuItem({ item }: { item: NavItemProps }) {
 
 function Menu({ items, closeMenu }: Props) {
   return (
-    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4 top-20">
+    <div class="absolute z-50 w-full max-w-xs bg-white rounded-xl pb-4 top-14">
       <ModalOverlay
         ariaLabel="Mobile Menu Overlay"
         backDropAction={closeMenu}

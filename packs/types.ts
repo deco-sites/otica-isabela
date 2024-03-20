@@ -78,6 +78,10 @@ export interface Product {
   UrlFriendlyColor: string;
   Classificacoes: ProductInfo[];
   Avaliacoes: number;
+  ImagemMedidas: string;
+  PodeAdicionarLente: boolean;
+  LentesContatoSemGrau: boolean;
+  FraseLentesContato: string;
 }
 
 export interface ColorVariants {
@@ -172,9 +176,14 @@ export interface GetProductProps {
   filtrosDinamicos?: DynamicFilter[];
 
   /**
-   * @title ApenasPromocoes
+   * @title Apenas Promocoes
    */
   somenteCronometrosAtivos?: boolean;
+
+  /**
+   * @title Exibir produtos de cronometro da Home
+   */
+  ofertasDia?: boolean;
 
   /**
    * @title Ordenação

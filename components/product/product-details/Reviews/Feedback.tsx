@@ -31,6 +31,7 @@ function Feedback(
         <Ratings ratingValue={ratingValue} />
         {memberLevel !== "default" && (
           <Image
+            alt={memberLevel}
             src={imgObj?.[memberLevel as keyof typeof images]!}
             width={50}
             height={50}

@@ -1,5 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import type { FirstBlock as FirstBlockProps } from "./Footer.tsx";
+import type { IFirstBlock as FirstBlockProps } from "./Footer.tsx";
 
 export const FirstBlock = (
   { socialLinks, firstLabel = "", secondLabel = "", hideFirstBlock }:
@@ -22,7 +22,7 @@ export const FirstBlock = (
         </span>
       </div>
       <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-sm ">
-        <a href={instagram}>
+        <a href={instagram} aria-label="Instagram">
           <Icon
             width="50px"
             height="50px"
@@ -30,7 +30,7 @@ export const FirstBlock = (
             style={{ color: "#000000" }}
           />
         </a>
-        <a href={facebook}>
+        <a href={facebook} aria-label="Facebook">
           <Icon
             width="36px"
             height="36px"
@@ -38,7 +38,7 @@ export const FirstBlock = (
             style={{ color: "black" }}
           />
         </a>
-        <a href={youtube}>
+        <a href={youtube} aria-label="Youtube">
           <Icon
             width="49px"
             height="36px"

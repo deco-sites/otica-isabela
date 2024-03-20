@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { AppProps } from "$fresh/server.ts";
 import GlobalTags from "$store/components/GlobalTags.tsx";
 import Theme from "$store/sections/Theme/Theme.tsx";
@@ -7,6 +8,21 @@ const sw = () =>
   addEventListener("load", () =>
     navigator && navigator.serviceWorker &&
     navigator.serviceWorker.register("/sw.js"));
+
+const wasm = () => {
+  globalThis.addEventListener("load", () => {
+    fetch(
+      "/scripts/experimentador/utils/master-tryon.wasm",
+    ).then(async (result) => {
+      (globalThis as any).objWasm = result.clone();
+      await result.arrayBuffer();
+
+      (globalThis as any).arquivosCache = true;
+    }).catch((error) => {
+      (globalThis as any).arquivosCache = true;
+    });
+  });
+};
 
 function App(props: AppProps) {
   return (
@@ -26,6 +42,10 @@ function App(props: AppProps) {
         <script
           type="module"
           dangerouslySetInnerHTML={{ __html: `(${sw})();` }}
+        />
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{ __html: `(${wasm})();` }}
         />
       </SCRIPT_CONTEXT.Provider>
     </>

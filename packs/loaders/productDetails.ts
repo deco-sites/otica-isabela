@@ -11,7 +11,7 @@ export interface Props {
   slug: RequestURLParam;
 }
 
-export const cache = "stale-while-revalidate";
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Detalhes do Produto
@@ -36,7 +36,7 @@ const loader = async (
       tipoRetorno: "completo",
     }),
     {
-      method: "POST",
+      method: "GET",
       deco: { cache: DECO_CACHE_OPTION },
     },
   );

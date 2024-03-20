@@ -1,3 +1,4 @@
+import { Head } from "$fresh/runtime.ts";
 import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
 import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
@@ -15,15 +16,20 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const rootId = "tabs-component";
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
-  );
+  ) ?? [];
+  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
+    product?.category?.includes("Acessórios");
 
-  panels?.unshift(
-    {
+  if (!hasNotMeasures) {
+    panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
       propertyID: "panel",
-    },
+    });
+  }
+
+  panels.unshift(
     {
       "@type": "PropertyValue",
       name: "Descrição",
@@ -34,35 +40,31 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
 
   return (
     <div class="hidden lg:block border-t border-gray-200 mt-8">
-      <style
-        type="text/css"
-        dangerouslySetInnerHTML={{
-          __html: `
-          #descricao-content > div > p:nth-child(1),
-          #descricao-content > div > p:last-child {
-            display: none
-          }
-
-          #descricao-content > div > p {
-            margin: 0 0 10px;
-            font-size: 15px;
-            font-weight: 400;
-          }
-
-          #descricao-content p:nth-child(-n+7) > span {
-            display: flex;
-          }
-
-          .collapse-content p:nth-child(-n+7) > span {
-            display: flex;
-          }
+      <Head>
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{
+            __html: `
+            .descricao-content img {
+              vertical-align: text-bottom;
+            }
+            .descricao-content p * {
+              display: inline;
+            }
+            .descricao-content p {
+              margin-bottom: 10px;
+            }
+            .descricao-content * {
+              line-height: 20px;
+            }
           `,
-        }}
-      />
+          }}
+        />
+      </Head>
       <div id={rootId} class="mt-1 container">
         <div class="tabs w-[90%] mb-2 flex justify-between m-auto">
           {/* Tabs Buttons */}
-          {panels?.map(({ name }, index) => {
+          {panels.filter((panel) => Boolean(panel)).map(({ name }, index) => {
             const id = replaceSpecialCharacters(name!)
               .toLocaleLowerCase()
               .replaceAll(" ", "-")
@@ -124,7 +126,9 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             <div
               id={`${id}-content`}
               key={`${id}-${index}-content`}
-              class={`tab-content ${index === 0 ? "block" : "hidden"}`}
+              class={`tab-content ${id}-content ${
+                index === 0 ? "block" : "hidden"
+              }`}
             >
               <ContentVariations />
             </div>

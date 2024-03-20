@@ -17,8 +17,19 @@ const nameMapping = {
 } as const;
 
 export const getDescriptions = (properties: PropertyValue[]) => {
+  if (!properties.length) return [];
+
   return targetNames.map((name) => {
-    const match = properties.find((prop) => prop?.value?.includes(name));
+    const match = properties.find((prop) => {
+      try {
+        return prop?.value?.includes?.(name);
+      } catch (e) {
+        console.log({ prop });
+        throw new Error(e);
+      }
+    });
+
+    if (!match) return null;
 
     return {
       ...match,
@@ -26,5 +37,5 @@ export const getDescriptions = (properties: PropertyValue[]) => {
         match?.value,
       name: match?.name,
     };
-  });
+  }).filter((item) => Boolean(item));
 };

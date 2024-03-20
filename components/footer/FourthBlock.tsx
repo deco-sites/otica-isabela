@@ -1,4 +1,4 @@
-import type { FourthBlock as FourthBlockProps } from "./Footer.tsx";
+import type { IFourthBlock as FourthBlockProps } from "./Footer.tsx";
 
 export const FourthBlock = (
   { address, socialName, hideFourthBlock }: FourthBlockProps,

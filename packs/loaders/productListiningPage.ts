@@ -35,7 +35,7 @@ type Props = Omit<
   "IdCategoria" | "IdSubCategoria" | "url" | "page" | "tipoRetorno"
 >;
 
-export const cache = "stale-while-revalidate";
+// export const cache = "stale-while-revalidate";
 
 /**
  * @title Otica Isabela Dias - Página de Listagem de Produtos
@@ -92,7 +92,8 @@ const getSearchPageParams = (
   extraParams: Props,
   filtrosDinamicos?: DynamicFilter[],
 ): PLPageParams => {
-  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos } = extraParams;
+  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos, ofertasDia } =
+    extraParams;
 
   return {
     productApiProps: {
@@ -101,6 +102,7 @@ const getSearchPageParams = (
       idColecaoProdutos,
       filtrosDinamicos,
       somenteCronometrosAtivos,
+      ofertasDia,
     },
     plpProps: {
       term: url.searchParams.get("termo") ?? nome,
@@ -118,11 +120,12 @@ const getCategoryPageParams = async (
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
   if (!lastCategorySlug) return null;
 
-  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos } = extraParams;
+  const { nome, id, idColecaoProdutos, somenteCronometrosAtivos, ofertasDia } =
+    extraParams;
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
-    { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
+    { method: "GET", deco: { cache: DECO_CACHE_OPTION } },
   ).then(
     (categories) =>
       categories.filter(
@@ -159,6 +162,7 @@ const getCategoryPageParams = async (
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
       somenteCronometrosAtivos,
+      ofertasDia,
     },
     plpProps: {
       category,

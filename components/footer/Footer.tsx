@@ -6,7 +6,7 @@ import { SecondBlock } from "./SecondBlock.tsx";
 import { ThirdBlock } from "./ThirdBlock.tsx";
 import { FourthBlock } from "./FourthBlock.tsx";
 
-export interface FirstBlock {
+export interface IFirstBlock {
   hideFirstBlock?: boolean;
   firstLabel?: string;
   secondLabel?: string;
@@ -17,12 +17,12 @@ export interface FirstBlock {
   };
 }
 
-export interface SecondBlock {
+export interface ISecondBlock {
   hideSecondBlock?: boolean;
   links?: { label?: string; items?: { label?: string; href?: string }[] }[];
 }
 
-export interface ThirdBlock {
+export interface IThirdBlock {
   hideThirdBlock?: boolean;
   support?: {
     label?: string;
@@ -59,7 +59,7 @@ export interface ThirdBlock {
   };
 }
 
-export interface FourthBlock {
+export interface IFourthBlock {
   hideFourthBlock?: boolean;
   address?: string;
   socialName?: string;
@@ -70,19 +70,19 @@ export interface Props {
   /**
    * @title  Social Section
    */
-  firstBlock?: FirstBlock;
+  firstBlock?: IFirstBlock;
   /**
    * @title  Links Section
    */
-  secondBlock?: SecondBlock;
+  secondBlock?: ISecondBlock;
   /**
    * @title  Commercial Section
    */
-  thirdBlock?: ThirdBlock;
+  thirdBlock?: IThirdBlock;
   /**
    * @title Institutional Section
    */
-  fourthBlock?: FourthBlock;
+  fourthBlock?: IFourthBlock;
 }
 
 function Footer({

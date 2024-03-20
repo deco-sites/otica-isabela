@@ -4,6 +4,7 @@ import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/prod
 import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
 import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
+import { Head } from "$fresh/runtime.ts";
 
 interface Props {
   product: Product;
@@ -15,15 +16,20 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const rootId = "items-container";
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
-  );
+  ) ?? [];
+  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
+    product?.category?.includes("Acessórios");
 
-  panels?.unshift(
-    {
+  if (!hasNotMeasures) {
+    panels.unshift({
       "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
       propertyID: "panel",
-    },
+    });
+  }
+
+  panels.unshift(
     {
       "@type": "PropertyValue",
       name: "Descrição",
@@ -34,20 +40,22 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
   return (
     <div id="specs-mobile" class="border-t border-gray-300 lg:hidden mt-8">
-      <style
-        type="text/css"
-        dangerouslySetInnerHTML={{
-          __html: `
-          .collapse-content iframe {
-            width: 100%;
-          }
+      <Head>
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              .collapse-content iframe {
+                width: 100%;
+              }
 
-          .collapse input[type="checkbox"] {
-            min-height: 45px
-          }
+              .collapse input[type="checkbox"] {
+                min-height: 45px
+              }
           `,
-        }}
-      />
+          }}
+        />
+      </Head>
       <div id={rootId} class="w-[95%] mx-auto mt-2 flex flex-col gap-4">
         {panels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
@@ -87,16 +95,18 @@ function SpecsMobile({ product, measurementsImage }: Props) {
           }
 
           return (
-            <div class="collapse rounded-none">
+            <div class="collapse rounded-none" key={id}>
               {/* Title */}
-              <input type="checkbox" />
+              <input type="checkbox" aria-label={name} />
               <div class="collapse-title rounded-t flex items-center justify-between border border-gray-300 py-[10px] px-[15px] uppercase text-sm min-h-[45px] max-h-[45px]">
                 {name}
                 <Icon id="ArrowDown" size={10} filter="invert(1)" />
               </div>
 
               {/* Content */}
-              <div class="collapse-content border border-t-0 border-gray-300 hide p-0">
+              <div
+                class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0`}
+              >
                 <ContentVariations />
               </div>
             </div>

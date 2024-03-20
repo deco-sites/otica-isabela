@@ -112,7 +112,7 @@ function Result({
       </header>
       {filters.length
         ? (
-          <div class="lg:flex flex-col w-full pt-7 border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+          <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
             <Filters
               filters={filters}
               filterColors={filterColors}
@@ -120,7 +120,7 @@ function Result({
               typeIcons={typeIcons}
               shapeIcons={shapeIcons}
             />
-            <div class="border-t border-base-200 w-full py-[30px]">
+            <div class="border-t border-base-200 w-full py-1">
               <div class="container flex justify-between items-center">
                 <SelectedFilters filters={filters} />
                 <div class="flex gap-4">
@@ -174,7 +174,7 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          <Pagination pageInfo={pageInfo} breadcrumb={breadcrumb} />
+          <Pagination pageInfo={pageInfo} />
         </div>
       </div>
       <SendEventOnLoad
