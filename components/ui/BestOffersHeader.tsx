@@ -8,7 +8,7 @@ interface Props {
 
 export const BestOffersHeader = ({ priceValidUntil }: Props) => {
   return (
-    <div class="w-full lg:hidden bg-red-500">
+    <div class="w-full bg-red-500">
       <div class="container justify-evenly lg:justify-around flex items-center p-2">
         <div class="lg:hidden flex items-center justify-center">
           <Icon

@@ -28,7 +28,7 @@ const config: Config = {
   card: {
     "font-color": "text-red-500",
     "font-size": "text-sm",
-    "offer-fs": "text-xs md:text-sm",
+    "offer-fs": "text-xs lg:text-sm",
     "bold": "",
     "gap": "gap-2",
   },
@@ -55,7 +55,7 @@ export function StopwatchItem({ label, value, type }: ItemProps) {
       </p>
       <p
         id={`item-${label}-label`}
-        class={`${style(["bold"], type)} text-black text-xs md:text-sm }`}
+        class={`${style(["bold"], type)} text-black text-xs lg:text-sm }`}
       >
         {label}
       </p>
@@ -94,7 +94,7 @@ function Stopwatch({ targetDate, type }: Props) {
         class={`flex rounded-md pt-0 pb-0`}
       >
         {type === "card" && (
-          <div class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center">
+          <div class="bg-red-500 text-white px-3 rounded-sm flex items-center justify-center">
             <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}

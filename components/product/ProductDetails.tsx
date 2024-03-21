@@ -7,7 +7,6 @@ import { NotFound } from "deco-sites/otica-isabela/components/product/product-de
 import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
-import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
@@ -85,13 +84,6 @@ function ProductDetails({
   return (
     <>
       <div class="lg:bg-gray-scale-100">
-        {/* Stopwatch */}
-        {priceValidUntil && (
-          <BestOffersHeader
-            priceValidUntil={priceValidUntil!}
-            page={"details"}
-          />
-        )}
         <div class="container py-[20px] lg:py-[40px]">
           {page
             ? (
