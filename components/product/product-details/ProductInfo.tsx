@@ -119,7 +119,7 @@ function ProductInfo(
           <div class="w-full flex justify-center mb-2">
             <Stopwatch
               targetDate={priceValidUntil}
-              type="card"
+              type="details"
             />
           </div>
         )}

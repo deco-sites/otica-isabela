@@ -6,9 +6,11 @@ interface Props {
   page: "home" | "details";
 }
 
-export const BestOffersHeader = ({ priceValidUntil }: Props) => {
+export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
   return (
-    <div class="w-full bg-red-500">
+    <div
+      class={`w-full bg-red-500 ${page === "details" ? "lg:hidden" : "block"}`}
+    >
       <div class="container justify-evenly lg:justify-around flex items-center p-2">
         <div class="lg:hidden flex items-center justify-center">
           <Icon

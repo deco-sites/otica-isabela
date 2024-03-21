@@ -12,6 +12,7 @@ import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
+import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
 
 type ButtonLabel = {
   category: string;
@@ -84,6 +85,13 @@ function ProductDetails({
   return (
     <>
       <div class="lg:bg-gray-scale-100">
+        {/* Stopwatch */}
+        {priceValidUntil && (
+          <BestOffersHeader
+            priceValidUntil={priceValidUntil!}
+            page="details"
+          />
+        )}
         <div class="container py-[20px] lg:py-[40px]">
           {page
             ? (
