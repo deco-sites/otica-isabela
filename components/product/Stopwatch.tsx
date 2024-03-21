@@ -28,14 +28,14 @@ const config: Config = {
   card: {
     "font-color": "text-red-500",
     "font-size": "text-sm",
-    "offer-fs": "text-sm",
-    "bold": "font-bold",
+    "offer-fs": "text-xs md:text-sm",
+    "bold": "",
     "gap": "gap-2",
   },
   header: {
     "font-color": "text-white",
-    "font-size": "text-2xl",
-    "offer-fs": "text-base",
+    "font-size": "text-2xl md:text-4xl",
+    "offer-fs": "text-l md:text-xl",
     "bold": "font-bold",
     "gap": "gap-4",
   },
@@ -55,7 +55,7 @@ export function StopwatchItem({ label, value, type }: ItemProps) {
       </p>
       <p
         id={`item-${label}-label`}
-        class={`${style(["bold"], type)} text-black text-xs }`}
+        class={`${style(["bold"], type)} text-black text-xs md:text-sm }`}
       >
         {label}
       </p>
@@ -86,7 +86,7 @@ function Stopwatch({ targetDate, type }: Props) {
 
   return (
     <div
-      class={`border border-red-500 rounded-md w-auto md:w-full self-center ${
+      class={`border border-red-500 rounded-md w-auto md:w-full max-w-[330px] self-center ${
         type === "card" ? "mb-2" : ""
       }`}
     >
@@ -94,7 +94,7 @@ function Stopwatch({ targetDate, type }: Props) {
         class={`flex rounded-md pt-0 pb-0`}
       >
         {type === "card" && (
-          <div class="bg-red-500 text-white px-8 w-32 rounded-sm flex items-center justify-center">
+          <div class="bg-red-500 text-white px-3 rounded-md flex items-center justify-center">
             <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}
@@ -107,7 +107,7 @@ function Stopwatch({ targetDate, type }: Props) {
             Oferta termina em
           </p>
           <div
-            class={`flex justify-evenly mt-0 mb-0 ml-auto mr-auto md:gap-0 ${
+            class={`flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 ${
               style(["gap"], type)
             }`}
           >
