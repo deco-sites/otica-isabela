@@ -11,7 +11,7 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
     <div
       class={`w-full bg-red-500 ${page === "details" ? "lg:hidden" : "block"}`}
     >
-      <div class="container justify-evenly lg:justify-around flex items-center p-2">
+      <div class="container sm:min-h-[150px] min-h-[100px] justify-evenly lg:justify-around flex items-center pb-0 pl-1 pr-1">
         <div class="lg:hidden flex items-center justify-center">
           <Icon
             class="w-[56px] h-[56px] text-white"
