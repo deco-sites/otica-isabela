@@ -92,7 +92,7 @@ function ProductDetails({
             page={"details"}
           />
         )}
-        <div class="container py-[20px] lg:py-[40px]">
+        <div class="container py-[20px]">
           {page
             ? (
               <Details

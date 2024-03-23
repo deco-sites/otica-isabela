@@ -138,7 +138,7 @@ function Details({
       {/* Breadcrumb - Desktop */}
       <div
         id="breadcrumb"
-        class="block mb-[20px] lg:mb-[40px] text-center md:text-left"
+        class="block mb-[20px] text-center md:text-left"
       >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
@@ -244,7 +244,7 @@ function Details({
             {/* Discount Span - Mobile (Image) & Desktop */}
             {discount > 0 && discountTagLocation !== "Header" && (
               <span
-                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] 
+                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px]
                   right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
                   mobileOptions!.discountTagLocation === "Image Bottom"
                     ? "bottom-20"
