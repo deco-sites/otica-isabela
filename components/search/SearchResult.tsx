@@ -15,6 +15,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import { ISABELA_DIAS_WISHLIST_IDS } from "deco-sites/otica-isabela/packs/constants.ts";
+import { AuthData } from "$store/packs/types.ts";
 
 export type CategoryMenuItem = {
   /** @title Categoria filha */
@@ -83,6 +84,7 @@ export interface Props {
    * @description Obrigatório para paginas de coleção
    */
   pageName?: string;
+  customer: LoaderReturnType<AuthData>;
 }
 
 function NotFound() {
@@ -102,9 +104,11 @@ function Result({
   categories = [],
   isSliderEnabled,
   pageName,
+  customer,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
+  console.log(customer);
 
   return (
     <>

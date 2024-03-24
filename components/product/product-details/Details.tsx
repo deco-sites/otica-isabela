@@ -47,10 +47,8 @@ function Details({
   stepButtonByCategory,
   customer,
   mobileOptions,
-  wishlistIds,
-}: Props & { wishlistIds: string[] }) {
+}: Props) {
   const { product, breadcrumbList } = page!;
-  console.log(wishlistIds)
   const { name, productID, offers, additionalProperty, url, sku } = product;
   const {
     discountTagLocation,
@@ -158,7 +156,7 @@ function Details({
         )}
         <div class="flex items-center">
           <ShareButton link={url!} />
-          <WishlistButton productID={productID} customer={customer} wishlistIds={wishlistIds} />
+          <WishlistButton productID={productID} customer={customer} />
         </div>
 
         {/* Ratings - Mobile (Header) */}
@@ -384,7 +382,6 @@ function Details({
             labels={labels}
             stepLabels={stepLabels}
             customer={customer}
-            wishlistIds={wishlistIds}
           />
         </div>
       </div>

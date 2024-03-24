@@ -13,7 +13,6 @@ import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
-import { ISABELA_DIAS_WISHLIST_IDS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 type ButtonLabel = {
   category: string;
@@ -78,12 +77,10 @@ function ProductDetails({
   stepButtonByCategory,
   customer,
   mobileOptions,
-  wishlistIds
-}: SectionProps<typeof loader> & {wishlistIds: string[]}) {
+}: SectionProps<typeof loader>) {
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
-  console.log(wishlistIds)
   return (
     <>
       <div class="lg:bg-gray-scale-100">
@@ -104,7 +101,6 @@ function ProductDetails({
                 stepButtonByCategory={stepButtonByCategory}
                 customer={customer}
                 mobileOptions={mobileOptions}
-                wishlistIds={wishlistIds}
               />
             )
             : <NotFound />}
@@ -129,8 +125,6 @@ export function loader(props: Props, req: Request, ctx: AppContext) {
   const currentIds: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
 
-  const wishlistIds = cookies?.[ISABELA_DIAS_WISHLIST_IDS]?.split(",") ?? [];
-
   const newIds = currentIds.some((id) => id === productId)
     ? currentIds
     : currentIds.concat([productId]);
@@ -143,7 +137,6 @@ export function loader(props: Props, req: Request, ctx: AppContext) {
 
   return {
     ...props,
-    wishlistIds,
   };
 }
 

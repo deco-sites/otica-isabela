@@ -4,21 +4,19 @@ import { useWishlist } from "$store/packs/hooks/useWishlist.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
 
 interface Props {
   productID: string;
   variant?: "icon" | "full";
   customer?: LoaderReturnType<AuthData>;
-  wishlistIds: string[];
 }
 
 function WishlistButton(
-  { variant = "icon", productID, customer, wishlistIds }: Props,
+  { variant = "icon", productID, customer }: Props,
 ) {
   const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
-  const isAdded = useSignal(wishlistIds.includes(String(productID)));
+  const isAdded = useSignal(customer?.customerWishlist?.includes(String(productID)));
   const isUserLoggedIn = !!customer?.customerName;
 
   return (
