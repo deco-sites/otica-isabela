@@ -12,6 +12,9 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import { getCookies } from "std/http/mod.ts";
+import { ISABELA_DIAS_WISHLIST_IDS } from "deco-sites/otica-isabela/packs/constants.ts";
 
 export type CategoryMenuItem = {
   /** @title Categoria filha */
@@ -198,10 +201,22 @@ function Result({
   );
 }
 
-export const loader = ({ categories = [], ...props }: Props, req: Request) => {
-  const categoryList = categories.find(({ label }) =>
+export const loader = async (props: Props, req: Request, ctx: AppContext) => {
+  const categoryList = props.categories && props.categories.find(({ label }) =>
     new URLPattern({ pathname: label }).test(req.url)
   );
+
+  const isFavoritos = req.url.includes("new-favoritos");
+
+  if (isFavoritos) {
+    const cookies = getCookies(req.headers);
+    const wishlistIds = cookies?.[ISABELA_DIAS_WISHLIST_IDS]?.split(",") ?? [];
+    const wishlistProductsPage = await ctx.invoke(
+      "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+      { id: wishlistIds, ordenacao: "none" },
+    )
+    props.page = wishlistProductsPage;
+  }
 
   return { categories: categoryList?.categoryItems ?? [], ...props };
 };
@@ -212,7 +227,6 @@ function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
     return <NotFound />;
   }
-
   return <Result {...props} page={page} />;
 }
 

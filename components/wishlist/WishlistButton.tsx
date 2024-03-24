@@ -10,24 +10,16 @@ interface Props {
   productID: string;
   variant?: "icon" | "full";
   customer?: LoaderReturnType<AuthData>;
+  wishlistIds: string[];
 }
 
 function WishlistButton(
-  { variant = "icon", productID, customer }: Props,
+  { variant = "icon", productID, customer, wishlistIds }: Props,
 ) {
-  const { loading, addItem, removeItem, wishlist } = useWishlist();
+  const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
-  const isAdded = useSignal(false);
-
+  const isAdded = useSignal(wishlistIds.includes(String(productID)));
   const isUserLoggedIn = !!customer?.customerName;
-
-  useEffect(() => {
-    if (wishlist?.value) {
-      isAdded.value = !!Object.values(wishlist?.value).filter((product) =>
-        product?.IdProduct === Number(productID)
-      )!.length;
-    }
-  }, []);
 
   return (
     <Button

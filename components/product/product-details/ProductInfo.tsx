@@ -21,7 +21,7 @@ interface Props {
 }
 
 function ProductInfo(
-  { page, promotions, labels, stepLabels, customer }: Props,
+  { page, promotions, labels, stepLabels, customer, wishlistIds }: Props & {wishlistIds: string[]},
 ) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
@@ -100,6 +100,7 @@ function ProductInfo(
             variant="icon"
             productID={productID}
             customer={customer}
+            wishlistIds={wishlistIds}
           />
         </div>
       </div>
