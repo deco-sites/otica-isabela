@@ -11,6 +11,9 @@ import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 import Button from "deco-sites/otica-isabela/components/ui/Button.tsx";
+import { AuthData } from "$store/packs/types.ts";
+import type { LoaderReturnType } from "$live/types.ts";
+import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 
 export interface Layout {
   basics?: {
@@ -49,6 +52,7 @@ interface Props {
   itemListName?: string;
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
+  customer?: LoaderReturnType<AuthData>;
 }
 
 function ProductCard({
@@ -57,6 +61,7 @@ function ProductCard({
   itemListName,
   isStopwatchEnabled,
   isSliderEnabled,
+  customer,
 }: Props) {
   const imageContainerId = useId();
 
@@ -116,6 +121,7 @@ function ProductCard({
       <a
         href={url}
         aria-label="view product"
+        class="relative"
         id={`product-card-${productID}-${imageContainerId}`}
       >
         {isStopwatchEnabled && priceValidUntil && (
@@ -155,6 +161,11 @@ function ProductCard({
               discount={discount}
               promotion={promotionFlag}
             />
+          )}
+          {customer && (
+            <div class="absolute top-1/4 left-0 z-30">
+              <WishlistButton productID={productID} customer={customer} />
+            </div>
           )}
       </a>
 

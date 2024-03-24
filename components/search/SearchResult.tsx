@@ -176,6 +176,7 @@ function Result({
             <ProductGallery
               products={products}
               isSliderEnabled={isSliderEnabled}
+              customer={customer}
             />
           </div>
         </div>
