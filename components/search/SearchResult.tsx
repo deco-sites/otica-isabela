@@ -201,8 +201,8 @@ function Result({
   );
 }
 
-export const loader = async (props: Props, req: Request, ctx: AppContext) => {
-  const categoryList = props.categories && props.categories.find(({ label }) =>
+export const loader = async ({ categories = [], ...props }: Props, req: Request, ctx: AppContext) => {
+  const categoryList = categories.find(({ label }) =>
     new URLPattern({ pathname: label }).test(req.url)
   );
 
@@ -221,7 +221,7 @@ export const loader = async (props: Props, req: Request, ctx: AppContext) => {
   return { categories: categoryList?.categoryItems ?? [], ...props };
 };
 
-type ComponentProps = SectionProps<ReturnType<typeof loader>>;
+type ComponentProps = SectionProps<typeof loader>;
 
 function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
