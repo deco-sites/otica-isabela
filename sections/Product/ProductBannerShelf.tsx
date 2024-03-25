@@ -9,6 +9,7 @@ import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
+import { AuthData } from "$store/packs/types.ts";
 
 export interface BannersProps {
   /** @title Identificação do Banner */
@@ -31,6 +32,7 @@ export interface Props {
   banners?: BannersProps[];
   products?: LoaderReturnType<Product[] | null>;
   isStopwatchEnabled?: boolean;
+  customer: LoaderReturnType<AuthData>;
 }
 
 function ProductBannerShelf({
@@ -38,6 +40,7 @@ function ProductBannerShelf({
   banners,
   products,
   isStopwatchEnabled,
+  customer,
 }: Props) {
   const id = `category-list-${useId()}`;
 
@@ -95,6 +98,7 @@ function ProductBannerShelf({
           itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           isStopwatchEnabled={isStopwatchEnabled}
+          customer={customer}
         />
       )}
     </>

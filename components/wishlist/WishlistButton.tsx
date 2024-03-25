@@ -11,19 +11,21 @@ interface Props {
   customer?: LoaderReturnType<AuthData>;
 }
 
-function WishlistButton(
-  { variant = "icon", productID, customer }: Props,
-) {
+function WishlistButton({ variant = "icon", productID, customer }: Props) {
   const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
-  const isAdded = useSignal(customer?.customerWishlist?.includes(String(productID)));
+  const isAdded = useSignal(
+    customer?.customerWishlist?.includes(String(productID))
+  );
   const isUserLoggedIn = !!customer?.customerName;
 
   return (
     <Button
-      class={variant === "icon"
-        ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
-        : "btn-primary btn-outline gap-2"}
+      class={
+        variant === "icon"
+          ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
+          : "btn-primary btn-outline gap-2"
+      }
       loading={fetching.value}
       aria-label="Add to wishlist"
       onClick={async (e) => {
@@ -54,9 +56,11 @@ function WishlistButton(
         }
       }}
     >
-      {isAdded.value === true
-        ? <Icon id="AddedHeart" size={35} strokeWidth={1} />
-        : <Icon id="Heart" size={35} strokeWidth={1} />}
+      {isAdded.value === true ? (
+        <Icon id="AddedHeart" size={35} strokeWidth={1} />
+      ) : (
+        <Icon id="Heart" size={35} strokeWidth={1} />
+      )}
     </Button>
   );
 }
