@@ -7,8 +7,7 @@ const FaqContainer = (
     children?: ComponentChildren;
   },
 ) => {
-  const isDesktop = globalThis.window?.matchMedia?.("(min-width: 984px)")
-    ?.matches;
+  const isDesktop = globalThis.matchMedia?.("(min-width: 984px)")?.matches;
 
   return (
     <div
