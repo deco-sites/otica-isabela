@@ -8,13 +8,13 @@ interface Props {
 
 export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
   return (
-    <div class="w-full bg-red-500">
-      <div
-        class={`container sm:min-h-[150px] min-h-[100px] justify-evenly lg:justify-around flex items-center pb-0 pl-1 pr-1`}
-      >
+    <div
+      class={`w-full bg-red-500 ${page === "details" ? "lg:hidden" : "block"}`}
+    >
+      <div class="container sm:min-h-[150px] min-h-[100px] justify-evenly lg:justify-around flex items-center pb-0 pl-1 pr-1">
         <div class="lg:hidden flex items-center justify-center">
           <Icon
-            class="md:w-[90px] md:h-[90px] sm:w-[60px] sm:h-[60px] text-white"
+            class="w-[56px] h-[56px] text-white"
             id="Stopwatch"
             size={40}
           />
@@ -26,7 +26,7 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
             Ofertas do dia
           </h3>
         </div>
-        <div class="md:min-w-[330px] xl:min-w-[450px]">
+        <div class="md:min-w-[330px] xl:max-w-[500px]">
           <Stopwatch targetDate={priceValidUntil} type="header" />
         </div>
       </div>

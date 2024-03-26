@@ -9,6 +9,7 @@ import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToEx
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
+import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
 import { AuthData } from "deco-sites/otica-isabela/packs/types.ts";
 import { LoaderReturnType } from "deco/mod.ts";
 
@@ -24,7 +25,15 @@ function ProductInfo(
   { page, promotions, labels, stepLabels, customer }: Props,
 ) {
   const { product, breadcrumbList } = page!;
-  const { productID, offers, name, url, additionalProperty, sku } = product;
+  const {
+    productID,
+    offers,
+    name,
+    url,
+    additionalProperty,
+    sku,
+  } = product;
+  const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find(
@@ -103,6 +112,17 @@ function ProductInfo(
           />
         </div>
       </div>
+
+      {/* Stopwatch */}
+      {priceValidUntil &&
+        (
+          <div class="w-full flex justify-center mb-2">
+            <Stopwatch
+              targetDate={priceValidUntil}
+              type="details"
+            />
+          </div>
+        )}
 
       {/* Buy with lens label */}
       {promotion

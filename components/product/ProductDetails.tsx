@@ -7,12 +7,12 @@ import { NotFound } from "deco-sites/otica-isabela/components/product/product-de
 import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
-import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
+import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
 
 type ButtonLabel = {
   category: string;
@@ -89,7 +89,7 @@ function ProductDetails({
         {priceValidUntil && (
           <BestOffersHeader
             priceValidUntil={priceValidUntil!}
-            page={"details"}
+            page="details"
           />
         )}
         <div class="container py-[20px]">
