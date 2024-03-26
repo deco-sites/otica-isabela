@@ -57,9 +57,9 @@ function WishlistButton({ variant = "icon", productID, customer }: Props) {
       }}
     >
       {isAdded.value === true ? (
-        <Icon id="AddedHeart" size={35} strokeWidth={1} />
+        <Icon class="text-blue-200" id="AddedHeart" size={35} strokeWidth={1} />
       ) : (
-        <Icon id="Heart" size={35} strokeWidth={1} />
+        <Icon class="text-blue-200" id="Heart" size={35} strokeWidth={1} />
       )}
     </Button>
   );
