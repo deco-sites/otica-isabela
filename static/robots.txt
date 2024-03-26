@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 
+Disallow: /carrinho
+Disallow: /identificacao
+Disallow: /pagamento
+Disallow: /busca
+
 User-agent: Googlebot
 Allow: /
 
