@@ -115,13 +115,13 @@ function Result({
   customer,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
+  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? (pageName || "");
 
   return (
     <>
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
         <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
-          {productCategory}
+          {productCategory.length > 0 ? productCategory : pageName}
         </h1>
       </header>
       {filters.length ? (
