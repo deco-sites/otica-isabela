@@ -6,6 +6,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import VerticalProductShelf from "$store/components/product/VerticalProductShelf.tsx";
+import { AuthData } from "$store/packs/types.ts";
 
 export interface Props {
   header?: HeaderProps;
@@ -21,6 +22,7 @@ export interface Props {
     mobile: "top" | "bottom";
   };
   isStopwatchEnabled?: boolean;
+  customer: LoaderReturnType<AuthData>;
 }
 
 const ProductShelfAndImage = ({
@@ -29,6 +31,7 @@ const ProductShelfAndImage = ({
   products,
   imageAlign,
   isStopwatchEnabled,
+  customer,
 }: Props) => {
   if (!products || !products?.length) {
     return null;
@@ -56,6 +59,7 @@ const ProductShelfAndImage = ({
               itemsPerPage={{ desktop: 3, mobile: 1.2 }}
               products={products}
               isStopwatchEnabled={isStopwatchEnabled}
+              customer={customer}
             />
           </div>
         </div>

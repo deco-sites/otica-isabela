@@ -8,6 +8,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { AuthData } from "$store/packs/types.ts";
 
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
@@ -17,6 +18,7 @@ export interface Props {
     desktop: number;
   };
   isStopwatchEnabled?: boolean;
+  customer?: LoaderReturnType<AuthData>;
 }
 
 function Buttons() {
@@ -51,6 +53,7 @@ function ProductShelf({
   itemListName,
   itemsPerPage,
   isStopwatchEnabled,
+  customer,
 }: Props) {
   const id = useId();
 
@@ -71,6 +74,7 @@ function ProductShelf({
                 product={product}
                 itemListName={itemListName}
                 isStopwatchEnabled={isStopwatchEnabled}
+                customer={customer}
               />
             </Slider.Item>
           ))}
@@ -101,7 +105,9 @@ function ProductShelf({
         />
 
         <div class="flex flex-row w-full gap-x-3 justify-center items-center sm:py-14 py-10">
-          {products.map((_, index) => <Slider.Dot index={index} />)}
+          {products.map((_, index) => (
+            <Slider.Dot index={index} />
+          ))}
         </div>
       </div>
     </div>

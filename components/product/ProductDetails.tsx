@@ -81,7 +81,6 @@ function ProductDetails({
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
-
   return (
     <>
       <div class="lg:bg-gray-scale-100">
@@ -136,7 +135,9 @@ export function loader(props: Props, req: Request, ctx: AppContext) {
     path: "/",
   });
 
-  return props;
+  return {
+    ...props,
+  };
 }
 
 export default ProductDetails;

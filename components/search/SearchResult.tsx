@@ -12,7 +12,14 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-
+import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import { getCookies } from "std/http/mod.ts";
+import {
+  ISABELA_DIAS_WISHLIST_IDS,
+  ISABELA_DIAS_NAME_COOKIE,
+} from "deco-sites/otica-isabela/packs/constants.ts";
+import { AuthData } from "$store/packs/types.ts";
+import { redirect } from "deco/mod.ts";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -80,6 +87,7 @@ export interface Props {
    * @description Obrigatório para paginas de coleção
    */
   pageName?: string;
+  customer: LoaderReturnType<AuthData>;
 }
 
 function NotFound() {
@@ -99,6 +107,7 @@ function Result({
   categories = [],
   isSliderEnabled,
   pageName,
+  customer,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
@@ -110,42 +119,40 @@ function Result({
           {productCategory}
         </h1>
       </header>
-      {filters.length
-        ? (
-          <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-            <Filters
-              filters={filters}
-              filterColors={filterColors}
-              hideFilters={hideFilters}
-              typeIcons={typeIcons}
-              shapeIcons={shapeIcons}
-            />
-            <div class="border-t border-base-200 w-full py-1">
-              <div class="container flex justify-between items-center">
-                <SelectedFilters filters={filters} />
-                <div class="flex gap-4">
-                  <button
-                    id="apply-range-filters"
-                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-                  >
-                    <span>Aplicar Filtro</span>
-                  </button>
-                  <ApplyRangeFiltersJS
-                    rootId="size-options-container"
-                    buttonId="apply-range-filters"
-                  />
-                  <a
-                    href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                    class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-                  >
-                    Limpar Filtros
-                  </a>
-                </div>
+      {filters.length ? (
+        <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+          <Filters
+            filters={filters}
+            filterColors={filterColors}
+            hideFilters={hideFilters}
+            typeIcons={typeIcons}
+            shapeIcons={shapeIcons}
+          />
+          <div class="border-t border-base-200 w-full py-1">
+            <div class="container flex justify-between items-center">
+              <SelectedFilters filters={filters} />
+              <div class="flex gap-4">
+                <button
+                  id="apply-range-filters"
+                  class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                >
+                  <span>Aplicar Filtro</span>
+                </button>
+                <ApplyRangeFiltersJS
+                  rootId="size-options-container"
+                  buttonId="apply-range-filters"
+                />
+                <a
+                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                >
+                  Limpar Filtros
+                </a>
               </div>
             </div>
           </div>
-        )
-        : null}
+        </div>
+      ) : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
@@ -155,13 +162,11 @@ function Result({
         typeIcons={typeIcons}
         shapeIcons={shapeIcons}
       />
-      {!breadcrumb?.itemListElement?.length
-        ? null
-        : (
-          <div class="flex w-full flex-row justify-center items-center my-5">
-            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-          </div>
-        )}
+      {!breadcrumb?.itemListElement?.length ? null : (
+        <div class="flex w-full flex-row justify-center items-center my-5">
+          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+        </div>
+      )}
       <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
@@ -169,6 +174,7 @@ function Result({
             <ProductGallery
               products={products}
               isSliderEnabled={isSliderEnabled}
+              customer={customer}
             />
           </div>
         </div>
@@ -198,21 +204,41 @@ function Result({
   );
 }
 
-export const loader = ({ categories = [], ...props }: Props, req: Request) => {
+export const loader = async (
+  { categories = [], ...props }: Props,
+  req: Request,
+  ctx: AppContext
+) => {
   const categoryList = categories.find(({ label }) =>
     new URLPattern({ pathname: label }).test(req.url)
   );
 
-  return { categories: categoryList?.categoryItems ?? [], ...props };
+  const isFavoritos = req.url.includes("meus-favoritos");
+
+  if (isFavoritos) {
+    const cookies = getCookies(req.headers);
+    const wishlistIds = cookies?.[ISABELA_DIAS_WISHLIST_IDS]?.split(",") ?? [];
+    const isLogged = Boolean(cookies[ISABELA_DIAS_NAME_COOKIE]);
+    if (!isLogged) redirect(new URL("/identificacao", new URL(req.url)));
+    const wishlistProductsPage = await ctx.invoke(
+      "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+      { id: wishlistIds, ordenacao: "none" }
+    );
+    props.page = wishlistProductsPage;
+  }
+
+  return {
+    categories: categoryList?.categoryItems ?? [],
+    ...props,
+  };
 };
 
-type ComponentProps = SectionProps<ReturnType<typeof loader>>;
+type ComponentProps = SectionProps<typeof loader>;
 
 function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
     return <NotFound />;
   }
-
   return <Result {...props} page={page} />;
 }
 

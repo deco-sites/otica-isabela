@@ -4,7 +4,6 @@ import { useWishlist } from "$store/packs/hooks/useWishlist.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { useSignal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
 
 interface Props {
   productID: string;
@@ -12,28 +11,21 @@ interface Props {
   customer?: LoaderReturnType<AuthData>;
 }
 
-function WishlistButton(
-  { variant = "icon", productID, customer }: Props,
-) {
-  const { loading, addItem, removeItem, wishlist } = useWishlist();
+function WishlistButton({ variant = "icon", productID, customer }: Props) {
+  const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
-  const isAdded = useSignal(false);
-
+  const isAdded = useSignal(
+    customer?.customerWishlist?.includes(String(productID))
+  );
   const isUserLoggedIn = !!customer?.customerName;
-
-  useEffect(() => {
-    if (wishlist?.value) {
-      isAdded.value = !!Object.values(wishlist?.value).filter((product) =>
-        product?.IdProduct === Number(productID)
-      )!.length;
-    }
-  }, []);
 
   return (
     <Button
-      class={variant === "icon"
-        ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
-        : "btn-primary btn-outline gap-2"}
+      class={
+        variant === "icon"
+          ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
+          : "btn-primary btn-outline gap-2"
+      }
       loading={fetching.value}
       aria-label="Add to wishlist"
       onClick={async (e) => {
@@ -64,9 +56,11 @@ function WishlistButton(
         }
       }}
     >
-      {isAdded.value === true
-        ? <Icon id="AddedHeart" size={35} strokeWidth={1} />
-        : <Icon id="Heart" size={35} strokeWidth={1} />}
+      {isAdded.value === true ? (
+        <Icon class="text-blue-200" id="AddedHeart" size={35} strokeWidth={1} />
+      ) : (
+        <Icon class="text-blue-200" id="Heart" size={35} strokeWidth={1} />
+      )}
     </Button>
   );
 }

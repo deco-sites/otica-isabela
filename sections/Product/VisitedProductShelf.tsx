@@ -6,16 +6,19 @@ import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import type { Product } from "apps/commerce/types.ts";
+import { AuthData } from "$store/packs/types.ts";
+import type { LoaderReturnType } from "$live/types.ts";
 
 export interface Props {
   header?: HeaderProps;
   isStopwatchEnabled?: boolean;
+  customer: LoaderReturnType<AuthData>;
 }
 
 export async function loader(
   { ...props }: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ) {
   const cookies = getCookies(req.headers);
   const currentIds: string | undefined = cookies?.[visitedProductsCookie];
@@ -27,7 +30,7 @@ export async function loader(
 
   const products = await ctx.invoke(
     "deco-sites/otica-isabela/loaders/product/productList.ts",
-    { id: splitedIds, ordenacao: "none" },
+    { id: splitedIds, ordenacao: "none" }
   );
 
   if (!products) {
@@ -47,6 +50,7 @@ function VisitedProductShelf({
   products,
   header,
   isStopwatchEnabled,
+  customer,
 }: SectionProps<typeof loader>) {
   if (!products || products.length === 0) {
     return null;
@@ -60,6 +64,7 @@ function VisitedProductShelf({
         products={products}
         itemListName="Produtos Visitados"
         isStopwatchEnabled={isStopwatchEnabled}
+        customer={customer}
       />
     </div>
   );
