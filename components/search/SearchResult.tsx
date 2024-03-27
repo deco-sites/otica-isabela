@@ -87,13 +87,18 @@ export interface Props {
    * @description Obrigatório para paginas de coleção
    */
   pageName?: string;
+  /**
+   * @title Alerta Not Found
+   * @description Frase que será renderizada caso a página não retorne nenhum produto
+   */
+  notFoundAlert?: string;
   customer: LoaderReturnType<AuthData>;
 }
 
-function NotFound() {
+function NotFound({alert}: {alert?: string}) {
   return (
     <div class="w-full flex justify-center items-center py-10">
-      <span>Não encontrado!</span>
+      <span>{alert ? alert : "Não encontrado!"}</span>
     </div>
   );
 }
@@ -237,7 +242,7 @@ type ComponentProps = SectionProps<typeof loader>;
 
 function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
-    return <NotFound />;
+    return <NotFound alert={props.notFoundAlert} />;
   }
   return <Result {...props} page={page} />;
 }
