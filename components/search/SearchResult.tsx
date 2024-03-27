@@ -14,9 +14,12 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
-import { ISABELA_DIAS_WISHLIST_IDS } from "deco-sites/otica-isabela/packs/constants.ts";
+import {
+  ISABELA_DIAS_WISHLIST_IDS,
+  ISABELA_DIAS_NAME_COOKIE,
+} from "deco-sites/otica-isabela/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
-import { useEffect } from "preact/compat";
+import { redirect } from "deco/mod.ts";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -87,15 +90,7 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
 }
 
-function NotFound({ redirectToLogin }: { redirectToLogin: boolean }) {
-  if (redirectToLogin)
-    return (
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.location.href = "/identificacao"`,
-        }}
-      />
-    );
+function NotFound() {
   return (
     <div class="w-full flex justify-center items-center py-10">
       <span>Não encontrado!</span>
@@ -113,7 +108,6 @@ function Result({
   isSliderEnabled,
   pageName,
   customer,
-  isFavoritos,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? pageName;
@@ -219,11 +213,13 @@ export const loader = async (
     new URLPattern({ pathname: label }).test(req.url)
   );
 
-  const isFavoritos = req.url.includes("new-favoritos");
+  const isFavoritos = req.url.includes("meus-favoritos");
 
   if (isFavoritos) {
     const cookies = getCookies(req.headers);
     const wishlistIds = cookies?.[ISABELA_DIAS_WISHLIST_IDS]?.split(",") ?? [];
+    const isLogged = Boolean(cookies[ISABELA_DIAS_NAME_COOKIE]);
+    if (!isLogged) redirect(new URL("/identificacao", new URL(req.url)));
     const wishlistProductsPage = await ctx.invoke(
       "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
       { id: wishlistIds, ordenacao: "none" }
@@ -232,7 +228,6 @@ export const loader = async (
   }
 
   return {
-    isFavoritos,
     categories: categoryList?.categoryItems ?? [],
     ...props,
   };
@@ -241,9 +236,8 @@ export const loader = async (
 type ComponentProps = SectionProps<typeof loader>;
 
 function SearchResult({ page, ...props }: ComponentProps) {
-  const redirectToLogin = props.isFavoritos && !props.customer.customerName;
   if (!page) {
-    return <NotFound redirectToLogin={redirectToLogin} />;
+    return <NotFound />;
   }
   return <Result {...props} page={page} />;
 }
