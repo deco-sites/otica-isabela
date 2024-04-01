@@ -75,7 +75,7 @@ const loaders = async (
       ...pageParams.productApiProps,
       ...getSearchParams(url, ordenacao),
     }),
-    { method: "POST", deco },
+    { method: "GET", deco },
   );
 
   if (!products.produtos.length) return null;
