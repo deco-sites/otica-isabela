@@ -6,6 +6,7 @@ import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Promotion } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
 import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
+import { sendFBEvent } from "deco-sites/otica-isabela/components/ultils/facebook.ts";
 import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
 import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
@@ -203,7 +204,14 @@ function ProductInfo(
 
       {/* Add To Cart & Whislist */}
       {!isLentes && (
-        <div class="mt-[11px] w-full flex items-center">
+        <div onClick={() => {
+          sendFBEvent('AddToCart', { 
+            content_ids: [sku], 
+            content_type: 'produto', 
+            value: price,
+            currency: 'BRL'
+          });
+        }} class="mt-[11px] w-full flex items-center" id="add-to-cart-button">
           <AddToCartButton
             {...addToCard}
             label={labels?.[currentCategory!.toLowerCase()]}

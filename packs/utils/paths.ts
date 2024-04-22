@@ -38,11 +38,11 @@ const paths = ({ token, publicUrl }: StoreProps) => {
           `${base}/Produtos?token=${token}${dynamicFiltersString}`,
           { ...props, filtrosDinamicos: undefined },
         );
-      },
+      }, 
     },
     category: {
       getCategory: (categoryUrl: string) =>
-        href(`${base}/Categorias?token=${token}`, { url: categoryUrl }),
+        href(`${base}/Categorias?token=${token}`),
     },
     dynamicFilter: {
       getDynamicFilters: (props: GetDynamicFilterProps) =>

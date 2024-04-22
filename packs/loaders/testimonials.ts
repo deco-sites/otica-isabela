@@ -69,7 +69,7 @@ const loader = async (
     }),
     {
       method: "POST",
-      deco: { cache: DECO_CACHE_OPTION },
+      // deco: { cache: DECO_CACHE_OPTION },
     },
   );
 

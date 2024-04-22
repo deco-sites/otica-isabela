@@ -25,6 +25,7 @@ function ProductGallery({ products, isSliderEnabled, customer }: Props) {
           isSliderEnabled={isSliderEnabled}
           customer={customer}
           isStopwatchEnabled
+          hideExperiment
         />
       ))}
     </div>

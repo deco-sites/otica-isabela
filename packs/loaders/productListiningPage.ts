@@ -75,7 +75,9 @@ const loaders = async (
       ...pageParams.productApiProps,
       ...getSearchParams(url, ordenacao),
     }),
-    { method: "GET", deco },
+    { method: "GET",
+    //  deco
+    },
   );
 
   if (!products.produtos.length) return null;
@@ -125,7 +127,9 @@ const getCategoryPageParams = async (
 
   const category = await fetchAPI<Category[]>(
     path.category.getCategory(lastCategorySlug),
-    { method: "GET", deco: { cache: DECO_CACHE_OPTION } },
+    { method: "GET", 
+    // deco: { cache: DECO_CACHE_OPTION }
+    },
   ).then(
     (categories) =>
       categories.filter(

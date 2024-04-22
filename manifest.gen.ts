@@ -68,9 +68,10 @@ import * as $$$$$$47 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$48 from "./sections/Product/SearchResult.tsx";
 import * as $$$$$$49 from "./sections/Product/SingleProductShelf.tsx";
 import * as $$$$$$50 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$51 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$52 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$53 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$51 from "./sections/Social/FacebookPixel.tsx";
+import * as $$$$$$52 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$53 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$54 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -149,9 +150,10 @@ const manifest = {
       $$$$$$49,
     "deco-sites/otica-isabela/sections/Product/VisitedProductShelf.tsx":
       $$$$$$50,
-    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$51,
-    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$52,
-    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$53,
+    "deco-sites/otica-isabela/sections/Social/FacebookPixel.tsx": $$$$$$51,
+    "deco-sites/otica-isabela/sections/Social/InstagramPosts.tsx": $$$$$$52,
+    "deco-sites/otica-isabela/sections/Social/WhatsApp.tsx": $$$$$$53,
+    "deco-sites/otica-isabela/sections/Theme/Theme.tsx": $$$$$$54,
   },
   "apps": {
     "deco-sites/otica-isabela/apps/decohub.ts": $$$$$$$$$$$0,

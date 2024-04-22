@@ -20,14 +20,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
     product?.category?.includes("Acessórios");
 
-  if (!hasNotMeasures) {
-    panels.unshift({
-      "@type": "PropertyValue",
-      name: "Medidas",
-      value: "Medidas",
-      propertyID: "panel",
-    });
-  }
+  console.log(panels)
 
   panels.unshift(
     {
@@ -37,6 +30,15 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
       propertyID: "panel",
     },
   );
+
+  if (!hasNotMeasures) {
+    panels.unshift({
+      "@type": "PropertyValue",
+      name: "Medidas",
+      value: "Medidas",
+      propertyID: "panel",
+    });
+  }
 
   return (
     <div class="hidden lg:block border-t border-gray-200 mt-8">

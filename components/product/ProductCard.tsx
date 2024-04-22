@@ -53,6 +53,7 @@ interface Props {
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
   customer?: LoaderReturnType<AuthData>;
+  hideExperiment?: boolean
 }
 
 function ProductCard({
@@ -62,6 +63,7 @@ function ProductCard({
   isStopwatchEnabled,
   isSliderEnabled,
   customer,
+  hideExperiment
 }: Props) {
   const imageContainerId = useId();
 
@@ -233,7 +235,7 @@ function ProductCard({
           </a>
         </div>
 
-        {experimenterImage ? (
+        {experimenterImage && !hideExperiment ? (
           <ToExperimentButton image={experimenterImage} />
         ) : (
           <a href={url} class="block w-full">

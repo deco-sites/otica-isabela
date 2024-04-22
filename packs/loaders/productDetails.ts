@@ -37,7 +37,7 @@ const loader = async (
     }),
     {
       method: "GET",
-      deco: { cache: DECO_CACHE_OPTION },
+      // deco: { cache: DECO_CACHE_OPTION },
     },
   );
   if (product.Total === 0 && product.produtos.length === 0) {
