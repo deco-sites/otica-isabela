@@ -30,12 +30,12 @@ function OtherColorsShelf({ product }: Props) {
 
   return (
     <div class="mt-10">
-      <h1 class="text-[32px] text-black text-center font-roboto font-bold">
+      <h3 class="text-[32px] text-black text-center font-roboto font-bold">
         {product?.category?.includes("Lentes de Contato") ||
             product?.category?.includes("Acessórios")
           ? "Mais opções"
           : "Mais cores"}
-      </h1>
+      </h3>
       <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-10">
         <div id={id} class="container flex flex-col px-0 sm:px-5">
           <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
