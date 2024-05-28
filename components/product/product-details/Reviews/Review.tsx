@@ -52,17 +52,17 @@ function Review({ page, productData, memberImages }: Props) {
       <div id="product-review" class="mt-12 bg-[#f8f8f8] ">
         <div class="container">
           <div id="title-and-rating" class="py-[70px]">
-            <h1 class="text-xl text-black font-bold text-center px-[15px] md:text-2xl lg:w-[75%] lg:text-[32px] lg:mx-auto lg:mb-[20px]">
+            <h2 class="text-xl text-black font-bold text-center px-[15px] md:text-2xl lg:w-[75%] lg:text-[32px] lg:mx-auto lg:mb-[20px]">
               Nos sentimos felizes por fazer a diferença na saúde visual de
               milhares de pessoas
-            </h1>
+            </h2>
             <div class="flex justify-center items-center gap-1">
-              <h1 class="text-[64px] font-bold text-orange-500">
+              <span class="text-[64px] font-bold text-orange-500">
                 {ratingValue.toFixed(1).replace(".", ",")}
-              </h1>
+              </span>
               <Icon id="Ratings" size={39} style={{ color: "#F37121" }} />
             </div>
-            <h1 class="text-lg text-center">Pontuação geral</h1>
+            <h3 class="text-lg text-center">Pontuação geral</h3>
 
             {/* Images */}
             <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-8">

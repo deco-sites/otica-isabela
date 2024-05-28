@@ -96,9 +96,9 @@ function ProductInfo(
       {/* Name */}
       <div class="mb-4 flex flex-start">
         <div class="flex flex-col">
-          <span class="w-full font-roboto font-medium text-[17px] text-lg">
+          <h1 class="w-full font-roboto font-medium text-[17px] text-lg">
             {name}
-          </span>
+          </h1>
           {lensDescription && (
             <span class="font-roboto font-medium text-sm">
               {lensDescription}
