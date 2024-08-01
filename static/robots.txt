@@ -7,24 +7,32 @@ Disallow: /busca
 
 User-agent: Googlebot
 Allow: /
+Disallow: /scripts
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /scripts
 
 User-agent: Mediapartners-Google
 Allow: /
+Disallow: /scripts
 
 User-agent: Adsbot-Google
 Allow: /
+Disallow: /scripts
 
 User-agent: AdsBot-Google-Mobile-Apps
 Allow: /
+Disallow: /scripts
 
 User-agent: Googlebot-News
 Allow: /
+Disallow: /scripts
 
 User-agent: Googlebot-Video
 Allow: /
+Disallow: /scripts
 
 User-agent: AdsBot-Google-Mobile
-Allow:
+Allow: /
+Disallow: /scripts
