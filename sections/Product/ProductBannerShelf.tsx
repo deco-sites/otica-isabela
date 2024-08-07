@@ -59,7 +59,7 @@ function ProductBannerShelf({
                 index={index}
                 class="carousel-item flex flex-col first:ml-8 lg:first:ml-0"
               >
-                <a href={href} aria-label={label}>
+                <a href={href} rel="nofollow" aria-label={label}>
                   {image && (
                     <div class="relative">
                       <Image

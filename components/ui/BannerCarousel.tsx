@@ -38,7 +38,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   const { alt, mobile, desktop, action } = image;
 
   return (
-    <a href={action?.href ?? "#"} aria-label={action?.label}>
+    <a href={action?.href ?? "#"} rel="nofollow" aria-label={action?.label}>
       <Picture preload={lcp}>
         <Source
           media="(max-width: 767px)"
