@@ -34,6 +34,10 @@ export interface Props {
    * @default left
    */
   horizontalAlign: "left" | "center" | "right" | "full";
+  /**
+   * @title Abrir em nova guia?
+   */
+  blank?: boolean
 }
 
 export default function Button({
@@ -43,10 +47,12 @@ export default function Button({
   label,
   labelColor,
   style = "filled",
+  blank
 }: Props) {
   return (
     <a
       href={href}
+      target={blank ? '_blank' : ''}
       class="text-center py-3 px-4 rounded-md min-w-52"
       style={{
         ...(style === "filled"

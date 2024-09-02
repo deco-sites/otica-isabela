@@ -62,6 +62,7 @@ export const BasicImageAndLink = (
     <a
       href={href ?? "#"}
       aria-label="Basic image and link"
+      target='_blank'
       class={`${
         !src?.mobile
           ? "hidden lg:flex "
