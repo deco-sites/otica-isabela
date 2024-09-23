@@ -527,6 +527,7 @@ export const toProductListingPage = (
 
 const categoryPageProps = (props: CategoryPageProps): PLPPageProps => {
   const { baseURL, category, filtersApi, filtersUrl } = props;
+  console.log(baseURL)
   return {
     itemListElement: toPageBreadcrumbList(category, baseURL),
     filters: groupPageFilters(filtersApi).map((f) =>
@@ -535,7 +536,7 @@ const categoryPageProps = (props: CategoryPageProps): PLPPageProps => {
     seo: {
       title: category!.Title_SEO,
       description: category!.PageDescription_SEO ?? category!.Description_SEO,
-      canonical: "",
+      canonical: baseURL.origin + baseURL.pathname,
     },
   };
 };
