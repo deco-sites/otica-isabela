@@ -20,6 +20,7 @@ import {
 } from "deco-sites/otica-isabela/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { redirect } from "deco/mod.ts";
+import { Head } from "$fresh/runtime.ts";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -116,9 +117,14 @@ function Result({
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
   const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? (pageName || "");
+  const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
+  
 
   return (
     <>
+    {isAFilterPage && <Head>
+      <meta name="robots" content="noindex" />
+    </Head>}
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
         <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
           {productCategory.length > 0 ? productCategory : pageName}
