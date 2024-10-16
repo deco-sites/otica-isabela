@@ -14,7 +14,7 @@
     "partytown/": "https://denopkg.com/deco-cx/partytown@0.4.8/",
     "daisyui": "npm:daisyui@3.5.0",
     "deco/": "https://denopkg.com/deco-cx/deco@1.57.28/",
-    "apps/": "https://denopkg.com/deco-cx/apps@0.35.15/"
+    "apps/": "../fork-apps/apps/"
   },
   "tasks": {
     "start": "deno task bundle && DECO_SITE_NAME=otica-isabela deno run -A --unstable-kv --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",

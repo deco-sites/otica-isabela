@@ -36,4 +36,4 @@ User-agent: AdsBot-Google-Mobile
 Allow: /
 Disallow: /scripts
 
-Sitemap: https://www.oticaisabeladias.com.br/view/sitemap.aspx
+Sitemap: https://secure.oticaisabeladias.com.br/sitemap.xml
