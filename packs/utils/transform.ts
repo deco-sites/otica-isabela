@@ -157,7 +157,7 @@ export function toProductPage(
     seo: {
       title: `${product.TituloSeo}`,
       description: `${product.DescricaoSeo}`,
-      canonical: "",
+      canonical: `${baseURL}/produto/${product.UrlFriendlyColor}`,
     },
   };
 }
