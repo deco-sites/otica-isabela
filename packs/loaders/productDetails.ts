@@ -20,7 +20,7 @@ export interface Props {
 const loader = async (
   props: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<ProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
@@ -38,12 +38,12 @@ const loader = async (
     {
       method: "GET",
       // deco: { cache: DECO_CACHE_OPTION },
-    },
+    }
   );
   if (product.Total === 0 && product.produtos.length === 0) {
     return null;
   }
-  return toProductPage(product.produtos[0], url.origin);
+  return toProductPage(product.produtos[0], url.origin, slug);
 };
 
 export default loader;
