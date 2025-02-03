@@ -1,4 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
+import CookieConsent from "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx";
 import { AppProps } from "$fresh/server.ts";
 import GlobalTags from "$store/components/GlobalTags.tsx";
 import Theme from "$store/sections/Theme/Theme.tsx";
@@ -36,6 +37,9 @@ function App(props: AppProps) {
       <SCRIPT_CONTEXT.Provider value={[]}>
         {/* Rest of Preact tree */}
         <props.Component />
+
+        {/* Adicione o consentimento de cookies aqui */}
+        <CookieConsent />
 
         <RenderScripts />
         {/* Include service worker */}
