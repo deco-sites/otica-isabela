@@ -2,18 +2,19 @@ import type { Props as HeaderProps } from "./HeaderTitle.tsx";
 import { HeaderTitle } from "./HeaderTitle.tsx";
 import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
-interface Props {
+interface AboutProps {
   header?: HeaderProps;
   /**
    * @title Primeira Parte
-   * @description Texto que sempre estará visível'
+   * @description Texto que sempre estará visível
    * @format html
    */
   firstPart?: string;
   /**
    * @title Segunda Parte
    * @description Texto que aparecerá ao clicar em 'ver mais'
-   * @format html */
+   * @format html
+   */
   secondPart?: string;
   /**
    * @title Ver mais (botão)
@@ -22,12 +23,12 @@ interface Props {
   shouldShowSeeMoreButton?: boolean;
 }
 
-const About = ({
+const AboutSection = ({
   header,
   firstPart,
   secondPart,
   shouldShowSeeMoreButton,
-}: Props) => {
+}: AboutProps) => {
   const id = useId();
 
   return (
@@ -36,7 +37,7 @@ const About = ({
       <div class="container px-4 lg:px-0">
         <input type="checkbox" name="see-more" id={id} class="peer hidden" />
         <span
-          class="w-full text-start  "
+          class="w-full text-start"
           dangerouslySetInnerHTML={{
             __html: firstPart ?? "",
           }}
@@ -65,4 +66,24 @@ const About = ({
   );
 };
 
-export default About;
+interface PrivacyPolicyProps {
+  title?: string;
+  content: string;
+}
+
+const PrivacyPolicySection = ({
+  title,
+  content,
+}: PrivacyPolicyProps): JSX.Element => {
+  return (
+    <section class="container mx-auto px-4 py-8">
+      {title && <h1 class="text-2xl font-bold mb-4">{title}</h1>}
+      <div
+        class="text-lg leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    </section>
+  );
+};
+
+export { AboutSection, PrivacyPolicySection };
