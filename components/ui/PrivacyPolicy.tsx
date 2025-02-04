@@ -22,7 +22,7 @@ interface Props {
   shouldShowSeeMoreButton?: boolean;
 }
 
-const About = ({
+const PrivacyPolicy = ({
   header,
   firstPart,
   secondPart,
