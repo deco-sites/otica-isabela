@@ -65,4 +65,4 @@ const About = ({
   );
 };
 
-export default PrivacyPolicy;
+export default About;
