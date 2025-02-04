@@ -1,4 +1,4 @@
-# Atualização de cache - Forçando novo deploy
+# Atualização de cache - Forçando novo deploy 
 # Fashion starter by deco.cx
 
 A fully featured starter to help you customize and deploy an ecommerce website
