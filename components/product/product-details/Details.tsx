@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs"; // Alteração para Deno compatível
+import { existsSync } from "node:fs"; // Verifica se o arquivo existe
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -36,13 +36,8 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
-    const customImagePath = `/images/custom/${name}`;
-    const imageExists = existsSync(`./static${customImagePath}`); // Verifica se a imagem existe
 
-    return {
-      ...img,
-      url: imageExists ? customImagePath : img.url, // Usa a imagem se ela existir
-    };
+    return { ...img, url: allImages[name] ?? img.url };
   });
 };
 
@@ -56,9 +51,15 @@ function Details({
 }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
-  const { price, listPrice } = useOffer(offers);
+  const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
+
+  // Caminho da imagem "Acessórios Inclusos"
+  const accessoriesImagePath = "/images/custom/accessorios-inclusos.jpg";
+
+  // Verifica se a imagem realmente existe
+  const accessoriesImageExists = existsSync(`./static${accessoriesImagePath}`);
 
   return (
     <>
@@ -74,9 +75,15 @@ function Details({
           `,
         }}
       />
-      <div id="breadcrumb" class="block mb-[20px] text-center md:text-left">
+      {/* Breadcrumb - Desktop */}
+      <div
+        id="breadcrumb"
+        class="block mb-[20px] text-center md:text-left"
+      >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
+
+      {/* Seção superior com foto, preço, nome, botões */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
         <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
@@ -116,6 +123,33 @@ function Details({
             </Slider>
           </div>
         </div>
+      </div>
+
+      {/* Acessórios Inclusos */}
+      <div class="mt-8">
+        <h2 class="text-lg font-bold">Acessórios Inclusos</h2>
+        {accessoriesImageExists ? (
+          <Image
+            src={accessoriesImagePath}
+            alt="Acessórios inclusos"
+            width={400}
+            height={300}
+            class="w-full h-auto"
+          />
+        ) : (
+          <p>Informações sobre acessórios disponíveis.</p>
+        )}
+      </div>
+
+      {/* Preço, botões e informações adicionais */}
+      <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
+        <ProductInfo
+          page={page}
+          promotions={promotions}
+          labels={buttonByCategory}
+          stepLabels={stepButtonByCategory}
+          customer={customer}
+        />
       </div>
     </>
   );
