@@ -33,18 +33,11 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
       return acc;
     }, {} as Record<string, string>) ?? {};
 
-  return images
-    .map((img) => {
-      const name = imageNameFromURL(img.url);
+  return images.map((img) => {
+    const name = imageNameFromURL(img.url);
 
-      // 🔴 EVITA A IMAGEM BLOQUEADA
-      if (img.url === "https://www.oticaisabeladias.com.br/images/custom/estojo-isabela-dias-2022.jpg") {
-        return null; // Remove a imagem da lista
-      }
-
-      return { ...img, url: allImages[name] ?? img.url };
-    })
-    .filter(Boolean); // 🔴 REMOVE OS NULOS DA LISTA
+    return { ...img, url: allImages[name] ?? img.url };
+  });
 };
 
 function Details({
@@ -56,30 +49,7 @@ function Details({
   mobileOptions,
 }: Props) {
   const { product, breadcrumbList } = page!;
-
-  // 🟢 Bloqueia a imagem do estojo
-  const accessoriesImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "panel" && prop.name === "Acessórios Inclusos"
-  )?.value;
-
-  const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] || null;
-
-  const isBlockedImage = accessoriesImagePath === "https://www.oticaisabeladias.com.br/images/custom/estojo-isabela-dias-2022.jpg";
-
   const { name, productID, offers, additionalProperty, url, sku } = product;
-
-  // Busca a imagem dos acessórios inclusos
-	const accessoriesImage = additionalProperty?.find(
-	  (prop) => prop.propertyID === "panel" && prop.name === "Acessórios Inclusos"
-	)?.value;
-
-	// Converte HTML para extrair a URL da imagem (se existir)
-	const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] || null;
-
-	// Verifica se a imagem bloqueada está presente
-	const isBlockedImage = accessoriesImagePath === "https://www.oticaisabeladias.com.br/images/custom/estojo-isabela-dias-2022.jpg";
-
-
   const {
     discountTagLocation,
     nameLocation,
@@ -221,58 +191,43 @@ function Details({
       )}
 
       {/* Image Slider - Mobile & Desktop */}
-		<div id={id} class="lg:flex lg:justify-center lg:gap-9">
-		  <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
-		    <div class="relative">
-		      <Slider
-		        id={`product-images-${id}`}
-		        class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
-		      >
-		        {images.map((img, index) => (
-		          <Slider.Item
-		            index={index}
-		            class="carousel-item w-full items-center"
-		          >
-		            {img.additionalType === "video"
-		              ? (
-		                <Video
-		                  src={img.url}
-		                  loading="lazy"
-		                  width={350}
-		                  height={350}
-		                  class="w-full"
-		                  controls
-		                />
-		              )
-		              : (
-		                <Image
-		                  class="w-full h-max"
-		                  src={img.url!}
-		                  alt={img.alternateName}
-		                  width={350}
-		                  height={350}
-		                  preload={index === 0}
-		                  loading={index === 0 ? "eager" : "lazy"}
-		                />
-		              )}
-		          </Slider.Item>
-		        ))}
-		      </Slider>
-		    </div>
-
-		    {/* 🟢 Exibe a imagem dos acessórios apenas se não for a bloqueada */}
-		    {accessoriesImagePath && !isBlockedImage && (
-		      <Image
-		        src={accessoriesImagePath}
-		        alt="Acessórios Inclusos"
-		        width={350}
-		        height={350}
-		        onError={(e) => e.currentTarget.style.display = "none"} // Oculta a imagem se der erro 404
-		      />
-		    )}
-		  </div>
-		</div>
-
+      <div id={id} class="lg:flex lg:justify-center lg:gap-9">
+        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
+          <div class="relative">
+            <Slider
+              id={`product-images-${id}`}
+              class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+            >
+              {images.map((img, index) => (
+                <Slider.Item
+                  index={index}
+                  class="carousel-item w-full items-center"
+                >
+                  {img.additionalType === "video"
+                    ? (
+                      <Video
+                        src={img.url}
+                        loading="lazy"
+                        width={350}
+                        height={350}
+                        class="w-full"
+                        controls
+                      />
+                    )
+                    : (
+                      <Image
+                        class="w-full h-max"
+                        src={img.url!}
+                        alt={img.alternateName}
+                        width={350}
+                        height={350}
+                        preload={index === 0}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    )}
+                </Slider.Item>
+              ))}
+            </Slider>
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
