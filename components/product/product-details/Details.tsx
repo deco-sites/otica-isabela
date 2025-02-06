@@ -1,4 +1,4 @@
-import fs from "fs";
+import { existsSync } from "node:fs"; // Alteração para Deno compatível
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -37,13 +37,11 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
     const customImagePath = `/images/custom/${name}`;
-    // Verificar se a imagem na pasta custom existe
-    const imageExists = fs.existsSync(`./static${customImagePath}`);
+    const imageExists = existsSync(`./static${customImagePath}`); // Verifica se a imagem existe
 
-    // Retornar a URL da imagem na pasta custom apenas se existir
     return {
       ...img,
-      url: imageExists ? customImagePath : img.url,
+      url: imageExists ? customImagePath : img.url, // Usa a imagem se ela existir
     };
   });
 };
@@ -58,14 +56,7 @@ function Details({
 }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
-  const {
-    discountTagLocation,
-    nameLocation,
-    starsLocation,
-    showProductTumbnails,
-    displayModalAfter,
-  } = mobileOptions;
-  const { price, listPrice, installments } = useOffer(offers);
+  const { price, listPrice } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
 
@@ -83,52 +74,9 @@ function Details({
           `,
         }}
       />
-      {/* Breadcrumb - Desktop */}
       <div id="breadcrumb" class="block mb-[20px] text-center md:text-left">
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
-
-      {/* Header - Mobile */}
-      <div
-        id={`experimentador-section-${id}`}
-        class="flex items-center justify-between mx-3 mt-4 lg:hidden"
-      >
-        {discount > 0 && discountTagLocation === "Header" && (
-          <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5">
-            <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-          </span>
-        )}
-        <div class="flex items-center">
-          <ShareButton link={url!} />
-          <WishlistButton productID={productID} customer={customer} />
-        </div>
-        {!!ratingValue &&
-          starsLocation === "Header" &&
-          discountTagLocation !== "Header" && (
-            <a href="#product-review" aria-label="Veja as avaliações!">
-              <Ratings ratingValue={ratingValue} />
-            </a>
-          )}
-        {!isLentes && experimenterImage ? (
-          <ToExperimentButton
-            image={experimenterImage!}
-            variant="filled"
-            size="tiny"
-          />
-        ) : null}
-      </div>
-
-      {/* Product Name - Mobile (Header) */}
-      {nameLocation === "Header" && (
-        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
-          <span class="font-roboto font-normal text-lg">{name}</span>
-          {lensDescription && (
-            <span class="font-roboto font-medium text-sm">{lensDescription}</span>
-          )}
-        </div>
-      )}
-
-      {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
         <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
@@ -169,17 +117,6 @@ function Details({
           </div>
         </div>
       </div>
-      {/* Product Details - Desktop */}
-      <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
-        <ProductInfo
-          page={page}
-          promotions={promotions}
-          labels={labels}
-          stepLabels={stepLabels}
-          customer={customer}
-        />
-      </div>
-      <SliderJS rootId={id} />
     </>
   );
 }
