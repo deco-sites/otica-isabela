@@ -36,18 +36,13 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
   return images.map((img) => {
     const name = imageNameFromURL(img.url);
 
+    // Evita a imagem "estojo-isabela-dias-2022.jpg"
+	if (img.url === "https://www.oticaisabeladias.com.br/images/custom/estojo-isabela-dias-2022.jpg") {
+	  return null;
+	}
+
     return { ...img, url: allImages[name] ?? img.url };
   });
-};
-
-// Função para verificar se a imagem existe
-const checkImageExists = async (url: string) => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    return response.ok;
-  } catch {
-    return false;
-  }
 };
 
 function Details({
@@ -128,12 +123,6 @@ function Details({
     (prop) => prop.propertyID === "lensDescription",
   )?.value;
 
-  const accessoriesImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "accessoriesImage",
-  )?.value;
-
-  const accessoriesImagePath = accessoriesImage ? `/images/custom/${accessoriesImage}` : null;
-
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
 
@@ -158,17 +147,6 @@ function Details({
       >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
-
-      {/* Exibir imagem dos acessórios somente se existir */}
-      {accessoriesImagePath && (
-        <Image
-          src={accessoriesImagePath}
-          alt="Acessórios Inclusos"
-          width={350}
-          height={350}
-          onError={(e) => e.currentTarget.style.display = "none"} // Oculta a imagem se der erro 404
-        />
-      )}
 
       {/* Header - Mobile */}
       <div
