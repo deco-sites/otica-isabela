@@ -17,7 +17,7 @@ import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
-const useStableImages = (product: ProductDetailsPage["product"]) => {
+const useStableImages = (product: ProductDetailsPage["product"]) => { 
   const imageNameFromURL = (url = "") => {
     const segments = new URL(url).pathname.split("/");
     return segments[segments.length - 1];
