@@ -3,6 +3,8 @@ Disallow: /carrinho
 Disallow: /identificacao
 Disallow: /pagamento
 Disallow: /busca
+Disallow: */?page=
+
 
 User-agent: Googlebot
 Allow: /
