@@ -17,7 +17,7 @@ import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
-const useStableImages = (product: ProductDetailsPage["product"]) => { 
+const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
     const segments = new URL(url).pathname.split("/");
     return segments[segments.length - 1];
@@ -50,6 +50,15 @@ function Details({
 }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
+
+  // Busca a imagem dos acessórios inclusos
+const accessoriesImage = additionalProperty?.find(
+  (prop) => prop.propertyID === "panel" && prop.name === "Acessórios Inclusos"
+)?.value;
+
+// Converte HTML para extrair a URL da imagem (se existir)
+const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] || null;
+
   const {
     discountTagLocation,
     nameLocation,
@@ -187,6 +196,21 @@ function Details({
               {lensDescription}
             </span>
           )}
+
+          {/* Exibir imagem dos acessórios somente se existir */}
+		    {accessoriesImagePath && (
+		      <div class="mt-4 text-center">
+		        <Image
+		          src={accessoriesImagePath}
+		          alt="Acessórios Inclusos"
+		          width={350}
+		          height={350}
+		          loading="lazy"
+		        />
+		        <p class="text-sm text-gray-700 mt-2">teste</p> {/* Texto adicional abaixo da imagem */}
+		      </div>
+		    )}
+    
         </div>
       )}
 
