@@ -68,17 +68,16 @@ const loaders = async (
 
   if (!pageParams) return null;
 
-  const products = await fetchAPI<ProductData>(
-    path.product.getProduct({
-      offset: offset,
-      tipoRetorno: "simples",
-      ...pageParams.productApiProps,
-      ...getSearchParams(url, ordenacao),
-    }),
-    { method: "GET",
-    //  deco
-    },
-  );
+const products = await fetchAPI<ProductData>(
+  path.product.getProduct({
+    offset: 0,
+    page: 1,
+    limite: 9, // Limita a exibição a 9 produtos
+    tipoRetorno: "simples",
+    ...pageParams.productApiProps,
+  }),
+  { method: "GET" }
+);
 
   if (!products.produtos.length) return null;
 
@@ -186,7 +185,7 @@ const getSearchParams = (
       ?.value ??
       sortBy ??
       "nome";
-  const page = url.searchParams.get("page") ?? 1;
+  const page = 1; // Remove a paginação dinâmica
 
   return {
     ordenacao: ordenacao as GetProductProps["ordenacao"],
