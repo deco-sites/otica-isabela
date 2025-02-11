@@ -41,14 +41,6 @@ type Props = Omit<
  * @title Otica Isabela Dias - Página de Listagem de Produtos
  * @description Funciona em rotas do tipo /busca usando a querystring "termo" OU em páginas de categoria em rotas do tipo /$categoria.
  */
-
-const loaders = async (
-  props: Props,
-  req: Request,
-  ctx: AppContext,
-): Promise<ProductListingPage | null> => {
-  console.log("🚀 loaders.tsx foi chamado! URL:", req.url);
-  
 const loaders = async (
   props: Props,
   req: Request,
@@ -76,18 +68,17 @@ const loaders = async (
 
   if (!pageParams) return null;
 
-const products = await fetchAPI<ProductData>(
-  path.product.getProduct({
-    offset: 0,
-    page: 1,
-    limite: 9, // Limita a exibição a 9 produtos
-    tipoRetorno: "simples",
-    ...pageParams.productApiProps,
-  }),
-  { method: "GET" }
-);
-
-console.log("📦 Resposta da API:", JSON.stringify(products, null, 2));
+  const products = await fetchAPI<ProductData>(
+    path.product.getProduct({
+      offset: offset,
+      tipoRetorno: "simples",
+      ...pageParams.productApiProps,
+      ...getSearchParams(url, ordenacao),
+    }),
+    { method: "GET",
+    //  deco
+    },
+  );
 
   if (!products.produtos.length) return null;
 
@@ -195,7 +186,7 @@ const getSearchParams = (
       ?.value ??
       sortBy ??
       "nome";
-  const page = 1; // Remove a paginação dinâmica
+  const page = url.searchParams.get("page") ?? 1;
 
   return {
     ordenacao: ordenacao as GetProductProps["ordenacao"],
