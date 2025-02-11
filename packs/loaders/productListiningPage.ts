@@ -80,6 +80,8 @@ const loaders = async (
     },
   );
 
+  console.log("Produtos retornados:", products.produtos.length);
+
   if (!products.produtos.length) return null;
 
   return toProductListingPage({
