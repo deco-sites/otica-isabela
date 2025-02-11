@@ -87,6 +87,8 @@ const products = await fetchAPI<ProductData>(
   { method: "GET" }
 );
 
+console.log("📦 Resposta da API:", JSON.stringify(products, null, 2));
+
   if (!products.produtos.length) return null;
 
   return toProductListingPage({
