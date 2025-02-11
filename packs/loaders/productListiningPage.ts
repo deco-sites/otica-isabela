@@ -41,6 +41,14 @@ type Props = Omit<
  * @title Otica Isabela Dias - Página de Listagem de Produtos
  * @description Funciona em rotas do tipo /busca usando a querystring "termo" OU em páginas de categoria em rotas do tipo /$categoria.
  */
+
+const loaders = async (
+  props: Props,
+  req: Request,
+  ctx: AppContext,
+): Promise<ProductListingPage | null> => {
+  console.log("🚀 loaders.tsx foi chamado! URL:", req.url);
+  
 const loaders = async (
   props: Props,
   req: Request,
