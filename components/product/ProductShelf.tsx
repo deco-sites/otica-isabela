@@ -80,7 +80,7 @@ function ProductShelf({
           ))}
         </Slider>
 
-        <Buttons />
+        {/* <Buttons /> */}
 
         <SendEventOnLoad
           event={{
