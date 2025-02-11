@@ -69,16 +69,15 @@ const loaders = async (
   if (!pageParams) return null;
 
   const products = await fetchAPI<ProductData>(
-    path.product.getProduct({
-      offset: offset,
-      tipoRetorno: "simples",
-      ...pageParams.productApiProps,
-      ...getSearchParams(url, ordenacao),
-    }),
-    { method: "GET",
-    //  deco
-    },
-  );
+  path.product.getProduct({
+    offset: 0, // Sempre começar do primeiro produto
+    page: 1, // Sempre manter na primeira página
+    limite: 9, // Apenas 9 produtos exibidos
+    tipoRetorno: "simples",
+    ...pageParams.productApiProps,
+  }),
+  { method: "GET" }
+);
 
   console.log("Produtos retornados:", products.produtos.length);
 
