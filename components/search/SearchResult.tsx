@@ -190,6 +190,9 @@ function Result({
           </div>
         </div>
 
+        <div class="flex justify-center my-4">
+          <Pagination pageInfo={pageInfo} />
+        </div>
       </div>
       <SendEventOnLoad
         event={{
