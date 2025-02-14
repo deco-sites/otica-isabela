@@ -190,9 +190,11 @@ function Result({
           </div>
         </div>
 
-        <div class="flex justify-center my-4">
-          <Pagination pageInfo={pageInfo} />
-        </div>
+        {!new URL(window.location.href).pathname.includes("/dicas-de-lentes") && (
+          <div class="flex justify-center my-4">
+            <Pagination pageInfo={pageInfo} />
+          </div>
+        )}
       </div>
       <SendEventOnLoad
         event={{
