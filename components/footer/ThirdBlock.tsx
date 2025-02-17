@@ -92,15 +92,19 @@ export const ThirdBlock = (
         )}
       </div>
 
-      <div class=" flex justify-center lg:justify-start items-start w-full lg:w-1/4">
-        {logo?.image && (
-          <Image
-            width={300}
-            height={74}
-            src={logo?.image}
-            alt={logo?.description}
-          />
-        )}
+      <div class="flex flex-col lg:justify-start items-center w-full lg:w-1/4 gap-4">
+        <img
+          width={300}
+          height={74}
+          src={"/image/Logo_Isabela_dias.png"}
+          alt={"Logo Oticias Isabela Dias"}
+        />
+        <img
+          width={300}
+          height={74}
+          src={"/image/empresa_campea_reclame_aqui.png"}
+          alt={"Empresa campeã do Reclame Aqui"}
+        />
       </div>
     </section>
   );
