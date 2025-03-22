@@ -103,6 +103,15 @@
   .animate-slide-bottom {
     animation: slide-bottom-frame 0.4s ease normal;
   }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 9px 10px 9px;
+    border-color: transparent transparent #fff transparent;
+    transform: rotate(180deg);
+  }
 }
 
 .group:disabled .group-disabled\:animate-progress {

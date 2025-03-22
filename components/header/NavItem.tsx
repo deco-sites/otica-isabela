@@ -32,19 +32,10 @@ const calculateModalAlignment = (
 
   const childrenLength = filteredChildren.length;
   const modalWidth = childrenLength * navbarModalBaseWidth;
-  const screenWidth = globalThis.innerWidth ?? 0;
-  const maxWidth = `${modalWidth}px`;
-
-  if (childrenLength >= 2) {
-    return {
-      maxWidth,
-      left: `${(screenWidth - modalWidth) / 2}px`,
-    };
-  }
+  const width = `${modalWidth}px`;
 
   return {
-    transform: "translateX(-26%)",
-    maxWidth,
+    width,
   };
 };
 
@@ -63,17 +54,14 @@ export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
   );
 
   return (
-    <div class="group flex">
+    <div class="group flex h-full items-center">
       <a
-        class="text-white group-hover:text-blue-200 text-base font-semibold uppercase pb-8"
+        class="text-grayscale-700 group-hover:text-slot-primary-600 text-base font-normal pb-8 lg:pb-0"
         href={href}
       >
         {label}
       </a>
-      <div
-        class="hidden group-hover:flex w-fits absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-9 px-[60px] py-[30px] group-hover:animate-fadeIn"
-        style={modalAlignment}
-      >
+      <div class="hidden w-full group-hover:flex w-fits absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-9 px-[60px] py-[30px] group-hover:animate-fadeI left-0 top-12">
         {filteredChildren.map(({ desktopMenuImage, href, label }) =>
           desktopMenuImage?.src
             ? (

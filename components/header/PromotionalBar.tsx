@@ -1,5 +1,7 @@
 import { useCart } from "$store/packs/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
+import type { AppContext } from "../../apps/site.ts";
+import { clx } from "../../sdk/clx.ts";
 
 export interface GiftValueReachInfosProps {
   /**
@@ -28,7 +30,9 @@ interface Props {
   giftValueReachInfos?: GiftValueReachInfosProps;
 }
 
-export const PromotionalBar = ({ giftValueReachInfos }: Props) => {
+export const PromotionalBar = (
+  { giftValueReachInfos }: Props,
+) => {
   const { activate, afterText, baseValue, beforeText, successText } =
     giftValueReachInfos ?? {};
 
@@ -41,23 +45,51 @@ export const PromotionalBar = ({ giftValueReachInfos }: Props) => {
     return null;
   }
 
-  const porcentWidthValue = (total * 100) / baseValue;
+  const percentage = Math.min(100, (total * 100) / baseValue);
 
-  const warningText = `${beforeText ?? ""} ${
-    baseValue && formatPrice(baseValue - total)
-  } ${afterText ?? ""}`;
+  const warningText = `${beforeText ?? "Faltam"} ${
+    formatPrice(baseValue - total)
+  } ${afterText ?? "para ganhar seu brinde!"}`;
 
   return (
-    <div class="flex flex-col bg-black   justify-center items-center w-full   ">
-      <p class="pb-2 text-white  font-medium">
-        {porcentWidthValue >= 100 ? successText : warningText}
-      </p>
-      <div class="w-full h-2 bg-secondary ">
+    <div className="bg-white">
+      <div className="max-w-[1320px] w-[80%] lg:w-[95%] mx-auto relative my-6">
+        {percentage < 95 && (
+          <img
+            src="/image/gift.png"
+            alt="Brinde"
+            width={36}
+            height={36}
+            className="absolute top-[35%] -translate-y-1/2 right-0"
+          />
+        )}
+        <div className="w-full h-6 rounded-xl shadow-[inset_0_0_9px_rgba(0,0,0,0.15)]" />
         <div
-          class="w-full bg-success h-full "
-          style={{ maxWidth: `${porcentWidthValue}%` }}
+          className="w-full h-6 rounded-xl bg-slot-primary-500 absolute left-0 top-0 transition-all duration-500"
+          style={{ width: `${percentage}%` }}
+        />
+        <div
+          className="size-10 rounded-full bg-slot-primary-500 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 text-white text-sm font-bold flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.25)] z-10 transition-all duration-500"
+          style={{ left: `${percentage}%` }}
         >
+          {percentage.toFixed(0)}%
         </div>
+
+        <span
+          className={clx(
+            percentage === 100
+              ? "text-grayscale-0 -translate-x-1/2"
+              : percentage >= 60
+              ? "text-grayscale-0 -translate-x-[calc(100%+32px)]"
+              : "text-slot-primary-500 translate-x-8",
+            "font-medium text-xs md:text-base absolute top-1/2 -translate-y-1/2 whitespace-nowrap",
+          )}
+          style={{ left: `${percentage === 100 ? 50 : percentage}%` }}
+        >
+          {percentage === 100
+            ? (successText || "Parabéns você ganhou um brinde!")
+            : warningText}
+        </span>
       </div>
     </div>
   );

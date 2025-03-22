@@ -1,95 +1,136 @@
 import Modals from "$store/components/header/Modals.tsx";
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import type { Props as SearchbarProps } from "$store/islands/Search.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
-import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
+// import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
-import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import NavItem from "../../islands/NavItem.tsx";
+import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
 import { IconLoginLink } from "./IconLoginLink.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
-import { IconNavigation } from "./IconNavigation.tsx";
+// import { IconNavigation } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
+import Search from "deco-sites/otica-isabela/islands/Search.tsx";
+import Help from "deco-sites/otica-isabela/components/header/Ajuda.tsx";
+import type { Props as AjudaProps } from "./Ajuda.tsx";
 
 function Navbar({
   items,
   searchbar,
-  storeLogo,
-  IconNavigationItems,
+  // storeLogo,
+  // IconNavigationItems,
   loginLink,
   navBarSpace,
+  backgroundHex,
+  ajuda,
 }: {
   items?: NavItemProps[];
   searchbar?: SearchbarProps;
+  ajuda?: AjudaProps;
   storeLogo?: BasicImageAndLinkProps;
   IconNavigationItems?: IconNavigationType[];
   loginLink?: IconLoginLinkProps;
   navBarSpace?: boolean;
+  backgroundHex?: string;
 }) {
   return (
-    <div class="bg-black w-full z-50 flex flex-row justify-center items-center  ">
-      <div class="container flex flex-col justify-center items-center w-full p-6 pb-0   ">
+    <div
+      style={{ background: `${backgroundHex}` }}
+      class="bg-black w-full z-50 flex flex-row justify-center items-center shadow-[0_4px_4px_rgba(0,0,0,0.1)] h-16 lg:h-24"
+    >
+      <div class="max-w-[1320px] lg:gap-12 w-[95%] h-full flex justify-between items-center lg:relative">
         <div
-          class={`flex flex-row justify-between items-center w-full relative ${
-            navBarSpace ? "gap-1 mb-2 lg:gap-3 lg:mb-4" : "gap-3 mb-4"
+          class={`flex flex-row justify-between items-center w-full lg:w-[unset] lg:relative ${
+            navBarSpace ? "gap-1 lg:gap-3" : "gap-3 mb-4"
           }`}
         >
-          <div class=" flex lg:hidden">
+          <div class="flex lg:hidden">
             <Buttons variant="menu" />
             <Modals menuItems={items} />
           </div>
 
-          <div
-            class={`${
-              navBarSpace ? "w-1/2" : "w-full"
-            } flex justify-center p-0`}
-          >
-            {!!storeLogo && (
-              <BasicImageAndLink
-                {...storeLogo}
-                width={{ desktop: 345, mobile: 345 }}
-                height={{ desktop: 70, mobile: 60 }}
-              />
-            )}
+          <div class="lg:hidden">
+            <Search isMobile />
           </div>
 
           <div
+            class={`flex justify-center p-0 max-w-[120px] lg:max-w-[170px] w-full`}
+          >
+            <a href="/" class="hidden lg:block">
+              <Icon id="logo" width={170} height={48} />
+            </a>
+            <a href="/" class="lg:hidden">
+              <Icon id="logo" width={120} height={32} />
+            </a>
+          </div>
+
+          <a
+            href="/wishlist"
+            class="group flex lg:hidden items-center justify-center"
+          >
+            <Icon
+              id="header-heart"
+              width={24}
+              height={24}
+              class="text-slot-primary-600"
+            />
+          </a>
+
+          <div class="lg:hidden">
+            <Buttons variant="cart" />
+          </div>
+
+          {
+            /* <div
             class={`hidden lg:flex flex-col w-full ${
               navBarSpace ? "max-w-1/2" : "max-w-1/4"
             }`}
           >
             <Searchbar {...searchbar} device="desktop" />
-          </div>
-
-          <div
-            class={`flex flex-row  ${
-              navBarSpace ? "gap-x-2 lg:gap-x-4" : "gap-x-4"
-            }  justify-center items-baseline lg:items-center`}
-          >
-            <IconLoginLink {...loginLink} />
-
-            <IconNavigation items={IconNavigationItems} />
-
-            <Buttons variant="cart" />
-          </div>
+          </div> */
+          }
         </div>
 
         <div
-          class={`flex flex-col lg:hidden w-full ${
-            navBarSpace ? "mb-4" : "mb-8"
-          }`}
-        >
-          <Searchbar {...searchbar} device="mobile" />
-        </div>
-
-        <div
-          class={`hidden lg:flex flex-row justify-center items-center gap-x-4`}
+          class={`hidden lg:flex flex-row justify-center items-center gap-x-4 h-full lg:relative`}
         >
           {items
             ?.filter(({ mobileOnly }) => mobileOnly !== true)
             ?.map(({ href, label, navbarItems }) => (
               <NavItem label={label} href={href} navbarItems={navbarItems} />
             ))}
+        </div>
+        <div
+          class={`hidden lg:flex flex-row  ${
+            navBarSpace ? "gap-x-2 lg:gap-x-4" : "gap-x-4"
+          }  justify-center items-baseline lg:items-center`}
+        >
+          <div class="hidden lg:block">
+            <Search />
+          </div>
+          {ajuda && (
+            <div class="hidden lg:block">
+              <Help ajuda={ajuda.ajuda} />
+            </div>
+          )}
+          <a href="/wishlist" class="group flex items-center justify-center">
+            <Icon
+              id="header-heart"
+              width={24}
+              height={24}
+              class="text-slot-primary-600 group-hover:opacity-0 transition-opacity"
+            />
+            <Icon
+              id="header-heart-fill"
+              width={24}
+              height={24}
+              class="text-slot-primary-600 opacity-0 group-hover:opacity-100 transition-opacity absolute"
+            />
+          </a>
+          <IconLoginLink {...loginLink} />
+
+          {/* <IconNavigation items={IconNavigationItems} /> */}
+          <Buttons variant="cart" />
         </div>
       </div>
     </div>
