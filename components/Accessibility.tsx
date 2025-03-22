@@ -114,7 +114,7 @@ export default function () {
 
 					<label
 						for="grayscale"
-						class="bg-grayscale-600 border border-grayscale-500 rounded-3xl h-6 relative group/grayscale w-full cursor-pointer"
+						class="bg-grayscale-600 border border-grayscale-500 rounded-3xl h-6 relative group/grayscale w-16 cursor-pointer"
 					>
 						<div class="size-4 rounded-full bg-slot-primary-50 flex justify-center items-center absolute top-1/2 -translate-y-1/2 left-1 peer-checked:group-[]/grayscale:bg-grayscale-0 peer-checked:group-[]/grayscale:size-6 peer-checked:group-[]/grayscale:left-[calc(100%-16px-12px)] transition-all">
 							<Icon

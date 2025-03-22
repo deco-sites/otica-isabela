@@ -8,12 +8,14 @@ import type { Props as SearchbarProps } from "$store/components/search/Searchbar
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
+import type { Props as AjudaProps } from "./Ajuda.tsx";
 
 interface Props {
   menuItems?: MenuProps["items"];
+  ajuda?: AjudaProps;
 }
 
-function Modals({ menuItems }: Props) {
+function Modals({ menuItems, ajuda }: Props) {
   const { displayMobileMenu } = useUI();
 
   const fallback = (
@@ -30,6 +32,7 @@ function Modals({ menuItems }: Props) {
             closeMenu={() =>
               displayMobileMenu.value = false}
             items={menuItems}
+            ajuda={ajuda}
           />
         </Suspense>
       )}

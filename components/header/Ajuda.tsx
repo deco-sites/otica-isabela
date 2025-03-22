@@ -44,7 +44,7 @@ function Help({ ajuda }: Pick<Props, "ajuda">) {
 
             <label
                 for="info"
-                class="group cursor-pointer flex items-center justify-center"
+                class="group cursor-pointer flex flex-col items-center justify-center"
             >
                 <Icon
                     id="info"
@@ -58,6 +58,9 @@ function Help({ ajuda }: Pick<Props, "ajuda">) {
                     height={22}
                     class="text-slot-primary-600 opacity-0 group-hover:opacity-100 transition-opacity absolute"
                 />
+                <span class="text-xs text-gray-700 absolute top-[22px]">
+                    Ajuda
+                </span>
             </label>
 
             <div class="top-full right-0 absolute rounded-b-lg bg-white shadow-[0_4px_4px_rgba(0,0,0,0.1)] opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity w-screen max-w-[336px] z-30">

@@ -2,13 +2,15 @@ import { NavItemProps } from "./NavItem.tsx";
 // import { ModalOverlay } from "../ui/ModalOverlay.tsx";
 import { useId } from "../../sdk/useId.ts";
 import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-
+import type { Props as AjudaProps } from "./Ajuda.tsx";
+import Image from "apps/website/components/Image.tsx";
 export interface Props {
   items: NavItemProps[];
   closeMenu?: () => void;
+  ajuda?: AjudaProps;
 }
 
-function Menu({ items, closeMenu }: Props) {
+function Menu({ items, closeMenu, ajuda }: Props) {
   return (
     <div className="fixed top-0 left-0 w-full bg-grayscale-0 max-w-[330px] z-50">
       <div className="px-4 py-2 flex items-center justify-between h-14 shadow-[0_4px_4px_rgba(0,0,0,0.1)]">
@@ -27,7 +29,7 @@ function Menu({ items, closeMenu }: Props) {
         </a>
       </div>
 
-      <div className="flex flex-col min-h-[555px]">
+      <div className="flex flex-col min-h-[555px] max-h-[650px] overflow-auto">
         {items.map((item) => {
           const { href = "/", label, navbarItems, mobileMenuImage } = item;
           const { src, alt } = mobileMenuImage || {};
@@ -74,7 +76,7 @@ function Menu({ items, closeMenu }: Props) {
                       return (
                         <a
                           href={href}
-                          className="text-grayscale-700 pl-10 py-2 hover:underline underline-offset-2"
+                          className="text-grayscale-500 pl-10 py-2 hover:underline underline-offset-2"
                         >
                           {label}
                         </a>
@@ -86,7 +88,59 @@ function Menu({ items, closeMenu }: Props) {
             </div>
           );
         })}
+        <div class="flex flex-col">
+          <input id="help" type="checkbox" class="peer hidden" />
+
+          <div class="flex border-b border-b-grayscale-50 group relative">
+            <div class="h-full w-1 bg-slot-primary-500 rounded-r-2xl absolute left-0 top-0 opacity-0 pointer-events-none peer-checked:group-[]:opacity-100 peer-checked:group-[]:pointer-events-auto transition-opacity">
+            </div>
+
+            <label
+              for="help"
+              class="flex justify-between items-center px-4 py-3 w-full"
+            >
+              <div class="flex items-center gap-2">
+                Ajuda
+                <Icon
+                  id="info"
+                  width={24}
+                  height={24}
+                  class="text-slot-primary-600"
+                />
+              </div>
+              <Icon
+                id="chevron-right"
+                width={20}
+                height={20}
+                class="text-grayscale-700 rotate-90 peer-checked:group-[]:-rotate-90 transition-all"
+              />
+            </label>
+          </div>
+
+          <div class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-all">
+            <div class="overflow-hidden flex flex-col">
+              <div class="flex flex-col divide-y divide-grayscale-200">
+                {ajuda.centralDeAjuda.map(({ icon, text, url }) => {
+                  const Component = url ? "a" : "span";
+                  const props = url ? { href: url } : {};
+
+                  return (
+                    <Component
+                      {...props}
+                      class="text-grayscale-500 hover:text-slot-primary-500 transition-colors flex items-center gap-2 py-3 px-4"
+                      key={text}
+                    >
+                      <Image src={icon} alt={text} width={24} height={24} />
+                      {text}
+                    </Component>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="h-14 bg-[#D9D9D9] p-4 flex items-center gap-1">
         <a
           href="/ajuda-e-suporte"
