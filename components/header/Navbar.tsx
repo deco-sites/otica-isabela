@@ -54,10 +54,10 @@ function Navbar({
           </div>
 
           <div
-            class={`flex justify-center p-0 max-w-[120px] lg:max-w-[170px] w-full`}
+            class={`flex justify-center p-0 max-w-[120px] lg:max-w-[200px] w-full`}
           >
             <a href="/" class="hidden lg:block">
-              <Icon id="logo" width={180} height={48} />
+              <Icon id="logo" width={200} height={48} />
             </a>
             <a href="/" class="lg:hidden">
               <Icon id="logo" width={150} height={40} />

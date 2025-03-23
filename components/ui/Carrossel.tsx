@@ -115,7 +115,7 @@ export default function Carrossel(
                 {images.map(({ desktop, mobile, alt }, index) => (
                     <div
                         class={clx(
-                            "w-full transition-opacity duration-700",
+                            "w-full transition-opacity duration-700 lg:px-5 3xl:px-0",
                             index !== current.value && "opacity-0",
                             index !== 0 && "absolute left-0 top-0 h-full",
                         )}

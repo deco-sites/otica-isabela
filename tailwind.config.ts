@@ -23,6 +23,7 @@ export default {
       lg: "993px",
       xl: "1180px",
       "2xl": "1200px",
+      "3xl": "1340px",
     },
     extend: {
       keyframes: {
