@@ -30,6 +30,9 @@ interface Props {
 	 * @ignore
 	 */
 	noMargin?: boolean;
+	/**
+	 * @hide
+	 */
 	isMobile?: boolean;
 }
 
