@@ -1,6 +1,5 @@
 import { useCart } from "$store/packs/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
-import type { AppContext } from "../../apps/site.ts";
 import { clx } from "../../sdk/clx.ts";
 
 export interface GiftValueReachInfosProps {
@@ -70,7 +69,7 @@ export const PromotionalBar = (
         />
         <div
           className="size-10 rounded-full bg-slot-primary-500 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 text-white text-sm font-bold flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.25)] z-10 transition-all duration-500"
-          style={{ left: `${percentage}%` }}
+          style={{ left: percentage === 0 ? "5%" : `${percentage}%` }}
         >
           {percentage.toFixed(0)}%
         </div>
@@ -82,7 +81,9 @@ export const PromotionalBar = (
               : percentage >= 60
               ? "text-grayscale-0 -translate-x-[calc(100%+32px)]"
               : "text-slot-primary-500 translate-x-8",
-            "font-medium text-xs md:text-base absolute top-1/2 -translate-y-1/2 whitespace-nowrap",
+            `font-medium text-xs md:text-base absolute top-1/2 -translate-y-1/2 whitespace-nowrap ${
+              percentage === 0 ? "text-[5%]" : ``
+            }`,
           )}
           style={{ left: `${percentage === 100 ? 50 : percentage}%` }}
         >
