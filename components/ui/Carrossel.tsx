@@ -174,6 +174,9 @@ export default function Carrossel(
                     <Icon id="chevron-right" size={24} class="text-white" />
                 </button>
             </div>
+            <div class="w-full mt-8">
+                <Beneficios benefits={benefits} noMargin isMobile={true} />
+            </div>
 
             {!isMobile && (
                 <div class="absolute left-1/2 -translate-x-1/2 bottom-6 flex flex-col items-center gap-4 w-full">
@@ -224,7 +227,11 @@ export default function Carrossel(
                     </div>
 
                     <div class="max-lg:hidden w-full">
-                        <Beneficios benefits={benefits} noMargin />
+                        <Beneficios
+                            benefits={benefits}
+                            noMargin
+                            isMobile={false}
+                        />
                     </div>
                 </div>
             )}

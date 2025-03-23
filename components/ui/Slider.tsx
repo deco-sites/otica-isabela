@@ -8,12 +8,12 @@ function Dot({ index, children }: {
     <button
       data-dot={index}
       aria-label={`go to slider item ${index}`}
-      class="focus:outline-none group  disabled:opacity-50"
+      class="focus:outline-none group opacity-50 disabled:opacity-100"
     >
       {children
         ? children
         : (
-          <div class=" w-[10px] h-[10px] rounded-3xl bg-blue-200  ">
+          <div class=" w-[10px] h-[10px] rounded-3xl bg-slot-primary-600">
           </div>
         )}
     </button>

@@ -75,13 +75,6 @@ function CartButton() {
               class="text-slot-primary-600 opacity-0 group-hover:opacity-100 transition-opacity absolute"
             />
           </div>
-
-          <Icon
-            id="chevron-right"
-            width={24}
-            height={24}
-            class="text-slot-primary-600 rotate-90 peer-checked:group-[]:-rotate-90 hidden lg:block"
-          />
         </label>
       </div>
     </a>

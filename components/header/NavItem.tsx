@@ -56,7 +56,7 @@ export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
   return (
     <div class="group flex h-full items-center">
       <a
-        class="text-grayscale-700 group-hover:text-slot-primary-600 text-base font-normal pb-8 lg:pb-0"
+        class="text-grayscale-700 group-hover:text-slot-primary-600 text-sm 2xl:text-base font-normal pb-8 lg:pb-0"
         href={href}
       >
         {label}

@@ -21,7 +21,7 @@ export default {
       sm: "600px",
       md: "728px",
       lg: "993px",
-      xl: "1140px",
+      xl: "1180px",
       "2xl": "1200px",
     },
     extend: {

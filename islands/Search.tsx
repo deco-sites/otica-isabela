@@ -93,14 +93,16 @@ export default function (
 
 				<div class="top-0 left-0 absolute z-50 rounded-b-lg bg-white shadow-[0_4px_4px_rgba(0,0,0,0.1)] -translate-y-full pointer-events-none peer-checked:translate-y-0 peer-checked:pointer-events-auto transition-transform duration-300 w-full">
 					<div class="p-4 pt-6 flex gap-3 border-b border-b-grayscale-100">
-						<button type="button" class="flex">
+						{
+							/* <button type="button" class="flex">
 							<Icon
 								id="microphone"
 								width={24}
 								height={24}
 								class="text-slot-primary-600"
 							/>
-						</button>
+						</button> */
+						}
 
 						<div class="flex flex-col gap-5 w-full">
 							<input
@@ -214,14 +216,16 @@ export default function (
 
 			<div class="top-full left-1/2 -translate-x-1/2 absolute rounded-b-lg bg-white shadow-[0_4px_4px_rgba(0,0,0,0.1)] opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity w-screen max-w-[800px] z-50">
 				<div class="p-4 pt-6 flex gap-3 border-b border-b-grayscale-100">
-					<button type="button" class="flex">
+					{
+						/* <button type="button" class="flex">
 						<Icon
 							id="microphone"
 							width={24}
 							height={24}
 							class="text-slot-primary-600"
 						/>
-					</button>
+					</button> */
+					}
 
 					<div class="flex flex-col gap-5 w-full">
 						<input

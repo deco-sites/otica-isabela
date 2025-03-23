@@ -40,7 +40,7 @@ function Navbar({
     >
       <div class="max-w-[1320px] lg:gap-2.5 w-[95%] h-full flex justify-between items-center lg:relative">
         <div
-          class={`flex flex-row justify-between items-center w-full lg:w-[unset] lg:relative ${
+          class={`flex flex-row justify-around items-center w-full lg:w-[unset] lg:relative ${
             navBarSpace ? "gap-1 lg:gap-3" : "gap-3 mb-4"
           }`}
         >
