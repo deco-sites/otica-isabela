@@ -155,17 +155,17 @@ export default function (
 					</div>
 
 					{hasProducts && (
-						<div class="px-4 py-7 grid grid-cols-4 gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
+						<div class="px-4 py-7 flex flex-wrap justify-between gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
 							{suggestionProducts?.map((suggestion) => (
 								<a
 									href={suggestion.url}
-									class="flex flex-col gap-2 items-center max-w-[182px]"
+									class="flex flex-col gap-2 items-center max-w-[120px]"
 								>
 									<Image
 										src={suggestion.image?.[0].url ?? ""}
 										alt={suggestion.name}
-										width={182}
-										height={133}
+										width={100}
+										height={100}
 									/>
 
 									<span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">

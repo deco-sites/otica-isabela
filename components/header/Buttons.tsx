@@ -24,7 +24,7 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-sm btn-ghost px-0 z-50 h-full cursor-pointer flex flex-col gap-1 translate-y-1.5"
+      class="btn-sm btn-ghost px-0 z-50 h-full cursor-pointer flex flex-col items-baseline gap-1 translate-y-1.5"
       aria-label="open menu"
       onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >

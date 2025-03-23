@@ -69,7 +69,7 @@ export default function (
 			class="h-12 w-full bg-[#E5F7FF]"
 		>
 			<div class="max-w-[1200px] w-[95%] flex justify-center items-center h-full relative mx-auto">
-				<div class="relative w-full h-full max-w-[700px] flex sm:justify-center items-center">
+				<div class="relative w-full h-full max-w-[700px] flex sm:justify-center items-center pl-2.5 sm:pl-0">
 					{texts.map((
 						{ text, textMobile, leftImage, rightImage },
 						i,

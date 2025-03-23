@@ -110,132 +110,145 @@ export default function Carrossel(
     }, []);
 
     return (
-        <div class="max-w-[1320px] w-full mx-auto relative mb-16">
-            {images.map(({ desktop, mobile, alt }, index) => (
-                <div
-                    class={clx(
-                        "w-full transition-opacity duration-700",
-                        index !== current.value && "opacity-0",
-                        index !== 0 && "absolute left-0 top-0 h-full",
-                    )}
-                >
-                    <Picture>
-                        <Source
-                            media="(max-width: 768px)"
-                            src={mobile}
-                            width={768}
-                            height={350}
+        <>
+            <div class="max-w-[1320px] w-full mx-auto relative lg:mb-16">
+                {images.map(({ desktop, mobile, alt }, index) => (
+                    <div
+                        class={clx(
+                            "w-full transition-opacity duration-700",
+                            index !== current.value && "opacity-0",
+                            index !== 0 && "absolute left-0 top-0 h-full",
+                        )}
+                    >
+                        <Picture>
+                            <Source
+                                media="(max-width: 768px)"
+                                src={mobile}
+                                width={768}
+                                height={350}
+                            />
+                            <Source
+                                media="(min-width: 769px)"
+                                src={desktop}
+                                width={1320}
+                                height={430}
+                            />
+                            <img class="" src={desktop} alt={alt} />
+                        </Picture>
+                    </div>
+                ))}
+
+                <div class="flex items-center justify-between absolute top-1/2 -translate-y-1/2 w-full px-[3vw]">
+                    <button
+                        type="button"
+                        class="bg-slot-primary-500 size-8 rounded flex justify-center items-center"
+                        onClick={() => {
+                            current.value = infinite
+                                ? current.value - 1 < 0
+                                    ? images.length - 1
+                                    : current.value - 1
+                                : Math.max(0, current.value - 1);
+                            tracking.value = chunks[current.value];
+                            steps.value = (steps_num / images.length) *
+                                current.value;
+                        }}
+                    >
+                        <Icon
+                            id="chevron-right"
+                            size={24}
+                            class="text-white rotate-180"
                         />
-                        <Source
-                            media="(min-width: 769px)"
-                            src={desktop}
-                            width={1320}
-                            height={430}
-                        />
-                        <img class="" src={desktop} alt={alt} />
-                    </Picture>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="bg-slot-primary-500 size-8 rounded flex justify-center items-center"
+                        onClick={() => {
+                            current.value = infinite
+                                ? (current.value + 1) % images.length
+                                : Math.min(
+                                    images.length - 1,
+                                    current.value + 1,
+                                );
+                            tracking.value = chunks[current.value];
+                            steps.value = (steps_num / images.length) *
+                                current.value;
+                        }}
+                    >
+                        <Icon id="chevron-right" size={24} class="text-white" />
+                    </button>
                 </div>
-            ))}
-
-            <div class="flex items-center justify-between absolute top-1/2 -translate-y-1/2 w-full px-[3vw]">
-                <button
-                    type="button"
-                    class="bg-slot-primary-500 size-8 rounded flex justify-center items-center"
-                    onClick={() => {
-                        current.value = infinite
-                            ? current.value - 1 < 0
-                                ? images.length - 1
-                                : current.value - 1
-                            : Math.max(0, current.value - 1);
-                        tracking.value = chunks[current.value];
-                        steps.value = (steps_num / images.length) *
-                            current.value;
-                    }}
-                >
-                    <Icon
-                        id="chevron-right"
-                        size={24}
-                        class="text-white rotate-180"
-                    />
-                </button>
-
-                <button
-                    type="button"
-                    class="bg-slot-primary-500 size-8 rounded flex justify-center items-center"
-                    onClick={() => {
-                        current.value = infinite
-                            ? (current.value + 1) % images.length
-                            : Math.min(images.length - 1, current.value + 1);
-                        tracking.value = chunks[current.value];
-                        steps.value = (steps_num / images.length) *
-                            current.value;
-                    }}
-                >
-                    <Icon id="chevron-right" size={24} class="text-white" />
-                </button>
             </div>
-            <div class="w-full mt-8">
+            <div class="w-full my-8">
                 <Beneficios benefits={benefits} noMargin isMobile={true} />
             </div>
-
             {!isMobile && (
-                <div class="absolute left-1/2 -translate-x-1/2 bottom-6 flex flex-col items-center gap-4 w-full">
-                    <div class="flex items-center gap-6">
-                        <div class="flex items-center gap-2">
-                            {images.map((_, index) => {
-                                const min = index * duration;
-                                const max = (index + 1) * duration;
+                <div class="max-w-[1320px] w-full mx-auto relative mb-16">
+                    <div class="absolute left-1/2 -translate-x-1/2 bottom-3 flex flex-col items-center gap-4 w-full">
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2">
+                                {images.map((_, index) => {
+                                    const min = index * duration;
+                                    const max = (index + 1) * duration;
 
-                                const percentage = Math.max(
-                                    0,
-                                    ((tracking.value - min) / (max - min)) *
-                                        100,
-                                );
+                                    const percentage = Math.max(
+                                        0,
+                                        ((tracking.value - min) / (max - min)) *
+                                            100,
+                                    );
 
-                                return (
-                                    <button
-                                        type="button"
-                                        class={clx(
-                                            "w-20 h-1 rounded overflow-hidden bg-grayscale-0 relative",
-                                        )}
-                                    >
-                                        <div
-                                            class="h-full bg-slot-primary-600"
-                                            style={{
-                                                width: `${
-                                                    Math.min(percentage, 100)
-                                                }%`,
-                                            }}
-                                        />
-                                    </button>
-                                );
-                            })}
+                                    return (
+                                        <button
+                                            type="button"
+                                            class={clx(
+                                                "w-20 h-1 rounded overflow-hidden bg-grayscale-0 relative",
+                                            )}
+                                        >
+                                            <div
+                                                class="h-full bg-slot-primary-600"
+                                                style={{
+                                                    width: `${
+                                                        Math.min(
+                                                            percentage,
+                                                            100,
+                                                        )
+                                                    }%`,
+                                                }}
+                                            />
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            <button
+                                type="button"
+                                class="bg-slot-primary-500 size-8 rounded-full flex justify-center items-center active:scale-[0.85] active:brightness-[0.85]"
+                                onClick={() => {
+                                    if (paused.value) {
+                                        notify.value.resolve();
+                                    }
+
+                                    paused.value = !paused.value;
+                                }}
+                            >
+                                <Icon
+                                    id="player"
+                                    size={24}
+                                    class="text-white"
+                                />
+                            </button>
                         </div>
-                        <button
-                            type="button"
-                            class="bg-slot-primary-500 size-8 rounded-full flex justify-center items-center active:scale-[0.85] active:brightness-[0.85]"
-                            onClick={() => {
-                                if (paused.value) {
-                                    notify.value.resolve();
-                                }
 
-                                paused.value = !paused.value;
-                            }}
-                        >
-                            <Icon id="player" size={24} class="text-white" />
-                        </button>
-                    </div>
-
-                    <div class="max-lg:hidden w-full">
-                        <Beneficios
-                            benefits={benefits}
-                            noMargin
-                            isMobile={false}
-                        />
+                        <div class="max-lg:hidden w-full">
+                            <Beneficios
+                                benefits={benefits}
+                                noMargin
+                                isMobile={false}
+                            />
+                        </div>
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 }
 

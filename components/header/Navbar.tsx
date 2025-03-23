@@ -40,7 +40,7 @@ function Navbar({
     >
       <div class="max-w-[1320px] lg:gap-2.5 w-[95%] h-full flex justify-between items-center lg:relative">
         <div
-          class={`flex flex-row justify-around items-center w-full lg:w-[unset] lg:relative ${
+          class={`flex flex-row justify-between pl-2.5 sm:pl-0 items-center w-full lg:w-[unset] lg:relative ${
             navBarSpace ? "gap-1 lg:gap-3" : "gap-3 mb-4"
           }`}
         >
@@ -57,7 +57,7 @@ function Navbar({
             class={`flex justify-center p-0 max-w-[120px] lg:max-w-[170px] w-full`}
           >
             <a href="/" class="hidden lg:block">
-              <Icon id="logo" width={170} height={48} />
+              <Icon id="logo" width={180} height={48} />
             </a>
             <a href="/" class="lg:hidden">
               <Icon id="logo" width={150} height={40} />
@@ -92,7 +92,7 @@ function Navbar({
         </div>
 
         <div
-          class={`hidden lg:flex flex-row justify-center items-center gap-x-2 h-full lg:relative`}
+          class={`hidden lg:flex flex-row justify-center items-center gap-x-6 2xl:gap-x-4 h-full lg:relative`}
         >
           {items
             ?.filter(({ mobileOnly }) => mobileOnly !== true)
