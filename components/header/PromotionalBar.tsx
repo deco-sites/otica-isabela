@@ -53,7 +53,7 @@ export const PromotionalBar = (
 
   return (
     <div className="bg-white">
-      <div className="max-w-[1320px] w-[80%] lg:w-[95%] mx-auto relative my-6">
+      <div className="max-w-[1320px] w-[85%] lg:w-[95%] mx-auto relative my-6">
         {percentage < 95 && (
           <img
             src="/image/gift.png"

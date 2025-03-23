@@ -110,7 +110,7 @@ export default function Carrossel(
     }, []);
 
     return (
-        <div class="max-w-[1320px] w-full mx-auto relative lg:mb-24 mb-16">
+        <div class="max-w-[1320px] w-full mx-auto relative mb-16">
             {images.map(({ desktop, mobile, alt }, index) => (
                 <div
                     class={clx(
@@ -132,7 +132,7 @@ export default function Carrossel(
                             width={1320}
                             height={430}
                         />
-                        <img class="max-h-[430px]" src={desktop} alt={alt} />
+                        <img class="" src={desktop} alt={alt} />
                     </Picture>
                 </div>
             ))}

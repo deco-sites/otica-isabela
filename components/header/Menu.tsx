@@ -120,7 +120,7 @@ function Menu({ items, closeMenu, ajuda }: Props) {
           <div class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-all">
             <div class="overflow-hidden flex flex-col">
               <div class="flex flex-col divide-y divide-grayscale-200">
-                {ajuda.centralDeAjuda.map(({ icon, text, url }) => {
+                {ajuda?.centralDeAjuda.map(({ icon, text, url }) => {
                   const Component = url ? "a" : "span";
                   const props = url ? { href: url } : {};
 
@@ -135,6 +135,41 @@ function Menu({ items, closeMenu, ajuda }: Props) {
                     </Component>
                   );
                 })}
+              </div>
+              <div class="h-12 px-4 mb-3">
+                <a
+                  href={ajuda?.centralDeAjudaUrl}
+                  class="flex-1 h-full border border-grayscale-600 flex justify-center items-center rounded-2xl text-slot-primary-500 font-bold text-sm hover:bg-slot-primary-500 hover:text-white hover:border-0 transition-colors"
+                >
+                  Ajuda
+                </a>
+              </div>
+              <div class="bg-[#F3F3F3] pt-8 px-7 pb-4 flex flex-col gap-4">
+                <span class="text-grayscale-800 text-lg font-medium text-center">
+                  Entre em contato
+                </span>
+
+                <div class="flex flex-col divide-y divide-grayscale-200">
+                  {ajuda?.entreEmContato.map(({ icon, text, url }) => {
+                    const Component = url ? "a" : "span";
+                    const props = url ? { href: url } : {};
+
+                    return (
+                      <Component
+                        {...props}
+                        class="text-grayscale-600 transition-colors flex items-center gap-2 py-3"
+                      >
+                        <Image
+                          src={icon}
+                          alt={text}
+                          width={24}
+                          height={24}
+                        />
+                        {text}
+                      </Component>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

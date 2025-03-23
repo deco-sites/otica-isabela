@@ -38,7 +38,7 @@ function Navbar({
       style={{ background: `${backgroundHex}` }}
       class="bg-black w-full z-50 flex flex-row justify-center items-center shadow-[0_4px_4px_rgba(0,0,0,0.1)] h-16 lg:h-24"
     >
-      <div class="max-w-[1320px] lg:gap-12 w-[95%] h-full flex justify-between items-center lg:relative">
+      <div class="max-w-[1320px] lg:gap-2.5 w-[95%] h-full flex justify-between items-center lg:relative">
         <div
           class={`flex flex-row justify-between items-center w-full lg:w-[unset] lg:relative ${
             navBarSpace ? "gap-1 lg:gap-3" : "gap-3 mb-4"
@@ -60,7 +60,7 @@ function Navbar({
               <Icon id="logo" width={170} height={48} />
             </a>
             <a href="/" class="lg:hidden">
-              <Icon id="logo" width={120} height={32} />
+              <Icon id="logo" width={150} height={40} />
             </a>
           </div>
 
@@ -92,7 +92,7 @@ function Navbar({
         </div>
 
         <div
-          class={`hidden lg:flex flex-row justify-center items-center gap-x-4 h-full lg:relative`}
+          class={`hidden lg:flex flex-row justify-center items-center gap-x-2 h-full lg:relative`}
         >
           {items
             ?.filter(({ mobileOnly }) => mobileOnly !== true)
@@ -102,7 +102,7 @@ function Navbar({
         </div>
         <div
           class={`hidden lg:flex flex-row  ${
-            navBarSpace ? "gap-x-2 lg:gap-x-4" : "gap-x-4"
+            navBarSpace ? "gap-x-2 lg:gap-x-4" : ""
           }  justify-center items-baseline lg:items-center`}
         >
           <div class="hidden lg:block">

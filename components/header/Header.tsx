@@ -20,6 +20,11 @@ interface AlertText {
    */
   text: string;
   /**
+   * @format html
+   * @title Texto Mobile
+   */
+  textMobile: string;
+  /**
    * @title ‎
    * @description Ícone da esquerda
    */
@@ -101,7 +106,7 @@ function Header({
   loginLink,
   promotionalTopBanner,
   navBarSpace,
-  isMobile,
+  // isMobile,
 }: SectionProps<typeof loader>) {
   const { activate, image } = promotionalTopBanner ?? {};
 
@@ -109,7 +114,7 @@ function Header({
     <>
       <header style={{ background: `${backgroundHex}` }} class="bg-black">
         <div class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30" />
-        {alertMessages && !isMobile && (
+        {alertMessages && (
           <Alertas
             texts={alertMessages.texts}
             interval={alertMessages.interval}
