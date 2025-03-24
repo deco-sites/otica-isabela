@@ -4,8 +4,11 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $live_invoke_middleware from "./routes/live/invoke/_middleware.tsx";
+import * as $Accessibility from "./islands/Accessibility.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
+import * as $Alertas from "./islands/Alertas.tsx";
 import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
+import * as $Carrossel from "./islands/Carrossel.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
 import * as $ChooseLensButton from "./islands/ChooseLensButton.tsx";
@@ -22,6 +25,7 @@ import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
 import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
 import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
 import * as $ReviewImagesModal from "./islands/ReviewImagesModal.tsx";
+import * as $Search from "./islands/Search.tsx";
 import * as $SearchControls from "./islands/SearchControls.tsx";
 import * as $SelectedFilters from "./islands/SelectedFilters.tsx";
 import * as $ShareButton from "./islands/ShareButton.tsx";
@@ -42,8 +46,11 @@ const manifest = {
     "./routes/live/invoke/_middleware.tsx": $live_invoke_middleware,
   },
   islands: {
+    "./islands/Accessibility.tsx": $Accessibility,
     "./islands/AddToCartButton.tsx": $AddToCartButton,
+    "./islands/Alertas.tsx": $Alertas,
     "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
+    "./islands/Carrossel.tsx": $Carrossel,
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
     "./islands/ChooseLensButton.tsx": $ChooseLensButton,
@@ -60,6 +67,7 @@ const manifest = {
     "./islands/PromotionalBar.tsx": $PromotionalBar,
     "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,
     "./islands/ReviewImagesModal.tsx": $ReviewImagesModal,
+    "./islands/Search.tsx": $Search,
     "./islands/SearchControls.tsx": $SearchControls,
     "./islands/SelectedFilters.tsx": $SelectedFilters,
     "./islands/ShareButton.tsx": $ShareButton,

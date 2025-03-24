@@ -9,20 +9,20 @@ interface Props {
 export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
   return (
     <div
-      class={`w-full bg-red-500 ${page === "details" ? "lg:hidden" : "block"}`}
+      class={`w-full ${page === "details" ? "lg:hidden" : "block"}`}
     >
       <div class="container sm:min-h-[150px] min-h-[100px] justify-evenly lg:justify-around flex items-center pb-0 pl-1 pr-1">
         <div class="lg:hidden flex items-center justify-center">
           <Icon
-            class="w-[56px] h-[56px] text-white"
+            class="w-[56px] h-[56px] text-red-500"
             id="Stopwatch"
             size={40}
           />
         </div>
 
         <div class="hidden lg:block">
-          <p class="text-white text-l md:text-xl font-bold">As melhores</p>
-          <h3 class="text-white text-3xl md:text-5xl font-bebas-neue uppercase">
+          <p class="text-red-500 text-l md:text-xl font-bold">As melhores</p>
+          <h3 class="text-red-500 text-3xl md:text-5xl font-bebas-neue uppercase">
             Ofertas do dia
           </h3>
         </div>

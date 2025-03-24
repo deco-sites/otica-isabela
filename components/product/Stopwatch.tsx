@@ -43,7 +43,7 @@ const config: Config = {
     "gap": "gap-2",
   },
   header: {
-    "font-color": "text-white",
+    "font-color": "text-red-500",
     "font-size": "text-2xl md:text-4xl",
     "offer-fs": "text-l md:text-xl",
     "bold": "font-bold",
@@ -104,12 +104,12 @@ function Stopwatch({ targetDate, type }: Props) {
         class={`flex rounded-md pt-0 pb-0`}
       >
         {type === "card" && (
-          <div class="bg-red-500 text-white px-3 rounded-sm flex items-center justify-center">
+          <div class="text-red-500 px-3 rounded-sm flex items-center justify-center">
             <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}
         {type === "details" && (
-          <div class="bg-red-500 text-white px-8 w-32 rounded-sm flex items-center justify-center">
+          <div class="text-red-500 px-8 w-32 rounded-sm flex items-center justify-center">
             <Icon id="Stopwatch" width={25} height={25} class="" />
           </div>
         )}
@@ -117,7 +117,7 @@ function Stopwatch({ targetDate, type }: Props) {
           <p
             class={`${
               style(["font-color", "offer-fs", "bold"], type)
-            } w-full block `}
+            } w-full block text-red-500`}
           >
             Oferta termina em
           </p>

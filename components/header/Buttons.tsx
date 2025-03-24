@@ -24,17 +24,17 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-sm btn-ghost px-0 z-50 h-full"
+      class="btn-sm btn-ghost px-0 z-50 h-full cursor-pointer flex flex-col items-baseline gap-1 translate-y-1.5"
       aria-label="open menu"
       onClick={() => (displayMobileMenu.value = !displayMobileMenu.value)}
     >
       <Icon
-        id={!displayMobileMenu.value ? "Bars3" : "XMark"}
-        width={45}
-        height={48}
-        class="text-white"
-        strokeWidth={0.01}
+        id={!displayMobileMenu.value ? "menu" : "menu"}
+        width={24}
+        height={24}
+        class="text-slot-primary-500"
       />
+      <span class="text-grayscale-600 text-xs font-light">Menu</span>
     </Button>
   );
 }
@@ -46,24 +46,36 @@ function CartButton() {
 
   return (
     <a
-      class="btn btn-circle btn-sm btn-ghost relative"
+      class="relative"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       href="/carrinho"
     >
       <div class="indicator">
         {totalItems > 0 && (
-          <span class="-top-3.5 absolute indicator-item badge badge-secondary badge-lg h-6 w-6 pa  bg-white text-black border-none font-extralight">
+          <span class="top-0 absolute indicator-item badge badge-secondary badge-lg h-6 w-6 pa  bg-white text-black border-none font-extralight">
             {totalItems > 9 ? "9+" : totalItems}
           </span>
         )}
-        <Icon
-          class="text-black"
-          id="ShoppingCart"
-          width={26}
-          height={25}
-          strokeWidth={2}
-        />
+        <label
+          for="minicart"
+          class="group cursor-pointer flex items-center justify-center gap-2"
+        >
+          <div class="relative flex items-center justify-center isolate">
+            <Icon
+              id="cart"
+              width={32}
+              height={32}
+              class="text-slot-primary-600 group-hover:opacity-0 transition-opacity"
+            />
+            <Icon
+              id="cart-fill"
+              width={32}
+              height={32}
+              class="text-slot-primary-600 opacity-0 group-hover:opacity-100 transition-opacity absolute"
+            />
+          </div>
+        </label>
       </div>
     </a>
   );

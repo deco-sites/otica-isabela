@@ -73,7 +73,20 @@ export type UtilityIcons =
   | "Discount"
   | "Cloud"
   | "Balloons"
-  | "BalloonsDoubt";
+  | "BalloonsDoubt"
+  | "logo"
+  | "chevron-right"
+  | "player"
+  | "menu"
+  | "header-heart"
+  | "header-heart-fill"
+  | "x"
+  | "search"
+  | "search-fill"
+  | "microphone"
+  | "info"
+  | "info-fill"
+  | "telephon";
 
 /**
  * @title Icones de recursos
@@ -92,7 +105,10 @@ export type ResourceIcons =
   | "GarantiaDoProduto"
   | "RecebaComLentes"
   | "ProvadorOnline"
-  | "Home";
+  | "Home"
+  | "accessibility"
+  | "cart"
+  | "cart-fill";
 
 /**
  * @title Icones de óculos
