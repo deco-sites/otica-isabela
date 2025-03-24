@@ -61,12 +61,12 @@ export const NavItem = ({ label, navbarItems, href }: NavItemProps) => {
       >
         {label}
       </a>
-      <div class="hidden w-full group-hover:flex w-fits absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-9 px-[60px] py-[30px] group-hover:animate-fadeI left-0 top-12">
+      <div class="hidden w-full group-hover:flex w-fits absolute flex-row z-50 items-center justify-center bg-base-100 rounded-xl gap-6 mt-9 px-[40px] py-[30px] group-hover:animate-fadeI left-0 top-12">
         {filteredChildren.map(({ desktopMenuImage, href, label }) =>
           desktopMenuImage?.src
             ? (
               <a class="m-0 p-0" href={href} key={label}>
-                <div class="mx-2 flex flex-col justify-center items-center gap-y-4">
+                <div class="flex flex-col justify-center items-center gap-y-4">
                   <Image
                     class="rounded-[20px] object-cover	p-0 max-2xl:w-[200px] h-[280px]"
                     src={desktopMenuImage.src}
