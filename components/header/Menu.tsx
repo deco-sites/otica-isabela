@@ -141,7 +141,7 @@ function Menu({ items, closeMenu, ajuda }: Props) {
                   href={ajuda?.centralDeAjudaUrl}
                   class="flex-1 h-full border border-grayscale-600 flex justify-center items-center rounded-2xl text-slot-primary-500 font-bold text-sm hover:bg-slot-primary-500 hover:text-white hover:border-0 transition-colors"
                 >
-                  Ajuda
+                  {ajuda?.centralDeAjudaButton ?? "Ajuda"}
                 </a>
               </div>
               <div class="bg-[#F3F3F3] pt-8 px-7 pb-4 flex flex-col gap-4">
