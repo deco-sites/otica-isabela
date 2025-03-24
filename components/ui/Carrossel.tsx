@@ -124,8 +124,8 @@ export default function Carrossel(
                             <Source
                                 media="(max-width: 768px)"
                                 src={mobile}
-                                width={768}
-                                height={350}
+                                width={500}
+                                height={600}
                             />
                             <Source
                                 media="(min-width: 769px)"
