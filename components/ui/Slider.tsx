@@ -4,20 +4,25 @@ function Dot({ index, children }: {
   index: number;
   children?: ComponentChildren;
 }) {
-  return (
-    <button
-      data-dot={index}
-      aria-label={`go to slider item ${index}`}
-      class="focus:outline-none group opacity-50 disabled:opacity-100"
-    >
-      {children
-        ? children
-        : (
-          <div class=" w-[10px] h-[10px] rounded-3xl bg-slot-primary-600">
-          </div>
-        )}
-    </button>
-  );
+  return children
+    ? (
+      <button
+        data-dot={index}
+        aria-label={`go to slider item ${index}`}
+        class="focus:outline-none group"
+      >
+        {children}
+      </button>
+    )
+    : (
+      <button
+        data-dot={index}
+        aria-label={`go to slider item ${index}`}
+        class="focus:outline-none group opacity-50 disabled:opacity-100"
+      >
+        <div class="w-[10px] h-[10px] rounded-3xl bg-slot-primary-600"></div>
+      </button>
+    );
 }
 
 function Slider(props: JSX.IntrinsicElements["ul"]) {

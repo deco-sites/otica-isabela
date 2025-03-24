@@ -22,8 +22,8 @@ export const IconLoginLink = (
             </div>
           )
           : (
-            <div className="hidden lg:flex flex-col items-start text-white text-xs">
-              <span className="hover:text-blue-200 whitespace-nowrap font-normal">
+            <div className="hidden lg:flex flex-col items-start text-black text-xs">
+              <span className="whitespace-nowrap font-normal">
                 OLÁ, {customer?.customerName.toUpperCase()}!
               </span>
             </div>

@@ -24,6 +24,7 @@ interface Ajuda {
      * @title Url do botão da central de ajuda
      */
     centralDeAjudaUrl: string;
+    centralDeAjudaButton?: string;
     /**
      * @title Entre em contato
      */
@@ -109,7 +110,7 @@ function Help({ ajuda }: Pick<Props, "ajuda">) {
                                 href={ajuda.centralDeAjudaUrl}
                                 class="flex-1 h-full border border-grayscale-600 flex justify-center items-center rounded-2xl text-slot-primary-500 font-bold text-sm hover:bg-slot-primary-500 hover:text-white hover:border-0 transition-colors"
                             >
-                                Ajuda
+                                {ajuda.centralDeAjudaButton ?? "Ajuda"}
                             </a>
                         </div>
                     </div>
