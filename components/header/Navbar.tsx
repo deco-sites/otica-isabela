@@ -65,7 +65,7 @@ function Navbar({
           </div>
 
           <a
-            href="/wishlist"
+            href="/meus-favoritos"
             class="group flex lg:hidden items-center justify-center"
           >
             <Icon
@@ -113,7 +113,10 @@ function Navbar({
               <Help ajuda={ajuda.ajuda} />
             </div>
           )}
-          <a href="/wishlist" class="group flex items-center justify-center">
+          <a
+            href="/meus-favoritos"
+            class="group flex items-center justify-center"
+          >
             <Icon
               id="header-heart"
               width={24}
