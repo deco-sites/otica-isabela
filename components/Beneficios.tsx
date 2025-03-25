@@ -3,7 +3,7 @@ import Image from "apps/website/components/Image.tsx";
 import { clx } from "../sdk/clx.ts";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { useId } from "$store/sdk/useId.ts";
 
 /**
  * @titleBy text

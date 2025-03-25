@@ -4,14 +4,14 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type { Promotion } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
-import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
-import { sendFBEvent } from "deco-sites/otica-isabela/components/ultils/facebook.ts";
-import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
-import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
-import Stopwatch from "deco-sites/otica-isabela/islands/Stopwatch.tsx";
-import { AuthData } from "deco-sites/otica-isabela/packs/types.ts";
+import type { Promotion } from "$store/components/product/ProductDetails.tsx";
+import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
+import { sendFBEvent } from "$store/components/ultils/facebook.ts";
+import Ratings from "$store/components/product/product-details/Ratings.tsx";
+import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
+import Stopwatch from "$store/islands/Stopwatch.tsx";
+import { AuthData } from "$store/packs/types.ts";
 import { LoaderReturnType } from "deco/mod.ts";
 
 interface Props {
@@ -204,14 +204,18 @@ function ProductInfo(
 
       {/* Add To Cart & Whislist */}
       {!isLentes && (
-        <div onClick={() => {
-          sendFBEvent('AddToCart', { 
-            content_ids: [sku], 
-            content_type: 'produto', 
-            value: price,
-            currency: 'BRL'
-          });
-        }} class="mt-[11px] w-full flex items-center" id="add-to-cart-button">
+        <div
+          onClick={() => {
+            sendFBEvent("AddToCart", {
+              content_ids: [sku],
+              content_type: "produto",
+              value: price,
+              currency: "BRL",
+            });
+          }}
+          class="mt-[11px] w-full flex items-center"
+          id="add-to-cart-button"
+        >
           <AddToCartButton
             {...addToCard}
             label={labels?.[currentCategory!.toLowerCase()]}

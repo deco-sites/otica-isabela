@@ -1,5 +1,5 @@
-import AddToCartButton from "deco-sites/otica-isabela/islands/AddToCartButton.tsx";
-import ChooseLensButton from "deco-sites/otica-isabela/islands/ChooseLensButton.tsx";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
+import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
 import { useEffect } from "preact/hooks";
 
 export interface Props {

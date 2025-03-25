@@ -1,8 +1,6 @@
-import Icon, {
-  AvailableIcons,
-} from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import Text, { IText } from "deco-sites/otica-isabela/components/ui/Text.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import Text, { IText } from "$store/components/ui/Text.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 /**
  * @title Set Color

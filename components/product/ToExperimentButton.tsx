@@ -1,7 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import { useSignal } from "@preact/signals";
-import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
-import { getDevice } from "deco-sites/otica-isabela/sdk/getDevice.ts";
+import Modal from "$store/components/ui/NewModal.tsx";
+import { getDevice } from "$store/sdk/getDevice.ts";
 
 interface Props {
   image: string;

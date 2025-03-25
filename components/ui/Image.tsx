@@ -1,8 +1,6 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import Icon, {
-  AvailableIcons,
-} from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import { IImage } from "$store/sdk/types.ts";
 
 interface ITab {
   label: string;

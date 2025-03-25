@@ -1,4 +1,4 @@
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
 import { APIAddNewsletter } from "$store/packs/types.ts";

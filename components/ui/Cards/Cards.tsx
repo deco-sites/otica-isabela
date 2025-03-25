@@ -1,6 +1,4 @@
-import Card, {
-  ICard,
-} from "deco-sites/otica-isabela/components/ui/Cards/Card.tsx";
+import Card, { ICard } from "$store/components/ui/Cards/Card.tsx";
 
 interface Columns {
   /**

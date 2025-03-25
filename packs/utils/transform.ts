@@ -29,10 +29,7 @@ import type {
   PropertyValue,
   UnitPriceSpecification,
 } from "apps/commerce/types.ts";
-import {
-  RANGE_FILTERS,
-  SORT_OPTIONS,
-} from "deco-sites/otica-isabela/packs/constants.ts";
+import { RANGE_FILTERS, SORT_OPTIONS } from "$store/packs/constants.ts";
 
 type CategoryPageProps = Required<
   Omit<

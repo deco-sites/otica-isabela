@@ -1,12 +1,12 @@
 import Background, {
   IBackgroundColor,
   IBackgroundImage,
-} from "deco-sites/otica-isabela/components/ui/Hero/Background.tsx";
+} from "$store/components/ui/Hero/Background.tsx";
 import BreadCrumb, {
   IBreadCrumb,
-} from "deco-sites/otica-isabela/components/ui/Hero/Breadcrumb.tsx";
-import Text, { IText } from "deco-sites/otica-isabela/components/ui/Text.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+} from "$store/components/ui/Hero/Breadcrumb.tsx";
+import Text, { IText } from "$store/components/ui/Text.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 interface IPadding {
   /**

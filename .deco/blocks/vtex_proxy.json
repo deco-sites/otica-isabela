@@ -1,0 +1,1 @@
+{"name":"vtex_proxy","routes":{"host":"fashion.deco.site","__resolveType":"deco-sites/std/loaders/vtex/proxy.ts"},"matcher":{"__resolveType":"$live/matchers/MatchAlways.ts"},"overrides":[],"__resolveType":"$live/flags/audience.ts"}

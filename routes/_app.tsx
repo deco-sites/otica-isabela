@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
-import CookieConsent from "deco-sites/otica-isabela/sections/Miscellaneous/CookieConsent.tsx";
+import CookieConsent from "$store/sections/Miscellaneous/CookieConsent.tsx";
 import { AppProps } from "$fresh/server.ts";
 import GlobalTags from "$store/components/GlobalTags.tsx";
 import Theme from "$store/sections/Theme/Theme.tsx";

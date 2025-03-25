@@ -4,14 +4,14 @@ import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndL
 // import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import NavItem from "../../islands/NavItem.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
 import { IconLoginLink } from "./IconLoginLink.tsx";
 import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 // import { IconNavigation } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
-import Search from "deco-sites/otica-isabela/islands/Search.tsx";
-import Help from "deco-sites/otica-isabela/components/header/Ajuda.tsx";
+import Search from "$store/islands/Search.tsx";
+import Help from "$store/components/header/Ajuda.tsx";
 import type { Props as AjudaProps } from "./Ajuda.tsx";
 
 function Navbar({

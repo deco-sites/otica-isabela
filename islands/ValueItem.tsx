@@ -1,5 +1,5 @@
-import { FilterToggleValueWithHex } from "deco-sites/otica-isabela/components/search/Filters.tsx";
-import { selectedFilters } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
+import { FilterToggleValueWithHex } from "$store/components/search/Filters.tsx";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import { ComponentChildren } from "preact";
 
 export default function ValueItem({

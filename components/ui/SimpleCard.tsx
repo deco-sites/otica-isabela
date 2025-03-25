@@ -1,6 +1,6 @@
 import { HTMLWidget } from "apps/admin/widgets.ts";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import { IImage } from "$store/sdk/types.ts";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
 import { FnContext } from "deco/mod.ts";
 
 interface Props {

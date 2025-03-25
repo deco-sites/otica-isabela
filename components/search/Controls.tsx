@@ -6,9 +6,9 @@ import Drawer from "$store/components/ui/Drawer.tsx";
 import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
-import { selectedFilters } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import ApplyRangeFiltersJS from "deco-sites/otica-isabela/islands/ApplyRangeFiltersJS.tsx";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
 
 type Props = {
   filters: ProductListingPage["filters"];

@@ -20,12 +20,12 @@ const wrap = <T>(
 
 const addItem = wrap(
   Runtime.create(
-    "deco-sites/otica-isabela/loaders/actions/wishlist/addItem.ts",
+    "site/loaders/actions/wishlist/addItem.ts",
   ),
 );
 const removeItem = wrap(
   Runtime.create(
-    "deco-sites/otica-isabela/loaders/actions/wishlist/removeItem.ts",
+    "site/loaders/actions/wishlist/removeItem.ts",
   ),
 );
 

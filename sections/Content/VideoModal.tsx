@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/VideoModal/Video.tsx";
+export { default } from "$store/components/ui/VideoModal/Video.tsx";

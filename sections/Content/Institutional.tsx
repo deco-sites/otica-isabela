@@ -1,4 +1,1 @@
-export {
-  default,
-  loader,
-} from "deco-sites/otica-isabela/components/ui/Institutional.tsx";
+export { default, loader } from "$store/components/ui/Institutional.tsx";

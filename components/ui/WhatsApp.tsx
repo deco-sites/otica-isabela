@@ -1,5 +1,5 @@
-import Image from "deco-sites/std/components/Image.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "apps/website/components/Image.tsx";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 
 export interface Props {
   link?: string;

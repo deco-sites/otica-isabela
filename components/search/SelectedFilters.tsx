@@ -1,6 +1,6 @@
 import { isToggle } from "$store/components/search/Filters.tsx";
 import type { Filter, FilterToggleValue } from "apps/commerce/types.ts";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import { signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 

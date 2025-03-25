@@ -1,5 +1,5 @@
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { Alignments } from "deco-sites/otica-isabela/sdk/utils.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { Alignments } from "$store/sdk/utils.ts";
 
 /**
  * @title {{name}}

@@ -1,18 +1,18 @@
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
-import Details from "deco-sites/otica-isabela/components/product/product-details/Details.tsx";
-import { NotFound } from "deco-sites/otica-isabela/components/product/product-details/NotFound.tsx";
-import OtherColorsShelf from "deco-sites/otica-isabela/components/product/product-details/OtherColorsShelf.tsx";
-import SpecsDesktop from "deco-sites/otica-isabela/components/product/product-details/SpecsDesktop.tsx";
-import SpecsMobile from "deco-sites/otica-isabela/components/product/product-details/SpecsMobile.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { AppContext } from "$store/apps/site.ts";
+import Details from "$store/components/product/product-details/Details.tsx";
+import { NotFound } from "$store/components/product/product-details/NotFound.tsx";
+import OtherColorsShelf from "$store/components/product/product-details/OtherColorsShelf.tsx";
+import SpecsDesktop from "$store/components/product/product-details/SpecsDesktop.tsx";
+import SpecsMobile from "$store/components/product/product-details/SpecsMobile.tsx";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
-import { BestOffersHeader } from "deco-sites/otica-isabela/components/ui/BestOffersHeader.tsx";
+import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 
 type ButtonLabel = {
   category: string;

@@ -1,6 +1,6 @@
 import Card, {
   Props as CardProps,
-} from "deco-sites/otica-isabela/components/ui/InformationList/Card.tsx";
+} from "$store/components/ui/InformationList/Card.tsx";
 
 interface Columns {
   /**

@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/DeferredIframe.tsx";
+export { default } from "$store/components/ui/DeferredIframe.tsx";

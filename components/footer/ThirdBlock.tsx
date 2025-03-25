@@ -1,4 +1,4 @@
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import type { IThirdBlock as ThirdBlockProps } from "./Footer.tsx";
 
 export const ThirdBlock = (

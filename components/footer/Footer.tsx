@@ -1,4 +1,4 @@
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { Props as NewsletterProps } from "$store/components/ui/Newsletter.tsx";
 import { FirstBlock } from "./FirstBlock.tsx";

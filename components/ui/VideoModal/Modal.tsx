@@ -1,5 +1,5 @@
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { useUI } from "deco-sites/otica-isabela/sdk/useUI.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
 import { useSignal } from "@preact/signals";
 import type { ComponentChildren } from "preact";
 import { Suspense } from "preact/compat";

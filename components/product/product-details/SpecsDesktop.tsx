@@ -1,10 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
 import { Product } from "apps/commerce/types.ts";
-import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
-import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
-import TabJS from "deco-sites/otica-isabela/islands/TabJS.tsx";
-import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
-import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
+import ProductDetailsMeasurements from "$store/components/product/product-details/Measurements.tsx";
+import LazyIframe from "$store/islands/LazyIframe.tsx";
+import TabJS from "$store/islands/TabJS.tsx";
+import { replaceHtml } from "$store/sdk/replaceHtml.ts";
+import { replaceSpecialCharacters } from "$store/sdk/replaceSpecialCharacters.ts";
 
 interface Props {
   product: Product;
@@ -20,7 +20,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
     product?.category?.includes("Acessórios");
 
-  console.log(panels)
+  console.log(panels);
 
   panels.unshift(
     {

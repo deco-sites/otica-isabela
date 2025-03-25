@@ -1,5 +1,5 @@
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 interface Props {
   url: string;

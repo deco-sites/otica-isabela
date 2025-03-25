@@ -1,5 +1,5 @@
 import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
-import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
+import { StoreProps } from "$store/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts";
@@ -13,13 +13,16 @@ const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
     if (extraParams) {
-      path = path + "&" + new URLSearchParams({
-        ...Object.fromEntries(
-          Object.entries(extraParams).filter(([_, value]) =>
-            value !== undefined && value !== 0
+      path =
+        path +
+        "&" +
+        new URLSearchParams({
+          ...Object.fromEntries(
+            Object.entries(extraParams).filter(
+              ([_, value]) => value !== undefined && value !== 0
+            )
           ),
-        ),
-      });
+        });
     }
     return new URL(path, base).href;
   };
@@ -31,14 +34,14 @@ const paths = ({ token, publicUrl }: StoreProps) => {
     product: {
       getProduct: (props: GetProductProps) => {
         const dynamicFiltersString = stringfyDynamicFilters(
-          props.filtrosDinamicos,
+          props.filtrosDinamicos
         );
 
-        return href(
-          `${base}/Produtos?token=${token}${dynamicFiltersString}`,
-          { ...props, filtrosDinamicos: undefined },
-        );
-      }, 
+        return href(`${base}/Produtos?token=${token}${dynamicFiltersString}`, {
+          ...props,
+          filtrosDinamicos: undefined,
+        });
+      },
     },
     category: {
       getCategory: (categoryUrl: string) =>
@@ -66,13 +69,12 @@ const paths = ({ token, publicUrl }: StoreProps) => {
       getTestimonials: (
         props: Omit<TestimonialProps, "slug"> & {
           idproduto?: number;
-        },
+        }
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
     newsletter: {
-      getNewsletter: (
-        props: NewsletterProps,
-      ) => href(`${base}/AddNewsletter?token=${token}`, props),
+      getNewsletter: (props: NewsletterProps) =>
+        href(`${base}/AddNewsletter?token=${token}`, props),
     },
     wishlist: {
       addWishlist: (idProduct: number, clientSession: number) =>

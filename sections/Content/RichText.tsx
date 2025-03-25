@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/RichText/RichText.tsx";
+export { default } from "$store/components/ui/RichText/RichText.tsx";

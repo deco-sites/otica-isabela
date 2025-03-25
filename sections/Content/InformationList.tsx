@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/InformationList/InformationList.tsx";
+export { default } from "$store/components/ui/InformationList/InformationList.tsx";

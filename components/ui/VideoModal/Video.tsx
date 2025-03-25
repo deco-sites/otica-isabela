@@ -1,8 +1,8 @@
 import Image from "apps/website/components/Image.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import Button from "deco-sites/otica-isabela/components/ui/VideoModal/Button.tsx";
-import Modal from "deco-sites/otica-isabela/components/ui/VideoModal/Modal.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import Button from "$store/components/ui/VideoModal/Button.tsx";
+import Modal from "$store/components/ui/VideoModal/Modal.tsx";
+import { IImage } from "$store/sdk/types.ts";
 import { useId } from "preact/hooks";
 
 export interface Props {

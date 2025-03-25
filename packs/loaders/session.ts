@@ -1,7 +1,7 @@
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "$store/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { ISABELA_DIAS_SESSION_COOKIE } from "$store/packs/constants.ts";
-import { Session } from "deco-sites/otica-isabela/packs/types.ts";
+import { Session } from "$store/packs/types.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
 
 interface Props {
@@ -18,23 +18,20 @@ interface Props {
 const loader = async (
   props: Props,
   _req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<Session> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const sessionToken = props.sessionToken;
 
-  const sessionAPI = await fetchAPI<Session>(
-    path.session.initSession(),
-    {
-      method: "POST",
-      headers: {
-        cookie: sessionToken
-          ? `${ISABELA_DIAS_SESSION_COOKIE}=` + sessionToken
-          : "",
-      },
+  const sessionAPI = await fetchAPI<Session>(path.session.initSession(), {
+    method: "POST",
+    headers: {
+      cookie: sessionToken
+        ? `${ISABELA_DIAS_SESSION_COOKIE}=` + sessionToken
+        : "",
     },
-  );
+  });
 
   return sessionAPI;
 };

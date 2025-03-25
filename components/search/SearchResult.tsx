@@ -7,17 +7,17 @@ import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import ApplyRangeFiltersJS from "deco-sites/otica-isabela/islands/ApplyRangeFiltersJS.tsx";
+import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
-import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
+import Pagination from "$store/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
+import type { AppContext } from "$store/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import {
-  ISABELA_DIAS_WISHLIST_IDS,
   ISABELA_DIAS_NAME_COOKIE,
-} from "deco-sites/otica-isabela/packs/constants.ts";
+  ISABELA_DIAS_WISHLIST_IDS,
+} from "$store/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { redirect } from "deco/mod.ts";
 import { Head } from "$fresh/runtime.ts";
@@ -96,7 +96,7 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
 }
 
-function NotFound({alert}: {alert?: string}) {
+function NotFound({ alert }: { alert?: string }) {
   return (
     <div class="w-full flex justify-center items-center py-10">
       <span>{alert ? alert : "Não encontrado!"}</span>
@@ -116,54 +116,58 @@ function Result({
   customer,
 }: Omit<ComponentProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ?? (pageName || "");
+  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
+    (pageName || "");
   // const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
-  
 
   return (
     <>
-    {/* {isAFilterPage && <Head>
+      {
+        /* {isAFilterPage && <Head>
       <meta name="robots" content="noindex" />
-    </Head>} */}
+    </Head>} */
+      }
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
         <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
           {productCategory.length > 0 ? productCategory : pageName}
         </h1>
       </header>
-      {filters.length ? (
-        <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-          <Filters
-            filters={filters}
-            filterColors={filterColors}
-            hideFilters={hideFilters}
-            typeIcons={typeIcons}
-            shapeIcons={shapeIcons}
-          />
-          <div class="border-t border-base-200 w-full py-1">
-            <div class="container flex justify-between items-center">
-              <SelectedFilters filters={filters} />
-              <div class="flex gap-4">
-                <button
-                  id="apply-range-filters"
-                  class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-                >
-                  <span>Aplicar Filtro</span>
-                </button>
-                <ApplyRangeFiltersJS
-                  rootId="size-options-container"
-                  buttonId="apply-range-filters"
-                />
-                <a
-                  href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                  class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-                >
-                  Limpar Filtros
-                </a>
+      {filters.length
+        ? (
+          <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
+            <Filters
+              filters={filters}
+              filterColors={filterColors}
+              hideFilters={hideFilters}
+              typeIcons={typeIcons}
+              shapeIcons={shapeIcons}
+            />
+            <div class="border-t border-base-200 w-full py-1">
+              <div class="container flex justify-between items-center">
+                <SelectedFilters filters={filters} />
+                <div class="flex gap-4">
+                  <button
+                    id="apply-range-filters"
+                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                  >
+                    <span>Aplicar Filtro</span>
+                  </button>
+                  <ApplyRangeFiltersJS
+                    rootId="size-options-container"
+                    buttonId="apply-range-filters"
+                  />
+                  <a
+                    href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                    class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                  >
+                    Limpar Filtros
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ) : null}
+        )
+        : null}
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
@@ -173,11 +177,13 @@ function Result({
         typeIcons={typeIcons}
         shapeIcons={shapeIcons}
       />
-      {!breadcrumb?.itemListElement?.length ? null : (
-        <div class="flex w-full flex-row justify-center items-center my-5">
-          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-        </div>
-      )}
+      {!breadcrumb?.itemListElement?.length
+        ? null
+        : (
+          <div class="flex w-full flex-row justify-center items-center my-5">
+            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+          </div>
+        )}
       <CategoryMenu categories={categories} />
       <div class="container mt-12 px-4 sm:py-10">
         <div class="flex flex-row">
@@ -189,9 +195,9 @@ function Result({
             />
           </div>
         </div>
-          <div class="flex justify-center my-4">
-            <Pagination pageInfo={pageInfo} />
-          </div>
+        <div class="flex justify-center my-4">
+          <Pagination pageInfo={pageInfo} />
+        </div>
       </div>
       <SendEventOnLoad
         event={{
@@ -217,7 +223,7 @@ function Result({
 export const loader = async (
   { categories = [], ...props }: Props,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ) => {
   const categoryList = categories.find(({ label }) =>
     new URLPattern({ pathname: label }).test(req.url)
@@ -231,8 +237,8 @@ export const loader = async (
     const isLogged = Boolean(cookies[ISABELA_DIAS_NAME_COOKIE]);
     if (!isLogged) redirect(new URL("/identificacao", new URL(req.url)));
     const wishlistProductsPage = await ctx.invoke(
-      "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
-      { id: wishlistIds, ordenacao: "none" }
+      "site/loaders/product/productListiningPage.ts",
+      { id: wishlistIds, ordenacao: "none" },
     );
     props.page = wishlistProductsPage;
   }

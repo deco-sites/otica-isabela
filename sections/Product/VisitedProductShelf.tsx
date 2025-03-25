@@ -1,7 +1,7 @@
 import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
 import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "$store/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
@@ -18,7 +18,7 @@ export interface Props {
 export async function loader(
   { ...props }: Props,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ) {
   const cookies = getCookies(req.headers);
   const currentIds: string | undefined = cookies?.[visitedProductsCookie];
@@ -29,8 +29,8 @@ export async function loader(
   }
 
   const products = await ctx.invoke(
-    "deco-sites/otica-isabela/loaders/product/productList.ts",
-    { id: splitedIds, ordenacao: "none" }
+    "site/loaders/product/productList.ts",
+    { id: splitedIds, ordenacao: "none" },
   );
 
   if (!products) {

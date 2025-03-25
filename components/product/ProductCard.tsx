@@ -9,11 +9,11 @@ import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
-import Button from "deco-sites/otica-isabela/components/ui/Button.tsx";
+import { useId } from "$store/sdk/useId.ts";
+import Button from "$store/components/ui/Button.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 
 export interface Layout {
   basics?: {
@@ -53,7 +53,7 @@ interface Props {
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
   customer?: LoaderReturnType<AuthData>;
-  hideExperiment?: boolean
+  hideExperiment?: boolean;
 }
 
 function ProductCard({
@@ -63,7 +63,7 @@ function ProductCard({
   isStopwatchEnabled,
   isSliderEnabled,
   customer,
-  hideExperiment
+  hideExperiment,
 }: Props) {
   const imageContainerId = useId();
 
@@ -77,7 +77,7 @@ function ProductCard({
   } = product;
 
   const promotionFlag = additionalProperty?.find(
-    (prop) => prop.propertyID === "flag"
+    (prop) => prop.propertyID === "flag",
   )?.value;
   const id = `product-card-${productID}`;
   const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
@@ -87,13 +87,13 @@ function ProductCard({
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
 
   const discount = Math.ceil(
-    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
 
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const experimenterImage = additionalProperty?.find(
-    (prop) => prop.propertyID === "experimentador"
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
 
   return (
@@ -129,51 +129,53 @@ function ProductCard({
         {isStopwatchEnabled && priceValidUntil && (
           <Stopwatch targetDate={priceValidUntil} type="card" />
         )}
-        {isSliderEnabled ? (
-          <>
-            <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
-              {images?.map((image, index) => (
-                <Slider.Item
-                  index={index}
-                  key={index}
-                  class="carousel-item w-full"
-                >
-                  <ProductCardImage
-                    url={image.url!}
-                    alt={image.alternateName!}
-                    preload={preload && index === 0}
-                    discount={discount}
-                    promotion={index === 0 ? promotionFlag : ""}
-                  />
-                </Slider.Item>
-              ))}
+        {isSliderEnabled
+          ? (
+            <>
+              <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
+                {images?.map((image, index) => (
+                  <Slider.Item
+                    index={index}
+                    key={index}
+                    class="carousel-item w-full"
+                  >
+                    <ProductCardImage
+                      url={image.url!}
+                      alt={image.alternateName!}
+                      preload={preload && index === 0}
+                      discount={discount}
+                      promotion={index === 0 ? promotionFlag : ""}
+                    />
+                  </Slider.Item>
+                ))}
+                {customer && (
+                  <div class="absolute top-0 left-0 z-30">
+                    <WishlistButton productID={productID} customer={customer} />
+                  </div>
+                )}
+              </Slider>
+
+              <SliderJS
+                rootId={`product-card-${productID}-${imageContainerId}`}
+              />
+            </>
+          )
+          : (
+            <div class="relative">
+              <ProductCardImage
+                url={front.url!}
+                alt={front.alternateName!}
+                preload={preload}
+                discount={discount}
+                promotion={promotionFlag}
+              />
               {customer && (
                 <div class="absolute top-0 left-0 z-30">
                   <WishlistButton productID={productID} customer={customer} />
                 </div>
               )}
-            </Slider>
-
-            <SliderJS
-              rootId={`product-card-${productID}-${imageContainerId}`}
-            />
-          </>
-        ) : (
-          <div class="relative">
-            <ProductCardImage
-              url={front.url!}
-              alt={front.alternateName!}
-              preload={preload}
-              discount={discount}
-              promotion={promotionFlag}
-            />
-            {customer && (
-              <div class="absolute top-0 left-0 z-30">
-                <WishlistButton productID={productID} customer={customer} />
-              </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
       </a>
 
       {/* Name & Description */}
@@ -183,41 +185,44 @@ function ProductCard({
             <p class="font-semibold text-black text-lg leading-none h-[50px]">
               {name}
             </p>
-            {description.length ? (
-              <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
-                <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
-                  {description?.map(
-                    (property, index) =>
-                      `${property?.value}: ${property?.name}mm ${
-                        index < description.length - 1 ? "/ " : ""
-                      }`
-                  )}
-                </p>
-              </div>
-            ) : null}
+            {description.length
+              ? (
+                <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
+                  <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
+                    {description?.map(
+                      (property, index) =>
+                        `${property?.value}: ${property?.name}mm ${
+                          index < description.length - 1 ? "/ " : ""
+                        }`,
+                    )}
+                  </p>
+                </div>
+              )
+              : null}
           </div>
         </a>
 
         {/* Available Colors */}
-        {availableColors.length ? (
-          <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
-            {availableColors?.map(({ name, url, unitCodes }) => (
-              <li key={unitCodes}>
-                <a href={`/produto${url}`} aria-label={name} title={name}>
-                  <div
-                    style={{
-                      background:
-                        unitCodes.length > 1
+        {availableColors.length
+          ? (
+            <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
+              {availableColors?.map(({ name, url, unitCodes }) => (
+                <li key={unitCodes}>
+                  <a href={`/produto${url}`} aria-label={name} title={name}>
+                    <div
+                      style={{
+                        background: unitCodes.length > 1
                           ? `linear-gradient(${unitCodes.join(", ")})`
                           : `${unitCodes[0]}`,
-                    }}
-                    class="mask mask-circle h-5 w-5 bg-secondary mx-2"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : null}
+                      }}
+                      class="mask mask-circle h-5 w-5 bg-secondary mx-2"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+          : null}
 
         {/* Price & Discount */}
         <div class="flex justify-center items-center mb-[10px]">
@@ -235,15 +240,15 @@ function ProductCard({
           </a>
         </div>
 
-        {experimenterImage && !hideExperiment ? (
-          <ToExperimentButton image={experimenterImage} />
-        ) : (
-          <a href={url} class="block w-full">
-            <Button class="text-black bg-transparent rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-white hover:bg-black border border-black">
-              Ver Produto
-            </Button>
-          </a>
-        )}
+        {experimenterImage && !hideExperiment
+          ? <ToExperimentButton image={experimenterImage} />
+          : (
+            <a href={url} class="block w-full">
+              <Button class="text-black bg-transparent rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-white hover:bg-black border border-black">
+                Ver Produto
+              </Button>
+            </a>
+          )}
       </div>
     </div>
   );

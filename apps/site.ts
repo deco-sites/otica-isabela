@@ -1,4 +1,4 @@
-import { App, AppContext as AC } from "$live/mod.ts";
+import { type App, type AppContext as AC } from "@deco/deco";
 import std, { Props } from "apps/compat/std/mod.ts";
 import manifest, { Manifest } from "../manifest.gen.ts";
 
@@ -17,18 +17,19 @@ export interface StoreProps extends Props {
 }
 
 export default function Site(
-  state: StoreProps,
+  state: StoreProps
   //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
-): App<Manifest, StoreProps, [
-  StdApp,
-]> {
-  return {
-    state,
-    manifest,
-    dependencies: [
-      std(state),
-    ],
-  };
+): App<Manifest, StoreProps, [StdApp]> {
+  try {
+    console.log(state, "fasdfasd");
+    return {
+      state,
+      manifest,
+      dependencies: [std(state)],
+    };
+  } catch (error) {
+    console.log(error, "aaa");
+  }
 }
 
 export type Storefront = ReturnType<typeof Site>;

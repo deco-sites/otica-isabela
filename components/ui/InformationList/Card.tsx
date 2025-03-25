@@ -1,5 +1,5 @@
 import Image from "apps/website/components/Image.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { IImage } from "$store/sdk/types.ts";
 import { ComponentChildren } from "preact";
 
 /**

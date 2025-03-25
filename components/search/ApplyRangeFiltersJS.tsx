@@ -1,4 +1,4 @@
-import { selectedFilters } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import { useEffect } from "preact/hooks";
 
 interface Props {

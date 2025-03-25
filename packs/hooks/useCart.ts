@@ -43,7 +43,7 @@ const state = {
   loading,
 
   addItems: wrap(
-    Runtime.create("deco-sites/otica-isabela/loaders/actions/cart/addItem.ts"),
+    Runtime.create("site/loaders/actions/cart/addItem.ts"),
   ),
 
   mapItemsToAnalyticsItems: mapOrderFormItemsToAnalyticsItems,
