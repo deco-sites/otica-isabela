@@ -1,1 +1,179 @@
-{"name":"Home","path":"/","sections":{"variants":[{"rule":{"includes":"otica-isabela.deco.site","__resolveType":"$live/matchers/MatchHost.ts"},"value":[{"__resolveType":"SEODefault"},{"__resolveType":"Header - 01"},{"__resolveType":"Carousel - 01"},{"__resolveType":"faixa de beneficios"},{"__resolveType":"Produtos Visitados - Home & PDP"},{"customer":{"__resolveType":"site/loaders/store/auth.ts"},"products":{"__resolveType":"offers"},"__resolveType":"site/sections/Product/ProductBestDailyOffers.tsx"},{"__resolveType":"Depoimentos"},{"sections":[{"__resolveType":"Para as Mulheres"},{"__resolveType":"Clipon Novidades"},{"__resolveType":"Para os Homens"},{"__resolveType":"Banners Categorias"},{"__resolveType":"Clipon Feminino"},{"__resolveType":"Banners Sobre a Loja"}],"__resolveType":"website/sections/Rendering/Deferred.tsx"},{"__resolveType":"Sobre a Loja"},{"__resolveType":"FAQ - 02"},{"__resolveType":"Footer - 01"},{"__resolveType":"wpp-cta"}]},{"rule":{"__resolveType":"website/matchers/always.ts"},"value":[{"__resolveType":"SEODefault"},{"__resolveType":"Header - 01"},{"images":[{"alt":"Banner de qualidade","mobile":"https://data.decoassets.com/otica-isabela/4631895e-7f65-44c6-bdab-b6f21fce2ab9/Banner-Mobile.jpg","desktop":"https://data.decoassets.com/otica-isabela/2cfdac1a-2e45-43e3-b91c-960e927f201c/Banner-Desktop.jpg"},{"alt":"Banner de clipon","mobile":"https://data.decoassets.com/otica-isabela/c3ec5073-d6c5-4c53-9c21-142893cc3108/Banner-Mobile-Clipon.jpg","desktop":"https://assets.decocache.com/otica-isabela/c9ae4ab1-f985-4e7f-9b27-d12b6d168d1d/Banner-Clipon.jpg"},{"alt":"Banner selecao novidade","mobile":"https://data.decoassets.com/otica-isabela/a2e1844d-b83b-4ee8-ab06-8e204faca683/Banner-Mobile.jpg","desktop":"https://assets.decocache.com/otica-isabela/e2491132-2a6d-4eda-8f74-fd58c109adc9/Banner-selecao-de-novidades.jpg"}],"benefits":[{"icon":"https://assets.decocache.com/otica-isabela/86360566-e8e2-4897-84b6-03fa939437d7/Illustrations-Diferences-(5).png","text":"+300 mil clientes","popup":"<p>Faça como milhares de clientes satisfeitos, sua alegria é a nossa motivação de vender!</p>"},{"icon":"https://assets.decocache.com/otica-isabela/f1a0b720-625d-4adc-9295-9c1ada4c507c/Illustrations-Diferences.png","text":"Prove óculos online","popup":"<p>Com nossa tecnologia de provador virtual, você pode&nbsp;<a href=\"https://oticas-isabela-dias-v2.deco.site/#/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\" data-mce-href=\"https://oticas-isabela-dias-v2.deco.site/#/\">experimentar seus óculos</a> pelo celular antes de comprar, garantindo a escolha perfeita para você.</p>"},{"icon":"https://assets.decocache.com/otica-isabela/211ca330-494c-412b-a26d-b97bf08eb028/Illustrations-Diferences-(1).png","text":"Receba em casa","popup":"<p>Conforto e praticidade: receba seus óculos com as lentes de grau na sua casa. Escolha o melhor tipo de lentes pelo melhor preço!</p>"},{"icon":"https://assets.decocache.com/otica-isabela/319d3f73-c010-4464-bd1c-3bf3549dee54/Illustrations-Diferences-(2).png","text":"Suporte Premium","popup":"<p>Você tem todo o acompanhamento incrível de nossa equipe, estamos preparados para te atender em qualquer situação.</p>"},{"icon":"https://assets.decocache.com/otica-isabela/6052a1dc-fe72-4699-894a-138475fa6595/Illustrations-Diferences-(3).png","text":"Garantia","popup":"<p>Com a nossa garantia, você pode ter a tranquilidade de saber que o seu produto está protegido e que estamos comprometidos em garantir a sua satisfação.</p>"},{"icon":"https://assets.decocache.com/otica-isabela/49ed9d62-f8ab-4589-aa39-caba71bb8b28/Illustrations-Diferences-(4).png","text":"Economia Real"}],"carousel":{"interval":10},"__resolveType":"site/sections/Images/Carrossel.tsx"},{"__resolveType":"Produtos Visitados - Home & PDP"},{"customer":{"__resolveType":"site/loaders/store/auth.ts"},"products":{"__resolveType":"offers"},"__resolveType":"site/sections/Product/ProductBestDailyOffers.tsx"},{"text":{"content":"<h2><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 14pt; color: rgb(255, 255, 255);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 14pt; color: rgb(255, 255, 255);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>","mobilePadding":{"top":0,"left":0,"right":0,"bottom":0},"verticalAlign":"center","desktopPadding":{"top":0,"left":0,"right":0,"bottom":0}},"media":{"tag":null,"mobile":{"alt":"atendimento","src":"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/490fd429-41cb-430c-a4c9-e42937c35ec9/Banner-mobile-Trofeu.jpg","width":1000,"height":600},"desktop":{"alt":"atendimento","src":"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/ee5ce532-f065-48e5-a902-b8461d9e01b3/Banner-Desk-site-Equipe-e-trofeu.jpg","width":1000,"height":500},"position":"left","thumbnail":{"src":"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"}},"button":{"href":"https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento","color":"#ff8614","label":"Conte com a gente!","style":"filled","labelColor":"#f3f3f3","horizontalAlign":"center"},"seeMore":null,"container":false,"linksGrid":null,"__resolveType":"site/sections/Content/RichText.tsx","backgroundColor":"#727272"},{"__resolveType":"Para as Mulheres"},{"__resolveType":"Clipon Feminino"},{"__resolveType":"Depoimentos"},{"__resolveType":"FAQ - 02"},{"__resolveType":"Sobre a Loja"},{"__resolveType":"Footer - 01"},{"__resolveType":"wpp-cta"}]}],"__resolveType":"$live/flags/multivariate.ts"},"__resolveType":"$live/pages/LivePage.tsx"}
+{
+  "name": "Home",
+  "path": "/",
+  "sections": {
+    "variants": [
+      {
+        "rule": {
+          "includes": "otica-isabela.deco.site",
+          "__resolveType": "$live/matchers/MatchHost.ts"
+        },
+        "value": [
+          {
+            "__resolveType": "SEODefault"
+          },
+          {
+            "__resolveType": "Header - 01"
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "New Carrossel"
+            }
+          },
+          {
+            "__resolveType": "Produtos Visitados - Home & PDP"
+          },
+          {
+            "__resolveType": "site/sections/Product/ProductBestDailyOffers.tsx",
+            "customer": {
+              "__resolveType": "site/loaders/store/auth.ts"
+            },
+            "products": {
+              "__resolveType": "offers"
+            }
+          },
+          {
+            "__resolveType": "Depoimentos"
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Deferred.tsx",
+            "sections": [
+              {
+                "__resolveType": "Para as Mulheres"
+              },
+              {
+                "__resolveType": "Clipon Novidades"
+              },
+              {
+                "__resolveType": "Para os Homens"
+              },
+              {
+                "__resolveType": "Banners Categorias"
+              },
+              {
+                "__resolveType": "Clipon Feminino"
+              },
+              {
+                "__resolveType": "Banners Sobre a Loja"
+              }
+            ]
+          },
+          {
+            "__resolveType": "Sobre a Loja"
+          },
+          {
+            "__resolveType": "FAQ - 02"
+          },
+          {
+            "__resolveType": "Footer - 01"
+          },
+          {
+            "__resolveType": "wpp-cta"
+          }
+        ]
+      },
+      {
+        "rule": {
+          "__resolveType": "website/matchers/always.ts"
+        },
+        "value": [
+          {
+            "__resolveType": "SEODefault"
+          },
+          {
+            "__resolveType": "Header - 01"
+          },
+          {
+            "__resolveType": "New Carrossel"
+          },
+          {
+            "__resolveType": "Produtos Visitados - Home & PDP"
+          },
+          {
+            "customer": {
+              "__resolveType": "site/loaders/store/auth.ts"
+            },
+            "products": {
+              "__resolveType": "offers"
+            },
+            "__resolveType": "site/sections/Product/ProductBestDailyOffers.tsx"
+          },
+          {
+            "text": {
+              "content": "<h2><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 14pt; color: rgb(255, 255, 255);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 14pt; color: rgb(255, 255, 255);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>",
+              "mobilePadding": {
+                "top": 0,
+                "left": 0,
+                "right": 0,
+                "bottom": 0
+              },
+              "verticalAlign": "center",
+              "desktopPadding": {
+                "top": 0,
+                "left": 0,
+                "right": 0,
+                "bottom": 0
+              }
+            },
+            "media": {
+              "tag": null,
+              "mobile": {
+                "alt": "atendimento",
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/490fd429-41cb-430c-a4c9-e42937c35ec9/Banner-mobile-Trofeu.jpg",
+                "width": 1000,
+                "height": 600
+              },
+              "desktop": {
+                "alt": "atendimento",
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/ee5ce532-f065-48e5-a902-b8461d9e01b3/Banner-Desk-site-Equipe-e-trofeu.jpg",
+                "width": 1000,
+                "height": 500
+              },
+              "position": "left",
+              "thumbnail": {
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"
+              }
+            },
+            "button": {
+              "href": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
+              "color": "#ff8614",
+              "label": "Conte com a gente!",
+              "style": "filled",
+              "labelColor": "#f3f3f3",
+              "horizontalAlign": "center"
+            },
+            "seeMore": null,
+            "container": false,
+            "linksGrid": null,
+            "__resolveType": "site/sections/Content/RichText.tsx",
+            "backgroundColor": "#727272"
+          },
+          {
+            "__resolveType": "Para as Mulheres"
+          },
+          {
+            "__resolveType": "Clipon Feminino"
+          },
+          {
+            "__resolveType": "Depoimentos"
+          },
+          {
+            "__resolveType": "FAQ - 02"
+          },
+          {
+            "__resolveType": "Sobre a Loja"
+          },
+          {
+            "__resolveType": "Footer - 01"
+          },
+          {
+            "__resolveType": "wpp-cta"
+          }
+        ]
+      }
+    ],
+    "__resolveType": "$live/flags/multivariate.ts"
+  },
+  "__resolveType": "$live/pages/LivePage.tsx"
+}
