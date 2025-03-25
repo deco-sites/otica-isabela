@@ -1,0 +1,55 @@
+{
+  "images": [
+    {
+      "alt": "Banner de qualidade",
+      "mobile": "https://data.decoassets.com/otica-isabela/4631895e-7f65-44c6-bdab-b6f21fce2ab9/Banner-Mobile.jpg",
+      "desktop": "https://data.decoassets.com/otica-isabela/2cfdac1a-2e45-43e3-b91c-960e927f201c/Banner-Desktop.jpg"
+    },
+    {
+      "alt": "Banner de clipon",
+      "mobile": "https://data.decoassets.com/otica-isabela/c3ec5073-d6c5-4c53-9c21-142893cc3108/Banner-Mobile-Clipon.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/c9ae4ab1-f985-4e7f-9b27-d12b6d168d1d/Banner-Clipon.jpg"
+    },
+    {
+      "alt": "Banner selecao novidade",
+      "mobile": "https://data.decoassets.com/otica-isabela/a2e1844d-b83b-4ee8-ab06-8e204faca683/Banner-Mobile.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/e2491132-2a6d-4eda-8f74-fd58c109adc9/Banner-selecao-de-novidades.jpg"
+    }
+  ],
+  "benefits": [
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/86360566-e8e2-4897-84b6-03fa939437d7/Illustrations-Diferences-(5).png",
+      "text": "+300 mil clientes",
+      "popup": "<p>Faça como milhares de clientes satisfeitos, sua alegria é a nossa motivação de vender!</p>"
+    },
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/f1a0b720-625d-4adc-9295-9c1ada4c507c/Illustrations-Diferences.png",
+      "text": "Prove óculos online",
+      "popup": "<p>Com nossa tecnologia de provador virtual, você pode&nbsp;<a href=\"https://oticas-isabela-dias-v2.deco.site/#/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\" data-mce-href=\"https://oticas-isabela-dias-v2.deco.site/#/\">experimentar seus óculos</a> pelo celular antes de comprar, garantindo a escolha perfeita para você.</p>"
+    },
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/211ca330-494c-412b-a26d-b97bf08eb028/Illustrations-Diferences-(1).png",
+      "text": "Receba em casa",
+      "popup": "<p>Conforto e praticidade: receba seus óculos com as lentes de grau na sua casa. Escolha o melhor tipo de lentes pelo melhor preço!</p>"
+    },
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/319d3f73-c010-4464-bd1c-3bf3549dee54/Illustrations-Diferences-(2).png",
+      "text": "Suporte Premium",
+      "popup": "<p>Você tem todo o acompanhamento incrível de nossa equipe, estamos preparados para te atender em qualquer situação.</p>"
+    },
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/6052a1dc-fe72-4699-894a-138475fa6595/Illustrations-Diferences-(3).png",
+      "text": "Garantia",
+      "popup": "<p>Com a nossa garantia, você pode ter a tranquilidade de saber que o seu produto está protegido e que estamos comprometidos em garantir a sua satisfação.</p>"
+    },
+    {
+      "icon": "https://assets.decocache.com/otica-isabela/49ed9d62-f8ab-4589-aa39-caba71bb8b28/Illustrations-Diferences-(4).png",
+      "text": "Economia Real"
+    }
+  ],
+  "carousel": {
+    "interval": 10,
+    "infinite": true
+  },
+  "__resolveType": "site/sections/Images/Carrossel.tsx"
+}
