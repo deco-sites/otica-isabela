@@ -11,7 +11,7 @@ import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "$store/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import type { AppContext } from "$store/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import {

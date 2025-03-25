@@ -33,7 +33,7 @@
     "@std/testing": "jsr:@std/testing@^1.0.0",
     "@zaubrik/djwt": "jsr:@zaubrik/djwt@^3.0.2",
     "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.64.49/",
-    "daisyui": "npm:daisyui@4.6.0",
+    "daisyui": "npm:daisyui@3.5.0",
     "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.110.5/",
     "fast-json-patch": "npm:fast-json-patch@^3.1.1",
     "https://esm.sh/*preact-render-to-string@6.3.1": "npm:preact-render-to-string@6.4.2",
@@ -44,7 +44,8 @@
     "std/": "https://deno.land/std@0.190.0/"
   },
   "tasks": {
-    "start": "deno task bundle && DECO_SITE_NAME=otica-isabela deno run -A --unstable-kv --watch=tailwind.css,sections/,functions/,loaders/,actions/,workflows/,accounts/,.env dev.ts",
+   "start": "deno run -A --unstable-http --env https://deco.cx/run -- deno task dev",
+   "dev": "deno run -A --env --unstable-kv --unstable-hmr dev.ts",
     "gen": "deno run -A dev.ts --gen-only",
     "component": "deno eval 'import \"deco/scripts/component.ts\"'",
     "release": "deno eval 'import \"deco/scripts/release.ts\"'",

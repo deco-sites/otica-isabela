@@ -7,7 +7,7 @@ import { NotFound } from "$store/components/product/product-details/NotFound.tsx
 import OtherColorsShelf from "$store/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "$store/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "$store/components/product/product-details/SpecsMobile.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import type { SectionProps } from "deco/mod.ts";
 import { redirect } from "deco/mod.ts";
 import type { LoaderReturnType } from "deco/types.ts";

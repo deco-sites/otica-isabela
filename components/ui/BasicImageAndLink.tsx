@@ -1,5 +1,5 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as ImageType } from "apps/admin/widgets.ts";
 
 export interface BasicImageAndLinkProps {
   /** @title Imagens */

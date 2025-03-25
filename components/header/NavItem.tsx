@@ -1,6 +1,6 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import Image from "apps/website/components/Image.tsx";
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as ImageType } from "apps/admin/widgets.ts";
 import { useMemo } from "preact/compat";
 import { navbarModalBaseWidth } from "./constants.ts";
 

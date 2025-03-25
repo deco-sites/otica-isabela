@@ -8,7 +8,7 @@ import ReviewImagesModal from "$store/islands/ReviewImagesModal.tsx";
 import { Review } from "$store/packs/types.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 
 export type MemberLevel = {
   /** @title Nível */
