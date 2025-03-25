@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
-import Icon from "site/components/ui/Icon.tsx";
-import useModal from "site/components/ui/useModal.tsx";
-import { useId } from "site/sdk/useId.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import useModal from "$store/components/ui/useModal.tsx";
+import { useId } from "$store/sdk/useId.ts";
 import intlTelInput from "npm:intl-tel-input";
 import { useEffect } from "preact/hooks";
 

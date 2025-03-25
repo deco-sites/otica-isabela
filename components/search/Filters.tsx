@@ -5,10 +5,10 @@ import type {
   FilterToggleValue,
   ProductListingPage,
 } from "apps/commerce/types.ts";
-import SizeOptions from "site/components/search/SizeOptions.tsx";
-import Icon from "site/components/ui/Icon.tsx";
-import RangeFiltersJS from "site/islands/RangeFiltersJS.tsx";
-import ValueItem from "site/islands/ValueItem.tsx";
+import SizeOptions from "$store/components/search/SizeOptions.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import RangeFiltersJS from "$store/islands/RangeFiltersJS.tsx";
+import ValueItem from "$store/islands/ValueItem.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
 interface Props {

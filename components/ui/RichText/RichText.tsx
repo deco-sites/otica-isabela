@@ -1,16 +1,16 @@
 import Image from "apps/website/components/Image.tsx";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import Button, {
   Props as ButtonProps,
-} from "site/components/ui/RichText/Button.tsx";
-import Content from "site/components/ui/RichText/Content.tsx";
+} from "$store/components/ui/RichText/Button.tsx";
+import Content from "$store/components/ui/RichText/Content.tsx";
 import ResponsiveImage, {
   Props as ResponsiveImageProps,
-} from "site/components/ui/RichText/ResponsiveImage.tsx";
+} from "$store/components/ui/RichText/ResponsiveImage.tsx";
 import Video, {
   Props as IVideo,
-} from "site/components/ui/VideoModal/Video.tsx";
-import { IImage } from "site/sdk/types.ts";
+} from "$store/components/ui/VideoModal/Video.tsx";
+import { IImage } from "$store/sdk/types.ts";
 import { Fragment } from "preact";
 import { useId } from "preact/hooks";
 

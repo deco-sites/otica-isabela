@@ -1,5 +1,5 @@
 import ProductCard from "$store/components/product/ProductCard.tsx";
-import { useId } from "site/sdk/useId.ts";
+import { useId } from "$store/sdk/useId.ts";
 
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
@@ -20,7 +20,7 @@ const VerticalProductShelf = ({ products, customer }: Props) => {
   const id = useId();
   const arrangedProducts = Array.from(
     { length: Math.ceil(products?.length / 2) },
-    (_, index) => products?.slice(index * 2, index * 2 + 2)
+    (_, index) => products?.slice(index * 2, index * 2 + 2),
   );
 
   return (
@@ -39,9 +39,7 @@ const VerticalProductShelf = ({ products, customer }: Props) => {
       </Slider>
 
       <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-        {arrangedProducts.map((_, index) => (
-          <Slider.Dot index={index} />
-        ))}
+        {arrangedProducts.map((_, index) => <Slider.Dot index={index} />)}
       </div>
 
       <SliderJS rootId={id} />

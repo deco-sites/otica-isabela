@@ -1,1 +1,1 @@
-export { default } from "site/components/ui/DeferredIframe.tsx";
+export { default } from "$store/components/ui/DeferredIframe.tsx";

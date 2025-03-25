@@ -1,8 +1,8 @@
 import Image from "apps/website/components/Image.tsx";
-import Icon from "site/components/ui/Icon.tsx";
-import Button from "site/components/ui/VideoModal/Button.tsx";
-import Modal from "site/components/ui/VideoModal/Modal.tsx";
-import { IImage } from "site/sdk/types.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import Button from "$store/components/ui/VideoModal/Button.tsx";
+import Modal from "$store/components/ui/VideoModal/Modal.tsx";
+import { IImage } from "$store/sdk/types.ts";
 import { useId } from "preact/hooks";
 
 export interface Props {

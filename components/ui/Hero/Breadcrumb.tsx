@@ -1,5 +1,5 @@
-import Icon from "site/components/ui/Icon.tsx";
-import { Alignments } from "site/sdk/utils.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { Alignments } from "$store/sdk/utils.ts";
 
 /**
  * @title {{name}}

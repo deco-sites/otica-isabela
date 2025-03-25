@@ -3,17 +3,17 @@ import SliderJS from "$store/components/ui/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import type { Props } from "site/components/product/ProductDetails.tsx";
-import ToExperimentButton from "site/components/product/ToExperimentButton.tsx";
-import ProductInfo from "site/components/product/product-details/ProductInfo.tsx";
-import Ratings from "site/components/product/product-details/Ratings.tsx";
-import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
-import Icon from "site/components/ui/Icon.tsx";
-import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
-import ShareButton from "site/islands/ShareButton.tsx";
+import type { Props } from "$store/components/product/ProductDetails.tsx";
+import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
+import ProductInfo from "$store/components/product/product-details/ProductInfo.tsx";
+import Ratings from "$store/components/product/product-details/Ratings.tsx";
+import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+import ShareButton from "$store/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
-import { useId } from "site/sdk/useId.ts";
+import { useId } from "$store/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 
@@ -52,12 +52,14 @@ function Details({
   const { name, productID, offers, additionalProperty, url, sku } = product;
 
   // Busca a imagem dos acessórios inclusos
-const accessoriesImage = additionalProperty?.find(
-  (prop) => prop.propertyID === "panel" && prop.name === "Acessórios Inclusos"
-)?.value;
+  const accessoriesImage = additionalProperty?.find(
+    (prop) =>
+      prop.propertyID === "panel" && prop.name === "Acessórios Inclusos",
+  )?.value;
 
-// Converte HTML para extrair a URL da imagem (se existir)
-const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] || null;
+  // Converte HTML para extrair a URL da imagem (se existir)
+  const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] ||
+    null;
 
   const {
     discountTagLocation,
@@ -198,19 +200,19 @@ const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] || nu
           )}
 
           {/* Exibir imagem dos acessórios somente se existir */}
-		    {accessoriesImagePath && (
-		      <div class="mt-4 text-center">
-		        <Image
-		          src={accessoriesImagePath}
-		          alt="Acessórios Inclusos"
-		          width={350}
-		          height={350}
-		          loading="lazy"
-		        />
-		        <p class="text-sm text-gray-700 mt-2">teste</p> {/* Texto adicional abaixo da imagem */}
-		      </div>
-		    )}
-    
+          {accessoriesImagePath && (
+            <div class="mt-4 text-center">
+              <Image
+                src={accessoriesImagePath}
+                alt="Acessórios Inclusos"
+                width={350}
+                height={350}
+                loading="lazy"
+              />
+              <p class="text-sm text-gray-700 mt-2">teste</p>{" "}
+              {/* Texto adicional abaixo da imagem */}
+            </div>
+          )}
         </div>
       )}
 

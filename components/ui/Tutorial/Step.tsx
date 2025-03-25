@@ -1,5 +1,5 @@
-import { AvailableIcons } from "site/components/ui/Icon.tsx";
-import Icon from "site/components/ui/Icon.tsx";
+import { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 interface IIcon {
   id: AvailableIcons;

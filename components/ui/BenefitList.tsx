@@ -1,6 +1,4 @@
-import Icon, {
-  AvailableIcons,
-} from "site/components/ui/Icon.tsx";
+import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 
 interface IIcon {
   id: AvailableIcons;

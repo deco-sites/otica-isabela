@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "preact/compat";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import { useSuggestions } from "$store/packs/hooks/useSuggestions.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";

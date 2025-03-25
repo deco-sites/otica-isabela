@@ -1,5 +1,5 @@
 import type { BreadcrumbList } from "apps/commerce/types.ts";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
   itemListElement: BreadcrumbList["itemListElement"];

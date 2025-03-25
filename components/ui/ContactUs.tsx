@@ -1,7 +1,7 @@
 import { FnContext } from "deco/mod.ts";
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 /**
  * @titleBy title

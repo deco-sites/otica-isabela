@@ -1,6 +1,6 @@
 import type { JSX } from "preact";
 import type { Filter, FilterToggleValue } from "apps/commerce/types.ts";
-import ValueItem from "site/islands/ValueItem.tsx";
+import ValueItem from "$store/islands/ValueItem.tsx";
 
 function IconOptions({ label }: { label: string }) {
   const options: Record<string, () => JSX.Element> = {

@@ -2,9 +2,9 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { useId } from "site/sdk/useId.ts";
+import { useId } from "$store/sdk/useId.ts";
 
-import { Review } from "site/packs/types.ts";
+import { Review } from "$store/packs/types.ts";
 
 export interface MembershipBadgeProps {
   label: string;

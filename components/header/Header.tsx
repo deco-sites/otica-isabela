@@ -2,7 +2,7 @@ import type { Props as SearchbarProps } from "$store/islands/Search.tsx";
 import type { BasicImageAndLinkProps } from "$store/components/ui/BasicImageAndLink.tsx";
 import { BasicImageAndLink } from "$store/components/ui/BasicImageAndLink.tsx";
 import PromotionalBar from "$store/islands/PromotionalBar.tsx";
-import Alertas from "site/islands/Alertas.tsx";
+import Alertas from "$store/islands/Alertas.tsx";
 import type { IconLoginLinkProps } from "./IconLoginLink.tsx";
 // import type { IconNavigation as IconNavigationType } from "./IconNavigation.tsx";
 import type { NavItemProps } from "./NavItem.tsx";
@@ -10,7 +10,7 @@ import type { Props as AjudaProps } from "./Ajuda.tsx";
 import Navbar from "./Navbar.tsx";
 import type { GiftValueReachInfosProps } from "./PromotionalBar.tsx";
 import { ImageWidget } from "apps/admin/widgets.ts";
-import { AppContext } from "site/apps/site.ts";
+import { AppContext } from "$store/apps/site.ts";
 import type { SectionProps } from "deco/mod.ts";
 
 interface AlertText {

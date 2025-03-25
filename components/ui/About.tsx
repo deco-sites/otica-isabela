@@ -1,6 +1,6 @@
 import type { Props as HeaderProps } from "./HeaderTitle.tsx";
 import { HeaderTitle } from "./HeaderTitle.tsx";
-import { useId } from "site/sdk/useId.ts";
+import { useId } from "$store/sdk/useId.ts";
 
 interface Props {
   header?: HeaderProps;

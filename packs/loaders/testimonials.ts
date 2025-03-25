@@ -1,12 +1,8 @@
-import type { AppContext } from "site/apps/site.ts";
+import type { AppContext } from "$store/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
-import {
-  APIGetTestimonials,
-  ProductData,
-  Review,
-} from "site/packs/types.ts";
+import { APIGetTestimonials, ProductData, Review } from "$store/packs/types.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
-import { toReview } from "site/packs/utils/transform.ts";
+import { toReview } from "$store/packs/utils/transform.ts";
 import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 
@@ -39,7 +35,7 @@ export interface Props {
 const loader = async (
   props: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<Review[] | null> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
@@ -48,13 +44,13 @@ const loader = async (
 
   const idproduto = slug
     ? await getProductIdBySlug(
-      path.product.getProduct({
-        offset: 1,
-        ordenacao: "none",
-        url: slug,
-        tipoRetorno: "simples",
-      }),
-    )
+        path.product.getProduct({
+          offset: 1,
+          ordenacao: "none",
+          url: slug,
+          tipoRetorno: "simples",
+        })
+      )
     : undefined;
 
   if (slug && !idproduto) return null;
@@ -70,7 +66,7 @@ const loader = async (
     {
       method: "POST",
       // deco: { cache: DECO_CACHE_OPTION },
-    },
+    }
   );
 
   if (!testimonials.length) return null;
@@ -79,7 +75,7 @@ const loader = async (
 };
 
 const getProductIdBySlug = async (
-  path: string,
+  path: string
 ): Promise<number | undefined> => {
   const product = await fetchAPI<ProductData>(path, {
     method: "POST",

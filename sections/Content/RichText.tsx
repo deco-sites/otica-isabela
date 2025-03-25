@@ -1,1 +1,1 @@
-export { default } from "site/components/ui/RichText/RichText.tsx";
+export { default } from "$store/components/ui/RichText/RichText.tsx";

@@ -1,8 +1,6 @@
-import Icon, {
-  AvailableIcons,
-} from "site/components/ui/Icon.tsx";
-import Text, { IText } from "site/components/ui/Text.tsx";
-import { useId } from "site/sdk/useId.ts";
+import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import Text, { IText } from "$store/components/ui/Text.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 /**
  * @title Set Color

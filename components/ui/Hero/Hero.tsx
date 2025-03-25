@@ -1,12 +1,12 @@
 import Background, {
   IBackgroundColor,
   IBackgroundImage,
-} from "site/components/ui/Hero/Background.tsx";
+} from "$store/components/ui/Hero/Background.tsx";
 import BreadCrumb, {
   IBreadCrumb,
-} from "site/components/ui/Hero/Breadcrumb.tsx";
-import Text, { IText } from "site/components/ui/Text.tsx";
-import { useId } from "site/sdk/useId.ts";
+} from "$store/components/ui/Hero/Breadcrumb.tsx";
+import Text, { IText } from "$store/components/ui/Text.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 interface IPadding {
   /**

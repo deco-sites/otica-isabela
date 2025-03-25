@@ -1,7 +1,7 @@
-import Ratings from "site/components/product/product-details/Ratings.tsx";
-import type { MemberLevel } from "site/components/product/product-details/Reviews/Review.tsx";
+import Ratings from "$store/components/product/product-details/Ratings.tsx";
+import type { MemberLevel } from "$store/components/product/product-details/Reviews/Review.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import { Review } from "site/packs/types.ts";
+import { Review } from "$store/packs/types.ts";
 
 interface Props {
   review: Review;

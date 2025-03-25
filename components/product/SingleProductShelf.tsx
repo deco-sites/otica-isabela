@@ -1,8 +1,8 @@
 import { Product } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
-import { formatPrice } from "site/sdk/format.ts";
-import { IImage } from "site/sdk/types.ts";
-import { useOffer } from "site/sdk/useOffer.ts";
+import { formatPrice } from "$store/sdk/format.ts";
+import { IImage } from "$store/sdk/types.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 import { FnContext } from "deco/mod.ts";
 

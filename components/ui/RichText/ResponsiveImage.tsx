@@ -1,6 +1,6 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { AvailableIcons } from "site/components/ui/Icon.tsx";
-import { IImage } from "site/sdk/types.ts";
+import { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import { IImage } from "$store/sdk/types.ts";
 import { Fragment } from "preact";
 
 /**

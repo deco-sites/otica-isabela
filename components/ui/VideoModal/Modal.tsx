@@ -1,5 +1,5 @@
-import Icon from "site/components/ui/Icon.tsx";
-import { useUI } from "site/sdk/useUI.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
 import { useSignal } from "@preact/signals";
 import type { ComponentChildren } from "preact";
 import { Suspense } from "preact/compat";

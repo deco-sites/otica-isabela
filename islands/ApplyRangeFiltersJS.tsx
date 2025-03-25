@@ -1,1 +1,1 @@
-export { default } from "site/components/search/ApplyRangeFiltersJS.tsx";
+export { default } from "$store/components/search/ApplyRangeFiltersJS.tsx";

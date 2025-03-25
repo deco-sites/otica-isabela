@@ -1,1 +1,1 @@
-export { default } from "site/components/ui/Hero/Hero.tsx";
+export { default } from "$store/components/ui/Hero/Hero.tsx";

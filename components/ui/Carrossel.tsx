@@ -7,7 +7,7 @@ import type { AppContext } from "../../apps/site.ts";
 import { clx } from "../../sdk/clx.ts";
 import type { Benefit } from "../Beneficios.tsx";
 import Beneficios from "../Beneficios.tsx";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 /**
  * @titleBy alt

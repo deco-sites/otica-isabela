@@ -1,4 +1,1 @@
-export {
-  default,
-  loader,
-} from "site/components/ui/Institutional.tsx";
+export { default, loader } from "$store/components/ui/Institutional.tsx";

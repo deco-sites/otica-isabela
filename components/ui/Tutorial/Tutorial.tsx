@@ -1,6 +1,6 @@
 import Step, {
   Props as StepProps,
-} from "site/components/ui/Tutorial/Step.tsx";
+} from "$store/components/ui/Tutorial/Step.tsx";
 import { FnContext } from "deco/mod.ts";
 
 interface Colors {

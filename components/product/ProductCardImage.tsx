@@ -1,4 +1,4 @@
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
 interface Props {

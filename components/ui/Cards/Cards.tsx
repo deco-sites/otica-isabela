@@ -1,6 +1,4 @@
-import Card, {
-  ICard,
-} from "site/components/ui/Cards/Card.tsx";
+import Card, { ICard } from "$store/components/ui/Cards/Card.tsx";
 
 interface Columns {
   /**

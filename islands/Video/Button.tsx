@@ -1,1 +1,1 @@
-export { default } from "site/components/ui/VideoModal/Button.tsx";
+export { default } from "$store/components/ui/VideoModal/Button.tsx";

@@ -1,5 +1,5 @@
 import { useId } from "preact/hooks";
-import Icon from "site/components/ui/Icon.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 
 interface IButton {
   href: string;

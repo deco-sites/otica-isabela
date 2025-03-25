@@ -1,4 +1,4 @@
-import { selectedFilters } from "site/components/search/SelectedFilters.tsx";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import { useEffect } from "preact/hooks";
 
 interface Props {

@@ -1,5 +1,5 @@
-import Icon from "site/components/ui/Icon.tsx";
-import { useId } from "site/sdk/useId.ts";
+import Icon from "$store/components/ui/Icon.tsx";
+import { useId } from "$store/sdk/useId.ts";
 import { ComponentChildren } from "preact";
 
 interface HtmlChild {

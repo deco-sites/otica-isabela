@@ -1,4 +1,4 @@
-import { CategoryMenuItem } from "site/components/search/SearchResult.tsx";
+import { CategoryMenuItem } from "$store/components/search/SearchResult.tsx";
 
 export interface Props {
   categories: CategoryMenuItem[];

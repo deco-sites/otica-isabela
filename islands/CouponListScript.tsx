@@ -1,1 +1,1 @@
-export { default } from "site/components/ui/CouponList/CouponListScript.tsx";
+export { default } from "$store/components/ui/CouponList/CouponListScript.tsx";

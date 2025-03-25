@@ -1,5 +1,5 @@
-import { FilterToggleValueWithHex } from "site/components/search/Filters.tsx";
-import { selectedFilters } from "site/components/search/SelectedFilters.tsx";
+import { FilterToggleValueWithHex } from "$store/components/search/Filters.tsx";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import { ComponentChildren } from "preact";
 
 export default function ValueItem({
