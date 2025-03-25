@@ -1,1 +1,1 @@
-export { default } from "$store/packs/actions/cart/addItem.ts";
+export { default } from "../../../packs/actions/cart/addItem.ts";

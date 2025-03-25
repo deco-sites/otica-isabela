@@ -1,6 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import Image from "apps/website/components/Image.tsx";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "$store/sdk/useId.ts";
 

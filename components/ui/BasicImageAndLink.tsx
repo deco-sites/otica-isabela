@@ -1,4 +1,4 @@
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 
 export interface BasicImageAndLinkProps {

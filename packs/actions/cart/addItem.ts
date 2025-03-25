@@ -1,8 +1,8 @@
-import { OrderForm, ProductsCart } from "$store/packs/types.ts";
-import type { AppContext } from "site/apps/site.ts";
+import { OrderForm, ProductsCart } from "../../types.ts";
+import type { AppContext } from "../../../apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
-import { ISABELA_DIAS_CLIENT_COOKIE } from "$store/packs/constants.ts";
-import paths from "$store/packs/utils/paths.ts";
+import { ISABELA_DIAS_CLIENT_COOKIE } from "../../constants.ts";
+import paths from "../../utils/paths.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
 
 export interface Props {
@@ -16,7 +16,7 @@ export interface Props {
 export default async function loader(
   props: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<OrderForm> {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
@@ -32,7 +32,7 @@ export default async function loader(
 
   const cartWithProduct = await fetchAPI<ProductsCart[]>(
     path.cart.addCart(idProduct, sku, Number(clientToken)),
-    { method: "POST" },
+    { method: "POST" }
   );
 
   return {

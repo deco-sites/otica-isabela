@@ -38,7 +38,7 @@ import * as $ValueItem from "./islands/ValueItem.tsx";
 import * as $Video_Button from "./islands/Video/Button.tsx";
 import * as $Video_Modal from "./islands/Video/Modal.tsx";
 import * as $WishlistButton from "./islands/WishlistButton.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {

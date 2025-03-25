@@ -9,7 +9,7 @@ import SizeOptions from "$store/components/search/SizeOptions.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import RangeFiltersJS from "$store/islands/RangeFiltersJS.tsx";
 import ValueItem from "$store/islands/ValueItem.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 interface Props {
   filters: ProductListingPage["filters"];

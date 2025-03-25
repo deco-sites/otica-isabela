@@ -1,5 +1,5 @@
 import { Product, PropertyValue } from "apps/commerce/types.ts";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 interface Props {
   product: Product;

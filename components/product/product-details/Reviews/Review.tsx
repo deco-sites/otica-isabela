@@ -3,7 +3,7 @@ import ShowMore from "$store/islands/ShowMore.tsx";
 import Feedback from "$store/components/product/product-details/Reviews/Feedback.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import ReviewImagesModal from "$store/islands/ReviewImagesModal.tsx";
 import { Review } from "$store/packs/types.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";

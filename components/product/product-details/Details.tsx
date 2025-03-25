@@ -11,8 +11,8 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ShareButton from "$store/islands/ShareButton.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
-import Video from "deco-sites/std/components/Video.tsx";
+import Image from "apps/website/components/Image.tsx";
+import Video from "apps/website/components/Video.tsx";
 import { useId } from "$store/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
