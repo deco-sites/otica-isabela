@@ -1,7 +1,7 @@
 import { useSignal } from "@preact/signals";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import useModal from "deco-sites/otica-isabela/components/ui/useModal.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import Icon from "site/components/ui/Icon.tsx";
+import useModal from "site/components/ui/useModal.tsx";
+import { useId } from "site/sdk/useId.ts";
 import intlTelInput from "npm:intl-tel-input";
 import { useEffect } from "preact/hooks";
 

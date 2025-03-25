@@ -1,11 +1,11 @@
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import ShowMore from "deco-sites/otica-isabela/islands/ShowMore.tsx";
-import Feedback from "deco-sites/otica-isabela/components/product/product-details/Reviews/Feedback.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import ShowMore from "site/islands/ShowMore.tsx";
+import Feedback from "site/components/product/product-details/Reviews/Feedback.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
-import ReviewImagesModal from "deco-sites/otica-isabela/islands/ReviewImagesModal.tsx";
-import { Review } from "deco-sites/otica-isabela/packs/types.ts";
+import ReviewImagesModal from "site/islands/ReviewImagesModal.tsx";
+import { Review } from "site/packs/types.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";

@@ -1,6 +1,6 @@
 import type { Props as HeaderProps } from "./HeaderTitle.tsx";
 import { HeaderTitle } from "./HeaderTitle.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { useId } from "site/sdk/useId.ts";
 
 interface Props {
   header?: HeaderProps;

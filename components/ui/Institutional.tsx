@@ -1,8 +1,8 @@
 import SideMenuNavigation, {
   Navigation,
-} from "deco-sites/otica-isabela/components/ui/SideMenuNavigation/SideMenuNavigation.tsx";
+} from "site/components/ui/SideMenuNavigation/SideMenuNavigation.tsx";
 import { FnContext, SectionProps } from "deco/mod.ts";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "site/components/ui/Icon.tsx";
 
 interface Style {
   /**

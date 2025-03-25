@@ -9,11 +9,11 @@ import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
-import Button from "deco-sites/otica-isabela/components/ui/Button.tsx";
+import { useId } from "site/sdk/useId.ts";
+import Button from "site/components/ui/Button.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 
 export interface Layout {
   basics?: {

@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/CouponList/CouponList.tsx";
+export { default } from "site/components/ui/CouponList/CouponList.tsx";

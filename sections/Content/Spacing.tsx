@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/Spacing.tsx";
+export { default } from "site/components/ui/Spacing.tsx";

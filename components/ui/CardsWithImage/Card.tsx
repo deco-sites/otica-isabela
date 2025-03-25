@@ -1,4 +1,4 @@
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { IImage } from "site/sdk/types.ts";
 import Image from "apps/website/components/Image.tsx";
 
 /**

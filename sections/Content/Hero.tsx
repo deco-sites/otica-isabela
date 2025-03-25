@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/Hero/Hero.tsx";
+export { default } from "site/components/ui/Hero/Hero.tsx";

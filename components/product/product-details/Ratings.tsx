@@ -1,4 +1,4 @@
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "site/components/ui/Icon.tsx";
 
 interface Props {
   ratingValue: number;

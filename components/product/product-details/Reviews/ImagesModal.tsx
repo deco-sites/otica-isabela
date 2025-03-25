@@ -1,12 +1,12 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import Modal from "deco-sites/otica-isabela/components/ui/NewModal.tsx";
-import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import Modal from "site/components/ui/NewModal.tsx";
+import Ratings from "site/components/product/product-details/Ratings.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useSignal } from "@preact/signals";
-import { Review } from "deco-sites/otica-isabela/packs/types.ts";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { Review } from "site/packs/types.ts";
+import { useId } from "site/sdk/useId.ts";
 
 interface Props {
   reviews: Review[];

@@ -32,7 +32,7 @@ import type {
 import {
   RANGE_FILTERS,
   SORT_OPTIONS,
-} from "deco-sites/otica-isabela/packs/constants.ts";
+} from "site/packs/constants.ts";
 
 type CategoryPageProps = Required<
   Omit<

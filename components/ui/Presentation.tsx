@@ -1,7 +1,7 @@
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 import { FnContext } from "deco/mod.ts";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { IImage } from "site/sdk/types.ts";
 
 interface Props {
   /**

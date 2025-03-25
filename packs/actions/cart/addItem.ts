@@ -1,5 +1,5 @@
 import { OrderForm, ProductsCart } from "$store/packs/types.ts";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import { ISABELA_DIAS_CLIENT_COOKIE } from "$store/packs/constants.ts";
 import paths from "$store/packs/utils/paths.ts";

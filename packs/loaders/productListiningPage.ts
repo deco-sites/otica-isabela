@@ -12,11 +12,11 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import type {
   AppContext,
   StoreProps,
-} from "deco-sites/otica-isabela/apps/site.ts";
+} from "site/apps/site.ts";
 import {
   RANGE_FILTERS,
   SORT_OPTIONS,
-} from "deco-sites/otica-isabela/packs/constants.ts";
+} from "site/packs/constants.ts";
 import { DecoRequestInit, fetchAPI } from "apps/utils/fetch.ts";
 import { DECO_CACHE_OPTION } from "$store/packs/constants.ts";
 

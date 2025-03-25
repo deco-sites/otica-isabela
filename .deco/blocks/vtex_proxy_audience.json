@@ -1,0 +1,1 @@
+{"name":"vtex_proxy","routes":{"0":{"handler":{"value":{"page":{"__resolveType":"21500"},"__resolveType":"$live/handlers/fresh.ts"}},"pathTemplate":"/"},"hostname":"fashion.bravtexstores.com.br","__resolveType":"deco-sites/std/loaders/vtex/proxy.ts"},"matcher":{"__resolveType":"$live/matchers/MatchAlways.ts"},"overrides":[],"__resolveType":"$live/flags/audience.ts"}

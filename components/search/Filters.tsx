@@ -5,10 +5,10 @@ import type {
   FilterToggleValue,
   ProductListingPage,
 } from "apps/commerce/types.ts";
-import SizeOptions from "deco-sites/otica-isabela/components/search/SizeOptions.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import RangeFiltersJS from "deco-sites/otica-isabela/islands/RangeFiltersJS.tsx";
-import ValueItem from "deco-sites/otica-isabela/islands/ValueItem.tsx";
+import SizeOptions from "site/components/search/SizeOptions.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import RangeFiltersJS from "site/islands/RangeFiltersJS.tsx";
+import ValueItem from "site/islands/ValueItem.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
 interface Props {

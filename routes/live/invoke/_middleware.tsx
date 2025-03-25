@@ -4,7 +4,7 @@ import {
   ISABELA_DIAS_SESSION_COOKIE,
   ISABELA_DIAS_WISHLIST_IDS,
 } from "$store/packs/constants.ts";
-import { Manifest } from "deco-sites/otica-isabela/manifest.gen.ts";
+import { Manifest } from "site/manifest.gen.ts";
 import { DecoState } from "deco/types.ts";
 import { getCookies } from "std/http/mod.ts";
 
@@ -43,7 +43,7 @@ export const handler = async (
 
   
   if (cookies[ISABELA_DIAS_CLIENT_COOKIE]) {
-    const customerWishlist = await ctx.state.invoke("deco-sites/otica-isabela/loaders/product/wishlist.ts");
+    const customerWishlist = await ctx.state.invoke("site/loaders/product/wishlist.ts");
     const wishlistIds = customerWishlist.map(product => String(product.IdProduct));
     setCookies(res, [
       {
@@ -55,7 +55,7 @@ export const handler = async (
   }
 
   const customerToken = await ctx.state.invoke(
-    "deco-sites/otica-isabela/loaders/store/session.ts",
+    "site/loaders/store/session.ts",
     { sessionToken: cookies[ISABELA_DIAS_SESSION_COOKIE] },
   );
 

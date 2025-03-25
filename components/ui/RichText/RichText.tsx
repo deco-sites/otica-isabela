@@ -1,16 +1,16 @@
 import Image from "apps/website/components/Image.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "site/components/ui/Icon.tsx";
 import Button, {
   Props as ButtonProps,
-} from "deco-sites/otica-isabela/components/ui/RichText/Button.tsx";
-import Content from "deco-sites/otica-isabela/components/ui/RichText/Content.tsx";
+} from "site/components/ui/RichText/Button.tsx";
+import Content from "site/components/ui/RichText/Content.tsx";
 import ResponsiveImage, {
   Props as ResponsiveImageProps,
-} from "deco-sites/otica-isabela/components/ui/RichText/ResponsiveImage.tsx";
+} from "site/components/ui/RichText/ResponsiveImage.tsx";
 import Video, {
   Props as IVideo,
-} from "deco-sites/otica-isabela/components/ui/VideoModal/Video.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+} from "site/components/ui/VideoModal/Video.tsx";
+import { IImage } from "site/sdk/types.ts";
 import { Fragment } from "preact";
 import { useId } from "preact/hooks";
 

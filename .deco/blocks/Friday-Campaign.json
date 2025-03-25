@@ -1,0 +1,1 @@
+{"cron":"* 0-23 * * FRI","__resolveType":"$live/matchers/MatchCron.ts"}

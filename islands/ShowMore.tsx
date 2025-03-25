@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/product/product-details/Reviews/ShowMore.tsx";
+export { default } from "site/components/product/product-details/Reviews/ShowMore.tsx";

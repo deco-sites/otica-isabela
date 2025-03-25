@@ -1,4 +1,4 @@
-import { ITextStyle } from "deco-sites/otica-isabela/sdk/types.ts";
+import { ITextStyle } from "site/sdk/types.ts";
 
 export const Alignments = {
   undefined: " justify-start",

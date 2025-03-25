@@ -56,10 +56,10 @@ const load = async (signal: AbortSignal) => {
   const { cart, wishlist } = await Runtime.invoke(
     {
       cart: {
-        key: "deco-sites/otica-isabela/loaders/product/cart.ts",
+        key: "site/loaders/product/cart.ts",
       },
       wishlist: {
-        key: "deco-sites/otica-isabela/loaders/product/wishlist.ts",
+        key: "site/loaders/product/wishlist.ts",
       },
     },
     { signal },

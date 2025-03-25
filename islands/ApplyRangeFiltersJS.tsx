@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/search/ApplyRangeFiltersJS.tsx";
+export { default } from "site/components/search/ApplyRangeFiltersJS.tsx";

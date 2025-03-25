@@ -1,6 +1,6 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { AvailableIcons } from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { AvailableIcons } from "site/components/ui/Icon.tsx";
+import { IImage } from "site/sdk/types.ts";
 import { Fragment } from "preact";
 
 /**

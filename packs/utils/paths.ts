@@ -1,5 +1,5 @@
 import { Props as TestimonialProps } from "$store/packs/loaders/testimonials.ts";
-import { StoreProps } from "deco-sites/otica-isabela/apps/site.ts";
+import { StoreProps } from "site/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts";

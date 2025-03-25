@@ -7,17 +7,17 @@ import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import ApplyRangeFiltersJS from "deco-sites/otica-isabela/islands/ApplyRangeFiltersJS.tsx";
+import ApplyRangeFiltersJS from "site/islands/ApplyRangeFiltersJS.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
-import Pagination from "deco-sites/otica-isabela/components/search/Pagination.tsx";
+import Pagination from "site/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import { getCookies } from "std/http/mod.ts";
 import {
   ISABELA_DIAS_WISHLIST_IDS,
   ISABELA_DIAS_NAME_COOKIE,
-} from "deco-sites/otica-isabela/packs/constants.ts";
+} from "site/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import { redirect } from "deco/mod.ts";
 import { Head } from "$fresh/runtime.ts";
@@ -231,7 +231,7 @@ export const loader = async (
     const isLogged = Boolean(cookies[ISABELA_DIAS_NAME_COOKIE]);
     if (!isLogged) redirect(new URL("/identificacao", new URL(req.url)));
     const wishlistProductsPage = await ctx.invoke(
-      "deco-sites/otica-isabela/loaders/product/productListiningPage.ts",
+      "site/loaders/product/productListiningPage.ts",
       { id: wishlistIds, ordenacao: "none" }
     );
     props.page = wishlistProductsPage;

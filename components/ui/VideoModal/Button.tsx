@@ -1,4 +1,4 @@
-import { useUI } from "deco-sites/otica-isabela/sdk/useUI.ts";
+import { useUI } from "site/sdk/useUI.ts";
 import type { JSX } from "preact";
 
 export type Props = Omit<JSX.IntrinsicElements["button"], "onClick"> & {

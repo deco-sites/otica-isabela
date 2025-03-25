@@ -10,7 +10,7 @@ const payload = signal<Suggestion | null>(null);
 const loading = signal<boolean>(false);
 
 const suggestions = Runtime.create(
-  "deco-sites/otica-isabela/loaders/product/suggestions.ts",
+  "site/loaders/product/suggestions.ts",
 );
 
 const setSearch = debounce(async (search: string, count: number) => {

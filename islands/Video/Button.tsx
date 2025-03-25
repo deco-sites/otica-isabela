@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/VideoModal/Button.tsx";
+export { default } from "site/components/ui/VideoModal/Button.tsx";

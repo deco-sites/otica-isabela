@@ -1,6 +1,6 @@
 import Icon, {
   AvailableIcons,
-} from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+} from "site/components/ui/Icon.tsx";
 
 interface IIcon {
   id: AvailableIcons;

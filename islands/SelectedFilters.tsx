@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/search/SelectedFilters.tsx";
+export { default } from "site/components/search/SelectedFilters.tsx";

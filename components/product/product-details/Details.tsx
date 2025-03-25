@@ -3,17 +3,17 @@ import SliderJS from "$store/components/ui/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
-import type { Props } from "deco-sites/otica-isabela/components/product/ProductDetails.tsx";
-import ToExperimentButton from "deco-sites/otica-isabela/components/product/ToExperimentButton.tsx";
-import ProductInfo from "deco-sites/otica-isabela/components/product/product-details/ProductInfo.tsx";
-import Ratings from "deco-sites/otica-isabela/components/product/product-details/Ratings.tsx";
-import Breadcrumb from "deco-sites/otica-isabela/components/ui/Breadcrumb.tsx";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import WishlistButton from "deco-sites/otica-isabela/components/wishlist/WishlistButton.tsx";
-import ShareButton from "deco-sites/otica-isabela/islands/ShareButton.tsx";
+import type { Props } from "site/components/product/ProductDetails.tsx";
+import ToExperimentButton from "site/components/product/ToExperimentButton.tsx";
+import ProductInfo from "site/components/product/product-details/ProductInfo.tsx";
+import Ratings from "site/components/product/product-details/Ratings.tsx";
+import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
+import ShareButton from "site/islands/ShareButton.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { useId } from "site/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 

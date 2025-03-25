@@ -1,8 +1,8 @@
 import { Product } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
-import { formatPrice } from "deco-sites/otica-isabela/sdk/format.ts";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
-import { useOffer } from "deco-sites/otica-isabela/sdk/useOffer.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { IImage } from "site/sdk/types.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 import { FnContext } from "deco/mod.ts";
 

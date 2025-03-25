@@ -1,8 +1,8 @@
 import Image from "apps/website/components/Image.tsx";
 import Icon, {
   AvailableIcons,
-} from "deco-sites/otica-isabela/components/ui/Icon.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+} from "site/components/ui/Icon.tsx";
+import { IImage } from "site/sdk/types.ts";
 
 interface IIcon {
   id: AvailableIcons;

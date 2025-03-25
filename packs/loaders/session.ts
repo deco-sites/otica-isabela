@@ -1,7 +1,7 @@
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { ISABELA_DIAS_SESSION_COOKIE } from "$store/packs/constants.ts";
-import { Session } from "deco-sites/otica-isabela/packs/types.ts";
+import { Session } from "site/packs/types.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
 
 interface Props {

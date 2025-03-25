@@ -1,4 +1,4 @@
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import { ProductData } from "$store/packs/types.ts";
 import type { Suggestion } from "apps/commerce/types.ts";
 import paths from "$store/packs/utils/paths.ts";

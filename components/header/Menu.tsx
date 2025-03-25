@@ -1,7 +1,7 @@
 import { NavItemProps } from "./NavItem.tsx";
 // import { ModalOverlay } from "../ui/ModalOverlay.tsx";
 import { useId } from "../../sdk/useId.ts";
-import Icon from "deco-sites/otica-isabela/components/ui/Icon.tsx";
+import Icon from "site/components/ui/Icon.tsx";
 import type { Props as AjudaProps } from "./Ajuda.tsx";
 import Image from "apps/website/components/Image.tsx";
 export interface Props {

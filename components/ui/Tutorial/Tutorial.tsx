@@ -1,6 +1,6 @@
 import Step, {
   Props as StepProps,
-} from "deco-sites/otica-isabela/components/ui/Tutorial/Step.tsx";
+} from "site/components/ui/Tutorial/Step.tsx";
 import { FnContext } from "deco/mod.ts";
 
 interface Colors {

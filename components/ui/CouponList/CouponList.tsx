@@ -1,7 +1,7 @@
 import Coupon, {
   Props as CouponProps,
-} from "deco-sites/otica-isabela/components/ui/CouponList/Coupon.tsx";
-import CouponListScript from "deco-sites/otica-isabela/components/ui/CouponList/CouponListScript.tsx";
+} from "site/components/ui/CouponList/Coupon.tsx";
+import CouponListScript from "site/components/ui/CouponList/CouponListScript.tsx";
 
 interface Props {
   /**

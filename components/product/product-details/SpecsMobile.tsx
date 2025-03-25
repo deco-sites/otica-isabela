@@ -1,9 +1,9 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import { Product } from "apps/commerce/types.ts";
-import ProductDetailsMeasurements from "deco-sites/otica-isabela/components/product/product-details/Measurements.tsx";
-import LazyIframe from "deco-sites/otica-isabela/islands/LazyIframe.tsx";
-import { replaceHtml } from "deco-sites/otica-isabela/sdk/replaceHtml.ts";
-import { replaceSpecialCharacters } from "deco-sites/otica-isabela/sdk/replaceSpecialCharacters.ts";
+import ProductDetailsMeasurements from "site/components/product/product-details/Measurements.tsx";
+import LazyIframe from "site/islands/LazyIframe.tsx";
+import { replaceHtml } from "site/sdk/replaceHtml.ts";
+import { replaceSpecialCharacters } from "site/sdk/replaceSpecialCharacters.ts";
 import { Head } from "$fresh/runtime.ts";
 
 interface Props {

@@ -1,1 +1,1 @@
-export { default } from "deco-sites/otica-isabela/components/ui/BenefitList.tsx";
+export { default } from "site/components/ui/BenefitList.tsx";

@@ -1,7 +1,7 @@
 import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
 import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
-import type { AppContext } from "deco-sites/otica-isabela/apps/site.ts";
+import type { AppContext } from "site/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
@@ -29,7 +29,7 @@ export async function loader(
   }
 
   const products = await ctx.invoke(
-    "deco-sites/otica-isabela/loaders/product/productList.ts",
+    "site/loaders/product/productList.ts",
     { id: splitedIds, ordenacao: "none" }
   );
 

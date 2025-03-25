@@ -1,5 +1,5 @@
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { IImage } from "deco-sites/otica-isabela/sdk/types.ts";
+import { IImage } from "site/sdk/types.ts";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 
 interface Thumbnail {

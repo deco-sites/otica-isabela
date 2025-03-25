@@ -1,4 +1,4 @@
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { useId } from "site/sdk/useId.ts";
 
 const script = (id: string) => `
 const callback = () => {

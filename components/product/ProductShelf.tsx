@@ -7,7 +7,7 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
-import { useId } from "deco-sites/otica-isabela/sdk/useId.ts";
+import { useId } from "site/sdk/useId.ts";
 import { AuthData } from "$store/packs/types.ts";
 
 export interface Props {
