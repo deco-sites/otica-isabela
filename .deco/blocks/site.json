@@ -24,7 +24,7 @@
       "domain": "storefront.deco.site"
     },
     {
-      "__resolveType": "site/sections/Session.tsx"
+      "__resolveType": "site/sections/SetCookies.tsx"
     }
   ],
   "routes": [
