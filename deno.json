@@ -1,8 +1,10 @@
 {
   "imports": {
+    "deco-sites/otica-isabela/": "./",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "$live/": "https://denopkg.com/deco-cx/deco@1.111.2/",
     "$store/": "./",
+    "site/": "./",
     "@cliffy/prompt": "jsr:@cliffy/prompt@^1.0.0-rc.5",
     "@core/asyncutil": "jsr:@core/asyncutil@^1.0.2",
     "@deco/codemod-toolkit": "jsr:@deco/codemod-toolkit@0.3.4",
@@ -61,12 +63,7 @@
   "githooks": {
     "pre-commit": "check"
   },
-  "exclude": [
-    "node_modules",
-    "static/",
-    "README.md",
-    "**/_fresh/*"
-  ],
+  "exclude": ["node_modules", "static/", "README.md", "**/_fresh/*"],
   "lock": false,
   "nodeModulesDir": true,
   "compilerOptions": {
@@ -76,10 +73,7 @@
   },
   "lint": {
     "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
+      "tags": ["fresh", "recommended"]
     }
   }
 }

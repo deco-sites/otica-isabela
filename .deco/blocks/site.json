@@ -17,6 +17,9 @@
       "__resolveType": "Analytics"
     },
     {
+      "__resolveType": "site/sections/SetCookies.tsx"
+    },
+    {
       "__resolveType": "deco-sites/otica-isabela/sections/Social/FacebookPixel.tsx"
     }
   ],

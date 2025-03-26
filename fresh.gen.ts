@@ -3,7 +3,6 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_app from "./routes/_app.tsx";
-import * as $live_invoke_middleware from "./routes/live/invoke/_middleware.tsx";
 import * as $Accessibility from "./islands/Accessibility.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $Alertas from "./islands/Alertas.tsx";
@@ -43,7 +42,6 @@ import type { Manifest } from "$fresh/server.ts";
 const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
-    "./routes/live/invoke/_middleware.tsx": $live_invoke_middleware,
   },
   islands: {
     "./islands/Accessibility.tsx": $Accessibility,

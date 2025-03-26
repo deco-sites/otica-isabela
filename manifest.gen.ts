@@ -69,10 +69,11 @@ import * as $$$$$$48 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$49 from "./sections/Product/SearchResult.tsx";
 import * as $$$$$$50 from "./sections/Product/SingleProductShelf.tsx";
 import * as $$$$$$51 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$52 from "./sections/Social/FacebookPixel.tsx";
-import * as $$$$$$53 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$54 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$55 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$52 from "./sections/SetCookies.tsx";
+import * as $$$$$$53 from "./sections/Social/FacebookPixel.tsx";
+import * as $$$$$$54 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$55 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$56 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -143,10 +144,11 @@ const manifest = {
     "site/sections/Product/SearchResult.tsx": $$$$$$49,
     "site/sections/Product/SingleProductShelf.tsx": $$$$$$50,
     "site/sections/Product/VisitedProductShelf.tsx": $$$$$$51,
-    "site/sections/Social/FacebookPixel.tsx": $$$$$$52,
-    "site/sections/Social/InstagramPosts.tsx": $$$$$$53,
-    "site/sections/Social/WhatsApp.tsx": $$$$$$54,
-    "site/sections/Theme/Theme.tsx": $$$$$$55,
+    "site/sections/SetCookies.tsx": $$$$$$52,
+    "site/sections/Social/FacebookPixel.tsx": $$$$$$53,
+    "site/sections/Social/InstagramPosts.tsx": $$$$$$54,
+    "site/sections/Social/WhatsApp.tsx": $$$$$$55,
+    "site/sections/Theme/Theme.tsx": $$$$$$56,
   },
   "apps": {
     "site/apps/decohub.ts": $$$$$$$$$$$0,

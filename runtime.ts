@@ -1,4 +1,4 @@
-import { forApp } from "$live/clients/withManifest.ts";
-import type { Storefront } from "./apps/site.ts";
+import type { Manifest } from "./manifest.gen.ts";
+import { proxy } from "@deco/deco/web";
 
-export const Runtime = forApp<Storefront>();
+export const invoke = proxy<Manifest>();
