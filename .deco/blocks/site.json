@@ -24,11 +24,7 @@
       "domain": "storefront.deco.site"
     },
     {
-      "__resolveType": "site/sections/Session.tsx",
-      "minicart": null,
-      "wishlist": null,
-      "mode": "lazy",
-      "user": null
+      "__resolveType": "site/sections/Session.tsx"
     }
   ],
   "routes": [
@@ -59,5 +55,7 @@
   },
   "flavor": {
     "framework": "fresh"
-  }
+  },
+  "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
+  "publicUrl": "secure.oticaisabeladias.com.br"
 }
