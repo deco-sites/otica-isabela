@@ -1,47 +1,66 @@
 {
   "seo": {
     "type": "website",
-    "image": "https://assets.decocache.com/storefront/008e0b89-6d70-4e91-9855-dbbc3d7941f7/1742560188441-74d13a55-4c18-4a5c-8cb4-dcaa27aae923",
-    "title": "Ótica online Isabela Dias - Loja de Óculos de Grau",
-    "jsonLDs": [],
-    "noIndexing": false,
-    "description": "Ótica online na Isabela Dias você encontra diversos óculos de grau, óculos de sol, óculos clipon e lentes de contato!",
-    "titleTemplate": "Ótica online Isabela Dias",
-    "descriptionTemplate": "%s",
-    "favicon": "https://assets.decocache.com/otica-isabela/3f3b0d7d-3c04-466e-a058-b9dc2522926d/simbolo_Prancheta-1-copia-8.png"
-  },
-  "theme": {
-    "__resolveType": "Fun"
+    "title": "Ótica Online Isabela Dias - Loja de Óculos de Grau",
+    "description": "Aqui na Ótica Isabela Dias você encontra diversas armações de grau, óculos de sol, óculos clipon e lentes de contato!",
+    "titleTemplate": "%s | Loja de Oculos de Grau",
+    "descriptionTemplate": "%s | Loja de Oculos de Grau"
   },
   "global": [
     {
-      "__resolveType": "website/sections/Analytics/Analytics.tsx",
-      "dangerouslyRunOnMainThread": true,
-      "trackingIds": []
+      "__resolveType": "Oticas Isabela Custom Theme"
     },
     {
-      "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx",
-      "domain": "storefront.deco.site"
+      "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
+    },
+    {
+      "__resolveType": "Analytics"
     },
     {
       "__resolveType": "site/sections/SetCookies.tsx"
+    },
+    {
+      "__resolveType": "deco-sites/otica-isabela/sections/Social/FacebookPixel.tsx"
     }
   ],
   "routes": [
     {
-      "__resolveType": "website/loaders/pages.ts"
+      "__resolveType": "website/loaders/redirects.ts"
     },
     {
-      "__resolveType": "website/loaders/redirects.ts"
-    }
+      "__resolveType": "website/loaders/pages.ts"
+    },
+    [
+      {
+        "handler": {
+          "value": {
+            "url": "https://secure.oticaisabeladias.com.br/sitemap.xml",
+            "basePath": "/sitemap.xml",
+            "redirect": "manual",
+            "__resolveType": "$live/handlers/proxy.ts",
+            "customHeaders": [],
+            "avoidAppendPath": true,
+            "includeScriptsToHead": {
+              "includes": []
+            }
+          }
+        },
+        "pathTemplate": "/sitemap.xml"
+      }
+    ]
   ],
   "caching": {
-    "directives": []
+    "directives": [
+      {
+        "name": "stale-while-revalidate",
+        "value": 1
+      }
+    ],
+    "enabled": true
   },
   "commerce": {
     "platform": "other"
   },
-  "platform": "other",
   "__resolveType": "site/apps/site.ts",
   "firstByteThresholdMS": false,
   "abTesting": {
