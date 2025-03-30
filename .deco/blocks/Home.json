@@ -30,7 +30,13 @@
               "__resolveType": "site/loaders/store/auth.ts"
             },
             "products": {
-              "__resolveType": "offers"
+              "__resolveType": "site/loaders/product/productList.ts",
+              "id": [],
+              "offset": 9,
+              "ordenacao": "mais-vendidos",
+              "ofertasDia": true,
+              "filtrosDinamicos": [],
+              "somenteCronometrosAtivos": false
             }
           },
           {
