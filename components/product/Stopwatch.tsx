@@ -76,10 +76,15 @@ export function StopwatchItem({ label, value, type }: ItemProps) {
 function Stopwatch({ targetDate, type }: Props) {
   const timeRemaining = useSignal<number>(0);
 
+  const isReady = useSignal(false);
+
   useEffect(() => {
     if (!targetDate) return;
 
     const date = new Date(`${targetDate} ${dateGMT}`);
+    timeRemaining.value = calcRemainingTime(date);
+    isReady.value = true;
+
     const interval = setInterval(() => {
       timeRemaining.value = calcRemainingTime(date);
     }, 999);
@@ -88,6 +93,10 @@ function Stopwatch({ targetDate, type }: Props) {
       clearInterval(interval);
     };
   }, [targetDate]);
+
+  if (!isReady.value) {
+    return <div>Carregando...</div>;
+  }
 
   const seconds = Math.floor((timeRemaining.value / 1000) % 60);
   const minutes = Math.floor((timeRemaining.value / 1000 / 60) % 60);
