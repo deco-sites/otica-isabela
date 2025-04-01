@@ -16,6 +16,8 @@ function BestDailyOffers({ products, customer }: Props) {
 
   const priceValidUntil = products[0]?.offers?.offers.at(0)?.priceValidUntil;
 
+  console.log("assim vem o pricevalid:", priceValidUntil);
+
   if (!priceValidUntil) return null;
 
   return (
