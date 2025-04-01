@@ -79,7 +79,14 @@ function Stopwatch({ targetDate, type }: Props) {
   useEffect(() => {
     if (!targetDate) return;
 
-    const date = new Date(`${targetDate} ${dateGMT}`);
+    let date;
+
+    if (targetDate.includes("T")) {
+      date = new Date(targetDate);
+    } else {
+      date = new Date(`${targetDate} ${dateGMT}`);
+    }
+
     const interval = setInterval(() => {
       timeRemaining.value = calcRemainingTime(date);
     }, 999);
