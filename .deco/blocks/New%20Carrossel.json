@@ -3,17 +3,20 @@
     {
       "alt": "Banner de qualidade",
       "mobile": "https://data.decoassets.com/otica-isabela/4631895e-7f65-44c6-bdab-b6f21fce2ab9/Banner-Mobile.jpg",
-      "desktop": "https://data.decoassets.com/otica-isabela/2cfdac1a-2e45-43e3-b91c-960e927f201c/Banner-Desktop.jpg"
+      "desktop": "https://data.decoassets.com/otica-isabela/2cfdac1a-2e45-43e3-b91c-960e927f201c/Banner-Desktop.jpg",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     },
     {
       "alt": "Banner de clipon",
       "mobile": "https://data.decoassets.com/otica-isabela/c3ec5073-d6c5-4c53-9c21-142893cc3108/Banner-Mobile-Clipon.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/c9ae4ab1-f985-4e7f-9b27-d12b6d168d1d/Banner-Clipon.jpg"
+      "desktop": "https://assets.decocache.com/otica-isabela/c9ae4ab1-f985-4e7f-9b27-d12b6d168d1d/Banner-Clipon.jpg",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     },
     {
       "alt": "Banner selecao novidade",
       "mobile": "https://assets.decocache.com/otica-isabela/21f60b84-d819-4682-9004-5db7343ac856/Banner-Mobile.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/e2491132-2a6d-4eda-8f74-fd58c109adc9/Banner-selecao-de-novidades.jpg"
+      "desktop": "https://assets.decocache.com/otica-isabela/e2491132-2a6d-4eda-8f74-fd58c109adc9/Banner-selecao-de-novidades.jpg",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     }
   ],
   "benefits": [
