@@ -15,10 +15,11 @@ import Icon from "$store/components/ui/Icon.tsx";
 interface CarouselImage {
     desktop: ImageWidget;
     mobile: ImageWidget;
+    link?: string;
     /**
      * @title Descreva a imagem
      */
-    alt: string;
+    alt?: string;
 }
 
 interface Carousel {
@@ -112,7 +113,7 @@ export default function Carrossel(
     return (
         <>
             <div class="max-w-[1320px] w-full lg:w-[97%] 3xl:w-full mx-auto relative lg:mb-16">
-                {images.map(({ desktop, mobile, alt }, index) => (
+                {images.map(({ desktop, mobile, link, alt }, index) => (
                     <div
                         class={clx(
                             "w-full transition-opacity duration-700",
@@ -120,21 +121,23 @@ export default function Carrossel(
                             index !== 0 && "absolute left-0 top-0 h-full",
                         )}
                     >
-                        <Picture>
-                            <Source
-                                media="(max-width: 768px)"
-                                src={mobile}
-                                width={500}
-                                height={700}
-                            />
-                            <Source
-                                media="(min-width: 769px)"
-                                src={desktop}
-                                width={1320}
-                                height={430}
-                            />
-                            <img class="" src={desktop} alt={alt} />
-                        </Picture>
+                        <a href={link}>
+                            <Picture>
+                                <Source
+                                    media="(max-width: 768px)"
+                                    src={mobile}
+                                    width={500}
+                                    height={700}
+                                />
+                                <Source
+                                    media="(min-width: 769px)"
+                                    src={desktop}
+                                    width={1320}
+                                    height={430}
+                                />
+                                <img class="" src={desktop} alt={alt} />
+                            </Picture>
+                        </a>
                     </div>
                 ))}
 

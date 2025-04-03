@@ -100,7 +100,7 @@ function Menu({ items, closeMenu, ajuda }: Props) {
               class="flex justify-between items-center px-4 py-3 w-full"
             >
               <div class="flex items-center gap-2">
-                Ajuda
+                {ajuda?.ajuda.centralDeAjudaTitle ?? "Ajuda"}
                 <Icon
                   id="info"
                   width={24}

@@ -17,6 +17,10 @@ interface IconAndLink {
 
 interface Ajuda {
     /**
+     * @title Central de ajuda mobile button title
+     */
+    centralDeAjudaTitle?: string;
+    /**
      * @title Central de ajuda
      */
     centralDeAjuda: IconAndLink[];
