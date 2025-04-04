@@ -132,9 +132,9 @@
               },
               "desktop": {
                 "alt": "atendimento",
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/ee5ce532-f065-48e5-a902-b8461d9e01b3/Banner-Desk-site-Equipe-e-trofeu.jpg",
-                "width": 1000,
-                "height": 500
+                "src": "https://assets.decocache.com/otica-isabela/a2a311a0-38a0-45bc-9457-53d25d06920f/Banner-Desk-site-Equipe-0102.jpg",
+                "height": 500,
+                "width": 1100
               },
               "position": "left",
               "thumbnail": {
@@ -153,7 +153,7 @@
             "container": false,
             "linksGrid": null,
             "__resolveType": "site/sections/Content/RichText.tsx",
-            "backgroundColor": "#727272"
+            "backgroundColor": "#c9effd"
           },
           {
             "__resolveType": "Para as Mulheres"
