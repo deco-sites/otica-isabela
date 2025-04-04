@@ -18,7 +18,7 @@ interface Props {
 const loader = async (
   props: Props,
   _req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<Session> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);

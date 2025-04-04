@@ -118,7 +118,7 @@ export interface ProductInfo {
   TituloSeo: string;
   DescricaoSeo: string;
   TagH1: string;
-  TagH2: string;  
+  TagH2: string;
   TagH3: string;
   Nome: string;
   Cor?: string;

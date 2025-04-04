@@ -12,9 +12,18 @@ function GlobalTags() {
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
 
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7304468452704360"
-      crossorigin="anonymous"></script>
-      <script src="//collect.vendavalida.com.br/push.js" async type="text/javascript"></script>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7304468452704360"
+        crossorigin="anonymous"
+      >
+      </script>
+      <script
+        src="//collect.vendavalida.com.br/push.js"
+        async
+        type="text/javascript"
+      >
+      </script>
     </Head>
   );
 }

@@ -15,17 +15,15 @@ function WishlistButton({ variant = "icon", productID, customer }: Props) {
   const { loading, addItem, removeItem } = useWishlist();
   const fetching = useSignal(false);
   const isAdded = useSignal(
-    customer?.customerWishlist?.includes(String(productID))
+    customer?.customerWishlist?.includes(String(productID)),
   );
   const isUserLoggedIn = !!customer?.customerName;
 
   return (
     <Button
-      class={
-        variant === "icon"
-          ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
-          : "btn-primary btn-outline gap-2"
-      }
+      class={variant === "icon"
+        ? "btn-circle hover:bg-[#c1ebff] border-none gap-2 h-auto bg-transparent"
+        : "btn-primary btn-outline gap-2"}
       loading={fetching.value}
       aria-label="Add to wishlist"
       onClick={async (e) => {
@@ -56,11 +54,16 @@ function WishlistButton({ variant = "icon", productID, customer }: Props) {
         }
       }}
     >
-      {isAdded.value === true ? (
-        <Icon class="text-blue-200" id="AddedHeart" size={35} strokeWidth={1} />
-      ) : (
-        <Icon class="text-blue-200" id="Heart" size={35} strokeWidth={1} />
-      )}
+      {isAdded.value === true
+        ? (
+          <Icon
+            class="text-blue-200"
+            id="AddedHeart"
+            size={35}
+            strokeWidth={1}
+          />
+        )
+        : <Icon class="text-blue-200" id="Heart" size={35} strokeWidth={1} />}
     </Button>
   );
 }

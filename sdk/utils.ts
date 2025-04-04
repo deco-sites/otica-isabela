@@ -50,7 +50,7 @@ function parseStyle(style: ITextStyle): ParsedStyle<ITextStyle>;
 function parseStyle(
   style: ITextStyle,
   asCss = false,
-  important = false
+  important = false,
 ): ParsedStyle<ITextStyle> | string {
   const { color, fontSize, fontWeight, letterSpacing, textAlign, lineHeight } =
     style;
@@ -59,14 +59,13 @@ function parseStyle(
     return Object.entries(style).reduce((acc, [key, rawValue]) => {
       if (rawValue === undefined) return acc;
 
-      const value =
-        key === "fontWeight"
-          ? typeof rawValue === "string"
-            ? FontWeights[rawValue as keyof typeof FontWeights]
-            : FontWeights.Regular
-          : typeof rawValue === "number"
-          ? toPx(rawValue)
-          : rawValue;
+      const value = key === "fontWeight"
+        ? typeof rawValue === "string"
+          ? FontWeights[rawValue as keyof typeof FontWeights]
+          : FontWeights.Regular
+        : typeof rawValue === "number"
+        ? toPx(rawValue)
+        : rawValue;
 
       return `${acc}${toCss(key)}: ${value}${important ? " !important" : ""};`;
     }, "");

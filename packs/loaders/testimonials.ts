@@ -35,7 +35,7 @@ export interface Props {
 const loader = async (
   props: Props,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<Review[] | null> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
@@ -44,13 +44,13 @@ const loader = async (
 
   const idproduto = slug
     ? await getProductIdBySlug(
-        path.product.getProduct({
-          offset: 1,
-          ordenacao: "none",
-          url: slug,
-          tipoRetorno: "simples",
-        })
-      )
+      path.product.getProduct({
+        offset: 1,
+        ordenacao: "none",
+        url: slug,
+        tipoRetorno: "simples",
+      }),
+    )
     : undefined;
 
   if (slug && !idproduto) return null;
@@ -66,7 +66,7 @@ const loader = async (
     {
       method: "POST",
       // deco: { cache: DECO_CACHE_OPTION },
-    }
+    },
   );
 
   if (!testimonials.length) return null;
@@ -75,7 +75,7 @@ const loader = async (
 };
 
 const getProductIdBySlug = async (
-  path: string
+  path: string,
 ): Promise<number | undefined> => {
   const product = await fetchAPI<ProductData>(path, {
     method: "POST",

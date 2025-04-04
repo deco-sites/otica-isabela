@@ -64,7 +64,7 @@ export const useAddToCart = ({
         }
       }
     },
-    [sku]
+    [sku],
   );
 
   return { onClick, loading: isAddingToCart.value };

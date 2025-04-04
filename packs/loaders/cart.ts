@@ -12,12 +12,12 @@ import { getCookies } from "std/http/mod.ts";
 const loader = async (
   _props: null,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<OrderForm> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const customerToken = Number(
-    getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE]
+    getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE],
   );
 
   if (!customerToken) {
@@ -30,7 +30,7 @@ const loader = async (
     path.cart.getCart(customerToken),
     {
       method: "POST",
-    }
+    },
   );
 
   if (productsCart.length === 0) {

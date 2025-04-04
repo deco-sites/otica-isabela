@@ -13,14 +13,13 @@ const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
   const href = (path: string, extraParams?: object) => {
     if (extraParams) {
-      path =
-        path +
+      path = path +
         "&" +
         new URLSearchParams({
           ...Object.fromEntries(
             Object.entries(extraParams).filter(
-              ([_, value]) => value !== undefined && value !== 0
-            )
+              ([_, value]) => value !== undefined && value !== 0,
+            ),
           ),
         });
     }
@@ -34,7 +33,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
     product: {
       getProduct: (props: GetProductProps) => {
         const dynamicFiltersString = stringfyDynamicFilters(
-          props.filtrosDinamicos
+          props.filtrosDinamicos,
         );
 
         return href(`${base}/Produtos?token=${token}${dynamicFiltersString}`, {
@@ -69,7 +68,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
       getTestimonials: (
         props: Omit<TestimonialProps, "slug"> & {
           idproduto?: number;
-        }
+        },
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
     newsletter: {
