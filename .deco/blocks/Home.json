@@ -126,9 +126,9 @@
               "tag": null,
               "mobile": {
                 "alt": "atendimento",
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/490fd429-41cb-430c-a4c9-e42937c35ec9/Banner-mobile-Trofeu.jpg",
-                "width": 1000,
-                "height": 600
+                "src": "https://assets.decocache.com/otica-isabela/4db4d029-f0e8-4ec6-a48e-2b209395a4fd/Banner-mobile-Trofeu.jpg",
+                "height": 600,
+                "width": 800
               },
               "desktop": {
                 "alt": "atendimento",
@@ -143,10 +143,10 @@
             },
             "button": {
               "href": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
-              "color": "#00a7f5",
+              "color": "#cbf3fe",
               "label": "Conte com a gente!",
               "style": "filled",
-              "labelColor": "#303030",
+              "labelColor": "#ffffff",
               "horizontalAlign": "center",
               "blank": true
             },
