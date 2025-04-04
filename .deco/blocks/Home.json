@@ -143,11 +143,12 @@
             },
             "button": {
               "href": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
-              "color": "#ff8614",
+              "color": "#00a7f5",
               "label": "Conte com a gente!",
               "style": "filled",
-              "labelColor": "#f3f3f3",
-              "horizontalAlign": "center"
+              "labelColor": "#454545",
+              "horizontalAlign": "center",
+              "blank": true
             },
             "seeMore": null,
             "container": false,
