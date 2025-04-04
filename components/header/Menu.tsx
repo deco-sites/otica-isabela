@@ -7,10 +7,11 @@ import Image from "apps/website/components/Image.tsx";
 export interface Props {
   items: NavItemProps[];
   closeMenu?: () => void;
-  ajuda?: AjudaProps;
+  ajuda?: AjudaProps["ajuda"];
 }
 
 function Menu({ items, closeMenu, ajuda }: Props) {
+  console.log(ajuda);
   return (
     <div className="fixed top-0 left-0 w-full bg-grayscale-0 max-w-[330px] z-50">
       <div className="px-4 py-2 flex items-center justify-between h-14 shadow-[0_4px_4px_rgba(0,0,0,0.1)]">
@@ -100,7 +101,7 @@ function Menu({ items, closeMenu, ajuda }: Props) {
               class="flex justify-between items-center px-4 py-3 w-full"
             >
               <div class="flex items-center gap-2">
-                {ajuda?.ajuda.centralDeAjudaTitle ?? "Ajuda"}
+                {ajuda?.centralDeAjudaTitle ?? "Ajuda"}
                 <Icon
                   id="info"
                   width={24}

@@ -1,1 +1,920 @@
-{"cart":{"freeShippingObjectiveQuantity":600},"text":"Faltam 78,99 para ganhar um brinde!","ajuda":{"ajuda":{"centralDeAjuda":[{"url":"/guias","icon":"https://assets.decocache.com/otica-isabela/b362ca37-a72e-48ba-8018-daf7409d71de/Book.svg","text":"Dicas e guias"},{"url":"/dicas-de-lentes","icon":"https://assets.decocache.com/otica-isabela/84934749-c827-441e-85b7-50e7cc93fee8/eye.svg","text":"Dicas de lentes"},{"url":"/avaliacoes","icon":"https://assets.decocache.com/otica-isabela/d0fca672-4e89-43bd-b547-6ef5bd280877/review.png","text":"Avaliações dos clientes"},{"url":"/guias/provador-de-oculos-online","icon":"https://assets.decocache.com/otica-isabela/29863cce-e6e8-4951-b718-ed316611092f/Illustrations-Diferences.svg","text":"Prove óculos online"},{"url":"/MinhaConta/Pedidos","icon":"https://assets.decocache.com/otica-isabela/181c4e64-bbb8-42f8-ab42-5f7390af7282/Delivery.svg","text":"Acompanhe seu pedido"},{"url":"/guias/como-comprar-oculos-pela-internet","icon":"https://assets.decocache.com/otica-isabela/8a8349de-3297-470a-8678-4cb55e6a440b/shopping-basket-handy.svg","text":"Como comprar óculos online"}],"entreEmContato":[{"url":"https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento","icon":"https://assets.decocache.com/otica-isabela/f5ead344-6b33-44a2-871f-d2e024804dbc/Social-Icons.svg","text":"(16) 99181-5926"},{"icon":"https://assets.decocache.com/otica-isabela/deacaf4d-e149-493a-ba19-1e7edf412403/Email-2.svg","text":"suporte@oticaisabeladias.com"},{"url":"/quem-somos-otica-isabela-dias","icon":"https://assets.decocache.com/otica-isabela/575ce26f-645f-4e15-a5db-fd3ac4441775/Location.svg","text":"Av. Orlando Dompieri Nº 1750 - Franca SP "}],"centralDeAjudaUrl":"/ajuda-e-suporte","centralDeAjudaButton":"Central de Ajuda"}},"alerts":["Use this template to create your store at deco.cx"],"navItems":[{"href":"/armacao-para-oculos-de-grau","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/7733d479-0fd1-4f33-bed9-6f9e170655d6","mobile":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00086e03-877f-45ff-b0af-a001aafd8d74"},"label":"Armação","children":[{"href":"/armacao-para-oculos-de-grau","label":"Todos","mobileOnly":true},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-masculino","label":"Masculino","children":[{"href":"/feminino/vestidos","label":"Mais vendidos"},{"href":"/feminino/vestidos","label":"Parcerias"}],"desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e8748ec1-afbb-49ae-a98f-022f54843f9c"}},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-feminina","label":"Feminino","desktopMenuImage":{"alt":"Feminino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/529a219e-3293-4643-9109-b310eae6029e"}},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-infantil","label":"Infantil","desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/19c37351-7f79-4c0a-a515-148aa2849b15"}}],"mobileOnly":false,"navbarItems":[{"href":"/armacao-para-oculos-de-grau","label":"Todos","mobileOnly":true},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-feminina","label":"Feminino","desktopMenuImage":{"alt":"FEMININO","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fc3b2607-b906-45bd-90a9-20f18e834608"}},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-masculino","label":"Masculino","desktopMenuImage":{"alt":"masculino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d9e5c1f6-904d-40f8-a5f6-b24b326777cd"}},{"href":"/armacao-para-oculos-de-grau/oculos-de-grau-infantil","label":"Infantil","desktopMenuImage":{"alt":"infantil","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0efe5378-8ee9-4c6c-ad30-60621c5178ab"}}],"mobileMenuImage":{"alt":"menu image","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/01d06cd7-ea19-42cf-a00f-ff91ef2bdbf2"}},{"href":"/oculos-clip-on","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/575c3b0f-1a2e-4ecb-aaad-532671dc553d"},"label":"Clipon","children":[{"href":"/oculos-clip-on","label":"Todos","mobileOnly":true},{"href":"/oculos-clip-on/clipon-masculino","label":"Masculino","children":[{"href":"/masculino","label":"Mais vendidos"},{"href":"/masculino","label":"Parcerias"}],"desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/22591c61-900b-4187-9775-f3ede33c3a09"}},{"href":"/oculos-clip-on/clipon-feminino","label":"Faminino","desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1da6ce0c-37aa-41b8-9794-2872aa82756f"}}],"mobileOnly":false,"navbarItems":[{"href":"/oculos-clip-on/clipon-feminino","label":"Feminino","desktopMenuImage":{"alt":"Femino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/abdd778d-fb08-4a84-9b40-7ea08f721716"}},{"href":"/oculos-clip-on","label":"Todos","mobileOnly":true},{"href":"/oculos-clip-on/clipon-masculino","label":"Masculino","desktopMenuImage":{"alt":"masculino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d085a78-2353-47e2-8997-376b48bbe9b1"}}],"mobileMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/27cafdca-af3a-407c-ad9f-8832a7babcb3"}},{"href":"/oculos-de-sol","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5e9310c0-c725-4643-ade3-f92a505bd1d6"},"label":"Óculos de Sol","children":[{"href":"/oculos-de-sol","label":"Todos","mobileOnly":true},{"href":"/oculos-de-sol/oculos-de-sol-masculino","label":"Masculino","children":[{"href":"/masculino","label":"Camisetas"},{"href":"/masculino","label":"Regatas"}],"desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/76dde0ad-5907-4e25-980d-4e603a6d363b"}},{"href":"/oculos-de-sol/oculos-de-sol-feminino","label":"Feminino","children":[{"href":"/feminino","label":"Camisetas"},{"href":"/feminino","label":"Camisas"}],"desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ac70fe79-f6bc-4c7b-b000-32363ba18e16"}}],"navbarItems":[{"href":"/oculos-de-sol","label":"Todos","mobileOnly":true},{"href":"/oculos-de-sol/oculos-de-sol-masculino","label":"Masculino","desktopMenuImage":{"alt":"Masculino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/203f39e6-b123-4f2e-91b3-a85ece4d2c4d"}},{"href":"/oculos-de-sol/oculos-de-sol-feminino","label":"Feminino","desktopMenuImage":{"alt":"feminino","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/de16d341-0c0f-4661-a651-83dc396aa51a"}}],"mobileMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/7fdda33b-4be4-49a8-b41e-12ea0953fd43"}},{"href":"/lentes-de-contato","label":"Lentes de contato","mobileOnly":false,"navbarItems":[{"href":"/lentes-de-contato","label":"TODOS","desktopMenuImage":{"alt":"lentes de contato"}},{"href":"/lentes-de-contato","label":"Lentes Bausch & Lomb","desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b4d58bec-23a9-41cd-813d-14127f57e3b1"}}],"mobileMenuImage":{"alt":"Lentes de contat","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/9245fcc1-7158-4492-8290-d0cbda709f4c"}},{"href":"/oculos-de-protecao-com-grau","label":"Óculos de  Proteção","children":[{"href":"/oculos-de-protecao-com-grau","label":"Unissex","children":[],"desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6f7189c8-bb09-4d3a-ba0b-02755de43e76"}}],"navbarItems":[{"href":"/oculos-de-protecao-com-grau","label":"Unissex","desktopMenuImage":{"alt":"/oculos-de-protecao-com-grau","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4ca1fa77-339c-4c9c-adc7-69776825d229"}}],"mobileMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/cd6d7e28-1aef-4cb5-992b-0aa62aafffb4"}},{"href":"/acessorios","label":"Acessórios","navbarItems":[{"href":"/acessorios","label":"Todos","desktopMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6bb0b653-3d82-4f9c-9f3b-9a1b915c42be"}},{"href":"/acessorios/limpeza-de-lentes","label":"Limpeza de lentes"},{"href":"/acessorios/estojos","label":"Estojos"},{"href":"/acessorios/flanelas","label":"Flanelas"},{"href":"/acessorios/elasticos-infantil","label":"Elásticos Infantil "},{"href":"/acessorios/antiembacantes","label":"Antiembaçante"}],"mobileMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d029a79a-ceaa-475b-81e9-7b5f4773cc2e"}},{"href":"/","label":"Meu Pedido","children":[{"href":"/identificacao","label":"Acompanhe seu pedido"},{"href":"/identificacao","label":"Meus Pedidos"},{"href":"/identificacao","label":"Minhas Receitas"},{"href":"/identificacao","label":"Avalie seu pedido"}],"mobileOnly":true,"navbarItems":[{"href":"/identificacao","label":"Acompanhe seu pedido","mobileOnly":true},{"href":"/identificacao","label":"Meus pedidos","mobileOnly":true},{"href":"/identificacao","label":"Minhas receitas","mobileOnly":true},{"href":"/identificacao","label":"Avalie seu pedido","mobileOnly":true}],"mobileMenuImage":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/504aa204-14a4-4343-95bb-e5dcdd8c9d47"}}],"siteLogo":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/49c571bd-91e6-4161-9fc4-00888b066b1f"},"iconLinks":[{"href":"/","icon":"Star","title":"Avaliações","mobileVibility":false},{"href":"/","icon":"QuestionBox","title":"Como Comprar","mobileVibility":false},{"href":"/","icon":"Heart","title":"Favoritos","mobileVibility":true,"mobileVisibility":true}],"loginLink":{"customer":{"__resolveType":"site/loaders/store/auth.ts"}},"searchbar":{"name":"termo","action":"/busca","placeholder":"Busque pelo código ou nome do produto"},"storeLogo":{"alt":"Ótica Online Isabela Dias","src":{"0":"h","1":"t","2":"t","3":"p","4":"s","5":":","6":"/","7":"/","8":"o","9":"z","10":"k","11":"s","12":"g","13":"d","14":"m","15":"y","16":"r","17":"q","18":"c","19":"x","20":"c","21":"w","22":"h","23":"n","24":"b","25":"e","26":"p","27":"g","28":".","29":"s","30":"u","31":"p","32":"a","33":"b","34":"a","35":"s","36":"e","37":".","38":"c","39":"o","40":"/","41":"s","42":"t","43":"o","44":"r","45":"a","46":"g","47":"e","48":"/","49":"v","50":"1","51":"/","52":"o","53":"b","54":"j","55":"e","56":"c","57":"t","58":"/","59":"p","60":"u","61":"b","62":"l","63":"i","64":"c","65":"/","66":"a","67":"s","68":"s","69":"e","70":"t","71":"s","72":"/","73":"1","74":"8","75":"0","76":"3","77":"/","78":"2","79":"2","80":"2","81":"7","82":"4","83":"9","84":"2","85":"2","86":"-","87":"d","88":"1","89":"d","90":"c","91":"-","92":"4","93":"5","94":"7","95":"5","96":"-","97":"9","98":"f","99":"c","100":"d","101":"-","102":"5","103":"e","104":"7","105":"f","106":"6","107":"1","108":"f","109":"8","110":"e","111":"d","112":"5","113":"4","mobile":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/78bdce1b-149c-4388-877b-1f5807dc99bf","desktop":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e9bf7e04-0537-4822-a7e0-445671f198a4"},"href":"/"},"navBarSpace":true,"newNavItems":[{"href":"/","label":"ARMAÇÃO DE ÓCULOS","children":[{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fadfb5f4-7179-4681-876f-c8a1cd06baca"},"label":"Masculino"}]},{"href":"/","label":"ÓCULOS CLIP-ON","children":[{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/670c7c15-8e5e-4675-b013-bc162d610146"},"label":"teste"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1f269c79-83a4-4d66-90f0-3b598278ff2e"},"label":"teste  2"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d847b58-aa42-4749-aeaf-9cfd8a70c355"},"label":"teste 3"}]},{"href":"/","label":"ÓCULOS DE SOL","children":[]},{"href":"/","label":"ÓCULOS GAMER","children":[]},{"href":"/","label":"ÓCULOS PROTEÇÃO","children":[]}],"__resolveType":"site/sections/Header/Header.tsx","alertMessages":{"texts":[{"text":"<p>Armações a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$49,99</span></p>","textMobile":"<p>Armações a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$49,99</span></p>"},{"text":"<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 199</span></p>","textMobile":"<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$</span> <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">199</span></p>"},{"text":"<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>","textMobile":"<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>"},{"text":"<p>Lentes com antirreflexo a partir de&nbsp;<span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>","textMobile":"<p>Lentes com antirreflexo a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>"}],"interval":5,"backgroundHex":"#C0C0C0"},"backgroundHex":"#ffffff","mainMenuItems":[{"href":"/s","label":"ARMAÇÃO DE ÓCULOS","children":[{"href":"/s","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6e918207-852e-4b00-9f4b-0e53a0e0a930"},"label":"Masculino"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/f4fddf2b-632d-4516-be46-1c7f9bd453b0"},"label":"teste teste"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/851df0f5-668f-4d82-bb1e-fe2e5008e483"},"label":"tes teste"}]},{"href":"/s","label":"ÓCULOS CLIP-ON","children":[{"href":"/s","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/638ad169-af3b-4810-99d6-e4cb54486b48"},"label":"Feminino"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/300c91b3-9b8e-43d2-95ee-e6f051a45c53"},"label":"Teste"}]},{"href":"/s","label":"ÓCULOS DE SOL","children":[{"href":"/s","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c85528de-0a0d-402c-bea9-143259117db2"},"label":"Masculino"}]},{"href":"/s","label":"ÓCULOS GAMER ","children":[{"href":"/s","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b26acacd-5879-4fcc-b4b8-2f03a10c9c1f"},"label":"UNISSEX"}]},{"href":"/s","label":"ÓCULOS PROTEÇÃO","children":[{"href":"/s","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00676b39-8442-4dee-a419-ae044aca9d28"},"label":"UNISSEX"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/2925aed7-c25b-4f8d-a574-e8d235eb596c"},"label":"Masculino"},{"href":"/","image":{"src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c531864d-2961-4f19-a788-704e27c02bf6"},"label":"Feminino"}]}],"IconNavigation":[{"href":"/avaliacoes","icon":"Star","title":"Avaliações","mobileVisibility":false},{"href":"/ajuda-e-suporte","icon":"QuestionBox","title":"Ajuda e suporte","mobileVisibility":true},{"href":"/guias","icon":"Bulb","title":"Dicas e Guias","mobileVisibility":false}],"giftValueReachInfos":{"activate":true,"afterText":"para ganhar um brinde !","baseValue":78.99,"beforeText":"Faltam","sucessText":"Parabéns, você ganhou um chaveiro de óculos!","successText":"Parabéns, você ganhou um chaveiro de óculos!"},"promotionalTopBanner":{"alt":"top banner","link":"/","image":{"0":"h","1":"t","2":"t","3":"p","4":"s","5":":","6":"/","7":"/","8":"o","9":"z","10":"k","11":"s","12":"g","13":"d","14":"m","15":"y","16":"r","17":"q","18":"c","19":"x","20":"c","21":"w","22":"h","23":"n","24":"b","25":"e","26":"p","27":"g","28":".","29":"s","30":"u","31":"p","32":"a","33":"b","34":"a","35":"s","36":"e","37":".","38":"c","39":"o","40":"/","41":"s","42":"t","43":"o","44":"r","45":"a","46":"g","47":"e","48":"/","49":"v","50":"1","51":"/","52":"o","53":"b","54":"j","55":"e","56":"c","57":"t","58":"/","59":"p","60":"u","61":"b","62":"l","63":"i","64":"c","65":"/","66":"a","67":"s","68":"s","69":"e","70":"t","71":"s","72":"/","73":"1","74":"8","75":"0","76":"3","77":"/","78":"3","79":"2","80":"2","81":"4","82":"4","83":"a","84":"2","85":"1","86":"-","87":"d","88":"3","89":"2","90":"7","91":"-","92":"4","93":"5","94":"a","95":"3","96":"-","97":"9","98":"8","99":"d","100":"5","101":"-","102":"2","103":"7","104":"e","105":"2","106":"d","107":"5","108":"9","109":"c","110":"a","111":"0","112":"7","113":"4","alt":"Faixa Topo","src":{"mobile":"https://assets.decocache.com/otica-isabela/dbe0952c-e4ed-4804-93a9-c6adc93feed3/Faixa-Mobile.gif","desktop":"https://assets.decocache.com/otica-isabela/7f08fb57-a8c2-45ec-a354-eafccbf7832a/Faixa-Desk.gif"},"href":"https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"},"activate":false,"activete":true}}
+{
+  "cart": {
+    "freeShippingObjectiveQuantity": 600
+  },
+  "text": "Faltam 78,99 para ganhar um brinde!",
+  "ajuda": {
+    "ajuda": {
+      "centralDeAjuda": [
+        {
+          "url": "/guias",
+          "icon": "https://assets.decocache.com/otica-isabela/b362ca37-a72e-48ba-8018-daf7409d71de/Book.svg",
+          "text": "Dicas e guias"
+        },
+        {
+          "url": "/dicas-de-lentes",
+          "icon": "https://assets.decocache.com/otica-isabela/84934749-c827-441e-85b7-50e7cc93fee8/eye.svg",
+          "text": "Dicas de lentes"
+        },
+        {
+          "url": "/avaliacoes",
+          "icon": "https://assets.decocache.com/otica-isabela/d0fca672-4e89-43bd-b547-6ef5bd280877/review.png",
+          "text": "Avaliações dos clientes"
+        },
+        {
+          "url": "/guias/provador-de-oculos-online",
+          "icon": "https://assets.decocache.com/otica-isabela/29863cce-e6e8-4951-b718-ed316611092f/Illustrations-Diferences.svg",
+          "text": "Prove óculos online"
+        },
+        {
+          "url": "/MinhaConta/Pedidos",
+          "icon": "https://assets.decocache.com/otica-isabela/181c4e64-bbb8-42f8-ab42-5f7390af7282/Delivery.svg",
+          "text": "Acompanhe seu pedido"
+        },
+        {
+          "url": "/guias/como-comprar-oculos-pela-internet",
+          "icon": "https://assets.decocache.com/otica-isabela/8a8349de-3297-470a-8678-4cb55e6a440b/shopping-basket-handy.svg",
+          "text": "Como comprar óculos online"
+        }
+      ],
+      "entreEmContato": [
+        {
+          "url": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
+          "icon": "https://assets.decocache.com/otica-isabela/f5ead344-6b33-44a2-871f-d2e024804dbc/Social-Icons.svg",
+          "text": "(16) 99181-5926"
+        },
+        {
+          "icon": "https://assets.decocache.com/otica-isabela/deacaf4d-e149-493a-ba19-1e7edf412403/Email-2.svg",
+          "text": "suporte@oticaisabeladias.com"
+        },
+        {
+          "url": "/quem-somos-otica-isabela-dias",
+          "icon": "https://assets.decocache.com/otica-isabela/575ce26f-645f-4e15-a5db-fd3ac4441775/Location.svg",
+          "text": "Av. Orlando Dompieri Nº 1750 - Franca SP "
+        }
+      ],
+      "centralDeAjudaUrl": "/ajuda-e-suporte",
+      "centralDeAjudaButton": "Central de Ajuda",
+      "centralDeAjudaTitle": "Central de Ajuda"
+    }
+  },
+  "alerts": [
+    "Use this template to create your store at deco.cx"
+  ],
+  "navItems": [
+    {
+      "href": "/armacao-para-oculos-de-grau",
+      "image": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/7733d479-0fd1-4f33-bed9-6f9e170655d6",
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00086e03-877f-45ff-b0af-a001aafd8d74"
+      },
+      "label": "Armação",
+      "children": [
+        {
+          "href": "/armacao-para-oculos-de-grau",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+          "label": "Masculino",
+          "children": [
+            {
+              "href": "/feminino/vestidos",
+              "label": "Mais vendidos"
+            },
+            {
+              "href": "/feminino/vestidos",
+              "label": "Parcerias"
+            }
+          ],
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e8748ec1-afbb-49ae-a98f-022f54843f9c"
+          }
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
+          "label": "Feminino",
+          "desktopMenuImage": {
+            "alt": "Feminino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/529a219e-3293-4643-9109-b310eae6029e"
+          }
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
+          "label": "Infantil",
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/19c37351-7f79-4c0a-a515-148aa2849b15"
+          }
+        }
+      ],
+      "mobileOnly": false,
+      "navbarItems": [
+        {
+          "href": "/armacao-para-oculos-de-grau",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
+          "label": "Feminino",
+          "desktopMenuImage": {
+            "alt": "FEMININO",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fc3b2607-b906-45bd-90a9-20f18e834608"
+          }
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+          "label": "Masculino",
+          "desktopMenuImage": {
+            "alt": "masculino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d9e5c1f6-904d-40f8-a5f6-b24b326777cd"
+          }
+        },
+        {
+          "href": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
+          "label": "Infantil",
+          "desktopMenuImage": {
+            "alt": "infantil",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0efe5378-8ee9-4c6c-ad30-60621c5178ab"
+          }
+        }
+      ],
+      "mobileMenuImage": {
+        "alt": "menu image",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/01d06cd7-ea19-42cf-a00f-ff91ef2bdbf2"
+      }
+    },
+    {
+      "href": "/oculos-clip-on",
+      "image": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/575c3b0f-1a2e-4ecb-aaad-532671dc553d"
+      },
+      "label": "Clipon",
+      "children": [
+        {
+          "href": "/oculos-clip-on",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/oculos-clip-on/clipon-masculino",
+          "label": "Masculino",
+          "children": [
+            {
+              "href": "/masculino",
+              "label": "Mais vendidos"
+            },
+            {
+              "href": "/masculino",
+              "label": "Parcerias"
+            }
+          ],
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/22591c61-900b-4187-9775-f3ede33c3a09"
+          }
+        },
+        {
+          "href": "/oculos-clip-on/clipon-feminino",
+          "label": "Faminino",
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1da6ce0c-37aa-41b8-9794-2872aa82756f"
+          }
+        }
+      ],
+      "mobileOnly": false,
+      "navbarItems": [
+        {
+          "href": "/oculos-clip-on/clipon-feminino",
+          "label": "Feminino",
+          "desktopMenuImage": {
+            "alt": "Femino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/abdd778d-fb08-4a84-9b40-7ea08f721716"
+          }
+        },
+        {
+          "href": "/oculos-clip-on",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/oculos-clip-on/clipon-masculino",
+          "label": "Masculino",
+          "desktopMenuImage": {
+            "alt": "masculino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d085a78-2353-47e2-8997-376b48bbe9b1"
+          }
+        }
+      ],
+      "mobileMenuImage": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/27cafdca-af3a-407c-ad9f-8832a7babcb3"
+      }
+    },
+    {
+      "href": "/oculos-de-sol",
+      "image": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5e9310c0-c725-4643-ade3-f92a505bd1d6"
+      },
+      "label": "Óculos de Sol",
+      "children": [
+        {
+          "href": "/oculos-de-sol",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/oculos-de-sol/oculos-de-sol-masculino",
+          "label": "Masculino",
+          "children": [
+            {
+              "href": "/masculino",
+              "label": "Camisetas"
+            },
+            {
+              "href": "/masculino",
+              "label": "Regatas"
+            }
+          ],
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/76dde0ad-5907-4e25-980d-4e603a6d363b"
+          }
+        },
+        {
+          "href": "/oculos-de-sol/oculos-de-sol-feminino",
+          "label": "Feminino",
+          "children": [
+            {
+              "href": "/feminino",
+              "label": "Camisetas"
+            },
+            {
+              "href": "/feminino",
+              "label": "Camisas"
+            }
+          ],
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ac70fe79-f6bc-4c7b-b000-32363ba18e16"
+          }
+        }
+      ],
+      "navbarItems": [
+        {
+          "href": "/oculos-de-sol",
+          "label": "Todos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/oculos-de-sol/oculos-de-sol-masculino",
+          "label": "Masculino",
+          "desktopMenuImage": {
+            "alt": "Masculino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/203f39e6-b123-4f2e-91b3-a85ece4d2c4d"
+          }
+        },
+        {
+          "href": "/oculos-de-sol/oculos-de-sol-feminino",
+          "label": "Feminino",
+          "desktopMenuImage": {
+            "alt": "feminino",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/de16d341-0c0f-4661-a651-83dc396aa51a"
+          }
+        }
+      ],
+      "mobileMenuImage": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/7fdda33b-4be4-49a8-b41e-12ea0953fd43"
+      }
+    },
+    {
+      "href": "/lentes-de-contato",
+      "label": "Lentes de contato",
+      "mobileOnly": false,
+      "navbarItems": [
+        {
+          "href": "/lentes-de-contato",
+          "label": "TODOS",
+          "desktopMenuImage": {
+            "alt": "lentes de contato"
+          }
+        },
+        {
+          "href": "/lentes-de-contato",
+          "label": "Lentes Bausch & Lomb",
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b4d58bec-23a9-41cd-813d-14127f57e3b1"
+          }
+        }
+      ],
+      "mobileMenuImage": {
+        "alt": "Lentes de contat",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/9245fcc1-7158-4492-8290-d0cbda709f4c"
+      }
+    },
+    {
+      "href": "/oculos-de-protecao-com-grau",
+      "label": "Óculos de  Proteção",
+      "children": [
+        {
+          "href": "/oculos-de-protecao-com-grau",
+          "label": "Unissex",
+          "children": [],
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6f7189c8-bb09-4d3a-ba0b-02755de43e76"
+          }
+        }
+      ],
+      "navbarItems": [
+        {
+          "href": "/oculos-de-protecao-com-grau",
+          "label": "Unissex",
+          "desktopMenuImage": {
+            "alt": "/oculos-de-protecao-com-grau",
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4ca1fa77-339c-4c9c-adc7-69776825d229"
+          }
+        }
+      ],
+      "mobileMenuImage": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/cd6d7e28-1aef-4cb5-992b-0aa62aafffb4"
+      }
+    },
+    {
+      "href": "/acessorios",
+      "label": "Acessórios",
+      "navbarItems": [
+        {
+          "href": "/acessorios",
+          "label": "Todos",
+          "desktopMenuImage": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6bb0b653-3d82-4f9c-9f3b-9a1b915c42be"
+          }
+        },
+        {
+          "href": "/acessorios/limpeza-de-lentes",
+          "label": "Limpeza de lentes"
+        },
+        {
+          "href": "/acessorios/estojos",
+          "label": "Estojos"
+        },
+        {
+          "href": "/acessorios/flanelas",
+          "label": "Flanelas"
+        },
+        {
+          "href": "/acessorios/elasticos-infantil",
+          "label": "Elásticos Infantil "
+        },
+        {
+          "href": "/acessorios/antiembacantes",
+          "label": "Antiembaçante"
+        }
+      ],
+      "mobileMenuImage": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d029a79a-ceaa-475b-81e9-7b5f4773cc2e"
+      }
+    },
+    {
+      "href": "/",
+      "label": "Meu Pedido",
+      "children": [
+        {
+          "href": "/identificacao",
+          "label": "Acompanhe seu pedido"
+        },
+        {
+          "href": "/identificacao",
+          "label": "Meus Pedidos"
+        },
+        {
+          "href": "/identificacao",
+          "label": "Minhas Receitas"
+        },
+        {
+          "href": "/identificacao",
+          "label": "Avalie seu pedido"
+        }
+      ],
+      "mobileOnly": true,
+      "navbarItems": [
+        {
+          "href": "/identificacao",
+          "label": "Acompanhe seu pedido",
+          "mobileOnly": true
+        },
+        {
+          "href": "/identificacao",
+          "label": "Meus pedidos",
+          "mobileOnly": true
+        },
+        {
+          "href": "/identificacao",
+          "label": "Minhas receitas",
+          "mobileOnly": true
+        },
+        {
+          "href": "/identificacao",
+          "label": "Avalie seu pedido",
+          "mobileOnly": true
+        }
+      ],
+      "mobileMenuImage": {
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/504aa204-14a4-4343-95bb-e5dcdd8c9d47"
+      }
+    }
+  ],
+  "siteLogo": {
+    "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/49c571bd-91e6-4161-9fc4-00888b066b1f"
+  },
+  "iconLinks": [
+    {
+      "href": "/",
+      "icon": "Star",
+      "title": "Avaliações",
+      "mobileVibility": false
+    },
+    {
+      "href": "/",
+      "icon": "QuestionBox",
+      "title": "Como Comprar",
+      "mobileVibility": false
+    },
+    {
+      "href": "/",
+      "icon": "Heart",
+      "title": "Favoritos",
+      "mobileVibility": true,
+      "mobileVisibility": true
+    }
+  ],
+  "loginLink": {
+    "customer": {
+      "__resolveType": "site/loaders/store/auth.ts"
+    }
+  },
+  "searchbar": {
+    "name": "termo",
+    "action": "/busca",
+    "placeholder": "Busque pelo código ou nome do produto"
+  },
+  "storeLogo": {
+    "alt": "Ótica Online Isabela Dias",
+    "src": {
+      "0": "h",
+      "1": "t",
+      "2": "t",
+      "3": "p",
+      "4": "s",
+      "5": ":",
+      "6": "/",
+      "7": "/",
+      "8": "o",
+      "9": "z",
+      "10": "k",
+      "11": "s",
+      "12": "g",
+      "13": "d",
+      "14": "m",
+      "15": "y",
+      "16": "r",
+      "17": "q",
+      "18": "c",
+      "19": "x",
+      "20": "c",
+      "21": "w",
+      "22": "h",
+      "23": "n",
+      "24": "b",
+      "25": "e",
+      "26": "p",
+      "27": "g",
+      "28": ".",
+      "29": "s",
+      "30": "u",
+      "31": "p",
+      "32": "a",
+      "33": "b",
+      "34": "a",
+      "35": "s",
+      "36": "e",
+      "37": ".",
+      "38": "c",
+      "39": "o",
+      "40": "/",
+      "41": "s",
+      "42": "t",
+      "43": "o",
+      "44": "r",
+      "45": "a",
+      "46": "g",
+      "47": "e",
+      "48": "/",
+      "49": "v",
+      "50": "1",
+      "51": "/",
+      "52": "o",
+      "53": "b",
+      "54": "j",
+      "55": "e",
+      "56": "c",
+      "57": "t",
+      "58": "/",
+      "59": "p",
+      "60": "u",
+      "61": "b",
+      "62": "l",
+      "63": "i",
+      "64": "c",
+      "65": "/",
+      "66": "a",
+      "67": "s",
+      "68": "s",
+      "69": "e",
+      "70": "t",
+      "71": "s",
+      "72": "/",
+      "73": "1",
+      "74": "8",
+      "75": "0",
+      "76": "3",
+      "77": "/",
+      "78": "2",
+      "79": "2",
+      "80": "2",
+      "81": "7",
+      "82": "4",
+      "83": "9",
+      "84": "2",
+      "85": "2",
+      "86": "-",
+      "87": "d",
+      "88": "1",
+      "89": "d",
+      "90": "c",
+      "91": "-",
+      "92": "4",
+      "93": "5",
+      "94": "7",
+      "95": "5",
+      "96": "-",
+      "97": "9",
+      "98": "f",
+      "99": "c",
+      "100": "d",
+      "101": "-",
+      "102": "5",
+      "103": "e",
+      "104": "7",
+      "105": "f",
+      "106": "6",
+      "107": "1",
+      "108": "f",
+      "109": "8",
+      "110": "e",
+      "111": "d",
+      "112": "5",
+      "113": "4",
+      "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/78bdce1b-149c-4388-877b-1f5807dc99bf",
+      "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/e9bf7e04-0537-4822-a7e0-445671f198a4"
+    },
+    "href": "/"
+  },
+  "navBarSpace": true,
+  "newNavItems": [
+    {
+      "href": "/",
+      "label": "ARMAÇÃO DE ÓCULOS",
+      "children": [
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/fadfb5f4-7179-4681-876f-c8a1cd06baca"
+          },
+          "label": "Masculino"
+        }
+      ]
+    },
+    {
+      "href": "/",
+      "label": "ÓCULOS CLIP-ON",
+      "children": [
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/670c7c15-8e5e-4675-b013-bc162d610146"
+          },
+          "label": "teste"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/1f269c79-83a4-4d66-90f0-3b598278ff2e"
+          },
+          "label": "teste  2"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3d847b58-aa42-4749-aeaf-9cfd8a70c355"
+          },
+          "label": "teste 3"
+        }
+      ]
+    },
+    {
+      "href": "/",
+      "label": "ÓCULOS DE SOL",
+      "children": []
+    },
+    {
+      "href": "/",
+      "label": "ÓCULOS GAMER",
+      "children": []
+    },
+    {
+      "href": "/",
+      "label": "ÓCULOS PROTEÇÃO",
+      "children": []
+    }
+  ],
+  "__resolveType": "site/sections/Header/Header.tsx",
+  "alertMessages": {
+    "texts": [
+      {
+        "text": "<p>Armações a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$49,99</span></p>",
+        "textMobile": "<p>Armações a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$49,99</span></p>"
+      },
+      {
+        "text": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 199</span></p>",
+        "textMobile": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$</span> <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">199</span></p>"
+      },
+      {
+        "text": "<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>",
+        "textMobile": "<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>"
+      },
+      {
+        "text": "<p>Lentes com antirreflexo a partir de&nbsp;<span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>",
+        "textMobile": "<p>Lentes com antirreflexo a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>"
+      }
+    ],
+    "interval": 5,
+    "backgroundHex": "#C0C0C0"
+  },
+  "backgroundHex": "#ffffff",
+  "mainMenuItems": [
+    {
+      "href": "/s",
+      "label": "ARMAÇÃO DE ÓCULOS",
+      "children": [
+        {
+          "href": "/s",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6e918207-852e-4b00-9f4b-0e53a0e0a930"
+          },
+          "label": "Masculino"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/f4fddf2b-632d-4516-be46-1c7f9bd453b0"
+          },
+          "label": "teste teste"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/851df0f5-668f-4d82-bb1e-fe2e5008e483"
+          },
+          "label": "tes teste"
+        }
+      ]
+    },
+    {
+      "href": "/s",
+      "label": "ÓCULOS CLIP-ON",
+      "children": [
+        {
+          "href": "/s",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/638ad169-af3b-4810-99d6-e4cb54486b48"
+          },
+          "label": "Feminino"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/300c91b3-9b8e-43d2-95ee-e6f051a45c53"
+          },
+          "label": "Teste"
+        }
+      ]
+    },
+    {
+      "href": "/s",
+      "label": "ÓCULOS DE SOL",
+      "children": [
+        {
+          "href": "/s",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c85528de-0a0d-402c-bea9-143259117db2"
+          },
+          "label": "Masculino"
+        }
+      ]
+    },
+    {
+      "href": "/s",
+      "label": "ÓCULOS GAMER ",
+      "children": [
+        {
+          "href": "/s",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/b26acacd-5879-4fcc-b4b8-2f03a10c9c1f"
+          },
+          "label": "UNISSEX"
+        }
+      ]
+    },
+    {
+      "href": "/s",
+      "label": "ÓCULOS PROTEÇÃO",
+      "children": [
+        {
+          "href": "/s",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/00676b39-8442-4dee-a419-ae044aca9d28"
+          },
+          "label": "UNISSEX"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/2925aed7-c25b-4f8d-a574-e8d235eb596c"
+          },
+          "label": "Masculino"
+        },
+        {
+          "href": "/",
+          "image": {
+            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/c531864d-2961-4f19-a788-704e27c02bf6"
+          },
+          "label": "Feminino"
+        }
+      ]
+    }
+  ],
+  "IconNavigation": [
+    {
+      "href": "/avaliacoes",
+      "icon": "Star",
+      "title": "Avaliações",
+      "mobileVisibility": false
+    },
+    {
+      "href": "/ajuda-e-suporte",
+      "icon": "QuestionBox",
+      "title": "Ajuda e suporte",
+      "mobileVisibility": true
+    },
+    {
+      "href": "/guias",
+      "icon": "Bulb",
+      "title": "Dicas e Guias",
+      "mobileVisibility": false
+    }
+  ],
+  "giftValueReachInfos": {
+    "activate": true,
+    "afterText": "para ganhar um brinde !",
+    "baseValue": 78.99,
+    "beforeText": "Faltam",
+    "sucessText": "Parabéns, você ganhou um chaveiro de óculos!",
+    "successText": "Parabéns, você ganhou um chaveiro de óculos!"
+  },
+  "promotionalTopBanner": {
+    "alt": "top banner",
+    "link": "/",
+    "image": {
+      "0": "h",
+      "1": "t",
+      "2": "t",
+      "3": "p",
+      "4": "s",
+      "5": ":",
+      "6": "/",
+      "7": "/",
+      "8": "o",
+      "9": "z",
+      "10": "k",
+      "11": "s",
+      "12": "g",
+      "13": "d",
+      "14": "m",
+      "15": "y",
+      "16": "r",
+      "17": "q",
+      "18": "c",
+      "19": "x",
+      "20": "c",
+      "21": "w",
+      "22": "h",
+      "23": "n",
+      "24": "b",
+      "25": "e",
+      "26": "p",
+      "27": "g",
+      "28": ".",
+      "29": "s",
+      "30": "u",
+      "31": "p",
+      "32": "a",
+      "33": "b",
+      "34": "a",
+      "35": "s",
+      "36": "e",
+      "37": ".",
+      "38": "c",
+      "39": "o",
+      "40": "/",
+      "41": "s",
+      "42": "t",
+      "43": "o",
+      "44": "r",
+      "45": "a",
+      "46": "g",
+      "47": "e",
+      "48": "/",
+      "49": "v",
+      "50": "1",
+      "51": "/",
+      "52": "o",
+      "53": "b",
+      "54": "j",
+      "55": "e",
+      "56": "c",
+      "57": "t",
+      "58": "/",
+      "59": "p",
+      "60": "u",
+      "61": "b",
+      "62": "l",
+      "63": "i",
+      "64": "c",
+      "65": "/",
+      "66": "a",
+      "67": "s",
+      "68": "s",
+      "69": "e",
+      "70": "t",
+      "71": "s",
+      "72": "/",
+      "73": "1",
+      "74": "8",
+      "75": "0",
+      "76": "3",
+      "77": "/",
+      "78": "3",
+      "79": "2",
+      "80": "2",
+      "81": "4",
+      "82": "4",
+      "83": "a",
+      "84": "2",
+      "85": "1",
+      "86": "-",
+      "87": "d",
+      "88": "3",
+      "89": "2",
+      "90": "7",
+      "91": "-",
+      "92": "4",
+      "93": "5",
+      "94": "a",
+      "95": "3",
+      "96": "-",
+      "97": "9",
+      "98": "8",
+      "99": "d",
+      "100": "5",
+      "101": "-",
+      "102": "2",
+      "103": "7",
+      "104": "e",
+      "105": "2",
+      "106": "d",
+      "107": "5",
+      "108": "9",
+      "109": "c",
+      "110": "a",
+      "111": "0",
+      "112": "7",
+      "113": "4",
+      "alt": "Faixa Topo",
+      "src": {
+        "mobile": "https://assets.decocache.com/otica-isabela/dbe0952c-e4ed-4804-93a9-c6adc93feed3/Faixa-Mobile.gif",
+        "desktop": "https://assets.decocache.com/otica-isabela/7f08fb57-a8c2-45ec-a354-eafccbf7832a/Faixa-Desk.gif"
+      },
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
+    },
+    "activate": false,
+    "activete": true
+  }
+}

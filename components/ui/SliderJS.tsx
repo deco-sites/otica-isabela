@@ -154,8 +154,8 @@ const setup = ({
   };
 
   const onClickNext = (e: Event) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e?.preventDefault();
+    e?.stopPropagation();
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
     const itemsPerPage = indices.length;
