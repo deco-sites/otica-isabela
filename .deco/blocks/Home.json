@@ -162,6 +162,133 @@
             "__resolveType": "Clipon Feminino"
           },
           {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Images/CategoriesShelf.tsx",
+              "title": "Qual é o seu favorito?",
+              "categories": [
+                {
+                  "items": [
+                    {
+                      "name": "Redondo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau",
+                      "name": "Quadrado"
+                    },
+                    {
+                      "name": "Gatinho",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Aviador",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Retrô",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#"
+                    },
+                    {
+                      "name": "Metal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau/"
+                    },
+                    {
+                      "name": "Balgriff",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos de grau"
+                },
+                {
+                  "items": [
+                    {
+                      "name": "Gatinho",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "name": "Redondo",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "name": "Quadrado",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Aviador",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Retagular",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos clipon"
+                },
+                {
+                  "items": [
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "name": "Gatinho",
+                      "url": "/oculos-de-sol"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Quadrado",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-de-sol"
+                    },
+                    {
+                      "name": "Redondo",
+                      "url": "#",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos de sol"
+                }
+              ]
+            }
+          },
+          {
             "__resolveType": "Depoimentos"
           },
           {
@@ -171,10 +298,193 @@
             "__resolveType": "Sobre a Loja"
           },
           {
-            "__resolveType": "Footer - 01"
+            "__resolveType": "wpp-cta"
           },
           {
-            "__resolveType": "wpp-cta"
+            "__resolveType": "site/sections/Footer/Newsletter.tsx",
+            "title": "Lista exclusiva de ofertas!",
+            "text": "<p>Inscreva-se em nossa lista e tenha acesso antecipado a todas as ofertas da Ótica Isabela Dias!<br><br>Receba no whatsapp e email, ofertas e dicas imperdíveis!</p><p style=\"text-align: start\"></p><p style=\"text-align: start\">Junte-se a melhor Ótica do Brasil!</p>"
+          },
+          {
+            "__resolveType": "site/sections/Footer/Footer2.tsx",
+            "responsabilidadeTecnica": {
+              "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/3a8c0800-517f-4d72-a9ff-53d32261e44c",
+              "text": "<p><span>Brandon Dias <br>conforme decreto 24.492/34</span></p>"
+            },
+            "sliderInfo": [
+              {
+                "title": "WhatsApp",
+                "description": "(16) 99181-5926",
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/de3ed1b5-1d4a-4529-8e9d-775d691fb265"
+              },
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/11678969-5cdd-4973-ba8f-e69f2c99a012",
+                "description": "suporte@oticaisabeladias.com",
+                "title": "Garantias"
+              },
+              {
+                "title": "Horário de atendimento",
+                "description": "Segunda a Sexta 8:00 ás 16:00",
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/40cd6b7d-fa6a-4069-bbdd-df7f5e9507a8"
+              },
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/e032161e-d247-47d6-a108-0411967fd1fc",
+                "title": "Pague em até 10x",
+                "description": "Parcele suas compras no cartão"
+              }
+            ],
+            "siteSeguro": {
+              "icons": [
+                "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/b6ee4c07-8627-494a-83ff-6dcf31c3d6df",
+                "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/fc8aa88e-20f2-4de5-85db-f3861e509bd0",
+                "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/3eed81e9-d900-4c89-b203-0dffac0e2686"
+              ],
+              "iconsWithText": [
+                {
+                  "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/24cafc43-01b5-4e7c-8f3a-11c536951127",
+                  "title": "Seguro",
+                  "description": "Cerfitificado SSL"
+                },
+                {
+                  "title": "Google",
+                  "description": "Safe Browsing",
+                  "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/b7b9d2c5-cbd0-436c-a1cb-4cdb5b4c86cc"
+                }
+              ]
+            },
+            "sigaNos": [
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/539270ca-eec1-4b93-a6c8-d66490bb0421",
+                "url": "https://www.instagram.com/oticaisabeladias/",
+                "newTab": true
+              },
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/369b6232-c265-4a5d-8f41-1ebd739b22bb",
+                "url": "https://www.facebook.com/Oticaisabeladias/",
+                "newTab": true
+              },
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/94fa8cd8-c0be-44d5-abc1-42481be42b68",
+                "url": "https://www.youtube.com/channel/UCsI4LiCqXeBxBtboM4edQXw",
+                "newTab": true
+              }
+            ],
+            "meuPedido": [
+              {
+                "text": "Acompanhe seu pedido",
+                "url": "/identificacao",
+                "newTab": true
+              },
+              {
+                "text": "Área do cliente",
+                "url": "/identificacao",
+                "newTab": true
+              },
+              {
+                "text": "Meus favoritos",
+                "url": "/meus-favoritos"
+              }
+            ],
+            "sobre": [
+              {
+                "text": "Avaliações dos clientes",
+                "url": "/avaliacoes"
+              },
+              {
+                "text": "Quem somos",
+                "url": "/quem-somos-otica-isabela-dias"
+              },
+              {
+                "text": "Blog",
+                "url": "https://blog.oticaisabeladias.com.br",
+                "newTab": true
+              }
+            ],
+            "ajudaeSuporte": [
+              {
+                "text": "Dicas e guias para comprar",
+                "url": "/guias"
+              },
+              {
+                "text": "Dicas de lentes",
+                "url": "/dicas-de-lentes"
+              },
+              {
+                "text": "Como comprar óculos de grau",
+                "url": "/guias/como-comprar-oculos-pela-internet"
+              },
+              {
+                "text": "Medir DNP",
+                "url": "/guias/como-medir-a-dnp"
+              },
+              {
+                "text": "Preciso de ajuda",
+                "url": "/ajuda-e-suporte"
+              }
+            ],
+            "nossasLentes": [
+              {
+                "text": "Dicas de lentes",
+                "url": "/dicas-de-lentes"
+              },
+              {
+                "text": "Multifocal",
+                "url": "/dicas-de-lentes/quanto-custa-uma-lente-multifocal"
+              },
+              {
+                "text": "Ocupacionais",
+                "url": "#"
+              },
+              {
+                "text": "Blue light",
+                "url": "#/"
+              },
+              {
+                "text": "Fotoblue",
+                "url": "#/"
+              },
+              {
+                "text": "Fotoclímax",
+                "url": "#/"
+              },
+              {
+                "text": "Lentes para miopia",
+                "url": "#/"
+              }
+            ],
+            "nossasLentes2": [
+              {
+                "text": "Armação de óculos",
+                "url": "#/"
+              },
+              {
+                "text": "Lentes de Contato",
+                "url": "#/"
+              },
+              {
+                "text": "Óculos de proteção",
+                "url": "#/"
+              },
+              {
+                "text": "Óculos de sol",
+                "url": "#/"
+              },
+              {
+                "text": "Acessórios",
+                "url": "#/"
+              }
+            ],
+            "bottomTexts": [
+              {
+                "text": "CNPJ 24.601.674/0001-00"
+              },
+              {
+                "text": "ÓTICA ONLINE ISABELA DIAS COMÉRCIO DE ÓCULOS EIRELLI"
+              },
+              {
+                "text": "Av. Orlando Dompieri Nº 1750 - FRANCA SP "
+              }
+            ]
           }
         ]
       }

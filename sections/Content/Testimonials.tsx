@@ -28,17 +28,16 @@ export default function Testimonials(
   { header, membershipBadges, page }: Props,
 ) {
   const id = useId();
-
   return (
     <>
       {header ? <HeaderTitle {...header} /> : null}
-      <div class="w-full container px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
+      <div class="w-full max-w-[1320px] mx-auto px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
         <div class="relative w-full" id={id}>
-          <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full">
+          <Slider class="carousel carousel-start gap-4 lg:gap-8 row-start-2 row-end-5 w-full py-2.5">
             {page?.map((review, index) => (
               <Slider.Item
                 index={index}
-                class="flex flex-col gap-4 carousel-item w-full"
+                class="flex flex-col gap-4 carousel-item !w-full max-w-[580px] relative"
               >
                 <TestimonialItem
                   membershipBadges={membershipBadges}

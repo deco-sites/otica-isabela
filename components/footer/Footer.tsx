@@ -1,5 +1,5 @@
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
-import Newsletter from "$store/islands/Newsletter.tsx";
+// import Newsletter from "$store/islands/Newsletter.tsx";
 import type { Props as NewsletterProps } from "$store/components/ui/Newsletter.tsx";
 import { FirstBlock } from "./FirstBlock.tsx";
 import { SecondBlock } from "./SecondBlock.tsx";
@@ -86,7 +86,7 @@ export interface Props {
 }
 
 function Footer({
-  newsletter,
+  // newsletter,
   secondBlock,
   firstBlock,
   thirdBlock,
@@ -94,7 +94,7 @@ function Footer({
 }: Props) {
   return (
     <footer>
-      <Newsletter {...newsletter} />
+      {/* <Newsletter {...newsletter} /> */}
       <div class="w-full bg-black">
         <FirstBlock {...firstBlock} />
         <SecondBlock {...secondBlock} />

@@ -20,8 +20,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
     product?.category?.includes("Acessórios");
 
-  console.log(panels);
-
   panels.unshift(
     {
       "@type": "PropertyValue",
