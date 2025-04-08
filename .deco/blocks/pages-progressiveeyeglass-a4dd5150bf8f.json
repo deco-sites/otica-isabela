@@ -403,10 +403,21 @@
     {
       "cards": [
         {
+          "text": "<p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Multifocal ID EASY -&nbsp; FREE FORM</span></strong></span></p>",
+          "image": {
+            "alt": "Lentes Easy",
+            "src": "https://assets.decocache.com/otica-isabela/f10874db-00be-4a51-8f10-480eba8a9c0d/Easy-Economico.png",
+            "width": 334,
+            "height": 334,
+            "preload": false
+          },
+          "header": "ID EASY "
+        },
+        {
           "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID PLUS - FREE-FORM</strong></span></h3>",
           "image": {
             "alt": "lentes multifocal id plus",
-            "src": "https://assets.decocache.com/otica-isabela/b196249e-abd9-44c1-a909-f2512baebe41/Easy-Economico.png",
+            "src": "https://assets.decocache.com/otica-isabela/7ce30276-e55e-4b1d-8f55-7f7e86a17c13/Plus-Comforto.png",
             "width": 334,
             "height": 334,
             "preload": false
@@ -425,26 +436,15 @@
           "header": "Id Provision"
         },
         {
-          "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID LIGHT V+ - FREE-FORM</strong></span></h3>",
-          "image": {
-            "alt": "ID Light V+",
-            "src": "https://assets.decocache.com/otica-isabela/c2d06e4d-ed05-4863-98b2-d7d11804308a/Light-V-Liberdade-de-Movimento.png",
-            "width": 334,
-            "height": 334,
-            "preload": false
-          },
-          "header": "ID Light V+"
-        },
-        {
           "image": {
             "preload": false,
-            "src": "https://assets.decocache.com/otica-isabela/f10874db-00be-4a51-8f10-480eba8a9c0d/Easy-Economico.png",
-            "alt": "Lentes Easy",
+            "src": "https://assets.decocache.com/otica-isabela/c2d06e4d-ed05-4863-98b2-d7d11804308a/Light-V-Liberdade-de-Movimento.png",
+            "alt": "ID Light V+",
             "width": 334,
             "height": 334
           },
-          "text": "<p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Multifocal ID EASY -&nbsp; FREE FORM</span></strong></span></p>",
-          "header": "ID EASY "
+          "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID LIGHT V+ - FREE-FORM</strong></span></h3>",
+          "header": "ID Light V+"
         },
         {
           "image": {
