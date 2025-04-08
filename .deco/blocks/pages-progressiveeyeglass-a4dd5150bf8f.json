@@ -403,6 +403,17 @@
     {
       "cards": [
         {
+          "text": "<p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Comparativo entre os campos de visão!&nbsp;</strong></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong><br data-mce-bogus=\"1\"></strong></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><span class=\"selectable-text copyable-text false\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Os campos de visão nas lentes multifocais trazem conforto e melhor adaptação, quanto maior o campo, melhor a qualidade visual!</span></span>﻿</span></p>",
+          "image": {
+            "alt": "Lentes Id",
+            "src": "https://assets.decocache.com/otica-isabela/b8cd1b2f-ac46-410f-bb8f-ce7d2d2faceb/Lentes-multifocal.png",
+            "width": 334,
+            "height": 333,
+            "preload": false
+          },
+          "header": "Lentes Multifocal "
+        },
+        {
           "text": "<p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Multifocal ID EASY -&nbsp; FREE FORM</span></strong></span></p>",
           "image": {
             "alt": "Lentes Easy",
@@ -425,14 +436,14 @@
           "header": "ID PLUS"
         },
         {
-          "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID PROVISION - FREE-FORM</strong></span></h3><p class=\"txt\" style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">&nbsp;</span></p>",
           "image": {
-            "alt": "lentes multifocal id provision",
+            "preload": false,
             "src": "https://assets.decocache.com/otica-isabela/3975a597-3806-4e2b-ae05-f73aea2e3fd3/Id-Provision.png",
+            "alt": "lentes multifocal id provision",
             "width": 334,
-            "height": 334,
-            "preload": false
+            "height": 334
           },
+          "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID PROVISION - FREE-FORM</strong></span></h3><p class=\"txt\" style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">&nbsp;</span></p>",
           "header": "Id Provision"
         },
         {
@@ -456,17 +467,6 @@
           },
           "text": "<p><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal HOYA Argos - FREE FORM</strong></span></p>",
           "header": "Hoya Argos"
-        },
-        {
-          "image": {
-            "preload": false,
-            "src": "https://assets.decocache.com/otica-isabela/b8cd1b2f-ac46-410f-bb8f-ce7d2d2faceb/Lentes-multifocal.png",
-            "alt": "Lentes Id",
-            "width": 334,
-            "height": 333
-          },
-          "text": "<p><br data-mce-bogus=\"1\"></p>",
-          "header": "Lentes Multifocal "
         }
       ],
       "colors": {
