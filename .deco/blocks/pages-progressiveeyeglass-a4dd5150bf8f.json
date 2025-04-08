@@ -406,7 +406,7 @@
           "text": "<p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Multifocal ID EASY -&nbsp; FREE FORM</span></strong></span></p>",
           "image": {
             "alt": "Lentes Easy",
-            "src": "https://assets.decocache.com/otica-isabela/f10874db-00be-4a51-8f10-480eba8a9c0d/Easy-Economico.png",
+            "src": "https://assets.decocache.com/otica-isabela/f497fd92-b036-41df-b371-cbc466438e73/Easy-Economico.png",
             "width": 334,
             "height": 334,
             "preload": false
@@ -417,7 +417,7 @@
           "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID PLUS - FREE-FORM</strong></span></h3>",
           "image": {
             "alt": "lentes multifocal id plus",
-            "src": "https://assets.decocache.com/otica-isabela/7ce30276-e55e-4b1d-8f55-7f7e86a17c13/Plus-Comforto.png",
+            "src": "https://assets.decocache.com/otica-isabela/93e52df0-d048-4c85-a93d-7882806bf1ce/Plus-Comforto.png",
             "width": 334,
             "height": 334,
             "preload": false
@@ -428,7 +428,7 @@
           "text": "<h3><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal ID PROVISION - FREE-FORM</strong></span></h3><p class=\"txt\" style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">&nbsp;</span></p>",
           "image": {
             "alt": "lentes multifocal id provision",
-            "src": "https://assets.decocache.com/otica-isabela/88664070-d0d9-4d12-8b19-607e34deb41c/Id-Provision.png",
+            "src": "https://assets.decocache.com/otica-isabela/3975a597-3806-4e2b-ae05-f73aea2e3fd3/Id-Provision.png",
             "width": 334,
             "height": 334,
             "preload": false
@@ -438,7 +438,7 @@
         {
           "image": {
             "preload": false,
-            "src": "https://assets.decocache.com/otica-isabela/c2d06e4d-ed05-4863-98b2-d7d11804308a/Light-V-Liberdade-de-Movimento.png",
+            "src": "https://assets.decocache.com/otica-isabela/990db44d-80a2-4534-9e05-79c8b776c3a5/Light-V-Liberdade-de-Movimento.png",
             "alt": "ID Light V+",
             "width": 334,
             "height": 334
@@ -449,13 +449,24 @@
         {
           "image": {
             "preload": false,
-            "src": "https://assets.decocache.com/otica-isabela/8cd1508f-23ac-4491-9e74-1efd84c81bc9/Hoya-Argos.png",
+            "src": "https://assets.decocache.com/otica-isabela/dc8dcbc8-1e54-4d9d-aa28-faf7d1aa547a/Hoya-Argos.png",
             "alt": "Hoya Argos",
             "width": 334,
             "height": 334
           },
           "text": "<p><span style=\"font-size: 18pt; color: rgb(255, 255, 255);\" data-mce-style=\"font-size: 18pt; color: rgb(255, 255, 255);\"><strong>Multifocal HOYA Argos - FREE FORM</strong></span></p>",
           "header": "Hoya Argos"
+        },
+        {
+          "image": {
+            "preload": false,
+            "src": "https://assets.decocache.com/otica-isabela/b8cd1b2f-ac46-410f-bb8f-ce7d2d2faceb/Lentes-multifocal.png",
+            "alt": "Lentes Id",
+            "width": 334,
+            "height": 333
+          },
+          "text": "<p><br data-mce-bogus=\"1\"></p>",
+          "header": "Lentes Multifocal "
         }
       ],
       "colors": {
