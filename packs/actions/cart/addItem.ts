@@ -16,7 +16,7 @@ export interface Props {
 export default async function loader(
   props: Props,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<OrderForm> {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
@@ -32,7 +32,7 @@ export default async function loader(
 
   const cartWithProduct = await fetchAPI<ProductsCart[]>(
     path.cart.addCart(idProduct, sku, Number(clientToken)),
-    { method: "POST" }
+    { method: "POST" },
   );
 
   return {

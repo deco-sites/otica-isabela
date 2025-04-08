@@ -9,7 +9,6 @@ export default defineConfig({
     ...plugins({
       manifest,
       // deno-lint-ignore no-explicit-any
-      
     }),
     partytownPlugin(),
   ],

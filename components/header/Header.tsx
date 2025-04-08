@@ -13,107 +13,135 @@ import { ImageWidget } from "apps/admin/widgets.ts";
 import { AppContext } from "$store/apps/site.ts";
 import { type SectionProps } from "@deco/deco";
 interface AlertText {
-    /**
-     * @format html
-     * @title Texto
-     */
-    text: string;
-    /**
-     * @format html
-     * @title Texto Mobile
-     */
-    textMobile: string;
-    /**
-     * @title ‎
-     * @description Ícone da esquerda
-     */
-    leftImage?: ImageWidget;
-    /**
-     * @title ‎
-     * @description Ícone da direita
-     */
-    rightImage?: ImageWidget;
+  /**
+   * @format html
+   * @title Texto
+   */
+  text: string;
+  /**
+   * @format html
+   * @title Texto Mobile
+   */
+  textMobile: string;
+  /**
+   * @title ‎
+   * @description Ícone da esquerda
+   */
+  leftImage?: ImageWidget;
+  /**
+   * @title ‎
+   * @description Ícone da direita
+   */
+  rightImage?: ImageWidget;
 }
 interface AlertMessages {
-    /**
-     * @title Alert background color
-     * @format color
-     * @default #C0C0C0
-     */
-    backgroundHex?: string;
-    texts: AlertText[];
-    interval: number;
+  /**
+   * @title Alert background color
+   * @format color
+   * @default #C0C0C0
+   */
+  backgroundHex?: string;
+  texts: AlertText[];
+  interval: number;
 }
 export interface Props {
-    /**
-     * @title Alert Messages
-     */
-    alertMessages?: AlertMessages;
-    /**
-     * @title Header background color
-     * @format color
-     * @default #C0C0C0
-     */
-    backgroundHex?: string;
-    /**
-     * @title Melhorar espaçamentos do header?
-     */
-    navBarSpace?: boolean;
-    /** @title Barra de Pesquisa */
-    searchbar?: SearchbarProps;
-    /** @title Popup central de ajuda */
-    ajuda?: AjudaProps;
-    /**
-     * @title Itens de navegação
-     * @description Itens de navegação dos menus desktop e mobile
-     */
-    navItems?: NavItemProps[];
-    /**
-     * @title Link de Login
-     */
-    loginLink?: IconLoginLinkProps;
-    // /**
-    //  * @title  Ícones de Navegação
-    //  * @description Navegação com ícones
-    //  */
-    // IconNavigation?: IconNavigationType[];
-    /**
-     * @title  Informações de valor da barra de presente
-     * @description Configure o valor base para comparação e os textos a serem apresentados
-     */
-    giftValueReachInfos?: GiftValueReachInfosProps;
-    /**
-     * @title Top Banner Promocional
-     */
-    promotionalTopBanner?: {
-        activate?: boolean;
-        image?: BasicImageAndLinkProps;
-    };
+  /**
+   * @title Alert Messages
+   */
+  alertMessages?: AlertMessages;
+  /**
+   * @title Header background color
+   * @format color
+   * @default #C0C0C0
+   */
+  backgroundHex?: string;
+  /**
+   * @title Melhorar espaçamentos do header?
+   */
+  navBarSpace?: boolean;
+  /** @title Barra de Pesquisa */
+  searchbar?: SearchbarProps;
+  /** @title Popup central de ajuda */
+  ajuda?: AjudaProps;
+  /**
+   * @title Itens de navegação
+   * @description Itens de navegação dos menus desktop e mobile
+   */
+  navItems?: NavItemProps[];
+  /**
+   * @title Link de Login
+   */
+  loginLink?: IconLoginLinkProps;
+  // /**
+  //  * @title  Ícones de Navegação
+  //  * @description Navegação com ícones
+  //  */
+  // IconNavigation?: IconNavigationType[];
+  /**
+   * @title  Informações de valor da barra de presente
+   * @description Configure o valor base para comparação e os textos a serem apresentados
+   */
+  giftValueReachInfos?: GiftValueReachInfosProps;
+  /**
+   * @title Top Banner Promocional
+   */
+  promotionalTopBanner?: {
+    activate?: boolean;
+    image?: BasicImageAndLinkProps;
+  };
 }
-function Header({ alertMessages, backgroundHex, searchbar, ajuda, navItems, 
-// IconNavigation,
-giftValueReachInfos, loginLink, promotionalTopBanner, navBarSpace,
-// isMobile,
- }: SectionProps<typeof loader>) {
-    const { activate, image } = promotionalTopBanner ?? {};
-    return (<>
+function Header({
+  alertMessages,
+  backgroundHex,
+  searchbar,
+  ajuda,
+  navItems,
+  // IconNavigation,
+  giftValueReachInfos,
+  loginLink,
+  promotionalTopBanner,
+  navBarSpace,
+  // isMobile,
+}: SectionProps<typeof loader>) {
+  const { activate, image } = promotionalTopBanner ?? {};
+  return (
+    <>
       <header style={{ background: `${backgroundHex}` }} class="bg-black">
-        <div class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30"/>
-        {alertMessages && (<Alertas texts={alertMessages.texts} interval={alertMessages.interval} isMobile={false}/>)}
-        {activate && (<div class="flex items-center justify-center">
-            <BasicImageAndLink {...image} height={{ desktop: 45, mobile: 51 }} width={{ desktop: 1275, mobile: 425 }}/>
-          </div>)}
-        <Navbar 
-    // IconNavigationItems={IconNavigation}
-    items={navItems} searchbar={searchbar} loginLink={loginLink} navBarSpace={navBarSpace} backgroundHex={backgroundHex} ajuda={ajuda}/>
-        <PromotionalBar giftValueReachInfos={giftValueReachInfos}/>
+        <div class="hidden fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 transition duration-500 z-30" />
+        {alertMessages && (
+          <Alertas
+            texts={alertMessages.texts}
+            interval={alertMessages.interval}
+            isMobile={false}
+          />
+        )}
+        {activate && (
+          <div class="flex items-center justify-center">
+            <BasicImageAndLink
+              {...image}
+              height={{ desktop: 45, mobile: 51 }}
+              width={{ desktop: 1275, mobile: 425 }}
+            />
+          </div>
+        )}
+        <Navbar
+          // IconNavigationItems={IconNavigation}
+          items={navItems}
+          searchbar={searchbar}
+          loginLink={loginLink}
+          navBarSpace={navBarSpace}
+          backgroundHex={backgroundHex}
+          ajuda={ajuda}
+        />
+        <PromotionalBar giftValueReachInfos={giftValueReachInfos} />
       </header>
-    </>);
+    </>
+  );
 }
 export default Header;
 export function loader(props: Props, _req: Request, ctx: AppContext) {
-    return {
-        ...props,
-        isMobile: ctx.device !== "desktop",
-    };
+  return {
+    ...props,
+    isMobile: ctx.device !== "desktop",
+  };
 }

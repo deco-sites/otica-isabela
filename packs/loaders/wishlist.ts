@@ -12,12 +12,12 @@ import { getCookies } from "std/http/mod.ts";
 const loader = async (
   _props: null,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<WishlistItem[]> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const customerToken = Number(
-    getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE]
+    getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE],
   );
 
   if (!customerToken) {
@@ -26,7 +26,7 @@ const loader = async (
 
   const wishlist = await fetchAPI<WishlistItem[]>(
     path.wishlist.getWishlist(Number(customerToken)),
-    { method: "POST" }
+    { method: "POST" },
   );
 
   return wishlist;
