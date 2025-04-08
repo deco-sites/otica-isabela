@@ -322,7 +322,7 @@ function Filters({
             {defaultFilters.map((filter) => (
               <li key={filter.key} class="collapse collapse-arrow ">
                 <input type="checkbox" />
-                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg font-bold">
+                <div class="collapse-title after:!w-4 after:!h-4 font-outfit text-lg font-bold">
                   {filter.label}
                 </div>
                 {isToggle(filter) && (

@@ -192,9 +192,9 @@ function Details({
       {/* Product Name - Mobile (Header) */}
       {nameLocation === "Header" && (
         <div class="mt-4 mb-4 text-center px-8 lg:hidden">
-          <span class="font-roboto font-normal text-lg">{name}</span>
+          <span class="font-outfit font-normal text-lg">{name}</span>
           {lensDescription && (
-            <span class="font-roboto font-medium text-sm">
+            <span class="font-outfit font-medium text-sm">
               {lensDescription}
             </span>
           )}
@@ -258,9 +258,9 @@ function Details({
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
               <div class="mt-4 mb-4 text-center px-8 lg:hidden flex flex-col">
-                <span class="font-roboto font-normal text-lg">{name}</span>
+                <span class="font-outfit font-normal text-lg">{name}</span>
                 {lensDescription && (
-                  <span class="font-roboto font-medium text-sm">
+                  <span class="font-outfit font-medium text-sm">
                     {lensDescription}
                   </span>
                 )}

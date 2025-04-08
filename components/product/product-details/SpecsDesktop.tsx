@@ -20,8 +20,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
     product?.category?.includes("Acessórios");
 
-  console.log(panels);
-
   panels.unshift(
     {
       "@type": "PropertyValue",
@@ -76,7 +74,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 id={`${id}-tab`}
                 key={`${name}-${index}-tab`}
                 style={{ borderColor: "#42c3ff" }}
-                class={`tab p-0 h-[50px] text-black text-xl font-bold font-roboto cursor-pointer rounded-[3px] ${
+                class={`tab p-0 h-[50px] text-black text-xl font-bold font-outfit cursor-pointer rounded-[3px] ${
                   index === 0 && "tab-active border-b-4"
                 }`}
               >

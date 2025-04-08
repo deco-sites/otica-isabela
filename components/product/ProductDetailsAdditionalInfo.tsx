@@ -27,7 +27,7 @@ function ProductDetailsScale({ items }: Props) {
           } lg:border-r lg:border-b-0 lg:py-0 relative group`}
         >
           <Icon id={icon} size={31} style={{ color: "#42C3FF" }} />
-          <span class="text-lg font-roboto">{label}</span>
+          <span class="text-lg font-outfit">{label}</span>
           <div
             id={`item-${index}-description`}
             class="hidden bg-white rounded-[10px] p-[30px] shadow-inner bottom-[100%] left-0 absolute group-hover:block max-w-[260px]"

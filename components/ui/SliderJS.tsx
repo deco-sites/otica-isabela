@@ -141,29 +141,29 @@ const setup = ({
     });
   };
 
-  const onClickPrev = (e: Event) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const onClickPrev = () => {
     const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
-
+    const itemsPerPage = indices.length;
     const isShowingFirst = indices[0] === 0;
-    const pageIndex = Math.floor(indices[indices.length - 1] / perPage);
 
-    goToItem(isShowingFirst ? items.length - 1 : (pageIndex - 1) * perPage);
+    goToItem(
+      isShowingFirst
+        ? items.length - 1
+        : Math.max(0, indices[0] - itemsPerPage),
+    );
   };
 
-  const onClickNext = (e: Event) => {
-    e?.preventDefault();
-    e?.stopPropagation();
+  const onClickNext = () => {
     const indices = getElementsInsideContainer();
-    // Wow! items per page is how many elements are being displayed inside the container!!
-    const itemsPerPage = indices.length;
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
-    const pageIndex = Math.floor(indices[0] / itemsPerPage);
 
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
+    goToItem(
+      Math.min(
+        isShowingLast ? 0 : (indices.at(-1) as number) + 1,
+        items.length - 1,
+      ),
+    );
   };
 
   const observer = new IntersectionObserver(

@@ -126,7 +126,7 @@ function Result(
     </Head>} */
       }
       <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
-        <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
+        <h1 class="text-lg font-outfit text-black text-center uppercase">
           {productCategory.length > 0 ? productCategory : pageName}
         </h1>
       </header>

@@ -61,7 +61,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   return (
     <div class="w-full flex pt-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
       <div id="img" class="relative xl:max-w-[550px]">
-        <div id="specs" class="font-bold font-roboto text-xs lg:text-base">
+        <div id="specs" class="font-bold font-outfit text-xs lg:text-base">
           <SpecItem item={frente_total!} classes="right-[45%]" />
           <SpecItem
             item={altura!}

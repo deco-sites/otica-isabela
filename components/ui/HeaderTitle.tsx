@@ -71,7 +71,7 @@ const FONT_WEIGHTS = {
 } as const;
 
 const FONT_FAMILIES = {
-  "Bebas Neue": "font-bebas-neue",
+  "Bebas Neue": "font-outfit",
   "Roboto": "",
 } as const;
 

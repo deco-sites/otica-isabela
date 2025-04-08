@@ -42,6 +42,7 @@ export default {
       fontFamily: {
         "bebas-neue": ["Bebas Neue"],
         roboto: ["Roboto", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
       },
       colors: {
         "red-500": "#d92027",

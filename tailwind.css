@@ -8,7 +8,7 @@
   }
   /* Allow changing font family via CMS */
   html {
-    font-family: var(--font-family);
+    font-family: "Outfit", "sans-serif";
     line-height: 1;
     scroll-behavior: smooth;
   }

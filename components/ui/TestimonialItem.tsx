@@ -26,10 +26,10 @@ export const UserInfos = ({
 
   return (
     <div class="flex flex-col w-full">
-      <p class="w-full text-xs lg:text-base font-semibold flex items-center justify-around h-12 lg:h-20 gap-x-3 py-4 capitalize">
+      <p class="text-grayscale-700 text-lg font-medium">
         {authorName}
         {desktop && (
-          <Picture>
+          <Picture class="absolute top-0 right-0">
             <Source
               media="(max-width: 983px)"
               src={mobile ?? desktop}
@@ -93,9 +93,9 @@ const TestimonialItem = ({
   const secondPart = descriptionSplit.slice(24).join(" ");
 
   return (
-    <div class="flex border border-blue-300 rounded-xl px-3 py-5 ">
-      <div class="flex justify-around gap-x-2">
-        <div class="flex flex-col h-full">
+    <div class="flex border shadow-[1px_3px_8px_rgba(0,0,0,0.25)] rounded-lg box-border px-3 py-5 md:py-8 lg:px-7 ">
+      <div class="flex justify-around gap-x-9">
+        <div class="flex flex-col h-full items-center justify-center">
           {additionalImage && (
             <Image
               class="rounded-xl h-[205px] xxxs:min-w-[152px] sm:min-w-[197px] lg:min-w-[152px] object-cover"
@@ -135,7 +135,7 @@ const TestimonialItem = ({
           </div>
           <label
             for={id}
-            class="text-sm text-start w-full font-normal min-h-[95px] text-black border-b border-b-blue-300 pb-8 mb-2.5"
+            class="text-sm text-start w-full font-normal min-h-[95px] text-grayscale-700 pb-8 mb-2.5"
           >
             <input
               type="checkbox"
@@ -159,18 +159,17 @@ const TestimonialItem = ({
           </label>
           <a
             href={productLink}
-            class="flex flex-col justify-center items-center "
+            class="flex flex-col lg:h-[196px] lg:gap-5 justify-center items-center "
           >
-            <span class="mb-4 mt-1 font-semibold text-[15px] text-black underline text-center">
-              {productName}
-            </span>
-
             <Image
               src={productPhoto}
               alt={`Imagem-${productName}`}
               width={150}
               height={60}
             />
+            <span class="mb-4 mt-1 font-semibold text-[15px] text-black underline text-center">
+              {productName}
+            </span>
           </a>
         </div>
       </div>

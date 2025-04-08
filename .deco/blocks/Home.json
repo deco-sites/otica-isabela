@@ -163,6 +163,133 @@
             "__resolveType": "Clipon Feminino"
           },
           {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Images/CategoriesShelf.tsx",
+              "title": "Qual é o seu favorito?",
+              "categories": [
+                {
+                  "items": [
+                    {
+                      "name": "Redondo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau",
+                      "name": "Quadrado"
+                    },
+                    {
+                      "name": "Gatinho",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Aviador",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    },
+                    {
+                      "name": "Retrô",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#"
+                    },
+                    {
+                      "name": "Metal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau/"
+                    },
+                    {
+                      "name": "Balgriff",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/armacao-para-oculos-de-grau"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos de grau"
+                },
+                {
+                  "items": [
+                    {
+                      "name": "Gatinho",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "name": "Redondo",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    },
+                    {
+                      "name": "Quadrado",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Aviador",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Retagular",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-clip-on"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos clipon"
+                },
+                {
+                  "items": [
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "name": "Gatinho",
+                      "url": "/oculos-de-sol"
+                    },
+                    {
+                      "name": "Esportivo",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#/"
+                    },
+                    {
+                      "name": "Quadrado",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "/oculos-de-sol"
+                    },
+                    {
+                      "name": "Redondo",
+                      "url": "#",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg",
+                      "url": "#"
+                    }
+                  ],
+                  "seeAllUrl": "#/",
+                  "name": "Óculos de sol"
+                }
+              ]
+            }
+          },
+          {
             "__resolveType": "Depoimentos"
           },
           {
@@ -172,10 +299,13 @@
             "__resolveType": "Sobre a Loja"
           },
           {
-            "__resolveType": "Footer - 01"
+            "__resolveType": "wpp-cta"
           },
           {
-            "__resolveType": "wpp-cta"
+            "__resolveType": "Newsletter Otica"
+          },
+          {
+            "__resolveType": "Footer Otica"
           }
         ]
       }
