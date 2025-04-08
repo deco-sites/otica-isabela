@@ -10,7 +10,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
     <ul class="mx-3 text-left">
       <li class="inline align-middle text-left leading-[21px]">
         <a
-          class="inline-block align-middle font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
+          class="inline-block align-middle font-outfit text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
           href="/"
         >
           <span class="inline-block align-middle">
@@ -26,7 +26,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
         .map(({ name, item }, index) => (
           <li class="inline align-middle text-left leading-[21px]">
             <a
-              class="font-roboto text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
+              class="font-outfit text-[#222] text-[13px] sm:text-[15px] capitalize hover:underline"
               href={item}
             >
               {name?.toLocaleLowerCase().trim()}

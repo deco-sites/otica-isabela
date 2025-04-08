@@ -10,6 +10,7 @@ import TestimonialItem from "$store/components/ui/TestimonialItem.tsx";
 import type { MembershipBadgeProps } from "$store/components/ui/TestimonialItem.tsx";
 import { Review } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
+import Icon from "site/components/ui/Icon.tsx";
 
 export interface Props {
   header?: HeaderProps;
@@ -28,6 +29,7 @@ export default function Testimonials(
   { header, membershipBadges, page }: Props,
 ) {
   const id = useId();
+
   return (
     <>
       {header ? <HeaderTitle {...header} /> : null}
@@ -47,8 +49,19 @@ export default function Testimonials(
             ))}
           </Slider>
 
-          <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
-            {page?.map((_, index) => <Slider.Dot index={index} />)}
+          <div class="flex items-center justify-between absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
+            <Slider.PrevButton class="size-8 rounded bg-slot-primary-500 disabled:bg-grayscale-50 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="rotate-180 text-grayscale-0 group-disabled:text-slot-primary-500 transition-colors"
+              />
+            </Slider.PrevButton>
+            <Slider.NextButton class="size-8 rounded bg-slot-primary-500 disabled:bg-grayscale-50 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="text-grayscale-0 group-disabled:text-slot-primary-500 transition-colors"
+              />
+            </Slider.NextButton>
           </div>
 
           <SliderJS

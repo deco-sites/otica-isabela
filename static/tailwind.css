@@ -404,7 +404,7 @@ html {
 }
   /* Allow changing font family via CMS */
   html {
-    font-family: var(--font-family);
+    font-family: "Outfit", "sans-serif";
     line-height: 1;
     scroll-behavior: smooth;
   }
@@ -1582,6 +1582,42 @@ html {
   place-items: center;
   text-align: center;
   min-width: 4rem;
+}
+.swap {
+  position: relative;
+  display: inline-grid;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  place-content: center;
+  cursor: pointer;
+}
+.swap > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: transform, opacity;
+}
+.swap input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.swap .swap-on,
+.swap .swap-indeterminate,
+.swap input:indeterminate ~ .swap-on {
+  opacity: 0;
+}
+.swap input:checked ~ .swap-off,
+.swap.swap-active .swap-off,
+.swap input:indeterminate ~ .swap-off {
+  opacity: 0;
+}
+.swap input:checked ~ .swap-on,
+.swap-active .swap-on,
+.swap input:indeterminate ~ .swap-indeterminate {
+  opacity: 1;
 }
 .tabs {
   display: flex;
@@ -4517,6 +4553,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[95vw\] {
   width: 95vw;
 }
+.w-\[98\%\] {
+  width: 98%;
+}
 .w-auto {
   width: auto;
 }
@@ -5911,10 +5950,6 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.py-\[70px\] {
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
 .py-\[84px\] {
   padding-top: 84px;
   padding-bottom: 84px;
@@ -6085,11 +6120,8 @@ details.collapse summary::-webkit-details-marker {
 .align-middle {
   vertical-align: middle;
 }
-.font-bebas-neue {
-  font-family: Bebas Neue;
-}
-.font-roboto {
-  font-family: Roboto, sans-serif;
+.font-outfit {
+  font-family: Outfit, sans-serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -6141,8 +6173,8 @@ details.collapse summary::-webkit-details-marker {
 .text-\[32px\] {
   font-size: 32px;
 }
-.text-\[64px\] {
-  font-size: 64px;
+.text-\[48px\] {
+  font-size: 48px;
 }
 .text-base {
   font-size: 1rem;
@@ -7033,6 +7065,10 @@ details.collapse summary::-webkit-details-marker {
   cursor: not-allowed;
 }
 
+.disabled\:bg-grayscale-50:disabled {
+  background-color: rgba(242, 242, 242, 1);
+}
+
 .disabled\:opacity-100:disabled {
   opacity: 1;
 }
@@ -7111,6 +7147,10 @@ details.collapse summary::-webkit-details-marker {
 .group:disabled .group-disabled\:border-base-300 {
   --tw-border-opacity: 1;
   border-color: rgb(117 117 117 / var(--tw-border-opacity));
+}
+
+.group:disabled .group-disabled\:text-slot-primary-500 {
+  color: rgba(0, 167, 245, 1);
 }
 
 .peer:checked ~ .peer-checked\:pointer-events-auto {
