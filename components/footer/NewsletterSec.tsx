@@ -7,6 +7,7 @@ import type { Manifest } from "../../manifest.gen.ts";
 interface Props {
     title: string;
     text: RichText;
+    mobileText: RichText;
 }
 
 //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
@@ -16,7 +17,7 @@ const subscribe = Runtime.create(
     "site/loaders/store/newsletter.ts",
 );
 
-export default function ({ title, text }: Props) {
+export default function ({ title, text, mobileText }: Props) {
     const loading = useSignal(false);
     const messageAlert = useSignal<
         { message: string; mode: "success" | "danger" | "" }
@@ -91,7 +92,11 @@ export default function ({ title, text }: Props) {
                     </h2>
                     <div
                         dangerouslySetInnerHTML={{ __html: text }}
-                        class="text-grayscale-600 max-w-[500px] max-lg:text-center"
+                        class="text-grayscale-600 max-w-[500px] hidden md:block"
+                    />
+                    <div
+                        dangerouslySetInnerHTML={{ __html: mobileText }}
+                        class="text-grayscale-600 max-w-[500px] md:hidden"
                     />
                 </div>
 
