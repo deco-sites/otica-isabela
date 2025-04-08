@@ -59,7 +59,7 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
     return (
         <div
             id={id}
-            class="max-w-[1320px] w-[95%] mx-auto flex flex-col gap-11 mb-24"
+            class="max-w-[1320px] w-[95%] mx-auto flex flex-col gap-11 my-12"
         >
             <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
                 <span class="text-2xl text-grayscale-700">{title}</span>
