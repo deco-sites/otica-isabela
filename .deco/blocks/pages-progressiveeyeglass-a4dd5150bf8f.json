@@ -434,6 +434,17 @@
             "preload": false
           },
           "header": "ID Light V+"
+        },
+        {
+          "image": {
+            "preload": false,
+            "src": "https://assets.decocache.com/otica-isabela/f10874db-00be-4a51-8f10-480eba8a9c0d/Easy-Economico.png",
+            "alt": "Lentes Easy",
+            "width": 334,
+            "height": 334
+          },
+          "text": "<p><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">Multifocal ID EASY -&nbsp; FREE FORM</span></p>",
+          "header": "ID EASY "
         }
       ],
       "colors": {
