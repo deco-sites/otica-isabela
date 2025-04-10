@@ -125,47 +125,19 @@ function Result(
       <meta name="robots" content="noindex" />
     </Head>} */
       }
-      <header class="bg-white border-b border-base-200 m-0 py-2 px-0">
-        <h1 class="text-lg font-bebas-neue text-black text-center uppercase">
+      <header class="max-w-[1320px] mx-auto w-[95%] flex flex-col bg-white m-0 py-2">
+        {!breadcrumb?.itemListElement?.length
+          ? null
+          : (
+            <div class="flex w-full flex-row items-center my-5">
+              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            </div>
+          )}
+        <h1 class="max-lg:text-lg text-5xl text-grayscale-700 capitalize">
           {productCategory.length > 0 ? productCategory : pageName}
         </h1>
       </header>
-      {filters.length
-        ? (
-          <div class="lg:flex flex-col w-full border-b border-base-200 max-lg:hidden sticky z-[9] bg-white top-0">
-            <Filters
-              filters={filters}
-              filterColors={filterColors}
-              hideFilters={hideFilters}
-              typeIcons={typeIcons}
-              shapeIcons={shapeIcons}
-            />
-            <div class="border-t border-base-200 w-full py-1">
-              <div class="container flex justify-between items-center">
-                <SelectedFilters filters={filters} />
-                <div class="flex gap-4">
-                  <button
-                    id="apply-range-filters"
-                    class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-                  >
-                    <span>Aplicar Filtro</span>
-                  </button>
-                  <ApplyRangeFiltersJS
-                    rootId="size-options-container"
-                    buttonId="apply-range-filters"
-                  />
-                  <a
-                    href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                    class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
-                  >
-                    Limpar Filtros
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-        : null}
+
       <SearchControls
         sortOptions={sortOptions}
         filters={filters}
@@ -175,17 +147,49 @@ function Result(
         typeIcons={typeIcons}
         shapeIcons={shapeIcons}
       />
-      {!breadcrumb?.itemListElement?.length
-        ? null
-        : (
-          <div class="flex w-full flex-row justify-center items-center my-5">
-            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-          </div>
-        )}
-      <CategoryMenu categories={categories} />
-      <div class="container mt-12 px-4 sm:py-10">
+
+      <CategoryMenu categories={categories} filters={filters} />
+      <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          <div class="flex-grow">
+          {filters.length
+            ? (
+              <div class="lg:flex mr-10 lg:max-w-[200px] flex-col w-full border-b border-base-200 max-lg:hidden bg-white">
+                <div class="lg:flex flex-col sticky z-[9] top-0">
+                  <Filters
+                    filters={filters}
+                    filterColors={filterColors}
+                    hideFilters={hideFilters}
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                  />
+                  <div class="mt-5 w-full py-1">
+                    <div class="w-fit max-w-[1320px] mx-auto">
+                      {/* <SelectedFilters filters={filters} /> */}
+                      <div class="flex flex-col gap-2">
+                        <button
+                          id="apply-range-filters"
+                          class="uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                        >
+                          <span>Aplicar Filtro</span>
+                        </button>
+                        <ApplyRangeFiltersJS
+                          rootId="size-options-container"
+                          buttonId="apply-range-filters"
+                        />
+                        <a
+                          href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                          class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                        >
+                          Limpar Filtro
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+            : null}
+          <div class="flex-grow w-full">
             <ProductGallery
               products={products}
               isSliderEnabled={isSliderEnabled}

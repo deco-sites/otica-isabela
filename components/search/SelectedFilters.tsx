@@ -37,7 +37,7 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
   );
 
   return (
-    <ul class="w-full flex flex-wrap gap-y-3">
+    <ul class="lg:ml-5 w-full flex flex-wrap gap-y-3">
       {selectedFilters.value.map((item) => (
         <button
           key={item.label}
@@ -48,21 +48,21 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
           }}
         >
           <li
-            class={`flex items-center text-base-400 text-base cursor-pointer py-1 px-6 rounded-[5px] mr-5 border border-solid border-base-400 ${_class}`}
+            class={`flex items-center text-grayscale-700 text-base cursor-pointer py-1 px-3 rounded-[17px] mr-5 border border-solid border-base-400 ${_class}`}
           >
             <p>{item.label}</p>
-            <Icon class="text-base-200 ml-2" size={12} id="Close" />
+            <Icon class="text-grayscale-500 ml-2" size={12} id="Close" />
           </li>
         </button>
       ))}
 
       <li
         id="personalized-filter"
-        class={`flex items-center text-base-400 text-base cursor-pointer py-1 px-6 rounded-[5px] mr-5 border border-solid border-base-400 ${_class}`}
+        class={`flex items-center text-grayscale-700 text-base cursor-pointer py-1 px-6 rounded-[17px] mr-5 border border-solid border-base-400 ${_class}`}
         style={{ display: "none" }}
       >
         <p>Personalizado</p>
-        <Icon class="text-base-200 ml-2" size={12} id="Close" />
+        <Icon class="text-grayscale-500 ml-2" size={12} id="Close" />
       </li>
     </ul>
   );

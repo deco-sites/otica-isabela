@@ -42,13 +42,13 @@ export default function ValueItem({
         {hideCheckbox ? null : (
           <div
             aria-checked={isSelected}
-            class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
+            class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
           />
         )}
         <span
           class={`${
-            isSelected && withBorder ? "border" : ""
-          } rounded-[5px] border-base-200 flex items-center gap-2.5 max-lg:font-medium`}
+            isSelected && withBorder ? "border-2" : ""
+          } rounded-full text-[#6f6f6f] text-sm border-slot-primary-500 flex items-center gap-2.5 max-lg:font-medium`}
         >
           {children ?? label}
         </span>

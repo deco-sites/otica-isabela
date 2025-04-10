@@ -96,10 +96,12 @@ function ProductCard({
     (prop) => prop.propertyID === "experimentador",
   )?.value;
 
+  console.log(availableColors, "valores");
+
   return (
     <div
       id={id}
-      class="card card-compact w-full text-center lg:px-4"
+      class="card card-compact w-full lg:px-1"
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -182,13 +184,13 @@ function ProductCard({
       <div class="flex flex-col items-center mt-[10px]">
         <a href={url} aria-label="view product" class="contents">
           <div class="flex flex-col">
-            <p class="font-semibold text-black text-lg leading-none h-[50px]">
+            <p class="font-semibold text-black text-base leading-none h-[33px]">
               {name}
             </p>
             {description.length
               ? (
-                <div class="lg:min-w-[306px] min-h-[42px] mt-6 mb-[10px]">
-                  <p class="text-sm font-normal leading-none text-base-200 line-clamp-3 ">
+                <div class="min-h-[42px] mt-6 mb-[10px]">
+                  <p class="text-xs font-normal leading-none text-base-200 line-clamp-3 ">
                     {description?.map(
                       (property, index) =>
                         `${property?.value}: ${property?.name}mm ${
@@ -202,53 +204,61 @@ function ProductCard({
           </div>
         </a>
 
-        {/* Available Colors */}
-        {availableColors.length
-          ? (
-            <ul class="flex items-center justify-center mb-[10px] w-[90%] h-5">
-              {availableColors?.map(({ name, url, unitCodes }) => (
-                <li key={unitCodes}>
-                  <a href={`/produto${url}`} aria-label={name} title={name}>
-                    <div
-                      style={{
-                        background: unitCodes.length > 1
-                          ? `linear-gradient(${unitCodes.join(", ")})`
-                          : `${unitCodes[0]}`,
-                      }}
-                      class="mask mask-circle h-5 w-5 bg-secondary mx-2"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )
-          : null}
-
+        <div class="w-full flex items-center justify-between">
+          {/* Available Colors */}
+          {availableColors.length
+            ? (
+              <ul class="flex items-center w-[90%] h-4">
+                {availableColors?.map(({ name, url, unitCodes }) => (
+                  <li key={unitCodes.join()} class="group relative">
+                    <a href={`/produto${url}`} aria-label={name} title={name}>
+                      <div
+                        style={{
+                          background: unitCodes.length > 1
+                            ? `linear-gradient(${unitCodes.join(", ")})`
+                            : `${unitCodes[0]}`,
+                        }}
+                        class={`
+                          mask mask-circle h-4 w-4 bg-secondary mx-1 hover:scale-125 transition-transform
+                          ${name === product.name ? "ring-2 ring-offset-1 ring-grayscale-700" : ""}
+                        `}
+                      />
+                    </a>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                      {name}
+                      <div class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-0 border-t-4 border-l-transparent border-r-transparent border-t-gray-800">
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )
+            : null}
+          {experimenterImage && !hideExperiment
+            ? <ToExperimentButton image={experimenterImage} />
+            : (
+              <a href={url} class="w-full flex justify-end">
+                <Button class="text-black bg-transparent rounded-[15px] btn min-h-[unset] h-[unset] w-fit px-4 py-1.5 text-sm hover:text-white hover:bg-black border border-black">
+                  Ver Produto
+                </Button>
+              </a>
+            )}
+        </div>
         {/* Price & Discount */}
-        <div class="flex justify-center items-center mb-[10px]">
+        <div class="w-full flex justify-normal items-center my-[10px]">
           <a href={url} aria-label="view product" class="contents">
             <div class="flex flex-row  justify-center items-center gap-3 ">
               {discount > 0 && (
-                <span class="line-through font-semibold  text-red-500 text-base">
+                <span class="line-through font-semibold  text-red-500 text-sm">
                   {formatPrice(listPrice, offers!.priceCurrency!)}
                 </span>
               )}
-              <span class=" text-blue-200 text-[28px] font-bold">
+              <span class=" text-blue-200 text-base font-bold">
                 {formatPrice(price, offers!.priceCurrency!)}
               </span>
             </div>
           </a>
         </div>
-
-        {experimenterImage && !hideExperiment
-          ? <ToExperimentButton image={experimenterImage} />
-          : (
-            <a href={url} class="block w-full">
-              <Button class="text-black bg-transparent rounded-[9px] btn w-full py-3 lg:text-2xl text-xl min-h-[56px] hover:text-white hover:bg-black border border-black">
-                Ver Produto
-              </Button>
-            </a>
-          )}
       </div>
     </div>
   );
