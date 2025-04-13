@@ -1,10 +1,11 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
 import Filters from "$store/components/search/Filters.tsx";
-import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
+import Banner from "$store/components/ui/CategoryBanner.tsx";
+import type { Banner as BannerProps } from "$store/components/ui/CategoryBanner.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
@@ -66,6 +67,7 @@ export interface Shape {
 export interface Props {
   /** @title Loader */
   page: LoaderReturnType<ProductListingPage | null>;
+  banner?: BannerProps[];
   /** @title Cores do Filtro */
   filterColors?: Color[];
   /** @title Icones do filtro de Tipo */
@@ -102,6 +104,7 @@ function NotFound({ alert }: {
 function Result(
   {
     page,
+    banner = [] as BannerProps[],
     filterColors = [],
     hideFilters = [],
     typeIcons = [],
@@ -112,6 +115,7 @@ function Result(
     customer,
   }: Omit<ComponentProps, "page"> & {
     page: ProductListingPage;
+    banner?: BannerProps[];
   },
 ) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
@@ -163,7 +167,7 @@ function Result(
                     shapeIcons={shapeIcons}
                   />
                   <div class="mt-5 w-full py-1">
-                    <div class="w-fit max-w-[1320px] mx-auto">
+                    <div class="w-full max-w-[1320px] mx-auto">
                       {/* <SelectedFilters filters={filters} /> */}
                       <div class="flex flex-col gap-2">
                         <button
@@ -178,7 +182,7 @@ function Result(
                         />
                         <a
                           href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
-                          class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black"
+                          class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black text-center"
                         >
                           Limpar Filtro
                         </a>
@@ -189,7 +193,8 @@ function Result(
               </div>
             )
             : null}
-          <div class="flex-grow w-full">
+          <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
+            {banner && banner.map((b) => <Banner banner={b} />)}
             <ProductGallery
               products={products}
               isSliderEnabled={isSliderEnabled}
@@ -222,7 +227,7 @@ function Result(
   );
 }
 export const loader = async (
-  { categories = [], ...props }: Props,
+  { banner = [], categories = [], ...props }: Props,
   req: Request,
   ctx: AppContext,
 ) => {
@@ -243,7 +248,13 @@ export const loader = async (
     );
     props.page = wishlistProductsPage;
   }
+
+  const matchedBanner = banner.find(({ matcher }) =>
+    new URLPattern({ pathname: matcher }).test(req.url)
+  );
+
   return {
+    banner: matchedBanner ? [matchedBanner] : [],
     categories: categoryList?.categoryItems ?? [],
     ...props,
   };

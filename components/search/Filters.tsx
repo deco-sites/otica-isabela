@@ -300,7 +300,11 @@ function Filters({
             {defaultFilters.map((filter, index, array) => (
               <li class="flex flex-col relative leading-relaxed justify-between font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
                 <details class="group">
-                  <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden">
+                  <summary
+                    class={`flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden ${
+                      index === 0 ? "pt-0" : ""
+                    }`}
+                  >
                     <span class="text-sm">{filter.label}</span>
                     <Icon size={24} id="ChevronDown" />
                   </summary>

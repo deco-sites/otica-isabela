@@ -125,26 +125,27 @@ function SearchControls({
         </div>
       }
     >
-      <div class="lg:hidden relative w-full flex flex-row justify-between">
-        <div class="flex w-1/2 px-[15px] justify-center items-center">
+      <div class="lg:hidden relative w-[95%] mx-auto flex flex-row gap-3">
+        <div class="flex justify-center items-center">
           <button
-            class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
+            class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openFilter()}
           >
-            <Icon class="text-base-200" id="Filter" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
+            <Icon class="text-gray-700" id="Filter" width={16} height={16} />
+            <span class="uppercase text-gray-700 text-xs font-bold">
+              Filtrar
+            </span>
           </button>
         </div>
-        <div class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
-        ">
-        </div>
-        <div class="flex w-1/2 px-[15px] justify-center items-center">
+        <div class="flex justify-center items-center">
           <button
-            class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
+            class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openOrderBy()}
           >
-            <Icon class="text-base-200" id="Order" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Ordenar</span>
+            <Icon class="text-gray-700" id="Order" width={16} height={16} />
+            <span class="uppercase text-gray-700 text-xs font-bold">
+              Ordenar
+            </span>
           </button>
         </div>
       </div>

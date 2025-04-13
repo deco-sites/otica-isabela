@@ -97,7 +97,7 @@ function Stopwatch({ targetDate, type }: Props) {
   return (
     <div
       class={`border border-red-500 rounded-md w-auto md:w-full self-center ${
-        type === "card" ? "mb-2 max-w-[330px]" : ""
+        type === "card" ? "mb-2.5" : ""
       }`}
     >
       <div

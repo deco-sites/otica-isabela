@@ -96,8 +96,6 @@ function ProductCard({
     (prop) => prop.propertyID === "experimentador",
   )?.value;
 
-  console.log(availableColors, "valores");
-
   return (
     <div
       id={id}
@@ -189,7 +187,7 @@ function ProductCard({
             </p>
             {description.length
               ? (
-                <div class="min-h-[42px] mt-6 mb-[10px]">
+                <div class="min-h-[25px] my-[10px]">
                   <p class="text-xs font-normal leading-none text-base-200 line-clamp-3 ">
                     {description?.map(
                       (property, index) =>
@@ -208,32 +206,45 @@ function ProductCard({
           {/* Available Colors */}
           {availableColors.length
             ? (
-              <ul class="flex items-center w-[90%] h-4">
-                {availableColors?.map(({ name, url, unitCodes }) => (
-                  <li key={unitCodes.join()} class="group relative">
-                    <a href={`/produto${url}`} aria-label={name} title={name}>
-                      <div
-                        style={{
-                          background: unitCodes.length > 1
-                            ? `linear-gradient(${unitCodes.join(", ")})`
-                            : `${unitCodes[0]}`,
-                        }}
-                        class={`
-                          mask mask-circle h-4 w-4 bg-secondary mx-1 hover:scale-125 transition-transform
-                          ${name === product.name ? "ring-2 ring-offset-1 ring-grayscale-700" : ""}
-                        `}
-                      />
-                    </a>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                      {name}
-                      <div class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-0 border-t-4 border-l-transparent border-r-transparent border-t-gray-800">
+              <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative">
+                {availableColors
+                  .slice()
+                  .sort((a, b) => (a.name === product.name
+                    ? -1
+                    : b.name === product.name
+                    ? 1
+                    : 0)
+                  )
+                  .map(({ name, url, unitCodes }) => (
+                    <li
+                      key={unitCodes.join()}
+                      class={`group ${
+                        name === product.name
+                          ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
+                          : ""
+                      }`}
+                    >
+                      <a href={`/produto${url}`} aria-label={name}>
+                        <div
+                          style={{
+                            background: unitCodes.length > 1
+                              ? `linear-gradient(${unitCodes.join(", ")})`
+                              : `${unitCodes[0]}`,
+                          }}
+                          class={`
+                mask mask-circle h-4 w-4 bg-secondary hover:scale-125 transition-transform
+              `}
+                        />
+                      </a>
+                      <div class="absolute w-full z-20 bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                        {name}
                       </div>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
             )
             : null}
+
           {experimenterImage && !hideExperiment
             ? <ToExperimentButton image={experimenterImage} />
             : (

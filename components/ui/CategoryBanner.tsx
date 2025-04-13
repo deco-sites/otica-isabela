@@ -19,6 +19,8 @@ export interface Banner {
     mobile: LiveImage;
     /** @description image alt text */
     alt?: string;
+    /** @description image alt text */
+    link?: string;
   };
 }
 
@@ -31,20 +33,29 @@ function Banner({ banner }: SectionProps<ReturnType<typeof loader>>) {
 
   return (
     <div class="grid grid-cols-1 grid-rows-1">
-      <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
-        <Source
-          src={image.mobile}
-          width={360}
-          media="(max-width: 767px)"
-        />
-        <Source
-          src={image.desktop}
-          width={1440}
-          height={200}
-          media="(min-width: 767px)"
-        />
-        <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
-      </Picture>
+      <a
+        href={image.link}
+        class="block overflow-hidden"
+      >
+        <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
+          <Source
+            src={image.mobile}
+            width={360}
+            media="(max-width: 767px)"
+          />
+          <Source
+            src={image.desktop}
+            width={1440}
+            height={200}
+            media="(min-width: 767px)"
+          />
+          <img
+            class="w-full transition-transform duration-700 ease-in-out hover:scale-105"
+            src={image.desktop}
+            alt={image.alt ?? title}
+          />
+        </Picture>
+      </a>
 
       <div class="container flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
         <h1>
