@@ -1,1 +1,69 @@
-{"header":{"icon":"Bifocal","hideIcon":true,"iconSize":{"width":70,"height":20},"firstLine":{"text":"Escolha ","color":"#42c3ff","fontSize":{"mobile":"muito pequeno","desktop":"normal"},"fontFamily":"Roboto","fontWeight":"medium"},"secondLine":{"text":"SEU ESTILO ","color":"#000000","fontSize":{"mobile":"grande","desktop":"muito grande"},"fontFamily":"Bebas Neue","fontWeight":"normal"},"textAlignment":"começo","backgroundColor":"#f2f2f2"},"banners":[{"href":"https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=Gatinho","image":"https://data.decoassets.com/otica-isabela/cd8b104e-e2c7-41ba-84df-63fd79a354b0/Oculos-gatinho.png","label":"Óculos gatinho","buttonLabel":"ÓCULOS GATINHO"},{"href":"https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=Retangular","image":"https://data.decoassets.com/otica-isabela/b96996ab-d6a2-47e1-85f7-8ad423ac33d6/Oculos-retangular.png","label":"Óculos Retangular ","buttonLabel":"ÓCULOS RETANGULAR"},{"href":"https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=Redondo","image":"https://data.decoassets.com/otica-isabela/5fdd8699-7182-4295-86ba-6430f157121f/Oculos-redondo.png","label":"Óculos redondo","buttonLabel":"ÓCULOS REDONDO"}],"customer":{"__resolveType":"site/loaders/store/auth.ts"},"products":{"id":[],"sort":"nome","count":9,"offset":9,"ordenacao":"none","collection":3,"__resolveType":"site/loaders/product/productList.ts","dinamicFilters":[],"filtrosDinamicos":[],"idColecaoProdutos":21},"__resolveType":"site/sections/Product/ProductBannerShelf.tsx","isStopwatchEnabled":true}
+{
+  "header": {
+    "icon": "Bifocal",
+    "hideIcon": true,
+    "iconSize": {
+      "width": 70,
+      "height": 20
+    },
+    "firstLine": {
+      "text": "Escolha ",
+      "color": "#42c3ff",
+      "fontSize": {
+        "mobile": "muito pequeno",
+        "desktop": "normal"
+      },
+      "fontFamily": "Roboto",
+      "fontWeight": "medium"
+    },
+    "secondLine": {
+      "text": "SEU ESTILO ",
+      "color": "#000000",
+      "fontSize": {
+        "mobile": "grande",
+        "desktop": "muito grande"
+      },
+      "fontFamily": "Bebas Neue",
+      "fontWeight": "normal"
+    },
+    "textAlignment": "começo",
+    "backgroundColor": "#f2f2f2"
+  },
+  "banners": [
+    {
+      "image": "https://assets.decocache.com/otica-isabela/7ec44b15-14f3-4692-a56c-3cd36e7dea4a/Oculos-aviador.png",
+      "label": "Óculos Aviador",
+      "buttonLabel": "ÓCULOS AVIADOR",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2232-prata-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/27bd3528-b06d-44ec-b253-b565e3764133/Oculos-clubmaster.png",
+      "label": "Óculos Clubmaster",
+      "buttonLabel": "ÓCULOS CLUBMASTER",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-feminino-2091-dourado-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/01901d45-8919-4862-81ac-567418f65c25/Oculos-Gatinho-3-pecas.png",
+      "label": "Óculos três peças",
+      "buttonLabel": "ÓCULOS TRÊS PEÇAS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2283-rose-isabela-dias"
+    }
+  ],
+  "customer": {
+    "__resolveType": "site/loaders/store/auth.ts"
+  },
+  "products": {
+    "id": [],
+    "sort": "nome",
+    "count": 9,
+    "offset": 9,
+    "ordenacao": "none",
+    "collection": 3,
+    "__resolveType": "site/loaders/product/productList.ts",
+    "dinamicFilters": [],
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 21
+  },
+  "__resolveType": "site/sections/Product/ProductBannerShelf.tsx",
+  "isStopwatchEnabled": true
+}
