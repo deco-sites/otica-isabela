@@ -34,6 +34,7 @@ function ProductInfo(
   const colorsList = additionalProperty?.filter((prop) =>
     prop.propertyID === "color"
   );
+  console.log(colorsList, "a");
   const colors = colorsList?.map(({ unitCode }) => unitCode);
   const colorsName = colorsList?.map(({ value }) => value);
   const addToCard = {

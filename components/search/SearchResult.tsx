@@ -119,8 +119,8 @@ function Result(
   },
 ) {
   const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
-  const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
-    (pageName || "");
+  // const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
+  //   (pageName || "");
   // const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
   return (
     <>
@@ -137,9 +137,6 @@ function Result(
               <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
             </div>
           )}
-        <h1 class="max-lg:text-lg text-5xl text-grayscale-700 capitalize">
-          {productCategory.length > 0 ? productCategory : pageName}
-        </h1>
       </header>
 
       <SearchControls

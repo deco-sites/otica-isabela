@@ -17,19 +17,14 @@ export interface StoreProps extends Props {
 }
 
 export default function Site(
-  state: StoreProps,
+  state: StoreProps
   //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 ): App<Manifest, StoreProps, [StdApp]> {
-  try {
-    console.log(state, "fasdfasd");
-    return {
-      state,
-      manifest,
-      dependencies: [std(state)],
-    };
-  } catch (error) {
-    console.log(error, "aaa");
-  }
+  return {
+    state,
+    manifest,
+    dependencies: [std(state)],
+  };
 }
 
 export type Storefront = ReturnType<typeof Site>;

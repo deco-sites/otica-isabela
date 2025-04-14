@@ -48,7 +48,7 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
           }}
         >
           <li
-            class={`flex items-center text-grayscale-700 text-base cursor-pointer py-1 px-3 rounded-[17px] mr-5 border border-solid border-base-400 ${_class}`}
+            class={`flex bg-[#f3f3f3] items-center text-grayscale-700 text-base cursor-pointer py-1 px-3 rounded-[17px] mr-5 ${_class}`}
           >
             <p>{item.label}</p>
             <Icon class="text-grayscale-500 ml-2" size={12} id="Close" />
@@ -58,7 +58,7 @@ function SelectedFilters({ filters, class: _class = "" }: Props) {
 
       <li
         id="personalized-filter"
-        class={`flex items-center text-grayscale-700 text-base cursor-pointer py-1 px-6 rounded-[17px] mr-5 border border-solid border-base-400 ${_class}`}
+        class={`flex bg-[#f3f3f3] items-center text-grayscale-700 text-base cursor-pointer py-1 px-6 rounded-[17px] mr-5 ${_class}`}
         style={{ display: "none" }}
       >
         <p>Personalizado</p>

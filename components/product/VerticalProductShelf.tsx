@@ -1,4 +1,4 @@
-import ProductCard from "$store/components/product/ProductCard.tsx";
+import ProductCard from "$store/islands/ProductCard.tsx";
 import { useId } from "$store/sdk/useId.ts";
 
 import SliderJS from "$store/islands/SliderJS.tsx";

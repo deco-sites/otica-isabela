@@ -1,4 +1,3 @@
-import Icon from "$store/components/ui/Icon.tsx";
 import Image from "apps/website/components/Image.tsx";
 
 interface Props {
@@ -13,7 +12,6 @@ const ProductCardImage = ({
   url,
   alt,
   preload,
-  discount,
   promotion,
 }: Props) => {
   return (
@@ -39,11 +37,6 @@ const ProductCardImage = ({
         decoding="async"
         class="w-full"
       />
-      {discount > 0 && (
-        <span class="absolute right-0 bottom-0 bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] ">
-          <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-        </span>
-      )}
     </figure>
   );
 };

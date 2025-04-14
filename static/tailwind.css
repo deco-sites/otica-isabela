@@ -5365,10 +5365,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-border-opacity: 1;
   border-color: rgb(117 117 117 / var(--tw-border-opacity));
 }
-.border-base-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(98 98 98 / var(--tw-border-opacity));
-}
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -7243,11 +7239,6 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 0.25rem;
   }
 
-  .max-lg\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
   .max-lg\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
@@ -8290,6 +8281,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:max-h-\[600px\] {
     max-height: 600px;
+  }
+
+  .lg\:\!w-full {
+    width: 100% !important;
   }
 
   .lg\:w-1\/2 {
