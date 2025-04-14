@@ -1,1 +1,64 @@
-{"header":{"icon":"Bifocal","hideIcon":false,"iconSize":{"width":82,"height":30},"firstLine":{"text":"Lançamentos","color":"#43c2ff","fontSize":{"mobile":"pequeno","desktop":"normal"},"fontFamily":"Roboto","fontWeight":"medium"},"secondLine":{"text":"Do Dia","color":"#000000","fontSize":{"mobile":"grande","desktop":"muito grande"},"fontFamily":"Bebas Neue","fontWeight":"normal"},"textAlignment":"centro","backgroundColor":"#f8f8f8"},"banners":[{"href":"https://www.oticaisabeladias.com.br/produto/armacao-oculos-hexagonal-feminino-2190-isabela-dias","image":"https://data.decoassets.com/otica-isabela/faaad7cc-fe45-4dfc-a94e-87f421fed92c/2190-marrom-02.jpg","label":"Óculos Hexagonal","buttonLabel":"VER ÓCULOS"},{"href":"https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2189-tartaruga-isabela-dias","image":"https://data.decoassets.com/otica-isabela/486f4216-f395-48d4-9446-d735f77207fd/2189-tartaruga.jpg","label":"Óculos Tartaruga","buttonLabel":"VER ÓCULOS"},{"href":"https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-2205-verde-isabela-dias","image":"https://data.decoassets.com/otica-isabela/1b6adcc8-83bd-496e-97b7-c849a518be00/2205-verde-01.jpg","label":"Óculos verde","buttonLabel":"VER ÓCULOS"}],"customer":{"__resolveType":"site/loaders/store/auth.ts"},"products":{"id":[],"offset":9,"ordenacao":"none","__resolveType":"site/loaders/product/productList.ts","filtrosDinamicos":[],"idColecaoProdutos":3},"__resolveType":"site/sections/Product/ProductBannerShelf.tsx"}
+{
+  "header": {
+    "icon": "Bifocal",
+    "hideIcon": false,
+    "iconSize": {
+      "width": 82,
+      "height": 30
+    },
+    "firstLine": {
+      "text": "Lançamentos",
+      "color": "#43c2ff",
+      "fontSize": {
+        "mobile": "pequeno",
+        "desktop": "normal"
+      },
+      "fontFamily": "Roboto",
+      "fontWeight": "medium"
+    },
+    "secondLine": {
+      "text": "Do Dia",
+      "color": "#000000",
+      "fontSize": {
+        "mobile": "grande",
+        "desktop": "muito grande"
+      },
+      "fontFamily": "Bebas Neue",
+      "fontWeight": "normal"
+    },
+    "textAlignment": "centro",
+    "backgroundColor": "#f8f8f8"
+  },
+  "banners": [
+    {
+      "image": "https://assets.decocache.com/otica-isabela/e644ac1a-9315-46f5-b065-ff70a58543f5/2231-prata.jpg",
+      "label": "Óculos Aviador",
+      "buttonLabel": "VER ÓCULOS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-feminino-2231-prata-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/99020164-7b5e-4ac4-a82a-d71b6286a581/2250-azul.jpg",
+      "label": "Óculos Retangular Azul",
+      "buttonLabel": "VER ÓCULOS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2250-azul-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/d79a46e1-e880-4205-bbab-f37d2de83c9e/2245-tartaruga.jpg",
+      "label": "Óculos Tartaruga",
+      "buttonLabel": "VER ÓCULOS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-feminino-2245-tartaruga2-isabela-dias"
+    }
+  ],
+  "customer": {
+    "__resolveType": "site/loaders/store/auth.ts"
+  },
+  "products": {
+    "id": [],
+    "offset": 9,
+    "ordenacao": "none",
+    "__resolveType": "site/loaders/product/productList.ts",
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 3
+  },
+  "__resolveType": "site/sections/Product/ProductBannerShelf.tsx"
+}
