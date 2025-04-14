@@ -72,8 +72,6 @@ function ProductCard({
     [];
   const displayImage = hoverImage || front?.url!;
 
-  console.log(variantImages, "uai");
-
   // Event handlers
   const handleColorHover = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
