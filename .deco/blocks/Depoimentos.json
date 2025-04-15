@@ -1,1 +1,99 @@
-{"page":{"__resolveType":"homeTestimonials"},"title":"Testimonials","header":{"icon":"Cloud","hideIcon":false,"iconSize":{"width":43,"height":43},"firstLine":{"text":"confira as","color":"#42c3ff","fontSize":{"mobile":"muito pequeno","desktop":"normal"},"fontFamily":"Roboto","fontWeight":"normal"},"secondLine":{"text":"Avaliações dos clientes","color":"#000000","fontSize":{"mobile":"normal","desktop":"muito grande"},"fontFamily":"Bebas Neue","fontWeight":"normal"},"textAlignment":"começo","backgroundColor":"#f8f8f8"},"description":"Take a look at what our customers are saying","testimonials":[{"text":"Thrilled with my first Fashion purchase. Seamless process, prompt delivery with free shipping. Exceeded expectations in style and quality!","user":{"name":"Tiago Gimenes","avatar":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/850df7f9-120e-4155-ae79-c76e737535ee"},"image":{"alt":"deco","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/9dc5dddc-f8b5-4f70-847b-1f91b84ad7dc"}},{"text":"Love shopping at Fashion! Quality products, exceptional service. Hassle-free returns and free shipping. My go-to for stylish fashion!","user":{"name":"Rafael Crespo","avatar":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/6a595043-fb5b-43b4-b6dd-bd3154e4e595"},"image":{"alt":"deco","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d0a79cf6-6825-4624-884c-f30bda6c3daf"}},{"text":"Fashion is my favorite online retailer. On-trend selection, exceptional quality. Easy returns and 24/7 online support. A delightful shopping experience!","user":{"name":"Maria Luiza Aires","avatar":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/8327a46f-bb4e-4ae8-8cf2-963d530d3066"},"image":{"alt":"deco","src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ca4c79ea-5bd9-42d3-a60a-07c99c5f45c4"}}],"__resolveType":"site/sections/Content/Testimonials.tsx","membershipBadges":[{"bagde":{"mobile":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bdb1802e-2400-4e78-abba-5903761e2c81","desktop":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/5db96d3d-78cf-482d-bd16-b5417282f809"},"label":"gold","badgeDescription":"Cliente Gold"},{"bagde":{"mobile":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6bbe1048-7fa0-421f-a38f-d912065bf675","desktop":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d44afe55-daa4-4c97-bca7-3f5841c7e6c2"},"label":"vip","badgeDescription":"Cliente Vip"},{"bagde":{"mobile":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0068d045-12dc-403b-adf2-6d7d41c391e5","desktop":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/690378a4-38da-4e1f-a60a-7bf05b764e0d"},"label":"diamond","badgeDescription":"Cliente diamante"}]}
+{
+  "page": {
+    "__resolveType": "homeTestimonials"
+  },
+  "title": "Testimonials",
+  "header": {
+    "icon": "QuestionMarkCircle",
+    "hideIcon": false,
+    "iconSize": {
+      "width": 43,
+      "height": 43
+    },
+    "firstLine": {
+      "text": "confira as",
+      "color": "#42c3ff",
+      "fontSize": {
+        "mobile": "muito pequeno",
+        "desktop": "normal"
+      },
+      "fontFamily": "Outfit",
+      "fontWeight": "normal"
+    },
+    "secondLine": {
+      "text": "Avaliações dos clientes",
+      "color": "#000000",
+      "fontSize": {
+        "mobile": "normal",
+        "desktop": "muito grande"
+      },
+      "fontFamily": "Outfit",
+      "fontWeight": "normal"
+    },
+    "textAlignment": "começo",
+    "backgroundColor": "#f8f8f8"
+  },
+  "description": "Take a look at what our customers are saying",
+  "testimonials": [
+    {
+      "text": "Thrilled with my first Fashion purchase. Seamless process, prompt delivery with free shipping. Exceeded expectations in style and quality!",
+      "user": {
+        "name": "Tiago Gimenes",
+        "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/850df7f9-120e-4155-ae79-c76e737535ee"
+      },
+      "image": {
+        "alt": "deco",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/9dc5dddc-f8b5-4f70-847b-1f91b84ad7dc"
+      }
+    },
+    {
+      "text": "Love shopping at Fashion! Quality products, exceptional service. Hassle-free returns and free shipping. My go-to for stylish fashion!",
+      "user": {
+        "name": "Rafael Crespo",
+        "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/6a595043-fb5b-43b4-b6dd-bd3154e4e595"
+      },
+      "image": {
+        "alt": "deco",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/d0a79cf6-6825-4624-884c-f30bda6c3daf"
+      }
+    },
+    {
+      "text": "Fashion is my favorite online retailer. On-trend selection, exceptional quality. Easy returns and 24/7 online support. A delightful shopping experience!",
+      "user": {
+        "name": "Maria Luiza Aires",
+        "avatar": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/8327a46f-bb4e-4ae8-8cf2-963d530d3066"
+      },
+      "image": {
+        "alt": "deco",
+        "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/ca4c79ea-5bd9-42d3-a60a-07c99c5f45c4"
+      }
+    }
+  ],
+  "__resolveType": "site/sections/Content/Testimonials.tsx",
+  "membershipBadges": [
+    {
+      "bagde": {
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bdb1802e-2400-4e78-abba-5903761e2c81",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/5db96d3d-78cf-482d-bd16-b5417282f809"
+      },
+      "label": "gold",
+      "badgeDescription": "Cliente Gold"
+    },
+    {
+      "bagde": {
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/6bbe1048-7fa0-421f-a38f-d912065bf675",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d44afe55-daa4-4c97-bca7-3f5841c7e6c2"
+      },
+      "label": "vip",
+      "badgeDescription": "Cliente Vip"
+    },
+    {
+      "bagde": {
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/0068d045-12dc-403b-adf2-6d7d41c391e5",
+        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/690378a4-38da-4e1f-a60a-7bf05b764e0d"
+      },
+      "label": "diamond",
+      "badgeDescription": "Cliente diamante"
+    }
+  ]
+}

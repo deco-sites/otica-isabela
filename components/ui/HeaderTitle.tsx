@@ -11,7 +11,7 @@ interface TextLine {
   /** @title Texto */
   text?: string;
   /** @title Familia da Fonte */
-  fontFamily?: "Bebas Neue" | "Roboto";
+  fontFamily?: "Outfit" | "Roboto";
   /** @title Peso da Fonte */
   fontWeight?: "normal" | "medium" | "semi-bold" | "bold";
   /** @title Tamanho da Fonte */
@@ -71,8 +71,8 @@ const FONT_WEIGHTS = {
 } as const;
 
 const FONT_FAMILIES = {
-  "Bebas Neue": "font-outfit",
-  "Roboto": "",
+  "Outfit": "font-outfit",
+  "Roboto": "font-roboto",
 } as const;
 
 const FONT_SIZES = {
@@ -116,7 +116,7 @@ export const HeaderTitle = ({
                 fontWeight: FONT_WEIGHTS[firstLine.fontWeight ?? "normal"],
               }}
               class={`flex items-center justify-start ${
-                FONT_FAMILIES[firstLine.fontFamily ?? "Roboto"]
+                FONT_FAMILIES[firstLine.fontFamily ?? "Outfit"]
               } ${FONT_SIZES[firstLine.fontSize?.mobile ?? "muito pequeno"]}
           ${
                 FONT_SIZES_DESKTOP[
@@ -146,7 +146,7 @@ export const HeaderTitle = ({
                 fontWeight: FONT_WEIGHTS[secondLine.fontWeight ?? "normal"],
               }}
               class={`text-black ${
-                FONT_FAMILIES[secondLine.fontFamily ?? "Roboto"]
+                FONT_FAMILIES[secondLine.fontFamily ?? "Outfit"]
               }
           ${FONT_SIZES[secondLine.fontSize?.mobile ?? "grande"]}
           lg:${FONT_SIZES[secondLine.fontSize?.desktop ?? "muito grande"]}

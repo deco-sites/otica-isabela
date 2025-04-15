@@ -17,7 +17,7 @@ export interface StoreProps extends Props {
 }
 
 export default function Site(
-  state: StoreProps,
+  state: StoreProps
   //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 ): App<Manifest, StoreProps, [StdApp]> {
   return {

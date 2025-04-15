@@ -13,7 +13,7 @@
         "mobile": "pequeno",
         "desktop": "normal"
       },
-      "fontFamily": "Roboto",
+      "fontFamily": "Outfit",
       "fontWeight": "medium"
     },
     "secondLine": {
@@ -23,7 +23,7 @@
         "mobile": "grande",
         "desktop": "muito grande"
       },
-      "fontFamily": "Bebas Neue",
+      "fontFamily": "Outfit",
       "fontWeight": "normal"
     },
     "textAlignment": "centro",

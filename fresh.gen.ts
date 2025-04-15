@@ -21,6 +21,7 @@ import * as $LazyIframe from "./islands/LazyIframe.tsx";
 import * as $NavItem from "./islands/NavItem.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $NewsletterSec from "./islands/NewsletterSec.tsx";
+import * as $ProductCard from "./islands/ProductCard.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
 import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
 import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
@@ -63,6 +64,7 @@ const manifest = {
     "./islands/NavItem.tsx": $NavItem,
     "./islands/Newsletter.tsx": $Newsletter,
     "./islands/NewsletterSec.tsx": $NewsletterSec,
+    "./islands/ProductCard.tsx": $ProductCard,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
     "./islands/PromotionalBar.tsx": $PromotionalBar,
     "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,

@@ -50,16 +50,16 @@ export default function Testimonials(
           </Slider>
 
           <div class="flex items-center justify-between absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
-            <Slider.PrevButton class="size-8 rounded bg-slot-primary-500 disabled:bg-grayscale-50 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+            <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
               <Icon
                 id="chevron-right"
-                class="rotate-180 text-grayscale-0 group-disabled:text-slot-primary-500 transition-colors"
+                class="rotate-180 text-slot-primary-500 transition-colors"
               />
             </Slider.PrevButton>
-            <Slider.NextButton class="size-8 rounded bg-slot-primary-500 disabled:bg-grayscale-50 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+            <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
               <Icon
                 id="chevron-right"
-                class="text-grayscale-0 group-disabled:text-slot-primary-500 transition-colors"
+                class="text-slot-primary-500 transition-colors"
               />
             </Slider.NextButton>
           </div>

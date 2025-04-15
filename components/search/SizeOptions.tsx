@@ -76,7 +76,7 @@ function SizeOptions(
 ) {
   return (
     <>
-      <div class="flex flex-col gap-6 pr-10">
+      <div class="flex flex-col gap-3 pr-10">
         {values.map((value) => (
           <ValueItem type={type} {...value} class="h-fit flex" />
         ))}
@@ -85,9 +85,9 @@ function SizeOptions(
             <div
               id="custom-filters-checkbox"
               aria-checked={false}
-              class="checkbox border relative h-[30px] w-[30px] mr-2.5 rounded-[5px] border-solid border-black"
+              class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
             />
-            <span class="flex items-center gap-2.5 max-lg:font-medium">
+            <span class="flex items-center text-sm gap-2.5 max-lg:font-medium text-[#6f6f6f]">
               Personalizado
             </span>
           </div>
@@ -95,7 +95,7 @@ function SizeOptions(
       </div>
       <div
         id="custom-filters"
-        class="pt-2 after:lg:border-l border-black lg:pl-10 lg:pt-0"
+        class="pt-2 after:lg:border-l border-[#969696] lg:pt-0"
         style={{ display: "none" }}
       >
         {rangeOptions.map((option) => {

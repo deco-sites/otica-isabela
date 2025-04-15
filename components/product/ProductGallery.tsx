@@ -1,6 +1,6 @@
 import { Product } from "apps/commerce/types.ts";
 
-import ProductCard from "$store/components/product/ProductCard.tsx";
+import ProductCard from "$store/islands/ProductCard.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 

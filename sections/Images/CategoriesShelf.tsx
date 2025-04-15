@@ -126,11 +126,14 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
                     <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
                         <Icon
                             id="chevron-right"
-                            class="rotate-180 text-grayscale-700"
+                            class="rotate-180 text-slot-primary-500 transition-colors"
                         />
                     </Slider.PrevButton>
                     <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
-                        <Icon id="chevron-right" class="text-grayscale-700" />
+                        <Icon
+                            id="chevron-right"
+                            class="text-slot-primary-500 transition-colors"
+                        />
                     </Slider.NextButton>
                 </div>
             </div>
