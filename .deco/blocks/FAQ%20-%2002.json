@@ -2,8 +2,7 @@
   "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/ca8e9b37-d5a0-4a95-8f6a-6e404e1221c3",
   "title": "FAQ",
   "header": {
-    "icon": "QuestionMarkCircle",
-    "hideIcon": false,
+    "hideIcon": true,
     "iconSize": {
       "width": 63,
       "height": 80
@@ -16,7 +15,7 @@
         "desktop": "muito grande"
       },
       "fontFamily": "Outfit",
-      "fontWeight": "normal"
+      "fontWeight": "bold"
     },
     "secondLine": {
       "text": "aprenda como comprar óculos de grau pela internet sem sair de casa",
@@ -29,7 +28,8 @@
       "fontWeight": "bold"
     },
     "textAlignment": "centro",
-    "backgroundColor": "#f8f8f8"
+    "backgroundColor": "#f8f8f8",
+    "icon": "QuestionMarkCircle"
   },
   "layout": {
     "variation": "Side to side",

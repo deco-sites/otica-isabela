@@ -5,7 +5,7 @@
   "title": "Testimonials",
   "header": {
     "icon": "QuestionMarkCircle",
-    "hideIcon": false,
+    "hideIcon": true,
     "iconSize": {
       "width": 43,
       "height": 43
@@ -28,7 +28,7 @@
         "desktop": "muito grande"
       },
       "fontFamily": "Outfit",
-      "fontWeight": "normal"
+      "fontWeight": "bold"
     },
     "textAlignment": "começo",
     "backgroundColor": "#f8f8f8"

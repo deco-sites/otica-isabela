@@ -110,21 +110,23 @@ export const HeaderTitle = ({
       >
         {firstLine
           ? (
-            <span
-              style={{
-                color: firstLine.color,
-                fontWeight: FONT_WEIGHTS[firstLine.fontWeight ?? "normal"],
-              }}
-              class={`flex items-center justify-start ${
-                FONT_FAMILIES[firstLine.fontFamily ?? "Outfit"]
-              } ${FONT_SIZES[firstLine.fontSize?.mobile ?? "muito pequeno"]}
+            <div class="flex items-center justify-center">
+              <span
+                style={{
+                  color: firstLine.color,
+                  fontWeight: FONT_WEIGHTS[firstLine.fontWeight ?? "normal"],
+                }}
+                class={`${FONT_FAMILIES[firstLine.fontFamily ?? "Outfit"]} ${
+                  FONT_SIZES[firstLine.fontSize?.mobile ?? "muito pequeno"]
+                }
           ${
-                FONT_SIZES_DESKTOP[
-                  firstLine.fontSize?.desktop ?? "muito pequeno"
-                ]
-              } gap-x-2`}
-            >
-              {firstLine.text}
+                  FONT_SIZES_DESKTOP[
+                    firstLine.fontSize?.desktop ?? "muito pequeno"
+                  ]
+                } gap-x-2`}
+              >
+                {firstLine.text}
+              </span>
               {!hideIcon && icon && iconSize
                 ? (
                   <Icon
@@ -134,7 +136,7 @@ export const HeaderTitle = ({
                   />
                 )
                 : null}
-            </span>
+            </div>
           )
           : null}
 
