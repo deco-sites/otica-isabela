@@ -47,7 +47,7 @@ function SearchControls({
       <>
         <div class="w-full flex flex-col items-center justify-center my-[30px]">
           <Icon class="text-black" id="Filter" width={50} height={50} />
-          <span class="uppercase text-black text-lg font-bebas-neue">
+          <span class="uppercase text-black text-lg font-outfit">
             Filtro
           </span>
         </div>
@@ -95,7 +95,7 @@ function SearchControls({
       <>
         <div class="w-full flex flex-col items-center justify-center my-[30px]">
           <Icon class="text-black" id="Order" width={50} height={50} />
-          <span class="uppercase text-black text-lg font-bebas-neue">
+          <span class="uppercase text-black text-lg font-outfit">
             Ordenar
           </span>
         </div>
@@ -132,7 +132,7 @@ function SearchControls({
             onClick={() => openFilter()}
           >
             <Icon class="text-base-200" id="Filter" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
+            <span class="uppercase text-base-200 font-outfit">Filtro</span>
           </button>
         </div>
         <div class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
@@ -144,7 +144,7 @@ function SearchControls({
             onClick={() => openOrderBy()}
           >
             <Icon class="text-base-200" id="Order" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Ordenar</span>
+            <span class="uppercase text-base-200 font-outfit">Ordenar</span>
           </button>
         </div>
       </div>
