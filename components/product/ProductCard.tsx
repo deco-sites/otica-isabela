@@ -47,6 +47,7 @@ function ProductCard({
     isVariantOf,
   } = product;
   const [hoverImage, setHoverImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
 
@@ -70,7 +71,13 @@ function ProductCard({
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
   const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
     [];
-  const displayImage = hoverImage || front?.url!;
+
+  const handleColorClick = (colorName: string) => {
+    const index = variantNames.indexOf(colorName);
+    if (index !== -1 && variantImages[index]) {
+      setSelectedImage(variantImages[index]);
+    }
+  };
 
   // Event handlers
   const handleColorHover = (colorName: string) => {
@@ -81,6 +88,8 @@ function ProductCard({
   };
 
   const handleColorLeave = () => setHoverImage(null);
+
+  const displayImage = hoverImage || selectedImage || front?.url!;
 
   // Render helpers
   const renderSlider = () => (
@@ -132,32 +141,42 @@ function ProductCard({
     <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative">
       {availableColors
         .sort((a, b) => (a.name === name ? -1 : b.name === name ? 1 : 0))
-        .map(({ name, url, unitCodes }) => (
-          <li
-            key={unitCodes.join()}
-            onMouseEnter={() => handleColorHover(name)}
-            onMouseLeave={handleColorLeave}
-            class={`group ${
-              name === product.name
-                ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
-                : ""
-            }`}
-          >
-            <a href={`/produto${url}`} aria-label={name}>
-              <div
-                style={{
-                  background: unitCodes.length > 1
-                    ? `linear-gradient(${unitCodes.join(", ")})`
-                    : unitCodes[0],
-                }}
-                class="mask mask-circle h-4 w-4 bg-secondary hover:scale-125 transition-transform"
-              />
-            </a>
-            <div class="absolute w-full z-20 bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              {name}
-            </div>
-          </li>
-        ))}
+        .map(({ name, url, unitCodes }) => {
+          const isSelected = selectedImage
+            ? variantNames[variantImages.indexOf(selectedImage)] === name
+            : name === product.name;
+
+          return (
+            <li
+              key={unitCodes.join()}
+              onClick={() => handleColorClick(name)}
+              onMouseEnter={() => handleColorHover(name)}
+              onMouseLeave={handleColorLeave}
+              class={`group cursor-pointer ${
+                isSelected
+                  ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
+                  : ""
+              }`}
+            >
+              <a
+                aria-label={name}
+                onClick={(e) => e.preventDefault()}
+              >
+                <div
+                  style={{
+                    background: unitCodes.length > 1
+                      ? `linear-gradient(${unitCodes.join(", ")})`
+                      : unitCodes[0],
+                  }}
+                  class="mask mask-circle h-4 w-4 bg-secondary hover:scale-125 transition-transform"
+                />
+              </a>
+              <div class="absolute w-full z-20 bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                {name}
+              </div>
+            </li>
+          );
+        })}
     </ul>
   );
 
@@ -166,7 +185,7 @@ function ProductCard({
       ? <ToExperimentButton image={experimenterImage} />
       : (
         <a href={url} class="w-full flex justify-end">
-          <Button class="text-black bg-transparent rounded-[15px] btn min-h-[unset] h-[unset] w-fit px-4 py-1.5 text-sm hover:text-white hover:bg-black border border-black">
+          <Button class="text-black font-medium bg-transparent rounded-[15px] btn min-h-[unset] h-[unset] w-fit px-4 py-1.5 text-sm hover:text-white hover:bg-black border border-black">
             Ver Produto
           </Button>
         </a>
@@ -210,7 +229,7 @@ function ProductCard({
       <div class="flex flex-col items-center mt-[10px]">
         <a href={url} aria-label="view product" class="contents">
           <div class="flex flex-col">
-            <p class="font-semibold text-black text-base leading-none h-[33px]">
+            <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
             {description.length > 0 && (

@@ -22,14 +22,19 @@ export interface Banner {
     /** @description image alt text */
     link?: string;
   };
+  /** @description turn true to make it not appear on mobile */
+  deactiveMobile?: boolean;
 }
 
 function Banner({ banner }: SectionProps<ReturnType<typeof loader>>) {
   if (!banner) {
     return null;
   }
+  const { title, subtitle, image, deactiveMobile } = banner;
 
-  const { title, subtitle, image } = banner;
+  if (deactiveMobile) {
+    return null;
+  }
 
   return (
     <div class="grid grid-cols-1 grid-rows-1">

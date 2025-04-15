@@ -45,10 +45,10 @@ function SearchControls({
   function FilterContent() {
     return (
       <>
-        <div class="w-full flex flex-col items-center justify-center my-[30px]">
-          <Icon class="text-black" id="Filter" width={50} height={50} />
+        <div class="w-full flex items-center justify-center mb-6 mt-3">
+          <Icon class="text-black" id="Filter" width={30} height={30} />
           <span class="uppercase text-black text-lg font-bebas-neue">
-            Filtro
+            Filtros
           </span>
         </div>
         <div class="w-full">
@@ -65,18 +65,8 @@ function SearchControls({
               </a>
             )
             : null}
-          <button
-            id="apply-range-filters-mobile"
-            class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-          >
-            <span>FILTRAR</span>
-          </button>
-          <ApplyRangeFiltersJS
-            rootId="size-options-container-mobile"
-            buttonId="apply-range-filters-mobile"
-          />
         </div>
-        <div class="w-full">
+        <div class="w-full bg-white p-[15px]">
           <Filters
             filters={filters}
             filterColors={filterColors}
@@ -86,6 +76,18 @@ function SearchControls({
             isMobile
           />
         </div>
+        <div class="bg-white w-full absolute bottom-0 left-2/4 translate-x-[-50%] flex justify-center items-center p-[21px]">
+          <button
+            id="apply-range-filters-mobile"
+            class="w-[90%] uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+          >
+            <span>FILTRAR</span>
+          </button>
+        </div>
+        <ApplyRangeFiltersJS
+          rootId="size-options-container-mobile"
+          buttonId="apply-range-filters-mobile"
+        />
       </>
     );
   }
@@ -93,13 +95,13 @@ function SearchControls({
   function OrderByContent() {
     return (
       <>
-        <div class="w-full flex flex-col items-center justify-center my-[30px]">
-          <Icon class="text-black" id="Order" width={50} height={50} />
+        <div class="w-full flex items-center justify-center mb-6 mt-3">
+          <Icon class="text-black" id="Order" width={30} height={30} />
           <span class="uppercase text-black text-lg font-bebas-neue">
             Ordenar
           </span>
         </div>
-        <div class="w-full">
+        <div class="w-full bg-white p-[15px]">
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
       </>
@@ -112,7 +114,7 @@ function SearchControls({
       class="lg:hidden"
       onClose={() => (isOpen.value = false)}
       aside={
-        <div class="relative bg-white opacity-[0.95] py-[30px] px-[20px] w-full h-full flex flex-col overflow-x-hidden overflow-y-scroll">
+        <div class="relative bg-[#e3e3e3] opacity-1 px-1.5 w-full h-full flex flex-col overflow-x-hidden overflow-y-scroll">
           <div class="absolute top-0 right-0">
             <Button
               class="relative btn btn-ghost hover:bg-transparent"

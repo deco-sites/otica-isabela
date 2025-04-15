@@ -247,7 +247,7 @@ function FilterValues({
           </div>
         )
         : (
-          <div class="collapse-content grid gap-6">
+          <div class="collapse-content grid gap-6 max-h-[210px] !min-h-[unset] overflow-auto">
             <Options isMobile={isMobile} />
           </div>
         )}
@@ -305,7 +305,18 @@ function Filters({
                       index === 0 ? "pt-0" : ""
                     }`}
                   >
-                    <span class="text-sm">{filter.label}</span>
+                    <span class="text-sm">
+                      {filter.label}
+                      {isToggle(filter) && filter.values.filter((value) =>
+                            value.selected
+                          ).length > 0 &&
+                        (
+                          <span class="ml-1 text-blue-200">
+                            ({filter.values.filter((value) => value.selected)
+                              .length})
+                          </span>
+                        )}
+                    </span>
                     <Icon size={24} id="ChevronDown" />
                   </summary>
                   <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
@@ -328,12 +339,24 @@ function Filters({
           </ul>
         )
         : (
-          <ul class="lg:hidden flex w-full justify-center flex-col">
+          <ul class="lg:hidden flex w-full justify-center flex-col max-h-[550px] overflow-y-visible">
             {defaultFilters.map((filter) => (
-              <li key={filter.key} class="collapse collapse-arrow ">
+              <li
+                key={filter.key}
+                class="collapse collapse-arrow border-b-[1px] border-solid border-b-[#cdcdcd] rounded-none"
+              >
                 <input type="checkbox" />
-                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg font-bold">
+                <div class="collapse-title after:!w-3 after:!h-3 text-base font-bold px-0">
                   {filter.label}
+                  {isToggle(filter) &&
+                    filter.values.filter((value) => value.selected).length >
+                      0 &&
+                    (
+                      <span class="ml-1 text-blue-200">
+                        ({filter.values.filter((value) => value.selected)
+                          .length})
+                      </span>
+                    )}
                 </div>
                 {isToggle(filter) && (
                   <FilterValues
