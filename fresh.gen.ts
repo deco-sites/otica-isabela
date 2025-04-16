@@ -7,6 +7,7 @@ import * as $Accessibility from "./islands/Accessibility.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $Alertas from "./islands/Alertas.tsx";
 import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
+import * as $AutoApplyFilters from "./islands/AutoApplyFilters.tsx";
 import * as $Carrossel from "./islands/Carrossel.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
@@ -50,6 +51,7 @@ const manifest = {
     "./islands/AddToCartButton.tsx": $AddToCartButton,
     "./islands/Alertas.tsx": $Alertas,
     "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
+    "./islands/AutoApplyFilters.tsx": $AutoApplyFilters,
     "./islands/Carrossel.tsx": $Carrossel,
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,

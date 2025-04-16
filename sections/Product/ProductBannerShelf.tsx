@@ -103,12 +103,14 @@ function ProductBannerShelf({
       />
 
       {products && (
+        <div class="mb-14">
         <ProductShelf
           itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           isStopwatchEnabled={isStopwatchEnabled}
           customer={customer}
         />
+        </div>
       )}
     </>
   );

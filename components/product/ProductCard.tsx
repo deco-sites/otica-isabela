@@ -186,7 +186,7 @@ function ProductCard({
       : (
         <a href={url} class="w-full flex justify-end">
           <Button class="text-black font-medium bg-transparent rounded-[15px] btn min-h-[unset] h-[unset] w-fit px-4 py-1.5 text-sm hover:text-white hover:bg-black border border-black">
-            Ver Produto
+            Experimentar
           </Button>
         </a>
       );

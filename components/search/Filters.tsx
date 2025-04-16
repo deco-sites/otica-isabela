@@ -311,9 +311,9 @@ function Filters({
                             value.selected
                           ).length > 0 &&
                         (
-                          <span class="ml-1 text-blue-200">
-                            ({filter.values.filter((value) => value.selected)
-                              .length})
+                          <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                            {filter.values.filter((value) => value.selected)
+                              .length}
                           </span>
                         )}
                     </span>
@@ -352,9 +352,11 @@ function Filters({
                     filter.values.filter((value) => value.selected).length >
                       0 &&
                     (
-                      <span class="ml-1 text-blue-200">
-                        ({filter.values.filter((value) => value.selected)
-                          .length})
+                      <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                        {filter.values.filter((value) =>
+                          value.selected
+                        )
+                          .length}
                       </span>
                     )}
                 </div>

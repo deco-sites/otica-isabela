@@ -19,7 +19,7 @@ function BestDailyOffers({ products, customer }: Props) {
   if (!priceValidUntil) return null;
 
   return (
-    <div class="w-full flex flex-col gap-12 lg:gap-16 ">
+    <div class="w-full flex flex-col gap-12 lg:gap-16 mb-14">
       <BestOffersHeader priceValidUntil={priceValidUntil} page={"home"} />
       <ProductShelf
         itemsPerPage={{ desktop: 3, mobile: 1.2 }}

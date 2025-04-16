@@ -23,19 +23,50 @@ export default function ValueItem({
   const isSelected = selectedFilters.value.some((value) =>
     label === value.label
   );
+
+  const handleFilterClick = () => {
+    const selected = selectedFilters.peek();
+    const filters = selected.some((filter) => filter.label === label)
+      ? selected.filter((filter) => filter.label !== label)
+      : selected.concat({
+        type,
+        url,
+        label,
+      });
+
+    selectedFilters.value = filters;
+
+    // Aplicar o filtro automaticamente ao clicar
+    setTimeout(() => {
+      const currentUrl = new URL(window.location.href);
+
+      // Limpar filtros existentes do mesmo tipo
+      for (const [key, value] of currentUrl.searchParams.entries()) {
+        if (
+          key === `filter.${type}` &&
+          !filters.some((filter) => filter.label === value)
+        ) {
+          currentUrl.searchParams.delete(key, value);
+        }
+      }
+
+      // Adicionar novos filtros
+      filters.forEach(({ type: filterType, label: filterLabel }) => {
+        if (!currentUrl.searchParams.has(`filter.${filterType}`, filterLabel)) {
+          currentUrl.searchParams.append(`filter.${filterType}`, filterLabel);
+        }
+      });
+
+      // Navegar para a nova URL se for diferente da atual
+      if (window.location.href !== currentUrl.href) {
+        window.location.href = currentUrl.href;
+      }
+    }, 0);
+  };
+
   return (
     <button
-      onClick={() => {
-        const selected = selectedFilters.peek();
-        const filters = selected.some((filter) => filter.label === label)
-          ? selected.filter((filter) => filter.label !== label)
-          : selected.concat({
-            type,
-            url,
-            label,
-          });
-        selectedFilters.value = filters;
-      }}
+      onClick={handleFilterClick}
       class={_class}
     >
       <div class="flex items-center">

@@ -57,7 +57,7 @@ function VisitedProductShelf({
   }
 
   return (
-    <div class="w-full flex flex-col gap-12 lg:gap-16 ">
+    <div class="w-full flex flex-col gap-12 lg:gap-16 my-14">
       {header ? <HeaderTitle {...header} /> : null}
       <ProductShelf
         itemsPerPage={{ desktop: 3, mobile: 1.2 }}

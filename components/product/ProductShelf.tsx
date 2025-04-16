@@ -56,7 +56,7 @@ function ProductShelf({
   }
 
   return (
-    <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 my-8">
+    <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16">
       <div id={id} class="container flex flex-col px-0 sm:px-5 relative">
         <Slider class="carousel carousel-center sm:carousel-end gap-4 md:gap-6 col-span-full sm:px-0 px-2.5">
           {products?.slice(0, 9).map((product, index) => (
