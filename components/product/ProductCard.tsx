@@ -247,17 +247,12 @@ function ProductCard({
           </div>
         </a>
 
-        <div class="w-full flex items-center justify-between">
-          {availableColors.length > 0 && renderColorSwatches()}
-          {renderExperimentButton()}
-        </div>
-
         <div class="w-full flex justify-normal items-center my-[10px]">
           <a href={url} aria-label="view product" class="contents">
             <div class="flex w-full justify-between">
               <div class="flex flex-row justify-center items-center gap-2">
                 {discount > 0 && (
-                  <span class="line-through font-semibold text-red-500 text-sm">
+                  <span class="line-through font-semibold text-[#6F6F6F] text-sm">
                     {formatPrice(listPrice, offers!.priceCurrency!)}
                   </span>
                 )}
@@ -266,12 +261,17 @@ function ProductCard({
                 </span>
               </div>
               {discount > 0 && (
-                <span class="bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px] ">
-                  <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+                <span class="text-red-500 font-semibold text-sm flex justify-center items-center">
+                  {discount}% OFF
                 </span>
               )}
             </div>
           </a>
+        </div>
+
+        <div class="w-full flex items-center justify-between">
+          {availableColors.length > 0 && renderColorSwatches()}
+          {renderExperimentButton()}
         </div>
       </div>
     </div>
