@@ -10,8 +10,8 @@ interface Props {
 }
 
 const STYLE = {
-  outlined: "bg-white text-black hover:text-white hover:bg-black",
-  filled: "bg-black text-white hover:text-black hover:bg-white",
+  outlined: "bg-white text-grayscale-700 hover:text-slot-primary-500",
+  filled: "bg-white text-grayscale-700 hover:text-slot-primary-500",
 };
 
 const SIZING = {
@@ -23,8 +23,7 @@ const SIZING = {
   small: {
     iconW: 25,
     iconH: 23,
-    style:
-      "text-xs lg:text-sm max-lg:w-auto rounded-[9px] gap-4 py-[5px] px-5 xxs:py-[9px] xxs:px-4 2xl:px-12",
+    style: "text-xs lg:text-sm max-lg:w-auto rounded-[15px] gap-2 py-1.5 px-4",
   },
   large: {
     iconW: 40,
@@ -37,7 +36,7 @@ const SIZING = {
 const ToExperimentButton = ({
   image,
   variant = "outlined",
-  size = "large",
+  size = "small",
 }: Props) => {
   const isExperimenting = useSignal(false);
   const device = getDevice();
@@ -49,25 +48,22 @@ const ToExperimentButton = ({
     <>
       {/* Experimenter */}
       <button
-        class={`group flex items-center justify-center border border-black font-bold lg:h-14 w-full transition-all duration-300 ease-in-out
+        class={`group flex items-center justify-center border border-black hover:border-slot-primary-500 font-semibold w-full 
 		      ${STYLE[variant]} ${SIZING[size].style}`}
         onClick={toggleExperimenter}
       >
-        <span class="hidden lg:flex">
+        <span class="">
           <Icon
             id="Camera"
-            class={`${
-              variant === "outlined"
-                ? "group-hover:invert"
-                : "group-hover:invert-0"
-            } text-black`}
+            class={`text-black`}
             width={SIZING[size].iconW}
             height={SIZING[size].iconH}
-            filter={variant === "outlined" ? "none" : "invert()"}
+            // filter={variant === "outlined" ? "none" : "invert()"}
             style={{ color: "black" }}
           />
         </span>
-        <span class="flex lg:hidden">
+        {
+          /* <span class="flex lg:hidden">
           <Icon
             id="Camera"
             class="group-hover:invert text-black"
@@ -76,8 +72,9 @@ const ToExperimentButton = ({
             filter={variant === "outlined" ? "none" : "invert()"}
             style={{ color: "black" }}
           />
-        </span>
-        <p>Experimentar</p>
+        </span> */
+        }
+        <p class="hover:underline">Experimentar</p>
       </button>
 
       {/* Modal */}

@@ -86,7 +86,10 @@ export type UtilityIcons =
   | "microphone"
   | "info"
   | "info-fill"
-  | "telephon";
+  | "telephon"
+  | "wpp-new"
+  | "email"
+  | "newsletter-logo";
 
 /**
  * @title Icones de recursos

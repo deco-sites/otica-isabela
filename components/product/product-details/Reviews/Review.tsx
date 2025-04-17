@@ -49,68 +49,71 @@ function Review({ page, productData, memberImages }: Props) {
   return (
     <>
       {/* Overview */}
-      <div id="product-review" class="mt-12 bg-[#f8f8f8] ">
-        <div class="container">
-          <div id="title-and-rating" class="py-[70px]">
+      <div id="product-review" class="mt-12">
+        <div class="max-w-[1320px] mx-auto">
+          <div id="title-and-rating" class="py-5">
             <h2 class="text-xl text-black font-bold text-center px-[15px] md:text-2xl lg:w-[75%] lg:text-[32px] lg:mx-auto lg:mb-[20px]">
               Nos sentimos felizes por fazer a diferença na saúde visual de
               milhares de pessoas
             </h2>
-            <div class="flex justify-center items-center gap-1">
-              <span class="text-[64px] font-bold text-orange-500">
-                {ratingValue.toFixed(1).replace(".", ",")}
-              </span>
-              <Icon id="Ratings" size={39} style={{ color: "#F37121" }} />
-            </div>
-            <h3 class="text-lg text-center">Pontuação geral</h3>
+            <div class="flex gap-8 px-[15px]">
+              <div class="flex flex-col gap-2">
+                <h3 class="text-xs text-center">Pontuação geral</h3>
+                <div class="flex justify-center items-center gap-1">
+                  <span class="text-[48px] font-bold text-orange-500">
+                    {ratingValue.toFixed(1).replace(".", ",")}
+                  </span>
+                  <Icon id="Ratings" size={23} style={{ color: "#F37121" }} />
+                </div>
+              </div>
+              {/* Images */}
+              <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
+                <div id={id} class="container flex flex-col px-0 sm:px-5">
+                  <Slider class="carousel carousel-center sm:carousel-end gap-1 md:gap-6 col-span-full row-start-2 row-end-5">
+                    {reviews?.map((review, index) => (
+                      review.additionalImage &&
+                      (
+                        <div class="flex flex-col relative">
+                          <Slider.Item
+                            index={index}
+                            class="carousel-item !w-full h-full justify-center"
+                          >
+                            {review.additionalImage
+                              ? (
+                                <Image
+                                  class="rounded-[9px] cursor-pointer"
+                                  src={review.additionalImage}
+                                  alt={review.reviewDescription}
+                                  width={157}
+                                  height={205}
+                                />
+                              )
+                              : (
+                                <div
+                                  class="w-full bg-gray-400 rounded-[9px] cursor-pointer"
+                                  style={{ height: 205 }}
+                                />
+                              )}
+                          </Slider.Item>
 
-            {/* Images */}
-            <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-8">
-              <div id={id} class="container flex flex-col px-0 sm:px-5">
-                <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
-                  {reviews?.map((review, index) => (
-                    review.additionalImage &&
-                    (
-                      <div class="flex flex-col relative">
-                        <Slider.Item
-                          index={index}
-                          class="carousel-item w-full justify-center"
-                        >
-                          {review.additionalImage
-                            ? (
-                              <Image
-                                class="rounded-[9px] cursor-pointer"
-                                src={review.additionalImage}
-                                alt={review.reviewDescription}
-                                width={157}
-                                height={205}
-                              />
-                            )
-                            : (
-                              <div
-                                class="w-full bg-gray-400 rounded-[9px] cursor-pointer"
-                                style={{ height: 205 }}
-                              />
-                            )}
-                        </Slider.Item>
+                          {/* Modal */}
+                          <ReviewImagesModal
+                            reviews={reviewsWithImages}
+                            selected={review}
+                          />
+                        </div>
+                      )
+                    ))}
+                  </Slider>
 
-                        {/* Modal */}
-                        <ReviewImagesModal
-                          reviews={reviewsWithImages}
-                          selected={review}
-                        />
-                      </div>
-                    )
-                  ))}
-                </Slider>
-
-                <SliderJS
-                  itemsPerPage={{
-                    desktop: { 0: 4 },
-                    mobile: { 0: 1.5 },
-                  }}
-                  rootId={id}
-                />
+                  <SliderJS
+                    itemsPerPage={{
+                      desktop: { 0: 4 },
+                      mobile: { 0: 1.5 },
+                    }}
+                    rootId={id}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +122,7 @@ function Review({ page, productData, memberImages }: Props) {
       {/* Feedbacks */}
       <div
         id="reviews"
-        class="flex flex-col gap-8 my-12 px-[15px] bg-white container"
+        class="flex flex-col gap-4 my-6 p-[15px] max-w-[1320px] mx-auto"
       >
         {/* First Review */}
         <Feedback
@@ -135,10 +138,18 @@ function Review({ page, productData, memberImages }: Props) {
           />
         )}
 
-        {/* Show more */}
+        {/* Third Review */}
         {reviews && reviews?.length >= 3 && (
+          <Feedback
+            review={reviews[2]}
+            images={memberImages}
+          />
+        )}
+
+        {/* Show more */}
+        {reviews && reviews?.length >= 4 && (
           <ShowMore
-            reviews={reviews.slice(2, reviews.length)}
+            reviews={reviews.slice(3, reviews.length)}
             images={memberImages}
           />
         )}

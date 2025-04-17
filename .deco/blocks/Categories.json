@@ -418,13 +418,17 @@
                 "__resolveType": "site/sections/Category/CategoryText.tsx"
               },
               {
-                "__resolveType": "Footer - 01"
+                "__resolveType": "Newsletter Otica"
+              },
+              {
+                "__resolveType": "Footer Otica"
               },
               {
                 "__resolveType": "wpp-cta"
               }
             ],
-            "__resolveType": "website/sections/Rendering/Deferred.tsx"
+            "__resolveType": "website/sections/Rendering/Deferred.tsx",
+            "display": true
           }
         ]
       }

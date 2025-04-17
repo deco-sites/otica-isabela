@@ -7,6 +7,7 @@ import * as $Accessibility from "./islands/Accessibility.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $Alertas from "./islands/Alertas.tsx";
 import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
+import * as $AutoApplyFilters from "./islands/AutoApplyFilters.tsx";
 import * as $Carrossel from "./islands/Carrossel.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
@@ -20,6 +21,8 @@ import * as $HeaderSearchbar from "./islands/HeaderSearchbar.tsx";
 import * as $LazyIframe from "./islands/LazyIframe.tsx";
 import * as $NavItem from "./islands/NavItem.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
+import * as $NewsletterSec from "./islands/NewsletterSec.tsx";
+import * as $ProductCard from "./islands/ProductCard.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
 import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
 import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
@@ -48,6 +51,7 @@ const manifest = {
     "./islands/AddToCartButton.tsx": $AddToCartButton,
     "./islands/Alertas.tsx": $Alertas,
     "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
+    "./islands/AutoApplyFilters.tsx": $AutoApplyFilters,
     "./islands/Carrossel.tsx": $Carrossel,
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
@@ -61,6 +65,8 @@ const manifest = {
     "./islands/LazyIframe.tsx": $LazyIframe,
     "./islands/NavItem.tsx": $NavItem,
     "./islands/Newsletter.tsx": $Newsletter,
+    "./islands/NewsletterSec.tsx": $NewsletterSec,
+    "./islands/ProductCard.tsx": $ProductCard,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
     "./islands/PromotionalBar.tsx": $PromotionalBar,
     "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,

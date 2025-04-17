@@ -70,18 +70,29 @@ function ProductInfo(
     return stepLabels?.[currentCategory!.toLowerCase()];
   };
   const stepLabel = handleStepsLabel();
+
+  const capitalize = (str) => {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
   return (
     <>
       {/* Name */}
       <div class="mb-4 flex flex-start">
         <div class="flex flex-col">
-          <h1 class="w-full font-roboto font-medium text-[17px] text-lg">
+          <h1 class="w-full font-outfit font-medium text-[17px] text-lg">
             {name}
           </h1>
           {lensDescription && (
-            <span class="font-roboto font-medium text-sm">
+            <span class="font-outfit font-medium text-sm">
               {lensDescription}
             </span>
+          )}
+          {!!ratingValue && (
+            <a href="#product-review" aria-label="Veja as avaliações!">
+              <Ratings ratingValue={ratingValue} />
+            </a>
           )}
         </div>
         <div class="ml-2">
@@ -130,12 +141,6 @@ function ProductInfo(
         </div>
 
         <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          {!!ratingValue && (
-            <a href="#product-review" aria-label="Veja as avaliações!">
-              <Ratings ratingValue={ratingValue} />
-            </a>
-          )}
-
           {!!colorsList?.length && (
             <div class="flex gap-2 items-center">
               <p class="text-base-300 font-bold">
@@ -194,7 +199,7 @@ function ProductInfo(
         >
           <AddToCartButton
             {...addToCard}
-            label={labels?.[currentCategory!.toLowerCase()]}
+            label={capitalize(labels?.[currentCategory!.toLowerCase()])}
           />
         </div>
       )}

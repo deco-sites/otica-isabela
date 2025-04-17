@@ -80,6 +80,11 @@ function CartModalMobile({
 
   const stepLabel = handleStepsLabel();
 
+  const capitalize = (str) => {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
   return (
     <div
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
@@ -99,7 +104,7 @@ function CartModalMobile({
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={labels[currentCategory.toLowerCase()!]}
+              label={capitalize(labels?.[currentCategory!.toLowerCase()])}
             />
           </div>
         )

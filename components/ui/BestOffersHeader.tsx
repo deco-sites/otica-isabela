@@ -22,7 +22,7 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
 
         <div class="hidden lg:block">
           <p class="text-red-500 text-l md:text-xl font-bold">As melhores</p>
-          <h3 class="text-red-500 text-3xl md:text-5xl font-bebas-neue uppercase">
+          <h3 class="text-red-500 text-3xl md:text-5xl font-outfit font-bold uppercase">
             Ofertas do dia
           </h3>
         </div>

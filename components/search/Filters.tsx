@@ -130,7 +130,7 @@ function ColorOptions({
   type: string;
 }) {
   return (
-    <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-lg:gap-y-4 max-lg:gap-x-8">
+    <div className="max-lg:grid max-lg:grid-cols-4 max-lg:gap-6 flex gap-3 flex-wrap">
       {matchingColors?.map(({ children, ...item }) => {
         const { value, hex, selected } = item;
         return (
@@ -141,14 +141,14 @@ function ColorOptions({
             key={value}
             {...item}
             hasSelected={selected}
-            class="w-full"
+            class="w-fit"
           >
-            <div class="flex items-center p-[5px] hover:border hover:p-1 rounded-[5px] border-base-200">
+            <div class="flex items-center tooltip tooltip-top" data-tip={value}>
               <span
+                title={value}
                 style={{ backgroundColor: hex }}
-                class={`border border-solid h-6 w-6 rounded-full`}
+                class={`border border-solid h-5 w-5 rounded-full`}
               />
-              <p class="ml-[10px] font-bold whitespace-nowrap">{value}</p>
             </div>
           </ValueItem>
         );
@@ -217,7 +217,7 @@ function FilterValues({
       const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
 
       return (
-        <div id={rootId} class="lg:flex">
+        <div id={rootId} class="">
           <SizeOptions
             values={values}
             type={label}
@@ -240,14 +240,14 @@ function FilterValues({
       {!isMobile
         ? (
           <div
-            class={`grid gap-6 justify-start font-medium text-black text-sm border bg-gray-scale-100 absolute invisible group-hover:visible z-[9] mb-0 mx-0 p-10 rounded-[0_0_20px_20px] border-solid border-blue-200 top-0 transition duration-300 ease-in-out ${flexDirection} ${ageStyles} ${colorStyles} ${tipoStyles} ${shapeStyles} ${positionStyles}
+            class={`grid gap-3 justify-start font-medium text-grayscale-700 text-sm mb-0 mx-0 rounded-[0_0_20px_20px] transition duration-300 ease-in-out
 			  `}
           >
             <Options isMobile={isMobile} />
           </div>
         )
         : (
-          <div class="collapse-content grid gap-6">
+          <div class="collapse-content grid gap-6 max-h-[210px] !min-h-[unset] overflow-auto">
             <Options isMobile={isMobile} />
           </div>
         )}
@@ -296,34 +296,69 @@ function Filters({
       />
       {!isMobile
         ? (
-          <ul class="flex w-full justify-center flex-row">
+          <ul class="hidden lg:flex flex-col w-full">
             {defaultFilters.map((filter, index, array) => (
-              <li class="flex relative leading-relaxed flex-row px-3.5 justify-between items-center font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200 py-1">
-                <span>{filter.label}</span>
-                <Icon size={24} id="ChevronDown" />
-                {isToggle(filter) && (
-                  <FilterValues
-                    typeIcons={typeIcons}
-                    shapeIcons={shapeIcons}
-                    filterColors={filterColors}
-                    position={index < array.length / 2 ? "left" : "right"}
-                    rangeOptions={filter.label === "Tamanho"
-                      ? rangeFilters
-                      : null}
-                    {...filter}
-                  />
-                )}
+              <li class="flex flex-col relative leading-relaxed justify-between font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
+                <details class="group">
+                  <summary
+                    class={`flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden ${
+                      index === 0 ? "pt-0" : ""
+                    }`}
+                  >
+                    <span class="text-sm">
+                      {filter.label}
+                      {isToggle(filter) && filter.values.filter((value) =>
+                            value.selected
+                          ).length > 0 &&
+                        (
+                          <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                            {filter.values.filter((value) => value.selected)
+                              .length}
+                          </span>
+                        )}
+                    </span>
+                    <Icon size={24} id="ChevronDown" />
+                  </summary>
+                  <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
+                    {isToggle(filter) && (
+                      <FilterValues
+                        typeIcons={typeIcons}
+                        shapeIcons={shapeIcons}
+                        filterColors={filterColors}
+                        position={index < array.length / 2 ? "left" : "right"}
+                        rangeOptions={filter.label === "Tamanho"
+                          ? rangeFilters
+                          : null}
+                        {...filter}
+                      />
+                    )}
+                  </ul>
+                </details>
               </li>
             ))}
           </ul>
         )
         : (
-          <ul class="lg:hidden flex w-full justify-center flex-col">
+          <ul class="lg:hidden flex w-full justify-center flex-col max-h-[550px] overflow-y-visible">
             {defaultFilters.map((filter) => (
-              <li key={filter.key} class="collapse collapse-arrow ">
+              <li
+                key={filter.key}
+                class="collapse collapse-arrow border-b-[1px] border-solid border-b-[#cdcdcd] rounded-none"
+              >
                 <input type="checkbox" />
-                <div class="collapse-title after:!w-4 after:!h-4 font-roboto text-lg font-bold">
+                <div class="collapse-title after:!w-3 after:!h-3 text-base font-bold px-0">
                   {filter.label}
+                  {isToggle(filter) &&
+                    filter.values.filter((value) => value.selected).length >
+                      0 &&
+                    (
+                      <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                        {filter.values.filter((value) =>
+                          value.selected
+                        )
+                          .length}
+                      </span>
+                    )}
                 </div>
                 {isToggle(filter) && (
                   <FilterValues

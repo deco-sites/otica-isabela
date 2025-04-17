@@ -10,7 +10,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { AuthData } from "$store/packs/types.ts";
-
+import Icon from "../../components/ui/Icon.tsx";
 export interface BannersProps {
   /** @title Identificação do Banner */
   label: string;
@@ -51,7 +51,7 @@ function ProductBannerShelf({
 
         <div
           id={id}
-          class="container h-full flex flex-col gap-8 lg:gap-10 text-base-content py-10"
+          class="relative container h-full flex flex-col gap-8 lg:gap-10 text-base-content py-10"
         >
           <Slider class="carousel carousel-center gap-4 lg:gap-8 row-start-2 row-end-5">
             {banners?.map(({ label, href, image, buttonLabel }, index) => (
@@ -81,10 +81,19 @@ function ProductBannerShelf({
               </Slider.Item>
             ))}
           </Slider>
-          <div class="flex lg:hidden w-full justify-center items-center gap-x-4">
-            {banners?.map((_, index) => {
-              return <Slider.Dot index={index} />;
-            })}
+          <div class="flex items-center justify-between left-0 absolute top-1/2 -translate-y-1/2 w-full pointer-events-none">
+            <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="rotate-180 text-slot-primary-500 transition-colors"
+              />
+            </Slider.PrevButton>
+            <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="text-slot-primary-500 transition-colors"
+              />
+            </Slider.NextButton>
           </div>
         </div>
       </div>
@@ -94,12 +103,14 @@ function ProductBannerShelf({
       />
 
       {products && (
+        <div class="mb-14">
         <ProductShelf
           itemsPerPage={{ desktop: 3, mobile: 1.2 }}
           products={products}
           isStopwatchEnabled={isStopwatchEnabled}
           customer={customer}
         />
+        </div>
       )}
     </>
   );

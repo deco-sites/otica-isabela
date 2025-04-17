@@ -45,10 +45,10 @@ function SearchControls({
   function FilterContent() {
     return (
       <>
-        <div class="w-full flex flex-col items-center justify-center my-[30px]">
-          <Icon class="text-black" id="Filter" width={50} height={50} />
-          <span class="uppercase text-black text-lg font-bebas-neue">
-            Filtro
+        <div class="w-full flex items-center justify-center mb-6 mt-3">
+          <Icon class="text-black" id="Filter" width={30} height={30} />
+          <span class="uppercase text-black text-lg font-outfit">
+            Filtros
           </span>
         </div>
         <div class="w-full">
@@ -65,18 +65,8 @@ function SearchControls({
               </a>
             )
             : null}
-          <button
-            id="apply-range-filters-mobile"
-            class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-          >
-            <span>FILTRAR</span>
-          </button>
-          <ApplyRangeFiltersJS
-            rootId="size-options-container-mobile"
-            buttonId="apply-range-filters-mobile"
-          />
         </div>
-        <div class="w-full">
+        <div class="w-full bg-white p-[15px]">
           <Filters
             filters={filters}
             filterColors={filterColors}
@@ -86,6 +76,18 @@ function SearchControls({
             isMobile
           />
         </div>
+        <div class="bg-white w-full absolute bottom-0 left-2/4 translate-x-[-50%] flex justify-center items-center p-[21px]">
+          <button
+            id="apply-range-filters-mobile"
+            class="w-[90%] uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+          >
+            <span>FILTRAR</span>
+          </button>
+        </div>
+        <ApplyRangeFiltersJS
+          rootId="size-options-container-mobile"
+          buttonId="apply-range-filters-mobile"
+        />
       </>
     );
   }
@@ -93,13 +95,13 @@ function SearchControls({
   function OrderByContent() {
     return (
       <>
-        <div class="w-full flex flex-col items-center justify-center my-[30px]">
-          <Icon class="text-black" id="Order" width={50} height={50} />
-          <span class="uppercase text-black text-lg font-bebas-neue">
+        <div class="w-full flex items-center justify-center mb-6 mt-3">
+          <Icon class="text-black" id="Order" width={30} height={30} />
+          <span class="uppercase text-black text-lg font-outfit">
             Ordenar
           </span>
         </div>
-        <div class="w-full">
+        <div class="w-full bg-white p-[15px]">
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
       </>
@@ -112,7 +114,7 @@ function SearchControls({
       class="lg:hidden"
       onClose={() => (isOpen.value = false)}
       aside={
-        <div class="relative bg-white opacity-[0.95] py-[30px] px-[20px] w-full h-full flex flex-col overflow-x-hidden overflow-y-scroll">
+        <div class="relative bg-[#e3e3e3] opacity-1 px-1.5 w-full h-full flex flex-col overflow-x-hidden overflow-y-scroll">
           <div class="absolute top-0 right-0">
             <Button
               class="relative btn btn-ghost hover:bg-transparent"
@@ -125,26 +127,32 @@ function SearchControls({
         </div>
       }
     >
-      <div class="lg:hidden relative w-full flex flex-row justify-between">
-        <div class="flex w-1/2 px-[15px] justify-center items-center">
+      <div class="lg:hidden relative w-[95%] mx-auto flex flex-row gap-3 font-outfit">
+        <div class="flex justify-center items-center">
           <button
-            class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
+            class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openFilter()}
           >
-            <Icon class="text-base-200" id="Filter" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Filtro</span>
+            <Icon
+              class="text-grayscale-700"
+              id="Filter"
+              width={16}
+              height={16}
+            />
+            <span class="uppercase text-grayscale-700 text-xs font-bold">
+              Filtrar
+            </span>
           </button>
         </div>
-        <div class="bg-base-200 absolute h-[92%] w-0.5 right-2/4 top-[5px]
-        ">
-        </div>
-        <div class="flex w-1/2 px-[15px] justify-center items-center">
+        <div class="flex justify-center items-center">
           <button
-            class="border-0 px-0 h-full w-full py-[30px] bg-transparent flex flex-col flex-nowrap items-center justify-center"
+            class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openOrderBy()}
           >
-            <Icon class="text-base-200" id="Order" width={50} height={50} />
-            <span class="uppercase text-base-200 font-bebas-neue">Ordenar</span>
+            <Icon class="text-gray-700" id="Order" width={16} height={16} />
+            <span class="uppercase text-gray-700 text-xs font-bold">
+              Ordenar
+            </span>
           </button>
         </div>
       </div>

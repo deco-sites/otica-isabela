@@ -13,7 +13,7 @@
         "mobile": "muito pequeno",
         "desktop": "normal"
       },
-      "fontFamily": "Roboto",
+      "fontFamily": "Outfit",
       "fontWeight": "medium"
     },
     "secondLine": {
@@ -23,8 +23,8 @@
         "mobile": "grande",
         "desktop": "muito grande"
       },
-      "fontFamily": "Bebas Neue",
-      "fontWeight": "normal"
+      "fontFamily": "Outfit",
+      "fontWeight": "bold"
     },
     "textAlignment": "começo",
     "backgroundColor": "#f2f2f2"
