@@ -209,6 +209,17 @@
                   ],
                   "seeAllUrl": "#/",
                   "name": "Óculos de sol"
+                },
+                {
+                  "items": [
+                    {
+                      "name": "Lente Especial",
+                      "url": "/",
+                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg"
+                    }
+                  ],
+                  "name": "Lentes de Contato",
+                  "seeAllUrl": "/"
                 }
               ]
             }
