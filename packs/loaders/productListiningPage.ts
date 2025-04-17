@@ -76,8 +76,6 @@ const loaders = async (
     }
   );
 
-  console.log(pageParams.plpProps.filtersApi, "Page Parametros aqui");
-
   if (!products.produtos.length) return null;
 
   return toProductListingPage({
