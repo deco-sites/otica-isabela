@@ -30,63 +30,6 @@
             }
           },
           {
-            "__resolveType": "site/sections/Content/RichText.tsx",
-            "text": {
-              "content": "<h2><span style=\"color: rgb(62, 62, 62);\" data-mce-style=\"color: rgb(62, 62, 62);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>",
-              "mobilePadding": {
-                "top": 0,
-                "left": 0,
-                "right": 0,
-                "bottom": 0
-              },
-              "verticalAlign": "center",
-              "desktopPadding": {
-                "top": 0,
-                "left": 0,
-                "right": 0,
-                "bottom": 0
-              }
-            },
-            "media": {
-              "tag": null,
-              "mobile": {
-                "alt": "atendimento",
-                "src": "https://assets.decocache.com/otica-isabela/4db4d029-f0e8-4ec6-a48e-2b209395a4fd/Banner-mobile-Trofeu.jpg",
-                "height": 600,
-                "width": 800
-              },
-              "desktop": {
-                "alt": "atendimento",
-                "src": "https://assets.decocache.com/otica-isabela/9e1dc7c4-bb1c-433f-b4cb-5166be88c93f/Banner-Desk-site-Equipe-04.jpg",
-                "height": 500,
-                "width": 1100
-              },
-              "position": "left",
-              "thumbnail": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"
-              }
-            },
-            "button": {
-              "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-              "color": "#06a9f5",
-              "label": "Conte com a gente!",
-              "style": "filled",
-              "labelColor": "#ffffff",
-              "horizontalAlign": "center",
-              "blank": true
-            },
-            "seeMore": null,
-            "container": false,
-            "linksGrid": null,
-            "backgroundColor": "#c9effd"
-          },
-          {
-            "__resolveType": "Para as Mulheres"
-          },
-          {
-            "__resolveType": "Clipon Feminino"
-          },
-          {
             "__resolveType": "website/sections/Rendering/Lazy.tsx",
             "section": {
               "__resolveType": "site/sections/Images/CategoriesShelf.tsx",
@@ -95,9 +38,29 @@
                 {
                   "items": [
                     {
+                      "name": "Balgriff",
+                      "image": "https://assets.decocache.com/otica-isabela/777ae444-5dd0-401b-adff-e9a1d9787ab6/Ballfrif.jpg",
+                      "url": "/armacao-para-oculos-de-grau?filter.Tipo=Sem+Aro+%7C+Balgriff"
+                    },
+                    {
+                      "name": "Gatinho",
+                      "image": "https://assets.decocache.com/otica-isabela/ca586c74-d613-4f0f-9b3d-2a754a5b7238/Gatinho.jpg",
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Gatinho"
+                    },
+                    {
                       "name": "Redondo",
                       "image": "https://assets.decocache.com/otica-isabela/9b0cf271-9941-4791-8cc9-9bbdbcb41ba5/Redondo.jpg",
                       "url": "/armacao-para-oculos-de-grau?filter.Formato=Redondo"
+                    },
+                    {
+                      "image": "https://assets.decocache.com/otica-isabela/2a81fff0-e85e-46a2-a35d-4d8e2dcc73c7/Clubmaster.jpg",
+                      "name": "Clubmaster",
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=ClubMaster"
+                    },
+                    {
+                      "name": "Aviador",
+                      "image": "https://assets.decocache.com/otica-isabela/97296d87-1224-4373-b1b4-986a201b0e16/Aviador.jpg",
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Aviador"
                     },
                     {
                       "name": "Esportivo",
@@ -110,19 +73,9 @@
                       "name": "Quadrado"
                     },
                     {
-                      "name": "Gatinho",
-                      "image": "https://assets.decocache.com/otica-isabela/ca586c74-d613-4f0f-9b3d-2a754a5b7238/Gatinho.jpg",
-                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Gatinho"
-                    },
-                    {
                       "name": "Hexagonal",
                       "image": "https://assets.decocache.com/otica-isabela/38f20d6f-a955-4ded-9663-3b9222668622/Hexagonal.jpg",
                       "url": "/armacao-para-oculos-de-grau?filter.Formato=Hexagonal"
-                    },
-                    {
-                      "name": "Aviador",
-                      "image": "https://assets.decocache.com/otica-isabela/97296d87-1224-4373-b1b4-986a201b0e16/Aviador.jpg",
-                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Aviador"
                     },
                     {
                       "image": "https://assets.decocache.com/otica-isabela/7ab8e6b6-4183-423e-bfd2-ab0acfcd556d/Infantil.jpg",
@@ -133,16 +86,6 @@
                       "name": "Metal",
                       "image": "https://assets.decocache.com/otica-isabela/d31ed4bf-e1cf-4d73-9bfa-f14f43c8cc2d/Metal.jpg",
                       "url": "/armacao-para-oculos-de-grau?filter.Material=Metal"
-                    },
-                    {
-                      "name": "Balgriff",
-                      "image": "https://assets.decocache.com/otica-isabela/777ae444-5dd0-401b-adff-e9a1d9787ab6/Ballfrif.jpg",
-                      "url": "/armacao-para-oculos-de-grau?filter.Tipo=Sem+Aro+%7C+Balgriff"
-                    },
-                    {
-                      "image": "https://assets.decocache.com/otica-isabela/2a81fff0-e85e-46a2-a35d-4d8e2dcc73c7/Clubmaster.jpg",
-                      "name": "Clubmaster",
-                      "url": "/armacao-para-oculos-de-grau?filter.Formato=ClubMaster"
                     }
                   ],
                   "seeAllUrl": "#/",
@@ -159,6 +102,21 @@
                       "image": "https://assets.decocache.com/otica-isabela/21d33367-dac8-44d7-b642-25cb28138942/Redondo.jpg",
                       "name": "Redondo",
                       "url": "/oculos-clip-on?filter.Formato=Redondo"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/454171ae-763c-4167-abf3-725c9948911d/Hexagonal.jpg",
+                      "url": "/oculos-clip-on?filter.Formato=Hexagonal"
+                    },
+                    {
+                      "name": "Intelectual",
+                      "image": "https://assets.decocache.com/otica-isabela/adb0ddf4-7c6a-4eb9-9c37-f2a0ee540ee6/Intelectual.jpg",
+                      "url": "/oculos-clip-on?filter.Estilo=Intelectual"
+                    },
+                    {
+                      "name": "Clubmaster",
+                      "image": "https://assets.decocache.com/otica-isabela/e7cb260a-7c05-49fb-b903-82d520619b35/Clubmaster.jpg",
+                      "url": "/oculos-clip-on?filter.Material=Metal&filter.Formato=ClubMaster"
                     },
                     {
                       "name": "Esportivo",
@@ -181,24 +139,9 @@
                       "url": "/oculos-clip-on?filter.Formato=Retangular"
                     },
                     {
-                      "name": "Hexagonal",
-                      "image": "https://assets.decocache.com/otica-isabela/454171ae-763c-4167-abf3-725c9948911d/Hexagonal.jpg",
-                      "url": "/oculos-clip-on?filter.Formato=Hexagonal"
-                    },
-                    {
                       "name": "Metal",
                       "image": "https://assets.decocache.com/otica-isabela/72bb4e40-bf25-4693-ba3d-28d765d593d5/Metal.jpg",
                       "url": "/oculos-clip-on?filter.Material=Metal"
-                    },
-                    {
-                      "name": "Clubmaster",
-                      "image": "https://assets.decocache.com/otica-isabela/e7cb260a-7c05-49fb-b903-82d520619b35/Clubmaster.jpg",
-                      "url": "/oculos-clip-on?filter.Material=Metal&filter.Formato=ClubMaster"
-                    },
-                    {
-                      "name": "Intelectual",
-                      "image": "https://assets.decocache.com/otica-isabela/adb0ddf4-7c6a-4eb9-9c37-f2a0ee540ee6/Intelectual.jpg",
-                      "url": "/oculos-clip-on?filter.Estilo=Intelectual"
                     }
                   ],
                   "seeAllUrl": "#/",
@@ -263,6 +206,63 @@
                 }
               ]
             }
+          },
+          {
+            "__resolveType": "site/sections/Content/RichText.tsx",
+            "text": {
+              "content": "<h2><span style=\"color: rgb(62, 62, 62);\" data-mce-style=\"color: rgb(62, 62, 62);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>",
+              "mobilePadding": {
+                "top": 0,
+                "left": 0,
+                "right": 0,
+                "bottom": 0
+              },
+              "verticalAlign": "center",
+              "desktopPadding": {
+                "top": 0,
+                "left": 0,
+                "right": 0,
+                "bottom": 0
+              }
+            },
+            "media": {
+              "tag": null,
+              "mobile": {
+                "alt": "atendimento",
+                "src": "https://assets.decocache.com/otica-isabela/4db4d029-f0e8-4ec6-a48e-2b209395a4fd/Banner-mobile-Trofeu.jpg",
+                "height": 600,
+                "width": 800
+              },
+              "desktop": {
+                "alt": "atendimento",
+                "src": "https://assets.decocache.com/otica-isabela/9e1dc7c4-bb1c-433f-b4cb-5166be88c93f/Banner-Desk-site-Equipe-04.jpg",
+                "height": 500,
+                "width": 1100
+              },
+              "position": "left",
+              "thumbnail": {
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"
+              }
+            },
+            "button": {
+              "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
+              "color": "#06a9f5",
+              "label": "Conte com a gente!",
+              "style": "filled",
+              "labelColor": "#ffffff",
+              "horizontalAlign": "center",
+              "blank": true
+            },
+            "seeMore": null,
+            "container": false,
+            "linksGrid": null,
+            "backgroundColor": "#c9effd"
+          },
+          {
+            "__resolveType": "Para as Mulheres"
+          },
+          {
+            "__resolveType": "Clipon Feminino"
           },
           {
             "__resolveType": "Depoimentos"
