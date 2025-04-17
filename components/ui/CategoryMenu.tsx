@@ -19,7 +19,7 @@ function CategoryMenu({ categories, filters }: Props) {
   }
 
   return (
-    <div class="max-lg:hidden flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
+    <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
       <span class="font-semibold flex items-center max-lg:hidden">
         Filtros:
       </span>

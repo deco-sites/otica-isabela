@@ -268,13 +268,14 @@ function ProductCard({
                   {discount}% OFF
                 </span>
               )}
+              {availableColors.length === 0 && renderExperimentButton()}
             </div>
           </a>
         </div>
 
         <div class="w-full flex items-center justify-between">
           {availableColors.length > 0 && renderColorSwatches()}
-          {renderExperimentButton()}
+          {availableColors.length > 0 && renderExperimentButton()}
         </div>
       </div>
     </div>
