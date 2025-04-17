@@ -44,27 +44,22 @@ function Menu({ items, closeMenu, ajuda }: Props) {
               <div className="flex border-b border-b-grayscale-50 group relative">
                 <div className="h-full w-1 bg-slot-primary-500 rounded-r-2xl absolute left-0 top-0 opacity-0 pointer-events-none peer-checked:group-[]:opacity-100 peer-checked:group-[]:pointer-events-auto transition-opacity" />
 
-                <a
-                  href={href}
-                  className="text-grayscale-700 py-3 px-4 w-[85%] flex items-center gap-x-4"
+                <label
+                  htmlFor={id}
+                  className="flex justify-center items-center py-3 w-full"
                 >
-                  {/* {src && <img width={55} height={29} src={src} alt={alt} />} */}
-                  <span>{label}</span>
-                </a>
-
-                {navbarItems && navbarItems.length > 0 && (
-                  <label
-                    htmlFor={id}
-                    className="flex justify-center items-center py-3 w-[15%]"
-                  >
+                  <span className="text-grayscale-700 p-0 w-[85%] flex items-center gap-x-4">
+                    {label}
+                  </span>
+                  {navbarItems && navbarItems.length > 0 && (
                     <Icon
                       id="chevron-right"
                       width={20}
                       height={20}
                       className="text-grayscale-700 rotate-90 peer-checked:group-[]:-rotate-90 transition-all"
                     />
-                  </label>
-                )}
+                  )}
+                </label>
               </div>
 
               {navbarItems && navbarItems.length > 0 && (
