@@ -97,52 +97,52 @@
                     {
                       "name": "Redondo",
                       "image": "https://assets.decocache.com/otica-isabela/9b0cf271-9941-4791-8cc9-9bbdbcb41ba5/Redondo.jpg",
-                      "url": "/armacao-para-oculos-de-grau"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Redondo"
                     },
                     {
                       "name": "Esportivo",
                       "image": "https://assets.decocache.com/otica-isabela/882f6539-f133-4b89-9dab-b0085caf494d/Esportivo.jpg",
-                      "url": "/armacao-para-oculos-de-grau"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Esportivo"
                     },
                     {
                       "image": "https://assets.decocache.com/otica-isabela/22e7c35e-474e-4219-9994-5b4b36d3fdb9/Quadrado.jpg",
-                      "url": "/armacao-para-oculos-de-grau",
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Quadrado",
                       "name": "Quadrado"
                     },
                     {
                       "name": "Gatinho",
                       "image": "https://assets.decocache.com/otica-isabela/ca586c74-d613-4f0f-9b3d-2a754a5b7238/Gatinho.jpg",
-                      "url": "/armacao-para-oculos-de-grau"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Gatinho"
                     },
                     {
                       "name": "Hexagonal",
                       "image": "https://assets.decocache.com/otica-isabela/38f20d6f-a955-4ded-9663-3b9222668622/Hexagonal.jpg",
-                      "url": "#/"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Hexagonal"
                     },
                     {
                       "name": "Aviador",
                       "image": "https://assets.decocache.com/otica-isabela/97296d87-1224-4373-b1b4-986a201b0e16/Aviador.jpg",
-                      "url": "/armacao-para-oculos-de-grau"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=Aviador"
                     },
                     {
                       "image": "https://assets.decocache.com/otica-isabela/7ab8e6b6-4183-423e-bfd2-ab0acfcd556d/Infantil.jpg",
-                      "url": "#",
-                      "name": "Infantil"
+                      "name": "Infantil",
+                      "url": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil"
                     },
                     {
                       "name": "Metal",
                       "image": "https://assets.decocache.com/otica-isabela/d31ed4bf-e1cf-4d73-9bfa-f14f43c8cc2d/Metal.jpg",
-                      "url": "/armacao-para-oculos-de-grau/"
+                      "url": "/armacao-para-oculos-de-grau?filter.Material=Metal"
                     },
                     {
                       "name": "Balgriff",
                       "image": "https://assets.decocache.com/otica-isabela/777ae444-5dd0-401b-adff-e9a1d9787ab6/Ballfrif.jpg",
-                      "url": "/armacao-para-oculos-de-grau"
+                      "url": "/armacao-para-oculos-de-grau?filter.Tipo=Sem+Aro+%7C+Balgriff"
                     },
                     {
                       "image": "https://assets.decocache.com/otica-isabela/2a81fff0-e85e-46a2-a35d-4d8e2dcc73c7/Clubmaster.jpg",
                       "name": "Clubmaster",
-                      "url": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau?filter.Formato=ClubMaster"
+                      "url": "/armacao-para-oculos-de-grau?filter.Formato=ClubMaster"
                     }
                   ],
                   "seeAllUrl": "#/",
