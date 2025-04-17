@@ -8,7 +8,7 @@
       "height": 80
     },
     "firstLine": {
-      "text": "PRECISA DE AJUDA",
+      "text": "Precisa de ajuda?",
       "color": "#000000",
       "fontSize": {
         "mobile": "grande",
@@ -18,7 +18,7 @@
       "fontWeight": "bold"
     },
     "secondLine": {
-      "text": "aprenda como comprar óculos de grau pela internet sem sair de casa",
+      "text": "aprenda como comprar óculos de grau sem sair de casa",
       "color": "#42c3ff",
       "fontSize": {
         "mobile": "muito pequeno",
@@ -59,9 +59,9 @@
   ],
   "description": "Your Questions Answered",
   "desktopImage": {
-    "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4de0210c-0ce8-4276-847c-d6a675a6332c",
+    "src": "https://assets.decocache.com/otica-isabela/a74b0704-222c-42ab-bb78-4da482256ecc/foto-Isabela-001.jpg",
     "description": "Precisa de Ajuda"
   },
   "__resolveType": "site/sections/Content/Faq.tsx",
-  "backgroundColor": "#eb7f24"
+  "backgroundColor": "#1a1b1e"
 }

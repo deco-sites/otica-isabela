@@ -153,32 +153,52 @@
                     {
                       "name": "Gatinho",
                       "image": "https://assets.decocache.com/otica-isabela/71f47ff1-202d-4ab7-a120-af9a64e2e612/Gatinho.jpg",
-                      "url": "/oculos-clip-on"
+                      "url": "/oculos-clip-on?filter.Formato=Gatinho"
                     },
                     {
                       "image": "https://assets.decocache.com/otica-isabela/21d33367-dac8-44d7-b642-25cb28138942/Redondo.jpg",
                       "name": "Redondo",
-                      "url": "/oculos-clip-on"
+                      "url": "/oculos-clip-on?filter.Formato=Redondo"
                     },
                     {
                       "name": "Esportivo",
                       "image": "https://assets.decocache.com/otica-isabela/618bad26-25d3-4f29-9e46-66a9fbb47b1c/2024.jpg",
-                      "url": "/oculos-clip-on"
+                      "url": "/oculos-clip-on?filter.Formato=Esportivo"
                     },
                     {
                       "name": "Quadrado",
                       "image": "https://assets.decocache.com/otica-isabela/2c0aa3f1-7f1b-4049-90c5-5edda6104f56/Quadrado.jpg",
-                      "url": "#/"
+                      "url": "/oculos-clip-on?filter.Formato=Quadrado"
                     },
                     {
                       "name": "Aviador",
                       "image": "https://assets.decocache.com/otica-isabela/3db4d51f-83bf-4420-8cb2-52a1212ab59f/Aviador.jpg",
-                      "url": "#/"
+                      "url": "/oculos-clip-on?filter.Formato=Aviador"
                     },
                     {
                       "name": "Retagular",
                       "image": "https://assets.decocache.com/otica-isabela/d67ea5d4-7b67-4c6f-a43e-6be2146907b9/Retangular.jpg",
-                      "url": "/oculos-clip-on"
+                      "url": "/oculos-clip-on?filter.Formato=Retangular"
+                    },
+                    {
+                      "name": "Hexagonal",
+                      "image": "https://assets.decocache.com/otica-isabela/454171ae-763c-4167-abf3-725c9948911d/Hexagonal.jpg",
+                      "url": "/oculos-clip-on?filter.Formato=Hexagonal"
+                    },
+                    {
+                      "name": "Metal",
+                      "image": "https://assets.decocache.com/otica-isabela/72bb4e40-bf25-4693-ba3d-28d765d593d5/Metal.jpg",
+                      "url": "/oculos-clip-on?filter.Material=Metal"
+                    },
+                    {
+                      "name": "Clubmaster",
+                      "image": "https://assets.decocache.com/otica-isabela/e7cb260a-7c05-49fb-b903-82d520619b35/Clubmaster.jpg",
+                      "url": "/oculos-clip-on?filter.Material=Metal&filter.Formato=ClubMaster"
+                    },
+                    {
+                      "name": "Intelectual",
+                      "image": "https://assets.decocache.com/otica-isabela/adb0ddf4-7c6a-4eb9-9c37-f2a0ee540ee6/Intelectual.jpg",
+                      "url": "/oculos-clip-on?filter.Estilo=Intelectual"
                     }
                   ],
                   "seeAllUrl": "#/",
@@ -189,27 +209,27 @@
                     {
                       "image": "https://assets.decocache.com/otica-isabela/a7688466-08fc-4222-aba9-3292c0afb9ac/Gatinho.jpg",
                       "name": "Gatinho",
-                      "url": "/oculos-de-sol"
+                      "url": "/oculos-de-sol?filter.Formato=Gatinho"
                     },
                     {
                       "name": "Esportivo",
                       "image": "https://assets.decocache.com/otica-isabela/b735eb74-3d57-45aa-be46-2aab0b9870f6/Esportivo.jpg",
-                      "url": "#/"
+                      "url": "/oculos-de-sol?filter.Formato=Esportivo"
                     },
                     {
                       "name": "Quadrado",
                       "image": "https://assets.decocache.com/otica-isabela/93f5d0a6-cfe1-438e-a28f-b8b06af3f0ee/Quadrado.jpg",
-                      "url": "/oculos-de-sol"
+                      "url": "/oculos-de-sol?filter.Formato=Quadrado"
                     },
                     {
                       "name": "Redondo",
-                      "url": "#",
-                      "image": "https://assets.decocache.com/otica-isabela/cebb85e0-2441-4ff0-a070-8b48ae7d6562/Redondo.jpg"
+                      "image": "https://assets.decocache.com/otica-isabela/cebb85e0-2441-4ff0-a070-8b48ae7d6562/Redondo.jpg",
+                      "url": "/oculos-de-sol?filter.Formato=Redondo"
                     },
                     {
                       "name": "Hexagonal",
                       "image": "https://assets.decocache.com/otica-isabela/81577a2d-d7ff-4eb1-b445-fb30f0ce050e/Hexagonal.jpg",
-                      "url": "#"
+                      "url": "/oculos-de-sol?filter.Formato=Hexagonal"
                     }
                   ],
                   "seeAllUrl": "#/",
@@ -218,13 +238,28 @@
                 {
                   "items": [
                     {
-                      "name": "Lente Especial",
-                      "url": "/",
-                      "image": "https://assets.decocache.com/otica-isabela/cc667f90-5ada-433c-b2f7-996587d9f344/2031-preto.jpg"
+                      "image": "https://assets.decocache.com/otica-isabela/c13adc57-49a4-4efc-a27a-95aa665d4c0e/Ultra-Miopia.jpg",
+                      "name": "Miopia",
+                      "url": "/lentes-de-contato?filter.Indica%C3%A7%C3%A3o+de+Uso=Miopia"
+                    },
+                    {
+                      "name": "Astigmatismo",
+                      "image": "https://assets.decocache.com/otica-isabela/af40512d-3a82-4adf-864f-20832b0999f6/Ultra-Astigmatismo.jpg",
+                      "url": "/lentes-de-contato?filter.Indicação+de+Uso=Astigmatismo"
+                    },
+                    {
+                      "name": "Presbiopia",
+                      "image": "https://assets.decocache.com/otica-isabela/4dd18e1c-c7bc-47b2-b034-7cb987bb39e2/Ultra-Presbiopia.jpg",
+                      "url": "/lentes-de-contato?filter.Indicação+de+Uso=Presbiopia%2FMultifocal"
+                    },
+                    {
+                      "name": "Lentes 24h ",
+                      "image": "https://assets.decocache.com/otica-isabela/345e5b95-9b34-4ff6-a927-5d6570f9f9f5/Ultra-One-Day.jpg",
+                      "url": "/produto/ultra-one-day"
                     }
                   ],
                   "name": "Lentes de Contato",
-                  "seeAllUrl": "/"
+                  "seeAllUrl": "/lentes-de-contato"
                 }
               ]
             }
