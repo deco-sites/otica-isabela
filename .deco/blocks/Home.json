@@ -196,9 +196,9 @@
                       "url": "/lentes-de-contato?filter.Indicação+de+Uso=Presbiopia%2FMultifocal"
                     },
                     {
-                      "name": "Lentes 24h ",
                       "image": "https://assets.decocache.com/otica-isabela/345e5b95-9b34-4ff6-a927-5d6570f9f9f5/Ultra-One-Day.jpg",
-                      "url": "/produto/ultra-one-day"
+                      "url": "/produto/ultra-one-day",
+                      "name": "Uso diário"
                     }
                   ],
                   "name": "Lentes de Contato",
