@@ -38,7 +38,7 @@ type Props = Omit<
 const loaders = async (
   props: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<ProductListingPage | null> => {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
@@ -48,16 +48,17 @@ const loaders = async (
 
   const hasSearchParam = url.pathname.includes("busca");
 
-  const isCategoryPage = !hasSearchParam &&
+  const isCategoryPage =
+    !hasSearchParam &&
     Object.values(searchPageProps).every(
-      (val) => !val || !val.toString().length,
+      (val) => !val || !val.toString().length
     );
 
   const [pageParams, deco] = isCategoryPage
     ? [
-      await getCategoryPageParams(url, config!, props).then((data) => data),
-      { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"],
-    ]
+        await getCategoryPageParams(url, config!, props).then((data) => data),
+        { cache: DECO_CACHE_OPTION } as DecoRequestInit["deco"],
+      ]
     : [getSearchPageParams(url, props, filtrosDinamicos), undefined];
 
   if (!pageParams) return null;
@@ -72,8 +73,10 @@ const loaders = async (
     {
       method: "GET",
       //  deco
-    },
+    }
   );
+
+  console.log(pageParams.plpProps.filtersApi, "Page Parametros aqui");
 
   if (!products.produtos.length) return null;
 
@@ -87,7 +90,7 @@ const loaders = async (
 const getSearchPageParams = (
   url: URL,
   extraParams: Props,
-  filtrosDinamicos?: DynamicFilter[],
+  filtrosDinamicos?: DynamicFilter[]
 ): PLPageParams => {
   const { nome, id, idColecaoProdutos, somenteCronometrosAtivos, ofertasDia } =
     extraParams;
@@ -111,7 +114,7 @@ const getSearchPageParams = (
 const getCategoryPageParams = async (
   url: URL,
   config: StoreProps,
-  extraParams: Props,
+  extraParams: Props
 ): Promise<PLPageParams | null> => {
   const path = paths(config!);
   const lastCategorySlug = url.pathname.split("/").slice(-1)[0];
@@ -125,12 +128,12 @@ const getCategoryPageParams = async (
     {
       method: "GET",
       // deco: { cache: DECO_CACHE_OPTION }
-    },
+    }
   ).then(
     (categories) =>
       categories.filter(
-        ({ UrlFriendly }) => UrlFriendly === lastCategorySlug,
-      )[0] ?? null,
+        ({ UrlFriendly }) => UrlFriendly === lastCategorySlug
+      )[0] ?? null
   );
 
   if (!category) return null;
@@ -146,12 +149,13 @@ const getCategoryPageParams = async (
       IdCategoria: primaryCategory,
       IdSubCategoria: secondaryCategory,
     }),
-    { method: "POST", deco: { cache: DECO_CACHE_OPTION } },
+    { method: "POST", deco: { cache: DECO_CACHE_OPTION } }
   );
 
-  const filtrosDinamicos = filtersApi.length > 0
-    ? matchDynamicFilters(url, filtersApi, extraParams.filtrosDinamicos)
-    : undefined;
+  const filtrosDinamicos =
+    filtersApi.length > 0
+      ? matchDynamicFilters(url, filtersApi, extraParams.filtrosDinamicos)
+      : undefined;
 
   return {
     productApiProps: {
@@ -175,13 +179,13 @@ const getCategoryPageParams = async (
 
 const getSearchParams = (
   url: URL,
-  sortBy?: GetProductProps["ordenacao"],
+  sortBy?: GetProductProps["ordenacao"]
 ): Omit<GetProductProps, "offset" | "tipoRetorno"> => {
   const ordenacao =
     SORT_OPTIONS.find(({ value }) => value == url.searchParams.get("sort"))
       ?.value ??
-      sortBy ??
-      "nome";
+    sortBy ??
+    "nome";
   const page = url.searchParams.get("page") ?? 1;
 
   return {
@@ -193,7 +197,7 @@ const getSearchParams = (
 const matchDynamicFilters = (
   url: URL,
   filtersAPI: APIDynamicFilters[],
-  loaderFilters?: DynamicFilter[],
+  loaderFilters?: DynamicFilter[]
 ): DynamicFilter[] => {
   const filtersFromUrl = Array.from(url.searchParams)
     .map(([key, value]) => {
@@ -205,9 +209,9 @@ const matchDynamicFilters = (
       return RANGE_FILTERS.includes(filterID)
         ? getRangeFilters(filterID, value)
         : {
-          filterID,
-          filterValue: value,
-        };
+            filterID,
+            filterValue: value,
+          };
     })
     .filter((item) => !!item)
     .flat() as DynamicFilter[];
@@ -222,18 +226,18 @@ const matchDynamicFilters = (
 
 const getFilterId = (
   filtersAPI: APIDynamicFilters[],
-  value: string,
+  value: string
 ): number | undefined =>
   filtersAPI.find(({ NomeTipo }) => NomeTipo == value)?.IdTipo;
 
 const getRangeFilters = (
   filterID: number,
-  urlValue: string,
+  urlValue: string
 ): DynamicFilter[] => {
   const [start, end] = urlValue.split(":").map(Number);
   const rangeValues = Array.from(
     { length: end - start + 1 },
-    (_, index) => start + index,
+    (_, index) => start + index
   );
 
   return rangeValues.map((v) => ({

@@ -127,6 +127,7 @@ export interface ProductInfo {
 export interface Review {
   ratingValue: number;
   authorName: string;
+  reviewPhrase: string;
   reviewDescription: string;
   authorCity: string;
   productName: string;

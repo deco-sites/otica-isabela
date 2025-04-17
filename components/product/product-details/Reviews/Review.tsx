@@ -46,6 +46,8 @@ function Review({ page, productData, memberImages }: Props) {
 
   const reviewsWithImages = reviews.filter((review) => review.additionalImage);
 
+  console.log(reviews, "asdasdasd");
+
   return (
     <>
       {/* Overview */}
@@ -76,7 +78,7 @@ function Review({ page, productData, memberImages }: Props) {
                         <div class="flex flex-col relative">
                           <Slider.Item
                             index={index}
-                            class="carousel-item !w-full justify-center"
+                            class="carousel-item !w-full h-full justify-center"
                           >
                             {review.additionalImage
                               ? (

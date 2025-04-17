@@ -27,7 +27,7 @@ export const ChooseLensButton = ({
     <Button
       data-deco="add-to-cart"
       {...cart}
-      class="text-white bg-orange-500 rounded-[9px] uppercase btn w-full py-2 text-sm min-h-[50px] hover:text-orange-500 hover:bg-white hover:border-orange-500"
+      class="text-white bg-slot-primary-500 rounded-[9px] btn w-full py-2 text-sm min-h-[50px] hover:text-slot-primary-500 hover:bg-white hover:border-slot-primary-500"
     >
       {cart.loading ? <span class="loading loading-spinner" /> : text}
     </Button>

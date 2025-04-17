@@ -71,6 +71,13 @@ function ProductInfo(
     return stepLabels?.[currentCategory!.toLowerCase()];
   };
   const stepLabel = handleStepsLabel();
+
+  const capitalize = (str) => {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
+  console.log(labels, " q isso ?");
   return (
     <>
       {/* Name */}
@@ -194,7 +201,7 @@ function ProductInfo(
         >
           <AddToCartButton
             {...addToCard}
-            label={labels?.[currentCategory!.toLowerCase()]}
+            label={capitalize(labels?.[currentCategory!.toLowerCase()])}
           />
         </div>
       )}

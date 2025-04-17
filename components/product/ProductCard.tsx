@@ -184,11 +184,14 @@ function ProductCard({
     experimenterImage && !hideExperiment
       ? <ToExperimentButton image={experimenterImage} />
       : (
-        <a href={url} class="w-full flex justify-end">
-          <Button class="text-black font-medium bg-transparent rounded-[15px] btn min-h-[unset] h-[unset] w-fit px-4 py-1.5 text-sm hover:text-white hover:bg-black border border-black">
+        <button class="border-[1px] border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
+          <a
+            href={url}
+            class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
+          >
             Experimentar
-          </Button>
-        </a>
+          </a>
+        </button>
       );
 
   return (
@@ -256,7 +259,7 @@ function ProductCard({
                     {formatPrice(listPrice, offers!.priceCurrency!)}
                   </span>
                 )}
-                <span class="text-blue-200 text-base font-bold">
+                <span class="text-blue-200 text-lg font-bold">
                   {formatPrice(price, offers!.priceCurrency!)}
                 </span>
               </div>

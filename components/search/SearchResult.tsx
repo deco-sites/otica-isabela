@@ -122,7 +122,6 @@ function Result(
   // const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
   //   (pageName || "");
   // const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
-  console.log(filters, "vem oq nesse");
   return (
     <>
       {
@@ -134,7 +133,7 @@ function Result(
         {!breadcrumb?.itemListElement?.length
           ? null
           : (
-            <div class="flex w-full flex-row items-center my-5">
+            <div class="flex w-full flex-row items-center">
               <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
             </div>
           )}
@@ -189,10 +188,13 @@ function Result(
               isSliderEnabled={isSliderEnabled}
               customer={customer}
             />
+            <div class="flex gap-2 justify-normal my-4">
+              <Pagination pageInfo={pageInfo} />
+              <span class="text-grayscale-700 flex items-center gap-1">
+                <strong>{pageInfo.records}</strong> resultados
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="flex justify-center my-4">
-          <Pagination pageInfo={pageInfo} />
         </div>
       </div>
       <SendEventOnLoad

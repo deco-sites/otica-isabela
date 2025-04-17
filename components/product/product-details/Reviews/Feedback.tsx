@@ -12,6 +12,7 @@ function Feedback(
   {
     review: {
       ratingValue,
+      reviewPhrase,
       reviewDescription,
       authorName,
       memberLevel,
@@ -46,28 +47,27 @@ function Feedback(
           )}
         </div>
       </div>
+      {reviewPhrase && (
+        <div id="description-title">
+          <span class="text-sm text-[#212529]">
+            {reviewPhrase}
+          </span>
+        </div>
+      )}
       <div id="description">
         <span class="text-sm text-[#212529]">
           {reviewDescription}
         </span>
       </div>
       <div id="additionalImage">
-        {additionalImage
-          ? (
+        {additionalImage &&
+          (
             <Image
               class="rounded-[9px]"
               src={additionalImage}
               alt={reviewDescription}
               width={100}
               height={100}
-            />
-          )
-          : (
-            <img
-              width={100}
-              height={100}
-              src={"/image/default-image-user.png"}
-              alt={"Imagem padrão de usuário"}
             />
           )}
       </div>
