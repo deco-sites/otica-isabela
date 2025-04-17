@@ -231,12 +231,12 @@ function ProductCard({
 
       <div class="flex flex-col items-center mt-[10px]">
         <a href={url} aria-label="view product" class="contents">
-          <div class="flex flex-col">
+          <div class="flex flex-col w-full">
             <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
-            {description.length > 0 && (
-              <div class="min-h-[25px] my-[10px]">
+            <div class="min-h-[25px] my-[10px]">
+              {description.length > 0 && (
                 <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
                   {description.map(
                     (property, index) =>
@@ -245,8 +245,8 @@ function ProductCard({
                       }`,
                   )}
                 </p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </a>
 
