@@ -23,11 +23,12 @@
           },
           {
             "page": {
-              "slug": {
-                "param": "slug",
-                "__resolveType": "deco-sites/std/functions/requestToParam.ts"
-              },
-              "__resolveType": "defaultPLP"
+              "__resolveType": "site/loaders/product/productListiningPage.ts",
+              "id": [],
+              "offset": 21,
+              "ordenacao": "ofertas",
+              "filtrosDinamicos": [],
+              "somenteCronometrosAtivos": false
             },
             "customer": {
               "__resolveType": "site/loaders/store/auth.ts"
@@ -204,7 +205,7 @@
                 "label": "Roxo"
               },
               {
-                "hex": "#000000",
+                "hex": "#570000",
                 "label": "Tartaruga"
               },
               {
@@ -236,23 +237,24 @@
                 "label": "Vinho"
               },
               {
-                "hex": "#eeead3",
-                "label": "Creme"
+                "hex": "#ffffeb",
+                "label": "âmbar"
+              },
+              {
+                "label": "Pérola",
+                "hex": "#f7d473"
+              },
+              {
+                "label": "Amarelo",
+                "hex": "#ffde05"
+              },
+              {
+                "label": "Bege",
+                "hex": "#ffea9e"
               }
             ],
             "__resolveType": "site/sections/Product/SearchResult.tsx",
-            "isSliderEnabled": true,
-            "banner": [
-              {
-                "image": {
-                  "desktop": "https://assets.decocache.com/otica-isabela/f8cd0ef2-5ac0-4376-a4d1-09ebee7cc212/Banner-Clipon.jpg",
-                  "mobile": "https://assets.decocache.com/otica-isabela/f8cd0ef2-5ac0-4376-a4d1-09ebee7cc212/Banner-Clipon.jpg",
-                  "link": "/"
-                },
-                "matcher": "/armacao-para-oculos-de-grau",
-                "deactiveMobile": true
-              }
-            ]
+            "isSliderEnabled": true
           },
           {
             "behavior": {
@@ -425,7 +427,8 @@
                 "__resolveType": "wpp-cta"
               }
             ],
-            "__resolveType": "website/sections/Rendering/Deferred.tsx"
+            "__resolveType": "website/sections/Rendering/Deferred.tsx",
+            "display": true
           }
         ]
       }
