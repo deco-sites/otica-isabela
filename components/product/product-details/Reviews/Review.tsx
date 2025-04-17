@@ -46,8 +46,6 @@ function Review({ page, productData, memberImages }: Props) {
 
   const reviewsWithImages = reviews.filter((review) => review.additionalImage);
 
-  console.log(reviews, "asdasdasd");
-
   return (
     <>
       {/* Overview */}
