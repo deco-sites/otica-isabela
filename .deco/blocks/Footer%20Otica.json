@@ -111,7 +111,11 @@
       "url": "/guias/como-medir-a-dnp"
     },
     {
-      "text": "Preciso de ajuda",
+      "text": "Como Ler a Receita?",
+      "url": "/guias/como-ler-entender-a-receita-de-oculos"
+    },
+    {
+      "text": "Central de ajuda",
       "url": "/ajuda-e-suporte"
     }
   ],
@@ -126,45 +130,45 @@
     },
     {
       "text": "Ocupacionais",
-      "url": "#"
+      "url": "/dicas-de-lentes/lentes-ocupacionais"
     },
     {
-      "text": "Blue light",
-      "url": "#/"
+      "text": "Blue Light",
+      "url": "/dicas-de-lentes/oculos-com-filtro-de-luz-azul-blue-light"
     },
     {
       "text": "Fotoblue",
-      "url": "#/"
+      "url": "/dicas-de-lentes/lentes-fotossensiveis-e-filtro-luz-azul-blue-light"
     },
     {
       "text": "Fotoclímax",
-      "url": "#/"
+      "url": "/dicas-de-lentes/lentes-que-escurecem-fotoclimax"
     },
     {
       "text": "Lentes para miopia",
-      "url": "#/"
+      "url": "/dicas-de-lentes/lentes-de-grau-para-miopia"
     }
   ],
   "nossasLentes2": [
     {
       "text": "Armação de óculos",
-      "url": "#/"
+      "url": "/armacao-para-oculos-de-grau"
     },
     {
       "text": "Lentes de Contato",
-      "url": "#/"
+      "url": "/lentes-de-contato"
     },
     {
       "text": "Óculos de proteção",
-      "url": "#/"
+      "url": "/oculos-de-protecao-com-grau"
     },
     {
       "text": "Óculos de sol",
-      "url": "#/"
+      "url": "/oculos-de-sol"
     },
     {
       "text": "Acessórios",
-      "url": "#/"
+      "url": "/acessorios"
     }
   ],
   "bottomTexts": [
