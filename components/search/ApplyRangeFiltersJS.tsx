@@ -1,5 +1,5 @@
-import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import { useEffect } from "preact/hooks";
+import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 
 interface Props {
   rootId: string;
@@ -15,7 +15,6 @@ const allowedRangeFilters = [
 
 function buildParams(rootElement: HTMLElement) {
   const url = new URL(window.location.href);
-  //Reset the parameters for filtering
   allowedRangeFilters.forEach((filter) => {
     url.searchParams.delete(`filter.${filter}`);
   });
@@ -36,12 +35,11 @@ function buildParams(rootElement: HTMLElement) {
   rangeFilters?.forEach((filter) => {
     const label = filter?.getAttribute("data-input-label");
     const minInput = filter?.querySelector<HTMLInputElement>(
-      `[data-input-item-min]`,
+      "[data-input-item-min]",
     );
     const maxInput = filter?.querySelector<HTMLInputElement>(
-      `[data-input-item-max]`,
+      "[data-input-item-max]",
     );
-
     const min = minInput?.getAttribute("min");
     const max = maxInput?.getAttribute("max");
     const minValue = minInput?.getAttribute("value");
@@ -54,7 +52,6 @@ function buildParams(rootElement: HTMLElement) {
 
   selectedFilters.value.forEach(({ type, label }) => {
     if (url.searchParams.has(`filter.${type}`, label)) return;
-
     url.searchParams.append(`filter.${type}`, label);
   });
 
@@ -63,22 +60,28 @@ function buildParams(rootElement: HTMLElement) {
   }
 }
 
-function setup({ rootId, buttonId }: Props) {
-  const root = document.getElementById(rootId);
-  const applyButton = document.getElementById(buttonId);
-
-  applyButton?.addEventListener("click", () => {
-    const url = buildParams(root!);
-    if (url) {
-      applyButton.querySelector("span")?.classList.add("loading");
-      window.location.href = url;
-    }
-  });
-}
-
 function ApplyRangeFilters({ rootId, buttonId }: Props) {
   useEffect(() => {
-    setup({ rootId, buttonId });
+    const interval = setInterval(() => {
+      const root = document.getElementById(rootId);
+      const applyButton = document.getElementById(buttonId);
+
+      if (root && applyButton) {
+        const handleClick = () => {
+          const url = buildParams(root);
+          if (url) {
+            applyButton.querySelector("span")?.classList.add("loading");
+            window.location.href = url;
+          }
+        };
+
+        applyButton.addEventListener("click", handleClick);
+
+        clearInterval(interval); // evita chamadas futuras
+      }
+    }, 100);
+
+    return () => clearInterval(interval); // segurança no unmount
   }, [rootId, buttonId]);
 
   return <div data-apply-range-filters-controller-js />;

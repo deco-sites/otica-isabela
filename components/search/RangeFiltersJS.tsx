@@ -3,6 +3,7 @@ import { useEffect } from "preact/hooks";
 
 interface Props {
   rootId: string;
+  isMobile: boolean;
 }
 
 type URLParams = {
@@ -115,6 +116,7 @@ function handleInputs(
   root: HTMLElement,
   urlParams: URLParams,
   type: InputType,
+  isMobile: boolean,
 ) {
   const inputs = root?.querySelectorAll<HTMLInputElement>(
     `[data-input-item-${type}]`,
@@ -146,11 +148,63 @@ function handleInputs(
 
     input.addEventListener("input", () => {
       updateValues(input, labelEl!);
+
+      if (isMobile) return;
+
+      const getUrl = new URL(window.location.href);
+      const rootElement = document.querySelector("#size-options-container");
+
+      const rangeFilters =
+        rootElement?.querySelectorAll("#range-filter-input-container") || [];
+
+      for (const [key, value] of getUrl.searchParams.entries()) {
+        if (
+          !selectedFilters.peek().some((filter) =>
+            filter.label === value && `filter.${filter.type}` === key
+          )
+        ) {
+          getUrl.searchParams.delete(key, value);
+        }
+      }
+
+      rangeFilters?.forEach((filter) => {
+        const label = filter?.getAttribute("data-input-label");
+        const minInput = filter?.querySelector<HTMLInputElement>(
+          "[data-input-item-min]",
+        );
+        const maxInput = filter?.querySelector<HTMLInputElement>(
+          "[data-input-item-max]",
+        );
+        const min = minInput?.getAttribute("min");
+        const max = maxInput?.getAttribute("max");
+        const minValue = minInput?.getAttribute("value");
+        const maxValue = maxInput?.getAttribute("value");
+
+        if (
+          (minValue && min !== minValue) || (maxValue && max !== maxValue)
+        ) {
+          getUrl.searchParams.append(
+            `filter.${label!}`,
+            `${minValue}:${maxValue}`,
+          );
+        }
+      });
+
+      selectedFilters.value.forEach(({ type, label }) => {
+        if (getUrl.searchParams.has(`filter.${type}`, label)) return;
+        getUrl.searchParams.append(`filter.${type}`, label);
+      });
+      console.log(getUrl, "get url aq");
+
+      if (window.location.href !== getUrl.href) {
+        console.log("entra no if novo?");
+        window.location.href = getUrl.href;
+      }
     });
   });
 }
 
-function setup({ rootId }: Props) {
+function setup({ rootId, isMobile }: Props) {
   const root = document.getElementById(rootId);
   const params = new URLSearchParams(window.location.search).entries();
   const urlParams = Array.from(params).map(([key, value]) => ({
@@ -160,13 +214,13 @@ function setup({ rootId }: Props) {
 
   handleSelectedCustomFilters(root!, urlParams);
   handleToggleCustomFilters(root!, urlParams);
-  handleInputs(root!, urlParams, "min");
-  handleInputs(root!, urlParams, "max");
+  handleInputs(root!, urlParams, "min", isMobile);
+  handleInputs(root!, urlParams, "max", isMobile);
 }
 
-function FiltersJS({ rootId }: Props) {
+function FiltersJS({ rootId, isMobile }: Props) {
   useEffect(() => {
-    setup({ rootId });
+    setup({ rootId, isMobile });
   }, [rootId]);
 
   return <div data-range-filter-controller-js />;

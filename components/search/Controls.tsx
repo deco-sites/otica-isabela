@@ -1,4 +1,5 @@
 import Filters from "$store/components/search/Filters.tsx";
+import { isToggle } from "$store/components/search/Filters.tsx";
 import type { Props as SearchResultProps } from "$store/components/search/SearchResult.tsx";
 import Sort from "$store/components/search/Sort.tsx";
 import Button from "$store/components/ui/Button.tsx";
@@ -52,9 +53,6 @@ function SearchControls({
           </span>
         </div>
         <div class="w-full">
-          <SelectedFilters class="mb-5" filters={filters} />
-        </div>
-        <div class="w-full">
           {selectedFilters.value?.length > 0
             ? (
               <a
@@ -76,10 +74,13 @@ function SearchControls({
             isMobile
           />
         </div>
-        <div class="bg-white w-full absolute bottom-0 left-2/4 translate-x-[-50%] flex justify-center items-center p-[21px]">
+        <div class="bg-white w-full absolute bottom-0 left-2/4 translate-x-[-50%] flex flex-col justify-center items-center p-[21px]">
+          <div class="w-full">
+            <SelectedFilters class="mb-5" filters={filters} />
+          </div>
           <button
             id="apply-range-filters-mobile"
-            class="w-[90%] uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+            class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
           >
             <span>FILTRAR</span>
           </button>
@@ -142,9 +143,23 @@ function SearchControls({
             <span class="uppercase text-grayscale-700 text-xs font-bold">
               Filtrar
             </span>
+            {filters.some((filter) =>
+              isToggle(filter) && filter.values.some((value) => value.selected)
+            ) && (
+              <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                {filters.reduce((count, filter) => {
+                  if (isToggle(filter)) {
+                    return count + filter.values.filter((value) =>
+                      value.selected
+                    ).length;
+                  }
+                  return count;
+                }, 0)}
+              </span>
+            )}
           </button>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="hidden justify-center items-center">
           <button
             class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openOrderBy()}

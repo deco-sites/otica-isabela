@@ -8,8 +8,8 @@ import Banner from "$store/components/ui/CategoryBanner.tsx";
 import type { Banner as BannerProps } from "$store/components/ui/CategoryBanner.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
-// import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
-import AutoApplyFilters from "$store/islands/AutoApplyFilters.tsx";
+import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
+// import AutoApplyFilters from "$store/islands/AutoApplyFilters.tsx";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "$store/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
@@ -167,7 +167,16 @@ function Result(
                     <div class="w-full max-w-[1320px] mx-auto">
                       {/* <SelectedFilters filters={filters} /> */}
                       <div class="flex flex-col gap-2">
-                        <AutoApplyFilters rootId="size-options-container" />
+                        <button
+                          id="apply-range-filters"
+                          class="hidden max-lg:block uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                        >
+                          <span>Aplicar Filtro</span>
+                        </button>
+                        <ApplyRangeFiltersJS
+                          rootId="size-options-container"
+                          buttonId="apply-range-filters"
+                        />
                         <a
                           href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
                           class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black text-center"
@@ -188,9 +197,9 @@ function Result(
               isSliderEnabled={isSliderEnabled}
               customer={customer}
             />
-            <div class="flex gap-2 justify-normal my-4">
+            <div class="flex max-lg:flex-col gap-2 justify-normal my-4">
               <Pagination pageInfo={pageInfo} />
-              <span class="text-grayscale-700 flex items-center gap-1">
+              <span class="text-grayscale-700 flex max-lg:justify-center items-center gap-1">
                 <strong>{pageInfo.records}</strong> resultados
               </span>
             </div>

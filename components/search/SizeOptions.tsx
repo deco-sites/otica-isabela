@@ -68,17 +68,23 @@ function IconOptions({ label }: { label: string }) {
 }
 
 function SizeOptions(
-  { values, rangeOptions, type }: {
+  { values, rangeOptions, type, isMobile }: {
     values: FilterToggleValue[];
     rangeOptions: Filter[];
     type: string;
+    isMobile?: boolean;
   },
 ) {
   return (
     <>
       <div class="flex flex-col gap-3 pr-10">
         {values.map((value) => (
-          <ValueItem type={type} {...value} class="h-fit flex" />
+          <ValueItem
+            type={type}
+            {...value}
+            isMobile={isMobile}
+            class="h-fit flex"
+          />
         ))}
         {rangeOptions && (
           <div class="flex items-center">
