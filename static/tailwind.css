@@ -7384,6 +7384,10 @@ details.collapse summary::-webkit-details-marker {
 
 @media not all and (min-width: 993px) {
 
+  .max-lg\:block {
+    display: block;
+  }
+
   .max-lg\:grid {
     display: grid;
   }
@@ -7404,8 +7408,16 @@ details.collapse summary::-webkit-details-marker {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .max-lg\:flex-col {
+    flex-direction: column;
+  }
+
   .max-lg\:flex-wrap {
     flex-wrap: wrap;
+  }
+
+  .max-lg\:justify-center {
+    justify-content: center;
   }
 
   .max-lg\:gap-6 {
@@ -8421,10 +8433,6 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:mb-\[20px\] {
     margin-bottom: 20px;
-  }
-
-  .lg\:ml-5 {
-    margin-left: 1.25rem;
   }
 
   .lg\:mt-0 {

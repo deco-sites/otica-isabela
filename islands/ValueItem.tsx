@@ -10,6 +10,7 @@ export default function ValueItem({
   children,
   hideCheckbox,
   withBorder,
+  isMobile,
   class: _class,
 }: Omit<FilterToggleValueWithHex, "label" | "children"> & {
   label: string;
@@ -19,54 +20,50 @@ export default function ValueItem({
   children?: ComponentChildren;
   class?: string;
   hasSelected?: boolean;
+  isMobile?: boolean;
 }) {
   const isSelected = selectedFilters.value.some((value) =>
     label === value.label
   );
 
-  const handleFilterClick = () => {
-    const selected = selectedFilters.peek();
-    const filters = selected.some((filter) => filter.label === label)
-      ? selected.filter((filter) => filter.label !== label)
-      : selected.concat({
-        type,
-        url,
-        label,
-      });
-
-    selectedFilters.value = filters;
-
-    // Aplicar o filtro automaticamente ao clicar
-    setTimeout(() => {
-      const currentUrl = new URL(window.location.href);
-
-      // Limpar filtros existentes do mesmo tipo
-      for (const [key, value] of currentUrl.searchParams.entries()) {
-        if (
-          key === `filter.${type}` &&
-          !filters.some((filter) => filter.label === value)
-        ) {
-          currentUrl.searchParams.delete(key, value);
-        }
-      }
-
-      // Adicionar novos filtros
-      filters.forEach(({ type: filterType, label: filterLabel }) => {
-        if (!currentUrl.searchParams.has(`filter.${filterType}`, filterLabel)) {
-          currentUrl.searchParams.append(`filter.${filterType}`, filterLabel);
-        }
-      });
-
-      // Navegar para a nova URL se for diferente da atual
-      if (window.location.href !== currentUrl.href) {
-        window.location.href = currentUrl.href;
-      }
-    }, 0);
-  };
-
   return (
     <button
-      onClick={handleFilterClick}
+      onClick={() => {
+        const selected = selectedFilters.peek();
+        const filters = selected.some((filter) => filter.label === label)
+          ? selected.filter((filter) => filter.label !== label)
+          : selected.concat({
+            type,
+            url,
+            label,
+          });
+        selectedFilters.value = filters;
+
+        if (isMobile) return;
+
+        const getUrl = new URL(window.location.href);
+
+        for (const [key, value] of getUrl.searchParams.entries()) {
+          if (
+            !selectedFilters.peek().some((filter) =>
+              filter.label === value && `filter.${filter.type}` === key
+            )
+          ) {
+            getUrl.searchParams.delete(key, value);
+          }
+        }
+
+        selectedFilters.value.forEach(({ type, label }) => {
+          if (getUrl.searchParams.has(`filter.${type}`, label)) return;
+          getUrl.searchParams.append(`filter.${type}`, label);
+        });
+        console.log(getUrl, "get url aq");
+
+        if (window.location.href !== getUrl.href) {
+          console.log("entra no if?");
+          window.location.href = getUrl.href;
+        }
+      }}
       class={_class}
     >
       <div class="flex items-center">
@@ -78,8 +75,8 @@ export default function ValueItem({
         )}
         <span
           class={`${
-            isSelected && withBorder ? "border-2" : ""
-          } rounded-full text-[#6f6f6f] text-sm border-slot-primary-500 flex items-center gap-2.5 max-lg:font-medium`}
+            isSelected && withBorder ? "border" : ""
+          } flex items-center text-sm gap-2.5 max-lg:font-medium text-[#6f6f6f]`}
         >
           {children ?? label}
         </span>

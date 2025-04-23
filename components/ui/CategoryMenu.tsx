@@ -23,7 +23,9 @@ function CategoryMenu({ categories, filters }: Props) {
       <span class="font-semibold flex items-center max-lg:hidden">
         Filtros:
       </span>
-      <SelectedFilters filters={filters} />
+      <div class="max-lg:hidden">
+        <SelectedFilters filters={filters} />
+      </div>
       <div class="flex max-lg:flex-wrap gap-3.5 lg:items-center">
         {categories?.map(({ label, link }) => (
           <div class="border-[1px] border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
