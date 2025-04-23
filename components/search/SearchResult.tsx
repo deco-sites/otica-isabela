@@ -47,6 +47,16 @@ export interface Color {
    * @format color
    */
   hex: string;
+  /**
+   * @title Cor 2
+   * @format color
+   */
+  hex2?: string;
+  /**
+   * @title Cor 3
+   * @format color
+   */
+  hex3?: string;
 }
 export interface Type {
   /** @title Nome do Tipo */

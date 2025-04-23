@@ -16,6 +16,7 @@ import Video from "apps/website/components/Video.tsx";
 import { useId } from "$store/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
+import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -47,6 +48,7 @@ function Details({
   stepButtonByCategory,
   customer,
   mobileOptions,
+  priceValidUntil,
 }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
@@ -149,7 +151,7 @@ function Details({
       {/* Breadcrumb - Desktop */}
       <div
         id="breadcrumb"
-        class="block mb-[20px] text-center md:text-left"
+        class="block mb-[20px] text-center md:text-left px-3 lg:px-0"
       >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
@@ -220,6 +222,12 @@ function Details({
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
         <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
           <div class="relative">
+            {priceValidUntil && (
+              <BestOffersHeader
+                priceValidUntil={priceValidUntil!}
+                page="details"
+              />
+            )}
             <Slider
               id={`product-images-${id}`}
               class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
@@ -316,19 +324,21 @@ function Details({
                 </li>
               ))}
             </ul>
-            <Slider.PrevButton class="hidden lg:block absolute left-0 top-[40%]">
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+          </div>
+          <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
+            <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="rotate-180 text-slot-primary-500 transition-colors"
+              />
             </Slider.PrevButton>
-            <Slider.NextButton class="hidden lg:block absolute right-0 top-[40%]">
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+            <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+              <Icon
+                id="chevron-right"
+                class="text-slot-primary-500 transition-colors"
+              />
             </Slider.NextButton>
           </div>
-          <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
-            <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-          </Slider.PrevButton>
-          <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
-            <Icon size={20} id="ChevronRight" strokeWidth={3} />
-          </Slider.NextButton>
         </div>
 
         {/* Ratings - Mobile (Bottom) */}
@@ -364,10 +374,10 @@ function Details({
           {!!colorsList?.length && (
             <div id="colors" class="flex items-center">
               <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ").toUpperCase()}
+                {colorsName?.join(" / ")}
               </p>
               <span
-                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
+                class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
                 style={{
                   background: colors && colors?.length > 1
                     ? `linear-gradient(${colors.join(", ")})`

@@ -10,7 +10,6 @@ import { sendFBEvent } from "$store/components/ultils/facebook.ts";
 import Ratings from "$store/components/product/product-details/Ratings.tsx";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
-import Stopwatch from "$store/islands/Stopwatch.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
 interface Props {
@@ -25,7 +24,6 @@ function ProductInfo(
 ) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
-  const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find((prop) =>
@@ -76,6 +74,13 @@ function ProductInfo(
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
+  const otherColorsSkuUnitCode = page?.product.isVariantOf?.hasVariant
+    ?.flatMap((variant) =>
+      variant.additionalProperty
+        ?.filter((prop) => prop.value)
+        .map((color) => color.unitCode)
+    );
+
   return (
     <>
       {/* Name */}
@@ -103,15 +108,6 @@ function ProductInfo(
           />
         </div>
       </div>
-
-      {/* Stopwatch */}
-      {priceValidUntil &&
-        (
-          <div class="w-full flex justify-center mb-2">
-            <Stopwatch targetDate={priceValidUntil} type="details" />
-          </div>
-        )}
-
       {/* Buy with lens label */}
       {promotion
         ? (
@@ -140,14 +136,14 @@ function ProductInfo(
           <span class="text-sm text-base-300">{installments}</span>
         </div>
 
-        <div class="flex flex-col items-end justify-between ml-2 gap-2">
+        <div class="flex flex-col items-center ml-2 gap-2">
           {!!colorsList?.length && (
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-2 justify-between items-center w-full">
               <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ").toUpperCase()}
+                {colorsName?.join(" / ")}
               </p>
               <span
-                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
+                class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
                 style={{
                   background: colors && colors?.length > 1
                     ? `linear-gradient(${colors.join(", ")})`
@@ -156,13 +152,80 @@ function ProductInfo(
               />
             </div>
           )}
+          <div className="flex flex-col gap-2 w-full">
+            {(() => {
+              const colorMap = new Map();
+
+              page?.product.isVariantOf?.hasVariant?.forEach((variant) => {
+                const colorProps = variant.additionalProperty || [];
+
+                const colorProp = colorProps.find((prop) => prop.value);
+                const colorName = colorProp?.value;
+
+                const unitCodes = colorProps
+                  .filter((prop) => prop.unitCode)
+                  .map((prop) => prop.unitCode);
+
+                if (colorName && !colorsName?.includes(colorName)) {
+                  if (!colorMap.has(colorName)) {
+                    colorMap.set(colorName, {
+                      url: variant.url || "",
+                      colorCodes: [...unitCodes],
+                    });
+                  } else {
+                    unitCodes.forEach((code) => {
+                      if (!colorMap.get(colorName).colorCodes.includes(code)) {
+                        colorMap.get(colorName).colorCodes.push(code);
+                      }
+                    });
+                  }
+                }
+              });
+
+              console.log(
+                Array.from(colorMap.entries()),
+                "Mapeamento de cores completo",
+              );
+
+              return Array.from(colorMap.entries()).map(
+                ([colorName, data], idx) => {
+                  const validColorCodes = data.colorCodes.filter((code) =>
+                    code
+                  );
+
+                  let backgroundStyle = "";
+                  if (validColorCodes.length > 1) {
+                    backgroundStyle = `linear-gradient(${
+                      validColorCodes.join(", ")
+                    })`;
+                  } else if (validColorCodes.length === 1) {
+                    backgroundStyle = validColorCodes[0];
+                  }
+
+                  return (
+                    <a href={data.url} key={idx}>
+                      <div className="flex gap-2 items-center justify-between">
+                        <p className="text-base-300">
+                          {colorName}
+                        </p>
+                        <span
+                          className="mask mask-circle h-4 w-4 transition-transform"
+                          style={{ background: backgroundStyle }}
+                        />
+                      </div>
+                    </a>
+                  );
+                },
+              );
+            })()}
+          </div>
         </div>
       </div>
 
       {/* Experimenter */}
       {!isLentes && experimenterImage
         ? (
-          <div class="mt-4">
+          <div class="mt-4 max-w-[190px] ml-auto">
             <ToExperimentButton
               image={experimenterImage!}
               variant="filled"

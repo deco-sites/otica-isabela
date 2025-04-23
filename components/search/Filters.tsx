@@ -146,7 +146,7 @@ function ColorOptions({
             <div class="flex items-center tooltip tooltip-top" data-tip={value}>
               <span
                 title={value}
-                style={{ backgroundColor: hex }}
+                style={{ background: hex }}
                 class={`border border-solid h-5 w-5 rounded-full`}
               />
             </div>
@@ -156,7 +156,6 @@ function ColorOptions({
     </div>
   );
 }
-
 function FilterValues({
   label,
   values,
@@ -167,27 +166,23 @@ function FilterValues({
   isMobile = false,
   rangeOptions,
 }: FilterValuesProps) {
-  const flexDirection = label === "Formato" || label === "Idade"
-    ? "flex-row"
-    : "flex-col";
-  const ageStyles = label === "Idade" ? "w-[550px] pb-5 grid-cols-4" : "";
-  const colorStyles = label === "Cor" ? "w-[650px] pb-5" : "";
-  const shapeStyles = label === "Formato"
-    ? "w-[530px] px-[50px] pb-[20px] grid grid-cols-2 gap-6"
-    : "";
-  const tipoStyles = label === "Tipo" ? "min-w-max" : "";
-  const positionStyles = position === "left"
-    ? "lg:top-full lg:left-0"
-    : "lg:top-full lg:right-0";
-
   const matchingColors: FilterToggleValueWithHex[] = values?.map((value) => {
     const matchedColor = filterColors?.find(
       (color) => color.label === value.label,
     );
+
     if (matchedColor) {
+      const colors = [
+        matchedColor.hex,
+        matchedColor.hex2,
+        matchedColor.hex3,
+      ].filter((color): color is string => Boolean(color));
+
       return {
         ...value,
-        hex: matchedColor.hex,
+        hex: colors.length > 1
+          ? `linear-gradient(${colors.join(", ")})`
+          : colors[0],
       };
     } else {
       return value;

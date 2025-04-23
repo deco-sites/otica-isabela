@@ -59,7 +59,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   ) return null;
 
   return (
-    <div class="w-full flex pt-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
+    <div class="w-full flex p-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
       <div id="img" class="relative xl:max-w-[550px]">
         <div id="specs" class="font-bold font-outfit text-xs lg:text-base">
           <SpecItem item={frente_total!} classes="right-[45%]" />

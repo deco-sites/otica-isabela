@@ -10,7 +10,7 @@ function ShareButton({ link }: Props) {
   return (
     <button
       aria-label="Share"
-      class="btn border-0 bg-transparent"
+      class="btn border-0 bg-transparent !outline-none"
       onClick={() => navigator.share({ url: link })}
     >
       <Icon id="ShareButton" size={22} style={{ color: "black" }} />
