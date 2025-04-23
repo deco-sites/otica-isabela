@@ -719,6 +719,9 @@ const toPageBreadcrumbList = (category: Category, url: URL) => {
 export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
   const {
     Stars,
+    Stars_Quality,
+    Stars_Price,
+    Stars_Service,
     NameCustomer,
     CommentsPhrase,
     Comments,
@@ -732,6 +735,9 @@ export const toReview = (testimonial: APIGetTestimonials, url: URL): Review => {
   const stamp = StampImagePath.split("/").pop() ?? "";
   return {
     ratingValue: Stars,
+    ratingQuality: Stars_Quality,
+    ratingPrice: Stars_Price,
+    ratingService: Stars_Service,
     authorName: NameCustomer,
     reviewPhrase: CommentsPhrase,
     reviewDescription: Comments,

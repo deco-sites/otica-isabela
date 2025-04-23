@@ -126,6 +126,9 @@ export interface ProductInfo {
 
 export interface Review {
   ratingValue: number;
+  ratingQuality: number;
+  ratingPrice: number;
+  ratingService: number;
   authorName: string;
   reviewPhrase: string;
   reviewDescription: string;
@@ -304,6 +307,9 @@ export interface APIGetTestimonials {
   IdOrder: number;
   CommentsImgPath: string;
   Stars: number;
+  Stars_Quality: number;
+  Stars_Price: number;
+  Stars_Service: number;
   NameCustomer: string;
   CustomerAddress: string;
   CommentsPhrase: string;
