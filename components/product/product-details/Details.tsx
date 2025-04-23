@@ -278,14 +278,14 @@ function Details({
             {/* Discount Span - Mobile (Image) & Desktop */}
             {discount > 0 && discountTagLocation !== "Header" && (
               <span
-                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px]
-                  right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
+                class={`absolute text-red-500 font-semibold text-sm flex justify-center items-center
+                  right-4 lg:right-2.5 lg:bottom-2 lg:top-auto ${
                   mobileOptions!.discountTagLocation === "Image Bottom"
                     ? "bottom-20"
                     : "top-2"
                 }`}
               >
-                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
+                {discount}% OFF
               </span>
             )}
           </div>
@@ -373,9 +373,6 @@ function Details({
           </div>
           {!!colorsList?.length && (
             <div id="colors" class="flex items-center">
-              <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ")}
-              </p>
               <span
                 class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
                 style={{

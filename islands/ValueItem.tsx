@@ -26,6 +26,8 @@ export default function ValueItem({
     label === value.label
   );
 
+  console.log(isMobile, "ta mobile ? ");
+
   return (
     <button
       onClick={() => {

@@ -74,13 +74,6 @@ function ProductInfo(
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
-  const otherColorsSkuUnitCode = page?.product.isVariantOf?.hasVariant
-    ?.flatMap((variant) =>
-      variant.additionalProperty
-        ?.filter((prop) => prop.value)
-        .map((color) => color.unitCode)
-    );
-
   return (
     <>
       {/* Name */}
@@ -136,12 +129,12 @@ function ProductInfo(
           <span class="text-sm text-base-300">{installments}</span>
         </div>
 
-        <div class="flex flex-col items-center ml-2 gap-2">
+        <div class="flex items-center h-fit ml-2 gap-2">
           {!!colorsList?.length && (
-            <div class="flex gap-2 justify-between items-center w-full">
-              <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ")}
-              </p>
+            <div
+              class="flex gap-2 justify-between w-full tooltip tooltip-top ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
+              data-tip={colorsName?.join(" / ")}
+            >
               <span
                 class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
                 style={{
@@ -152,7 +145,7 @@ function ProductInfo(
               />
             </div>
           )}
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex gap-2 w-full">
             {(() => {
               const colorMap = new Map();
 
@@ -204,10 +197,10 @@ function ProductInfo(
 
                   return (
                     <a href={data.url} key={idx}>
-                      <div className="flex gap-2 items-center justify-between">
-                        <p className="text-base-300">
-                          {colorName}
-                        </p>
+                      <div
+                        className="flex gap-2 items-center justify-between tooltip tooltip-top"
+                        data-tip={colorName}
+                      >
                         <span
                           className="mask mask-circle h-4 w-4 transition-transform"
                           style={{ background: backgroundStyle }}
@@ -240,7 +233,7 @@ function ProductInfo(
         <div class="mt-[11px] w-full">
           <ChooseLensButton
             {...addToCard}
-            text={stepLabel}
+            text={capitalize(stepLabel.toLowerCase())}
             chooseLensUrl={chooseLensUrl}
           />
         </div>

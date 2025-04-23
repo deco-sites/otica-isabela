@@ -64,7 +64,7 @@ function SearchControls({
             )
             : null}
         </div>
-        <div class="w-full bg-white p-[15px]">
+        <div class="w-full bg-white p-[15px] relative">
           <Filters
             filters={filters}
             filterColors={filterColors}
@@ -73,17 +73,17 @@ function SearchControls({
             shapeIcons={shapeIcons}
             isMobile
           />
-        </div>
-        <div class="bg-white w-full absolute bottom-0 left-2/4 translate-x-[-50%] flex flex-col justify-center items-center p-[21px]">
-          <div class="w-full">
-            <SelectedFilters class="mb-5" filters={filters} />
+          <div class="bg-white w-full flex flex-col justify-center items-center py-5">
+            <div class="w-full">
+              <SelectedFilters class="mb-2 lg:mb-5" filters={filters} />
+            </div>
+            <button
+              id="apply-range-filters-mobile"
+              class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+            >
+              <span>FILTRAR</span>
+            </button>
           </div>
-          <button
-            id="apply-range-filters-mobile"
-            class="w-full uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-          >
-            <span>FILTRAR</span>
-          </button>
         </div>
         <ApplyRangeFiltersJS
           rootId="size-options-container-mobile"
@@ -131,7 +131,7 @@ function SearchControls({
       <div class="lg:hidden relative w-[95%] mx-auto flex flex-row gap-3 font-outfit">
         <div class="flex justify-center items-center">
           <button
-            class="border-[1px] border-solid border-grayscale-700 rounded-[17px] h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
+            class="border-[1px] border-solid border-grayscale-700 rounded-md h-full w-fit py-1 px-3 bg-transparent flex gap-1 flex-nowrap items-center justify-center"
             onClick={() => openFilter()}
           >
             <Icon
@@ -140,12 +140,10 @@ function SearchControls({
               width={16}
               height={16}
             />
-            <span class="uppercase text-grayscale-700 text-xs font-bold">
+            <span class="text-grayscale-700 text-xs font-bold">
               Filtrar
             </span>
-            {filters.some((filter) =>
-              isToggle(filter) && filter.values.some((value) => value.selected)
-            ) && (
+            {filters.some((filter) => isToggle(filter)) && (
               <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
                 {filters.reduce((count, filter) => {
                   if (isToggle(filter)) {

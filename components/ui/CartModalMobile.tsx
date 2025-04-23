@@ -94,7 +94,7 @@ function CartModalMobile({
         <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
           <ChooseLensButton
             {...addToCard}
-            text={stepLabel}
+            text={capitalize(stepLabel.toLowerCase())}
             chooseLensUrl={chooseLensUrl}
           />
         </div>
