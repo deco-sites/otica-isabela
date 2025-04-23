@@ -222,8 +222,9 @@ function FilterValues({
             values={values}
             type={label}
             rangeOptions={rangeOptions!}
+            isMobile={isMobile}
           />
-          <RangeFiltersJS rootId={rootId} />
+          <RangeFiltersJS rootId={rootId} isMobile={isMobile} />
         </div>
       );
     }
