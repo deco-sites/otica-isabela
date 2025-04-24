@@ -70,7 +70,7 @@ function ProductInfoColors({ page }: Props) {
                     return (
                         <a href={data.url} key={idx}>
                             <div
-                                className={`flex gap-2 items-center justify-between tooltip tooltip-top ${
+                                className={`!flex gap-2 items-center justify-between md:tooltip md:tooltip-top ${
                                     isCurrent
                                         ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full"
                                         : ""
