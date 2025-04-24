@@ -11,17 +11,21 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
     <div
       class={`w-full ${page === "details" ? "lg:hidden" : "block"}`}
     >
-      <div class="container sm:min-h-[150px] min-h-[100px] justify-evenly lg:justify-around flex items-center pb-0 pl-1 pr-1">
+      <div
+        class={`container sm:min-h-[150px] min-h-[100px] ${
+          page === "details" ? "justify-center" : "justify-evenly"
+        } lg:justify-around flex items-center pb-0 pl-1 pr-1`}
+      >
         <div class="lg:hidden flex items-center justify-center">
           <Icon
-            class="w-[56px] h-[56px] text-red-500"
+            class="w-[40px] h-[40px] text-red-500"
             id="Stopwatch"
             size={40}
           />
         </div>
 
         <div class="hidden lg:block">
-          <p class="text-red-500 text-l md:text-xl font-bold">As melhores</p>
+          <p class="text-red-500 text-sm md:text-xl font-bold">As melhores</p>
           <h3 class="text-red-500 text-3xl md:text-5xl font-outfit font-bold uppercase">
             Ofertas do dia
           </h3>

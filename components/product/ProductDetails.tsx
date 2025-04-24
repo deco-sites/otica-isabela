@@ -73,7 +73,7 @@ function ProductDetails(
     <>
       <div class="lg:bg-gray-scale-100">
         {/* Stopwatch */}
-        <div class="container py-[20px]">
+        <div class="max-w-[1320px] w-[95%] mx-auto py-[10px] lg:py-[20px]">
           {page
             ? (
               <Details

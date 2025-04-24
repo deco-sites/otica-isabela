@@ -91,8 +91,6 @@ function ProductCard({
 
   const displayImage = hoverImage || selectedImage || front?.url!;
 
-  console.log(front, "imagens");
-
   // Render helpers
   const renderSlider = () => (
     <>

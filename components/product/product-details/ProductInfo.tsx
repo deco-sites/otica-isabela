@@ -12,6 +12,7 @@ import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
+import ProductInfoColors from "$store/islands/ProductInfoColors.tsx";
 interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
   promotions?: Promotion[];
@@ -29,11 +30,11 @@ function ProductInfo(
   const experimenterImage = additionalProperty?.find((prop) =>
     prop.propertyID === "experimentador"
   )?.value;
-  const colorsList = additionalProperty?.filter((prop) =>
-    prop.propertyID === "color"
-  );
-  const colors = colorsList?.map(({ unitCode }) => unitCode);
-  const colorsName = colorsList?.map(({ value }) => value);
+  // const colorsList = additionalProperty?.filter((prop) =>
+  //   prop.propertyID === "color"
+  // );
+  // const colors = colorsList?.map(({ unitCode }) => unitCode);
+  // const colorsName = colorsList?.map(({ value }) => value);
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -130,7 +131,8 @@ function ProductInfo(
         </div>
 
         <div class="flex items-center h-fit ml-2 gap-2">
-          {!!colorsList?.length && (
+          {
+            /* {!!colorsList?.length && (
             <div
               class="flex gap-2 justify-between w-full tooltip tooltip-top ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
               data-tip={colorsName?.join(" / ")}
@@ -144,74 +146,9 @@ function ProductInfo(
                 }}
               />
             </div>
-          )}
-          <div className="flex gap-2 w-full">
-            {(() => {
-              const colorMap = new Map();
-
-              page?.product.isVariantOf?.hasVariant?.forEach((variant) => {
-                const colorProps = variant.additionalProperty || [];
-
-                const colorProp = colorProps.find((prop) => prop.value);
-                const colorName = colorProp?.value;
-
-                const unitCodes = colorProps
-                  .filter((prop) => prop.unitCode)
-                  .map((prop) => prop.unitCode);
-
-                if (colorName && !colorsName?.includes(colorName)) {
-                  if (!colorMap.has(colorName)) {
-                    colorMap.set(colorName, {
-                      url: variant.url || "",
-                      colorCodes: [...unitCodes],
-                    });
-                  } else {
-                    unitCodes.forEach((code) => {
-                      if (!colorMap.get(colorName).colorCodes.includes(code)) {
-                        colorMap.get(colorName).colorCodes.push(code);
-                      }
-                    });
-                  }
-                }
-              });
-
-              console.log(
-                Array.from(colorMap.entries()),
-                "Mapeamento de cores completo",
-              );
-
-              return Array.from(colorMap.entries()).map(
-                ([colorName, data], idx) => {
-                  const validColorCodes = data.colorCodes.filter((code) =>
-                    code
-                  );
-
-                  let backgroundStyle = "";
-                  if (validColorCodes.length > 1) {
-                    backgroundStyle = `linear-gradient(${
-                      validColorCodes.join(", ")
-                    })`;
-                  } else if (validColorCodes.length === 1) {
-                    backgroundStyle = validColorCodes[0];
-                  }
-
-                  return (
-                    <a href={data.url} key={idx}>
-                      <div
-                        className="flex gap-2 items-center justify-between tooltip tooltip-top"
-                        data-tip={colorName}
-                      >
-                        <span
-                          className="mask mask-circle h-4 w-4 transition-transform"
-                          style={{ background: backgroundStyle }}
-                        />
-                      </div>
-                    </a>
-                  );
-                },
-              );
-            })()}
-          </div>
+          )} */
+          }
+          <ProductInfoColors page={page} />
         </div>
       </div>
 

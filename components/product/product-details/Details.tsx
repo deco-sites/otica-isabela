@@ -151,7 +151,7 @@ function Details({
       {/* Breadcrumb - Desktop */}
       <div
         id="breadcrumb"
-        class="block mb-[20px] text-center md:text-left px-3 lg:px-0"
+        class="block mb-[10px] text-center md:text-left px-3 lg:px-0"
       >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
@@ -159,7 +159,7 @@ function Details({
       {/* Header - Mobile */}
       <div
         id={`experimentador-section-${id}`}
-        class="flex items-center justify-between mx-3 mt-4 lg:hidden"
+        class="flex items-center justify-between lg:hidden"
       >
         {/* Discount Span - Mobile (Header) */}
         {discount > 0 && discountTagLocation === "Header" && (
@@ -220,7 +220,7 @@ function Details({
 
       {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
+        <div class="relative flex flex-col items-center text-center w-full mt-2 lg:mt-0">
           <div class="relative">
             {priceValidUntil && (
               <BestOffersHeader
@@ -228,40 +228,67 @@ function Details({
                 page="details"
               />
             )}
-            <Slider
-              id={`product-images-${id}`}
-              class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
-            >
-              {images.map((img, index) => (
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full items-center"
-                >
-                  {img.additionalType === "video"
-                    ? (
-                      <Video
-                        src={img.url}
-                        loading="lazy"
-                        width={350}
-                        height={350}
-                        class="w-full"
-                        controls
-                      />
-                    )
-                    : (
+
+            <div class="relative flex flex-col-reverse lg:flex-row gap-2">
+              <ul
+                id="image-dots"
+                class={`carousel lg:flex-col w-fit carousel-center lg:mt-2 flex lg:max-w-[540px] gap-1 lg:gap-2 mx-auto ${
+                  showProductTumbnails ? "" : "max-lg:hidden"
+                }`}
+              >
+                {images.map((img, index) => (
+                  <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
+                    <Slider.Dot index={index}>
                       <Image
-                        class="w-full h-max"
-                        src={img.url!}
+                        class="group-disabled:border-base-300"
+                        width={92}
+                        height={92}
+                        src={img.additionalType === "video"
+                          ? img?.image?.[0].url!
+                          : img.url!}
                         alt={img.alternateName}
-                        width={350}
-                        height={350}
-                        preload={index === 0}
-                        loading={index === 0 ? "eager" : "lazy"}
+                        loading="lazy"
                       />
-                    )}
-                </Slider.Item>
-              ))}
-            </Slider>
+                    </Slider.Dot>
+                  </li>
+                ))}
+              </ul>
+
+              <Slider
+                id={`product-images-${id}`}
+                class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+              >
+                {images.map((img, index) => (
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item lg:!w-full items-center"
+                  >
+                    {img.additionalType === "video"
+                      ? (
+                        <Video
+                          src={img.url}
+                          loading="lazy"
+                          width={350}
+                          height={350}
+                          class="w-full"
+                          controls
+                        />
+                      )
+                      : (
+                        <Image
+                          class="w-full h-max"
+                          src={img.url!}
+                          alt={img.alternateName}
+                          width={350}
+                          height={350}
+                          preload={index === 0}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      )}
+                  </Slider.Item>
+                ))}
+              </Slider>
+            </div>
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
@@ -299,32 +326,6 @@ function Details({
               )}
             </div>
           )}
-          {/* Dots - Mobile & Desktop */}
-          <div class="relative">
-            <ul
-              id="image-dots"
-              class={`carousel carousel-center w-[90%] lg:mt-2 flex lg:max-w-[540px] gap-1 mx-auto ${
-                showProductTumbnails ? "" : "max-lg:hidden"
-              }`}
-            >
-              {images.map((img, index) => (
-                <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
-                  <Slider.Dot index={index}>
-                    <Image
-                      class="group-disabled:border-base-300"
-                      width={92}
-                      height={92}
-                      src={img.additionalType === "video"
-                        ? img?.image?.[0].url!
-                        : img.url!}
-                      alt={img.alternateName}
-                      loading="lazy"
-                    />
-                  </Slider.Dot>
-                </li>
-              ))}
-            </ul>
-          </div>
           <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
             <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
               <Icon

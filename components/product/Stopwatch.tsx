@@ -45,9 +45,9 @@ const config: Config = {
   header: {
     "font-color": "text-red-500",
     "font-size": "text-2xl md:text-4xl",
-    "offer-fs": "text-l md:text-xl",
+    "offer-fs": "text-sm md:text-xl",
     "bold": "font-bold",
-    "gap": "gap-4",
+    "gap": "gap-2",
   },
 };
 
