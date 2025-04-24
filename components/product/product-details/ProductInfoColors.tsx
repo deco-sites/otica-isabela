@@ -9,7 +9,7 @@ function ProductInfoColors({ page }: Props) {
     const getPathname = window.location.pathname;
 
     return (
-        <div className="flex gap-2 w-full">
+        <div className="flex gap-2 lg:w-full">
             {(() => {
                 const colorMap = new Map();
 
@@ -52,9 +52,9 @@ function ProductInfoColors({ page }: Props) {
                 });
 
                 return sortedColors.map(([colorName, data], idx) => {
-                    const validColorCodes = data.colorCodes.filter((code) =>
-                        code
-                    );
+                    const validColorCodes = data.colorCodes.filter((
+                        code: any,
+                    ) => code);
 
                     let backgroundStyle = "";
                     if (validColorCodes.length > 1) {

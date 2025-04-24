@@ -17,6 +17,7 @@ import { useId } from "$store/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
+import ProductInfoColors from "site/islands/ProductInfoColors.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -372,18 +373,7 @@ function Details({
             </div>
             <p class="text-sm text-base-300 font-bold">{installments}</p>
           </div>
-          {!!colorsList?.length && (
-            <div id="colors" class="flex items-center">
-              <span
-                class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
-                style={{
-                  background: colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
-                }}
-              />
-            </div>
-          )}
+          <ProductInfoColors page={page} />
         </div>
 
         {/* Choose Lens & Add To Cart - Mobile */}

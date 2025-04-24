@@ -8511,6 +8511,10 @@ details.collapse summary::-webkit-details-marker {
     width: unset;
   }
 
+  .lg\:w-full {
+    width: 100%;
+  }
+
   .lg\:min-w-\[152px\] {
     min-width: 152px;
   }
