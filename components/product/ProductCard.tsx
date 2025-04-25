@@ -11,11 +11,9 @@ import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "$store/sdk/useId.ts";
-import Button from "$store/components/ui/Button.tsx";
 import type { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
   product: Product;
