@@ -80,7 +80,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
         />
         <Image
           src={measurementsImage}
-          class="absolute left-2 lg:left-4 top-0 z-10 h-[230px] lg:h-[307px] lg:object-cover"
+          class="absolute left-2 lg:left-4 top-0 z-10 h-[230px] lg:h-[307px] object-cover"
           width={580}
           height={380}
           alt="medidas-do-oculos"
