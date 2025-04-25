@@ -48,6 +48,7 @@ function ProductCard({
   } = product;
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
 
@@ -71,6 +72,7 @@ function ProductCard({
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
   const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
     [];
+  console.log(product, "produto todo");
 
   const handleColorClick = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
@@ -95,21 +97,38 @@ function ProductCard({
   const renderSlider = () => (
     <>
       <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
-        {images?.map((image, index) => (
-          <Slider.Item
-            index={index}
-            key={index}
-            class="carousel-item lg:!w-full"
-          >
-            <ProductCardImage
-              url={displayImage}
-              alt={image.alternateName!}
-              preload={preload && index === 0}
-              discount={discount}
-              promotion={index === 0 ? promotionFlag : ""}
-            />
-          </Slider.Item>
-        ))}
+        {images?.map((image, index) => {
+          // Se houver um hoverIndex e este item é o que está com hover,
+          // mostrar a próxima imagem (ou voltar para a primeira se for a última)
+          let itemUrl;
+          if (hoverIndex === index && images && images.length > 1) {
+            const nextIndex = (index + 1) % images.length;
+            itemUrl = images[nextIndex].url!;
+          } else {
+            itemUrl = hoverImage || selectedImage || image.url!;
+          }
+
+          return (
+            <Slider.Item
+              index={index}
+              key={index}
+              class="carousel-item lg:!w-full"
+            >
+              <div
+                onMouseEnter={() => setHoverIndex(index)}
+                onMouseLeave={() => setHoverIndex(null)}
+              >
+                <ProductCardImage
+                  url={itemUrl}
+                  alt={image.alternateName!}
+                  preload={preload && index === 0}
+                  discount={discount}
+                  promotion={index === 0 ? promotionFlag : ""}
+                />
+              </div>
+            </Slider.Item>
+          );
+        })}
         {customer && (
           <div class="absolute top-0 left-0 z-30">
             <WishlistButton productID={productID} customer={customer} />
