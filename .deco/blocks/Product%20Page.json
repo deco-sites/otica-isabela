@@ -39,7 +39,7 @@
       },
       "promotions": [
         {
-          "label": "Compre com lentes",
+          "label": "Compre com Lentes",
           "flagText": "Compre com lentes de grau e pague só %value"
         }
       ],
@@ -61,15 +61,15 @@
           "category": "Óculos Gamer"
         },
         {
-          "label": "Comprar Clipon",
+          "label": "Comprar só Clipon",
           "category": "Óculos ClipOn"
         },
         {
-          "label": "COMPRAR ARMAÇÃO",
+          "label": "Comprar só Armação",
           "category": "Armação para óculos de Grau"
         },
         {
-          "label": "COMPRAR ÓCULOS DE SOL",
+          "label": "Comprar só Óculos de sol",
           "category": "Óculos De Sol"
         },
         {
@@ -107,8 +107,7 @@
           "label": "Escolher a Cor",
           "category": "Lentes de Contato Sem Grau"
         }
-      ],
-      "products": null
+      ]
     },
     {
       "items": [
