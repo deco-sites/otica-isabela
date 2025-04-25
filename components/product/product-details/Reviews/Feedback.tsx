@@ -11,7 +11,9 @@ interface Props {
 function Feedback(
   {
     review: {
-      ratingValue,
+      ratingQuality,
+      ratingPrice,
+      ratingService,
       reviewPhrase,
       reviewDescription,
       authorName,
@@ -26,11 +28,28 @@ function Feedback(
     return acc;
   }, {});
 
+  const maxRating = Math.max(ratingQuality, ratingPrice, ratingService);
+
   return (
     <div class="flex flex-col gap-4 bg-[#f8f8f8] rounded-lg p-[15px]">
       {/* Rating Goes Here */}
       <div class="flex items-center justify-between">
-        <Ratings ratingValue={ratingValue} />
+        <div class="flex flex-col md:flex-row w-full md:items-center gap-1.5 text-grayscale-700">
+          <Ratings ratingValue={maxRating} />
+          <div class="flex flex-col md:w-2/4 gap-1.5 md:items-center w-full md:flex-row">
+            <span class="text-grayscale-700 font-semibold font-outfit text-sm">
+              Qualidade: {ratingQuality}
+            </span>
+            <span class="hidden md:block">•</span>
+            <span class="text-grayscale-700 font-semibold font-outfit text-sm">
+              Preço: {ratingPrice}
+            </span>
+            <span class="hidden md:block">•</span>
+            <span class="text-grayscale-700 font-semibold font-outfit text-sm">
+              Serviço: {ratingService}
+            </span>
+          </div>
+        </div>
         <div class="flex items-center gap-2">
           <div id="name">
             <span class="text-sm text-[#212529] font-semibold">

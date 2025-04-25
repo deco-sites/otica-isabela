@@ -16,6 +16,8 @@ import Video from "apps/website/components/Video.tsx";
 import { useId } from "$store/sdk/useId.ts";
 
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
+import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
+import ProductInfoColors from "site/islands/ProductInfoColors.tsx";
 
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -47,6 +49,7 @@ function Details({
   stepButtonByCategory,
   customer,
   mobileOptions,
+  priceValidUntil,
 }: Props) {
   const { product, breadcrumbList } = page!;
   const { name, productID, offers, additionalProperty, url, sku } = product;
@@ -149,7 +152,7 @@ function Details({
       {/* Breadcrumb - Desktop */}
       <div
         id="breadcrumb"
-        class="block mb-[20px] text-center md:text-left"
+        class="block mb-[10px] text-center md:text-left px-3 lg:px-0"
       >
         <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
@@ -157,7 +160,7 @@ function Details({
       {/* Header - Mobile */}
       <div
         id={`experimentador-section-${id}`}
-        class="flex items-center justify-between mx-3 mt-4 lg:hidden"
+        class="flex items-center justify-between lg:hidden"
       >
         {/* Discount Span - Mobile (Header) */}
         {discount > 0 && discountTagLocation === "Header" && (
@@ -218,42 +221,103 @@ function Details({
 
       {/* Image Slider - Mobile & Desktop */}
       <div id={id} class="lg:flex lg:justify-center lg:gap-9">
-        <div class="relative flex flex-col items-center text-center w-full lg:max-w-[540px] mt-2 lg:mt-0">
+        <div class="relative flex flex-col items-center text-center w-full mt-2 lg:mt-0">
           <div class="relative">
-            <Slider
-              id={`product-images-${id}`}
-              class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
-            >
-              {images.map((img, index) => (
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full items-center"
-                >
-                  {img.additionalType === "video"
-                    ? (
-                      <Video
-                        src={img.url}
-                        loading="lazy"
-                        width={350}
-                        height={350}
-                        class="w-full"
-                        controls
-                      />
-                    )
-                    : (
+            {priceValidUntil && (
+              <BestOffersHeader
+                priceValidUntil={priceValidUntil!}
+                page="details"
+              />
+            )}
+
+            <div class="relative flex flex-col-reverse lg:flex-row gap-2">
+              <ul
+                id="image-dots"
+                class={`carousel lg:flex-col w-fit carousel-center lg:mt-2 flex lg:max-w-[540px] gap-1 lg:gap-2 mx-auto ${
+                  showProductTumbnails ? "" : "max-lg:hidden"
+                }`}
+              >
+                {images.map((img, index) => (
+                  <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
+                    <Slider.Dot index={index}>
                       <Image
-                        class="w-full h-max"
-                        src={img.url!}
+                        class="group-disabled:border-base-300"
+                        width={92}
+                        height={92}
+                        src={img.additionalType === "video"
+                          ? img?.image?.[0].url!
+                          : img.url!}
                         alt={img.alternateName}
-                        width={350}
-                        height={350}
-                        preload={index === 0}
-                        loading={index === 0 ? "eager" : "lazy"}
+                        loading="lazy"
                       />
-                    )}
-                </Slider.Item>
-              ))}
-            </Slider>
+                    </Slider.Dot>
+                  </li>
+                ))}
+              </ul>
+
+              <Slider
+                id={`product-images-${id}`}
+                class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+              >
+                {images.map((img, index) => (
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item lg:!w-full items-center"
+                  >
+                    {img.additionalType === "video"
+                      ? (
+                        <Video
+                          src={img.url}
+                          loading="lazy"
+                          width={350}
+                          height={350}
+                          class="w-full"
+                          controls
+                        />
+                      )
+                      : (
+                        <Image
+                          class="w-full h-max"
+                          src={img.url!}
+                          alt={img.alternateName}
+                          width={350}
+                          height={350}
+                          preload={index === 0}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      )}
+                  </Slider.Item>
+                ))}
+              </Slider>
+              <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
+                <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                  <Icon
+                    id="chevron-right"
+                    class="rotate-180 text-slot-primary-500 transition-colors"
+                  />
+                </Slider.PrevButton>
+                <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                  <Icon
+                    id="chevron-right"
+                    class="text-slot-primary-500 transition-colors"
+                  />
+                </Slider.NextButton>
+              </div>
+
+              {/* Discount Span - Mobile (Image) & Desktop */}
+              {discount > 0 && discountTagLocation !== "Header" && (
+                <span
+                  class={`absolute text-red-500 font-semibold text-sm flex justify-center items-center
+                  right-4 lg:right-2.5 lg:bottom-2 lg:top-auto ${
+                    mobileOptions!.discountTagLocation === "Image Bottom"
+                      ? "bottom-20"
+                      : "top-2"
+                  }`}
+                >
+                  {discount}% OFF
+                </span>
+              )}
+            </div>
 
             {/* Product Name - Mobile (Bottom) */}
             {nameLocation === "Bottom" && (
@@ -266,20 +330,6 @@ function Details({
                 )}
               </div>
             )}
-
-            {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && discountTagLocation !== "Header" && (
-              <span
-                class={`absolute bg-[#d92027] gap-x-[2px] rounded text-sm flex justify-center items-center text-white p-[2px]
-                  right-4 lg:right-0 lg:bottom-2 lg:top-auto ${
-                  mobileOptions!.discountTagLocation === "Image Bottom"
-                    ? "bottom-20"
-                    : "top-2"
-                }`}
-              >
-                <Icon id="ArrowDown" width={9} height={9} />-{discount}%
-              </span>
-            )}
           </div>
 
           {/* Buy with lens label */}
@@ -291,44 +341,6 @@ function Details({
               )}
             </div>
           )}
-          {/* Dots - Mobile & Desktop */}
-          <div class="relative">
-            <ul
-              id="image-dots"
-              class={`carousel carousel-center w-[90%] lg:mt-2 flex lg:max-w-[540px] gap-1 mx-auto ${
-                showProductTumbnails ? "" : "max-lg:hidden"
-              }`}
-            >
-              {images.map((img, index) => (
-                <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
-                  <Slider.Dot index={index}>
-                    <Image
-                      class="group-disabled:border-base-300"
-                      width={92}
-                      height={92}
-                      src={img.additionalType === "video"
-                        ? img?.image?.[0].url!
-                        : img.url!}
-                      alt={img.alternateName}
-                      loading="lazy"
-                    />
-                  </Slider.Dot>
-                </li>
-              ))}
-            </ul>
-            <Slider.PrevButton class="hidden lg:block absolute left-0 top-[40%]">
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-            </Slider.PrevButton>
-            <Slider.NextButton class="hidden lg:block absolute right-0 top-[40%]">
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
-            </Slider.NextButton>
-          </div>
-          <Slider.PrevButton class="absolute lg:hidden left-4 top-[20vh]">
-            <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-          </Slider.PrevButton>
-          <Slider.NextButton class="absolute lg:hidden right-4 top-[20vh]">
-            <Icon size={20} id="ChevronRight" strokeWidth={3} />
-          </Slider.NextButton>
         </div>
 
         {/* Ratings - Mobile (Bottom) */}
@@ -361,21 +373,7 @@ function Details({
             </div>
             <p class="text-sm text-base-300 font-bold">{installments}</p>
           </div>
-          {!!colorsList?.length && (
-            <div id="colors" class="flex items-center">
-              <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ").toUpperCase()}
-              </p>
-              <span
-                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
-                style={{
-                  background: colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
-                }}
-              />
-            </div>
-          )}
+          <ProductInfoColors page={page} />
         </div>
 
         {/* Choose Lens & Add To Cart - Mobile */}

@@ -48,8 +48,12 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .descricao-content img {
               vertical-align: text-bottom;
             }
+            .descricao-content {
+              font-family: 'Outfit', sans-serif;
+            }
             .descricao-content p * {
               display: inline;
+              font-family: 'Outfit', sans-serif !important;
             }
             .descricao-content p {
               margin-bottom: 10px;
@@ -115,7 +119,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             }
             return (
               <div
-                class="p-3 [&>span]:flex [&>span]:items-center"
+                class="p-3 [&>span]:flex [&>span]:items-center [&>span]:font-outfit"
                 dangerouslySetInnerHTML={{ __html: replacedValues! }}
               >
               </div>
@@ -128,7 +132,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${id}-content ${
                 index === 0 ? "block" : "hidden"
-              }`}
+              } bg-[#f5f5f5] rounded-xl`}
             >
               <ContentVariations />
             </div>

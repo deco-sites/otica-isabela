@@ -105,7 +105,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
 
               {/* Content */}
               <div
-                class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0`}
+                class={`collapse-content ${id}-content border border-t-0 border-gray-300 hide p-0 bg-[#f5f5f5]`}
               >
                 <ContentVariations />
               </div>

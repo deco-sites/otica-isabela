@@ -194,10 +194,8 @@ function handleInputs(
         if (getUrl.searchParams.has(`filter.${type}`, label)) return;
         getUrl.searchParams.append(`filter.${type}`, label);
       });
-      console.log(getUrl, "get url aq");
 
       if (window.location.href !== getUrl.href) {
-        console.log("entra no if novo?");
         window.location.href = getUrl.href;
       }
     });

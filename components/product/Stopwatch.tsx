@@ -45,9 +45,9 @@ const config: Config = {
   header: {
     "font-color": "text-red-500",
     "font-size": "text-2xl md:text-4xl",
-    "offer-fs": "text-l md:text-xl",
+    "offer-fs": "text-sm md:text-xl",
     "bold": "font-bold",
-    "gap": "gap-4",
+    "gap": "gap-2",
   },
 };
 
@@ -96,23 +96,11 @@ function Stopwatch({ targetDate, type }: Props) {
 
   return (
     <div
-      class={`border border-red-500 rounded-md w-auto md:w-full self-center ${
-        type === "card" ? "mb-2.5" : ""
-      }`}
+      class={`w-fit mx-auto self-center ${type === "card" ? "mb-2.5" : ""}`}
     >
       <div
         class={`flex rounded-md pt-0 pb-0`}
       >
-        {type === "card" && (
-          <div class="text-red-500 px-3 rounded-sm flex items-center justify-center">
-            <Icon id="Stopwatch" width={25} height={25} class="" />
-          </div>
-        )}
-        {type === "details" && (
-          <div class="text-red-500 px-8 w-32 rounded-sm flex items-center justify-center">
-            <Icon id="Stopwatch" width={25} height={25} class="" />
-          </div>
-        )}
         <div class="w-full text-center my-0 mx-2.5">
           <p
             class={`${
@@ -122,9 +110,9 @@ function Stopwatch({ targetDate, type }: Props) {
             Oferta termina em
           </p>
           <div
-            class={`flex justify-between mt-0 mb-0 ml-auto mr-auto md:gap-0 ${
-              style(["gap"], type)
-            } ${type === "details" ? "justify-evenly" : ""}`}
+            class={`flex mt-0 mb-0 ml-auto mr-auto ${style(["gap"], type)} ${
+              type === "details" ? "justify-evenly" : ""
+            }`}
           >
             <StopwatchItem label="Dias" value={days} type={type} />
             <StopwatchItem label="Horas" value={hours} type={type} />

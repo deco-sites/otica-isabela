@@ -24,6 +24,7 @@ import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $NewsletterSec from "./islands/NewsletterSec.tsx";
 import * as $ProductCard from "./islands/ProductCard.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
+import * as $ProductInfoColors from "./islands/ProductInfoColors.tsx";
 import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
 import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
 import * as $ReviewImagesModal from "./islands/ReviewImagesModal.tsx";
@@ -68,6 +69,7 @@ const manifest = {
     "./islands/NewsletterSec.tsx": $NewsletterSec,
     "./islands/ProductCard.tsx": $ProductCard,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
+    "./islands/ProductInfoColors.tsx": $ProductInfoColors,
     "./islands/PromotionalBar.tsx": $PromotionalBar,
     "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,
     "./islands/ReviewImagesModal.tsx": $ReviewImagesModal,

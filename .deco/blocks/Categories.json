@@ -165,8 +165,9 @@
                 "label": "Cinza"
               },
               {
-                "hex": "#b8860b",
-                "label": "Dourado"
+                "hex": "#e2b75a",
+                "label": "Dourado",
+                "hex2": "#a57203"
               },
               {
                 "hex": "#b397a8",
@@ -205,8 +206,10 @@
                 "label": "Roxo"
               },
               {
-                "hex": "#570000",
-                "label": "Tartaruga"
+                "hex": "#000000",
+                "label": "Tartaruga",
+                "hex2": "#544221",
+                "hex3": "#c84209"
               },
               {
                 "hex": "#e2725b",

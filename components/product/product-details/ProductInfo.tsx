@@ -10,9 +10,9 @@ import { sendFBEvent } from "$store/components/ultils/facebook.ts";
 import Ratings from "$store/components/product/product-details/Ratings.tsx";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
-import Stopwatch from "$store/islands/Stopwatch.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
+import ProductInfoColors from "$store/islands/ProductInfoColors.tsx";
 interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
   promotions?: Promotion[];
@@ -25,17 +25,16 @@ function ProductInfo(
 ) {
   const { product, breadcrumbList } = page!;
   const { productID, offers, name, url, additionalProperty, sku } = product;
-  const priceValidUntil = product.offers?.offers.at(0)?.priceValidUntil;
   const { price, listPrice, installments } = useOffer(offers);
   const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
   const experimenterImage = additionalProperty?.find((prop) =>
     prop.propertyID === "experimentador"
   )?.value;
-  const colorsList = additionalProperty?.filter((prop) =>
-    prop.propertyID === "color"
-  );
-  const colors = colorsList?.map(({ unitCode }) => unitCode);
-  const colorsName = colorsList?.map(({ value }) => value);
+  // const colorsList = additionalProperty?.filter((prop) =>
+  //   prop.propertyID === "color"
+  // );
+  // const colors = colorsList?.map(({ unitCode }) => unitCode);
+  // const colorsName = colorsList?.map(({ value }) => value);
   const addToCard = {
     idProduct: Number(productID),
     sku: Number(sku),
@@ -103,15 +102,6 @@ function ProductInfo(
           />
         </div>
       </div>
-
-      {/* Stopwatch */}
-      {priceValidUntil &&
-        (
-          <div class="w-full flex justify-center mb-2">
-            <Stopwatch targetDate={priceValidUntil} type="details" />
-          </div>
-        )}
-
       {/* Buy with lens label */}
       {promotion
         ? (
@@ -140,14 +130,15 @@ function ProductInfo(
           <span class="text-sm text-base-300">{installments}</span>
         </div>
 
-        <div class="flex flex-col items-end justify-between ml-2 gap-2">
-          {!!colorsList?.length && (
-            <div class="flex gap-2 items-center">
-              <p class="text-base-300 font-bold">
-                {colorsName?.join(" / ").toUpperCase()}
-              </p>
+        <div class="flex items-center h-fit ml-2 gap-2">
+          {
+            /* {!!colorsList?.length && (
+            <div
+              class="flex gap-2 justify-between w-full tooltip tooltip-top ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
+              data-tip={colorsName?.join(" / ")}
+            >
               <span
-                class="ml-2 block bg-red-500 w-[25px] h-[30px] rounded-xl border-2 border-gray-300"
+                class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
                 style={{
                   background: colors && colors?.length > 1
                     ? `linear-gradient(${colors.join(", ")})`
@@ -155,14 +146,16 @@ function ProductInfo(
                 }}
               />
             </div>
-          )}
+          )} */
+          }
+          <ProductInfoColors page={page} />
         </div>
       </div>
 
       {/* Experimenter */}
       {!isLentes && experimenterImage
         ? (
-          <div class="mt-4">
+          <div class="mt-4 max-w-[190px] ml-auto">
             <ToExperimentButton
               image={experimenterImage!}
               variant="filled"
@@ -177,7 +170,7 @@ function ProductInfo(
         <div class="mt-[11px] w-full">
           <ChooseLensButton
             {...addToCard}
-            text={stepLabel}
+            text={capitalize(stepLabel.toLowerCase())}
             chooseLensUrl={chooseLensUrl}
           />
         </div>

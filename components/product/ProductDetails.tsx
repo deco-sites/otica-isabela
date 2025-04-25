@@ -9,7 +9,6 @@ import SpecsDesktop from "$store/components/product/product-details/SpecsDesktop
 import SpecsMobile from "$store/components/product/product-details/SpecsMobile.tsx";
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
-import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import { type LoaderReturnType, redirect, type SectionProps } from "@deco/deco";
 type ButtonLabel = {
   category: string;
@@ -53,6 +52,7 @@ export interface Props {
   stepButtonByCategory?: ButtonLabel[];
   mobileOptions: MobileOptions;
   customer: LoaderReturnType<AuthData>;
+  priceValidUntil?: string;
 }
 function ProductDetails(
   {
@@ -68,14 +68,12 @@ function ProductDetails(
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
+
   return (
     <>
       <div class="lg:bg-gray-scale-100">
         {/* Stopwatch */}
-        {priceValidUntil && (
-          <BestOffersHeader priceValidUntil={priceValidUntil!} page="details" />
-        )}
-        <div class="container py-[20px]">
+        <div class="max-w-[1320px] w-[95%] mx-auto py-[10px] lg:py-[20px]">
           {page
             ? (
               <Details
@@ -85,6 +83,7 @@ function ProductDetails(
                 stepButtonByCategory={stepButtonByCategory}
                 customer={customer}
                 mobileOptions={mobileOptions}
+                priceValidUntil={priceValidUntil}
               />
             )
             : <NotFound />}

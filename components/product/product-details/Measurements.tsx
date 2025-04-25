@@ -59,7 +59,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   ) return null;
 
   return (
-    <div class="w-full flex pt-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
+    <div class="w-full flex max-lg:p-0 max-lg:pt-8 p-8 items-center lg:gap-2 xl:gap-48 flex-wrap justify-center">
       <div id="img" class="relative xl:max-w-[550px]">
         <div id="specs" class="font-bold font-outfit text-xs lg:text-base">
           <SpecItem item={frente_total!} classes="right-[45%]" />
@@ -76,10 +76,11 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           height={307}
           alt="medidas"
           loading="lazy"
+          class="h-[230px] lg:h-[307px] object-cover"
         />
         <Image
           src={measurementsImage}
-          class="absolute left-2 lg:left-4 top-0 z-10"
+          class="absolute left-2 lg:left-4 top-0 z-10 h-[230px] lg:h-[307px] object-cover"
           width={580}
           height={380}
           alt="medidas-do-oculos"

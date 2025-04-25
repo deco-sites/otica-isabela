@@ -17,7 +17,7 @@ export interface Props {
 
 function ProductGallery({ products, isSliderEnabled, customer }: Props) {
   return (
-    <div class="grid grid-cols-1 gap-4 lg:gap-y-12 items-end xs:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-10 lg:gap-y-12 items-end xs:grid-cols-2 lg:grid-cols-3">
       {products?.map((product, index) => (
         <ProductCard
           product={product}

@@ -39,7 +39,11 @@ export const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function AgeOptions(
-  { values, type }: { values: FilterToggleValueWithHex[]; type: string },
+  { values, type, isMobile }: {
+    values: FilterToggleValueWithHex[];
+    type: string;
+    isMobile?: boolean;
+  },
 ) {
   const orderedAges = values.sort(
     (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
@@ -48,7 +52,7 @@ function AgeOptions(
   return (
     <>
       {orderedAges.map((item) => (
-        <ValueItem type={type} class="w-full" {...item} />
+        <ValueItem type={type} class="w-full" {...item} isMobile={isMobile} />
       ))}
     </>
   );
@@ -58,10 +62,12 @@ function TypeOptions({
   values,
   typeIcons,
   type,
+  isMobile,
 }: {
   values: FilterToggleValueWithHex[];
   typeIcons: Type[];
   type: string;
+  isMobile?: boolean;
 }) {
   return (
     <>
@@ -69,7 +75,7 @@ function TypeOptions({
         const typeIcon = typeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem type={type} {...item} label={label}>
+          <ValueItem type={type} {...item} label={label} isMobile={isMobile}>
             {typeIcon
               ? (
                 <Image
@@ -92,10 +98,12 @@ function ShapeOptions({
   values,
   shapeIcons,
   type,
+  isMobile,
 }: {
   values: FilterToggleValueWithHex[];
   shapeIcons: Shape[];
   type: string;
+  isMobile?: boolean;
 }) {
   return (
     <>
@@ -103,7 +111,13 @@ function ShapeOptions({
         const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
 
         return (
-          <ValueItem {...item} type={type} class="lg:w-1/2" label={label}>
+          <ValueItem
+            {...item}
+            type={type}
+            class="lg:w-1/2"
+            label={label}
+            isMobile={isMobile}
+          >
             {shapeIcon
               ? (
                 <Image
@@ -125,9 +139,11 @@ function ShapeOptions({
 function ColorOptions({
   matchingColors,
   type,
+  isMobile,
 }: {
   matchingColors: FilterToggleValueWithHex[];
   type: string;
+  isMobile?: boolean;
 }) {
   return (
     <div className="max-lg:grid max-lg:grid-cols-4 max-lg:gap-6 flex gap-3 flex-wrap">
@@ -142,11 +158,12 @@ function ColorOptions({
             {...item}
             hasSelected={selected}
             class="w-fit"
+            isMobile={isMobile}
           >
             <div class="flex items-center tooltip tooltip-top" data-tip={value}>
               <span
                 title={value}
-                style={{ backgroundColor: hex }}
+                style={{ background: hex }}
                 class={`border border-solid h-5 w-5 rounded-full`}
               />
             </div>
@@ -156,7 +173,6 @@ function ColorOptions({
     </div>
   );
 }
-
 function FilterValues({
   label,
   values,
@@ -167,27 +183,23 @@ function FilterValues({
   isMobile = false,
   rangeOptions,
 }: FilterValuesProps) {
-  const flexDirection = label === "Formato" || label === "Idade"
-    ? "flex-row"
-    : "flex-col";
-  const ageStyles = label === "Idade" ? "w-[550px] pb-5 grid-cols-4" : "";
-  const colorStyles = label === "Cor" ? "w-[650px] pb-5" : "";
-  const shapeStyles = label === "Formato"
-    ? "w-[530px] px-[50px] pb-[20px] grid grid-cols-2 gap-6"
-    : "";
-  const tipoStyles = label === "Tipo" ? "min-w-max" : "";
-  const positionStyles = position === "left"
-    ? "lg:top-full lg:left-0"
-    : "lg:top-full lg:right-0";
-
   const matchingColors: FilterToggleValueWithHex[] = values?.map((value) => {
     const matchedColor = filterColors?.find(
       (color) => color.label === value.label,
     );
+
     if (matchedColor) {
+      const colors = [
+        matchedColor.hex,
+        matchedColor.hex2,
+        matchedColor.hex3,
+      ].filter((color): color is string => Boolean(color));
+
       return {
         ...value,
-        hex: matchedColor.hex,
+        hex: colors.length > 1
+          ? `linear-gradient(${colors.join(", ")})`
+          : colors[0],
       };
     } else {
       return value;
@@ -196,21 +208,39 @@ function FilterValues({
 
   function Options({ isMobile }: { isMobile: boolean }) {
     if (label === "Tipo") {
-      return <TypeOptions type={label} values={values} typeIcons={typeIcons} />;
+      return (
+        <TypeOptions
+          type={label}
+          values={values}
+          typeIcons={typeIcons}
+          isMobile={isMobile}
+        />
+      );
     }
 
     if (label === "Formato") {
       return (
-        <ShapeOptions type={label} values={values} shapeIcons={shapeIcons} />
+        <ShapeOptions
+          type={label}
+          values={values}
+          shapeIcons={shapeIcons}
+          isMobile={isMobile}
+        />
       );
     }
 
     if (label === "Idade") {
-      return <AgeOptions type={label} values={values} />;
+      return <AgeOptions type={label} values={values} isMobile={isMobile} />;
     }
 
     if (label === "Cor" && matchingColors) {
-      return <ColorOptions type={label} matchingColors={matchingColors} />;
+      return (
+        <ColorOptions
+          type={label}
+          matchingColors={matchingColors}
+          isMobile={isMobile}
+        />
+      );
     }
 
     if (label === "Tamanho") {
@@ -231,7 +261,9 @@ function FilterValues({
 
     return (
       <>
-        {values.map((value) => <ValueItem type={label} {...value} />)}
+        {values.map((value) => (
+          <ValueItem type={label} {...value} isMobile={isMobile} />
+        ))}
       </>
     );
   }
@@ -248,7 +280,7 @@ function FilterValues({
           </div>
         )
         : (
-          <div class="collapse-content grid gap-6 max-h-[210px] !min-h-[unset] overflow-auto">
+          <div class="collapse-content grid gap-6 max-h-full !min-h-[unset] overflow-auto">
             <Options isMobile={isMobile} />
           </div>
         )}
@@ -340,7 +372,7 @@ function Filters({
           </ul>
         )
         : (
-          <ul class="lg:hidden flex w-full justify-center flex-col max-h-[550px] overflow-y-visible">
+          <ul class="lg:hidden flex w-full justify-center flex-col overflow-y-visible">
             {defaultFilters.map((filter) => (
               <li
                 key={filter.key}
@@ -369,7 +401,7 @@ function Filters({
                     rangeOptions={filter.label === "Tamanho"
                       ? rangeFilters
                       : null}
-                    isMobile
+                    isMobile={true}
                     {...filter}
                   />
                 )}

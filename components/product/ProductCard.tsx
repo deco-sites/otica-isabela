@@ -11,11 +11,9 @@ import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "$store/sdk/useId.ts";
-import Button from "$store/components/ui/Button.tsx";
 import type { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
   product: Product;
@@ -48,10 +46,10 @@ function ProductCard({
   } = product;
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
 
-  // Product data
   const [front] = images ?? [];
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
@@ -65,12 +63,12 @@ function ProductCard({
     (prop) => prop.propertyID === "experimentador",
   )?.value;
 
-  // Derived data
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
   const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
     [];
+  console.log(product, "produto todo");
 
   const handleColorClick = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
@@ -79,7 +77,6 @@ function ProductCard({
     }
   };
 
-  // Event handlers
   const handleColorHover = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
     if (index !== -1 && variantImages[index]) {
@@ -91,25 +88,39 @@ function ProductCard({
 
   const displayImage = hoverImage || selectedImage || front?.url!;
 
-  // Render helpers
   const renderSlider = () => (
     <>
       <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
-        {images?.map((image, index) => (
-          <Slider.Item
-            index={index}
-            key={index}
-            class="carousel-item lg:!w-full"
-          >
-            <ProductCardImage
-              url={displayImage}
-              alt={image.alternateName!}
-              preload={preload && index === 0}
-              discount={discount}
-              promotion={index === 0 ? promotionFlag : ""}
-            />
-          </Slider.Item>
-        ))}
+        {images?.map((image, index) => {
+          let itemUrl;
+          if (hoverIndex === index && images && images.length > 1) {
+            const nextIndex = (index + 1) % images.length;
+            itemUrl = images[nextIndex].url!;
+          } else {
+            itemUrl = hoverImage || selectedImage || image.url!;
+          }
+
+          return (
+            <Slider.Item
+              index={index}
+              key={index}
+              class="carousel-item lg:!w-full"
+            >
+              <div
+                onMouseEnter={() => setHoverIndex(index)}
+                onMouseLeave={() => setHoverIndex(null)}
+              >
+                <ProductCardImage
+                  url={itemUrl}
+                  alt={image.alternateName!}
+                  preload={preload && index === 0}
+                  discount={discount}
+                  promotion={index === 0 ? promotionFlag : ""}
+                />
+              </div>
+            </Slider.Item>
+          );
+        })}
         {customer && (
           <div class="absolute top-0 left-0 z-30">
             <WishlistButton productID={productID} customer={customer} />
@@ -138,7 +149,7 @@ function ProductCard({
   );
 
   const renderColorSwatches = () => (
-    <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative">
+    <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative max-lg:ml-5">
       {availableColors
         .sort((a, b) => (a.name === name ? -1 : b.name === name ? 1 : 0))
         .map(({ name, url, unitCodes }) => {
@@ -253,7 +264,7 @@ function ProductCard({
         <div class="w-full flex justify-normal items-center my-[10px]">
           <a href={url} aria-label="view product" class="contents">
             <div class="flex w-full justify-between">
-              <div class="flex flex-row justify-center items-center gap-2">
+              <div class="flex flex-row justify-center items-center gap-2 max-lg:ml-5">
                 {discount > 0 && (
                   <span class="line-through font-semibold text-[#6F6F6F] text-sm">
                     {formatPrice(listPrice, offers!.priceCurrency!)}
@@ -264,7 +275,7 @@ function ProductCard({
                 </span>
               </div>
               {discount > 0 && (
-                <span class="text-red-500 font-semibold text-sm flex justify-center items-center">
+                <span class="text-red-500 font-semibold text-sm flex justify-center items-center max-lg:mr-10">
                   {discount}% OFF
                 </span>
               )}
