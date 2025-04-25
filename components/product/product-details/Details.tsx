@@ -289,6 +289,34 @@ function Details({
                   </Slider.Item>
                 ))}
               </Slider>
+              <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
+                <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                  <Icon
+                    id="chevron-right"
+                    class="rotate-180 text-slot-primary-500 transition-colors"
+                  />
+                </Slider.PrevButton>
+                <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                  <Icon
+                    id="chevron-right"
+                    class="text-slot-primary-500 transition-colors"
+                  />
+                </Slider.NextButton>
+              </div>
+
+              {/* Discount Span - Mobile (Image) & Desktop */}
+              {discount > 0 && discountTagLocation !== "Header" && (
+                <span
+                  class={`absolute text-red-500 font-semibold text-sm flex justify-center items-center
+                  right-4 lg:right-2.5 lg:bottom-2 lg:top-auto ${
+                    mobileOptions!.discountTagLocation === "Image Bottom"
+                      ? "bottom-20"
+                      : "top-2"
+                  }`}
+                >
+                  {discount}% OFF
+                </span>
+              )}
             </div>
 
             {/* Product Name - Mobile (Bottom) */}
@@ -302,20 +330,6 @@ function Details({
                 )}
               </div>
             )}
-
-            {/* Discount Span - Mobile (Image) & Desktop */}
-            {discount > 0 && discountTagLocation !== "Header" && (
-              <span
-                class={`absolute text-red-500 font-semibold text-sm flex justify-center items-center
-                  right-4 lg:right-2.5 lg:bottom-2 lg:top-auto ${
-                  mobileOptions!.discountTagLocation === "Image Bottom"
-                    ? "bottom-20"
-                    : "top-2"
-                }`}
-              >
-                {discount}% OFF
-              </span>
-            )}
           </div>
 
           {/* Buy with lens label */}
@@ -327,20 +341,6 @@ function Details({
               )}
             </div>
           )}
-          <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
-            <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
-              <Icon
-                id="chevron-right"
-                class="rotate-180 text-slot-primary-500 transition-colors"
-              />
-            </Slider.PrevButton>
-            <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
-              <Icon
-                id="chevron-right"
-                class="text-slot-primary-500 transition-colors"
-              />
-            </Slider.NextButton>
-          </div>
         </div>
 
         {/* Ratings - Mobile (Bottom) */}

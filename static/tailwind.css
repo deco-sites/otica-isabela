@@ -7478,6 +7478,10 @@ details.collapse summary::-webkit-details-marker {
 
 @media not all and (min-width: 993px) {
 
+  .max-lg\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .max-lg\:block {
     display: block;
   }
@@ -7518,6 +7522,10 @@ details.collapse summary::-webkit-details-marker {
     gap: 1.5rem;
   }
 
+  .max-lg\:p-0 {
+    padding: 0px;
+  }
+
   .max-lg\:px-3 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -7526,6 +7534,10 @@ details.collapse summary::-webkit-details-marker {
   .max-lg\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .max-lg\:pt-8 {
+    padding-top: 2rem;
   }
 
   .max-lg\:text-center {
@@ -8593,6 +8605,10 @@ details.collapse summary::-webkit-details-marker {
     height: 196px;
   }
 
+  .lg\:h-\[307px\] {
+    height: 307px;
+  }
+
   .lg\:max-h-\[600px\] {
     max-height: 600px;
   }
@@ -8867,6 +8883,11 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:to-slot-primary-600 {
     --tw-gradient-to: rgba(0, 122, 179, 1) var(--tw-gradient-to-position);
+  }
+
+  .lg\:object-cover {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .lg\:p-0 {

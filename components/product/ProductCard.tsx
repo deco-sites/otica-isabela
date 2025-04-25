@@ -50,7 +50,6 @@ function ProductCard({
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
 
-  // Product data
   const [front] = images ?? [];
   const { highPrice: listPrice, lowPrice: price } = offers ?? {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
@@ -64,7 +63,6 @@ function ProductCard({
     (prop) => prop.propertyID === "experimentador",
   )?.value;
 
-  // Derived data
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
@@ -79,7 +77,6 @@ function ProductCard({
     }
   };
 
-  // Event handlers
   const handleColorHover = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
     if (index !== -1 && variantImages[index]) {
@@ -91,13 +88,10 @@ function ProductCard({
 
   const displayImage = hoverImage || selectedImage || front?.url!;
 
-  // Render helpers
   const renderSlider = () => (
     <>
       <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
         {images?.map((image, index) => {
-          // Se houver um hoverIndex e este item é o que está com hover,
-          // mostrar a próxima imagem (ou voltar para a primeira se for a última)
           let itemUrl;
           if (hoverIndex === index && images && images.length > 1) {
             const nextIndex = (index + 1) % images.length;
@@ -155,7 +149,7 @@ function ProductCard({
   );
 
   const renderColorSwatches = () => (
-    <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative">
+    <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative max-lg:ml-5">
       {availableColors
         .sort((a, b) => (a.name === name ? -1 : b.name === name ? 1 : 0))
         .map(({ name, url, unitCodes }) => {
@@ -270,7 +264,7 @@ function ProductCard({
         <div class="w-full flex justify-normal items-center my-[10px]">
           <a href={url} aria-label="view product" class="contents">
             <div class="flex w-full justify-between">
-              <div class="flex flex-row justify-center items-center gap-2">
+              <div class="flex flex-row justify-center items-center gap-2 max-lg:ml-5">
                 {discount > 0 && (
                   <span class="line-through font-semibold text-[#6F6F6F] text-sm">
                     {formatPrice(listPrice, offers!.priceCurrency!)}

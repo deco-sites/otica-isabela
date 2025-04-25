@@ -84,6 +84,20 @@ function CartModalMobile({
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
+  const capitalizeMoreWords = (str) => {
+    if (!str) return "";
+    const exceptions = ["as", "os", "de", "da", "do", "das", "dos", "e"];
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word, index) => {
+        if (index === 0 || !exceptions.includes(word)) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        }
+        return word;
+      })
+      .join(" ");
+  };
 
   return (
     <div
@@ -94,7 +108,7 @@ function CartModalMobile({
         <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
           <ChooseLensButton
             {...addToCard}
-            text={capitalize(stepLabel.toLowerCase())}
+            text={capitalizeMoreWords(stepLabel.toLowerCase())}
             chooseLensUrl={chooseLensUrl}
           />
         </div>
