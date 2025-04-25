@@ -275,7 +275,7 @@ function ProductCard({
                 </span>
               </div>
               {discount > 0 && (
-                <span class="text-red-500 font-semibold text-sm flex justify-center items-center">
+                <span class="text-red-500 font-semibold text-sm flex justify-center items-center max-lg:mr-10">
                   {discount}% OFF
                 </span>
               )}

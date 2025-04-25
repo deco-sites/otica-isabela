@@ -4301,6 +4301,9 @@ details.collapse summary::-webkit-details-marker {
 .h-\[210px\] {
   height: 210px;
 }
+.h-\[230px\] {
+  height: 230px;
+}
 .h-\[280px\] {
   height: 280px;
 }
@@ -7482,6 +7485,10 @@ details.collapse summary::-webkit-details-marker {
     margin-left: 1.25rem;
   }
 
+  .max-lg\:mr-10 {
+    margin-right: 2.5rem;
+  }
+
   .max-lg\:block {
     display: block;
   }
@@ -8883,11 +8890,6 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:to-slot-primary-600 {
     --tw-gradient-to: rgba(0, 122, 179, 1) var(--tw-gradient-to-position);
-  }
-
-  .lg\:object-cover {
-    -o-object-fit: cover;
-       object-fit: cover;
   }
 
   .lg\:p-0 {
