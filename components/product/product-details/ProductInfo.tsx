@@ -70,11 +70,6 @@ function ProductInfo(
   };
   const stepLabel = handleStepsLabel();
 
-  const capitalize = (str) => {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  };
-
   return (
     <>
       {/* Name */}
@@ -170,7 +165,7 @@ function ProductInfo(
         <div class="mt-[11px] w-full">
           <ChooseLensButton
             {...addToCard}
-            text={capitalize(stepLabel.toLowerCase())}
+            text={stepLabel}
             chooseLensUrl={chooseLensUrl}
           />
         </div>
@@ -192,7 +187,7 @@ function ProductInfo(
         >
           <AddToCartButton
             {...addToCard}
-            label={capitalize(labels?.[currentCategory!.toLowerCase()])}
+            label={labels?.[currentCategory!.toLowerCase()]}
           />
         </div>
       )}
