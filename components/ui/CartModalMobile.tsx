@@ -80,25 +80,6 @@ function CartModalMobile({
 
   const stepLabel = handleStepsLabel();
 
-  const capitalize = (str) => {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  };
-  const capitalizeMoreWords = (str) => {
-    if (!str) return "";
-    const exceptions = ["as", "os", "de", "da", "do", "das", "dos", "e"];
-    return str
-      .toLowerCase()
-      .split(" ")
-      .map((word, index) => {
-        if (index === 0 || !exceptions.includes(word)) {
-          return word.charAt(0).toUpperCase() + word.slice(1);
-        }
-        return word;
-      })
-      .join(" ");
-  };
-
   return (
     <div
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
@@ -108,7 +89,7 @@ function CartModalMobile({
         <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
           <ChooseLensButton
             {...addToCard}
-            text={capitalizeMoreWords(stepLabel.toLowerCase())}
+            text={stepLabel}
             chooseLensUrl={chooseLensUrl}
           />
         </div>
@@ -118,7 +99,7 @@ function CartModalMobile({
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={capitalize(labels?.[currentCategory!.toLowerCase()])}
+              label={labels?.[currentCategory!.toLowerCase()]}
             />
           </div>
         )

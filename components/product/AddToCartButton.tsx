@@ -24,7 +24,7 @@ export const AddToCartButton = ({
     <Button
       data-deco="add-to-cart"
       {...props}
-      class="bg-white text-slot-primary-500 border-slot-primary-500 border rounded-[9px] btn w-full py-2 text-[15px] min-h-[56px] hover:bg-slot-primary-500 hover:text-white hover:border-slot-primary-500"
+      class="bg-white text-slot-primary-500 border-slot-primary-500 border rounded-[9px] btn w-full py-2 text-[15px] min-h-[56px] hover:bg-slot-primary-500 hover:text-white hover:border-slot-primary-500 normal-case"
     >
       {label}
     </Button>
