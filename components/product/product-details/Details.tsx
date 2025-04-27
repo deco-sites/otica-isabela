@@ -110,10 +110,10 @@ function Details({
 
   const promotionFlag = additionalProperty?.find(
     (prop) => prop.propertyID === "flag",
-  )?.value;
+  )?.value?.toLowerCase();
 
   const promotion = promotions?.find(
-    (current) => current.label === promotionFlag,
+    (current) => current.label.toLowerCase() === promotionFlag,
   );
 
   const rating = additionalProperty?.find(
