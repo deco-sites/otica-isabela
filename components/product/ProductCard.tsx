@@ -68,7 +68,6 @@ function ProductCard({
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
   const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
     [];
-  console.log(product, "produto todo");
 
   const handleColorClick = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
