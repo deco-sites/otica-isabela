@@ -68,6 +68,7 @@ function ProductDetails(
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
+  console.log(promotions, "vem oq");
 
   return (
     <>

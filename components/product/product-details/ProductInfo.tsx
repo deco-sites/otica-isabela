@@ -43,9 +43,9 @@ function ProductInfo(
   };
   const promotionFlag = additionalProperty?.find((prop) =>
     prop.propertyID === "flag"
-  )?.value;
+  )?.value?.toLowerCase();
   const promotion = promotions?.find((current) =>
-    current.label === promotionFlag
+    current.label.toLowerCase() === promotionFlag
   );
   const currentCategory = breadcrumbList?.itemListElement[0].name;
   const rating = additionalProperty?.find((prop) =>
