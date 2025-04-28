@@ -107,6 +107,28 @@
           "label": "Escolher a Cor",
           "category": "Lentes de Contato Sem Grau"
         }
+      ],
+      "items": [
+        {
+          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/64e4ee16-4ef0-4f1c-8746-f3091e0fa6f7",
+          "title": "A melhor Ótica do Brasil",
+          "description": "Ganhamos o prêmio Reclame aqui 2024"
+        },
+        {
+          "title": "As Melhores promoções",
+          "description": "7 dias para Devolução Grátis",
+          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/b3371f62-999f-43b1-835a-67097b39d239"
+        },
+        {
+          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/f903733b-4fb1-4e83-9009-02352c33b512",
+          "title": "Suporte Humanizado",
+          "description": "Conte conosco a qualquer momento! "
+        },
+        {
+          "icon": "https://assets.decocache.com/otica-isabela/f1a0b720-625d-4adc-9295-9c1ada4c507c/Illustrations-Diferences.png",
+          "title": "Óculos de Qualidade com preço baixo",
+          "description": "Chega de pagar caro!"
+        }
       ]
     },
     {

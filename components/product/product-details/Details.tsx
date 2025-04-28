@@ -225,13 +225,6 @@ function Details({
       <div id={id} class="lg:flex lg:justify-center lg:gap-12">
         <div class="relative flex flex-col items-center text-center w-full mt-2 lg:mt-0">
           <div class="relative lg:w-full">
-            {priceValidUntil && (
-              <BestOffersHeader
-                priceValidUntil={priceValidUntil!}
-                page="details"
-              />
-            )}
-
             <div class="relative flex flex-col-reverse lg:justify-end lg:flex-row gap-2">
               <ul
                 id="image-dots"
@@ -256,41 +249,48 @@ function Details({
                   </li>
                 ))}
               </ul>
-
-              <Slider
-                id={`product-images-${id}`}
-                class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
-              >
-                {images.map((img, index) => (
-                  <Slider.Item
-                    index={index}
-                    class="carousel-item lg:!w-full items-center"
-                  >
-                    {img.additionalType === "video"
-                      ? (
-                        <Video
-                          src={img.url}
-                          loading="lazy"
-                          width={350}
-                          height={350}
-                          class="w-full"
-                          controls
-                        />
-                      )
-                      : (
-                        <Image
-                          class="w-full h-max"
-                          src={img.url!}
-                          alt={img.alternateName}
-                          width={350}
-                          height={350}
-                          preload={index === 0}
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                      )}
-                  </Slider.Item>
-                ))}
-              </Slider>
+              <div class="relative">
+                {priceValidUntil && (
+                  <BestOffersHeader
+                    priceValidUntil={priceValidUntil!}
+                    page="details"
+                  />
+                )}
+                <Slider
+                  id={`product-images-${id}`}
+                  class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+                >
+                  {images.map((img, index) => (
+                    <Slider.Item
+                      index={index}
+                      class="carousel-item lg:!w-full items-center"
+                    >
+                      {img.additionalType === "video"
+                        ? (
+                          <Video
+                            src={img.url}
+                            loading="lazy"
+                            width={350}
+                            height={350}
+                            class="w-full"
+                            controls
+                          />
+                        )
+                        : (
+                          <Image
+                            class="w-full h-max"
+                            src={img.url!}
+                            alt={img.alternateName}
+                            width={350}
+                            height={350}
+                            preload={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        )}
+                    </Slider.Item>
+                  ))}
+                </Slider>
+              </div>
               <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
                 <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:opacity-0 duration-200 pointer-events-auto">
                   <Icon
