@@ -47,6 +47,10 @@ function ProductCard({
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState<
+    number | null
+  >(null);
+
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
 
@@ -68,11 +72,18 @@ function ProductCard({
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
   const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
     [];
+  const getVariantImages =
+    isVariantOf?.hasVariant.map(({ Imagens }) =>
+      Imagens.map((img) => img.Imagem)
+    ) ??
+      [];
 
   const handleColorClick = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
     if (index !== -1 && variantImages[index]) {
       setSelectedImage(variantImages[index]);
+      setSelectedVariantIndex(index);
+      setHoverIndex(null);
     }
   };
 
@@ -85,33 +96,79 @@ function ProductCard({
 
   const handleColorLeave = () => setHoverImage(null);
 
-  const displayImage = hoverImage || selectedImage || front?.url!;
+  const getCurrentImages = () => {
+    if (
+      selectedVariantIndex !== null && getVariantImages[selectedVariantIndex]
+    ) {
+      return getVariantImages[selectedVariantIndex];
+    }
+    return images?.map((img) => img.url) || [];
+  };
+
+  const handleImageHover = (index: number) => {
+    const currentImages = getCurrentImages();
+    if (currentImages.length > 1) {
+      const nextIndex = (index + 1) % currentImages.length;
+      setHoverImage(currentImages[nextIndex]);
+      setHoverIndex(index);
+    }
+  };
+
+  const handleImageLeave = () => {
+    setHoverImage(null);
+    setHoverIndex(null);
+  };
+
+  const getDisplayImage = (index: number = 0) => {
+    const currentImages = getCurrentImages();
+
+    if (hoverIndex === index && currentImages.length > 1) {
+      const nextIndex = (index + 1) % currentImages.length;
+      return currentImages[nextIndex];
+    }
+
+    if (selectedVariantIndex !== null) {
+      return hoverImage || selectedImage || currentImages[index] || front?.url!;
+    }
+
+    return hoverImage || selectedImage || front?.url!;
+  };
 
   const renderSlider = () => (
     <>
       <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
-        {images?.map((image, index) => {
-          let itemUrl;
-          if (hoverIndex === index && images && images.length > 1) {
-            const nextIndex = (index + 1) % images.length;
-            itemUrl = images[nextIndex].url!;
-          } else {
-            itemUrl = hoverImage || selectedImage || image.url!;
-          }
-
+        {getCurrentImages().map((imageUrl, index) => {
+          if (imageUrl === "/Content/assets/images/capa-video.jpg") return null;
           return (
             <Slider.Item
               index={index}
               key={index}
-              class="carousel-item lg:!w-full"
+              class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
             >
               <div
-                onMouseEnter={() => setHoverIndex(index)}
-                onMouseLeave={() => setHoverIndex(null)}
+                onMouseEnter={() => handleImageHover(index)}
+                onMouseLeave={handleImageLeave}
+                class="hidden lg:block"
               >
                 <ProductCardImage
-                  url={itemUrl}
-                  alt={image.alternateName!}
+                  url={getDisplayImage(index)}
+                  alt={images?.[index]?.alternateName ||
+                    `Product image ${index + 1}`}
+                  preload={preload && index === 0}
+                  discount={discount}
+                  promotion={index === 0 ? promotionFlag : ""}
+                />
+              </div>
+
+              <div
+                onMouseEnter={() => handleImageHover(index)}
+                onMouseLeave={handleImageLeave}
+                class="lg:hidden"
+              >
+                <ProductCardImage
+                  url={imageUrl}
+                  alt={images?.[index]?.alternateName ||
+                    `Product image ${index + 1}`}
                   preload={preload && index === 0}
                   discount={discount}
                   promotion={index === 0 ? promotionFlag : ""}
@@ -131,9 +188,13 @@ function ProductCard({
   );
 
   const renderStaticImage = () => (
-    <div class="relative">
+    <div
+      class="relative"
+      onMouseEnter={() => handleImageHover(0)}
+      onMouseLeave={handleImageLeave}
+    >
       <ProductCardImage
-        url={displayImage}
+        url={getDisplayImage()}
         alt={front?.alternateName!}
         preload={preload}
         discount={discount}

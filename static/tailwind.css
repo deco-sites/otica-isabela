@@ -7533,6 +7533,14 @@ details.collapse summary::-webkit-details-marker {
     height: 40px;
   }
 
+  .max-lg\:max-h-\[197\.77px\] {
+    max-height: 197.77px;
+  }
+
+  .max-lg\:max-h-full {
+    max-height: 100%;
+  }
+
   .max-lg\:w-\[250px\] {
     width: 250px;
   }

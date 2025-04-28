@@ -92,6 +92,7 @@ export interface ColorVariants {
   OfertaTermina: string;
   PorcentagemDesconto: number;
   Imagem: string;
+  Imagens: string;
   UrlFriendlyColor: string;
   Color1: string;
   Color2: string;

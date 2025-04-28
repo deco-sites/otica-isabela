@@ -135,6 +135,8 @@ function Details({
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
 
+  console.log(product, "vem oq agora");
+
   return (
     <>
       <style
