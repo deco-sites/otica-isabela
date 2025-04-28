@@ -10,7 +10,7 @@
         },
         "__resolveType": "site/loaders/product/productDetails.ts"
       },
-      "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/76f9f806-3def-41fb-8c94-6d0f1bee5e36",
+      "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
       "__resolveType": "commerce/sections/Seo/SeoPDP.tsx",
       "titleTemplate": "%s",
       "descriptionTemplate": "%s"

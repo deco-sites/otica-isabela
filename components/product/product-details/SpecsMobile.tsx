@@ -39,7 +39,7 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   );
 
   return (
-    <div id="specs-mobile" class="border-t border-gray-300 lg:hidden mt-8">
+    <div id="specs-mobile" class="border-t border-gray-300 hidden mt-8">
       <Head>
         <style
           type="text/css"

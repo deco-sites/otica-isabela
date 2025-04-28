@@ -59,7 +59,7 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
     return (
         <div
             id={id}
-            class="max-w-[1320px] w-[95%] mx-auto flex flex-col gap-11 my-12"
+            class="max-w-[1320px] w-[95%] mx-auto flex flex-col gap-11 my-12 lg:my-24"
         >
             <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
                 <span class="text-2xl text-grayscale-700">{title}</span>
@@ -123,13 +123,13 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
                 </Slider>
 
                 <div class="flex items-center justify-between left-0 absolute top-1/2 -translate-y-1/2 w-full pointer-events-none">
-                    <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+                    <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
                         <Icon
                             id="chevron-right"
                             class="rotate-180 text-slot-primary-500 transition-colors"
                         />
                     </Slider.PrevButton>
-                    <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+                    <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
                         <Icon
                             id="chevron-right"
                             class="text-slot-primary-500 transition-colors"

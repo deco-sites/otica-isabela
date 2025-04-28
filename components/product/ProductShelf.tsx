@@ -25,13 +25,13 @@ function Buttons() {
   return (
     <>
       <div class="flex items-center justify-between left-0 absolute top-1/2 -translate-y-1/2 w-full pointer-events-none">
-        <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+        <Slider.PrevButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
           <Icon
             id="chevron-right"
             class="rotate-180 text-slot-primary-500 transition-colors"
           />
         </Slider.PrevButton>
-        <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+        <Slider.NextButton class="size-8 rounded bg-grayscale-0 group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
           <Icon
             id="chevron-right"
             class="text-slot-primary-500 transition-colors"

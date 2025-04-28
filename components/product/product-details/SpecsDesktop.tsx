@@ -39,7 +39,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   }
 
   return (
-    <div class="hidden lg:block border-t border-gray-200 mt-8">
+    <div class="border-t border-gray-200 mt-8">
       <Head>
         <style
           type="text/css"
@@ -65,8 +65,8 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
           }}
         />
       </Head>
-      <div id={rootId} class="mt-1 container">
-        <div class="tabs w-[90%] mb-2 flex justify-between m-auto">
+      <div id={rootId} class="mt-1 container max-lg:m-0">
+        <div class="tabs w-[90%] mb-2 max-lg:mx-[21px] max-lg:my-4 flex justify-between m-auto max-lg:block max-lg:justify-normal max-lg:whitespace-nowrap max-lg:overflow-auto">
           {/* Tabs Buttons */}
           {panels.filter((panel) => Boolean(panel)).map(({ name }, index) => {
             const id = replaceSpecialCharacters(name!)
@@ -78,9 +78,10 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 id={`${id}-tab`}
                 key={`${name}-${index}-tab`}
                 style={{ borderColor: "#42c3ff" }}
-                class={`tab p-0 h-[50px] text-black text-xl font-bold font-outfit cursor-pointer rounded-[3px] ${
-                  index === 0 && "tab-active border-b-4"
-                }`}
+                class={`tab p-0 h-[50px] max-lg:h-[40px] text-black max-lg:text-[#6f6f6f] text-xl font-bold max-lg:font-normal font-outfit cursor-pointer rounded-[3px] ${
+                  index === 0 &&
+                  "tab-active border-b-4 max-lg:!font-bold max-lg:!text-black"
+                } mx-3 first:ml-0`}
               >
                 {name}
               </a>
@@ -119,7 +120,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             }
             return (
               <div
-                class="p-3 [&>span]:flex [&>span]:items-center [&>span]:font-outfit"
+                class="p-8 max-lg:p-5 max-lg:pt-6 [&>span]:flex [&>span]:items-center [&>span]:font-outfit"
                 dangerouslySetInnerHTML={{ __html: replacedValues! }}
               >
               </div>
@@ -132,7 +133,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${id}-content ${
                 index === 0 ? "block" : "hidden"
-              } bg-[#f5f5f5] rounded-xl`}
+              } bg-[#f5f5f5] rounded-xl max-lg:mx-[21px]`}
             >
               <ContentVariations />
             </div>

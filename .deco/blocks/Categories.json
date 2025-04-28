@@ -13,7 +13,7 @@
             "jsonLD": {
               "__resolveType": "defaultPLP"
             },
-            "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/8474f47d-0c47-450c-a086-a8af1458b850",
+            "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
             "__resolveType": "commerce/sections/Seo/SeoPLP.tsx",
             "titleTemplate": "%s",
             "descriptionTemplate": "%s"
