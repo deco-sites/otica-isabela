@@ -11,7 +11,7 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
     <div
       class={`${
         page === "details"
-          ? "lg:absolute top-0 z-50 left-0 w-full lg:w-fit"
+          ? "lg:absolute top-4 z-50 left-0 w-full lg:w-fit"
           : "w-full"
       }`}
     >

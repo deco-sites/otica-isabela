@@ -60,6 +60,30 @@ function SpecsDesktop({ product, measurementsImage, items }: Props) {
     });
   }
 
+  const orderedPanels = [...panels].sort((a, b) => {
+    const order = ["descricao", "medidas"];
+    const idA = replaceSpecialCharacters(a.name).toLocaleLowerCase().replaceAll(
+      " ",
+      "-",
+    ).replace(/[?]/g, "");
+    const idB = replaceSpecialCharacters(b.name).toLocaleLowerCase().replaceAll(
+      " ",
+      "-",
+    ).replace(/[?]/g, "");
+
+    const indexA = order.indexOf(idA);
+    const indexB = order.indexOf(idB);
+
+    // Painéis definidos na ordem aparecem primeiro
+    if (indexA !== -1 || indexB !== -1) {
+      return (indexA === -1 ? Infinity : indexA) -
+        (indexB === -1 ? Infinity : indexB);
+    }
+
+    // Ordem padrão para os demais
+    return 0;
+  });
+
   return (
     <div class="border-t border-gray-200 mt-8">
       <Head>
@@ -88,31 +112,33 @@ function SpecsDesktop({ product, measurementsImage, items }: Props) {
         />
       </Head>
       <div id={rootId} class="mt-1 container max-lg:m-0">
-        <div class="tabs w-[90%] mb-2 max-lg:mx-[21px] max-lg:my-4 flex justify-between m-auto max-lg:block max-lg:justify-normal max-lg:whitespace-nowrap max-lg:overflow-auto">
+        <div class="tabs scrollbar-none w-[90%] mb-2 max-lg:mx-[21px] max-lg:my-4 flex justify-between m-auto max-lg:block max-lg:justify-normal max-lg:whitespace-nowrap max-lg:overflow-auto">
           {/* Tabs Buttons */}
-          {panels.filter((panel) => Boolean(panel)).map(({ name }, index) => {
-            const id = replaceSpecialCharacters(name!)
-              .toLocaleLowerCase()
-              .replaceAll(" ", "-")
-              .replace(/[?]/g, "");
-            return (
-              <a
-                id={`${id}-tab`}
-                key={`${name}-${index}-tab`}
-                style={{ borderColor: "#42c3ff" }}
-                class={`tab p-0 h-[50px] max-lg:h-[40px] text-black max-lg:text-[#6f6f6f] text-xl font-bold max-lg:font-normal font-outfit cursor-pointer rounded-[3px] ${
-                  index === 0 &&
-                  "tab-active border-b-4 max-lg:!font-bold max-lg:!text-black"
-                } mx-3 first:ml-0`}
-              >
-                {name}
-              </a>
-            );
-          })}
+          {orderedPanels.filter((panel) => Boolean(panel)).map(
+            ({ name }, index) => {
+              const id = replaceSpecialCharacters(name!)
+                .toLocaleLowerCase()
+                .replaceAll(" ", "-")
+                .replace(/[?]/g, "");
+              return (
+                <a
+                  id={`${id}-tab`}
+                  key={`${name}-${index}-tab`}
+                  style={{ borderColor: "#42c3ff" }}
+                  class={`tab p-0 h-[50px] max-lg:h-[40px] text-black max-lg:text-[#6f6f6f] text-xl font-bold max-lg:font-normal font-outfit cursor-pointer rounded-[3px] ${
+                    index === 0 &&
+                    "tab-active border-b-4 max-lg:!font-bold max-lg:!text-black"
+                  } mx-3 first:ml-0`}
+                >
+                  {name}
+                </a>
+              );
+            },
+          )}
         </div>
 
         {/* Tabs Content */}
-        {panels?.map(({ name, value }, index) => {
+        {orderedPanels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
             .replaceAll(" ", "-")

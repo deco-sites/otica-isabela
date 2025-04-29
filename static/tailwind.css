@@ -9091,9 +9091,9 @@ details.collapse summary::-webkit-details-marker {
     text-align: start;
   }
 
-  .lg\:\!text-sm {
-    font-size: 0.875rem !important;
-    line-height: 1.25rem !important;
+  .lg\:\!text-xs {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
   }
 
   .lg\:text-2xl {

@@ -61,7 +61,7 @@ export function StopwatchItem({ label, value, type, page }: ItemProps) {
       <p
         id={`item-${label}-value`}
         class={`${style(["font-color"], type)} font-bold ${
-          page === "details" ? "lg:!text-sm !font-normal" : ""
+          page === "details" ? "lg:!text-xs !font-normal" : ""
         }`}
       >
         {value}
@@ -69,7 +69,7 @@ export function StopwatchItem({ label, value, type, page }: ItemProps) {
       <p
         id={`item-${label}-label`}
         class={`${style(["bold"], type)} text-black text-xs lg:text-sm ${
-          page === "details" ? "lg:!text-sm !font-normal" : ""
+          page === "details" ? "lg:!text-xs !font-normal" : ""
         }`}
       >
         {label}
@@ -111,7 +111,7 @@ function Stopwatch({ targetDate, type, page }: Props) {
             class={`${
               style(["font-color", "offer-fs", "bold"], type)
             } w-full block text-red-500 ${
-              page === "details" ? "font-normal lg:text-base" : ""
+              page === "details" ? "font-normal lg:text-sm" : ""
             }`}
           >
             Oferta termina em
