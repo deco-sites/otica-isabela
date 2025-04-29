@@ -5,35 +5,13 @@ import LazyIframe from "$store/islands/LazyIframe.tsx";
 import TabJS from "$store/islands/TabJS.tsx";
 import { replaceHtml } from "$store/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "$store/sdk/replaceSpecialCharacters.ts";
-import { ImageWidget } from "apps/admin/widgets.ts";
-import Image from "apps/website/components/Image.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
   product: Product;
   measurementsImage: string;
-  items?: Item[];
 }
 
-/**
- * @titleBy title
- */
-interface Item {
-  /**
-   * @title Ícone
-   */
-  icon: ImageWidget;
-  /**
-   * @title Título
-   */
-  title: string;
-  /**
-   * @title Descrição
-   */
-  description: string;
-}
-
-function SpecsDesktop({ product, measurementsImage, items }: Props) {
+function SpecsDesktop({ product, measurementsImage }: Props) {
   const { additionalProperty, description } = product;
   const rootId = "tabs-component";
   const panels = additionalProperty?.filter(
@@ -169,9 +147,7 @@ function SpecsDesktop({ product, measurementsImage, items }: Props) {
             }
             return (
               <div
-                class={`p-8 max-lg:p-5 max-lg:pt-6 [&>span]:flex [&>span]:items-center [&>span]:font-outfit ${
-                  id === "descricao" ? "max-w-[600px] xl:max-w-[770px]" : ""
-                }`}
+                class={`p-8 max-lg:p-5 max-lg:pt-6 [&>span]:flex [&>span]:items-center [&>span]:font-outfit`}
                 dangerouslySetInnerHTML={{ __html: replacedValues! }}
               >
               </div>
@@ -188,74 +164,6 @@ function SpecsDesktop({ product, measurementsImage, items }: Props) {
                 id === "descricao" ? "lg:relative lg:min-h-[400px]" : ""
               }`}
             >
-              {id === "descricao"
-                ? (
-                  <div class="hidden lg:block lg:absolute lg:top-8 lg:right-8 bg-grayscale-0 rounded-2xl">
-                    <div class="py-4 px-10 border-b border-b-grayscale-100 flex items-center justify-center">
-                      <span class="text-xl font-bold text-grayscale-700">
-                        Por que Ótica Isabela Dias?
-                      </span>
-                    </div>
-                    <div class="py-4 px-5 flex flex-col items-center">
-                      <div class="flex flex-col gap-4 mb-5">
-                        {items?.map(({ icon, title, description }) => (
-                          <div class="flex items-center gap-6">
-                            <Image
-                              src={icon}
-                              alt={title}
-                              width={32}
-                              height={32}
-                            />
-
-                            <div class="flex flex-col gap-0.5">
-                              <span class="text-grayscale-700">
-                                {title}
-                              </span>
-                              <span class="text-grayscale-600 text-xs">
-                                {description}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div class="flex items-center gap-2">
-                        <div class="flex items-center gap-1">
-                          <Icon
-                            id="Star"
-                            size={20}
-                            class="text-slot-primary-500"
-                          />
-                          <Icon
-                            id="Star"
-                            size={20}
-                            class="text-slot-primary-500"
-                          />
-                          <Icon
-                            id="Star"
-                            size={20}
-                            class="text-slot-primary-500"
-                          />
-                          <Icon
-                            id="Star"
-                            size={20}
-                            class="text-slot-primary-500"
-                          />
-                          <Icon
-                            id="Star"
-                            size={20}
-                            class="text-slot-primary-500"
-                          />
-                        </div>
-
-                        <span class="text-grayscale-500 text-sm">
-                          +300mil clientes
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )
-                : ""}
               <ContentVariations />
             </div>
           );

@@ -18,24 +18,6 @@ type ButtonLabel = {
   label: string;
 };
 
-/**
- * @titleBy title
- */
-interface Item {
-  /**
-   * @title Ícone
-   */
-  icon: ImageWidget;
-  /**
-   * @title Título
-   */
-  title: string;
-  /**
-   * @title Descrição
-   */
-  description: string;
-}
-
 export interface Promotion {
   /** @title Texto */
   label: string;
@@ -76,7 +58,6 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
   priceValidUntil?: string;
   /** @title Informacoes dentro da secão de descricao */
-  items?: Item[];
 }
 function ProductDetails(
   {
@@ -87,14 +68,11 @@ function ProductDetails(
     stepButtonByCategory,
     customer,
     mobileOptions,
-    items,
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
   const { offers } = product || {};
   const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
-
-  console.log(items, "aq vai?");
 
   return (
     <>
@@ -120,7 +98,6 @@ function ProductDetails(
       <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}
-        items={items}
       />
       <SpecsMobile product={product!} measurementsImage={measurementsImage!} />
     </>

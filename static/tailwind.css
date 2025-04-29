@@ -4727,9 +4727,6 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[580px\] {
   max-width: 580px;
 }
-.max-w-\[600px\] {
-  max-width: 600px;
-}
 .max-w-\[640px\] {
   max-width: 640px;
 }
@@ -8576,20 +8573,12 @@ details.collapse summary::-webkit-details-marker {
     right: 0.625rem;
   }
 
-  .lg\:right-8 {
-    right: 2rem;
-  }
-
   .lg\:right-\[-10\%\] {
     right: -10%;
   }
 
   .lg\:top-1\/2 {
     top: 50%;
-  }
-
-  .lg\:top-8 {
-    top: 2rem;
   }
 
   .lg\:top-auto {
@@ -9209,10 +9198,6 @@ details.collapse summary::-webkit-details-marker {
 
   .xl\:max-w-\[550px\] {
     max-width: 550px;
-  }
-
-  .xl\:max-w-\[770px\] {
-    max-width: 770px;
   }
 }
 
