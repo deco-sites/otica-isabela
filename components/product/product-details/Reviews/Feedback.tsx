@@ -46,7 +46,7 @@ function Feedback(
             </span>
             <span class="hidden md:block">•</span>
             <span class="text-grayscale-700 font-semibold font-outfit text-sm">
-              Recomendaria para um amigo: {ratingService}
+              Indicaria para um amigo: {ratingService}
             </span>
           </div>
         </div>
