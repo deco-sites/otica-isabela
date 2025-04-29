@@ -160,9 +160,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
               key={`${id}-${index}-content`}
               class={`tab-content ${id}-content ${
                 index === 0 ? "block" : "hidden"
-              } bg-[#f5f5f5] rounded-xl max-lg:mx-[21px] ${
-                id === "descricao" ? "lg:relative lg:min-h-[400px]" : ""
-              }`}
+              } bg-[#f5f5f5] rounded-xl max-lg:mx-[21px]`}
             >
               <ContentVariations />
             </div>
