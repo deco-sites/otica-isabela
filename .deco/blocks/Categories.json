@@ -145,8 +145,9 @@
             ],
             "filterColors": [
               {
-                "hex": "#0e4bef",
-                "label": "Azul"
+                "hex": "#003994",
+                "label": "Azul",
+                "hex2": "#005ef5"
               },
               {
                 "hex": "#82d6fa",
