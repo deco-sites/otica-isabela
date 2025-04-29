@@ -38,11 +38,11 @@ function Feedback(
           <Ratings ratingValue={maxRating} />
           <div class="flex flex-col md:w-2/4 gap-1.5 md:items-center w-full md:flex-row">
             <span class="text-grayscale-700 font-semibold font-outfit text-sm">
-              Qualidade: {ratingQuality}
+              Atendimento: {ratingQuality}
             </span>
             <span class="hidden md:block">•</span>
             <span class="text-grayscale-700 font-semibold font-outfit text-sm">
-              Preço: {ratingPrice}
+              Qualidade e Preço: {ratingPrice}
             </span>
             <span class="hidden md:block">•</span>
             <span class="text-grayscale-700 font-semibold font-outfit text-sm">
