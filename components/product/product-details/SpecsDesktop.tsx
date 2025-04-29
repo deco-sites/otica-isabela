@@ -62,6 +62,11 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
     return 0;
   });
 
+  const displayNameMap: Record<string, string> = {
+    "acessorios-inclusos": "Itens Inclusos",
+    "como-fazemos-as-lentes-de-grau": "Como fazemos as lentes?",
+  };
+
   return (
     <div class="border-t border-gray-200 mt-8">
       <Head>
@@ -98,6 +103,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                 .toLocaleLowerCase()
                 .replaceAll(" ", "-")
                 .replace(/[?]/g, "");
+              const displayName = displayNameMap[id] || name;
               return (
                 <a
                   id={`${id}-tab`}
@@ -108,7 +114,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
                     "tab-active border-b-4 max-lg:!font-bold max-lg:!text-black"
                   } mx-3 first:ml-0`}
                 >
-                  {name}
+                  {displayName}
                 </a>
               );
             },
@@ -147,7 +153,9 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             }
             return (
               <div
-                class={`p-8 max-lg:p-5 max-lg:pt-6 [&>span]:flex [&>span]:items-center [&>span]:font-outfit`}
+                class={`p-8 max-lg:p-5 max-lg:pt-6 [&>span]:flex [&>span]:items-center [&>span]:font-outfit ${
+                  id === "descricao" ? "lg:max-w-[800px] lg:mx-auto" : ""
+                }`}
                 dangerouslySetInnerHTML={{ __html: replacedValues! }}
               >
               </div>

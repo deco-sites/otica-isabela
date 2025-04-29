@@ -78,11 +78,11 @@ function Details({
   const experimenterImage = additionalProperty?.find(
     (prop) => prop.propertyID === "experimentador",
   )?.value;
-  const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
-  );
-  const colors = colorsList?.map(({ unitCode }) => unitCode);
-  const colorsName = colorsList?.map(({ value }) => value);
+  // const colorsList = additionalProperty?.filter(
+  //   (prop) => prop.propertyID === "color",
+  // );
+  // const colors = colorsList?.map(({ unitCode }) => unitCode);
+  // const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
@@ -134,8 +134,6 @@ function Details({
 
   const ratingValue = rating ? parseFloat(rating) : 0;
   const isLentes = product?.category?.includes("Lentes de Contato");
-
-  console.log(product, "vem oq agora");
 
   return (
     <>
