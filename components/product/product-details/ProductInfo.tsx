@@ -112,8 +112,9 @@ function ProductInfo(
         : null}
 
       {/* Prices */}
-      <div class="flex items-normal justify-between">
+      <div class="flex items-normal justify-between lg:mt-6">
         <div class="flex flex-col gap-2">
+          <ProductInfoColors page={page} />
           {listPrice !== price && (
             <p class="line-through font-semibold text-sm  text-red-500 lg:text-base">
               {formatPrice(listPrice, offers!.priceCurrency!)}
@@ -143,26 +144,24 @@ function ProductInfo(
             </div>
           )} */
           }
-          <ProductInfoColors page={page} />
         </div>
+        {/* Experimenter */}
+        {!isLentes && experimenterImage
+          ? (
+            <div class="mt-4 max-w-[190px] ml-auto flex items-center">
+              <ToExperimentButton
+                image={experimenterImage!}
+                variant="filled"
+                size="small"
+              />
+            </div>
+          )
+          : null}
       </div>
-
-      {/* Experimenter */}
-      {!isLentes && experimenterImage
-        ? (
-          <div class="mt-4 max-w-[190px] ml-auto">
-            <ToExperimentButton
-              image={experimenterImage!}
-              variant="filled"
-              size="small"
-            />
-          </div>
-        )
-        : null}
 
       {/* Choose Lens */}
       {stepLabel && isAllowedToAddLens && (
-        <div class="mt-[11px] w-full">
+        <div class="mt-[11px] lg:mt-6 w-full">
           <ChooseLensButton
             {...addToCard}
             text={stepLabel}

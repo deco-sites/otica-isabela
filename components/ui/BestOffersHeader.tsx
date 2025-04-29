@@ -9,11 +9,17 @@ interface Props {
 export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
   return (
     <div
-      class={`w-full ${page === "details" ? "lg:hidden" : "block"}`}
+      class={`${
+        page === "details"
+          ? "lg:absolute top-4 z-50 left-0 w-full lg:w-fit"
+          : "w-full"
+      }`}
     >
       <div
         class={`container sm:min-h-[150px] min-h-[100px] ${
-          page === "details" ? "justify-center" : "justify-evenly"
+          page === "details"
+            ? "justify-center lg:min-h-[unset]"
+            : "justify-evenly"
         } lg:justify-around flex items-center pb-0 pl-1 pr-1`}
       >
         <div class="lg:hidden flex items-center justify-center">
@@ -24,14 +30,20 @@ export const BestOffersHeader = ({ priceValidUntil, page }: Props) => {
           />
         </div>
 
-        <div class="hidden lg:block">
-          <p class="text-red-500 text-sm md:text-xl font-bold">As melhores</p>
-          <h3 class="text-red-500 text-3xl md:text-5xl font-outfit font-bold uppercase">
-            Ofertas do dia
-          </h3>
-        </div>
-        <div class="md:min-w-[330px] xl:max-w-[500px]">
-          <Stopwatch targetDate={priceValidUntil} type="header" />
+        {page !== "details" && (
+          <div class="hidden lg:block">
+            <p class="text-red-500 text-sm md:text-xl font-bold">As melhores</p>
+            <h3 class="text-red-500 text-3xl md:text-5xl font-outfit font-bold uppercase">
+              Ofertas do dia
+            </h3>
+          </div>
+        )}
+        <div
+          class={`${
+            page !== "details" ? "md:min-w-[330px]" : ""
+          } xl:max-w-[500px]`}
+        >
+          <Stopwatch targetDate={priceValidUntil} type="header" page={page} />
         </div>
       </div>
     </div>

@@ -347,6 +347,7 @@ const toVariantProduct = (
       sku: `${variant.IdProduct}`,
       additionalProperty: toColorPropertyValue(variant),
       Imagem: variant.Imagem,
+      Imagens: variant.Imagens,
       offers: toAggregateOffer({
         originalValue: ValorOriginal,
         discountedValue: ValorDesconto,

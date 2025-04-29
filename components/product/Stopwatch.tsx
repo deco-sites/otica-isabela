@@ -1,4 +1,3 @@
-import Icon from "$store/components/ui/Icon.tsx";
 import { calcRemainingTime } from "$store/sdk/calcRemainingTime.ts";
 import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
@@ -8,11 +7,13 @@ interface ItemProps {
   label: string;
   value: number;
   type: "card" | "header" | "details";
+  page?: "home" | "details";
 }
 
 interface Props {
   targetDate: string;
   type: "card" | "header" | "details";
+  page?: "home" | "details";
 }
 
 type Config = {
@@ -54,18 +55,22 @@ const config: Config = {
 const style = (props: string[], type: Props["type"]) =>
   props.map((p) => config[type][p]).join(" ");
 
-export function StopwatchItem({ label, value, type }: ItemProps) {
+export function StopwatchItem({ label, value, type, page }: ItemProps) {
   return (
     <div class={`text-center ${style(["font-size"], type)}`}>
       <p
         id={`item-${label}-value`}
-        class={`${style(["font-color"], type)} font-bold`}
+        class={`${style(["font-color"], type)} font-bold ${
+          page === "details" ? "lg:!text-xs !font-normal" : ""
+        }`}
       >
         {value}
       </p>
       <p
         id={`item-${label}-label`}
-        class={`${style(["bold"], type)} text-black text-xs lg:text-sm }`}
+        class={`${style(["bold"], type)} text-black text-xs lg:text-sm ${
+          page === "details" ? "lg:!text-xs !font-normal" : ""
+        }`}
       >
         {label}
       </p>
@@ -73,7 +78,7 @@ export function StopwatchItem({ label, value, type }: ItemProps) {
   );
 }
 
-function Stopwatch({ targetDate, type }: Props) {
+function Stopwatch({ targetDate, type, page }: Props) {
   const timeRemaining = useSignal<number>(0);
 
   useEffect(() => {
@@ -105,7 +110,9 @@ function Stopwatch({ targetDate, type }: Props) {
           <p
             class={`${
               style(["font-color", "offer-fs", "bold"], type)
-            } w-full block text-red-500`}
+            } w-full block text-red-500 ${
+              page === "details" ? "font-normal lg:text-sm" : ""
+            }`}
           >
             Oferta termina em
           </p>
@@ -114,10 +121,25 @@ function Stopwatch({ targetDate, type }: Props) {
               type === "details" ? "justify-evenly" : ""
             }`}
           >
-            <StopwatchItem label="Dias" value={days} type={type} />
-            <StopwatchItem label="Horas" value={hours} type={type} />
-            <StopwatchItem label="Minutos" value={minutes} type={type} />
-            <StopwatchItem label="Segundos" value={seconds} type={type} />
+            <StopwatchItem label="Dias" value={days} type={type} page={page} />
+            <StopwatchItem
+              label="Horas"
+              value={hours}
+              type={type}
+              page={page}
+            />
+            <StopwatchItem
+              label="Minutos"
+              value={minutes}
+              type={type}
+              page={page}
+            />
+            <StopwatchItem
+              label="Segundos"
+              value={seconds}
+              type={type}
+              page={page}
+            />
           </div>
         </div>
       </div>

@@ -78,11 +78,11 @@ function Details({
   const experimenterImage = additionalProperty?.find(
     (prop) => prop.propertyID === "experimentador",
   )?.value;
-  const colorsList = additionalProperty?.filter(
-    (prop) => prop.propertyID === "color",
-  );
-  const colors = colorsList?.map(({ unitCode }) => unitCode);
-  const colorsName = colorsList?.map(({ value }) => value);
+  // const colorsList = additionalProperty?.filter(
+  //   (prop) => prop.propertyID === "color",
+  // );
+  // const colors = colorsList?.map(({ unitCode }) => unitCode);
+  // const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
     (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
@@ -220,20 +220,13 @@ function Details({
       )}
 
       {/* Image Slider - Mobile & Desktop */}
-      <div id={id} class="lg:flex lg:justify-center lg:gap-9">
+      <div id={id} class="lg:flex lg:justify-center lg:gap-12">
         <div class="relative flex flex-col items-center text-center w-full mt-2 lg:mt-0">
-          <div class="relative">
-            {priceValidUntil && (
-              <BestOffersHeader
-                priceValidUntil={priceValidUntil!}
-                page="details"
-              />
-            )}
-
-            <div class="relative flex flex-col-reverse lg:flex-row gap-2">
+          <div class="relative lg:w-full">
+            <div class="relative flex flex-col-reverse lg:justify-end lg:flex-row gap-2">
               <ul
                 id="image-dots"
-                class={`carousel lg:flex-col w-fit carousel-center lg:mt-2 flex lg:max-w-[540px] gap-1 lg:gap-2 mx-auto ${
+                class={`carousel lg:flex-col w-fit carousel-center lg:mt-2 flex lg:max-w-[540px] gap-1 lg:gap-2 mx-auto lg:mx-0 ${
                   showProductTumbnails ? "" : "max-lg:hidden"
                 }`}
               >
@@ -254,49 +247,56 @@ function Details({
                   </li>
                 ))}
               </ul>
-
-              <Slider
-                id={`product-images-${id}`}
-                class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
-              >
-                {images.map((img, index) => (
-                  <Slider.Item
-                    index={index}
-                    class="carousel-item lg:!w-full items-center"
-                  >
-                    {img.additionalType === "video"
-                      ? (
-                        <Video
-                          src={img.url}
-                          loading="lazy"
-                          width={350}
-                          height={350}
-                          class="w-full"
-                          controls
-                        />
-                      )
-                      : (
-                        <Image
-                          class="w-full h-max"
-                          src={img.url!}
-                          alt={img.alternateName}
-                          width={350}
-                          height={350}
-                          preload={index === 0}
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                      )}
-                  </Slider.Item>
-                ))}
-              </Slider>
+              <div class="relative">
+                {priceValidUntil && (
+                  <BestOffersHeader
+                    priceValidUntil={priceValidUntil!}
+                    page="details"
+                  />
+                )}
+                <Slider
+                  id={`product-images-${id}`}
+                  class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
+                >
+                  {images.map((img, index) => (
+                    <Slider.Item
+                      index={index}
+                      class="carousel-item lg:!w-full items-center"
+                    >
+                      {img.additionalType === "video"
+                        ? (
+                          <Video
+                            src={img.url}
+                            loading="lazy"
+                            width={350}
+                            height={350}
+                            class="w-full"
+                            controls
+                          />
+                        )
+                        : (
+                          <Image
+                            class="w-full h-max"
+                            src={img.url!}
+                            alt={img.alternateName}
+                            width={350}
+                            height={350}
+                            preload={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        )}
+                    </Slider.Item>
+                  ))}
+                </Slider>
+              </div>
               <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
-                <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:opacity-0 duration-200 pointer-events-auto">
                   <Icon
                     id="chevron-right"
                     class="rotate-180 text-slot-primary-500 transition-colors"
                   />
                 </Slider.PrevButton>
-                <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 pointer-events-auto">
+                <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:opacity-0 duration-200 pointer-events-auto">
                   <Icon
                     id="chevron-right"
                     class="text-slot-primary-500 transition-colors"
@@ -361,7 +361,9 @@ function Details({
         {/* Price & Color - Mobile */}
         <div class="lg:hidden px-3 flex items-center justify-between mt-4">
           <div id="price-mobile-container">
-            <div id="price-mobile-content">
+            <ProductInfoColors page={page} />
+
+            <div id="price-mobile-content" class="mt-2">
               {discount > 0 && (
                 <span class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
                   {formatPrice(listPrice, offers!.priceCurrency!)}
@@ -373,7 +375,6 @@ function Details({
             </div>
             <p class="text-sm text-base-300 font-bold">{installments}</p>
           </div>
-          <ProductInfoColors page={page} />
         </div>
 
         {/* Choose Lens & Add To Cart - Mobile */}

@@ -175,13 +175,13 @@ export default function ({
                     </Slider>
 
                     <div class="flex items-center justify-between absolute left-[43%] top-[33%] -translate-x-1/2 -translate-y-1/2 w-full pointer-events-none">
-                        <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+                        <Slider.PrevButton class="size-8 rounded group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
                             <Icon
                                 id="chevron-right"
                                 class="rotate-180 text-grayscale-0 transition-colors"
                             />
                         </Slider.PrevButton>
-                        <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:cursor-not-allowed duration-200 shadow pointer-events-auto">
+                        <Slider.NextButton class="size-8 rounded group flex justify-center items-center disabled:opacity-0 duration-200 shadow pointer-events-auto">
                             <Icon
                                 id="chevron-right"
                                 class="text-grayscale-0 transition-colors"

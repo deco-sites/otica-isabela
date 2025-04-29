@@ -78,7 +78,7 @@ function ProductInfoColors({ page }: Props) {
                                 data-tip={colorName}
                             >
                                 <span
-                                    className={`mask mask-circle h-4 w-4 transition-transform`}
+                                    className={`mask mask-circle h-5 w-5 transition-transform`}
                                     style={{ background: backgroundStyle }}
                                 />
                             </div>
