@@ -158,8 +158,9 @@
                 "label": "Azul Marinho"
               },
               {
-                "hex": "#e3e3e3",
-                "label": "Branco"
+                "hex": "#f2f2f2",
+                "label": "Branco",
+                "hex2": "#ededed"
               },
               {
                 "hex": "#d3d3d3",
@@ -171,8 +172,9 @@
                 "hex2": "#a57203"
               },
               {
-                "hex": "#b397a8",
-                "label": "Lilas"
+                "hex": "#d076ac",
+                "label": "Lilas",
+                "hex2": "#c85698"
               },
               {
                 "hex": "#8b4513",
@@ -184,7 +186,9 @@
               },
               {
                 "hex": "#d5d5d5",
-                "label": "Prata"
+                "label": "Prata",
+                "hex2": "#b8b8b8",
+                "hex3": "#a3a3a3"
               },
               {
                 "hex": "#000000",
@@ -200,7 +204,8 @@
               },
               {
                 "hex": "#e8adaa",
-                "label": "Rose"
+                "label": "Rose",
+                "hex2": "#f49690"
               },
               {
                 "hex": "#993399",
@@ -217,8 +222,9 @@
                 "label": "Terracota"
               },
               {
-                "hex": "#e3e1eb",
-                "label": "Transparente "
+                "hex": "#e0e0e0",
+                "label": "Transparente ",
+                "hex2": "#e6e6e6"
               },
               {
                 "hex": "#63ede9",
@@ -237,8 +243,10 @@
                 "label": "Vermelho"
               },
               {
-                "hex": "#722f37",
-                "label": "Vinho"
+                "hex": "#80000f",
+                "label": "Vinho",
+                "hex2": "#750000",
+                "hex3": "#330000"
               },
               {
                 "hex": "#ffffeb",
@@ -250,11 +258,14 @@
               },
               {
                 "label": "Amarelo",
-                "hex": "#ffde05"
+                "hex": "#ffd70f",
+                "hex2": "#ffdc2e",
+                "hex3": "#ffe45c"
               },
               {
                 "label": "Bege",
-                "hex": "#ffea9e"
+                "hex": "#ffea9e",
+                "hex2": "#e2cf8d"
               }
             ],
             "__resolveType": "site/sections/Product/SearchResult.tsx",
