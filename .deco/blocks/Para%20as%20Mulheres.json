@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/397e9c61-d7fa-4942-a230-fe04498aba5a/isa-dias-04-25-fotos-calefe-(330).jpg",
-      "label": "Óculos três peças",
-      "buttonLabel": "ÓCULOS TRÊS PEÇAS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2282-dourado-isabela-dias"
+      "image": "https://assets.decocache.com/otica-isabela/478b99b7-766e-400b-a9e6-bbba2d96ace9/Circle.jpg",
+      "label": "Óculos Clubmaster",
+      "buttonLabel": "ÓCULOS CLUBMASTER",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=ClubMaster"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/87296a9b-a5ad-463f-a826-2bdabc5567c7/isa-dias-04-25-fotos-calefe-(28).jpg",
-      "label": "Óculos Retangular",
-      "buttonLabel": "ÓCULOS RETANGULAR",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2223-preto-isabela-dias"
+      "image": "https://assets.decocache.com/otica-isabela/d9011dd7-3136-455d-9e06-d78188a118f0/1808.jpg",
+      "label": "Óculos Aviador",
+      "buttonLabel": "ÓCULOS AVIADOR",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=Aviador"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/054a442b-1d57-4271-b6ac-0ae4d212b920/2260-miumiu01.jpg",
-      "label": "Óculos ovalado",
-      "buttonLabel": "ÓCULOS OVALADO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2260-tartaruga-isabela-dias"
+      "image": "https://assets.decocache.com/otica-isabela/280051cf-fc28-4e33-b9fa-6d5fa9eed130/2274.jpg",
+      "label": "Óculos Delicado",
+      "buttonLabel": "ÓCULOS DELICADO",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Estilo=Delicado"
     },
     {
-      "label": "Óculos gatinho",
-      "image": "https://assets.decocache.com/otica-isabela/35f97264-f087-4e7e-9380-17f166a114f9/isa-dias-fotos-calefe-(108).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-2205-verde-isabela-dias",
-      "buttonLabel": "ÓCULOS GATINHO"
+      "label": "Óculos Tartaruga",
+      "image": "https://assets.decocache.com/otica-isabela/c56f919b-1666-4ed1-90ab-ddff52b303d4/2184.jpg",
+      "buttonLabel": "ÓCULOS TARTARUGA",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Cor=Tartaruga"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/88242e65-b27d-463e-97f3-a08f0337ad64/isa-dias-04-25-fotos-calefe-(62).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2232-prata-isabela-dias",
-      "label": "Óculos aviador",
-      "buttonLabel": "ÓCULOS AVIADOR"
+      "image": "https://assets.decocache.com/otica-isabela/33f1cc2c-0bc5-48f2-a0af-ee6f29f75b73/2230-redondo.jpg",
+      "label": "Óculos redondo",
+      "buttonLabel": "ÓCULOS REDONDO",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-masculino?filter.Formato=Redondo"
     },
     {
-      "label": "Óculos Criativo",
+      "label": "Óculos moderno",
       "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-feminino-1811-nude-isabela-dias",
-      "buttonLabel": "ÓCULOS CRIATIVO",
-      "image": "https://assets.decocache.com/otica-isabela/227cf586-8a65-49e0-95c3-787fa87a5b0f/1811-02.jpg"
+      "buttonLabel": "ÓCULOS MODERNO",
+      "image": "https://assets.decocache.com/otica-isabela/456a1149-a9cf-4eb5-adbe-e77edf254c34/1844-02.jpg"
     }
   ],
   "customer": {
