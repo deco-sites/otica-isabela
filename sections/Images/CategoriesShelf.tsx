@@ -114,9 +114,10 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
                                     height={170}
                                     class="aspect-square"
                                 />
-                                <span class="absolute bottom-3 left-1/2 -translate-x-1/2 text-xl text-black">
-                                    {name}
-                                </span>
+                                <span
+                                    class="absolute bottom-3 left-1/2 -translate-x-1/2 text-xl text-black w-full text-center"
+                                    dangerouslySetInnerHTML={{ __html: name }}
+                                />
                             </a>
                         </Slider.Item>
                     ))}
