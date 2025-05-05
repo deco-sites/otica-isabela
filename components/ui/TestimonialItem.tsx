@@ -164,7 +164,7 @@ const TestimonialItem = ({
             <Image
               src={productPhoto}
               alt={`Imagem-${productName}`}
-              width={150}
+              width={200}
               height={60}
             />
             <span class="mb-4 mt-1 font-semibold text-[15px] text-black underline text-center">
