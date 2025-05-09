@@ -2,15 +2,15 @@
   "imports": {
     "deco-sites/otica-isabela/": "./",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "$live/": "https://denopkg.com/deco-cx/deco@1.111.2/",
+    "$live/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.116.0/",
     "$store/": "./",
     "site/": "./",
     "@cliffy/prompt": "jsr:@cliffy/prompt@^1.0.0-rc.5",
     "@core/asyncutil": "jsr:@core/asyncutil@^1.0.2",
     "@deco/codemod-toolkit": "jsr:@deco/codemod-toolkit@0.3.4",
-    "@deco/deco": "jsr:@deco/deco@1.111.2",
-    "@deco/deno-ast-wasm": "jsr:@deco/deno-ast-wasm@^0.5.4",
-    "@deco/dev": "jsr:@deco/dev@1.111.2",
+    "@deco/deco": "jsr:@deco/deco@1.116.0",
+    "@deco/deno-ast-wasm": "jsr:@deco/deno-ast-wasm@0.5.5",
+    "@deco/dev": "jsr:@deco/dev@1.116.0",
     "@deco/durable": "jsr:@deco/durable@0.5.3",
     "@deco/warp": "jsr:@deco/warp@0.3.8",
     "@hono/hono": "jsr:@hono/hono@^4.5.4",
@@ -34,12 +34,12 @@
     "@std/streams": "jsr:@std/streams@^1.0.0",
     "@std/testing": "jsr:@std/testing@^1.0.0",
     "@zaubrik/djwt": "jsr:@zaubrik/djwt@^3.0.2",
-    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.64.51/",
+    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.82.2/",
     "daisyui": "npm:daisyui@3.5.0",
-    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.111.2/",
+    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.116.0/",
     "fast-json-patch": "npm:fast-json-patch@^3.1.1",
     "https://esm.sh/*preact-render-to-string@6.3.1": "npm:preact-render-to-string@6.4.2",
-    "partytown/": "https://denopkg.com/deco-cx/partytown@0.4.8/",
+    "partytown/": "https://cdn.jsdelivr.net/gh/deco-cx/partytown@0.4.8/",
     "preact": "npm:preact@10.23.1",
     "preact-render-to-string": "npm:preact-render-to-string@6.4.2",
     "simple-git": "npm:simple-git@^3.25.0",
@@ -63,7 +63,12 @@
   "githooks": {
     "pre-commit": "check"
   },
-  "exclude": ["node_modules", "static/", "README.md", "**/_fresh/*"],
+  "exclude": [
+    "node_modules",
+    "static/",
+    "README.md",
+    "**/_fresh/*"
+  ],
   "lock": false,
   "nodeModulesDir": true,
   "compilerOptions": {
@@ -73,7 +78,10 @@
   },
   "lint": {
     "rules": {
-      "tags": ["fresh", "recommended"]
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
     }
   }
 }
