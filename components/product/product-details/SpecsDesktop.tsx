@@ -128,7 +128,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 
-          console.log(id, "vem oq");
           const replacedValues = value && replaceHtml(value);
 
           const videoId = replacedValues?.match(
