@@ -33,7 +33,7 @@
             "__resolveType": "website/sections/Rendering/Lazy.tsx",
             "section": {
               "__resolveType": "site/sections/Images/CategoriesShelf.tsx",
-              "title": "Qual é o seu favorito?",
+              "title": "Qual é o seu favorito? 💙",
               "categories": [
                 {
                   "items": [
@@ -88,7 +88,7 @@
                       "url": "/armacao-para-oculos-de-grau?filter.Material=Metal"
                     }
                   ],
-                  "seeAllUrl": "#/",
+                  "seeAllUrl": "/armacao-para-oculos-de-grau",
                   "name": "Óculos de grau"
                 },
                 {
@@ -144,7 +144,7 @@
                       "url": "/oculos-clip-on?filter.Material=Metal"
                     }
                   ],
-                  "seeAllUrl": "#/",
+                  "seeAllUrl": "/oculos-clip-on",
                   "name": "Óculos clipon"
                 },
                 {
@@ -175,7 +175,7 @@
                       "url": "/oculos-de-sol?filter.Formato=Hexagonal"
                     }
                   ],
-                  "seeAllUrl": "#/",
+                  "seeAllUrl": "/oculos-de-sol",
                   "name": "Óculos de sol"
                 },
                 {
