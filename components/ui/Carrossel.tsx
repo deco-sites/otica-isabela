@@ -114,31 +114,30 @@ export default function Carrossel(
     <>
       <div class="max-w-[1320px] w-full lg:w-[97%] 3xl:w-full mx-auto relative lg:mb-16">
         {images.map(({ desktop, mobile, link, alt }, index) => (
-          <div
+          <a
             class={clx(
               "w-full transition-opacity duration-700",
-              index !== current.value && "opacity-0",
+              index !== current.value && "opacity-0 pointer-events-none",
               index !== 0 && "absolute left-0 top-0 h-full",
             )}
+            href={link}
           >
-            <a href={link}>
-              <Picture>
-                <Source
-                  media="(max-width: 768px)"
-                  src={mobile}
-                  width={500}
-                  height={700}
-                />
-                <Source
-                  media="(min-width: 769px)"
-                  src={desktop}
-                  width={1320}
-                  height={430}
-                />
-                <img class="" src={desktop} alt={alt} />
-              </Picture>
-            </a>
-          </div>
+            <Picture>
+              <Source
+                media="(max-width: 768px)"
+                src={mobile}
+                width={500}
+                height={700}
+              />
+              <Source
+                media="(min-width: 769px)"
+                src={desktop}
+                width={1320}
+                height={430}
+              />
+              <img class="" src={desktop} alt={alt} />
+            </Picture>
+          </a>
         ))}
 
         <div class="flex items-center justify-between absolute top-1/2 -translate-y-1/2 w-full px-[3vw]">
