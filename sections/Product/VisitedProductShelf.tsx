@@ -1,5 +1,6 @@
 import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
 import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
+import Section from "../../components/ui/Section.tsx";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import type { AppContext } from "$store/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
@@ -71,3 +72,5 @@ function VisitedProductShelf({
 }
 
 export default VisitedProductShelf;
+
+export const LoadingFallback = () => <Section.Placeholder height="600px" />;

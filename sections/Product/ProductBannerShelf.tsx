@@ -11,6 +11,9 @@ import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import Icon from "../../components/ui/Icon.tsx";
+
+import Section from "../../components/ui/Section.tsx";
+
 export interface BannersProps {
   /** @title Identificação do Banner */
   label: string;
@@ -117,3 +120,5 @@ function ProductBannerShelf({
 }
 
 export default ProductBannerShelf;
+
+export const LoadingFallback = () => <Section.Placeholder height="600px" />;

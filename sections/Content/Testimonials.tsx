@@ -12,6 +12,8 @@ import { Review } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 
+import Section from "../../components/ui/Section.tsx";
+
 export interface Props {
   header?: HeaderProps;
   /**
@@ -73,3 +75,5 @@ export default function Testimonials(
     </>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="600px" />;
