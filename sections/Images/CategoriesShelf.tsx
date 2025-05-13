@@ -1,10 +1,13 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 import Icon from "../../components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
 import { usePartialSection as usePartialSection } from "@deco/deco/hooks";
+import Section from "../../components/ui/Section.tsx";
+
 /**
  * @titleBy name
  */
@@ -107,7 +110,7 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
                                 href={url}
                                 class="relative hover:text-slot-primary-500 hover:underline hover:underline-offset-4 rounded-lg overflow-hidden transition-shadow hover:shadow-[0_0_12px_2px_rgba(0,0,0,0.15)]"
                             >
-                                <img
+                                <Image
                                     src={image}
                                     alt={name}
                                     width={170}
@@ -143,3 +146,5 @@ export default function ({ title, categories, tabIndex = 0 }: Props) {
         </div>
     );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="306px" />;

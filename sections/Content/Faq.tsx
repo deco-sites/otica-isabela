@@ -4,6 +4,8 @@ import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import FaqContainer from "$store/islands/FaqContainer.tsx";
 
+import Section from "../../components/ui/Section.tsx";
+
 export interface Question {
   /**
    * @title Duvida
@@ -94,3 +96,5 @@ export default function FAQ(
     </>
   );
 }
+
+export const LoadingFallback = () => <Section.Placeholder height="600px" />;

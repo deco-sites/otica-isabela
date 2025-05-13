@@ -3,6 +3,7 @@ import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import type { Product } from "apps/commerce/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
+import Section from "../../components/ui/Section.tsx";
 
 export interface Props {
   products?: Product[] | null;
@@ -33,3 +34,5 @@ function BestDailyOffers({ products, customer }: Props) {
 }
 
 export default BestDailyOffers;
+
+export const LoadingFallback = () => <Section.Placeholder height="600px" />;

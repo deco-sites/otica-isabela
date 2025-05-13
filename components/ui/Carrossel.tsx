@@ -125,17 +125,20 @@ export default function Carrossel(
             <Picture>
               <Source
                 media="(max-width: 768px)"
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw"
                 src={mobile}
                 width={500}
                 height={700}
               />
               <Source
                 media="(min-width: 769px)"
+                fetchPriority="high"
                 src={desktop}
                 width={1320}
                 height={430}
               />
-              <img class="" src={desktop} alt={alt} />
+              <img class="" src={desktop} alt={alt} loading="eager" />
             </Picture>
           </a>
         ))}
