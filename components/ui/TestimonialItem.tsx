@@ -161,12 +161,12 @@ const TestimonialItem = ({
             href={productLink}
             class="flex flex-col lg:h-[196px] lg:gap-5 justify-center items-center "
           >
-            <Image
+            <img
               src={productPhoto}
               alt={`Imagem-${productName}`}
-              width={200}
-              height={70}
-            />
+              class="w-full lg:w-[unset] lg:max-w-[200px] lg:max-h-[70px]"
+            >
+            </img>
             <span class="mb-4 mt-1 font-semibold text-[15px] text-black underline text-center">
               {productName}
             </span>

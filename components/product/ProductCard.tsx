@@ -260,7 +260,9 @@ function ProductCard({
             href={url}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
-            Experimentar
+            {product.category && product?.category.includes("Lentes de Contato")
+              ? "Ver Produto"
+              : "Experimentar"}
           </a>
         </button>
       );
