@@ -122,7 +122,7 @@ export default function Carrossel(
             )}
             href={link}
           >
-            <Picture>
+            <Picture preload={index === 0}>
               <Source
                 media="(max-width: 768px)"
                 fetchPriority={`${index === 0 ? "high" : "auto"}`}
