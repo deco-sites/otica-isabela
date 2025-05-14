@@ -121,7 +121,7 @@ export default function ({
 
                     <div class="flex items-center gap-4">
                         {siteSeguro.icons.map((icon) => (
-                            <img src={icon} alt="" />
+                            <img loading="lazy" src={icon} alt="" />
                         ))}
                     </div>
                 </div>
@@ -247,7 +247,7 @@ export default function ({
 
                             <div class="flex items-center gap-4">
                                 {siteSeguro.icons.map((icon) => (
-                                    <img src={icon} alt="" />
+                                    <img loading="lazy" src={icon} alt="" />
                                 ))}
                             </div>
                         </div>
