@@ -8713,6 +8713,10 @@ details.collapse summary::-webkit-details-marker {
     max-height: 600px;
   }
 
+  .lg\:max-h-\[70px\] {
+    max-height: 70px;
+  }
+
   .lg\:min-h-\[unset\] {
     min-height: unset;
   }
