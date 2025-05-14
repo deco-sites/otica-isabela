@@ -24,7 +24,6 @@ function WhatsApp({ image, link }: Props) {
         src={image ?? ""}
         alt="WhatsApp"
         loading="eager"
-        preload
       />
     </a>
   );
