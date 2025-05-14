@@ -8004,6 +8004,10 @@ details.collapse summary::-webkit-details-marker {
     width: calc(100% - 12px);
   }
 
+  .md\:w-\[unset\] {
+    width: unset;
+  }
+
   .md\:w-auto {
     width: auto;
   }
