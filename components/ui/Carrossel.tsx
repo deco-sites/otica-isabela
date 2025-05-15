@@ -138,7 +138,7 @@ export default function Carrossel(
                 height={430}
               />
               <img
-                class="w-full md:w-[unset]"
+                class="w-full md:w-[unset] lg:rounded-[20px]"
                 src={desktop}
                 alt={alt}
                 loading="eager"
