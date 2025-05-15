@@ -15,9 +15,6 @@
       "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
     },
     {
-      "__resolveType": "Analytics"
-    },
-    {
       "__resolveType": "site/sections/SetCookies.tsx"
     },
     {
