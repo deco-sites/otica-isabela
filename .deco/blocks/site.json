@@ -12,10 +12,10 @@
       "__resolveType": "Oticas Isabela Custom Theme"
     },
     {
-      "__resolveType": "Analytics"
+      "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
     },
     {
-      "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
+      "__resolveType": "Analytics"
     },
     {
       "__resolveType": "site/sections/SetCookies.tsx"
