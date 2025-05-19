@@ -132,6 +132,7 @@ function Result(
   // const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
   //   (pageName || "");
   // const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
+  console.log(products, "vamo ve");
   return (
     <>
       {

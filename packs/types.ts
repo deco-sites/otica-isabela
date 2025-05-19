@@ -72,6 +72,7 @@ export interface Product {
   OfertaFlag?: string;
   PorcentagemDesconto: number;
   ProdutosMaisCores: ColorVariants[];
+  ProdutosSimilares: SimilarProducts[];
   Paineis?: Panels[];
   Imagens: Image[];
   ImagemExperimentador: string;
@@ -93,6 +94,26 @@ export interface ColorVariants {
   PorcentagemDesconto: number;
   Imagem: string;
   Imagens: string;
+  UrlFriendlyColor: string;
+  Color1: string;
+  Color2: string;
+  Color3: string;
+  NomeColor: string;
+}
+
+export interface SimilarProducts {
+  IdProduct: number;
+  Nome: string;
+  ValorOriginal: number;
+  ValorDesconto: number;
+  OfertaTermina: string;
+  PorcentagemDesconto: number;
+  Imagem: string;
+  Imagens: {
+    Id: number;
+    Imagem: string;
+    Video: string | null;
+  }[];
   UrlFriendlyColor: string;
   Color1: string;
   Color2: string;
@@ -206,6 +227,7 @@ export interface GetProductProps {
   page?: number;
 
   tipoRetorno: "simples" | "completo";
+  isProdutosSimilares: boolean;
 }
 
 export interface DynamicFilter {

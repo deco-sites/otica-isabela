@@ -3,6 +3,7 @@ import {
   APIGetTestimonials,
   Category,
   ColorVariants,
+  SimilarProducts,
   DynamicFilter,
   Image,
   Panels,
@@ -41,6 +42,7 @@ type CategoryPageProps = Required<
 interface ToAdditionalPropertiesProps {
   properties: ProductInfo[];
   variants: ColorVariants[];
+  similarProducts?: SimilarProducts[];
   experimentador: string;
   rating: number;
   panels?: Panels[];
@@ -87,6 +89,7 @@ export function toProduct(product: IsabelaProduct): Product {
     ValorOriginal,
     Classificacoes,
     ProdutosMaisCores,
+    ProdutosSimilares,
     ImagemExperimentador,
     NomeCategoriaPai,
     NomeCategoria,
@@ -121,6 +124,7 @@ export function toProduct(product: IsabelaProduct): Product {
     additionalProperty: toAdditionalProperties({
       properties: Classificacoes,
       variants: ProdutosMaisCores,
+      similarProducts: ProdutosSimilares,
       experimentador: ImagemExperimentador?.replace("www.", "secure."),
       panels: Paineis,
       flag: OfertaFlag,
@@ -194,6 +198,49 @@ const toImage = (
     };
   });
 
+const toSimilarProductsPropertyValue = (
+  similarProducts?: SimilarProducts[]
+): PropertyValue[] => {
+  if (!similarProducts || similarProducts.length === 0) return [];
+
+  return similarProducts.map((product) => ({
+    "@type": "PropertyValue" as const,
+    name: "Produto Similar",
+    value: product.Nome,
+    propertyID: "similarProduct",
+    unitCode: `${product.IdProduct}`,
+    url: `/produto/${product.UrlFriendlyColor}`,
+    image: [
+      {
+        "@type": "ImageObject" as const,
+        url: product.Imagem,
+        alternateName: product.Nome,
+      },
+    ],
+    additionalProperty: [
+      {
+        "@type": "PropertyValue" as const,
+        name: "Cor",
+        value: product.NomeColor,
+        propertyID: "color",
+        unitCode: product.Color1,
+      },
+      {
+        "@type": "PropertyValue" as const,
+        name: "ValorOriginal",
+        value: `${product.ValorOriginal}`,
+        propertyID: "originalPrice",
+      },
+      {
+        "@type": "PropertyValue" as const,
+        name: "ValorDesconto",
+        value: `${product.ValorDesconto}`,
+        propertyID: "discountPrice",
+      },
+    ],
+  }));
+};
+
 const toAdditionalProperties = (
   props: ToAdditionalPropertiesProps
 ): PropertyValue[] => {
@@ -207,10 +254,12 @@ const toAdditionalProperties = (
     isAllowedToAddLens,
     isLensWithoutPrescription,
     lensDescription,
+    similarProducts,
   } = props;
 
   return [
     ...toProductColorAdditionalProperties(properties),
+    ...toSimilarProductsPropertyValue(similarProducts),
     ...properties.map((item) => ({
       "@type": "PropertyValue" as const,
       name: item.Nome,
