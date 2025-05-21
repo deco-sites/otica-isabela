@@ -204,13 +204,11 @@ const toSimilarProductsPropertyValue = (
   if (!similarProducts || similarProducts.length === 0) return [];
 
   return similarProducts.map((product) => {
-    // Garante que a imagem principal seja incluída no array de imagens
     const allImages = product.Imagem
       ? [{ Imagem: product.Imagem }, ...(product.Imagens || [])]
       : product.Imagens || [];
 
     const baseAdditionalProperties = [
-      // Propriedades de cor
       {
         "@type": "PropertyValue" as const,
         name: "Cor",
@@ -247,7 +245,6 @@ const toSimilarProductsPropertyValue = (
             },
           ]
         : []),
-      // Propriedades de preço
       {
         "@type": "PropertyValue" as const,
         name: "ValorOriginal",
@@ -266,9 +263,13 @@ const toSimilarProductsPropertyValue = (
         value: product.OfertaTermina || undefined,
         propertyID: "offerEndsAt",
       },
+      ...(product.Classificacoes?.map((item) => ({
+        "@type": "PropertyValue" as const,
+        name: item.Nome,
+        value: item.Tipo,
+      })) || []),
     ];
 
-    // Variações de cor
     const colorVariations =
       product.ProdutosMaisCores?.map((colorProduct) => {
         const variantImages = colorProduct.Imagem
@@ -313,9 +314,18 @@ const toSimilarProductsPropertyValue = (
                   },
                 ]
               : []),
+            ...(colorProduct.Classificacoes?.map((item) => ({
+              "@type": "PropertyValue" as const,
+              name: item.Nome,
+              value: item.Tipo,
+            })) || []),
           ],
         };
       }) || [];
+
+    const productColorProperties = product.Classificacoes
+      ? toProductColorAdditionalProperties(product.Classificacoes)
+      : [];
 
     return {
       "@type": "PropertyValue" as const,
@@ -325,7 +335,11 @@ const toSimilarProductsPropertyValue = (
       IdProduct: `${product.IdProduct}`,
       url: `/produto/${product.UrlFriendlyColor}`,
       image: toImage(allImages, product.Nome),
-      additionalProperty: [...baseAdditionalProperties, ...colorVariations],
+      additionalProperty: [
+        ...baseAdditionalProperties,
+        ...productColorProperties,
+        ...colorVariations,
+      ],
     };
   });
 };

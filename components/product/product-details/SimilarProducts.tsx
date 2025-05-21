@@ -7,6 +7,7 @@ import { useState } from "preact/hooks";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
 import type { SectionProps } from "deco/types.ts";
+import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 
 interface Props {
     /** @title Configurações do Loader */
@@ -91,9 +92,11 @@ const ColorSelector = ({
 };
 
 const ProductCard = ({
+    page,
     similar,
     index,
     displayImage,
+    getProperties,
     price,
     listPrice,
     colorVariants,
@@ -105,7 +108,9 @@ const ProductCard = ({
     onColorHover,
     onColorLeave,
 }: {
+    page: any;
     similar: any;
+    getProperties: any;
     index: number;
     displayImage: string;
     price: number;
@@ -151,10 +156,31 @@ const ProductCard = ({
                     )}
                 </figure>
 
+                        {page && (
+          <div class="absolute top-0 left-0 z-30">
+            <WishlistButton productID={similar.IdProduct} customer={page} />
+          </div>
+        )}
+
                 <div className="card-body p-4">
                     <h4 className="text-black text-base leading-none h-[33px]">
                         {similar.value}
                     </h4>
+
+                    <div class="min-h-[25px] my-[10px]">
+                        {getProperties[0]?.length > 0 && (
+                            <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
+                                {getProperties[0].map((property, index) => (
+                                    <span key={index}>
+                                        {property}
+                                        {index < getProperties[0].length - 1
+                                            ? " / "
+                                            : ""}
+                                    </span>
+                                ))}
+                            </p>
+                        )}
+                    </div>
 
                     <div className="flex gap-2 items-center max-lg:ml-5">
                         {price < listPrice && (
@@ -315,7 +341,6 @@ function SimilarProducts({ page }: SectionProps<typeof loader>) {
                 attempts++;
             }
 
-            // Se encontramos uma imagem diferente, usá-la
             if (
                 activeImages[nextIndex] !== currentImage ||
                 attempts >= activeImages.length
@@ -404,6 +429,37 @@ function SimilarProducts({ page }: SectionProps<typeof loader>) {
             return newState;
         });
     };
+    const propertyOrder = [
+        "Altura da Lente",
+        "Largura da Lente",
+        "Largura da Ponte",
+        "Hastes",
+        "Frente Total",
+        "Aro",
+    ];
+
+    const propertyNameMap = {
+        "Altura da Lente": "Altura",
+        "Largura da Lente": "Largura",
+        "Largura da Ponte": "Ponte",
+        "Frente Total": "Frente",
+    };
+
+    const getProperties = similarProducts.map((similar) => {
+        if (!similar.additionalProperty) return null;
+
+        const filteredProps = similar.additionalProperty
+            .filter((prop) => propertyOrder.includes(prop?.value))
+            .sort((a, b) =>
+                propertyOrder.indexOf(a.value) - propertyOrder.indexOf(b.value)
+            );
+
+        return filteredProps.map((property) => {
+            const displayName = propertyNameMap[property.value] ||
+                property.value;
+            return `${displayName}: ${property?.name}mm`;
+        });
+    }).filter(Boolean);
 
     return (
         <div className="mt-10">
@@ -448,6 +504,8 @@ function SimilarProducts({ page }: SectionProps<typeof loader>) {
                                     colorVariants={colorVariants}
                                     selectedVariant={selectedVariant}
                                     productUrl={productUrl}
+                                    page={page}
+                                    getProperties={getProperties}
                                     onImageHover={() => {
                                         handleImageHover(index, similar);
                                     }}

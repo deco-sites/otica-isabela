@@ -120,6 +120,7 @@ export interface SimilarProducts {
   Color2: string;
   Color3: string;
   NomeColor: string;
+  Classificacoes?: ProductInfo[];
 }
 
 export interface Panels {
