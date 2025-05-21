@@ -203,21 +203,21 @@ const toSimilarProductsPropertyValue = (
 ): PropertyValue[] => {
   if (!similarProducts || similarProducts.length === 0) return [];
 
-  return similarProducts.map((product) => ({
-    "@type": "PropertyValue" as const,
-    name: "Produto Similar",
-    value: product.Nome,
-    propertyID: "similarProduct",
-    unitCode: `${product.IdProduct}`,
-    url: `/produto/${product.UrlFriendlyColor}`,
-    image: [
+  return similarProducts.map((product) => {
+    // Garante que a imagem principal seja incluída no array de imagens
+    const allImages = product.Imagem
+      ? [{ Imagem: product.Imagem }, ...(product.Imagens || [])]
+      : product.Imagens || [];
+
+    const baseAdditionalProperties = [
+      // Propriedades de cor
       {
-        "@type": "ImageObject" as const,
-        url: product.Imagem,
-        alternateName: product.Nome,
+        "@type": "PropertyValue" as const,
+        name: "Cor",
+        value: product.NomeColor,
+        propertyID: "currentColor",
+        UrlNextColor: product.UrlFriendlyColor,
       },
-    ],
-    additionalProperty: [
       {
         "@type": "PropertyValue" as const,
         name: "Cor",
@@ -225,6 +225,29 @@ const toSimilarProductsPropertyValue = (
         propertyID: "color",
         unitCode: product.Color1,
       },
+      ...(product.Color2
+        ? [
+            {
+              "@type": "PropertyValue" as const,
+              name: "Cor",
+              value: product.NomeColor,
+              propertyID: "color2",
+              unitCode: product.Color2,
+            },
+          ]
+        : []),
+      ...(product.Color3
+        ? [
+            {
+              "@type": "PropertyValue" as const,
+              name: "Cor",
+              value: product.NomeColor,
+              propertyID: "color3",
+              unitCode: product.Color3,
+            },
+          ]
+        : []),
+      // Propriedades de preço
       {
         "@type": "PropertyValue" as const,
         name: "ValorOriginal",
@@ -237,8 +260,74 @@ const toSimilarProductsPropertyValue = (
         value: `${product.ValorDesconto}`,
         propertyID: "discountPrice",
       },
-    ],
-  }));
+      {
+        "@type": "PropertyValue" as const,
+        name: "OfertaTermina",
+        value: product.OfertaTermina || undefined,
+        propertyID: "offerEndsAt",
+      },
+    ];
+
+    // Variações de cor
+    const colorVariations =
+      product.ProdutosMaisCores?.map((colorProduct) => {
+        const variantImages = colorProduct.Imagem
+          ? [{ Imagem: colorProduct.Imagem }, ...(colorProduct.Imagens || [])]
+          : colorProduct.Imagens || [];
+
+        return {
+          "@type": "PropertyValue" as const,
+          name: "VariaçãoDeCor",
+          value: colorProduct.Nome,
+          propertyID: "colorVariation",
+          IdProduct: `${colorProduct.IdProduct}`,
+          url: `/produto/${colorProduct.UrlFriendlyColor}`,
+          image: toImage(variantImages, colorProduct.Nome),
+          additionalProperty: [
+            {
+              "@type": "PropertyValue" as const,
+              name: "Cor",
+              value: colorProduct.NomeColor,
+              propertyID: "color",
+              unitCode: colorProduct.Color1,
+            },
+            ...(colorProduct.Color2
+              ? [
+                  {
+                    "@type": "PropertyValue" as const,
+                    name: "Cor",
+                    value: colorProduct.NomeColor,
+                    propertyID: "color2",
+                    unitCode: colorProduct.Color2,
+                  },
+                ]
+              : []),
+            ...(colorProduct.Color3
+              ? [
+                  {
+                    "@type": "PropertyValue" as const,
+                    name: "Cor",
+                    value: colorProduct.NomeColor,
+                    propertyID: "color3",
+                    unitCode: colorProduct.Color3,
+                  },
+                ]
+              : []),
+          ],
+        };
+      }) || [];
+
+    return {
+      "@type": "PropertyValue" as const,
+      name: "Produto Similar",
+      value: product.Nome,
+      propertyID: "similarProduct",
+      IdProduct: `${product.IdProduct}`,
+      url: `/produto/${product.UrlFriendlyColor}`,
+      image: toImage(allImages, product.Nome),
+      additionalProperty: [...baseAdditionalProperties, ...colorVariations],
+    };
+  });
 };
 
 const toAdditionalProperties = (

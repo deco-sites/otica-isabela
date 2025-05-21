@@ -196,6 +196,54 @@
       "__resolveType": "Produtos Visitados - Home & PDP"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/Details/SimilarProducts.tsx",
+        "product": {
+          "video": null,
+          "image": null,
+          "isAccessoryOrSparePartFor": null,
+          "offers": {
+            "hasMerchantReturnPolicy": {
+              "video": null
+            }
+          }
+        },
+        "header": {
+          "icon": "QuestionMarkCircle",
+          "hideIcon": true,
+          "firstLine": {
+            "text": "Produtos",
+            "color": "#42c3ff",
+            "fontSize": {
+              "mobile": "pequeno",
+              "desktop": "normal"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "medium"
+          },
+          "secondLine": {
+            "text": "SIMILARES",
+            "fontSize": {
+              "mobile": "normal",
+              "desktop": "muito grande"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "bold"
+          },
+          "textAlignment": "começo",
+          "backgroundColor": "#f8f8f8"
+        },
+        "page": {
+          "__resolveType": "site/loaders/product/productDetails.ts",
+          "slug": {
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts",
+            "param": "slug"
+          }
+        }
+      }
+    },
+    {
       "__resolveType": "Newsletter Otica"
     },
     {

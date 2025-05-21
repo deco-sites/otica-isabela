@@ -33,6 +33,7 @@ import * as $SearchControls from "./islands/SearchControls.tsx";
 import * as $SelectedFilters from "./islands/SelectedFilters.tsx";
 import * as $ShareButton from "./islands/ShareButton.tsx";
 import * as $ShowMore from "./islands/ShowMore.tsx";
+import * as $SimilarProducts from "./islands/SimilarProducts.tsx";
 import * as $SliderJS from "./islands/SliderJS.tsx";
 import * as $Stopwatch from "./islands/Stopwatch.tsx";
 import * as $TabJS from "./islands/TabJS.tsx";
@@ -78,6 +79,7 @@ const manifest = {
     "./islands/SelectedFilters.tsx": $SelectedFilters,
     "./islands/ShareButton.tsx": $ShareButton,
     "./islands/ShowMore.tsx": $ShowMore,
+    "./islands/SimilarProducts.tsx": $SimilarProducts,
     "./islands/SliderJS.tsx": $SliderJS,
     "./islands/Stopwatch.tsx": $Stopwatch,
     "./islands/TabJS.tsx": $TabJS,

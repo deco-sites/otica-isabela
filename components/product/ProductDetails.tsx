@@ -13,7 +13,6 @@ import type {
 } from "apps/admin/widgets.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { type LoaderReturnType, redirect, type SectionProps } from "@deco/deco";
-import SimilarProducts from "site/components/product/product-details/SimilarProducts.tsx";
 type ButtonLabel = {
   category: string;
   label: string;
@@ -96,7 +95,6 @@ function ProductDetails(
         </div>
       </div>
       <OtherColorsShelf product={product!} />
-      <SimilarProducts product={product!} />
       <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}

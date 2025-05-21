@@ -3806,6 +3806,9 @@ details.collapse summary::-webkit-details-marker {
 .right-1 {
   right: 0.25rem;
 }
+.right-2 {
+  right: 0.5rem;
+}
 .right-4 {
   right: 1rem;
 }
@@ -4633,9 +4636,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-80 {
   max-width: 20rem;
-}
-.max-w-\[100\%\] {
-  max-width: 100%;
 }
 .max-w-\[1140px\] {
   max-width: 1140px;

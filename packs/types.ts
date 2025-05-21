@@ -108,6 +108,7 @@ export interface SimilarProducts {
   ValorDesconto: number;
   OfertaTermina: string;
   PorcentagemDesconto: number;
+  ProdutosMaisCores?: SimilarProducts[] | null;
   Imagem: string;
   Imagens: {
     Id: number;
