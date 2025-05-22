@@ -156,11 +156,14 @@ const ProductCard = ({
                     )}
                 </figure>
 
-                        {page && (
-          <div class="absolute top-0 left-0 z-30">
-            <WishlistButton productID={similar.IdProduct} customer={page} />
-          </div>
-        )}
+                {page && (
+                    <div class="absolute top-0 left-0 z-30">
+                        <WishlistButton
+                            productID={similar.IdProduct}
+                            customer={page}
+                        />
+                    </div>
+                )}
 
                 <div className="card-body p-4">
                     <h4 className="text-black text-base leading-none h-[33px]">
@@ -462,9 +465,9 @@ function SimilarProducts({ page }: SectionProps<typeof loader>) {
     }).filter(Boolean);
 
     return (
-        <div className="mt-10">
-            <h3 className="text-2xl font-bold text-center mb-6">
-                Produtos Similares
+        <div className="my-10 md:my-14">
+            <h3 className="text-2xl font-bold text-center mb-6 lg:mb-10">
+                Mais inspirações para o seu novo visual
             </h3>
             <div className="w-full flex flex-col gap-0 md:gap-12 lg:gap-16">
                 <div
