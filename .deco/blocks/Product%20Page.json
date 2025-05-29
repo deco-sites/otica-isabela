@@ -45,11 +45,11 @@
       ],
       "__resolveType": "site/sections/Product/ProductDetails.tsx",
       "mobileOptions": {
-        "nameLocation": "Bottom",
-        "starsLocation": "Header",
-        "displayModalAfter": "Header",
+        "nameLocation": "Header",
+        "starsLocation": "Bottom",
         "discountTagLocation": "Image Bottom",
-        "showProductTumbnails": true
+        "showProductTumbnails": true,
+        "displayModalAfter": "Header"
       },
       "buttonByCategory": [
         {
@@ -82,10 +82,6 @@
         {
           "label": "Escolher as Lentes",
           "category": "Óculos De Proteção Com Grau"
-        },
-        {
-          "label": "Escolher as Lentes",
-          "category": "Óculos Gamer"
         },
         {
           "label": "Escolher as Lentes",

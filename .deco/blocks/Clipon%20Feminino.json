@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/e644ac1a-9315-46f5-b065-ff70a58543f5/2231-prata.jpg",
-      "label": "Óculos Aviador",
+      "image": "https://assets.decocache.com/otica-isabela/1bb30729-e7f0-47ea-9612-d139a315f438/2305.jpg",
+      "label": "Óculos Quadrado",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-feminino-2231-prata-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-quadrado-feminino-transparente-2305-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/99020164-7b5e-4ac4-a82a-d71b6286a581/2250-azul.jpg",
-      "label": "Óculos Retangular Azul",
+      "image": "https://assets.decocache.com/otica-isabela/4e8072d4-0539-4730-a518-6703865cd2ba/2021.jpg",
+      "label": "Óculos Redondo",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2250-azul-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-masculino-cinza-2021-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/d79a46e1-e880-4205-bbab-f37d2de83c9e/2245-tartaruga.jpg",
+      "image": "https://assets.decocache.com/otica-isabela/7c2c1b43-9008-4a01-b4f6-c45bbc19c1bc/1935-05.jpg",
       "label": "Óculos Tartaruga",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-feminino-2245-tartaruga2-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-feminino-1935-dourado-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/b508fd80-6416-4d9b-b72a-c1fad8ee8556/isa-dias-04-25-fotos-calefe-(383).jpg",
-      "label": "Óculos Gatinho",
+      "image": "https://assets.decocache.com/otica-isabela/1bd600b4-56fd-4e97-a728-ab9faaefe99f/2232-prata-002.jpg",
+      "label": "Óculos Aviador",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2233-dourado-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/busca?termo=2232"
     },
     {
-      "label": "Óculos Retangular",
-      "image": "https://assets.decocache.com/otica-isabela/6faa2961-42d0-420b-9d73-ede19ef910d1/isa-dias-04-25-fotos-calefe-(28).jpg",
+      "label": "Óculos Redondo",
+      "image": "https://assets.decocache.com/otica-isabela/7ed034b1-073d-46ed-8b9a-4abf2ec1e4d4/2063-tartaruga.jpg",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2223-preto-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-masculino-2063-tartaruga-isabela-dias"
     },
     {
       "label": "Óculos Gatinho ",
-      "image": "https://assets.decocache.com/otica-isabela/1fafe311-ff2c-411d-893f-4ed41d6b11aa/isa-dias-04-25-fotos-calefe-(506).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/a6d6986a-bfdb-4af8-8997-947f43b58f85/2136.jpg",
       "buttonLabel": "VER ÓCULOS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2251-creme-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-dourado-2136-isabela-dias"
     }
   ],
   "customer": {
