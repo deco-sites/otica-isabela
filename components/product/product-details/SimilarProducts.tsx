@@ -466,7 +466,7 @@ function SimilarProducts({ page }: SectionProps<typeof loader>) {
 
     return (
         <div className="my-10 md:my-14">
-            <h3 className="text-2xl font-bold text-center mb-6 lg:mb-10">
+            <h3 className="text-2xl font-bold text-center mb-6 lg:mb-12">
                 Mais inspirações para o seu novo visual
             </h3>
             <div className="w-full flex flex-col gap-0 md:gap-12 lg:gap-16">

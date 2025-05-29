@@ -194,17 +194,16 @@
         "icon": "QuestionMarkCircle",
         "hideIcon": true,
         "firstLine": {
-          "text": "Produtos",
-          "color": "#42c3ff",
+          "text": "Produtos Visitados",
+          "color": "#000000",
           "fontSize": {
             "mobile": "pequeno",
             "desktop": "normal"
           },
           "fontFamily": "Outfit",
-          "fontWeight": "medium"
+          "fontWeight": "bold"
         },
         "secondLine": {
-          "text": "VISITADOS",
           "fontSize": {
             "mobile": "grande",
             "desktop": "muito grande"
