@@ -49,6 +49,7 @@ const loader = async (
           ordenacao: "none",
           url: slug,
           tipoRetorno: "simples",
+          isProdutosSimilares: false,
         })
       )
     : undefined;
