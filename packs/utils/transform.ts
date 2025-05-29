@@ -675,7 +675,6 @@ export const toProductListingPage = (
 
 const categoryPageProps = (props: CategoryPageProps): PLPPageProps => {
   const { baseURL, category, filtersApi, filtersUrl } = props;
-  console.log(baseURL);
   return {
     itemListElement: toPageBreadcrumbList(category, baseURL),
     filters: groupPageFilters(filtersApi).map((f) =>
