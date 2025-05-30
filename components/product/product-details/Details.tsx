@@ -55,14 +55,14 @@ function Details({
   const { name, productID, offers, additionalProperty, url, sku } = product;
 
   // Busca a imagem dos acessórios inclusos
-  const accessoriesImage = additionalProperty?.find(
-    (prop) =>
-      prop.propertyID === "panel" && prop.name === "Acessórios Inclusos",
-  )?.value;
+  // const accessoriesImage = additionalProperty?.find(
+  //   (prop) =>
+  //     prop.propertyID === "panel" && prop.name === "Acessórios Inclusos",
+  // )?.value;
 
   // Converte HTML para extrair a URL da imagem (se existir)
-  const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] ||
-    null;
+  // const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] ||
+  null;
 
   const {
     discountTagLocation,
@@ -203,7 +203,8 @@ function Details({
           )}
 
           {/* Exibir imagem dos acessórios somente se existir */}
-          {accessoriesImagePath && (
+          {
+            /* {accessoriesImagePath && (
             <div class="mt-4 text-center">
               <Image
                 src={accessoriesImagePath}
@@ -213,9 +214,9 @@ function Details({
                 loading="lazy"
               />
               <p class="text-sm text-gray-700 mt-2">teste</p>{" "}
-              {/* Texto adicional abaixo da imagem */}
             </div>
-          )}
+          )} */
+          }
         </div>
       )}
 
