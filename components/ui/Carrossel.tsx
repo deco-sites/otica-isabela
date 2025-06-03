@@ -127,8 +127,8 @@ export default function Carrossel(
                 media="(max-width: 768px)"
                 fetchPriority={`${index === 0 ? "high" : "auto"}`}
                 src={mobile}
-                width={210}
-                height={290}
+                width={375}
+                height={525}
               />
               <Source
                 media="(min-width: 769px)"
