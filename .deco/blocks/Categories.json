@@ -30,7 +30,7 @@
               "filtrosDinamicos": [],
               "somenteCronometrosAtivos": false,
               "isProdutosSimilares": false,
-              "ofertasDia": true
+              "ofertasDia": false
             },
             "customer": {
               "__resolveType": "site/loaders/store/auth.ts"
