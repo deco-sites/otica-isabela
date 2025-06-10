@@ -25,10 +25,12 @@
             "page": {
               "__resolveType": "site/loaders/product/productListiningPage.ts",
               "id": [],
-              "offset": 21,
+              "offset": 19,
               "ordenacao": "ofertas",
               "filtrosDinamicos": [],
-              "somenteCronometrosAtivos": false
+              "somenteCronometrosAtivos": false,
+              "isProdutosSimilares": false,
+              "ofertasDia": true
             },
             "customer": {
               "__resolveType": "site/loaders/store/auth.ts"
