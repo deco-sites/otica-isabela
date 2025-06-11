@@ -142,6 +142,8 @@ export default function Carrossel(
                 src={desktop}
                 alt={alt}
                 loading="eager"
+                width={375}
+                height={525}
                 {...{ fetchpriority: index === 0 ? "high" : "auto" }}
               />
             </Picture>
