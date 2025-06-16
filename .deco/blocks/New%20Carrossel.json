@@ -1,6 +1,12 @@
 {
   "images": [
     {
+      "alt": "Lentes em promoção",
+      "mobile": "https://assets.decocache.com/otica-isabela/cd24755f-55f0-41d4-a180-f49143cd5c19/Lentes-de-grau-Mobile.webp",
+      "desktop": "https://assets.decocache.com/otica-isabela/f19903ba-1797-4648-8466-208fa84e3a9f/Lentes-de-grau-Desktop.webp",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
+    },
+    {
       "alt": "Banner óculos Milu",
       "mobile": "https://assets.decocache.com/otica-isabela/23aeb835-f259-4ae3-aa9e-4a4d5b5b84ea/Banner-mobile-01.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/b2da9d6c-bd8b-49d5-9628-39774eaf5943/Banner-Desktop-01.webp",
@@ -13,10 +19,10 @@
       "link": "https://www.oticaisabeladias.com.br/oculos-de-sol"
     },
     {
-      "alt": "Banner de óculos clipon",
-      "mobile": "https://assets.decocache.com/otica-isabela/b09cedfe-59e2-4e25-a2c9-5f30677e5a9c/Banner-Mobile-Clipon.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/efa2d9ec-0fe2-452a-be1e-2cb827fa55e7/Banner-Desktop-Clipon.webp",
-      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on"
+      "mobile": "https://assets.decocache.com/otica-isabela/b09cedfe-59e2-4e25-a2c9-5f30677e5a9c/Banner-Mobile-Clipon.webp",
+      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on",
+      "alt": "Banner de óculos clipon"
     },
     {
       "desktop": "https://assets.decocache.com/otica-isabela/a844c016-2352-472f-8af0-240d9cb7bc3e/Banner-Desktop-Multifocal.jpg",
