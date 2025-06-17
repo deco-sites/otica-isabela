@@ -643,16 +643,16 @@
         "textMobile": "<p>Armações a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$49,99</span></p>"
       },
       {
-        "text": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 199</span></p>",
-        "textMobile": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$</span> <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">199</span></p>"
+        "text": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45)\">R$ 299</span></p>",
+        "textMobile": "<p>Lentes Multifocais a partir de <span style=\"color: rgb(224, 62, 45)\">R$</span> <span style=\"color: rgb(224, 62, 45)\">299</span></p>"
       },
       {
         "text": "<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>",
         "textMobile": "<p><strong>Campeã</strong> do Prêmio Reclame aqui 2024 🏆</p>"
       },
       {
-        "text": "<p>Lentes com antirreflexo a partir de&nbsp;<span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>",
-        "textMobile": "<p>Lentes com antirreflexo a partir de <span style=\"color: rgb(224, 62, 45);\" data-mce-style=\"color: rgb(224, 62, 45);\">R$ 99</span></p>"
+        "text": "<p>Lentes com antirreflexo a partir de&nbsp;<span style=\"color: rgb(224, 62, 45)\">R$ 149</span></p>",
+        "textMobile": "<p>Lentes com antirreflexo a partir de <span style=\"color: rgb(224, 62, 45)\">R$ 149</span></p>"
       }
     ],
     "interval": 5,
