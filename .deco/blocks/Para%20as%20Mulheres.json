@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/5ffec1da-3398-4b2d-af12-418beb09f973/isa-dias-fotos-calefe-(38).jpg",
-      "label": "Óculos Tartaruga",
-      "buttonLabel": "ÓCULOS TARTARUGA",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Cor=Tartaruga"
+      "image": "https://assets.decocache.com/otica-isabela/a29ec595-6b5e-406b-8868-eb3bf38eb896/isa-dias-04-25-fotos-calefe-(205).jpg",
+      "label": "Óculos ClubMaster",
+      "buttonLabel": "ÓCULOS CLUBMASTER",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=ClubMaster"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/237a630c-31a6-4d36-a5e2-ab6b9ba36e1f/isa-dias-fotos-calefe-(142).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/4ae2b991-712e-4c9b-8246-7ecdeb25426f/isa-dias-fotos-calefe-(60).jpg",
       "label": "Óculos Criativo ",
-      "buttonLabel": "ÓCULOS CRIATIVO",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-masculino?filter.Estilo=Criativo"
+      "buttonLabel": "ÓCULOS RETRÕ",
+      "href": "https://www.oticaisabeladias.com.br/busca?termo=MILU"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/9bcceb3b-8446-4e68-a73b-129741de9ce7/2260-miumiu01.jpg",
-      "label": "Óculos retro",
-      "buttonLabel": "ÓCULOS RETRÔ",
+      "image": "https://assets.decocache.com/otica-isabela/82584b61-3e8e-4bd3-893c-ce970b08458f/isa-dias-04-25-fotos-calefe-(56).jpg",
+      "label": "Óculos Retangular",
+      "buttonLabel": "ÓCULOS RETANGULAR",
       "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2260-tartaruga-isabela-dias"
     },
     {
-      "label": "Óculos Transparente",
-      "image": "https://assets.decocache.com/otica-isabela/56127964-3ae9-43b4-9baa-391d210378b6/isa-dias-fotos-calefe-(148).jpg",
-      "buttonLabel": "ÓCULOS TRANSPARENTE",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-masculino?filter.Cor=Transparente"
+      "label": "Óculos Delicado",
+      "image": "https://assets.decocache.com/otica-isabela/603ef018-c66e-4a55-9bd2-821fe4ca87f2/isa-dias-fotos-calefe-(33).jpg",
+      "buttonLabel": "ÓCULOS DELICADO",
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Material=Metal"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/b3aabd74-38f8-4a89-8105-5a2c88171056/isa-dias-04-25-fotos-calefe-(84).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/c9336478-8f26-4154-a3ae-f2cef3b1a457/isa-dias-04-25-fotos-calefe-(489).jpg",
       "label": "Óculos Três Peças",
       "buttonLabel": "ÓCULOS TRÊS PEÇAS",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-masculino?filter.Tipo=Sem+Aro+%7C+Balgriff"
+      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Tipo=Sem+Aro+%7C+Balgriff"
     },
     {
-      "label": "Óculos Gatinho",
-      "buttonLabel": "ÓCULOS GATINHO",
-      "image": "https://assets.decocache.com/otica-isabela/db17dc87-8512-43c6-a605-21418a16cb58/isa-dias-fotos-calefe-(310).jpg",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=Gatinho&filter.Material=Metal"
+      "label": "Óculos Bicolor",
+      "buttonLabel": "ÓCULOS BICOLOR",
+      "image": "https://assets.decocache.com/otica-isabela/458cea82-081f-4863-84b8-a29f0c2e329e/isa-dias-fotos-calefe-(219).jpg",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-redondo-unissex-2295-marrom-isabela-dias"
     }
   ],
   "customer": {
