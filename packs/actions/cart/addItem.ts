@@ -16,23 +16,16 @@ export interface Props {
 export default async function loader(
   props: Props,
   req: Request,
-  ctx: AppContext,
+  ctx: AppContext
 ): Promise<OrderForm> {
   const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const clientToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
-
-  if (!clientToken) {
-    return {
-      products: [],
-    };
-  }
-
   const { idProduct, sku } = props;
 
   const cartWithProduct = await fetchAPI<ProductsCart[]>(
     path.cart.addCart(idProduct, sku, Number(clientToken)),
-    { method: "POST" },
+    { method: "POST" }
   );
 
   return {
