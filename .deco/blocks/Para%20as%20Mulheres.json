@@ -80,7 +80,8 @@
     "__resolveType": "site/loaders/product/productList.ts",
     "dinamicFilters": [],
     "filtrosDinamicos": [],
-    "idColecaoProdutos": 21
+    "idColecaoProdutos": 21,
+    "somenteCronometrosAtivos": false
   },
   "__resolveType": "site/sections/Product/ProductBannerShelf.tsx",
   "isStopwatchEnabled": true
