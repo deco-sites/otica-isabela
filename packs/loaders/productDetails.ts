@@ -37,7 +37,7 @@ const loader = async (
       isProdutosSimilares: true,
     }),
     {
-      method: "GET",
+      method: "POST",
       // deco: { cache: DECO_CACHE_OPTION },
     }
   );
