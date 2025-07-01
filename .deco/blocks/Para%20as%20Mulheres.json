@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/a29ec595-6b5e-406b-8868-eb3bf38eb896/isa-dias-04-25-fotos-calefe-(205).jpg",
-      "label": "Óculos ClubMaster",
-      "buttonLabel": "ÓCULOS CLUBMASTER",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Formato=ClubMaster"
+      "image": "https://assets.decocache.com/otica-isabela/4698f32a-60dd-4426-80b8-3b40f8059fe6/2260-01.webp",
+      "label": "Óculos Retrô",
+      "buttonLabel": "ÓCULOS RETRÔ",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2260-white-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/4ae2b991-712e-4c9b-8246-7ecdeb25426f/isa-dias-fotos-calefe-(60).jpg",
-      "label": "Óculos Criativo ",
-      "buttonLabel": "ÓCULOS RETRÕ",
-      "href": "https://www.oticaisabeladias.com.br/busca?termo=MILU"
+      "image": "https://assets.decocache.com/otica-isabela/dbb73e93-9c68-4dba-92cc-fe2e79d3ebc7/2232.webp",
+      "label": "Óculos Aviador ",
+      "buttonLabel": "ÓCULOS AVIADOR",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2232-prata-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/82584b61-3e8e-4bd3-893c-ce970b08458f/isa-dias-04-25-fotos-calefe-(56).jpg",
-      "label": "Óculos Retangular",
-      "buttonLabel": "ÓCULOS RETANGULAR",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2260-tartaruga-isabela-dias"
-    },
-    {
-      "label": "Óculos Delicado",
-      "image": "https://assets.decocache.com/otica-isabela/603ef018-c66e-4a55-9bd2-821fe4ca87f2/isa-dias-fotos-calefe-(33).jpg",
-      "buttonLabel": "ÓCULOS DELICADO",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Material=Metal"
-    },
-    {
-      "image": "https://assets.decocache.com/otica-isabela/c9336478-8f26-4154-a3ae-f2cef3b1a457/isa-dias-04-25-fotos-calefe-(489).jpg",
-      "label": "Óculos Três Peças",
+      "image": "https://assets.decocache.com/otica-isabela/ac1df2f5-cb4a-455e-8a5a-71e0e845b608/2283-01.webp",
+      "label": "Óculos três peças",
       "buttonLabel": "ÓCULOS TRÊS PEÇAS",
-      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau/oculos-de-grau-feminina?filter.Tipo=Sem+Aro+%7C+Balgriff"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2232-prata-isabela-dias"
     },
     {
-      "label": "Óculos Bicolor",
-      "buttonLabel": "ÓCULOS BICOLOR",
-      "image": "https://assets.decocache.com/otica-isabela/458cea82-081f-4863-84b8-a29f0c2e329e/isa-dias-fotos-calefe-(219).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-redondo-unissex-2295-marrom-isabela-dias"
+      "label": "Óculos Tartaruga",
+      "image": "https://assets.decocache.com/otica-isabela/06fd4671-3f75-4c6c-8df0-f5d1268ba492/2051.webp",
+      "buttonLabel": "ÓCULOS TARTARUGA",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-feminino-2051-tartaruga-isabela-dais"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/b0faea20-1423-430f-8666-918969864195/2240.webp",
+      "label": "Óculos Transparente",
+      "buttonLabel": "ÓCULOS TRANSPARENTE",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2240-transparente-isabela-dias"
+    },
+    {
+      "label": "Óculos Nude",
+      "buttonLabel": "ÓCULOS NUDE",
+      "image": "https://assets.decocache.com/otica-isabela/a4d413f3-657d-4522-bdfe-8dc1ef338bfc/2297.webp",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-redondo-feminino-nude-2297-isabela-dias"
     }
   ],
   "customer": {
