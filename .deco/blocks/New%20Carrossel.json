@@ -7,16 +7,22 @@
       "alt": "óculos de grau não precisa ser caro "
     },
     {
+      "alt": "Hoya",
+      "mobile": "https://assets.decocache.com/otica-isabela/4d47c131-0c8e-4eb1-bf43-6e9db999272a/Banner-mobile.webp",
+      "desktop": "https://assets.decocache.com/otica-isabela/bcaa67d2-edd0-4909-887e-5662a94a533d/Banner-Desktop.webp",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
+    },
+    {
       "alt": "Banner óculos Milu",
       "mobile": "https://assets.decocache.com/otica-isabela/23aeb835-f259-4ae3-aa9e-4a4d5b5b84ea/Banner-mobile-01.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/b2da9d6c-bd8b-49d5-9628-39774eaf5943/Banner-Desktop-01.webp",
       "link": "https://www.oticaisabeladias.com.br/busca?termo=milu"
     },
     {
-      "alt": "Oculos de sol ",
-      "mobile": "https://assets.decocache.com/otica-isabela/2a45769e-9f19-44be-bf00-c14ec4e3949f/Banner-Mobile-oculos-de-sol.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/8cdb7d99-2536-4c94-b6d3-d45cde4578fa/Banner-Desk-oculos-de-sol.webp",
-      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol"
+      "mobile": "https://assets.decocache.com/otica-isabela/2a45769e-9f19-44be-bf00-c14ec4e3949f/Banner-Mobile-oculos-de-sol.webp",
+      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol",
+      "alt": "Oculos de sol "
     },
     {
       "desktop": "https://assets.decocache.com/otica-isabela/efa2d9ec-0fe2-452a-be1e-2cb827fa55e7/Banner-Desktop-Clipon.webp",
@@ -29,12 +35,6 @@
       "mobile": "https://assets.decocache.com/otica-isabela/dc1a8a1b-36d4-4326-89c4-6a2904a06a27/Banner-Mobile-Multifocal.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
       "alt": "Banner óculos multifocal"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/bcaa67d2-edd0-4909-887e-5662a94a533d/Banner-Desktop.webp",
-      "mobile": "https://assets.decocache.com/otica-isabela/4d47c131-0c8e-4eb1-bf43-6e9db999272a/Banner-mobile.webp",
-      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Hoya"
     }
   ],
   "benefits": [
