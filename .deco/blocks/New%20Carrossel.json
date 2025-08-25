@@ -29,6 +29,12 @@
       "mobile": "https://assets.decocache.com/otica-isabela/dc1a8a1b-36d4-4326-89c4-6a2904a06a27/Banner-Mobile-Multifocal.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
       "alt": "Banner óculos multifocal"
+    },
+    {
+      "desktop": "https://assets.decocache.com/otica-isabela/bcaa67d2-edd0-4909-887e-5662a94a533d/Banner-Desktop.webp",
+      "mobile": "https://assets.decocache.com/otica-isabela/4d47c131-0c8e-4eb1-bf43-6e9db999272a/Banner-mobile.webp",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
+      "alt": "Hoya"
     }
   ],
   "benefits": [
