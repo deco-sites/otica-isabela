@@ -7,16 +7,22 @@
       "alt": "óculos de grau não precisa ser caro "
     },
     {
+      "alt": "Reclame aqui ",
+      "mobile": "https://assets.decocache.com/otica-isabela/363a7093-aaf3-4127-b90b-f7853137d4b3/Banner-Mobile.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/3d209ae3-afe2-4483-b3a1-066bf1a0a21a/Banner-Desktop.jpg",
+      "link": "https://reclameaqui.com.br/premio/votacao/moda/oticas-varejo"
+    },
+    {
       "alt": "Hoya",
       "mobile": "https://assets.decocache.com/otica-isabela/80c453a3-9610-4fb4-a4df-c0bf175d0e49/Banner-mobile.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/bcaa67d2-edd0-4909-887e-5662a94a533d/Banner-Desktop.webp",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     },
     {
-      "alt": "Banner óculos Milu",
-      "mobile": "https://assets.decocache.com/otica-isabela/23aeb835-f259-4ae3-aa9e-4a4d5b5b84ea/Banner-mobile-01.webp",
       "desktop": "https://assets.decocache.com/otica-isabela/b2da9d6c-bd8b-49d5-9628-39774eaf5943/Banner-Desktop-01.webp",
-      "link": "https://www.oticaisabeladias.com.br/busca?termo=milu"
+      "mobile": "https://assets.decocache.com/otica-isabela/23aeb835-f259-4ae3-aa9e-4a4d5b5b84ea/Banner-mobile-01.webp",
+      "link": "https://www.oticaisabeladias.com.br/busca?termo=milu",
+      "alt": "Banner óculos Milu"
     },
     {
       "desktop": "https://assets.decocache.com/otica-isabela/8cdb7d99-2536-4c94-b6d3-d45cde4578fa/Banner-Desk-oculos-de-sol.webp",
@@ -29,12 +35,6 @@
       "mobile": "https://assets.decocache.com/otica-isabela/b09cedfe-59e2-4e25-a2c9-5f30677e5a9c/Banner-Mobile-Clipon.webp",
       "link": "https://www.oticaisabeladias.com.br/oculos-clip-on",
       "alt": "Banner de óculos clipon"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/a844c016-2352-472f-8af0-240d9cb7bc3e/Banner-Desktop-Multifocal.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/dc1a8a1b-36d4-4326-89c4-6a2904a06a27/Banner-Mobile-Multifocal.jpg",
-      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Banner óculos multifocal"
     }
   ],
   "benefits": [
