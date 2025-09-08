@@ -62,7 +62,6 @@ function Details({
 
   // Converte HTML para extrair a URL da imagem (se existir)
   // const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] ||
-  null;
 
   const {
     discountTagLocation,

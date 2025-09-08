@@ -28,7 +28,7 @@
           "param": "slug",
           "__resolveType": "deco-sites/std/functions/requestToParam.ts"
         },
-        "__resolveType": "site/loaders/product/productDetails.ts"
+        "__resolveType": "site/loaders/product/productDetailsV2.ts"
       },
       "reviews": {
         "__resolveType": "productTestimonials"

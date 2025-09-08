@@ -70,11 +70,13 @@ function ProductCard({
   const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
   const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
-  const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
-    [];
+  const variantImages =
+    isVariantOf?.hasVariant.map(({ image }) => image?.[0].url) ??
+      [];
+
   const getVariantImages =
-    isVariantOf?.hasVariant.map(({ Imagens }) =>
-      Imagens.map((img) => img.Imagem)
+    isVariantOf?.hasVariant.map(({ image }) =>
+      image?.map((media) => media.url)
     ) ??
       [];
 

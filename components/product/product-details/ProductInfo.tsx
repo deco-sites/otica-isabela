@@ -2,7 +2,7 @@ import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import { ProductDetailsPage } from "apps/commerce/types.ts";
+import { Product, ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Promotion } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
@@ -20,6 +20,13 @@ interface Props {
   stepLabels?: Record<string, string>;
   customer: LoaderReturnType<AuthData>;
 }
+
+const findProperty = (id: string, product: Product) => {
+  return product.additionalProperty?.find((prop) =>
+    prop.name === id || prop.propertyID === id
+  );
+};
+
 function ProductInfo(
   { page, promotions, labels, stepLabels, customer }: Props,
 ) {
@@ -41,33 +48,34 @@ function ProductInfo(
     price: price!,
     name: name!,
   };
-  const promotionFlag = additionalProperty?.find((prop) =>
-    prop.propertyID === "flag"
+  const promotionFlag = findProperty(
+    "flag",
+    product,
   )?.value?.toLowerCase();
+
   const promotion = promotions?.find((current) =>
     current.label.toLowerCase() === promotionFlag
   );
   const currentCategory = breadcrumbList?.itemListElement[0].name;
-  const rating = additionalProperty?.find((prop) =>
-    prop.propertyID === "rating"
-  )?.value;
-  const isAllowedToAddLens = additionalProperty?.find((prop) =>
-    prop.propertyID === "isAllowedToAddLens"
-  );
-  const isLensWithoutPrescription = additionalProperty?.find((prop) =>
-    prop.propertyID === "isLensWithoutPrescription"
-  )?.value;
-  const lensDescription = additionalProperty?.find((prop) =>
-    prop.propertyID === "lensDescription"
-  )?.value;
+
+  const rating = findProperty("rating", product)?.value;
   const ratingValue = rating ? parseFloat(rating) : 0;
+
+  const isAllowedToAddLens = findProperty("isAllowedToAddLens", product);
+  const isLensWithoutPrescription = findProperty(
+    "isLensWithoutPrescription",
+    product,
+  )?.value;
+  const lensDescription = findProperty("lensDescription", product)?.value;
   const isLentes = product?.category?.includes("Lentes de Contato");
+
   const handleStepsLabel = () => {
     if (isLensWithoutPrescription) {
       return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
     }
     return stepLabels?.[currentCategory!.toLowerCase()];
   };
+
   const stepLabel = handleStepsLabel();
 
   return (

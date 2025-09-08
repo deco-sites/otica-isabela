@@ -9,14 +9,16 @@ import * as $$$1 from "./loaders/actions/wishlist/addItem.ts";
 import * as $$$2 from "./loaders/actions/wishlist/removeItem.ts";
 import * as $$$3 from "./loaders/product/cart.ts";
 import * as $$$4 from "./loaders/product/productDetails.ts";
-import * as $$$5 from "./loaders/product/productList.ts";
-import * as $$$6 from "./loaders/product/productListiningPage.ts";
-import * as $$$7 from "./loaders/product/suggestions.ts";
-import * as $$$8 from "./loaders/product/testimonials.ts";
-import * as $$$9 from "./loaders/product/wishlist.ts";
-import * as $$$10 from "./loaders/store/auth.ts";
-import * as $$$11 from "./loaders/store/newsletter.ts";
-import * as $$$12 from "./loaders/store/session.ts";
+import * as $$$5 from "./loaders/product/productDetailsV2.ts";
+import * as $$$6 from "./loaders/product/productList.ts";
+import * as $$$7 from "./loaders/product/productListingPage.ts";
+import * as $$$8 from "./loaders/product/productListiningPage.ts";
+import * as $$$9 from "./loaders/product/suggestions.ts";
+import * as $$$10 from "./loaders/product/testimonials.ts";
+import * as $$$11 from "./loaders/product/wishlist.ts";
+import * as $$$12 from "./loaders/store/auth.ts";
+import * as $$$13 from "./loaders/store/newsletter.ts";
+import * as $$$14 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/BannerWithExplanation.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryText.tsx";
@@ -87,14 +89,16 @@ const manifest = {
     "site/loaders/actions/wishlist/removeItem.ts": $$$2,
     "site/loaders/product/cart.ts": $$$3,
     "site/loaders/product/productDetails.ts": $$$4,
-    "site/loaders/product/productList.ts": $$$5,
-    "site/loaders/product/productListiningPage.ts": $$$6,
-    "site/loaders/product/suggestions.ts": $$$7,
-    "site/loaders/product/testimonials.ts": $$$8,
-    "site/loaders/product/wishlist.ts": $$$9,
-    "site/loaders/store/auth.ts": $$$10,
-    "site/loaders/store/newsletter.ts": $$$11,
-    "site/loaders/store/session.ts": $$$12,
+    "site/loaders/product/productDetailsV2.ts": $$$5,
+    "site/loaders/product/productList.ts": $$$6,
+    "site/loaders/product/productListingPage.ts": $$$7,
+    "site/loaders/product/productListiningPage.ts": $$$8,
+    "site/loaders/product/suggestions.ts": $$$9,
+    "site/loaders/product/testimonials.ts": $$$10,
+    "site/loaders/product/wishlist.ts": $$$11,
+    "site/loaders/store/auth.ts": $$$12,
+    "site/loaders/store/newsletter.ts": $$$13,
+    "site/loaders/store/session.ts": $$$14,
   },
   "sections": {
     "site/sections/BannerWithExplanation.tsx": $$$$$$0,
