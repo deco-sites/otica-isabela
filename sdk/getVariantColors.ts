@@ -7,37 +7,35 @@ interface Color {
   unitCodes: string[];
 }
 
-const getColors = (
-  properties: PropertyValue[],
-): string[] => {
-  return properties
-    .filter((property) => property.propertyID === "color")
-    .map((property) => property.unitCode!);
-};
+interface PropertyValueWithColor extends PropertyValue {
+  color?: string;
+}
 
 export const getAvailableColors = (product: Product): Array<Color> => {
   const availableColors: Array<Color> = [];
 
   if (product.isVariantOf) {
-    const { isVariantOf: variant } = product;
-    const variantColors = getColors(variant.additionalProperty!);
+    const { isVariantOf } = product;
+    const variants = isVariantOf?.hasVariant;
 
-    variantColors.length && availableColors.push({
-      name: variant.name!,
-      url: variant.url?.split("/produto")[1]!,
-      unitCodes: variantColors,
-    });
+    if (variants) {
+      variants.forEach((variant) => {
+        const colorProp = variant.additionalProperty?.filter(
+          (prop) => prop.name === "Cor"
+        );
 
-    if (variant.hasVariant) {
-      const { hasVariant } = variant;
+        if (!colorProp || colorProp.length === 0) {
+          return;
+        }
 
-      hasVariant.forEach((variant) => {
-        const variantColors = getColors(variant.additionalProperty!);
+        const validColorCodes = colorProp
+          .map((prop: PropertyValueWithColor) => prop.color)
+          .filter((color): color is string => typeof color === "string");
 
-        variantColors.length && availableColors.push({
+        availableColors.push({
           name: variant.name!,
           url: variant.url?.split("/produto")[1]!,
-          unitCodes: variantColors,
+          unitCodes: validColorCodes,
         });
       });
     }

@@ -114,6 +114,10 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         details: (slug: string) => {
           return href(`${baseV2}/product/${slug}?`, {}, true);
         },
+
+        highlight: (id: string) => {
+          return href(`${baseV2}/highlight/?Id=${id}`, {}, true);
+        },
       },
     },
   };

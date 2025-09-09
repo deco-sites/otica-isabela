@@ -91,6 +91,7 @@ function ProductCard({
 
   const handleColorHover = (colorName: string) => {
     const index = variantNames.indexOf(colorName);
+
     if (index !== -1 && variantImages[index]) {
       setHoverImage(variantImages[index]);
     }
@@ -221,7 +222,6 @@ function ProductCard({
 
           return (
             <li
-              key={unitCodes.join()}
               onClick={() => handleColorClick(name)}
               onMouseEnter={() => handleColorHover(name)}
               onMouseLeave={handleColorLeave}
@@ -315,7 +315,7 @@ function ProductCard({
                 <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
                   {description.map(
                     (property, index) =>
-                      `${property?.value}: ${property?.name}mm ${
+                      `${property?.name}: ${property?.value} ${
                         index < description.length - 1 ? "/ " : ""
                       }`,
                   )}
