@@ -1,8 +1,6 @@
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import { useOffer } from "$store/sdk/useOffer.ts";
-import { Product, ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Promotion } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
@@ -13,42 +11,33 @@ import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
 import ProductInfoColors from "$store/islands/ProductInfoColors.tsx";
+import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
+import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 interface Props {
-  page: LoaderReturnType<ProductDetailsPage | null>;
+  page: LoaderReturnType<IsabelaProductDetailsPage | null>;
   promotions?: Promotion[];
   labels?: Record<string, string>;
   stepLabels?: Record<string, string>;
   customer: LoaderReturnType<AuthData>;
 }
 
-const findProperty = (id: string, product: Product) => {
-  return product.additionalProperty?.find((prop) =>
-    prop.name === id || prop.propertyID === id
-  );
-};
-
 function ProductInfo(
   { page, promotions, labels, stepLabels, customer }: Props,
 ) {
   const { product, breadcrumbList } = page!;
-  const { productID, offers, name, url, additionalProperty, sku } = product;
-  const { price, listPrice, installments } = useOffer(offers);
-  const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
-  const experimenterImage = additionalProperty?.find((prop) =>
-    prop.propertyID === "experimentador"
-  )?.value;
-  // const colorsList = additionalProperty?.filter((prop) =>
-  //   prop.propertyID === "color"
-  // );
-  // const colors = colorsList?.map(({ unitCode }) => unitCode);
-  // const colorsName = colorsList?.map(({ value }) => value);
+  const { id: productID, name, slug, price, priceWithDiscount } = product;
+  const chooseLensUrl = `/passo-a-passo/${slug}`;
+  const experimenterImage = findProductAttribute("experimentador", product)
+    ?.value;
+
   const addToCard = {
     idProduct: Number(productID),
-    sku: Number(sku),
+    sku: Number(productID),
     price: price!,
     name: name!,
   };
-  const promotionFlag = findProperty(
+
+  const promotionFlag = findProductAttribute(
     "flag",
     product,
   )?.value?.toLowerCase();
@@ -58,16 +47,21 @@ function ProductInfo(
   );
   const currentCategory = breadcrumbList?.itemListElement[0].name;
 
-  const rating = findProperty("rating", product)?.value;
+  const rating = findProductAttribute("rating", product)?.value;
   const ratingValue = rating ? parseFloat(rating) : 0;
 
-  const isAllowedToAddLens = findProperty("isAllowedToAddLens", product);
-  const isLensWithoutPrescription = findProperty(
+  const isAllowedToAddLens = findProductAttribute(
+    "isAllowedToAddLens",
+    product,
+  );
+  const isLensWithoutPrescription = findProductAttribute(
     "isLensWithoutPrescription",
     product,
   )?.value;
-  const lensDescription = findProperty("lensDescription", product)?.value;
-  const isLentes = product?.category?.includes("Lentes de Contato");
+  const lensDescription = findProductAttribute("lensDescription", product)
+    ?.value;
+
+  const isLentes = product?.category?.name?.includes("Lentes de Contato");
 
   const handleStepsLabel = () => {
     if (isLensWithoutPrescription) {
@@ -112,7 +106,7 @@ function ProductInfo(
             <span>
               {promotion.flagText.replace(
                 "%value",
-                formatPrice(price, offers!.priceCurrency!) ?? "",
+                formatPrice(price) ?? "",
               )}
             </span>
           </div>
@@ -123,36 +117,17 @@ function ProductInfo(
       <div class="flex items-normal justify-between lg:mt-6">
         <div class="flex flex-col gap-2">
           <ProductInfoColors page={page} />
-          {listPrice !== price && (
-            <p class="line-through font-semibold text-sm  text-red-500 lg:text-base">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
+          {price !== priceWithDiscount && (
+            <p class="line-through font-semibold text-sm text-red-500 lg:text-base">
+              {formatPrice(price)}
             </p>
           )}
           <p class="text-blue-200 text-xl lg:text-[28px] font-bold">
-            {formatPrice(price, offers!.priceCurrency!)}
+            {formatPrice(priceWithDiscount)}
           </p>
-          <span class="text-sm text-base-300">{installments}</span>
+          <span class="text-sm text-base-300">## INSTALLMENTS ##</span>
         </div>
 
-        <div class="flex items-center h-fit ml-2 gap-2">
-          {
-            /* {!!colorsList?.length && (
-            <div
-              class="flex gap-2 justify-between w-full tooltip tooltip-top ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
-              data-tip={colorsName?.join(" / ")}
-            >
-              <span
-                class="mask mask-circle h-4 w-4 bg-secondary transition-transform"
-                style={{
-                  background: colors && colors?.length > 1
-                    ? `linear-gradient(${colors.join(", ")})`
-                    : colors?.[0],
-                }}
-              />
-            </div>
-          )} */
-          }
-        </div>
         {/* Experimenter */}
         {!isLentes && experimenterImage
           ? (
@@ -183,7 +158,7 @@ function ProductInfo(
         <div
           onClick={() => {
             sendFBEvent("AddToCart", {
-              content_ids: [sku],
+              content_ids: [productID.toString()],
               content_type: "produto",
               value: price,
               currency: "BRL",
@@ -200,7 +175,7 @@ function ProductInfo(
       )}
 
       {/* Analytics Event */}
-      <SendEventOnLoad
+      {/* <SendEventOnLoad
         event={{
           name: "view_item",
           params: {
@@ -209,12 +184,12 @@ function ProductInfo(
                 product,
                 breadcrumbList,
                 price,
-                listPrice,
+                listPrice: priceWithDiscount,
               }),
             ],
           },
         }}
-      />
+      /> */}
     </>
   );
 }

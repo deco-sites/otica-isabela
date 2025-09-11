@@ -1,44 +1,35 @@
-import { PropertyValue } from "apps/commerce/types.ts";
-import type { Product } from "apps/commerce/types.ts";
+import { Product } from "site/packs/v2/types.ts";
 
 interface Color {
   name: string;
-  url: string;
+  slug: string;
   unitCodes: string[];
-}
-
-interface PropertyValueWithColor extends PropertyValue {
-  color?: string;
 }
 
 export const getAvailableColors = (product: Product): Array<Color> => {
   const availableColors: Array<Color> = [];
+  const variants = product.relatedProducts;
 
-  if (product.isVariantOf) {
-    const { isVariantOf } = product;
-    const variants = isVariantOf?.hasVariant;
+  if (variants) {
+    variants.forEach((variant) => {
+      const colorProp = variant.attributes?.filter(
+        (prop) => prop.type === "Cor"
+      );
 
-    if (variants) {
-      variants.forEach((variant) => {
-        const colorProp = variant.additionalProperty?.filter(
-          (prop) => prop.name === "Cor"
-        );
+      if (!colorProp || colorProp.length === 0) {
+        return;
+      }
 
-        if (!colorProp || colorProp.length === 0) {
-          return;
-        }
+      const validColorCodes = colorProp
+        .map((prop) => prop.color)
+        .filter((color): color is string => typeof color === "string");
 
-        const validColorCodes = colorProp
-          .map((prop: PropertyValueWithColor) => prop.color)
-          .filter((color): color is string => typeof color === "string");
-
-        availableColors.push({
-          name: variant.name!,
-          url: variant.url?.split("/produto")[1]!,
-          unitCodes: validColorCodes,
-        });
+      availableColors.push({
+        name: variant.name,
+        slug: variant.slug,
+        unitCodes: validColorCodes,
       });
-    }
+    });
   }
 
   return availableColors;

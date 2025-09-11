@@ -1,6 +1,5 @@
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
-import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { AppContext } from "$store/apps/site.ts";
 import Details from "$store/components/product/product-details/Details.tsx";
 import { NotFound } from "$store/components/product/product-details/NotFound.tsx";
@@ -13,6 +12,7 @@ import type {
 } from "apps/admin/widgets.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { type LoaderReturnType, redirect, type SectionProps } from "@deco/deco";
+import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
 type ButtonLabel = {
   category: string;
   label: string;
@@ -45,7 +45,7 @@ export interface MobileOptions {
 }
 export interface Props {
   /** @title Configurações do Loader */
-  page: LoaderReturnType<ProductDetailsPage | null>;
+  page: LoaderReturnType<IsabelaProductDetailsPage | null>;
   /** @title Imagem das Medidas  */
   measurementsImage?: LiveImage;
   /** @title Configurações de Promoções */
@@ -71,8 +71,8 @@ function ProductDetails(
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
-  const { offers } = product || {};
-  const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
+  // const { offers } = product || {};
+  // const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
 
   return (
     <>
@@ -88,7 +88,7 @@ function ProductDetails(
                 stepButtonByCategory={stepButtonByCategory}
                 customer={customer}
                 mobileOptions={mobileOptions}
-                priceValidUntil={priceValidUntil}
+                // priceValidUntil={priceValidUntil} // TODO: pegar a data correta
               />
             )
             : <NotFound />}
@@ -111,18 +111,22 @@ export function loader(props: Props, req: Request, ctx: AppContext) {
     redirect(url.origin);
     return props;
   }
-  const productId: string | undefined = props.page.product.productID;
+
+  const productId: number | undefined = props.page.product.id;
   const cookies = getCookies(req.headers);
   const currentIds: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
-  const newIds = currentIds.some((id) => id === productId)
+
+  const newIds = currentIds.some((id) => id === productId.toString())
     ? currentIds
-    : currentIds.concat([productId]);
+    : currentIds.concat([productId.toString()]);
+
   setCookie(ctx.response.headers, {
     name: visitedProductsCookie,
     value: newIds?.join(":"),
     path: "/",
   });
+
   return {
     ...props,
   };

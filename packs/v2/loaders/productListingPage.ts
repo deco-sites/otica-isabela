@@ -1,17 +1,20 @@
 import type { AppContext } from "$store/apps/site.ts";
-import type { ProductListingPage } from "apps/commerce/types.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
-import { FacetValues, Product } from "$store/packs/v2/types.ts";
+import {
+  Facets,
+  IsabelaProductListingPage,
+  Product,
+} from "$store/packs/v2/types.ts";
 import { toProductListingPage } from "$store/packs/v2/transform.ts";
 import paths from "$store/packs/utils/paths.ts";
-import { SORT_OPTIONS } from "site/packs/constants.ts";
+import { SORT_OPTIONS } from "$store/packs/v2/constants.ts";
 
 interface ProductFilter {
   /** Campo a ser filtrado */
   Key: string;
 
   /** Operador de comparação */
-  Operator: "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "range" | "in";
+  Operator: "eq" | "between" | "in" | "contains" | "range";
 
   /** Valores aplicados ao filtro */
   Values: (string | number | boolean)[];
@@ -27,7 +30,7 @@ export interface ProductListingPageProps {
   PageSize?: number;
 
   /** @title Ordenação dos Produtos */
-  OrderBy: "none" | "mais-vendidos" | "ofertas" | "menor-preco" | "nome";
+  OrderBy: "name" | "-name" | "price" | "-price" | string;
 
   /** @title Filtros Dinâmicos */
   Filters?: ProductFilter[];
@@ -38,7 +41,7 @@ export interface PLPResponseDTO {
   pageSize: number;
   totalCount: number;
   data: Product[];
-  facets: Record<string, FacetValues>;
+  facets: Facets;
   pageCount: number;
 }
 
@@ -52,26 +55,28 @@ const loader = async (
   props: Props,
   req: Request,
   ctx: AppContext
-): Promise<ProductListingPage | null> => {
+): Promise<IsabelaProductListingPage | null> => {
   const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
   const path = paths(config!);
   const url = new URL(req.url);
 
-  const { ...searchPageProps } = props;
-
   const hasSearchParam = url.pathname.includes("busca");
-
   const isCategoryPage = !hasSearchParam;
 
   const categoryTree = isCategoryPage
     ? url.pathname.split("/").join("/")
     : undefined;
 
+  const { OrderBy, Page } = getSearchParams(url, props.OrderBy);
+
   const headers: HeadersInit = new Headers();
   headers.set("Token", config.token ?? "");
 
   const response = await fetchAPI<PLPResponseDTO>(
-    path.v2.navigation.withFilters({ ...props }, categoryTree!),
+    path.v2.navigation.withFilters(
+      { ...props, OrderBy, Page: Number(Page) || 1 },
+      categoryTree!
+    ),
     {
       method: "GET",
       headers,
@@ -80,13 +85,11 @@ const loader = async (
 
   if (!response.data.length) return null;
 
-  const { orderBy, page } = getSearchParams(url, props.OrderBy);
-
   return toProductListingPage({
     dto: response,
     baseURL: url,
     pageType: isCategoryPage ? "category" : "search",
-    pageParams: { orderBy, page },
+    pageParams: { OrderBy, Page },
   });
 };
 
@@ -96,15 +99,16 @@ const getSearchParams = (
   url: URL,
   sortBy?: ProductListingPageProps["OrderBy"]
 ) => {
-  const orderBy =
+  const OrderBy =
     SORT_OPTIONS.find(({ value }) => value == url.searchParams.get("sort"))
       ?.value ??
     sortBy ??
-    "nome";
+    "name";
+
   const page = url.searchParams.get("page") ?? "1";
 
   return {
-    orderBy,
-    page: Number(page),
+    OrderBy,
+    Page: Number(page),
   };
 };

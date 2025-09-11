@@ -1489,9 +1489,22 @@ html {
 .range:focus {
   outline: none;
 }
+.\!rating {
+  position: relative !important;
+  display: inline-flex !important;
+}
 .rating {
   position: relative;
   display: inline-flex;
+}
+.\!rating :where(input) {
+  cursor: pointer !important;
+  border-radius: 0px !important;
+  animation: rating-pop var(--animation-input, 0.25s) ease-out !important;
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+  background-color: hsl(var(--bc) / var(--tw-bg-opacity)) !important;
+  --tw-bg-opacity: 1 !important;
 }
 .rating :where(input) {
   cursor: pointer;
@@ -2749,18 +2762,42 @@ details.collapse summary::-webkit-details-marker {
   box-shadow: 0 0 0 3px hsl(var(--range-shdw)) inset, var(--focus-shadow, 0 0),
       calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
 }
+.\!rating input {
+  -moz-appearance: none !important;
+       appearance: none !important;
+  -webkit-appearance: none !important;
+}
 .rating input {
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
 }
+.\!rating .rating-hidden {
+  width: 0.5rem !important;
+  background-color: transparent !important;
+}
 .rating .rating-hidden {
   width: 0.5rem;
   background-color: transparent;
 }
+.\!rating input:checked ~ input,
+  .\!rating input[aria-checked="true"] ~ input {
+  --tw-bg-opacity: 0.2 !important;
+}
 .rating input:checked ~ input,
   .rating input[aria-checked="true"] ~ input {
   --tw-bg-opacity: 0.2;
+}
+.\!rating input:checked ~ input,
+  .\!rating input[aria-checked="true"] ~ input {
+  --tw-bg-opacity: 0.2 !important;
+}
+.\!rating input:focus-visible {
+  transition-property: transform !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
+  transition-duration: 300ms !important;
+  transform: translateY(-0.125em) !important;
 }
 .rating input:focus-visible {
   transition-property: transform;
@@ -2768,6 +2805,10 @@ details.collapse summary::-webkit-details-marker {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 300ms;
   transform: translateY(-0.125em);
+}
+.\!rating input:active:focus {
+  animation: none !important;
+  transform: translateY(-0.125em) !important;
 }
 .rating input:active:focus {
   animation: none;
@@ -5444,10 +5485,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-border-opacity: 1;
   border-color: rgb(205 205 205 / var(--tw-border-opacity));
 }
-.border-\[\#f37121\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 113 33 / var(--tw-border-opacity));
-}
 .border-\[\#fb2424\] {
   --tw-border-opacity: 1;
   border-color: rgb(251 36 36 / var(--tw-border-opacity));
@@ -6389,10 +6426,6 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#d39d4e\] {
   --tw-text-opacity: 1;
   color: rgb(211 157 78 / var(--tw-text-opacity));
-}
-.text-\[\#f37121\] {
-  --tw-text-opacity: 1;
-  color: rgb(243 113 33 / var(--tw-text-opacity));
 }
 .text-\[\#fb2424\] {
   --tw-text-opacity: 1;

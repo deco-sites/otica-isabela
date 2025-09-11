@@ -6,15 +6,16 @@ import Button from "$store/components/ui/Button.tsx";
 import Drawer from "$store/components/ui/Drawer.tsx";
 import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import { useSignal } from "@preact/signals";
-import type { ProductListingPage } from "apps/commerce/types.ts";
+import type {} from "apps/commerce/types.ts";
 import { selectedFilters } from "$store/components/search/SelectedFilters.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
+import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 
 type Props = {
-  filters: ProductListingPage["filters"];
-  breadcrumb: ProductListingPage["breadcrumb"];
-  sortOptions: ProductListingPage["sortOptions"];
+  filters: IsabelaProductListingPage["filters"];
+  breadcrumb: IsabelaProductListingPage["breadcrumb"];
+  sortOptions: IsabelaProductListingPage["sortOptions"];
   hideFilters: SearchResultProps["hideFilters"];
   typeIcons: SearchResultProps["typeIcons"];
   shapeIcons: SearchResultProps["shapeIcons"];

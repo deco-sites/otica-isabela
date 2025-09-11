@@ -3,16 +3,16 @@ import type {
   Filter,
   FilterToggle,
   FilterToggleValue,
-  ProductListingPage,
 } from "apps/commerce/types.ts";
 import SizeOptions from "$store/components/search/SizeOptions.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import RangeFiltersJS from "$store/islands/RangeFiltersJS.tsx";
 import ValueItem from "$store/islands/ValueItem.tsx";
 import Image from "apps/website/components/Image.tsx";
+import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 
 interface Props {
-  filters: ProductListingPage["filters"];
+  filters: IsabelaProductListingPage["filters"];
   filterColors: Color[];
   hideFilters?: string[];
   shapeIcons: Shape[];

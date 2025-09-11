@@ -1,10 +1,10 @@
 import { CategoryMenuItem } from "$store/components/search/SearchResult.tsx";
 import SelectedFilters from "$store/islands/SelectedFilters.tsx";
-import type { ProductListingPage } from "apps/commerce/types.ts";
+import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 
 export interface Props {
   categories: CategoryMenuItem[];
-  filters: ProductListingPage["filters"];
+  filters: IsabelaProductListingPage["filters"];
 }
 
 function CategoryMenu({ categories, filters }: Props) {
@@ -22,7 +22,7 @@ function CategoryMenu({ categories, filters }: Props) {
     <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
       <span
         class={`font-semibold flex items-center max-lg:hidden ${
-          filters.length ? "hidden" : ""
+          Object.keys(filters).length ? "hidden" : ""
         }`}
       >
         Filtros:

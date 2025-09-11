@@ -1,41 +1,39 @@
-import { ProductDetailsPage, PropertyValue } from "apps/commerce/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
+import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
 
 interface Props {
-  page: LoaderReturnType<ProductDetailsPage | null>;
-}
-
-interface PropertyValueWithColor extends PropertyValue {
-  color?: string;
+  page: LoaderReturnType<IsabelaProductDetailsPage | null>;
 }
 
 function ProductInfoColors({ page }: Props) {
   const getPathname = window.location.pathname;
-  const variants = page?.product.isVariantOf?.hasVariant;
+  const variants = page?.product.relatedProducts;
 
   // Sort variants so the active one is first
   const sortedVariants = variants?.slice().sort((a, b) => {
-    const aIsCurrent = a.url === getPathname;
-    const bIsCurrent = b.url === getPathname;
+    const aURL = `/produto/${a.slug}`;
+    const bURL = `/produto/${b.slug}`;
+
+    const aIsCurrent = aURL === getPathname;
+    const bIsCurrent = bURL === getPathname;
     return aIsCurrent === bIsCurrent ? 0 : aIsCurrent ? -1 : 1;
   });
 
   return (
     <div className="flex gap-2 lg:w-full">
       {sortedVariants?.map((variant) => {
-        const colorProp = variant.additionalProperty?.filter((prop) =>
-          prop.name === "Cor"
+        const url = `/produto/${variant.slug}`;
+
+        const colorProp = variant.attributes?.filter((prop) =>
+          prop.type === "Cor"
         );
 
         if (!colorProp || colorProp.length === 0) {
           return null;
         }
 
-        const validColorCodes = colorProp.map((prop: PropertyValueWithColor) =>
-          prop.color
-        );
-
-        const isCurrent = variant.url === getPathname;
+        const validColorCodes = colorProp.map((prop) => prop.color);
+        const isCurrent = url === getPathname;
 
         let backgroundStyle = "";
 
@@ -46,7 +44,7 @@ function ProductInfoColors({ page }: Props) {
         }
 
         return (
-          <a href={variant.url}>
+          <a href={url}>
             <div
               class={`!flex gap-2 items-center justify-between md:tooltip md:tooltip-top ${
                 isCurrent ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full" : ""

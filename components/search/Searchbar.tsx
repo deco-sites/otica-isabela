@@ -66,8 +66,8 @@ function Searchbar({
 
   return (
     <>
-      <div class="flex bg-white w-full h-10 items-center justify-center  rounded-lg">
-        <div class="flex items-center w-full ">
+      <div class="flex bg-white w-full h-10 items-center justify-center rounded-lg">
+        <div class="flex items-center w-full">
           <form
             id="searchbar"
             action={action}
@@ -127,16 +127,16 @@ function Searchbar({
       </div>
       {hasProducts && (
         <div class="relative w-full">
-          <div class="absolute flex flex-col top-2 left-0 bg-white border border-blue-200 rounded-lg  w-full p-4 z-50">
+          <div class="absolute flex flex-col top-2 left-0 bg-white border border-blue-200 rounded-lg w-full p-4 z-50">
             <h1 class="text-base text-black font-normal mb-5">
               Sugestões de óculos
             </h1>
-            <div class=" flex flex-wrap  w-full gap-y-4 ">
+            <div class="flex flex-wrap w-full gap-y-4">
               {suggestionProducts?.map(({ image, name, url, offers }) => {
                 return (
                   <a
                     href={url}
-                    class="w-1/2 flex flex-col justify-center items-center text-center "
+                    class="w-1/2 flex flex-col justify-center items-center text-center"
                   >
                     <Image
                       src={image?.[0].url ?? ""}

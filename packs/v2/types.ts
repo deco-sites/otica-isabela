@@ -1,20 +1,29 @@
-export interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  parent?: Category | null;
+import { ProductDetailsPage, ProductListingPage } from "apps/commerce/types.ts";
+
+export interface IsabelaProductListingPage
+  extends Omit<ProductListingPage, "products" | "filters"> {
+  products: Product[];
+  filters: Facets;
 }
 
-export interface ProductMedia {
+export interface IsabelaProductDetailsPage
+  extends Omit<ProductDetailsPage, "product"> {
+  product: Product;
+}
+export interface Media {
   url: string;
   isVideo: boolean;
 }
 
-export interface ProductAttribute {
+export interface CategoryInfo {
   id: number;
-  type: string;
-  value: string;
-  color?: string;
+  name: string;
+  slug: string;
+  parent?: {
+    id: number;
+    name: string;
+    slug: string;
+  };
 }
 
 export interface ProductDescription {
@@ -27,17 +36,74 @@ export interface Product {
   name: string;
   code: string;
   slug: string;
-  category: Category;
-  productGrouperCode: string;
+  medias: Media[];
+  category: CategoryInfo;
+  productGrouperCode?: string;
   price: number;
   priceWithDiscount: number;
-  productRating: number;
   hasDiscount: boolean;
   isAvailable: boolean;
-  medias: ProductMedia[];
   attributes: ProductAttribute[];
-  relatedProducts?: Partial<Product>[];
+  relatedProducts?: RelatedProduct[];
   descriptions?: ProductDescription[];
+  productRating?: number;
 }
 
-export type FacetValues = Record<string, number>;
+export interface ProductAttribute {
+  id: number;
+  type: string;
+  value: string;
+  color?: string;
+}
+
+export interface RelatedProduct {
+  id: number;
+  name: string;
+  code: string;
+  slug: string;
+  attributes: ProductAttribute[];
+  isAvailable?: boolean;
+  medias?: Media[];
+}
+
+export interface Facets {
+  isAvailable?: Record<string, boolean>;
+  hasDiscount?: Record<string, boolean>;
+  categoryName?: Record<string, number>;
+  subCategoryName?: Record<string, number>;
+  productPriceWithDiscount?: Record<string, number>;
+  brandName?: Record<string, number>;
+}
+
+export interface Category {
+  id?: number;
+  name: string;
+  slug: string;
+  href: string;
+  subcategories?: SubCategory[];
+}
+
+export interface SubCategory {
+  id?: number;
+  name: string;
+  slug: string;
+  href: string;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
+export interface PriceRange {
+  range: string;
+  count: number;
+  order: number;
+}
+
+export interface Filter {
+  key: string;
+  operator: "eq" | "between" | "in" | "contains" | "range";
+  value: string | number;
+  label: string;
+}

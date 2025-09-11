@@ -24,7 +24,7 @@ const VerticalProductShelf = ({ products, customer }: Props) => {
   );
 
   return (
-    <div class="container w-full hidden  lg:flex flex-col" id={id}>
+    <div class="container w-full hidden lg:flex flex-col" id={id}>
       <Slider class="carousel">
         {arrangedProducts?.map((allProducts, index) => (
           <Slider.Item
@@ -38,7 +38,7 @@ const VerticalProductShelf = ({ products, customer }: Props) => {
         ))}
       </Slider>
 
-      <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14 ">
+      <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
         {arrangedProducts.map((_, index) => <Slider.Dot index={index} />)}
       </div>
 

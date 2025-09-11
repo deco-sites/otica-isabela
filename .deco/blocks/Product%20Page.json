@@ -28,7 +28,12 @@
           "param": "slug",
           "__resolveType": "deco-sites/std/functions/requestToParam.ts"
         },
-        "__resolveType": "site/loaders/product/productDetailsV2.ts"
+        "__resolveType": "site/loaders/product/productDetailsV2.ts",
+        "seo": null,
+        "breadcrumbList": {
+          "video": null,
+          "image": null
+        }
       },
       "reviews": {
         "__resolveType": "productTestimonials"
