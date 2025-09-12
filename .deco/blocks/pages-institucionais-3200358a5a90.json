@@ -13894,6 +13894,30 @@
                     "spaceBetweenTextAndMediaMobile": 32
                   },
                   {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Image.tsx",
+                      "tab": null,
+                      "desktop": {
+                        "src": "https://assets.decocache.com/otica-isabela/20b96d62-2c74-455e-9f9f-05ca80f4e08d/Opticus-02.jpg",
+                        "alt": "opticus",
+                        "width": 1350,
+                        "height": 1000
+                      },
+                      "mobile": {
+                        "src": "https://assets.decocache.com/otica-isabela/20b96d62-2c74-455e-9f9f-05ca80f4e08d/Opticus-02.jpg",
+                        "alt": "opticus",
+                        "width": 1350,
+                        "height": 1000
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
+                    "mobile": 32,
+                    "desktop": 64
+                  },
+                  {
                     "__resolveType": "site/sections/Content/AccordionGroup.tsx",
                     "style": {
                       "header": "Como devem ser as fotos "
