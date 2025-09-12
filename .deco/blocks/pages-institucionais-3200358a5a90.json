@@ -13865,7 +13865,7 @@
                   {
                     "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><br data-mce-bogus=\"1\"></span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DNP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.<br></p><p style=\"padding-left: 30px; text-align: justify;\" data-mce-style=\"padding-left: 30px; text-align: justify;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><br data-mce-bogus=\"1\"></span></span></strong></p>",
+                      "content": "<p><strong><span style=\"font-size: 14pt\"><br>O que é DP?</span></strong></p><p><br></p><p>A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupila</p>",
                       "verticalAlign": "top"
                     },
                     "media": null,
@@ -13873,6 +13873,61 @@
                     "seeMore": null,
                     "container": false,
                     "linksGrid": null
+                  },
+                  {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
+                    "mobile": 32,
+                    "desktop": 32
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Image.tsx",
+                      "tab": null,
+                      "desktop": {
+                        "src": "https://assets.decocache.com/otica-isabela/43f715c6-f81f-47a7-9583-0a2832ff6143/Medida-DP.jpg",
+                        "alt": "DNP",
+                        "width": 1350,
+                        "height": 500
+                      },
+                      "mobile": {
+                        "src": "https://assets.decocache.com/otica-isabela/43f715c6-f81f-47a7-9583-0a2832ff6143/Medida-DP.jpg",
+                        "alt": "DNP",
+                        "width": 1350,
+                        "height": 500
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
+                    "text": {
+                      "content": "<p><strong><span style=\"font-size: 14pt\"><br></span></strong></p><p><strong><span style=\"font-size: 14pt\">O que é DNP?</span></strong></p><p></p><p></p><p>A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p></p><p></p><p><br></p><p></p>",
+                      "verticalAlign": "top"
+                    },
+                    "media": null,
+                    "button": null,
+                    "seeMore": null,
+                    "container": false,
+                    "linksGrid": null
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Image.tsx",
+                      "tab": null,
+                      "desktop": {
+                        "src": "https://assets.decocache.com/otica-isabela/b8a300dc-e99e-4148-bf1a-3fc70ee2451b/Medida-DNP.jpg",
+                        "alt": "DNP",
+                        "width": 1350,
+                        "height": 500
+                      },
+                      "mobile": {
+                        "src": "https://assets.decocache.com/otica-isabela/b8a300dc-e99e-4148-bf1a-3fc70ee2451b/Medida-DNP.jpg",
+                        "alt": "DNP",
+                        "width": 1350,
+                        "height": 500
+                      }
+                    }
                   },
                   {
                     "__resolveType": "site/sections/Content/Spacing.tsx",
