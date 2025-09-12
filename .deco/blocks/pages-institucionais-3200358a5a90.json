@@ -603,41 +603,31 @@
                     "__resolveType": "site/sections/Content/Hero.tsx"
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
-                    "videoUrl": "https://www.youtube.com/embed/HFTK7oBZH1I",
-                    "thumbnail": {
-                      "alt": "Como medir DNP online?",
-                      "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bbd00ce2-0bea-484a-b470-3acddabb8f92",
-                      "width": 808,
-                      "height": 454,
-                      "preload": true
-                    },
-                    "__resolveType": "site/sections/Content/VideoModal.tsx"
-                  },
-                  {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><br data-mce-bogus=\"1\"></span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DNP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.<br></p><p style=\"padding-left: 30px; text-align: justify;\" data-mce-style=\"padding-left: 30px; text-align: justify;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><br data-mce-bogus=\"1\"></span></span></strong></p>",
+                      "content": "<p><strong><span style=\"font-size: 14pt\"><br></span></strong></p><p><strong><span style=\"font-size: 14pt\">O que é DNP?</span></strong></p><p><br>A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p></p><p><img src=\"https://assets.decocache.com/otica-isabela/b8a300dc-e99e-4148-bf1a-3fc70ee2451b/Medida-DNP.jpg\"></p><p><br></p><p><strong><span style=\"font-size: 14pt\">O que é DP?</span></strong></p><p></p><p>A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.</p><p><br><img src=\"https://assets.decocache.com/otica-isabela/43f715c6-f81f-47a7-9583-0a2832ff6143/Medida-DP.jpg\"></p><p style=\"text-align: justify\"><strong><span style=\"color: rgb(0, 0, 0)\"><br></span></strong></p>",
                       "verticalAlign": "top"
                     },
                     "media": null,
                     "button": null,
                     "seeMore": null,
                     "container": false,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\">Como devo tirar a foto?&nbsp;</span></strong></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Faremos a medição da seguinte forma: Retire seus óculos e olhe fixamente para frente, posicione o cartão abaixo do nariz, e com o auxílio de outra pessoa, tire uma foto com câmera de seu celular a uma distância de no máximo 1 metro.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Pronto, agora anexe a foto no seu pedido.&nbsp;</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Como não devo enviar a foto?</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong>Não tirar self. A foto não pode estar tremida ou embaçada.</strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><br data-mce-bogus=\"1\"></p>",
+                      "content": "<h2><strong><span style=\"font-size: 18pt\">Como devo tirar a foto?&nbsp;</span></strong></h2><p><br></p><p>Faremos a medição da seguinte forma: Retire seus óculos e olhe fixamente para frente, posicione o cartão abaixo do nariz, e com o auxílio de outra pessoa, tire uma foto com câmera de seu celular a uma distância de no máximo 1 metro.</p><p><br></p><p>Pronto, agora anexe a foto no seu pedido.&nbsp;</p><p><br></p><p>Como não devo enviar a foto?</p><p><br></p><p><strong>Não tirar self. A foto não pode estar tremida ou embaçada.</strong></p><p><br></p><p style=\"text-align: justify\"><br></p>",
                       "verticalAlign": "center"
                     },
                     "media": null,
@@ -645,11 +635,11 @@
                     "seeMore": null,
                     "container": false,
                     "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "spaceBetweenTextAndMedia": 64,
                     "spaceBetweenTextAndMediaMobile": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/AccordionGroup.tsx",
                     "style": {
                       "header": "Fotos para Medida da sua DNP!"
                     },
@@ -674,15 +664,15 @@
                           }
                         ]
                       }
-                    ],
-                    "__resolveType": "site/sections/Content/AccordionGroup.tsx"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Já comprou em uma ótica online?</strong></span></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Esqueça aquela história de ter que pegar a receita médica e sair por várias ótica no centro de sua cidade pesquisando preço e opções de lentes. Conheça a ótica Isabela Dias e garanta o melhor preço e suporte ao cliente. Tudo isso sem precisar sair da sua casa.&nbsp;<a data-mce-href=\"https://www.oticaisabeladias.com.br/avaliacoes\" href=\"https://www.oticaisabeladias.com.br/avaliacoes\"><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><strong>Conheça os clientes satisfeitos clicando aqui!</strong></span></a> </p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Veja como é simples comprar seus óculos de grau aqui na ótica Isabela Dias!<br><br></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><br data-mce-bogus=\"1\"></span></strong></span></p>",
                       "verticalAlign": "center"
@@ -690,15 +680,15 @@
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Compre seus óculos conforme sua receita médica</strong></span></h2>",
                       "verticalAlign": "center"
@@ -706,15 +696,15 @@
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -845,15 +835,15 @@
                           "__resolveType": "site/sections/Content/AccordionGroup.tsx"
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -942,25 +932,25 @@
                           "spaceBetweenTextAndMediaMobile": 32
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "type": "website",
                     "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/500841c1-4dc5-4c07-a762-c884e88e8373",
                     "title": "Como medir a DNP? - Ótica Isabela Dias",
                     "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
                     "description": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?",
-                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "titleTemplate": "Como medir a DNP? - Ótica Isabela Dias",
                     "descriptionTemplate": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?"
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 class=\"com-title\" data-ga4event-type=\"Finding Frames\" style=\"text-align: center;\" data-mce-style=\"text-align: center;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Precisa de ajuda?</strong></span></h2>",
                       "verticalAlign": "center"
@@ -978,7 +968,6 @@
                     "container": false,
                     "linksGrid": null,
                     "paddingTop": 40,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "mobilePadding": {
                       "top": 32,
                       "bottom": 32
@@ -994,6 +983,7 @@
                     "spaceBetweenTextAndMediaMobile": 12
                   },
                   {
+                    "__resolveType": "site/sections/Product/SearchResult.tsx",
                     "page": {
                       "id": [],
                       "offset": 9,
@@ -1004,8 +994,7 @@
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
-                    },
-                    "__resolveType": "site/sections/Product/SearchResult.tsx"
+                    }
                   }
                 ],
                 "navigations": [],
@@ -10051,7 +10040,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -10063,8 +10053,6 @@
                 "breadcrumbLabel": "Como comprar óculos online ou pela internet "
               },
               {
-                "href": "/guias/como-medir-a-dnp",
-                "label": "Como medir a dnp",
                 "content": [
                   {
                     "style": {
@@ -10078,12 +10066,12 @@
                     },
                     "content": {
                       "title": {
-                        "text": "<h1 style=\"line-height: 2; text-align: center;\" data-mce-style=\"line-height: 2; text-align: center;\"><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\"><strong>Como medir DNP online?</strong></span></h1>",
+                        "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 24pt\">Como medimos sua DNP online</span></strong></h1>",
                         "color": "#ffffff",
                         "onHover": "#ffffff"
                       },
                       "subtitle": {
-                        "text": "<p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\"><span style=\"font-size: 10pt;\" data-mce-style=\"font-size: 10pt;\">Revisado por: Brandon Borges Abril de, 2024</span></p><p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">Saber como ler uma receita de óculos é essencial! Embora você provavelmente saiba se é míope, hipermétrope ou tem astigmatismo, determinar isso a partir de sua receita de óculos é outra coisa completamente. É por isso que preparamos um breve guia para ajudar você a aprender como ler uma receita de óculos para que você possa fazer o pedido de seu novo par de óculos o mais rápido possível.</p>",
+                        "text": "<p><span style=\"font-size: 10pt\">Revisado por: Brandon Borges Abril de, 2024</span></p><p><br></p><p>Saber como ler uma receita de óculos é essencial! Embora você provavelmente saiba se é míope, hipermétrope ou tem astigmatismo, determinar isso a partir de sua receita de óculos é outra coisa completamente. É por isso que preparamos um breve guia para ajudar você a aprender como ler uma receita de óculos para que você possa fazer o pedido de seu novo par de óculos o mais rápido possível.</p>",
                         "color": "#ffffff",
                         "onHover": "#ffffff"
                       }
@@ -10113,36 +10101,26 @@
                     "__resolveType": "site/sections/Content/Spacing.tsx"
                   },
                   {
-                    "videoUrl": "https://www.youtube.com/embed/HFTK7oBZH1I",
-                    "thumbnail": {
-                      "alt": "Como medir DNP online?",
-                      "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bbd00ce2-0bea-484a-b470-3acddabb8f92",
-                      "width": 808,
-                      "height": 454,
-                      "preload": true
-                    },
-                    "__resolveType": "site/sections/Content/VideoModal.tsx"
-                  },
-                  {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><br data-mce-bogus=\"1\"></span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DNP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.<br></p><p style=\"padding-left: 30px; text-align: justify;\" data-mce-style=\"padding-left: 30px; text-align: justify;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><br data-mce-bogus=\"1\"></span></span></strong></p>",
+                      "content": "<p><strong><span style=\"font-size: 14pt\"><br></span></strong></p><p><strong><span style=\"font-size: 14pt\">O que é DNP?</span></strong></p><p><br></p><p>A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p></p><p></p><p><br></p><p><strong><span style=\"font-size: 14pt\">O que é DP?</span></strong></p><p><br></p><p>A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.<br></p><p style=\"text-align: justify\"><strong><span style=\"color: rgb(0, 0, 0)\"><br></span></strong></p>",
                       "verticalAlign": "top"
                     },
                     "media": null,
                     "button": null,
                     "seeMore": null,
                     "container": false,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\">Como devo tirar a foto?&nbsp;</span></strong></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Faremos a medição da seguinte forma: Retire seus óculos e olhe fixamente para frente, posicione o cartão abaixo do nariz, e com o auxílio de outra pessoa, tire uma foto com câmera de seu celular a uma distância de no máximo 1 metro.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Pronto, agora anexe a foto no seu pedido.&nbsp;</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Como não devo enviar a foto?</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong>Não tirar self. A foto não pode estar tremida ou embaçada.</strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><br data-mce-bogus=\"1\"></p>",
+                      "content": "<h2><strong><span style=\"font-size: 18pt\">Sua DNP em poucos minutos&nbsp;</span></strong></h2><p><br></p><p>Desenvolvemos uma ferramenta inovadora para calcular a DNP e DP de forma rápida e segura sem sair de casa!</p><p>Com sistema Opticus Pro, enviamos um link com passo a passo aonde você envia a foto e nosso sistema calcula tudo para realizar a montagem dos óculos.</p><p></p><p><br></p><p><br></p><p style=\"text-align: justify\"><br></p>",
                       "verticalAlign": "center"
                     },
                     "media": null,
@@ -10150,11 +10128,11 @@
                     "seeMore": null,
                     "container": false,
                     "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "spaceBetweenTextAndMedia": 64,
                     "spaceBetweenTextAndMediaMobile": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/AccordionGroup.tsx",
                     "style": {
                       "header": "Fotos para Medida da sua DNP!"
                     },
@@ -10179,31 +10157,31 @@
                           }
                         ]
                       }
-                    ],
-                    "__resolveType": "site/sections/Content/AccordionGroup.tsx"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Já comprou em uma ótica online?</strong></span></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Esqueça aquela história de ter que pegar a receita médica e sair por várias ótica no centro de sua cidade pesquisando preço e opções de lentes. Conheça a ótica Isabela Dias e garanta o melhor preço e suporte ao cliente. Tudo isso sem precisar sair da sua casa.&nbsp;<a data-mce-href=\"https://www.oticaisabeladias.com.br/avaliacoes\" href=\"https://www.oticaisabeladias.com.br/avaliacoes\"><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><strong>Conheça os clientes satisfeitos clicando aqui!</strong></span></a> </p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Veja como é simples comprar seus óculos de grau aqui na ótica Isabela Dias!<br><br></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><br data-mce-bogus=\"1\"></span></strong></span></p>",
+                      "content": "<h2><strong><span style=\"font-size: 18pt\">Já comprou em uma ótica online?</span></strong></h2><p><br></p><p>Esqueça aquela história de ter que pegar a receita médica e sair por várias ótica no centro de sua cidade pesquisando preço e opções de lentes. Conheça a ótica Isabela Dias e garanta o melhor preço e suporte ao cliente. Tudo isso sem precisar sair da sua casa.&nbsp;<a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.oticaisabeladias.com.br/avaliacoes\"><strong><span style=\"color: rgb(66, 194, 255)\">Conheça os clientes satisfeitos clicando aqui!</span></strong></a></p><p>Veja como é simples comprar seus óculos de grau aqui na ótica Isabela Dias!<br><br></p><p style=\"text-align: justify\"><strong><span style=\"font-size: 18pt\"><br></span></strong></p>",
                       "verticalAlign": "center"
                     },
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Compre seus óculos conforme sua receita médica</strong></span></h2>",
                       "verticalAlign": "center"
@@ -10211,15 +10189,15 @@
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -10350,15 +10328,15 @@
                           "__resolveType": "site/sections/Content/AccordionGroup.tsx"
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -10447,25 +10425,25 @@
                           "spaceBetweenTextAndMediaMobile": 32
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "type": "website",
                     "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/500841c1-4dc5-4c07-a762-c884e88e8373",
                     "title": "Como medir a DNP? - Ótica Isabela Dias",
                     "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
                     "description": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?",
-                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "titleTemplate": "Como medir a DNP? - Ótica Isabela Dias",
                     "descriptionTemplate": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?"
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 class=\"com-title\" data-ga4event-type=\"Finding Frames\" style=\"text-align: center;\" data-mce-style=\"text-align: center;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Precisa de ajuda?</strong></span></h2>",
                       "verticalAlign": "center"
@@ -10483,7 +10461,6 @@
                     "container": false,
                     "linksGrid": null,
                     "paddingTop": 40,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "mobilePadding": {
                       "top": 32,
                       "bottom": 32
@@ -10499,22 +10476,31 @@
                     "spaceBetweenTextAndMediaMobile": 12
                   },
                   {
+                    "__resolveType": "site/sections/Product/SearchResult.tsx",
                     "page": {
                       "id": [],
                       "offset": 9,
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
-                    },
-                    "__resolveType": "site/sections/Product/SearchResult.tsx"
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "Image Gallery - 04"
+                    }
                   }
                 ],
                 "navigations": [],
-                "breadcrumbLabel": "Como medir a DNP"
+                "breadcrumbLabel": "Como medir a DNP",
+                "href": "/guias/como-medir-a-dnp",
+                "label": "como medimos sua DNP e DP"
               },
               {
                 "href": "/guias/provador-de-oculos-online",
@@ -13842,7 +13828,7 @@
                     },
                     "content": {
                       "title": {
-                        "text": "<h1 style=\"line-height: 2; text-align: center;\" data-mce-style=\"line-height: 2; text-align: center;\"><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\"><strong>Como medir DNP online?</strong></span></h1>",
+                        "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 24pt\">Como medimos sua DNP online</span></strong></h1>",
                         "color": "#ffffff",
                         "onHover": "#ffffff"
                       },
@@ -13877,17 +13863,7 @@
                     "__resolveType": "site/sections/Content/Spacing.tsx"
                   },
                   {
-                    "videoUrl": "https://www.youtube.com/embed/HFTK7oBZH1I",
-                    "thumbnail": {
-                      "alt": "Como medir DNP online?",
-                      "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/bbd00ce2-0bea-484a-b470-3acddabb8f92",
-                      "width": 808,
-                      "height": 454,
-                      "preload": true
-                    },
-                    "__resolveType": "site/sections/Content/VideoModal.tsx"
-                  },
-                  {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><br data-mce-bogus=\"1\"></span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DNP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Naso Pupilar e é referenciada pelas distâncias individuais entre as pupilas em relação ao nariz.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\">O que é DP?</span></strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupilas.<br></p><p style=\"padding-left: 30px; text-align: justify;\" data-mce-style=\"padding-left: 30px; text-align: justify;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><br data-mce-bogus=\"1\"></span></span></strong></p>",
                       "verticalAlign": "top"
@@ -13896,17 +13872,17 @@
                     "button": null,
                     "seeMore": null,
                     "container": false,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\">Como devo tirar a foto?&nbsp;</span></strong></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Faremos a medição da seguinte forma: Retire seus óculos e olhe fixamente para frente, posicione o cartão abaixo do nariz, e com o auxílio de outra pessoa, tire uma foto com câmera de seu celular a uma distância de no máximo 1 metro.</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Pronto, agora anexe a foto no seu pedido.&nbsp;</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Como não devo enviar a foto?</p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong>Não tirar self. A foto não pode estar tremida ou embaçada.</strong></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><br data-mce-bogus=\"1\"></p>",
+                      "content": "<h2><strong><span style=\"font-size: 18pt\">Tecnologia inovadora!&nbsp;</span></strong></h2><p><br></p><p>Desenvolvemos uma ferramenta inovadora para calcular a DNP e DP de forma rápida e segura sem sair de casa!</p><p>Com sistema Opticus Pro, enviamos um link com passo a passo aonde você envia a foto e nosso sistema calcula tudo para realizar a montagem dos óculos.</p><p><br></p><p></p><p><br></p><p style=\"text-align: justify\"><br></p>",
                       "verticalAlign": "center"
                     },
                     "media": null,
@@ -13914,13 +13890,13 @@
                     "seeMore": null,
                     "container": false,
                     "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "spaceBetweenTextAndMedia": 64,
                     "spaceBetweenTextAndMediaMobile": 32
                   },
                   {
+                    "__resolveType": "site/sections/Content/AccordionGroup.tsx",
                     "style": {
-                      "header": "Fotos para Medida da sua DNP!"
+                      "header": "Como devem ser as fotos "
                     },
                     "contents": [
                       {
@@ -13943,15 +13919,15 @@
                           }
                         ]
                       }
-                    ],
-                    "__resolveType": "site/sections/Content/AccordionGroup.tsx"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Já comprou em uma ótica online?</strong></span></h2><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Esqueça aquela história de ter que pegar a receita médica e sair por várias ótica no centro de sua cidade pesquisando preço e opções de lentes. Conheça a ótica Isabela Dias e garanta o melhor preço e suporte ao cliente. Tudo isso sem precisar sair da sua casa.&nbsp;<a data-mce-href=\"https://www.oticaisabeladias.com.br/avaliacoes\" href=\"https://www.oticaisabeladias.com.br/avaliacoes\"><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><strong>Conheça os clientes satisfeitos clicando aqui!</strong></span></a> </p><p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Veja como é simples comprar seus óculos de grau aqui na ótica Isabela Dias!<br><br></p><p style=\"text-align: justify; padding-left: 30px;\" data-mce-style=\"text-align: justify; padding-left: 30px;\"><span style=\"color: #000000;\" data-mce-style=\"color: #000000;\"><strong><span style=\"font-family: roboto; font-size: 18pt;\" data-mce-style=\"font-family: roboto; font-size: 18pt;\"><br data-mce-bogus=\"1\"></span></strong></span></p>",
                       "verticalAlign": "center"
@@ -13959,15 +13935,15 @@
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Compre seus óculos conforme sua receita médica</strong></span></h2>",
                       "verticalAlign": "center"
@@ -13975,15 +13951,15 @@
                     "media": null,
                     "button": null,
                     "seeMore": null,
-                    "linksGrid": null,
-                    "__resolveType": "site/sections/Content/RichText.tsx"
+                    "linksGrid": null
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 32,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 32
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -14114,15 +14090,15 @@
                           "__resolveType": "site/sections/Content/AccordionGroup.tsx"
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "website/flags/multivariate/section.ts",
                     "variants": [
                       {
                         "rule": {
@@ -14211,26 +14187,26 @@
                           "spaceBetweenTextAndMediaMobile": 32
                         }
                       }
-                    ],
-                    "__resolveType": "website/flags/multivariate/section.ts"
+                    ]
                   },
                   {
+                    "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
-                    "desktop": 64,
-                    "__resolveType": "site/sections/Content/Spacing.tsx"
+                    "desktop": 64
                   },
                   {
+                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "type": "website",
                     "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/500841c1-4dc5-4c07-a762-c884e88e8373",
                     "title": "Como medir a DNP? - Ótica Isabela Dias",
                     "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
                     "canonical": "https://www.oticaisabeladias.com.br/guias/como-medir-a-dnp",
                     "description": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?",
-                    "__resolveType": "deco-sites/std/sections/SEO.tsx",
                     "titleTemplate": "Como medir a DNP? - Ótica Isabela Dias",
                     "descriptionTemplate": "Quando você vê óculos de grau sendo vendidos de forma 100% online, é bem provável que se pergunte, como é feito a medida das distância das pupilas?"
                   },
                   {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
                       "content": "<h2 class=\"com-title\" data-ga4event-type=\"Finding Frames\" style=\"text-align: center;\" data-mce-style=\"text-align: center;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Precisa de ajuda?</strong></span></h2>",
                       "verticalAlign": "center"
@@ -14248,7 +14224,6 @@
                     "container": false,
                     "linksGrid": null,
                     "paddingTop": 40,
-                    "__resolveType": "site/sections/Content/RichText.tsx",
                     "mobilePadding": {
                       "top": 32,
                       "bottom": 32
