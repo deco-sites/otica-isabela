@@ -13833,7 +13833,7 @@
                         "onHover": "#ffffff"
                       },
                       "subtitle": {
-                        "text": "<p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\"><span style=\"font-size: 10pt;\" data-mce-style=\"font-size: 10pt;\">Revisado por: Brandon Borges Abril de, 2024</span></p><p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">Saber como ler uma receita de óculos é essencial! Embora você provavelmente saiba se é míope, hipermétrope ou tem astigmatismo, determinar isso a partir de sua receita de óculos é outra coisa completamente. É por isso que preparamos um breve guia para ajudar você a aprender como ler uma receita de óculos para que você possa fazer o pedido de seu novo par de óculos o mais rápido possível.</p>",
+                        "text": "<p>Revisado por: Brandon Borges Setembro de, 2025</p><p></p><p></p><p></p><p>Agora você não precisa se preocupar fazemos tudo para você de maneira rápida e sem complicações! </p>",
                         "color": "#ffffff",
                         "onHover": "#ffffff"
                       }
@@ -13863,40 +13863,9 @@
                     "__resolveType": "site/sections/Content/Spacing.tsx"
                   },
                   {
-                    "__resolveType": "site/sections/Content/RichText.tsx",
-                    "text": {
-                      "content": "<p><strong><span style=\"font-size: 14pt\"><br>O que é DP?</span></strong></p><p><br></p><p>A sigla significa Distância Pupilar e é referenciada pela distância entre as duas pupila</p>",
-                      "verticalAlign": "top"
-                    },
-                    "media": null,
-                    "button": null,
-                    "seeMore": null,
-                    "container": false,
-                    "linksGrid": null
-                  },
-                  {
                     "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
                     "desktop": 32
-                  },
-                  {
-                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
-                    "section": {
-                      "__resolveType": "site/sections/Content/Image.tsx",
-                      "tab": null,
-                      "desktop": {
-                        "src": "https://assets.decocache.com/otica-isabela/43f715c6-f81f-47a7-9583-0a2832ff6143/Medida-DP.jpg",
-                        "alt": "DNP",
-                        "width": 1350,
-                        "height": 500
-                      },
-                      "mobile": {
-                        "src": "https://assets.decocache.com/otica-isabela/43f715c6-f81f-47a7-9583-0a2832ff6143/Medida-DP.jpg",
-                        "alt": "DNP",
-                        "width": 1350,
-                        "height": 500
-                      }
-                    }
                   },
                   {
                     "__resolveType": "site/sections/Content/RichText.tsx",
@@ -13937,7 +13906,7 @@
                   {
                     "__resolveType": "site/sections/Content/RichText.tsx",
                     "text": {
-                      "content": "<h2><strong><span style=\"font-size: 18pt\">Tecnologia inovadora!&nbsp;</span></strong></h2><p><br></p><p>Desenvolvemos uma ferramenta inovadora para calcular a DNP e DP de forma rápida e segura sem sair de casa!</p><p>Com sistema Opticus Pro, enviamos um link com passo a passo aonde você envia a foto e nosso sistema calcula tudo para realizar a montagem dos óculos.</p><p><br></p><p></p><p><br></p><p style=\"text-align: justify\"><br></p>",
+                      "content": "<h2><strong><span style=\"font-size: 23pt\">Tecnologia inovadora!&nbsp;</span></strong></h2><p><br></p><p>Desenvolvemos uma ferramenta inovadora para calcular a DNP e DP de forma rápida e segura sem sair de casa!</p><p>Com sistema Opticus Pro, enviamos um link com passo a passo aonde você envia a foto e nosso sistema calcula tudo para realizar a montagem dos óculos.</p><p><br></p><p></p><p><br></p><p style=\"text-align: justify\"><br></p>",
                       "verticalAlign": "center"
                     },
                     "media": null,
@@ -13954,13 +13923,13 @@
                       "__resolveType": "site/sections/Content/Image.tsx",
                       "tab": null,
                       "desktop": {
-                        "src": "https://assets.decocache.com/otica-isabela/20b96d62-2c74-455e-9f9f-05ca80f4e08d/Opticus-02.jpg",
+                        "src": "https://assets.decocache.com/otica-isabela/7ac57506-c5a1-4081-8349-fcdc787518d2/Processo-de-medida.jpg",
                         "alt": "opticus",
                         "width": 1350,
                         "height": 1000
                       },
                       "mobile": {
-                        "src": "https://assets.decocache.com/otica-isabela/20b96d62-2c74-455e-9f9f-05ca80f4e08d/Opticus-02.jpg",
+                        "src": "https://assets.decocache.com/otica-isabela/7ac57506-c5a1-4081-8349-fcdc787518d2/Processo-de-medida.jpg",
                         "alt": "opticus",
                         "width": 1350,
                         "height": 1000
@@ -13971,34 +13940,6 @@
                     "__resolveType": "site/sections/Content/Spacing.tsx",
                     "mobile": 32,
                     "desktop": 64
-                  },
-                  {
-                    "__resolveType": "site/sections/Content/AccordionGroup.tsx",
-                    "style": {
-                      "header": "Como devem ser as fotos "
-                    },
-                    "contents": [
-                      {
-                        "title": "Medida para Lentes  (só perto ou só longe)",
-                        "children": [
-                          {
-                            "type": "html",
-                            "title": "Medida para lentes (só perto ou só longe) ",
-                            "content": "<h2 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>1- Passo&nbsp;</strong></span></h2><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><img src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/188b71ce-8fcb-4e71-8036-a0702f42c04a\" data-mce-src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/188b71ce-8fcb-4e71-8036-a0702f42c04a\" width=\"810\" height=\"495\"></strong></span></p><h2 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>2 - Passo&nbsp;</strong></span></h2><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><img src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/14295301-8179-4373-a89e-a02e0e958d58\" data-mce-src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/14295301-8179-4373-a89e-a02e0e958d58\" width=\"800\" height=\"489\"></strong></span></p><h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>3 - Passo&nbsp;</strong></span></h2><p><br data-mce-bogus=\"1\"></p><p><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong><img src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/5a966080-d3a5-4211-a1cb-a9f688d67aea\" data-mce-src=\"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/5a966080-d3a5-4211-a1cb-a9f688d67aea\" width=\"800\" height=\"489\"></strong></span></p>"
-                          }
-                        ]
-                      },
-                      {
-                        "title": "Medida para Lentes Multifocal",
-                        "children": [
-                          {
-                            "type": "html",
-                            "title": "Medida multifocal ",
-                            "content": "<p>Fique tranquilo é um processo bem simples e rápido. Para sua melhor comodidade enviaremos todas as instruções pelo whatsapp com vídeo explicativo após a compra!&nbsp;<br><br></p>"
-                          }
-                        ]
-                      }
-                    ]
                   },
                   {
                     "__resolveType": "site/sections/Content/Spacing.tsx",
