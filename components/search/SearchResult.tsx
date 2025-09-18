@@ -1,13 +1,9 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
-import Filters from "$store/components/search/Filters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
-import SearchControls from "$store/islands/SearchControls.tsx";
 import Banner from "$store/components/ui/CategoryBanner.tsx";
 import type { Banner as BannerProps } from "$store/components/ui/CategoryBanner.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
 import Pagination from "$store/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
@@ -23,6 +19,7 @@ import {
   BreadcrumbItem,
   IsabelaProductListingPage,
 } from "site/packs/v2/types.ts";
+import Filters from 'site/islands/Filters.tsx';
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -151,7 +148,9 @@ function Result(
 
   const breadcrumbItems: BreadcrumbItem[] = [
     { name: categoryName, href: `/${categorySlug}` },
-    ...(subCategoryName ? [{ name: subCategoryName, href: `/${categorySlug}/${subCategorySlug}` }] : []),
+    ...(subCategoryName
+      ? [{ name: subCategoryName, href: `/${categorySlug}/${subCategorySlug}` }]
+      : []),
   ];
 
   return (
@@ -162,62 +161,12 @@ function Result(
         </div>
       </header>
 
-      {
-        /* <SearchControls
-        sortOptions={sortOptions}
-        filters={filters}
-        filterColors={filterColors}
-        breadcrumb={breadcrumb}
-        hideFilters={hideFilters}
-        typeIcons={typeIcons}
-        shapeIcons={shapeIcons}
-      />
-
-      <CategoryMenu categories={categories} filters={filters} /> */
-      }
+      {/* <CategoryMenu categories={categories} filters={filters} /> */}
 
       <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          {Object.values(filters).length
-            ? (
-              <div class="lg:flex mr-10 lg:max-w-[200px] flex-col w-full border-b border-base-200 max-lg:hidden bg-white">
-                <div class="lg:flex flex-col sticky z-[9] top-0">
-                  {
-                    /* <Filters
-                    filters={filters}
-                    filterColors={filterColors}
-                    hideFilters={hideFilters}
-                    typeIcons={typeIcons}
-                    shapeIcons={shapeIcons}
-                  /> */
-                  }
-                  <div class="mt-5 w-full py-1">
-                    <div class="w-full max-w-[1320px] mx-auto">
-                      {/* <SelectedFilters filters={filters} /> */}
-                      <div class="flex flex-col gap-2">
-                        <button
-                          id="apply-range-filters"
-                          class="hidden max-lg:block uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
-                        >
-                          <span>Aplicar Filtro</span>
-                        </button>
-                        <ApplyRangeFiltersJS
-                          rootId="size-options-container"
-                          buttonId="apply-range-filters"
-                        />
-                        <a
-                          href={breadcrumbItems.at(-1)?.href ?? ""}
-                          class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black text-center"
-                        >
-                          Limpar Filtro
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-            : null}
+          <Filters facets={filters} />
+
           <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
             {banner && banner.map((b) => <Banner banner={b} />)}
             <ProductGallery
@@ -285,8 +234,8 @@ export const loader = async (
       redirect(new URL("/identificacao", new URL(req.url)));
     }
     const wishlistProductsPage = await ctx.invoke(
-      "site/loaders/product/productListiningPage.ts",
-      { id: wishlistIds, ordenacao: "none" },
+      "site/loaders/product/productListingPage.ts",
+      // { id: wishlistIds, ordenacao: "none" },
     );
     props.page = wishlistProductsPage;
   }

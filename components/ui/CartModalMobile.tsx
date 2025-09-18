@@ -11,7 +11,7 @@ export interface Props {
   observableElement: ObservableElement;
   isLentes: boolean;
   isAllowedToAddLens: boolean;
-  isLensWithoutPrescription: string;
+  isLensWithoutPrescription: boolean;
 }
 
 interface AddToCart {

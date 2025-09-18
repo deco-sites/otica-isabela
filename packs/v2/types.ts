@@ -31,6 +31,12 @@ export interface ProductDescription {
   description: string;
 }
 
+export interface LensAttributes {
+  isAllowedToAddLens: boolean;
+  isLensWithoutPrescription: boolean;
+  lensQuantityDescription: string;
+}
+
 export interface Product {
   id: number;
   name: string;
@@ -44,6 +50,7 @@ export interface Product {
   hasDiscount: boolean;
   isAvailable: boolean;
   attributes: ProductAttribute[];
+  lensAttributes?: LensAttributes[];
   relatedProducts?: RelatedProduct[];
   descriptions?: ProductDescription[];
   productRating?: number;
@@ -73,6 +80,11 @@ export interface Facets {
   subCategoryName?: Record<string, number>;
   productPriceWithDiscount?: Record<string, number>;
   brandName?: Record<string, number>;
+  facet_attribute_formato?: Record<string, number>;
+  facet_attribute_estilo?: Record<string, number>;
+  facet_attribute_material?: Record<string, number>;
+  facet_attribute_tipo?: Record<string, number>;
+  "facet_attribute_cor/attributeValue"?: Record<string, number>;
 }
 
 export interface Category {

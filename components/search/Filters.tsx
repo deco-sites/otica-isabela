@@ -1,416 +1,115 @@
-import { Color, Shape, Type } from "$store/components/search/SearchResult.tsx";
-import type {
-  Filter,
-  FilterToggle,
-  FilterToggleValue,
-} from "apps/commerce/types.ts";
-import SizeOptions from "$store/components/search/SizeOptions.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import RangeFiltersJS from "$store/islands/RangeFiltersJS.tsx";
-import ValueItem from "$store/islands/ValueItem.tsx";
-import Image from "apps/website/components/Image.tsx";
+import { useEffect, useRef } from "preact/hooks";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
-
+import { useFilters } from "site/sdk/useFilters.ts";
+import Icon from "site/components/ui/Icon.tsx";
 interface Props {
-  filters: IsabelaProductListingPage["filters"];
-  filterColors: Color[];
-  hideFilters?: string[];
-  shapeIcons: Shape[];
-  typeIcons: Type[];
-  isMobile?: boolean;
+  facets: IsabelaProductListingPage["filters"];
 }
 
-export type FilterToggleValueWithHex = FilterToggleValue & {
-  hex?: string;
-};
+export default function Filters({ facets }: Props) {
+  const filters = useFilters();
+  const formatFacets = facets["facet_attribute_formato"];
+  const isMountingRef = useRef(true);
 
-type FilterValuesProps = {
-  label: string;
-  values: FilterToggleValueWithHex[];
-  filterColors?: Color[];
-  shapeIcons: Shape[];
-  typeIcons: Type[];
-  position?: "left" | "right";
-  isMobile?: boolean;
-  rangeOptions?: Filter[] | null;
-};
+  const handleFilterChange = (
+    key: string,
+    operator: string,
+    value: string,
+    checked: boolean,
+  ) => {
+    if (checked) {
+      filters.addFilter(key, operator, value);
+    } else {
+      filters.removeFilter(key, operator, value);
+    }
+  };
 
-export const isToggle = (filter: Filter): filter is FilterToggle =>
-  filter["@type"] === "FilterToggle";
+  useEffect(() => {
+    if (isMountingRef.current) {
+      isMountingRef.current = false;
+      return;
+    }
 
-function AgeOptions(
-  { values, type, isMobile }: {
-    values: FilterToggleValueWithHex[];
-    type: string;
-    isMobile?: boolean;
-  },
-) {
-  const orderedAges = values.sort(
-    (a, b) => parseInt(a.value, 10) - parseInt(b.value, 10),
-  );
+    const url = new URL(window.location.href);
+    const currentUrl = url.toString();
+
+    // 🔑 Sempre resetar página ao mudar filtros
+    url.searchParams.set("page", "1");
+
+    // Remove all filter.* params
+    Array.from(url.searchParams.keys())
+      .filter((key) => key.startsWith("filter."))
+      .forEach((key) => url.searchParams.delete(key));
+
+    const apiFilters = filters.getApiFilters();
+    for (const [key, value] of apiFilters.entries()) {
+      url.searchParams.append(key, value);
+    }
+
+    if (currentUrl !== url.toString()) {
+      window.location.href = url.toString();
+    }
+  }, [filters.filterCount]);
 
   return (
-    <>
-      {orderedAges.map((item) => (
-        <ValueItem type={type} class="w-full" {...item} isMobile={isMobile} />
-      ))}
-    </>
-  );
-}
+    <div class="flex flex-col mr-10 max-w-[200px] w-full">
+      <div class="flex flex-col sticky top-0 z-10">
+        {formatFacets &&
+          Object.keys(formatFacets).length > 1 && (
+          <details class="group">
+            <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden pt-0 hover:text-blue-200">
+              <span class="text-sm">
+                Formato{" "}
+                {filters.countFilter("formatName") > 0 && (
+                  <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
+                    {filters.countFilter("formatName").toString()}
+                  </span>
+                )}
+              </span>
+              <Icon id="ChevronDown" size={24} />
+            </summary>
 
-function TypeOptions({
-  values,
-  typeIcons,
-  type,
-  isMobile,
-}: {
-  values: FilterToggleValueWithHex[];
-  typeIcons: Type[];
-  type: string;
-  isMobile?: boolean;
-}) {
-  return (
-    <>
-      {values.map(({ label, children, ...item }) => {
-        const typeIcon = typeIcons?.find((icon) => icon.label === label);
-
-        return (
-          <ValueItem type={type} {...item} label={label} isMobile={isMobile}>
-            {typeIcon
-              ? (
-                <Image
-                  src={typeIcon.icon}
-                  alt={typeIcon.label}
-                  width={70}
-                  height={29}
-                />
-              )
-              : null}
-            {label}
-          </ValueItem>
-        );
-      })}
-    </>
-  );
-}
-
-function ShapeOptions({
-  values,
-  shapeIcons,
-  type,
-  isMobile,
-}: {
-  values: FilterToggleValueWithHex[];
-  shapeIcons: Shape[];
-  type: string;
-  isMobile?: boolean;
-}) {
-  return (
-    <>
-      {values.map(({ label, children, ...item }) => {
-        const shapeIcon = shapeIcons?.find((icon) => icon.label === label);
-
-        return (
-          <ValueItem
-            {...item}
-            type={type}
-            class="lg:w-1/2"
-            label={label}
-            isMobile={isMobile}
-          >
-            {shapeIcon
-              ? (
-                <Image
-                  src={shapeIcon.image}
-                  alt={shapeIcon.label}
-                  width={50}
-                  height={shapeIcon.height}
-                />
-              )
-              : null}
-            {label}
-          </ValueItem>
-        );
-      })}
-    </>
-  );
-}
-
-function ColorOptions({
-  matchingColors,
-  type,
-  isMobile,
-}: {
-  matchingColors: FilterToggleValueWithHex[];
-  type: string;
-  isMobile?: boolean;
-}) {
-  return (
-    <div className="max-lg:grid max-lg:grid-cols-4 max-lg:gap-6 flex gap-3 flex-wrap">
-      {matchingColors?.map(({ children, ...item }) => {
-        const { value, hex, selected } = item;
-        return (
-          <ValueItem
-            hideCheckbox
-            withBorder
-            type={type}
-            key={value}
-            {...item}
-            hasSelected={selected}
-            class="w-fit"
-            isMobile={isMobile}
-          >
-            <div class="flex items-center tooltip tooltip-top" data-tip={value}>
-              <span
-                title={value}
-                style={{ background: hex }}
-                class={`border border-solid h-5 w-5 rounded-full`}
-              />
-            </div>
-          </ValueItem>
-        );
-      })}
+            <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
+              {Object.entries(formatFacets).slice(0, 10).map((
+                [format, count],
+              ) => (
+                <label
+                  key={format}
+                  htmlFor={`format-${format}`}
+                  class="flex items-center cursor-pointer"
+                >
+                  <input
+                    id={`format-${format}`}
+                    type="checkbox"
+                    checked={filters.isFilterActive("formatName", format, "eq")}
+                    class="hidden"
+                    onChange={(e) =>
+                      handleFilterChange(
+                        "formatName",
+                        "eq",
+                        format,
+                        e.currentTarget.checked,
+                      )}
+                  />
+                  <span
+                    aria-checked={filters.isFilterActive(
+                      "formatName",
+                      format,
+                      "eq",
+                    )}
+                    class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
+                  >
+                  </span>
+                  <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
+                    {format}
+                    <span>({count})</span>
+                  </span>
+                </label>
+              ))}
+            </ul>
+          </details>
+        )}
+      </div>
     </div>
   );
 }
-function FilterValues({
-  label,
-  values,
-  filterColors,
-  typeIcons,
-  shapeIcons,
-  position,
-  isMobile = false,
-  rangeOptions,
-}: FilterValuesProps) {
-  const matchingColors: FilterToggleValueWithHex[] = values?.map((value) => {
-    const matchedColor = filterColors?.find(
-      (color) => color.label === value.label,
-    );
-
-    if (matchedColor) {
-      const colors = [
-        matchedColor.hex,
-        matchedColor.hex2,
-        matchedColor.hex3,
-      ].filter((color): color is string => Boolean(color));
-
-      return {
-        ...value,
-        hex: colors.length > 1
-          ? `linear-gradient(${colors.join(", ")})`
-          : colors[0],
-      };
-    } else {
-      return value;
-    }
-  });
-
-  function Options({ isMobile }: { isMobile: boolean }) {
-    if (label === "Tipo") {
-      return (
-        <TypeOptions
-          type={label}
-          values={values}
-          typeIcons={typeIcons}
-          isMobile={isMobile}
-        />
-      );
-    }
-
-    if (label === "Formato") {
-      return (
-        <ShapeOptions
-          type={label}
-          values={values}
-          shapeIcons={shapeIcons}
-          isMobile={isMobile}
-        />
-      );
-    }
-
-    if (label === "Idade") {
-      return <AgeOptions type={label} values={values} isMobile={isMobile} />;
-    }
-
-    if (label === "Cor" && matchingColors) {
-      return (
-        <ColorOptions
-          type={label}
-          matchingColors={matchingColors}
-          isMobile={isMobile}
-        />
-      );
-    }
-
-    if (label === "Tamanho") {
-      const rootId = `size-options-container${isMobile ? "-mobile" : ""}`;
-
-      return (
-        <div id={rootId} class="">
-          <SizeOptions
-            values={values}
-            type={label}
-            rangeOptions={rangeOptions!}
-            isMobile={isMobile}
-          />
-          <RangeFiltersJS rootId={rootId} isMobile={isMobile} />
-        </div>
-      );
-    }
-
-    return (
-      <>
-        {values.map((value) => (
-          <ValueItem type={label} {...value} isMobile={isMobile} />
-        ))}
-      </>
-    );
-  }
-
-  return (
-    <>
-      {!isMobile
-        ? (
-          <div
-            class={`grid gap-3 justify-start font-medium text-grayscale-700 text-sm mb-0 mx-0 rounded-[0_0_20px_20px] transition duration-300 ease-in-out
-			  `}
-          >
-            <Options isMobile={isMobile} />
-          </div>
-        )
-        : (
-          <div class="collapse-content grid gap-6 max-h-full !min-h-[unset] overflow-auto">
-            <Options isMobile={isMobile} />
-          </div>
-        )}
-    </>
-  );
-}
-
-function Filters({
-  filters,
-  filterColors,
-  shapeIcons,
-  typeIcons,
-  isMobile = false,
-}: Props) {
-  const rangeFilters =
-    filters.filter((filter) => filter["@type"] === "FilterRange") || [];
-  const defaultFilters = filters.filter((filter) =>
-    filter["@type"] !== "FilterRange"
-  );
-
-  return (
-    <>
-      <style
-        type="text/css"
-        dangerouslySetInnerHTML={{
-          __html: `
-            #filter-range-input {
-              background: linear-gradient(#42c3ff,#42c3ff) no-repeat center;
-              background-size: 100% 2px;
-              appearance: none;
-              padding: 0 2px;
-            }
-
-            #filter-range-input::-webkit-slider-thumb {
-              pointer-events: all;
-              border: 2px solid #42c3ff;
-              height: 24px;
-              width: 24px;
-              border-radius: 50%;
-              background: #FFFFFF;
-              cursor: pointer;
-              -webkit-appearance: none;
-            }
-          `,
-        }}
-      />
-      {!isMobile
-        ? (
-          <ul class="hidden lg:flex flex-col w-full">
-            {defaultFilters.map((filter, index, array) => (
-              <li class="flex flex-col relative leading-relaxed justify-between font-medium text-lg text-[#212529] cursor-pointer group hover:text-blue-200">
-                <details class="group">
-                  <summary
-                    class={`flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden ${
-                      index === 0 ? "pt-0" : ""
-                    }`}
-                  >
-                    <span class="text-sm">
-                      {filter.label}
-                      {isToggle(filter) && filter.values.filter((value) =>
-                            value.selected
-                          ).length > 0 &&
-                        (
-                          <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-                            {filter.values.filter((value) => value.selected)
-                              .length}
-                          </span>
-                        )}
-                    </span>
-                    <Icon size={24} id="ChevronDown" />
-                  </summary>
-                  <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
-                    {isToggle(filter) && (
-                      <FilterValues
-                        typeIcons={typeIcons}
-                        shapeIcons={shapeIcons}
-                        filterColors={filterColors}
-                        position={index < array.length / 2 ? "left" : "right"}
-                        rangeOptions={filter.label === "Tamanho"
-                          ? rangeFilters
-                          : null}
-                        {...filter}
-                      />
-                    )}
-                  </ul>
-                </details>
-              </li>
-            ))}
-          </ul>
-        )
-        : (
-          <ul class="lg:hidden flex w-full justify-center flex-col overflow-y-visible">
-            {defaultFilters.map((filter) => (
-              <li
-                key={filter.key}
-                class="collapse collapse-arrow border-b-[1px] border-solid border-b-[#cdcdcd] rounded-none"
-              >
-                <input type="checkbox" />
-                <div class="collapse-title after:!w-3 after:!h-3 text-base font-bold px-0">
-                  {filter.label}
-                  {isToggle(filter) &&
-                    filter.values.filter((value) => value.selected).length >
-                      0 &&
-                    (
-                      <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-                        {filter.values.filter((value) =>
-                          value.selected
-                        )
-                          .length}
-                      </span>
-                    )}
-                </div>
-                {isToggle(filter) && (
-                  <FilterValues
-                    typeIcons={typeIcons}
-                    shapeIcons={shapeIcons}
-                    filterColors={filterColors}
-                    rangeOptions={filter.label === "Tamanho"
-                      ? rangeFilters
-                      : null}
-                    isMobile={true}
-                    {...filter}
-                  />
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-    </>
-  );
-}
-
-export default Filters;

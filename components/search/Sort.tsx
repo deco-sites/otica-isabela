@@ -1,5 +1,8 @@
-import { ProductListingPage } from "apps/commerce/types.ts";
 import { useMemo } from "preact/hooks";
+import {
+  BreadcrumbItem,
+  IsabelaProductListingPage,
+} from "site/packs/v2/types.ts";
 
 const SORT_QUERY_PARAM = "sort";
 
@@ -36,7 +39,7 @@ const applySort = (param: string) => {
   window.location.search = urlSearchParams.toString();
 };
 
-export type Props = Pick<ProductListingPage, "sortOptions">;
+export type Props = Pick<IsabelaProductListingPage, "sortOptions">;
 
 function Sort({ sortOptions }: Props) {
   const sort = useSort();

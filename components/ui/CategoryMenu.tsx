@@ -1,5 +1,4 @@
 import { CategoryMenuItem } from "$store/components/search/SearchResult.tsx";
-import SelectedFilters from "$store/islands/SelectedFilters.tsx";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 
 export interface Props {
@@ -28,7 +27,7 @@ function CategoryMenu({ categories, filters }: Props) {
         Filtros:
       </span>
       <div class="max-lg:hidden">
-        <SelectedFilters filters={filters} />
+        ###
       </div>
       <div class="flex max-lg:flex-wrap gap-3.5 lg:items-center">
         {categories?.map(({ label, link }) => (

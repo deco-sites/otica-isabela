@@ -121,16 +121,10 @@ function Details({
     (current) => current.label.toLowerCase() === promotionFlag,
   );
 
-  const isAllowedToAddLens = findProductAttribute("isAllowedToAddLens", product)
-    ?.value;
-
-  const isLensWithoutPrescription = findProductAttribute(
-    "isLensWithoutPrescription",
-    product,
-  )?.value;
-
-  const lensDescription = findProductAttribute("lensDescription", product)
-    ?.value;
+  const isAllowedToAddLens = product.lensAttributes?.[0].isAllowedToAddLens;
+  const isLensWithoutPrescription = product.lensAttributes?.[0]
+    .isLensWithoutPrescription;
+  const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
 
   const isLentes = product?.category?.name?.includes("Lentes de Contato");
 

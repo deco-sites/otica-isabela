@@ -50,16 +50,10 @@ function ProductInfo(
   const rating = findProductAttribute("rating", product)?.value;
   const ratingValue = rating ? parseFloat(rating) : 0;
 
-  const isAllowedToAddLens = findProductAttribute(
-    "isAllowedToAddLens",
-    product,
-  );
-  const isLensWithoutPrescription = findProductAttribute(
-    "isLensWithoutPrescription",
-    product,
-  )?.value;
-  const lensDescription = findProductAttribute("lensDescription", product)
-    ?.value;
+  const isAllowedToAddLens = product.lensAttributes?.[0].isAllowedToAddLens;
+  const isLensWithoutPrescription = product.lensAttributes?.[0]
+    .isLensWithoutPrescription;
+  const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
 
   const isLentes = product?.category?.name?.includes("Lentes de Contato");
 
@@ -175,7 +169,8 @@ function ProductInfo(
       )}
 
       {/* Analytics Event */}
-      {/* <SendEventOnLoad
+      {
+        /* <SendEventOnLoad
         event={{
           name: "view_item",
           params: {
@@ -189,7 +184,8 @@ function ProductInfo(
             ],
           },
         }}
-      /> */}
+      /> */
+      }
     </>
   );
 }
