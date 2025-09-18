@@ -6,8 +6,6 @@ import * as $_app from "./routes/_app.tsx";
 import * as $Accessibility from "./islands/Accessibility.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $Alertas from "./islands/Alertas.tsx";
-import * as $ApplyRangeFiltersJS from "./islands/ApplyRangeFiltersJS.tsx";
-import * as $AutoApplyFilters from "./islands/AutoApplyFilters.tsx";
 import * as $Carrossel from "./islands/Carrossel.tsx";
 import * as $CartModalMobile from "./islands/CartModalMobile.tsx";
 import * as $CategoryText from "./islands/CategoryText.tsx";
@@ -16,6 +14,7 @@ import * as $ColorSelectorSimilar from "./islands/ColorSelectorSimilar.tsx";
 import * as $ContactForm from "./islands/ContactForm.tsx";
 import * as $CouponListScript from "./islands/CouponListScript.tsx";
 import * as $FaqContainer from "./islands/FaqContainer.tsx";
+import * as $Filters from "./islands/Filters.tsx";
 import * as $HeaderButton from "./islands/HeaderButton.tsx";
 import * as $HeaderModals from "./islands/HeaderModals.tsx";
 import * as $HeaderSearchbar from "./islands/HeaderSearchbar.tsx";
@@ -27,11 +26,8 @@ import * as $ProductCard from "./islands/ProductCard.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
 import * as $ProductInfoColors from "./islands/ProductInfoColors.tsx";
 import * as $PromotionalBar from "./islands/PromotionalBar.tsx";
-import * as $RangeFiltersJS from "./islands/RangeFiltersJS.tsx";
 import * as $ReviewImagesModal from "./islands/ReviewImagesModal.tsx";
 import * as $Search from "./islands/Search.tsx";
-import * as $SearchControls from "./islands/SearchControls.tsx";
-import * as $SelectedFilters from "./islands/SelectedFilters.tsx";
 import * as $ShareButton from "./islands/ShareButton.tsx";
 import * as $ShowMore from "./islands/ShowMore.tsx";
 import * as $SimilarProducts from "./islands/SimilarProducts.tsx";
@@ -39,7 +35,6 @@ import * as $SliderJS from "./islands/SliderJS.tsx";
 import * as $Stopwatch from "./islands/Stopwatch.tsx";
 import * as $TabJS from "./islands/TabJS.tsx";
 import * as $ToExperimentButton from "./islands/ToExperimentButton.tsx";
-import * as $ValueItem from "./islands/ValueItem.tsx";
 import * as $Video_Button from "./islands/Video/Button.tsx";
 import * as $Video_Modal from "./islands/Video/Modal.tsx";
 import * as $WishlistButton from "./islands/WishlistButton.tsx";
@@ -53,8 +48,6 @@ const manifest = {
     "./islands/Accessibility.tsx": $Accessibility,
     "./islands/AddToCartButton.tsx": $AddToCartButton,
     "./islands/Alertas.tsx": $Alertas,
-    "./islands/ApplyRangeFiltersJS.tsx": $ApplyRangeFiltersJS,
-    "./islands/AutoApplyFilters.tsx": $AutoApplyFilters,
     "./islands/Carrossel.tsx": $Carrossel,
     "./islands/CartModalMobile.tsx": $CartModalMobile,
     "./islands/CategoryText.tsx": $CategoryText,
@@ -63,6 +56,7 @@ const manifest = {
     "./islands/ContactForm.tsx": $ContactForm,
     "./islands/CouponListScript.tsx": $CouponListScript,
     "./islands/FaqContainer.tsx": $FaqContainer,
+    "./islands/Filters.tsx": $Filters,
     "./islands/HeaderButton.tsx": $HeaderButton,
     "./islands/HeaderModals.tsx": $HeaderModals,
     "./islands/HeaderSearchbar.tsx": $HeaderSearchbar,
@@ -74,11 +68,8 @@ const manifest = {
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
     "./islands/ProductInfoColors.tsx": $ProductInfoColors,
     "./islands/PromotionalBar.tsx": $PromotionalBar,
-    "./islands/RangeFiltersJS.tsx": $RangeFiltersJS,
     "./islands/ReviewImagesModal.tsx": $ReviewImagesModal,
     "./islands/Search.tsx": $Search,
-    "./islands/SearchControls.tsx": $SearchControls,
-    "./islands/SelectedFilters.tsx": $SelectedFilters,
     "./islands/ShareButton.tsx": $ShareButton,
     "./islands/ShowMore.tsx": $ShowMore,
     "./islands/SimilarProducts.tsx": $SimilarProducts,
@@ -86,7 +77,6 @@ const manifest = {
     "./islands/Stopwatch.tsx": $Stopwatch,
     "./islands/TabJS.tsx": $TabJS,
     "./islands/ToExperimentButton.tsx": $ToExperimentButton,
-    "./islands/ValueItem.tsx": $ValueItem,
     "./islands/Video/Button.tsx": $Video_Button,
     "./islands/Video/Modal.tsx": $Video_Modal,
     "./islands/WishlistButton.tsx": $WishlistButton,

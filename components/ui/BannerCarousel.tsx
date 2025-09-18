@@ -69,7 +69,7 @@ function Buttons() {
   return (
     <>
       <div class="flex items-center justify-start z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tr-3xl rounded-br-3xl ">
+        <Slider.PrevButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tr-3xl rounded-br-3xl">
           <Icon
             size={35}
             class="text-base-300"
@@ -78,7 +78,7 @@ function Buttons() {
           />
         </Slider.PrevButton>
       </div>
-      <div class="flex items-center justify-end z-10 col-start-3 row-start-2 ">
+      <div class="flex items-center justify-end z-10 col-start-3 row-start-2">
         <Slider.NextButton class="bg-white w-11 h-11 opacity-25 hover:opacity-30 rounded-tl-3xl rounded-bl-3xl pl-2">
           <Icon
             size={35}
@@ -104,13 +104,13 @@ function BannerCarousel({ images, preload, interval }: Props) {
         {images?.map((image, index) => (
           <Slider.Item
             index={index}
-            class="flex-none box-content  snap-center  w-full"
+            class="flex-none box-content snap-center w-full"
           >
             <BannerItem image={image} lcp={index === 0 && preload} />
           </Slider.Item>
         ))}
       </Slider>
-      <div class=" absolute bottom-3 flex  w-full justify-center items-center gap-x-4">
+      <div class="absolute bottom-3 flex w-full justify-center items-center gap-x-4">
         {images?.map((_, index) => {
           return <Slider.Dot index={index} />;
         })}

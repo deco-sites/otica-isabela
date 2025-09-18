@@ -6,9 +6,9 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "apps/commerce/types.ts";
 import { useId } from "$store/sdk/useId.ts";
 import { AuthData } from "$store/packs/types.ts";
+import { Product } from "site/packs/v2/types.ts";
 
 export interface Props {
   products: LoaderReturnType<Product[] | null>;
@@ -83,8 +83,15 @@ function ProductShelf({
               item_list_name: itemListName,
               items: products.map((product) =>
                 mapProductToAnalyticsItem({
-                  product,
-                  ...useOffer(product.offers),
+                  product: {
+                    ...product,
+                    "@type": "Product",
+                    productID: String(product?.id),
+                    sku: product?.code,
+                    category: product?.category?.name || "",
+                  },
+                  price: product?.priceWithDiscount,
+                  listPrice: product?.price,
                 })
               ),
             },
