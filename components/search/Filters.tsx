@@ -60,9 +60,9 @@ export default function Filters({ facets }: Props) {
             <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden pt-0 hover:text-blue-200">
               <span class="text-sm">
                 Formato{" "}
-                {filters.countFilter("formatName") > 0 && (
+                {filters.countFilter("Formato") > 0 && (
                   <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-                    {filters.countFilter("formatName").toString()}
+                    {filters.countFilter("Formato").toString()}
                   </span>
                 )}
               </span>
@@ -81,21 +81,21 @@ export default function Filters({ facets }: Props) {
                   <input
                     id={`format-${format}`}
                     type="checkbox"
-                    checked={filters.isFilterActive("formatName", format, "eq")}
+                    checked={filters.isFilterActive("Formato", format, "in")}
                     class="hidden"
                     onChange={(e) =>
                       handleFilterChange(
-                        "formatName",
-                        "eq",
+                        "Formato",
+                        "in",
                         format,
                         e.currentTarget.checked,
                       )}
                   />
                   <span
                     aria-checked={filters.isFilterActive(
-                      "formatName",
+                      "Formato",
                       format,
-                      "eq",
+                      "in",
                     )}
                     class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
                   >

@@ -99,8 +99,16 @@ const paths = ({ token, publicUrl }: StoreProps) => {
     // new api
     v2: {
       navigation: {
-        withFilters: (props: ProductListingPageProps, CategoryTree: string) =>
-          href(`${baseV2}/navigation${CategoryTree}?`, { ...props }, true),
+        withFilters: (
+          props: ProductListingPageProps,
+          CategoryTree: string,
+          filtersQuery?: string
+        ) =>
+          href(
+            `${baseV2}/navigation${CategoryTree}?${filtersQuery}`,
+            { ...props },
+            true
+          ),
 
         search: (props: {
           Term: string;

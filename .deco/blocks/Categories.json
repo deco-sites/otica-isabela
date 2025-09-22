@@ -25,7 +25,7 @@
             "page": {
               "__resolveType": "site/loaders/product/productListingPage.ts",
               "OrderBy": "nome",
-              "Filters": []
+              "PageSize": 21
             },
             "customer": {
               "__resolveType": "site/loaders/store/auth.ts"
@@ -77,7 +77,8 @@
                     "link": "/oculos-clip-on/clipon-masculino",
                     "label": "MASCULINO"
                   }
-                ]
+                ],
+                "name": "Clipon"
               },
               {
                 "label": "/oculos-de-sol",
@@ -90,7 +91,8 @@
                     "link": "/oculos-de-sol/oculos-de-sol-masculino",
                     "label": "MASCULINO"
                   }
-                ]
+                ],
+                "name": "Óculos de Sol"
               }
             ],
             "shapeIcons": [

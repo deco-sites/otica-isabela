@@ -9,6 +9,12 @@ import { toProductListingPage } from "$store/packs/v2/transform.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { SORT_OPTIONS } from "$store/packs/v2/constants.ts";
 
+const FILTER_KEY_MAP: Record<string, string> = {
+  Formato: "facet_attribute_formato",
+  Estilo: "facet_attribute_estilo",
+  Preco: "productPrice",
+};
+
 interface ProductFilter {
   /** Campo a ser filtrado */
   Key: string;
@@ -45,7 +51,7 @@ export interface PLPResponseDTO {
   pageCount: number;
 }
 
-type Props = Omit<ProductListingPageProps, "page">;
+type Props = Omit<ProductListingPageProps, "Page" | "Filters">;
 
 /**
  * @title Otica Isabela Dias - (new) Página de Listagem de Produtos
@@ -69,13 +75,21 @@ const loader = async (
 
   const { OrderBy, Page } = getSearchParams(url, props.OrderBy);
 
+  const Filters = buildFiltersFromUrl(url);
+  let filtersQuery = "";
+
+  if (Filters.length) {
+    filtersQuery = serializeFilters(Filters);
+  }
+  
   const headers: HeadersInit = new Headers();
   headers.set("Token", config.token ?? "");
 
   const response = await fetchAPI<PLPResponseDTO>(
     path.v2.navigation.withFilters(
       { ...props, OrderBy, Page: Number(Page) || 1 },
-      categoryTree!
+      categoryTree!,
+      filtersQuery
     ),
     {
       method: "GET",
@@ -111,4 +125,54 @@ const getSearchParams = (
     OrderBy,
     Page: Number(page),
   };
+};
+
+const buildFiltersFromUrl = (url: URL): ProductFilter[] => {
+  const filters: ProductFilter[] = [];
+
+  // Agrupa filtros por chave (ex: Formato → [Retangular, Redondo])
+  const grouped: Record<string, string[]> = {};
+
+  for (const [key, value] of url.searchParams.entries()) {
+    if (!key.startsWith("filter.")) continue;
+
+    const filterName = key.replace("filter.", ""); // ex: "Formato"
+    if (!grouped[filterName]) grouped[filterName] = [];
+    grouped[filterName].push(value);
+  }
+
+  // Constrói os filtros
+  Object.entries(grouped).forEach(([filterName, values]) => {
+    const apiKey = FILTER_KEY_MAP[filterName] ?? filterName;
+
+    if (apiKey === "productPrice") {
+      // caso especial: preço como range (espera "min,max")
+      const [min, max] = values[0].split(",");
+      filters.push({
+        Key: apiKey,
+        Operator: "range",
+        Values: [min, max],
+      });
+    } else {
+      filters.push({
+        Key: apiKey,
+        Operator: "in",
+        Values: values,
+      });
+    }
+  });
+
+  return filters;
+};
+
+const serializeFilters = (filters: ProductFilter[]) => {
+  const params = new URLSearchParams();
+
+  filters.forEach((filter, index) => {
+    params.set(`Filters[${index}].Key`, filter.Key);
+    params.set(`Filters[${index}].Operator`, filter.Operator);
+    params.set(`Filters[${index}].Values`, filter.Values.join(","));
+  });
+
+  return params.toString();
 };

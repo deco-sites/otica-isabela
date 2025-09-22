@@ -15,7 +15,7 @@ function parseFiltersFromUrl(): Filter[] {
     if (key.startsWith("filter.")) {
       filters.push({
         key: key.replace("filter.", ""),
-        operator: "eq", // ou deduzir da URL se precisar
+        operator: "in",
         value,
       });
     }
@@ -35,7 +35,7 @@ export function useFilters() {
         const existingIndex = prev.findIndex(
           (f) => f.key === key && f.operator === operator
         );
-        if (existingIndex >= 0) {
+        if (existingIndex >= 0 && operator !== "in") {
           const updated = [...prev];
           updated[existingIndex] = { key, operator, value };
           return updated;
