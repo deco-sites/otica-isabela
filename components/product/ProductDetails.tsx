@@ -94,14 +94,15 @@ function ProductDetails(
             : <NotFound />}
         </div>
       </div>
-      {
-        /* <OtherColorsShelf product={product!} />
-      <SpecsDesktop
+      
+      {/* <OtherColorsShelf product={product!} /> */}
+
+      {/* <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}
       />
-      <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */
-      }
+      <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */}
+      
     </>
   );
 }

@@ -1,10 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
-import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "$store/components/product/product-details/Measurements.tsx";
 import LazyIframe from "$store/islands/LazyIframe.tsx";
 import TabJS from "$store/islands/TabJS.tsx";
 import { replaceHtml } from "$store/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "$store/sdk/replaceSpecialCharacters.ts";
+import { Product } from "site/packs/v2/types.ts";
+import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 
 interface Props {
   product: Product;
@@ -12,13 +13,14 @@ interface Props {
 }
 
 function SpecsDesktop({ product, measurementsImage }: Props) {
-  const { additionalProperty, description } = product;
+  const { descriptions } = product;
   const rootId = "tabs-component";
-  const panels = additionalProperty?.filter(
-    (prop) => prop.propertyID === "panel",
-  ) ?? [];
-  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
-    product?.category?.includes("Acessórios");
+
+  const panels = findProductAttribute("panel", product) ?? [];
+
+  const hasNotMeasures =
+    product?.category?.name.includes("Lentes de Contato") ||
+    product?.category?.name.includes("Acessórios");
 
   panels.unshift(
     {

@@ -4,6 +4,7 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $Accessibility from "./islands/Accessibility.tsx";
+import * as $ActiveFilters from "./islands/ActiveFilters.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $Alertas from "./islands/Alertas.tsx";
 import * as $Carrossel from "./islands/Carrossel.tsx";
@@ -46,6 +47,7 @@ const manifest = {
   },
   islands: {
     "./islands/Accessibility.tsx": $Accessibility,
+    "./islands/ActiveFilters.tsx": $ActiveFilters,
     "./islands/AddToCartButton.tsx": $AddToCartButton,
     "./islands/Alertas.tsx": $Alertas,
     "./islands/Carrossel.tsx": $Carrossel,

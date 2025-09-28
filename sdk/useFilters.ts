@@ -47,7 +47,7 @@ export function useFilters() {
   );
 
   const removeFilter = useCallback(
-    (key: string, operator?: string, value?: string) => {
+    (key: string, operator?: string, value?: string, redirect?: boolean) => {
       setActiveFilters((prev) =>
         prev.filter((f) => {
           if (operator && value) {
@@ -66,6 +66,12 @@ export function useFilters() {
           return f.key !== key;
         })
       );
+      if (redirect) {
+        const params = new URLSearchParams(window.location.search);
+        params.delete(`filter.${key}`, value);
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        window.location.href = newUrl;
+      }
     },
     []
   );

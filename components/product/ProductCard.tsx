@@ -13,6 +13,8 @@ import type { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import { Product } from "site/packs/v2/types.ts";
+import { withManifest } from "$live/clients/withManifest.ts";
+import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 interface Props {
   product: Product;
@@ -23,6 +25,9 @@ interface Props {
   customer?: LoaderReturnType<AuthData>;
   hideExperiment?: boolean;
 }
+
+// Cache global para armazenar as imagens por slug
+const imageCache = new Map<string, MediasResponseObject[]>();
 
 function ProductCard({
   product,
@@ -43,13 +48,17 @@ function ProductCard({
     price,
     priceWithDiscount,
   } = product;
-  const images = medias?.filter((media) => !media.isVideo);
+  
+  const originalImages = medias?.filter((media) => !media.isVideo);
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [selectedColorSlug, setSelectedColorSlug] = useState<string>(product.slug);
+  const [selectedColorImages, setSelectedColorImages] = useState<MediasResponseObject[]>([]);
+  const [isLoadingImages, setIsLoadingImages] = useState<boolean>(false);
 
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
-  const [front, _back] = images ?? [];
+  const [front, _back] = originalImages ?? [];
 
   const discount = Math.ceil(
     (((price ?? 0) - (priceWithDiscount ?? 0)) / (price ?? 0)) * 100,
@@ -62,7 +71,12 @@ function ProductCard({
   const availableColors = getAvailableColors(product);
 
   const getCurrentImages = () => {
-    return images?.map((img) => img.url) || [];
+    // Se uma cor diferente foi selecionada e temos imagens para ela, usa as imagens da cor
+    if (selectedColorSlug !== product.slug && selectedColorImages.length > 0) {
+      return selectedColorImages.map(media => media.productImage);
+    }
+    // Caso contrário, usa as imagens originais
+    return originalImages?.map((img) => img.url) || [];
   };
 
   const handleImageHover = (index: number) => {
@@ -88,7 +102,54 @@ function ProductCard({
       return currentImages[nextIndex];
     }
 
-    return hoverImage || front?.url;
+    return hoverImage || currentImages[0] || front?.url;
+  };
+
+  const handleClickColor = async (slug: string) => {
+    // Se for a mesma cor já selecionada, não faz nada
+    if (slug === selectedColorSlug) return;
+
+    // Verifica se já temos as imagens no cache
+    if (imageCache.has(slug)) {
+      const cachedImages = imageCache.get(slug)!;
+      setSelectedColorSlug(slug);
+      setSelectedColorImages(cachedImages);
+      // Reset hover states
+      setHoverImage(null);
+      setHoverIndex(null);
+      return;
+    }
+
+    // Se não temos no cache, faz a requisição
+    setIsLoadingImages(true);
+    
+    try {
+      //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
+      const Runtime = withManifest<Manifest>();
+
+      const medias = Runtime.create(
+        "site/loaders/product/productMedias.ts",
+      );
+
+      const response: MediasResponseObject[] = await medias({ slug });
+      
+      // Armazena no cache
+      imageCache.set(slug, response);
+      
+      // Atualiza o estado
+      setSelectedColorSlug(slug);
+      setSelectedColorImages(response);
+      
+      // Reset hover states
+      setHoverImage(null);
+      setHoverIndex(null);
+      
+    } catch (error) {
+      console.error("Erro ao buscar imagens da variante:", error);
+      // Em caso de erro, mantém a cor atual
+    } finally {
+      setIsLoadingImages(false);
+    }
   };
 
   const renderSlider = () => (
@@ -99,7 +160,7 @@ function ProductCard({
           return (
             <Slider.Item
               index={index}
-              key={index}
+              key={`${selectedColorSlug}-${index}`}
               class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
             >
               <div
@@ -137,6 +198,11 @@ function ProductCard({
             <WishlistButton productID={productID} customer={customer} />
           </div>
         )}
+        {isLoadingImages && (
+          <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          </div>
+        )}
       </Slider>
       <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} />
     </>
@@ -159,6 +225,11 @@ function ProductCard({
           <WishlistButton productID={productID} customer={customer} />
         </div>
       )}
+      {isLoadingImages && (
+        <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        </div>
+      )}
     </div>
   );
 
@@ -167,10 +238,11 @@ function ProductCard({
       {availableColors
         .sort((a, b) => (a.name === name ? -1 : b.name === name ? 1 : 0))
         .map(({ name, slug, unitCodes }) => {
-          const isSelected = slug === product.slug;
+          const isSelected = slug === selectedColorSlug;
 
           return (
             <li
+              key={slug}
               class={`group cursor-pointer ${
                 isSelected
                   ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
@@ -179,7 +251,11 @@ function ProductCard({
             >
               <a
                 aria-label={name}
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleClickColor(slug);
+                }}
+                class={`block ${isLoadingImages ? 'pointer-events-none opacity-50' : ''}`}
               >
                 <div
                   style={{
@@ -205,7 +281,7 @@ function ProductCard({
       : (
         <button class="border-[1px] border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
           <a
-            href={`/produto/${product.slug}`}
+            href={`/produto/${selectedColorSlug}`}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
             {product?.category?.name?.includes("Lentes de Contato")
@@ -245,7 +321,7 @@ function ProductCard({
       />
 
       <a
-        href={`/produto/${product.slug}`}
+        href={`/produto/${selectedColorSlug}`}
         aria-label="view product"
         class="relative"
         id={`product-card-${productID}-${imageContainerId}`}
@@ -256,7 +332,7 @@ function ProductCard({
 
       <div class="flex flex-col items-center mt-[10px]">
         <a
-          href={`/produto/${product.slug}`}
+          href={`/produto/${selectedColorSlug}`}
           aria-label="view product"
           class="contents"
         >
@@ -281,7 +357,7 @@ function ProductCard({
 
         <div class="w-full flex justify-normal items-center my-[10px]">
           <a
-            href={`/produto/${product.slug}`}
+            href={`/produto/${selectedColorSlug}`}
             aria-label="view product"
             class="contents"
           >

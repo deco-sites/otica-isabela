@@ -14,12 +14,13 @@ import * as $$$6 from "./loaders/product/productDetailsV2.ts";
 import * as $$$7 from "./loaders/product/productList.ts";
 import * as $$$8 from "./loaders/product/productListingPage.ts";
 import * as $$$9 from "./loaders/product/productListiningPage.ts";
-import * as $$$10 from "./loaders/product/suggestions.ts";
-import * as $$$11 from "./loaders/product/testimonials.ts";
-import * as $$$12 from "./loaders/product/wishlist.ts";
-import * as $$$13 from "./loaders/store/auth.ts";
-import * as $$$14 from "./loaders/store/newsletter.ts";
-import * as $$$15 from "./loaders/store/session.ts";
+import * as $$$10 from "./loaders/product/productMedias.ts";
+import * as $$$11 from "./loaders/product/suggestions.ts";
+import * as $$$12 from "./loaders/product/testimonials.ts";
+import * as $$$13 from "./loaders/product/wishlist.ts";
+import * as $$$14 from "./loaders/store/auth.ts";
+import * as $$$15 from "./loaders/store/newsletter.ts";
+import * as $$$16 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/BannerWithExplanation.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryText.tsx";
@@ -95,12 +96,13 @@ const manifest = {
     "site/loaders/product/productList.ts": $$$7,
     "site/loaders/product/productListingPage.ts": $$$8,
     "site/loaders/product/productListiningPage.ts": $$$9,
-    "site/loaders/product/suggestions.ts": $$$10,
-    "site/loaders/product/testimonials.ts": $$$11,
-    "site/loaders/product/wishlist.ts": $$$12,
-    "site/loaders/store/auth.ts": $$$13,
-    "site/loaders/store/newsletter.ts": $$$14,
-    "site/loaders/store/session.ts": $$$15,
+    "site/loaders/product/productMedias.ts": $$$10,
+    "site/loaders/product/suggestions.ts": $$$11,
+    "site/loaders/product/testimonials.ts": $$$12,
+    "site/loaders/product/wishlist.ts": $$$13,
+    "site/loaders/store/auth.ts": $$$14,
+    "site/loaders/store/newsletter.ts": $$$15,
+    "site/loaders/store/session.ts": $$$16,
   },
   "sections": {
     "site/sections/BannerWithExplanation.tsx": $$$$$$0,

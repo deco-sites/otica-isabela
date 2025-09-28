@@ -20,6 +20,8 @@ import {
   IsabelaProductListingPage,
 } from "site/packs/v2/types.ts";
 import Filters from 'site/islands/Filters.tsx';
+import ActiveFilters from 'site/islands/ActiveFilters.tsx';
+import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -161,11 +163,14 @@ function Result(
         </div>
       </header>
 
-      {/* <CategoryMenu categories={categories} filters={filters} /> */}
+      <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
+          <ActiveFilters />
+          <CategoryMenu categories={categories} url={url} />
+      </div>
 
       <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          <Filters facets={filters} />
+          <Filters facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
 
           <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
             {banner && banner.map((b) => <Banner banner={b} />)}

@@ -1,16 +1,16 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { Product, ProductLeaf } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import { useId } from "$store/sdk/useId.ts";
+import { Product } from "site/packs/v2/types.ts";
 
 interface Props {
   product: Product;
 }
 
-type Variant = ProductLeaf & {
-  Imagem?: string;
-};
+// type Variant = ProductLeaf & {
+//   Imagem?: string;
+// };
 
 function OtherColorsShelf({ product }: Props) {
   const id = `other-colors-shelf-${useId()}`;
@@ -31,8 +31,8 @@ function OtherColorsShelf({ product }: Props) {
   return (
     <div class="mt-10">
       <h3 class="text-[32px] text-black text-center font-outfit font-bold">
-        {product?.category?.includes("Lentes de Contato") ||
-            product?.category?.includes("Acessórios")
+        {product?.category?.name.includes("Lentes de Contato") ||
+            product?.category?.name.includes("Acessórios")
           ? "Mais opções"
           : "Mais cores"}
       </h3>

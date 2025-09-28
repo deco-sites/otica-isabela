@@ -13,6 +13,9 @@ const FILTER_KEY_MAP: Record<string, string> = {
   Formato: "facet_attribute_formato",
   Estilo: "facet_attribute_estilo",
   Preco: "productPrice",
+  Cor: "facet_attribute_cor/attributeValue",
+  Material: "facet_attribute_material",
+  Tipo: "facet_attribute_tipo",
 };
 
 interface ProductFilter {
@@ -81,7 +84,7 @@ const loader = async (
   if (Filters.length) {
     filtersQuery = serializeFilters(Filters);
   }
-  
+
   const headers: HeadersInit = new Headers();
   headers.set("Token", config.token ?? "");
 

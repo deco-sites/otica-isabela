@@ -4143,6 +4143,9 @@ details.collapse summary::-webkit-details-marker {
 .h-6 {
   height: 1.5rem;
 }
+.h-8 {
+  height: 2rem;
+}
 .h-9 {
   height: 2.25rem;
 }
@@ -4360,6 +4363,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-6 {
   width: 1.5rem;
+}
+.w-8 {
+  width: 2rem;
 }
 .w-\[10px\] {
   width: 10px;
@@ -5226,6 +5232,9 @@ details.collapse summary::-webkit-details-marker {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-b-4 {
   border-bottom-width: 4px;
 }
@@ -5304,6 +5313,10 @@ details.collapse summary::-webkit-details-marker {
 .border-gray-600 {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+.border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 24 39 / var(--tw-border-opacity));
 }
 .border-grayscale-200 {
   border-color: rgba(191, 191, 191, 1);
@@ -5551,6 +5564,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
+}
+.bg-opacity-75 {
+  --tw-bg-opacity: 0.75;
 }
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
@@ -6956,6 +6972,11 @@ details.collapse summary::-webkit-details-marker {
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
 }
 
+.hover\:bg-black:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -7357,6 +7378,10 @@ details.collapse summary::-webkit-details-marker {
     display: block;
   }
 
+  .max-lg\:grid {
+    display: grid;
+  }
+
   .max-lg\:hidden {
     display: none;
   }
@@ -7379,6 +7404,10 @@ details.collapse summary::-webkit-details-marker {
 
   .max-lg\:w-auto {
     width: auto;
+  }
+
+  .max-lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .max-lg\:flex-col {
@@ -8492,6 +8521,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:mb-\[20px\] {
     margin-bottom: 20px;
+  }
+
+  .lg\:mr-5 {
+    margin-right: 1.25rem;
   }
 
   .lg\:mt-0 {

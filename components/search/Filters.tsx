@@ -1,14 +1,21 @@
 import { useEffect, useRef } from "preact/hooks";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import { useFilters } from "site/sdk/useFilters.ts";
-import Icon from "site/components/ui/Icon.tsx";
+import FormatFacets from "site/components/search/facets/format.tsx";
+import ColorFacets from "site/components/search/facets/colors.tsx";
+import MaterialFacets from "site/components/search/facets/material.tsx";
+import StyleFacets from "site/components/search/facets/style.tsx";
+import TypeFacets from "site/components/search/facets/type.tsx";
+import { Shape, Type } from "site/components/search/SearchResult.tsx";
+
 interface Props {
   facets: IsabelaProductListingPage["filters"];
+  shapeIcons: Shape[];
+  typeIcons: Type[];
 }
 
-export default function Filters({ facets }: Props) {
+export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
   const filters = useFilters();
-  const formatFacets = facets["facet_attribute_formato"];
   const isMountingRef = useRef(true);
 
   const handleFilterChange = (
@@ -22,6 +29,15 @@ export default function Filters({ facets }: Props) {
     } else {
       filters.removeFilter(key, operator, value);
     }
+  };
+
+  const handleClearFilters = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", "1");
+    Array.from(url.searchParams.keys())
+      .filter((key) => key.startsWith("filter."))
+      .forEach((key) => url.searchParams.delete(key));
+    window.location.href = url.toString();
   };
 
   useEffect(() => {
@@ -54,61 +70,29 @@ export default function Filters({ facets }: Props) {
   return (
     <div class="flex flex-col mr-10 max-w-[200px] w-full">
       <div class="flex flex-col sticky top-0 z-10">
-        {formatFacets &&
-          Object.keys(formatFacets).length > 1 && (
-          <details class="group">
-            <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden pt-0 hover:text-blue-200">
-              <span class="text-sm">
-                Formato{" "}
-                {filters.countFilter("Formato") > 0 && (
-                  <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-                    {filters.countFilter("Formato").toString()}
-                  </span>
-                )}
-              </span>
-              <Icon id="ChevronDown" size={24} />
-            </summary>
+        <FormatFacets
+          facets={facets}
+          handleFilterChange={handleFilterChange}
+          shapeIcons={shapeIcons}
+        />
+        <ColorFacets facets={facets} handleFilterChange={handleFilterChange} />
+        <MaterialFacets
+          facets={facets}
+          handleFilterChange={handleFilterChange}
+        />
+        <StyleFacets facets={facets} handleFilterChange={handleFilterChange} />
+        <TypeFacets
+          facets={facets}
+          handleFilterChange={handleFilterChange}
+          typeIcons={typeIcons}
+        />
 
-            <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
-              {Object.entries(formatFacets).slice(0, 10).map((
-                [format, count],
-              ) => (
-                <label
-                  key={format}
-                  htmlFor={`format-${format}`}
-                  class="flex items-center cursor-pointer"
-                >
-                  <input
-                    id={`format-${format}`}
-                    type="checkbox"
-                    checked={filters.isFilterActive("Formato", format, "in")}
-                    class="hidden"
-                    onChange={(e) =>
-                      handleFilterChange(
-                        "Formato",
-                        "in",
-                        format,
-                        e.currentTarget.checked,
-                      )}
-                  />
-                  <span
-                    aria-checked={filters.isFilterActive(
-                      "Formato",
-                      format,
-                      "in",
-                    )}
-                    class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
-                  >
-                  </span>
-                  <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
-                    {format}
-                    <span>({count})</span>
-                  </span>
-                </label>
-              ))}
-            </ul>
-          </details>
-        )}
+        <button
+          onClick={handleClearFilters}
+          class="mt-6 whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black text-center"
+        >
+          Limpar Filtros
+        </button>
       </div>
     </div>
   );
