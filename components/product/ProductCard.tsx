@@ -151,61 +151,64 @@ function ProductCard({
     }
   };
 
-  const renderSlider = () => (
-    <>
-      <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
-        {getCurrentImages().map((imageUrl, index) => {
-          if (imageUrl === "/Content/assets/images/capa-video.jpg") return null;
-          return (
-            <Slider.Item
-              index={index}
-              key={`${selectedColorSlug}-${index}`}
-              class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
-            >
-              <div
-                onMouseEnter={() => handleImageHover(index)}
-                onMouseLeave={handleImageLeave}
-                class="hidden lg:block"
+  const renderSlider = () => {
+    const currentImages = getCurrentImages();
+    
+    return (
+      <>
+        <Slider 
+          class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative"
+          key={`slider-${selectedColorSlug}`}
+        >
+          {currentImages.map((imageUrl, index) => {
+            if (imageUrl.toLowerCase() === "/content/assets/images/capa-video.jpg") return null;
+            return (
+              <Slider.Item
+                index={index}
+                key={`${selectedColorSlug}-${index}`}
+                class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
               >
-                <ProductCardImage
-                  url={getDisplayImage(index)}
-                  alt={product.name ||
-                    `Product image ${index + 1}`}
-                  preload={preload && index === 0}
-                  discount={discount}
-                />
-              </div>
+                <div
+                  onMouseEnter={() => handleImageHover(index)}
+                  onMouseLeave={handleImageLeave}
+                  class="hidden lg:block"
+                >
+                  <ProductCardImage
+                    url={getDisplayImage(index)}
+                    alt={product.name ||
+                      `Product image ${index + 1}`}
+                    preload={preload && index === 0}
+                    discount={discount}
+                  />
+                </div>
 
-              <div
-                onMouseEnter={() => handleImageHover(index)}
-                onMouseLeave={handleImageLeave}
-                class="lg:hidden"
-              >
-                <ProductCardImage
-                  url={imageUrl}
-                  alt={product.name ||
-                    `Product image ${index + 1}`}
-                  preload={preload && index === 0}
-                  discount={discount}
-                />
-              </div>
-            </Slider.Item>
-          );
-        })}
-        {customer && (
-          <div class="absolute top-0 left-0 z-30">
-            <WishlistButton productID={productID} customer={customer} />
-          </div>
-        )}
-        {isLoadingImages && (
-          <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-          </div>
-        )}
-      </Slider>
-      <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} />
-    </>
-  );
+                <div class="lg:hidden">
+                  <ProductCardImage
+                    url={imageUrl}
+                    alt={product.name ||
+                      `Product image ${index + 1}`}
+                    preload={preload && index === 0}
+                    discount={discount}
+                  />
+                </div>
+              </Slider.Item>
+            );
+          })}
+          {customer && (
+            <div class="absolute top-0 left-0 z-30">
+              <WishlistButton productID={productID} customer={customer} />
+            </div>
+          )}
+          {isLoadingImages && (
+            <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+            </div>
+          )}
+        </Slider>
+        <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} key={`sliderjs-${selectedColorSlug}`} />
+      </>
+    );
+  };
 
   const renderStaticImage = () => (
     <div
