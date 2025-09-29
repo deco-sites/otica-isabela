@@ -109,13 +109,6 @@ const paths = ({ token, publicUrl }: StoreProps) => {
             { ...props },
             true
           ),
-
-        search: (props: {
-          Term: string;
-          Page?: number;
-          PageSize?: number;
-          OrderBy: string;
-        }) => href(`/search`, { ...props }, true),
       },
 
       product: {
@@ -129,6 +122,19 @@ const paths = ({ token, publicUrl }: StoreProps) => {
 
         medias: (slug: string) => {
           return href(`${baseV2}/product/${slug}/medias?`, {}, true);
+        },
+
+        search: (
+          term: string,
+          orderBy: string,
+          page: number,
+          pageSize: number
+        ) => {
+          return href(
+            `${baseV2}/search?Term=${term}&OrderBy=${orderBy}&Page=${page}&PageSize=${pageSize}`,
+            {},
+            true
+          );
         },
       },
     },

@@ -43,7 +43,6 @@ function ProductCard({
     name,
     attributes,
     medias,
-    relatedProducts,
     descriptions,
     price,
     priceWithDiscount,

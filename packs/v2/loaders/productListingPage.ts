@@ -69,7 +69,9 @@ const loader = async (
   const path = paths(config!);
   const url = new URL(req.url);
 
-  const hasSearchParam = url.pathname.includes("busca");
+  const hasSearchParam =
+    url.pathname.includes("busca") && url.searchParams.has("termo");
+
   const isCategoryPage = !hasSearchParam;
 
   const categoryTree = isCategoryPage
@@ -88,17 +90,36 @@ const loader = async (
   const headers: HeadersInit = new Headers();
   headers.set("Token", config.token ?? "");
 
-  const response = await fetchAPI<PLPResponseDTO>(
-    path.v2.navigation.withFilters(
-      { ...props, OrderBy, Page: Number(Page) || 1 },
-      categoryTree!,
-      filtersQuery
-    ),
-    {
-      method: "GET",
-      headers,
-    }
-  );
+  let response: PLPResponseDTO | null = null;
+
+  if (isCategoryPage) {
+    response = await fetchAPI<PLPResponseDTO>(
+      path.v2.navigation.withFilters(
+        { ...props, OrderBy, Page: Number(Page) || 1 },
+        categoryTree!,
+        filtersQuery
+      ),
+      {
+        method: "GET",
+        headers,
+      }
+    );
+  } else {
+    const term = url.searchParams.get("termo") ?? "";
+
+    response = await fetchAPI<PLPResponseDTO>(
+      path.v2.product.search(
+        term,
+        OrderBy,
+        Number(Page) || 1,
+        props.PageSize ?? 12
+      ),
+      {
+        method: "GET",
+        headers,
+      }
+    );
+  }
 
   if (!response.data.length) return null;
 

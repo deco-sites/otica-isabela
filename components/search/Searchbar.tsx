@@ -132,15 +132,15 @@ function Searchbar({
               Sugestões de óculos
             </h1>
             <div class="flex flex-wrap w-full gap-y-4">
-              {suggestionProducts?.map(({ image, name, url, offers }) => {
+              {suggestionProducts?.map(({ medias, name, slug, price }) => {
                 return (
                   <a
-                    href={url}
+                    href={`/produto/${slug}`}
                     class="w-1/2 flex flex-col justify-center items-center text-center"
                   >
                     <Image
-                      src={image?.[0].url ?? ""}
-                      alt={image?.[0].description ?? ""}
+                      src={medias?.[0].url ?? ""}
+                      alt={name ?? ""}
                       width={100}
                       loading="lazy"
                     />
@@ -149,7 +149,7 @@ function Searchbar({
                       {name}
                     </span>
                     <span class="text-xs text-blue-200 font-bold mt-3">
-                      {formatPrice(offers?.highPrice)}
+                      {formatPrice(price)}
                     </span>
                   </a>
                 );
