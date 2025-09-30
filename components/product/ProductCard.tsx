@@ -342,7 +342,7 @@ function ProductCard({
             <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
-            <div class="min-h-[25px] my-[10px]">
+            {/* <div class="min-h-[25px] my-[10px]">
               {descriptions && descriptions.length > 0 && (
                 <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
                   {descriptions.map(
@@ -353,7 +353,7 @@ function ProductCard({
                   )}
                 </p>
               )}
-            </div>
+            </div> */}
           </div>
         </a>
 

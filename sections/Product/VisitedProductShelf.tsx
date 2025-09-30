@@ -8,7 +8,6 @@ import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import { Product } from "site/packs/v2/types.ts";
 
 export interface Props {
   header?: HeaderProps;
@@ -16,40 +15,47 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
 }
 
-// TODO: Need endpoint to fetch products by ids
-
 export async function loader(
   { ...props }: Props,
   req: Request,
   ctx: AppContext,
 ) {
-  const products = [] as Product[];
-  return { ...props, products };
+  const cookies = getCookies(req.headers);
+  const currentSlugs: string | undefined = cookies?.[visitedProductsCookie];
+  const splitedSlugs = currentSlugs?.split(":");
 
-  // const cookies = getCookies(req.headers);
-  // const currentIds: string | undefined = cookies?.[visitedProductsCookie];
-  // const splitedIds = currentIds?.split(":");
+  if (!splitedSlugs?.length) {
+    return { ...props, products: [] };
+  }
 
-  // if (!splitedIds?.length) {
-  //   return { ...props, products: [] };
-  // }
+  const productResults = await Promise.all(
+    splitedSlugs.map(async (slug) => {
+      try {
+        const page = await ctx.invoke(
+          "site/loaders/product/productDetailsV2.ts",
+          {
+            slug,
+          },
+        );
+        return page?.product;
+      } catch {
+        return undefined;
+      }
+    }),
+  );
 
-  // const products = await ctx.invoke(
-  //   "site/loaders/product/highlight.ts",
-  //   { id: splitedIds, ordenacao: "none" },
-  // );
+  const products = productResults.filter(
+    (product) => product !== undefined,
+  );
 
-  // if (!products) {
-  //   return { ...props, products: [] };
-  // }
+  if (!products?.length) {
+    return { ...props, products: [] };
+  }
 
-  // return {
-  //   ...props,
-  //   products: splitedIds
-  //     .reverse()
-  //     .map((v) => products.find((p) => p.productID == v ?? null))
-  //     .filter((item) => item !== null && item !== undefined) as Product[],
-  // };
+  return {
+    ...props,
+    products: products.reverse(), // Reverse to show the last visited first
+  };
 }
 
 function VisitedProductShelf({

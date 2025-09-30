@@ -123,18 +123,17 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
     return props;
   }
 
-  const productId: number | undefined = props.page.product.id;
   const cookies = getCookies(req.headers);
-  const currentIds: string[] | undefined =
+  const currentSlugs: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
 
-  const newIds = currentIds.some((id) => id === productId.toString())
-    ? currentIds
-    : currentIds.concat([productId.toString()]);
+  const newSlugs = currentSlugs.some((slug) => slug === props.page.product.slug)
+    ? currentSlugs
+    : currentSlugs.concat([props.page.product.slug]);
 
   setCookie(ctx.response.headers, {
     name: visitedProductsCookie,
-    value: newIds?.join(":"),
+    value: newSlugs?.join(":"),
     path: "/",
   });
 
