@@ -91,8 +91,19 @@ function FilterContent({ facets, shapeIcons, typeIcons }: Props) {
           handleFilterChange={handleFilterChange}
           shapeIcons={shapeIcons}
         />
+        <ColorFacets facets={facets} handleFilterChange={handleFilterChange} />
+        <MaterialFacets
+          facets={facets}
+          handleFilterChange={handleFilterChange}
+        />
+        <StyleFacets facets={facets} handleFilterChange={handleFilterChange} />
+        <TypeFacets
+          facets={facets}
+          handleFilterChange={handleFilterChange}
+          typeIcons={typeIcons}
+        />
         <div class="bg-white w-full flex flex-col justify-center items-center py-5">
-          <div class="w-full">
+          <div class="w-full mb-2">
             <ActiveFilters />
           </div>
           <button

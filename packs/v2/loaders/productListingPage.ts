@@ -13,7 +13,7 @@ const FILTER_KEY_MAP: Record<string, string> = {
   Formato: "facet_attribute_formato",
   Estilo: "facet_attribute_estilo",
   Preco: "productPrice",
-  Cor: "facet_attribute_cor/attributeValue",
+  Cor: "facet_attribute_cor",
   Material: "facet_attribute_material",
   Tipo: "facet_attribute_tipo",
 };

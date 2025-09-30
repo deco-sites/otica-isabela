@@ -1,4 +1,5 @@
 import { useFilters } from "site/sdk/useFilters.ts";
+import { useId } from "$store/sdk/useId.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 
@@ -16,6 +17,7 @@ export default function StyleFacets({
   facets,
   handleFilterChange,
 }: StyleFacetsProps) {
+  const componentId = useId();
   const filters = useFilters();
   const styleFacets = facets["facet_attribute_estilo"];
 
@@ -40,40 +42,44 @@ export default function StyleFacets({
       <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
         {Object.entries(styleFacets).slice(0, 10).map((
           [style, count],
-        ) => (
-          <label
-            key={style}
-            htmlFor={`style-${style}`}
-            class="flex items-center cursor-pointer"
-          >
-            <input
-              id={`style-${style}`}
-              type="checkbox"
-              checked={filters.isFilterActive("Estilo", style, "in")}
-              class="hidden"
-              onChange={(e) =>
-                handleFilterChange(
-                  "Estilo",
-                  "in",
-                  style,
-                  e.currentTarget.checked,
-                )}
-            />
-            <span
-              aria-checked={filters.isFilterActive(
-                "Estilo",
-                style,
-                "in",
-              )}
-              class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
+        ) => {
+          const uniqueInputId = `${componentId}-style-${style}`;
+
+          return (
+            <label
+              key={style}
+              htmlFor={uniqueInputId}
+              class="flex items-center cursor-pointer"
             >
-            </span>
-            <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
-              {style}
-              <span>({count})</span>
-            </span>
-          </label>
-        ))}
+              <input
+                id={uniqueInputId}
+                type="checkbox"
+                checked={filters.isFilterActive("Estilo", style, "in")}
+                class="hidden"
+                onChange={(e) =>
+                  handleFilterChange(
+                    "Estilo",
+                    "in",
+                    style,
+                    e.currentTarget.checked,
+                  )}
+              />
+              <span
+                aria-checked={filters.isFilterActive(
+                  "Estilo",
+                  style,
+                  "in",
+                )}
+                class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
+              >
+              </span>
+              <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
+                {style}
+                <span>({count})</span>
+              </span>
+            </label>
+          );
+        })}
       </ul>
     </details>
   );

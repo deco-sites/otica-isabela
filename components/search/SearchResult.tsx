@@ -167,7 +167,9 @@ function Result(
       <FiltersMobile facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
 
       <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
-          <ActiveFilters />
+          <div class="hidden lg:block">
+            <ActiveFilters />
+          </div>
           <CategoryMenu categories={categories} url={url} />
       </div>
 

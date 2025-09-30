@@ -1,4 +1,5 @@
 import { useFilters } from "site/sdk/useFilters.ts";
+import { useId } from "$store/sdk/useId.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 
@@ -16,6 +17,7 @@ export default function MaterialFacets({
   facets,
   handleFilterChange,
 }: MaterialFacetsProps) {
+  const componentId = useId();
   const filters = useFilters();
   const materialFacets = facets["facet_attribute_material"];
 
@@ -40,40 +42,44 @@ export default function MaterialFacets({
       <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
         {Object.entries(materialFacets).slice(0, 10).map((
           [material, count],
-        ) => (
-          <label
-            key={material}
-            htmlFor={`material-${material}`}
-            class="flex items-center cursor-pointer"
-          >
-            <input
-              id={`material-${material}`}
-              type="checkbox"
-              checked={filters.isFilterActive("Material", material, "in")}
-              class="hidden"
-              onChange={(e) =>
-                handleFilterChange(
-                  "Material",
-                  "in",
-                  material,
-                  e.currentTarget.checked,
-                )}
-            />
-            <span
-              aria-checked={filters.isFilterActive(
-                "Material",
-                material,
-                "in",
-              )}
-              class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
+        ) => {
+          const uniqueInputId = `${componentId}-material-${material}`;
+
+          return (
+            <label
+              key={material}
+              htmlFor={uniqueInputId}
+              class="flex items-center cursor-pointer"
             >
-            </span>
-            <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
-              {material}
-              <span>({count})</span>
-            </span>
-          </label>
-        ))}
+              <input
+                id={uniqueInputId}
+                type="checkbox"
+                checked={filters.isFilterActive("Material", material, "in")}
+                class="hidden"
+                onChange={(e) =>
+                  handleFilterChange(
+                    "Material",
+                    "in",
+                    material,
+                    e.currentTarget.checked,
+                  )}
+              />
+              <span
+                aria-checked={filters.isFilterActive(
+                  "Material",
+                  material,
+                  "in",
+                )}
+                class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
+              >
+              </span>
+              <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
+                {material}
+                <span>({count})</span>
+              </span>
+            </label>
+          );
+        })}
       </ul>
     </details>
   );

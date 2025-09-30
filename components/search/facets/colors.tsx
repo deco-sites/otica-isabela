@@ -1,6 +1,7 @@
 import { useFilters } from "site/sdk/useFilters.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 interface ColorFacetsProps {
   facets: IsabelaProductListingPage["filters"];
@@ -16,8 +17,9 @@ export default function ColorFacets({
   facets,
   handleFilterChange,
 }: ColorFacetsProps) {
+  const componentId = useId();
   const filters = useFilters();
-  const colorFacets = facets["facet_attribute_cor/attributeValue"];
+  const colorFacets = facets["facet_attribute_cor"];
 
   if (!colorFacets || Object.keys(colorFacets).length <= 1) {
     return null;
@@ -48,37 +50,45 @@ export default function ColorFacets({
       <ul class="pt-2.5 max-lg:grid max-lg:grid-cols-4 max-lg:gap-6 flex gap-3 flex-wrap">
         {Object.entries(colorFacets).map((
           [color, _count],
-        ) => (
-          <label
-            key={color}
-            htmlFor={`color-${getColorName(color)}`}
-            class="flex items-center cursor-pointer"
-            style={{
-              border: filters.isFilterActive("Cor", getColorName(color), "in")
-                ? "1px solid #6f6f6f"
-                : "1px solid transparent",
-            }}
-          >
-            <input
-              id={`color-${getColorName(color)}`}
-              type="checkbox"
-              checked={filters.isFilterActive("Cor", getColorName(color), "in")}
-              class="hidden"
-              onChange={(e) =>
-                handleFilterChange(
-                  "Cor",
-                  "in",
-                  getColorName(color),
-                  e.currentTarget.checked,
-                )}
-            />
-            <span
-              style={{ backgroundColor: getColorHex(color) }}
-              class="border border-solid w-5 h-5 rounded-full"
+        ) => {
+          const uniqueInputId = `${componentId}-color-${getColorName(color)}`;
+
+          return (
+            <label
+              key={color}
+              htmlFor={uniqueInputId}
+              class="flex items-center cursor-pointer"
+              style={{
+                border: filters.isFilterActive("Cor", color, "in")
+                  ? "1px solid #6f6f6f"
+                  : "1px solid transparent",
+              }}
             >
-            </span>
-          </label>
-        ))}
+              <input
+                id={uniqueInputId}
+                type="checkbox"
+                checked={filters.isFilterActive(
+                  "Cor",
+                  color,
+                  "in",
+                )}
+                class="hidden"
+                onChange={(e) =>
+                  handleFilterChange(
+                    "Cor",
+                    "in",
+                    color,
+                    e.currentTarget.checked,
+                  )}
+              />
+              <span
+                style={{ backgroundColor: getColorHex(color) }}
+                class="border border-solid w-5 h-5 rounded-full"
+              >
+              </span>
+            </label>
+          );
+        })}
       </ul>
     </details>
   );

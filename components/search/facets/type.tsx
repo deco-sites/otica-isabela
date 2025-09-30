@@ -3,6 +3,7 @@ import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 import { Type } from "site/components/search/SearchResult.tsx";
 import Image from "apps/website/components/Image.tsx";
+import { useId } from "$store/sdk/useId.ts";
 
 interface TypeFacetsProps {
   facets: IsabelaProductListingPage["filters"];
@@ -20,6 +21,7 @@ export default function TypeFacets({
   handleFilterChange,
   typeIcons,
 }: TypeFacetsProps) {
+  const componentId = useId();
   const filters = useFilters();
   const typeFacets = facets["facet_attribute_tipo"];
 
@@ -46,15 +48,16 @@ export default function TypeFacets({
           [type, count],
         ) => {
           const icon = typeIcons.find((icon) => icon.label === type);
+          const uniqueInputId = `${componentId}-type-${type}`;
 
           return (
             <label
               key={type}
-              htmlFor={`type-${type}`}
+              htmlFor={uniqueInputId}
               class="flex items-center cursor-pointer"
             >
               <input
-                id={`type-${type}`}
+                id={uniqueInputId}
                 type="checkbox"
                 checked={filters.isFilterActive("Tipo", type, "in")}
                 class="hidden"
