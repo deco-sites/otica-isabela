@@ -16,6 +16,7 @@ import * as $ContactForm from "./islands/ContactForm.tsx";
 import * as $CouponListScript from "./islands/CouponListScript.tsx";
 import * as $FaqContainer from "./islands/FaqContainer.tsx";
 import * as $Filters from "./islands/Filters.tsx";
+import * as $FiltersMobile from "./islands/FiltersMobile.tsx";
 import * as $HeaderButton from "./islands/HeaderButton.tsx";
 import * as $HeaderModals from "./islands/HeaderModals.tsx";
 import * as $HeaderSearchbar from "./islands/HeaderSearchbar.tsx";
@@ -59,6 +60,7 @@ const manifest = {
     "./islands/CouponListScript.tsx": $CouponListScript,
     "./islands/FaqContainer.tsx": $FaqContainer,
     "./islands/Filters.tsx": $Filters,
+    "./islands/FiltersMobile.tsx": $FiltersMobile,
     "./islands/HeaderButton.tsx": $HeaderButton,
     "./islands/HeaderModals.tsx": $HeaderModals,
     "./islands/HeaderSearchbar.tsx": $HeaderSearchbar,

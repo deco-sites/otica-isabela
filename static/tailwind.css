@@ -3942,6 +3942,9 @@ details.collapse summary::-webkit-details-marker {
 .mb-\[10px\] {
   margin-bottom: 10px;
 }
+.mb-\[30px\] {
+  margin-bottom: 30px;
+}
 .mb-\[var\(--space\)\] {
   margin-bottom: var(--space);
 }
@@ -4832,6 +4835,9 @@ details.collapse summary::-webkit-details-marker {
 .flex-wrap {
   flex-wrap: wrap;
 }
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
 .place-items-center {
   place-items: center;
 }
@@ -5067,8 +5073,14 @@ details.collapse summary::-webkit-details-marker {
 .overflow-y-auto {
   overflow-y: auto;
 }
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
 .overflow-y-hidden {
   overflow-y: hidden;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 .overscroll-contain {
   overscroll-behavior: contain;
@@ -5327,6 +5339,9 @@ details.collapse summary::-webkit-details-marker {
 .border-grayscale-600 {
   border-color: rgba(66, 66, 66, 1);
 }
+.border-grayscale-700 {
+  border-color: rgba(38, 38, 38, 1);
+}
 .border-neutral {
   --tw-border-opacity: 1;
   border-color: hsl(var(--n) / var(--tw-border-opacity));
@@ -5411,6 +5426,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#d92027\] {
   --tw-bg-opacity: 1;
   background-color: rgb(217 32 39 / var(--tw-bg-opacity));
+}
+.bg-\[\#e3e3e3\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(227 227 227 / var(--tw-bg-opacity));
 }
 .bg-\[\#e5e5ea\] {
   --tw-bg-opacity: 1;
@@ -5666,6 +5685,10 @@ details.collapse summary::-webkit-details-marker {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+.px-1\.5 {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -6989,6 +7012,10 @@ details.collapse summary::-webkit-details-marker {
 
 .hover\:bg-slot-primary-500:hover {
   background-color: rgba(0, 167, 245, 1);
+}
+
+.hover\:bg-transparent:hover {
+  background-color: transparent;
 }
 
 .hover\:bg-white:hover {

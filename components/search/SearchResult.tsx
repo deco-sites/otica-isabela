@@ -20,6 +20,7 @@ import {
   IsabelaProductListingPage,
 } from "site/packs/v2/types.ts";
 import Filters from 'site/islands/Filters.tsx';
+import FiltersMobile from 'site/islands/FiltersMobile.tsx';
 import ActiveFilters from 'site/islands/ActiveFilters.tsx';
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 export type CategoryMenuItem = {
@@ -162,6 +163,8 @@ function Result(
           <Breadcrumb items={breadcrumbItems} />
         </div>
       </header>
+
+      <FiltersMobile facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
 
       <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
           <ActiveFilters />

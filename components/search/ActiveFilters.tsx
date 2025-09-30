@@ -4,8 +4,6 @@ import Icon from "site/components/ui/Icon.tsx";
 export default function ActiveFilters() {
   const filters = useFilters();
 
-  // if (filters.filterCount <= 0) return null;
-
   const handleClearFilter = (filter: Filter) => {
     filters.removeFilter(filter.key, filter.operator, filter.value, true);
   };

@@ -1,4 +1,5 @@
 import { useFilters } from "site/sdk/useFilters.ts";
+import { useId } from "$store/sdk/useId.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 import { Shape } from "site/components/search/SearchResult.tsx";
@@ -20,6 +21,7 @@ export default function FormatFacets({
   handleFilterChange,
   shapeIcons,
 }: FormatFacetsProps) {
+  const componentId = useId();
   const filters = useFilters();
   const formatFacets = facets["facet_attribute_formato"];
 
@@ -46,15 +48,16 @@ export default function FormatFacets({
           [format, count],
         ) => {
           const shape = shapeIcons.find((shape) => shape.label === format);
+          const uniqueInputId = `${componentId}-format-${format}`;
 
           return (
             <label
               key={format}
-              htmlFor={`format-${format}`}
+              htmlFor={uniqueInputId}
               class="flex items-center cursor-pointer"
             >
               <input
-                id={`format-${format}`}
+                id={uniqueInputId}
                 type="checkbox"
                 checked={filters.isFilterActive("Formato", format, "in")}
                 class="hidden"

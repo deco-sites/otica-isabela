@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "preact/hooks";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import { useFilters } from "site/sdk/useFilters.ts";
 import FormatFacets from "site/components/search/facets/format.tsx";
@@ -16,7 +15,6 @@ interface Props {
 
 export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
   const filters = useFilters();
-  const isMountingRef = useRef(true);
 
   const handleFilterChange = (
     key: string,
@@ -28,22 +26,6 @@ export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
       filters.addFilter(key, operator, value);
     } else {
       filters.removeFilter(key, operator, value);
-    }
-  };
-
-  const handleClearFilters = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("page", "1");
-    Array.from(url.searchParams.keys())
-      .filter((key) => key.startsWith("filter."))
-      .forEach((key) => url.searchParams.delete(key));
-    window.location.href = url.toString();
-  };
-
-  useEffect(() => {
-    if (isMountingRef.current) {
-      isMountingRef.current = false;
-      return;
     }
 
     const url = new URL(window.location.href);
@@ -65,10 +47,19 @@ export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
     if (currentUrl !== url.toString()) {
       window.location.href = url.toString();
     }
-  }, [filters.filterCount]);
+  };
+
+  const handleClearFilters = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", "1");
+    Array.from(url.searchParams.keys())
+      .filter((key) => key.startsWith("filter."))
+      .forEach((key) => url.searchParams.delete(key));
+    window.location.href = url.toString();
+  };
 
   return (
-    <div class="flex flex-col mr-10 max-w-[200px] w-full">
+    <div class="hidden lg:flex flex-col mr-10 max-w-[200px] w-full">
       <div class="flex flex-col sticky top-0 z-10">
         <FormatFacets
           facets={facets}
