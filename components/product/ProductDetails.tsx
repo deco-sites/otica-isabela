@@ -58,6 +58,11 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
   priceValidUntil?: string;
   /** @title Informacoes dentro da secão de descricao */
+  /** @hide */
+  relatedProductImages: {
+    slug: string;
+    images: MediasResponseObject[];
+  }[];
 }
 function ProductDetails(
   {
@@ -68,6 +73,7 @@ function ProductDetails(
     stepButtonByCategory,
     customer,
     mobileOptions,
+    relatedProductImages,
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
@@ -94,19 +100,23 @@ function ProductDetails(
             : <NotFound />}
         </div>
       </div>
-      
-      {/* <OtherColorsShelf product={product!} /> */}
 
-      {/* <SpecsDesktop
+      <OtherColorsShelf
+        product={product!}
+        relatedProductImages={relatedProductImages}
+      />
+
+      {
+        /* <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}
       />
-      <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */}
-      
+      <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */
+      }
     </>
   );
 }
-export function loader(props: Props, req: Request, ctx: AppContext) {
+export async function loader(props: Props, req: Request, ctx: AppContext) {
   if (!props.page?.product) {
     const url = new URL(req.url);
     redirect(url.origin);
@@ -128,8 +138,23 @@ export function loader(props: Props, req: Request, ctx: AppContext) {
     path: "/",
   });
 
+  const relatedProductImages = await Promise.all(
+    (props.page.product.relatedProducts ?? [])
+      .filter((product) => product.slug !== props.page?.product?.slug)
+      .map(async (product) => {
+        const medias = await ctx.invoke(
+          "site/loaders/product/productMedias.ts",
+          { slug: product.slug },
+        );
+        return medias && medias.length > 0
+          ? { slug: product.slug, images: medias }
+          : null;
+      }),
+  ).then((results) => results.filter(Boolean));
+
   return {
     ...props,
+    relatedProductImages,
   };
 }
 export default ProductDetails;
