@@ -15,7 +15,8 @@ const setSearch = debounce(async (search: string, count: number) => {
   try {
     payload.value = await suggestions({ Term: search, PageSize: count });
   } catch (error) {
-    console.error("Something went wrong while fetching suggestions \n", error);
+    console.warn("Something went wrong while fetching suggestions \n", error);
+    payload.value = null;
   } finally {
     loading.value = false;
   }

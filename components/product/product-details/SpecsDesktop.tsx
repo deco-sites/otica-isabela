@@ -16,40 +16,38 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const { descriptions } = product;
   const rootId = "tabs-component";
 
-  const panels = findProductAttribute("panel", product) ?? [];
-
   const hasNotMeasures =
     product?.category?.name.includes("Lentes de Contato") ||
     product?.category?.name.includes("Acessórios");
 
-  panels.unshift(
-    {
-      "@type": "PropertyValue",
-      name: "Descrição",
-      value: description,
-      propertyID: "panel",
-    },
-  );
+  const panels = [
+    ...(descriptions
+      ? descriptions.map((description) => ({
+        name: description.title,
+        value: description.description,
+      }))
+      : []),
+  ];
 
   if (!hasNotMeasures) {
     panels.unshift({
-      "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
-      propertyID: "panel",
     });
   }
 
   const orderedPanels = [...panels].sort((a, b) => {
     const order = ["descricao", "medidas"];
-    const idA = replaceSpecialCharacters(a.name).toLocaleLowerCase().replaceAll(
-      " ",
-      "-",
-    ).replace(/[?]/g, "");
-    const idB = replaceSpecialCharacters(b.name).toLocaleLowerCase().replaceAll(
-      " ",
-      "-",
-    ).replace(/[?]/g, "");
+    const idA = replaceSpecialCharacters(a.name).toLocaleLowerCase().trim()
+      .replaceAll(
+        " ",
+        "-",
+      ).replace(/[?]/g, "");
+    const idB = replaceSpecialCharacters(b.name).toLocaleLowerCase().trim()
+      .replaceAll(
+        " ",
+        "-",
+      ).replace(/[?]/g, "");
 
     const indexA = order.indexOf(idA);
     const indexB = order.indexOf(idB);
@@ -103,9 +101,11 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             ({ name }, index) => {
               const id = replaceSpecialCharacters(name!)
                 .toLocaleLowerCase()
+                .trim()
                 .replaceAll(" ", "-")
                 .replace(/[?]/g, "");
               const displayName = displayNameMap[id] || name;
+
               return (
                 <a
                   id={`${id}-tab`}
@@ -127,6 +127,7 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
         {orderedPanels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
+            .trim()
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 

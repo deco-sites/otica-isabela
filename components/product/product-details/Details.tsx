@@ -242,7 +242,9 @@ function Details({
                         class="group-disabled:border-base-300"
                         width={92}
                         height={92}
-                        src={img.isVideo ? img?.url! : img.url!}
+                        src={img.isVideo
+                          ? "https://secure.oticaisabeladias.com.br/Content/assets/images/capa-video.jpg"
+                          : img.url!}
                         alt={product.name || "Product Image"}
                         loading="lazy"
                       />

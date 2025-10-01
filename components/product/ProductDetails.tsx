@@ -106,13 +106,12 @@ function ProductDetails(
         relatedProductImages={relatedProductImages}
       />
 
-      {
-        /* <SpecsDesktop
+      <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}
       />
-      <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */
-      }
+
+      { /* <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */ }
     </>
   );
 }
