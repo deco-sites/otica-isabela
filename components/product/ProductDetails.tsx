@@ -17,6 +17,7 @@ type ButtonLabel = {
   category: string;
   label: string;
 };
+import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 export interface Promotion {
   /** @title Texto */
