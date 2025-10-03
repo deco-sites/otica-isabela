@@ -9453,7 +9453,7 @@
                   }
                 ],
                 "label": "Projeto Social",
-                "href": "/guias/projetosocial "
+                "href": "/guias/projetosocial"
               }
             ],
             "__resolveType": "site/sections/Content/Institutional.tsx"
