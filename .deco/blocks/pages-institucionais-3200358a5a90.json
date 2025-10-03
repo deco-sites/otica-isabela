@@ -9688,6 +9688,35 @@
                   {
                     "__resolveType": "website/sections/Rendering/Lazy.tsx",
                     "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Hero.tsx",
+                      "breadcrumbs": null,
+                      "background": null,
+                      "content": {
+                        "title": {
+                          "text": "<h1 style=\"text-align: justify\"><strong><span style=\"font-size: 32pt\">Fase 3</span></strong></h1><p style=\"text-align: justify\"></p>",
+                          "onHover": null,
+                          "color": "#000000"
+                        },
+                        "subtitle": {
+                          "text": "<p><span style=\"color: rgb(0, 0, 0); font-size: 16pt\">Esse é um dia de muita alegria, aonde iremos fazer a entrega dos óculos para crianças. No ultimo dia do projeto de 117 crianças, 40 delas precisaram de óculos e foi um privilegio ver a a alegria dessas crianças quando receberam os óculos.</span></p>",
+                          "color": "#29adff",
+                          "maxWidth": "100%",
+                          "onHover": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
                       "__resolveType": "site/sections/Content/RichText.tsx",
                       "linksGrid": null,
                       "text": {
