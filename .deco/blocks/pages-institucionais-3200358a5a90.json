@@ -9453,8 +9453,7 @@
                   }
                 ],
                 "label": "Projeto Social",
-                "href": "/guias/projetosocial",
-                "breadcrumbLabel": "Projeto social"
+                "href": "/guias/projetosocial "
               }
             ],
             "__resolveType": "site/sections/Content/Institutional.tsx"
