@@ -9430,11 +9430,11 @@
                           "alt": "crianças",
                           "width": 500,
                           "height": 500,
-                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg"
+                          "src": "https://assets.decocache.com/otica-isabela/175e5630-5a2e-49b2-b97b-7f684ea38723/Pagina-02.jpg"
                         },
                         "mobile": {
                           "preload": false,
-                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg",
+                          "src": "https://assets.decocache.com/otica-isabela/175e5630-5a2e-49b2-b97b-7f684ea38723/Pagina-02.jpg",
                           "alt": "Crianças",
                           "width": 500,
                           "height": 500
@@ -9448,7 +9448,61 @@
                       "container": false,
                       "button": null,
                       "spaceBetweenTextAndMedia": 10,
-                      "spaceBetweenTextAndMediaMobile": 10
+                      "spaceBetweenTextAndMediaMobile": 10,
+                      "seeMore": null
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/RichText.tsx",
+                      "linksGrid": null,
+                      "text": {
+                        "content": "<h3><span style=\"font-size: 16pt\">Já ultrapassamos a marca de 100 óculos doados a crianças e continuamos acreditando que enxergar melhor é o primeiro passo para um futuro com mais oportunidades.</span></h3>",
+                        "maxWidth": "10",
+                        "maxWidthMobile": "10",
+                        "desktopPadding": {
+                          "top": 10,
+                          "right": 10,
+                          "bottom": 10,
+                          "left": 10
+                        },
+                        "verticalAlign": "center"
+                      },
+                      "media": {
+                        "desktop": {
+                          "preload": false,
+                          "alt": "crianças",
+                          "width": 500,
+                          "height": 500,
+                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg"
+                        },
+                        "mobile": {
+                          "preload": false,
+                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg",
+                          "alt": "Crianças",
+                          "width": 500,
+                          "height": 500
+                        },
+                        "thumbnail": {
+                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg"
+                        },
+                        "tag": null,
+                        "position": "right"
+                      },
+                      "container": false,
+                      "button": null,
+                      "spaceBetweenTextAndMedia": 10,
+                      "spaceBetweenTextAndMediaMobile": 10,
+                      "seeMore": null
                     }
                   }
                 ],
