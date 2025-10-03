@@ -4581,6 +4581,20 @@
                   }
                 ],
                 "navigations": []
+              },
+              {
+                "navigations": [],
+                "content": [
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "Help & FAQ"
+                    }
+                  }
+                ],
+                "label": "Projeto Social",
+                "href": "/guias/projetosocial",
+                "breadcrumbLabel": "Projeto social"
               }
             ],
             "__resolveType": "site/sections/Content/Institutional.tsx"
@@ -9334,6 +9348,34 @@
                   }
                 ],
                 "navigations": []
+              },
+              {
+                "navigations": [],
+                "content": [
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Hero.tsx",
+                      "breadcrumbs": null,
+                      "background": null,
+                      "content": {
+                        "title": {
+                          "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 32pt\">Projeto Social</span></strong></h1>",
+                          "onHover": null
+                        },
+                        "subtitle": {
+                          "text": "<p style=\"text-align: center\"></p><p style=\"text-align: center\"><strong><span style=\"font-size: 20pt\">Óculos é vida</span></strong></p><p style=\"text-align: center\"></p><p style=\"text-align: center\"></p><p style=\"text-align: center\"><img src=\"https://assets.decocache.com/otica-isabela/dd326247-2be6-4b00-953a-bfa0d030a770/Pagina-01.jpg\"></p>",
+                          "color": "#29adff",
+                          "maxWidth": "100%",
+                          "onHover": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "label": "Projeto Social",
+                "href": "/guias/projetosocial",
+                "breadcrumbLabel": "Projeto social"
               }
             ],
             "__resolveType": "site/sections/Content/Institutional.tsx"
