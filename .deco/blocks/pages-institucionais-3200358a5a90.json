@@ -9504,6 +9504,56 @@
                       "spaceBetweenTextAndMediaMobile": 10,
                       "seeMore": null
                     }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Hero.tsx",
+                      "breadcrumbs": null,
+                      "background": null,
+                      "content": {
+                        "title": {
+                          "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 32pt\">Como funciona o projeto?</span></strong></h1>",
+                          "onHover": null,
+                          "color": "#000000"
+                        },
+                        "subtitle": {
+                          "text": "<p><img src=\"https://assets.decocache.com/otica-isabela/35e15f0c-ce65-4384-934d-554d9260c524/Pagina-04.jpg\"></p>",
+                          "color": "#29adff",
+                          "maxWidth": "100%",
+                          "onHover": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/VideoModal.tsx",
+                      "videoUrl": "https://www.youtube.com/watch?v=j285g5atIt4",
+                      "thumbnail": {
+                        "src": "https://assets.decocache.com/otica-isabela/5e3e2b1e-dd2a-40e6-add2-d693e2353897/O-impacto-dos-oculos-na-vida-das-criancas.jpg",
+                        "alt": "capa",
+                        "width": 1920,
+                        "height": 1000
+                      }
+                    }
                   }
                 ],
                 "label": "Projeto Social",
