@@ -9361,7 +9361,8 @@
                       "content": {
                         "title": {
                           "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 32pt\">Projeto Social</span></strong></h1>",
-                          "onHover": null
+                          "onHover": null,
+                          "color": "#000000"
                         },
                         "subtitle": {
                           "text": "<p style=\"text-align: center\"></p><p style=\"text-align: center\"><strong><span style=\"font-size: 20pt\">Óculos é vida</span></strong></p><p style=\"text-align: center\"></p><p style=\"text-align: center\"></p><p style=\"text-align: center\"><img src=\"https://assets.decocache.com/otica-isabela/dd326247-2be6-4b00-953a-bfa0d030a770/Pagina-01.jpg\"></p>",
@@ -9370,6 +9371,84 @@
                           "onHover": null
                         }
                       }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Hero.tsx",
+                      "breadcrumbs": null,
+                      "content": {
+                        "title": {
+                          "text": "<h3><span style=\"font-size: 14pt\">Iniciamos este projeto com um verdadeiro senso de missão. É impossível não perceber o quanto as crianças sofrem por conviver, durante tantos anos, com a dificuldade de enxergar muitas vezes sem sequer perceberem o motivo de suas limitações.</span></h3>",
+                          "color": "#000000",
+                          "onHover": "#ffffff"
+                        },
+                        "subtitle": null
+                      },
+                      "background": {
+                        "color": "#ffffff"
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/RichText.tsx",
+                      "linksGrid": null,
+                      "text": {
+                        "content": "<h3><span style=\"font-size: 14pt\">A falta de informação e apoio ainda é enorme. Segundo estudos, quase 800 mil crianças brasileiras convivem com problemas oftalmológicos que afetam diretamente seu aprendizado e qualidade de vida</span></h3>",
+                        "maxWidth": "10",
+                        "maxWidthMobile": "10",
+                        "desktopPadding": {
+                          "top": 10,
+                          "right": 10,
+                          "bottom": 10,
+                          "left": 10
+                        },
+                        "verticalAlign": "center"
+                      },
+                      "media": {
+                        "desktop": {
+                          "preload": false,
+                          "alt": "crianças",
+                          "width": 500,
+                          "height": 500,
+                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg"
+                        },
+                        "mobile": {
+                          "preload": false,
+                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg",
+                          "alt": "Crianças",
+                          "width": 500,
+                          "height": 500
+                        },
+                        "thumbnail": {
+                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg"
+                        },
+                        "tag": null,
+                        "position": "left"
+                      },
+                      "container": false,
+                      "button": null,
+                      "spaceBetweenTextAndMedia": 10,
+                      "spaceBetweenTextAndMediaMobile": 10
                     }
                   }
                 ],
