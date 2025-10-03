@@ -9717,6 +9717,42 @@
                   {
                     "__resolveType": "website/sections/Rendering/Lazy.tsx",
                     "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Images/ImageGallery.tsx",
+                      "banners": [
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/21283ad0-4766-41b9-9d8d-26ea8599ad73/009.jpg",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/21283ad0-4766-41b9-9d8d-26ea8599ad73/009.jpg",
+                          "alt": "banner 1"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/796e477b-eacb-47b4-8df0-6e37eab862e9/0010.jpg",
+                          "alt": "Banner 2",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/796e477b-eacb-47b4-8df0-6e37eab862e9/0010.jpg"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/ac20f886-1520-4132-9401-b522e4c798d3/IMG_0245-(1).JPG",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/ac20f886-1520-4132-9401-b522e4c798d3/IMG_0245-(1).JPG",
+                          "alt": "Banner 3"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/ad873658-049b-44a4-9244-62dc47a1bb0c/0011.jpg",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/ad873658-049b-44a4-9244-62dc47a1bb0c/0011.jpg",
+                          "alt": "banner 4"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
                       "__resolveType": "site/sections/Content/RichText.tsx",
                       "linksGrid": null,
                       "text": {
