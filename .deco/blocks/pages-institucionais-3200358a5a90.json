@@ -9430,11 +9430,11 @@
                           "alt": "crianças",
                           "width": 500,
                           "height": 500,
-                          "src": "https://assets.decocache.com/otica-isabela/175e5630-5a2e-49b2-b97b-7f684ea38723/Pagina-02.jpg"
+                          "src": "https://assets.decocache.com/otica-isabela/560f66ba-9627-499f-a1cf-55b4f0c23fb1/Pagina-06.jpg"
                         },
                         "mobile": {
                           "preload": false,
-                          "src": "https://assets.decocache.com/otica-isabela/175e5630-5a2e-49b2-b97b-7f684ea38723/Pagina-02.jpg",
+                          "src": "https://assets.decocache.com/otica-isabela/560f66ba-9627-499f-a1cf-55b4f0c23fb1/Pagina-06.jpg",
                           "alt": "Crianças",
                           "width": 500,
                           "height": 500
@@ -9466,7 +9466,7 @@
                       "__resolveType": "site/sections/Content/RichText.tsx",
                       "linksGrid": null,
                       "text": {
-                        "content": "<h3><span style=\"font-size: 16pt\">Já ultrapassamos a marca de 100 óculos doados a crianças e continuamos acreditando que enxergar melhor é o primeiro passo para um futuro com mais oportunidades.</span></h3>",
+                        "content": "<p><span style=\"color: rgb(0, 0, 0); font-size: 16pt\"><br>De acordo com a Organização Mundial de Saúde, no mundo, aproximadamente 1.4 milhão de crianças têm cegueira.&nbsp; A cada ano, cerca de 500 mil novas crianças ficam cegas. No entanto, cerca de 80% dos casos de cegueira infantil podem ser prevenidos ou tratados com diagnóstico e cuidados adequados.</span></p>",
                         "maxWidth": "10",
                         "maxWidthMobile": "10",
                         "desktopPadding": {
@@ -9483,11 +9483,11 @@
                           "alt": "crianças",
                           "width": 500,
                           "height": 500,
-                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg"
+                          "src": "https://assets.decocache.com/otica-isabela/f115410a-5d08-469a-8cf0-c21eefebc40e/Pagina-05.jpg"
                         },
                         "mobile": {
                           "preload": false,
-                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg",
+                          "src": "https://assets.decocache.com/otica-isabela/f115410a-5d08-469a-8cf0-c21eefebc40e/Pagina-05.jpg",
                           "alt": "Crianças",
                           "width": 500,
                           "height": 500
@@ -9553,6 +9553,116 @@
                         "width": 1920,
                         "height": 1000
                       }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Hero.tsx",
+                      "breadcrumbs": null,
+                      "background": null,
+                      "content": {
+                        "title": {
+                          "text": "<h1 style=\"text-align: justify\"><strong><span style=\"font-size: 32pt\">Fase 1</span></strong></h1><p style=\"text-align: justify\"></p>",
+                          "onHover": null,
+                          "color": "#000000"
+                        },
+                        "subtitle": {
+                          "text": "<p style=\"text-align: justify\"><span style=\"color: rgb(0, 0, 0); font-size: 14pt\">Na primeira fase do projeto fazemos o exame de acuidade que um teste&nbsp; A criança olha para uma tabela com letras,&nbsp;</span></p><p style=\"text-align: justify\"><span style=\"color: rgb(0, 0, 0); font-size: 14pt\">números ou símbolos em diferentes tamanhos e vai dizendo o que consegue enxergar.<br><br></span></p><p style=\"text-align: justify\"><span style=\"color: rgb(0, 0, 0); font-size: 14pt\">Esse processo mede a nitidez da visão, ou seja, se ela consegue ver com clareza de longe e de perto.</span></p><p style=\"text-align: justify\"><span style=\"color: rgb(0, 0, 0); font-size: 14pt\">É um teste que não causa dor, não precisa de aparelhos sofisticados e já nos dá uma ideia se a criança pode ter algum grau de dificuldade visual que precisa ser investigado por um oftalmologista ou optometrista”</span></p><p></p>",
+                          "color": "#29adff",
+                          "maxWidth": "100%",
+                          "onHover": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/Spacing.tsx",
+                      "mobile": 10,
+                      "desktop": 10
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Images/ImageGallery.tsx",
+                      "banners": [
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/694aab60-7891-4d5c-ac5d-d07ecae45113/002.jpg",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/694aab60-7891-4d5c-ac5d-d07ecae45113/002.jpg",
+                          "alt": "banner 1"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/bc76fa8c-d21b-4c26-bd63-fa4cf0bc972d/001.jpg",
+                          "alt": "Banner 2",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/bc76fa8c-d21b-4c26-bd63-fa4cf0bc972d/001.jpg"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/901cd133-44d1-42bf-83a5-6ac21244fff7/004.jpg",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/901cd133-44d1-42bf-83a5-6ac21244fff7/004.jpg",
+                          "alt": "Banner 3"
+                        },
+                        {
+                          "srcMobile": "https://assets.decocache.com/otica-isabela/88f3af2b-d652-4957-9a8d-97f652a7b79c/003.jpg",
+                          "srcDesktop": "https://assets.decocache.com/otica-isabela/88f3af2b-d652-4957-9a8d-97f652a7b79c/003.jpg",
+                          "alt": "banner 4"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                    "section": {
+                      "__resolveType": "site/sections/Content/RichText.tsx",
+                      "linksGrid": null,
+                      "text": {
+                        "content": "<h3><span style=\"font-size: 16pt\">Já ultrapassamos a marca de 100 óculos doados a crianças e continuamos acreditando que enxergar melhor é o primeiro passo para um futuro com mais oportunidades.</span></h3>",
+                        "maxWidth": "10",
+                        "maxWidthMobile": "10",
+                        "desktopPadding": {
+                          "top": 10,
+                          "right": 10,
+                          "bottom": 10,
+                          "left": 10
+                        },
+                        "verticalAlign": "center"
+                      },
+                      "media": {
+                        "desktop": {
+                          "preload": false,
+                          "alt": "crianças",
+                          "width": 500,
+                          "height": 500,
+                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg"
+                        },
+                        "mobile": {
+                          "preload": false,
+                          "src": "https://assets.decocache.com/otica-isabela/5898d7db-0c4e-45c1-bc94-28cda92206e5/Pagina-03.jpg",
+                          "alt": "Crianças",
+                          "width": 500,
+                          "height": 500
+                        },
+                        "thumbnail": {
+                          "src": "https://assets.decocache.com/otica-isabela/e6c7001e-b586-4533-b391-dd1571c83aba/Capa-006.jpg"
+                        },
+                        "tag": null,
+                        "position": "right"
+                      },
+                      "container": false,
+                      "button": null,
+                      "spaceBetweenTextAndMedia": 10,
+                      "spaceBetweenTextAndMediaMobile": 10,
+                      "seeMore": null
                     }
                   }
                 ],
