@@ -62,6 +62,7 @@ function Details({
     price,
     priceWithDiscount,
     productRating: rating,
+    installments,
   } = product;
 
   // Busca a imagem dos acessórios inclusos
@@ -378,7 +379,11 @@ function Details({
                 {formatPrice(priceWithDiscount)}
               </p>
             </div>
-            <p class="text-sm text-base-300 font-bold">## INSTALLMENTS ##</p>
+            {installments?.length > 0 && (
+              <p class="text-sm text-base-300 font-bold">
+                {installments?.at(-1)?.installmentText}
+              </p>
+            )}
           </div>
         </div>
 

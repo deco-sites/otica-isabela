@@ -37,8 +37,15 @@ export interface LensAttributes {
   lensQuantityDescription: string;
 }
 
+export interface ProductInstallment {
+  installmentText: string;
+  installmentValue: number;
+  installmentNumber: number;
+}
+
 export interface Product {
   id: number;
+  skuId: number;
   name: string;
   code: string;
   slug: string;
@@ -49,6 +56,7 @@ export interface Product {
   priceWithDiscount: number;
   hasDiscount: boolean;
   isAvailable: boolean;
+  installments?: ProductInstallment[];
   attributes: ProductAttribute[];
   lensAttributes?: LensAttributes[];
   relatedProducts?: RelatedProduct[];

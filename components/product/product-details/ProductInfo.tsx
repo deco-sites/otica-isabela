@@ -25,7 +25,8 @@ function ProductInfo(
   { page, promotions, labels, stepLabels, customer }: Props,
 ) {
   const { product, breadcrumbList } = page!;
-  const { id: productID, name, slug, price, priceWithDiscount } = product;
+  const { id: productID, name, slug, price, priceWithDiscount, installments } =
+    product;
   const chooseLensUrl = `/passo-a-passo/${slug}`;
   const experimenterImage = findProductAttribute("experimentador", product)
     ?.value;
@@ -119,7 +120,11 @@ function ProductInfo(
           <p class="text-blue-200 text-xl lg:text-[28px] font-bold">
             {formatPrice(priceWithDiscount)}
           </p>
-          <span class="text-sm text-base-300">## INSTALLMENTS ##</span>
+          {installments?.length > 0 && (
+            <span class="text-sm text-base-300">
+              {installments?.at(-1)?.installmentText}
+            </span>
+          )}
         </div>
 
         {/* Experimenter */}
