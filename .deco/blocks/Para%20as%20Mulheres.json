@@ -71,17 +71,12 @@
     "__resolveType": "site/loaders/store/auth.ts"
   },
   "products": {
-    "id": [],
     "sort": "nome",
     "count": 9,
-    "offset": 9,
-    "ordenacao": "none",
     "collection": 3,
-    "__resolveType": "site/loaders/product/productList.ts",
+    "__resolveType": "site/loaders/product/highlight.ts",
     "dinamicFilters": [],
-    "filtrosDinamicos": [],
-    "idColecaoProdutos": 21,
-    "somenteCronometrosAtivos": false
+    "collectionId": "21"
   },
   "__resolveType": "site/sections/Product/ProductBannerShelf.tsx",
   "isStopwatchEnabled": true

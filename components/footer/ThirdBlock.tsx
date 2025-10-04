@@ -21,9 +21,9 @@ export const ThirdBlock = (
   }
 
   return (
-    <section class="container w-full flex flex-col lg:flex-row mt-8 gap-y-8  pb-8">
-      <div class="w-full lg:w-1/4 flex flex-col gap-y-3 ">
-        <h2 class="font-bold text-center lg:text-start text-base  text-blue-300 uppercase w-full ">
+    <section class="container w-full flex flex-col lg:flex-row mt-8 gap-y-8 pb-8">
+      <div class="w-full lg:w-1/4 flex flex-col gap-y-3">
+        <h2 class="font-bold text-center lg:text-start text-base text-blue-300 uppercase w-full">
           {supportTile}
         </h2>
 
@@ -51,11 +51,11 @@ export const ThirdBlock = (
         </div>
       </div>
 
-      <div class="flex flex-col items-center lg:items-start w-full lg:w-1/4 gap-y-4 ">
+      <div class="flex flex-col items-center lg:items-start w-full lg:w-1/4 gap-y-4">
         <h2 class="font-bold text-center lg:text-start text-base text-blue-300 uppercase w-full">
           {certificatesTitle}
         </h2>
-        <div class=" w-5/6 flex  justify-center lg:justify-between items-center">
+        <div class="w-5/6 flex justify-center lg:justify-between items-center">
           {certificates?.map(({ label, image, height, width, href }) => {
             if (!image) return null;
             return (
@@ -70,12 +70,12 @@ export const ThirdBlock = (
             );
           })}
         </div>
-        <span class=" w-full text-xs font-normal text-center lg:text-start  text-white">
+        <span class="w-full text-xs font-normal text-center lg:text-start text-white">
           {currentDate}
         </span>
       </div>
 
-      <div class="flex flex-col items-center w-full lg:w-1/4  ">
+      <div class="flex flex-col items-center w-full lg:w-1/4">
         <h2 class="font-bold text-center lg:text-start text-base text-blue-300 uppercase w-full">
           {paymentsTitle}
         </h2>

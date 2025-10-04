@@ -47,7 +47,7 @@ export const UserInfos = ({
         )}
       </p>
       {!!ratingValue && ratingValue <= 5 && (
-        <div class="flex mb-0 lg:mb-3  gap-x-0  lg:gap-x-3">
+        <div class="flex mb-0 lg:mb-3 gap-x-0 lg:gap-x-3">
           {Array.from({ length: ratingValue }).map((_, index) => (
             <Icon
               key={`ratingStar-${index}`}
@@ -93,7 +93,7 @@ const TestimonialItem = ({
   const secondPart = descriptionSplit.slice(24).join(" ");
 
   return (
-    <div class="flex border shadow-[1px_3px_8px_rgba(0,0,0,0.25)] rounded-lg box-border px-3 py-5 md:py-8 lg:px-7 ">
+    <div class="flex border shadow-[1px_3px_8px_rgba(0,0,0,0.25)] rounded-lg box-border px-3 py-5 md:py-8 lg:px-7">
       <div class="flex justify-around gap-x-9">
         <div class="flex flex-col h-full items-center justify-center">
           {additionalImage && (
@@ -107,7 +107,7 @@ const TestimonialItem = ({
           )}
 
           <div class="flex flex-col items-start">
-            <span class="text-xs text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3 ">
+            <span class="text-xs text-blue-200 flex items-center justify-center gap-x-2 font-semibold mt-3">
               <Icon
                 width={15}
                 height={18}
@@ -159,7 +159,7 @@ const TestimonialItem = ({
           </label>
           <a
             href={productLink}
-            class="flex flex-col lg:h-[196px] lg:gap-5 justify-center items-center "
+            class="flex flex-col lg:h-[196px] lg:gap-5 justify-center items-center"
           >
             <img
               src={productPhoto}
