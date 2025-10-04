@@ -58,6 +58,7 @@ function Details({
   const {
     name,
     id: productID,
+    skuId,
     slug,
     price,
     priceWithDiscount,
@@ -94,7 +95,7 @@ function Details({
 
   const addToCard = {
     idProduct: Number(productID),
-    sku: Number(productID),
+    sku: Number(skuId),
     price: price!,
     name: name!,
   };

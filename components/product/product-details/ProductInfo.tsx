@@ -25,7 +25,7 @@ function ProductInfo(
   { page, promotions, labels, stepLabels, customer }: Props,
 ) {
   const { product, breadcrumbList } = page!;
-  const { id: productID, name, slug, price, priceWithDiscount, installments } =
+  const { id: productID, skuId, name, slug, price, priceWithDiscount, installments } =
     product;
   const chooseLensUrl = `/passo-a-passo/${slug}`;
   const experimenterImage = findProductAttribute("experimentador", product)
@@ -33,7 +33,7 @@ function ProductInfo(
 
   const addToCard = {
     idProduct: Number(productID),
-    sku: Number(productID),
+    sku: Number(skuId),
     price: price!,
     name: name!,
   };
