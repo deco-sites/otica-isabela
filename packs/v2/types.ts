@@ -93,6 +93,7 @@ export interface Facets {
   facet_attribute_material?: Record<string, number>;
   facet_attribute_tipo?: Record<string, number>;
   facet_attribute_cor?: Record<string, number>;
+  facet_attribute_tamanho?: Record<string, number>;
 }
 
 export interface Category {

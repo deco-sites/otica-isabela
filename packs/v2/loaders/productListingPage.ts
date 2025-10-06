@@ -16,6 +16,7 @@ const FILTER_KEY_MAP: Record<string, string> = {
   Cor: "facet_attribute_cor",
   Material: "facet_attribute_material",
   Tipo: "facet_attribute_tipo",
+  Tamanho: "facet_attribute_tamanho",
 };
 
 interface ProductFilter {

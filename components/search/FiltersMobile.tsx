@@ -1,9 +1,7 @@
-import Filters from "$store/components/search/Filters.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Drawer from "$store/components/ui/Drawer.tsx";
 import { useSignal } from "@preact/signals";
 import Icon from "$store/components/ui/Icon.tsx";
-import { useEffect, useRef } from "preact/hooks";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import { useFilters } from "site/sdk/useFilters.ts";
 import FormatFacets from "site/components/search/facets/format.tsx";
@@ -13,6 +11,7 @@ import StyleFacets from "site/components/search/facets/style.tsx";
 import TypeFacets from "site/components/search/facets/type.tsx";
 import { Shape, Type } from "site/components/search/SearchResult.tsx";
 import ActiveFilters from "site/islands/ActiveFilters.tsx";
+import SizeFacets from "site/components/search/facets/size.tsx";
 
 interface Props {
   facets: IsabelaProductListingPage["filters"];
@@ -86,6 +85,7 @@ function FilterContent({ facets, shapeIcons, typeIcons }: Props) {
           : null}
       </div>
       <div class="w-full bg-white p-[15px] relative">
+        <SizeFacets facets={facets} handleFilterChange={handleFilterChange} />
         <FormatFacets
           facets={facets}
           handleFilterChange={handleFilterChange}

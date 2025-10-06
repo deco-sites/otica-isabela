@@ -6,6 +6,7 @@ import MaterialFacets from "site/components/search/facets/material.tsx";
 import StyleFacets from "site/components/search/facets/style.tsx";
 import TypeFacets from "site/components/search/facets/type.tsx";
 import { Shape, Type } from "site/components/search/SearchResult.tsx";
+import SizeFacets from "site/components/search/facets/size.tsx";
 
 interface Props {
   facets: IsabelaProductListingPage["filters"];
@@ -61,6 +62,7 @@ export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
   return (
     <div class="hidden lg:flex flex-col mr-10 max-w-[200px] w-full">
       <div class="flex flex-col sticky top-0 z-10">
+        <SizeFacets facets={facets} handleFilterChange={handleFilterChange} />
         <FormatFacets
           facets={facets}
           handleFilterChange={handleFilterChange}
