@@ -1,2 +1,792 @@
-{"name":"FAQ","path":"/ajuda-e-suporte","sections":[{"__resolveType":"Header - 01"},{"variants":[{"rule":{"mobile":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"style":{"gap":32,"height":"250px","padding":{"top":20,"left":12,"right":12,"bottom":24},"container":true},"content":{"title":{"text":"<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Suporte &amp; Ajuda</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>","color":"#ffffff","onHover":null},"subtitle":null},"background":{"color":"#05c1ff"},"breadcrumbs":{"align":"left","items":[{"name":"Inicio","label":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><font color=\"#ffffff\"><span style=\"font-size: 13.3333px;\">Inicio</span></font></p>"},{"name":"Suporte e ajuda","label":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: #ffffff;\"><span style=\"font-size: 13.3333px;\" data-mce-style=\"font-size: 13.3333px;\">Suporte e ajuda</span></span></p>"}],"textStyle":{"color":"#ffffff","fontSize":12,"textAlign":"center","fontWeight":"Regular","lineHeight":12,"letterSpacing":0},"separatorSize":12,"separatorColor":"#ffffff"},"__resolveType":"site/sections/Content/Hero.tsx"}},{"rule":{"tablet":true,"desktop":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"style":{"gap":32,"height":"250px","padding":{"top":24,"left":12,"right":12,"bottom":24},"container":true},"content":{"title":{"text":"<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Ajuda &amp; Suporte</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>","color":"#ffffff","onHover":null},"subtitle":null},"background":{"color":"#05c1ff"},"breadcrumbs":{"align":"left","items":[{"name":"Inicio","label":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><a href=\"/\" data-mce-href=\"../../../\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">﻿Inicio</span></a></p>"},{"name":"Ajuda e Suporte","label":"<p><a href=\"/faq\" data-mce-href=\"../../../faq\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">﻿Ajuda &amp; Suporte</span></a></p>"}],"textStyle":{"color":"#ffffff","fontSize":12,"textAlign":"center","fontWeight":"Regular","lineHeight":12,"letterSpacing":0},"separatorSize":12,"separatorColor":"#ffffff"},"__resolveType":"site/sections/Content/Hero.tsx"}}],"__resolveType":"website/flags/multivariate/section.ts"},{"variants":[{"rule":{"mobile":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"cards":[{"href":"/guias","icon":{"id":"Bulb","size":32,"color":"#000000","onHover":"#05c1ff","strokeWidth":2},"name":"Dicas e Guia","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Dicas e Guia</strong></span></h2>","color":"#171717","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Está com dúvida de como comprar? Acesse nossas dicas e tutoriais</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/dicas-de-lentes","icon":{"id":"Progressive","size":32,"color":"#000000","onHover":"#05c1ff","strokeWidth":2},"name":"Dicas de Lentes de Grau","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h1 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Dicas de lentes de grau</strong></span></span></h1>","color":"#000000","onHover":"#05c1ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Descubra o melhor tipo de lentes para você!</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/guias/provador-de-oculos-online","icon":{"id":"MenGlasses","size":32,"color":"#000000","onHover":"#05c1ff","strokeWidth":2},"name":"Experimentar óculos","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Experimentar óculos</strong></span></h2>","color":"#000000","onHover":"#05c1ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Compre sem medo, prove óculos online!</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"#","icon":{"id":"Locale","size":32,"color":"#000000","onHover":"#05c1ff","strokeWidth":2},"name":"Acompanhar pedidos","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Acompanhar pedidos</strong></span></span></h2>","color":"#000000","onHover":"#05c1ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Acompanhe passo a passo do seu pedido</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/quem-somos-otica-isabela-dias","icon":{"id":"Home","size":24,"color":"#212121","onHover":"#42c2ff","strokeWidth":16},"name":"Quem somos","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Quem somos</strong></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Desde 2016, já somos mais de 300 mil clientes satifeitos!</p>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"}},{"href":"https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento","icon":{"id":"Phone","size":32,"color":"#000000","onHover":"#05c1ff","strokeWidth":2},"name":"Contato","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Contato</strong></span></span></h2>","color":"#000000","onHover":"#05c1ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Precisa de ajuda? (16) 99181-5926 ou suporte@oticaisabeladias.com</p>","color":"#646464","onHover":null,"maxWidth":"100%"}}],"style":{"gap":12,"padding":{"top":24,"left":24,"right":24,"bottom":24},"container":true,"backgroundColor":"#f3f3f3"},"columns":{"mobile":1,"desktop":3},"__resolveType":"site/sections/Content/Cards.tsx"}},{"rule":{"tablet":true,"desktop":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"cards":[{"href":"/guias","icon":{"id":"Bulb","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Dicas e Guias","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\">Dicas e Guias</span></strong></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Está com dúvida de como comprar?&nbsp;Acesse nossas dicas e tutoriais</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/dicas-de-lentes","icon":{"id":"Progressive","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Dicas de lentes","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Dicas de lentes</strong></span></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Quais tipos de lentes temos? Descubra o melhor tipo de lentes para você.</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/guias/provador-de-oculos-online","icon":{"id":"GlassesAroClosed","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Experimentar óculos","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Experimentar óculos</strong></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Compre sem medo, prove óculos online!</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/MinhaConta/Pedidos","icon":{"id":"Locale","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Acompanhar pedidos ","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Acompanhar pedidos</strong></span></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Acompanhe passo a passo do seu pedido</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento","icon":{"id":"Phone","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Contato","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Contato</strong></span></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">Precisa de ajuda? (16) 99181-5926 ou suporte@oticaisabeladias.com</p>","color":"#646464","onHover":null,"maxWidth":"100%"}},{"href":"/quem-somos-otica-isabela-dias","icon":{"id":"Home","size":48,"color":"#000000","onHover":"#42c2ff","strokeWidth":2},"name":"Quem Somos","style":{"gap":12,"onHover":"#d1d1d1","borderRadius":12},"header":{"text":"<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Quem somos</strong></span></span></h2>","color":"#000000","onHover":"#42c2ff","maxWidth":"100%"},"content":{"text":"<p style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">Desde 2016, já somos mais de 300 mil clientes satifeitos!</p>","color":"#646464","onHover":null,"maxWidth":"100%"}}],"style":{"gap":32,"padding":{"top":48,"left":12,"right":12,"bottom":48},"container":true,"backgroundColor":"#f3f3f3"},"columns":{"mobile":1,"desktop":3},"__resolveType":"site/sections/Content/Cards.tsx"}}],"__resolveType":"website/flags/multivariate/section.ts"},{"mobile":32,"desktop":64,"__resolveType":"site/sections/Content/Spacing.tsx"},{"variants":[{"rule":{"mobile":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"text":{"content":"<h2 style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Perguntas Frequentes&nbsp;</strong></span></h2>","verticalAlign":"center"},"media":null,"button":null,"seeMore":null,"container":true,"linksGrid":null,"__resolveType":"site/sections/Content/RichText.tsx"}},{"rule":{"tablet":true,"desktop":true,"__resolveType":"$live/matchers/MatchDevice.ts"},"value":{"text":{"content":"<h2 style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Perguntas Frequentes</span></strong></h2>","verticalAlign":"center"},"media":null,"button":null,"seeMore":null,"container":true,"linksGrid":null,"__resolveType":"site/sections/Content/RichText.tsx"}}],"__resolveType":"website/flags/multivariate/section.ts"},{"mobile":12,"desktop":64,"__resolveType":"site/sections/Content/Spacing.tsx"},{"style":{"paddingLeft":12,"paddingRight":12},"contents":[{"title":"Posso fazer devolução na ótica Isabela Dias?","children":[{"type":"accordion","title":"Posso devolver minha armação com lentes de grau?","content":"<p>O cliente poderá se arrepender da compra realizada em até 7 dias depois da entrega do prodouto, conforme estabelece o artigo 49 do código de defesa do consumidor.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>As lentes de grau são produtos de saúde personalizados de acordo a prescrição do paciente, são fabricadadas no laboratório conforme solicitado na compra. Neste caso não permitirão a venda das lentes a outro consumidor. Será feito o estorno do frete e dos valores da armação.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>O cliente deverá solicitar no email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> dentro do prazo indicado. Não serão válidos pedidos de devolução realizados por whatsapp e redes sociais.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Antes de receber o estorno, o pedido precisa chegar a nossa empresa, onde será feito um processo de qualidade que pode levar até 5 dia úteis para ser concluído.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Não fazemos troca, apenas devolução do valor dos itens mencionados acima.&nbsp;</p>"},{"type":"accordion","title":"Posso devolver óculos de sol? ","content":"<p>O cliente poderá se arrepender da compra realizada desde a compra em até 7 dias depois da entrega do produto, conforme estabelece o artigo 49 do código de defesa do consumidor.&nbsp;</p><p>O cliente deverá solicitar no email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> dentro do prazo indicado. Não serão válidos pedidos de devolução realizados por whatsapp e redes sociais.&nbsp;</p><p>Antes de receber o estorno, o pedido precisa chegar a nossa empresa, onde será feito um processo de qualidade que pode levar até 5 dias úteis para ser concluído.&nbsp;</p><p>Observação importante: Caso seus óculos de sol foi produzido com as lentes de grau, elas são produtos de saúde personalizados de acordo a prescrição do paciente, são fabricadadas no laboratório conforme solictado na compra. Neste caso não permitirão a venda das lentes a outro consumidor. Será feito o estorno do frete e dos valores das armações.</p><p>Não fazemos troca, apenas devolução do valor dos itens mencionados acima.&nbsp;</p>"},{"type":"accordion","title":"Posso devolver lentes de contato?","content":"<ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">Você possui até 7 dias corridos, após o recebimento do produto, para solicitar a&nbsp; devolução.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">O produto precisa estar na embalagem original fechada, acompanhado de todos os acessórios recebidos (estojo, caixa, blister/ampolas, etc.) e brindes. Se abrir a caixa, não aceitaremos devoluções</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">A violação, rasura ou dano na embalagem das lentes de contato serão considerados com renúncia ao direito de desistênicia da compra ou solicitação da troca, pois causam inutilização do produto, vez que as lentes de contato são produtos para saúde não podendo ser recomercializados nestas condiçoes, assim não cabendo reembolso do valor pago ou troca por outro pedido.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">&nbsp;O reembolso do valor pago, somente serão realizados após a Ótica Isabela Dias receber os produtos enviados pelo cliente, os quais serão analisados para finalização do processo.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">A Ótica Isabela DIas não se responsabiliza pela não adaptação ás lentes de contato, orientamos que os usuário mantenham as marcas e modelos aos quais já estão adaptados e façam a alteração somente por indicação, devendo sempre consultar seu oftamologista.</li></ul>"}]},{"title":"Como funciona a garantia?","children":[{"type":"accordion","title":"Recebi o produto com defeito!","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ops, isso não era para ter acontecido, fique tranquilo vamos contornar essa situação o mais rápido possível. Preciso que você envie um email para <a href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> e informe o número do pedido e quais itens chegaram errado ou com defeito.&nbsp;</p>"},{"type":"accordion","title":"Recebi com produto com itens faltando","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ops, isso não era para ter acontecido, fique tranquilo vamos contornar essa situação o mais rápido possível. Preciso que você envie um email para <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> e informe o número do pedido e quais itens chegaram estão faltando.</p>"},{"type":"accordion","title":"Não me adaptei com as lentes de grau (óculos)","content":"<p>Fique tranquilo vamos te auxiliar. Antes de solicitar a garantia de adaptação retorne no local onde foi realizado o exame de vista e solicite a conferência dos óculos. Duas situações podem surgir agora: </p><p><br data-mce-bogus=\"1\"></p><ul><li>&nbsp;Provavelmente o médico emitíra uma nova receita médica diferente da primeira. A garantia de adaptação para que seja aprovada, é nescessário ter 3 meses no máximo entre a receita antiga receita e a nova. Faremos novas lentes sem custo nenhum.<br data-mce-bogus=\"1\"></li></ul><p><br data-mce-bogus=\"1\"></p><p><br data-mce-bogus=\"1\"></p><ul><li>&nbsp;Segundo caso é muito raro acontecer, quase impossível, seria um erro em nossa produção, e a lentes solicitadas não estão de acordo a receita médica. Também faremos novas lentes sem custo nenhum.&nbsp;</li></ul><p><br data-mce-bogus=\"1\"></p><p>para ambos casos descritos acima, solicite a garantia pelo email <a href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> informe o número do pedido, e descreve seu caso. Conte com a gente!&nbsp;</p>"},{"type":"accordion","title":"Não me adaptei com as lentes de contato","content":"<p>A Ótica Isabela DIas não se responsabiliza pela não adaptação as lentes de contato, orientamos que os usuário mantenham as marcas e modelos aos quais já estão adaptados e façam a alteração somente por indicação, devendo sempre consultar seu oftamologista antes de utilizar lentes de contato.&nbsp;</p>"},{"type":"accordion","title":"Meus óculos ou lentes de grau apresentaram defeito","content":"<p>Conte com a gente vamos te ajudar, basta informar pelo email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> em até 90 dias, como estabelece o código de defesa do consumidor em seu artigo 26. Não será aceito solicitações por redes sociais ou whatsapp.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Para agilizarmos o atendimento informe:</p><ul><li>Número do pedido</li><li>Descreve com detalhes como o defeito surgiu</li><li>Envie fotos do produto</li></ul><p><br data-mce-bogus=\"1\"></p><p>Esclarecemos que a empresa tem o prazo de até 30 dias para solucionar o defeito apresentado.&nbsp;&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Não sendo o vício sanado no prazo máximo de trinta dias, pode o consumidor exigir, alternativamente e à sua escolha: I - a substituição do produto por outro da mesma espécie, em perfeitas condições de uso; II - a restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos; III - o abatimento proporcional do preço.</p><p><br data-mce-bogus=\"1\"></p><p>Assim sendo, somente haverá o cancelamento da compra e eventual restituição dos valores pagos se a empresa não apresentar solução dentro do prazo legal.</p><p><br data-mce-bogus=\"1\"></p><p>Alguns itens são passíveis de reprovação:</p><p><br data-mce-bogus=\"1\"></p><p>- Ausência de defeito (não constatação do dano apontado pelo cliente)</p><p>- Indícios de uso inadequado do produto</p><ul><li>Indícios de dano acidental</li></ul><p><br data-mce-bogus=\"1\"></p><p>O tempo de resposta é de até 24 horas úteis. Ficamos a disposição.</p>"},{"type":"accordion","title":"Quanto tempo tenho de garantia?","content":"<p>Conseguimos manter qualidade e preço justo, nossos produtos tem garantia. O prazo para exercício de direito de garantia é de 90 (noventa) dias para produtos e serviços duráveis a contar da efetiva entrega do produto.</p>"}]},{"title":"Pagamento","children":[{"type":"accordion","title":"Quantas vez parcela no cartão sem juros?","content":"<p>Uma ótima notícia, parcelamos em até 10x sem juros.</p>"},{"type":"accordion","title":"Parcela no boleto?","content":"<p>Não, apenas no cartão de crédito, em até 10x sem juros.</p>"},{"type":"accordion","title":"Quais bandeiras de cartão aceitam?","content":"<p>Aceitamos, as bandeiras de cartão Visa, Mastercard, American Express, Elo, Hipercard, Diners, Discovery, Aura e JCB.&nbsp;</p>"},{"type":"accordion","title":"Aceita vale refeição?","content":"<p>No momento não estamos aceitando.</p>"},{"type":"accordion","title":"Posso pagar via pix?","content":"<p>Sim, aceitamos forma de pagamento pix.&nbsp;</p>"},{"type":"accordion","title":"Posso pagar com boleto avista?","content":"<p>Sim, você tem até 5 dias para reservar o seu pedido pagar.&nbsp;</p>"}]},{"title":"Qual o prazo para postar meu pedido?","children":[{"type":"accordion","title":"Óculos com lentes de grau ","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">&nbsp;Os pedidos com lentes de grau tem o prazo para fabricação de lentes com a média de 2 a 7 dias úteis,&nbsp; este prazo é informado em cada tipo de lentes no momento da compra. Após o pedido postado terá o prazo do frete escolhido no site.&nbsp;</p>"},{"type":"accordion","title":"Lentes de contato","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">As lentes de contato tem o prazo de postagem de 2 a 5 dias úteis. A maioria das lentes esféricas possuem estoque em nossa empresa.</p>"},{"type":"accordion","title":"Óculos de sol ou acessórios","content":"<p>Pedidos de óculos de sol sem grau tem o prazo de 1 dia útil para ser postado. Se tiver lentes de grau no pedido as lentes são fabricadas de 3 a 7 dias úteis, e após ser postado, tem o prazo do frete escolhido na compra para ser entregue.</p>"}]},{"title":"Lentes e Receita","children":[{"type":"accordion","title":"Como ler ou preencher minha receita no site?","content":"<p>Esta com dúvidas para ler sua receita médica, <a data-mce-href=\"https://www.oticaisabeladias.com.br/guias/como-ler-entender-a-receita-de-oculos\" href=\"https://www.oticaisabeladias.com.br/guias/como-ler-entender-a-receita-de-oculos\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><strong><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\">acesse nosso tutorial completo﻿</span>﻿</strong></span></a></p>"},{"type":"accordion","title":"Vocês fazem lentes de grau bifocais?","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ainda não fazemos lentes bifocais. Apenas multifocais que são lentes mais modernas.&nbsp;</p>"},{"type":"accordion","title":"Vocês fazem lentes de grau multifocais?","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Sim, fazemos as lentes multifocais, basta escolher uma armação de óculos e clicar no botão \"escolher lentes\" agora escolha a opção \"quero lentes multifocais\" escolha as lentes e finalize a compra. Ficamos a disposição, boas compras! <span style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\"><strong><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/quanto-custa-uma-lente-multifocal\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/quanto-custa-uma-lente-multifocal\" data-mce-selected=\"inline-boundary\" style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\">Caso deseja saber mais sobre as lentes multifocais clique aqui</a></strong></span></p>"},{"type":"accordion","title":"Vocês fazem lentes de grau ocupacionais?","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Sim, fazemos as lentes ocupacionais, basta escolher uma armação de óculos e clicar no botão \"escolher lentes\" agora escolha a opção \"quero lentes ocupacionais\" escolha as lentes e finalize a compra. Ficamos a disposição, boas compras! <span style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/lentes-ocupacionais\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/lentes-ocupacionais\" style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><strong><span style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\">Caso deseja saber mais sobre as lentes ocupacionais clique aqu</span></strong>i</a></span></p>"},{"type":"accordion","title":"Não encontrei o meu grau no site","content":"<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Vamos fazer de tudo para te atender, se você tentou realizar a comprar em nosso site e não conseguiu encontrar seu grau envie foto da sua receita para um de nossos consultores pelo whatsapp (16) 99181-5926</p>"},{"type":"accordion","title":"Quais tipo de lentes a Ótica Isabela Dias vende?","content":"<p>Nossas lentes são confeccionadas com a tecnologia <strong>FREE-FORM</strong> a melhor e mais avançada tecnologia de lentes. Garantindo que a sua visão seja mais saudável, trazendo inúmeros benefícios para a sua saúde física e mental. Agora que você ja sabe o tipo da fabricação, é hora de saber que temos os melhores opções tratamentos de lentes, como: antirreflexo, proteção digital, fotossensíveis (escurece no sol), lentes super finas, multifocais, ocupacionais e muito mais. <span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" title=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\" data-mce-selected=\"inline-boundary\"><strong>Saiba mais sobre nossas lentes.</strong></a></span></p>"},{"type":"accordion","title":"Como medir minha DNP?","content":"<p>Fique tranquilo quando recebemos o seu pedido vamos solicitar todas as medidas se necessário. Caso sua receita médica esta solicitando para medir a DNP, é bem simples basta tirar uma foto com cartão <a data-mce-href=\"https://www.oticaisabeladias.com.br/guias/como-medir-a-dnp\" href=\"https://www.oticaisabeladias.com.br/guias/como-medir-a-dnp\" title=\"Como medir DNP dos óculos\"><strong><span style=\"color: rgb(35, 180, 253);\" data-mce-style=\"color: rgb(35, 180, 253);\">saiba mais em nosso tutorial&nbsp;</span></strong></a></p>"},{"type":"accordion","title":"Como utilizar minha receita de óculos para comprar lentes de contato?","content":"<p>É possível comprar lentes de contato com sua receita de óculos sim, mas precisamos fazer uma conversão. Entre em contato com o nosso atendimento via whatsapp (16) 99181-5926.&nbsp;</p>"}]},{"title":"Atendimento","children":[{"type":"accordion","title":"Já comprei e preciso de ajuda","content":"<p>Se precisa alterar seu pedido, saber sobre sua entrega, clique no ícone do whatsapp aqui em nosso site. Mas se deseja falar sobre devolução ou garantia envie um email para suporte@oticaisabeladias.com</p>"},{"type":"accordion","title":"Dúvidas antes da compra","content":"<p>Se deseja tirar dúvidas antes da compra ou fazer um orçamento com um de nossos atendentes, clique no ícone do whatsapp em nosso site ou entre em contato pelo número (16) 99181-5926.&nbsp;</p>"}]},{"title":"Entrega ","children":[{"type":"accordion","title":"Quanto tempo demora para entregar meus óculos?","content":"<p>Normalmente o prazo de fabricação de lentes vária de 1 a 7 dias úteis. Após esse prazo será calculado o prazo de acordo com o frete escolhido.</p>"},{"type":"accordion","title":"Minha entrega esta atrasada ","content":"<p>Ops, isso não era para ter acontecido. Por favor entre em contato com um dos nossos consultores pelo whatsapp (16) 99181-5926, nos vamos te auxiliar com prioridade. Conte com a gente!</p>"},{"type":"accordion","title":"Quais são as opções de transportadoras para entregar?","content":"<p>Nós trabalhamos com as melhores transportadoras do Brasil, correios, jadlog.&nbsp;</p>"},{"type":"accordion","title":"Como eu rastreio os meus óculos?","content":"<p>Assim que seus óculos for postado nos correios, você receberá o código de rastreio no whatsapp e email. Você também pode acessar a <strong><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/MinhaConta/Pedidos\" href=\"https://www.oticaisabeladias.com.br/MinhaConta/Pedidos\" title=\"Meu pedido otica isabela dias\" style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\">área do cliente pelo nosso site</a></span></strong></p>"}]}],"__resolveType":"site/sections/Content/AccordionGroup.tsx"},{"mobile":32,"desktop":64,"__resolveType":"site/sections/Content/Spacing.tsx"},          {"__resolveType": "Newsletter Otica"},
-          {"__resolveType": "Footer Otica"},{"image":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d1cb68f2-0cdf-4389-89fb-8b34c0421fb5","title":"Suporte e ajuda | Ótica Isabela Dias","favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico","description":"Esta precisando de ajuda? Conte com a ótica Isabela Dias em qualquer etapa da compra dos seus óculos de grau. ","__resolveType":"website/sections/Seo/Seo.tsx"}],"__resolveType":"$live/pages/LivePage.tsx"}
+{
+  "name": "FAQ",
+  "path": "/ajuda-e-suporte",
+  "sections": [
+    {
+      "__resolveType": "Header - 01"
+    },
+    {
+      "variants": [
+        {
+          "rule": {
+            "mobile": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "style": {
+              "gap": 32,
+              "height": "250px",
+              "padding": {
+                "top": 20,
+                "left": 12,
+                "right": 12,
+                "bottom": 24
+              },
+              "container": true
+            },
+            "content": {
+              "title": {
+                "text": "<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Suporte &amp; Ajuda</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>",
+                "color": "#ffffff",
+                "onHover": null
+              },
+              "subtitle": null
+            },
+            "background": {
+              "color": "#05c1ff"
+            },
+            "breadcrumbs": {
+              "align": "left",
+              "items": [
+                {
+                  "name": "Inicio",
+                  "label": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><font color=\"#ffffff\"><span style=\"font-size: 13.3333px;\">Inicio</span></font></p>"
+                },
+                {
+                  "name": "Suporte e ajuda",
+                  "label": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: #ffffff;\"><span style=\"font-size: 13.3333px;\" data-mce-style=\"font-size: 13.3333px;\">Suporte e ajuda</span></span></p>"
+                }
+              ],
+              "textStyle": {
+                "color": "#ffffff",
+                "fontSize": 12,
+                "textAlign": "center",
+                "fontWeight": "Regular",
+                "lineHeight": 12,
+                "letterSpacing": 0
+              },
+              "separatorSize": 12,
+              "separatorColor": "#ffffff"
+            },
+            "__resolveType": "site/sections/Content/Hero.tsx"
+          }
+        },
+        {
+          "rule": {
+            "tablet": true,
+            "desktop": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "style": {
+              "gap": 32,
+              "height": "250px",
+              "padding": {
+                "top": 24,
+                "left": 12,
+                "right": 12,
+                "bottom": 24
+              },
+              "container": true
+            },
+            "content": {
+              "title": {
+                "text": "<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Ajuda &amp; Suporte</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>",
+                "color": "#ffffff",
+                "onHover": null
+              },
+              "subtitle": null
+            },
+            "background": {
+              "color": "#05c1ff"
+            },
+            "breadcrumbs": {
+              "align": "left",
+              "items": [
+                {
+                  "name": "Inicio",
+                  "label": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><a href=\"/\" data-mce-href=\"../../../\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">﻿Inicio</span></a></p>"
+                },
+                {
+                  "name": "Ajuda e Suporte",
+                  "label": "<p><a href=\"/faq\" data-mce-href=\"../../../faq\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(255, 255, 255);\" data-mce-style=\"color: rgb(255, 255, 255);\">﻿Ajuda &amp; Suporte</span></a></p>"
+                }
+              ],
+              "textStyle": {
+                "color": "#ffffff",
+                "fontSize": 12,
+                "textAlign": "center",
+                "fontWeight": "Regular",
+                "lineHeight": 12,
+                "letterSpacing": 0
+              },
+              "separatorSize": 12,
+              "separatorColor": "#ffffff"
+            },
+            "__resolveType": "site/sections/Content/Hero.tsx"
+          }
+        }
+      ],
+      "__resolveType": "website/flags/multivariate/section.ts"
+    },
+    {
+      "variants": [
+        {
+          "rule": {
+            "mobile": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "cards": [
+              {
+                "href": "/guias",
+                "icon": {
+                  "id": "Bulb",
+                  "size": 32,
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "strokeWidth": 2
+                },
+                "name": "Dicas e Guia",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Dicas e Guia</strong></span></h2>",
+                  "color": "#171717",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Está com dúvida de como comprar? Acesse nossas dicas e tutoriais</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/dicas-de-lentes",
+                "icon": {
+                  "id": "Progressive",
+                  "size": 32,
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "strokeWidth": 2
+                },
+                "name": "Dicas de Lentes de Grau",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h1 data-mce-style=\"line-height: 1.4;\" style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Dicas de lentes de grau</strong></span></span></h1>",
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Descubra o melhor tipo de lentes para você!</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/guias/provador-de-oculos-online",
+                "icon": {
+                  "id": "MenGlasses",
+                  "size": 32,
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "strokeWidth": 2
+                },
+                "name": "Experimentar óculos",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Experimentar óculos</strong></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Compre sem medo, prove óculos online!</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "#",
+                "icon": {
+                  "id": "Locale",
+                  "size": 32,
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "strokeWidth": 2
+                },
+                "name": "Acompanhar pedidos",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Acompanhar pedidos</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Acompanhe passo a passo do seu pedido</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/quem-somos-otica-isabela-dias",
+                "icon": {
+                  "id": "Home",
+                  "size": 24,
+                  "color": "#212121",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 16
+                },
+                "name": "Quem somos",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Quem somos</strong></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Desde 2016, já somos mais de 300 mil clientes satifeitos!</p>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
+                "icon": {
+                  "id": "Phone",
+                  "size": 32,
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "strokeWidth": 2
+                },
+                "name": "Contato",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 14pt;\" data-mce-style=\"font-size: 14pt;\"><strong>Contato</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#05c1ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: left;\" data-mce-style=\"line-height: 1.4; text-align: left;\">Precisa de ajuda? (16) 99181-5926 ou suporte@oticaisabeladias.com</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              }
+            ],
+            "style": {
+              "gap": 12,
+              "padding": {
+                "top": 24,
+                "left": 24,
+                "right": 24,
+                "bottom": 24
+              },
+              "container": true,
+              "backgroundColor": "#f3f3f3"
+            },
+            "columns": {
+              "mobile": 1,
+              "desktop": 3
+            },
+            "__resolveType": "site/sections/Content/Cards.tsx"
+          }
+        },
+        {
+          "rule": {
+            "tablet": true,
+            "desktop": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "cards": [
+              {
+                "href": "/guias",
+                "icon": {
+                  "id": "Bulb",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Dicas e Guias",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><strong><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\">Dicas e Guias</span></strong></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Está com dúvida de como comprar?&nbsp;Acesse nossas dicas e tutoriais</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/dicas-de-lentes",
+                "icon": {
+                  "id": "Progressive",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Dicas de lentes",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Dicas de lentes</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Quais tipos de lentes temos? Descubra o melhor tipo de lentes para você.</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/guias/provador-de-oculos-online",
+                "icon": {
+                  "id": "GlassesAroClosed",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Experimentar óculos",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Experimentar óculos</strong></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Compre sem medo, prove óculos online!</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/MinhaConta/Pedidos",
+                "icon": {
+                  "id": "Locale",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Acompanhar pedidos ",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Acompanhar pedidos</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\">Acompanhe passo a passo do seu pedido</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "https://api.whatsapp.com/send?phone=5516991815926&text=%C3%93la,%20preciso%20de%20atendimento",
+                "icon": {
+                  "id": "Phone",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Contato",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Contato</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">Precisa de ajuda? (16) 99181-5926 ou suporte@oticaisabeladias.com</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              },
+              {
+                "href": "/quem-somos-otica-isabela-dias",
+                "icon": {
+                  "id": "Home",
+                  "size": 48,
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "strokeWidth": 2
+                },
+                "name": "Quem Somos",
+                "style": {
+                  "gap": 12,
+                  "onHover": "#d1d1d1",
+                  "borderRadius": 12
+                },
+                "header": {
+                  "text": "<h2 style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span id=\"_mce_caret\" data-mce-bogus=\"1\" data-mce-type=\"format-caret\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Quem somos</strong></span></span></h2>",
+                  "color": "#000000",
+                  "onHover": "#42c2ff",
+                  "maxWidth": "100%"
+                },
+                "content": {
+                  "text": "<p style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">Desde 2016, já somos mais de 300 mil clientes satifeitos!</p>",
+                  "color": "#646464",
+                  "onHover": null,
+                  "maxWidth": "100%"
+                }
+              }
+            ],
+            "style": {
+              "gap": 32,
+              "padding": {
+                "top": 48,
+                "left": 12,
+                "right": 12,
+                "bottom": 48
+              },
+              "container": true,
+              "backgroundColor": "#f3f3f3"
+            },
+            "columns": {
+              "mobile": 1,
+              "desktop": 3
+            },
+            "__resolveType": "site/sections/Content/Cards.tsx"
+          }
+        }
+      ],
+      "__resolveType": "website/flags/multivariate/section.ts"
+    },
+    {
+      "mobile": 32,
+      "desktop": 64,
+      "__resolveType": "site/sections/Content/Spacing.tsx"
+    },
+    {
+      "variants": [
+        {
+          "rule": {
+            "mobile": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "text": {
+              "content": "<h2 style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\"><span style=\"font-size: 18pt;\" data-mce-style=\"font-size: 18pt;\"><strong>Perguntas Frequentes&nbsp;</strong></span></h2>",
+              "verticalAlign": "center"
+            },
+            "media": null,
+            "button": null,
+            "seeMore": null,
+            "container": true,
+            "linksGrid": null,
+            "__resolveType": "site/sections/Content/RichText.tsx"
+          }
+        },
+        {
+          "rule": {
+            "tablet": true,
+            "desktop": true,
+            "__resolveType": "$live/matchers/MatchDevice.ts"
+          },
+          "value": {
+            "text": {
+              "content": "<h2 style=\"line-height: 1.4; text-align: center;\" data-mce-style=\"line-height: 1.4; text-align: center;\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Perguntas Frequentes</span></strong></h2>",
+              "verticalAlign": "center"
+            },
+            "media": null,
+            "button": null,
+            "seeMore": null,
+            "container": true,
+            "linksGrid": null,
+            "__resolveType": "site/sections/Content/RichText.tsx"
+          }
+        }
+      ],
+      "__resolveType": "website/flags/multivariate/section.ts"
+    },
+    {
+      "mobile": 12,
+      "desktop": 64,
+      "__resolveType": "site/sections/Content/Spacing.tsx"
+    },
+    {
+      "style": {
+        "paddingLeft": 12,
+        "paddingRight": 12
+      },
+      "contents": [
+        {
+          "title": "Posso fazer devolução na ótica Isabela Dias?",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Posso devolver minha armação com lentes de grau?",
+              "content": "<p>O cliente poderá se arrepender da compra realizada em até 7 dias depois da entrega do prodouto, conforme estabelece o artigo 49 do código de defesa do consumidor.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>As lentes de grau são produtos de saúde personalizados de acordo a prescrição do paciente, são fabricadadas no laboratório conforme solicitado na compra. Neste caso não permitirão a venda das lentes a outro consumidor. Será feito o estorno do frete e dos valores da armação.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>O cliente deverá solicitar no email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> dentro do prazo indicado. Não serão válidos pedidos de devolução realizados por whatsapp e redes sociais.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Antes de receber o estorno, o pedido precisa chegar a nossa empresa, onde será feito um processo de qualidade que pode levar até 5 dia úteis para ser concluído.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Não fazemos troca, apenas devolução do valor dos itens mencionados acima.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Posso devolver óculos de sol? ",
+              "content": "<p>O cliente poderá se arrepender da compra realizada desde a compra em até 7 dias depois da entrega do produto, conforme estabelece o artigo 49 do código de defesa do consumidor.&nbsp;</p><p>O cliente deverá solicitar no email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> dentro do prazo indicado. Não serão válidos pedidos de devolução realizados por whatsapp e redes sociais.&nbsp;</p><p>Antes de receber o estorno, o pedido precisa chegar a nossa empresa, onde será feito um processo de qualidade que pode levar até 5 dias úteis para ser concluído.&nbsp;</p><p>Observação importante: Caso seus óculos de sol foi produzido com as lentes de grau, elas são produtos de saúde personalizados de acordo a prescrição do paciente, são fabricadadas no laboratório conforme solictado na compra. Neste caso não permitirão a venda das lentes a outro consumidor. Será feito o estorno do frete e dos valores das armações.</p><p>Não fazemos troca, apenas devolução do valor dos itens mencionados acima.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Posso devolver lentes de contato?",
+              "content": "<ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">Você possui até 7 dias corridos, após o recebimento do produto, para solicitar a&nbsp; devolução.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">O produto precisa estar na embalagem original fechada, acompanhado de todos os acessórios recebidos (estojo, caixa, blister/ampolas, etc.) e brindes. Se abrir a caixa, não aceitaremos devoluções</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">A violação, rasura ou dano na embalagem das lentes de contato serão considerados com renúncia ao direito de desistênicia da compra ou solicitação da troca, pois causam inutilização do produto, vez que as lentes de contato são produtos para saúde não podendo ser recomercializados nestas condiçoes, assim não cabendo reembolso do valor pago ou troca por outro pedido.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">&nbsp;O reembolso do valor pago, somente serão realizados após a Ótica Isabela Dias receber os produtos enviados pelo cliente, os quais serão analisados para finalização do processo.</li></ul><p><br data-mce-bogus=\"1\"></p><ul><li style=\"line-height: 1.5;\" data-mce-style=\"line-height: 1.5;\">A Ótica Isabela DIas não se responsabiliza pela não adaptação ás lentes de contato, orientamos que os usuário mantenham as marcas e modelos aos quais já estão adaptados e façam a alteração somente por indicação, devendo sempre consultar seu oftamologista.</li></ul>"
+            }
+          ]
+        },
+        {
+          "title": "Como funciona a garantia?",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Recebi o produto com defeito!",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ops, isso não era para ter acontecido, fique tranquilo vamos contornar essa situação o mais rápido possível. Preciso que você envie um email para <a href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> e informe o número do pedido e quais itens chegaram errado ou com defeito.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Recebi com produto com itens faltando",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ops, isso não era para ter acontecido, fique tranquilo vamos contornar essa situação o mais rápido possível. Preciso que você envie um email para <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> e informe o número do pedido e quais itens chegaram estão faltando.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Não me adaptei com as lentes de grau (óculos)",
+              "content": "<p>Fique tranquilo vamos te auxiliar. Antes de solicitar a garantia de adaptação retorne no local onde foi realizado o exame de vista e solicite a conferência dos óculos. Duas situações podem surgir agora: </p><p><br data-mce-bogus=\"1\"></p><ul><li>&nbsp;Provavelmente o médico emitíra uma nova receita médica diferente da primeira. A garantia de adaptação para que seja aprovada, é nescessário ter 3 meses no máximo entre a receita antiga receita e a nova. Faremos novas lentes sem custo nenhum.<br data-mce-bogus=\"1\"></li></ul><p><br data-mce-bogus=\"1\"></p><p><br data-mce-bogus=\"1\"></p><ul><li>&nbsp;Segundo caso é muito raro acontecer, quase impossível, seria um erro em nossa produção, e a lentes solicitadas não estão de acordo a receita médica. Também faremos novas lentes sem custo nenhum.&nbsp;</li></ul><p><br data-mce-bogus=\"1\"></p><p>para ambos casos descritos acima, solicite a garantia pelo email <a href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> informe o número do pedido, e descreve seu caso. Conte com a gente!&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Não me adaptei com as lentes de contato",
+              "content": "<p>A Ótica Isabela DIas não se responsabiliza pela não adaptação as lentes de contato, orientamos que os usuário mantenham as marcas e modelos aos quais já estão adaptados e façam a alteração somente por indicação, devendo sempre consultar seu oftamologista antes de utilizar lentes de contato.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Meus óculos ou lentes de grau apresentaram defeito",
+              "content": "<p>Conte com a gente vamos te ajudar, basta informar pelo email <a href=\"mailto:suporte@oticaisabeladias.com\" data-mce-href=\"mailto:suporte@oticaisabeladias.com\">suporte@oticaisabeladias.com</a> em até 90 dias, como estabelece o código de defesa do consumidor em seu artigo 26. Não será aceito solicitações por redes sociais ou whatsapp.&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Para agilizarmos o atendimento informe:</p><ul><li>Número do pedido</li><li>Descreve com detalhes como o defeito surgiu</li><li>Envie fotos do produto</li></ul><p><br data-mce-bogus=\"1\"></p><p>Esclarecemos que a empresa tem o prazo de até 30 dias para solucionar o defeito apresentado.&nbsp;&nbsp;</p><p><br data-mce-bogus=\"1\"></p><p>Não sendo o vício sanado no prazo máximo de trinta dias, pode o consumidor exigir, alternativamente e à sua escolha: I - a substituição do produto por outro da mesma espécie, em perfeitas condições de uso; II - a restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos; III - o abatimento proporcional do preço.</p><p><br data-mce-bogus=\"1\"></p><p>Assim sendo, somente haverá o cancelamento da compra e eventual restituição dos valores pagos se a empresa não apresentar solução dentro do prazo legal.</p><p><br data-mce-bogus=\"1\"></p><p>Alguns itens são passíveis de reprovação:</p><p><br data-mce-bogus=\"1\"></p><p>- Ausência de defeito (não constatação do dano apontado pelo cliente)</p><p>- Indícios de uso inadequado do produto</p><ul><li>Indícios de dano acidental</li></ul><p><br data-mce-bogus=\"1\"></p><p>O tempo de resposta é de até 24 horas úteis. Ficamos a disposição.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Quanto tempo tenho de garantia?",
+              "content": "<p>Conseguimos manter qualidade e preço justo, nossos produtos tem garantia. O prazo para exercício de direito de garantia é de 90 (noventa) dias para produtos e serviços duráveis a contar da efetiva entrega do produto.</p>"
+            }
+          ]
+        },
+        {
+          "title": "Pagamento",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Quantas vez parcela no cartão sem juros?",
+              "content": "<p>Uma ótima notícia, parcelamos em até 10x sem juros.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Parcela no boleto?",
+              "content": "<p>Não, apenas no cartão de crédito, em até 10x sem juros.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Quais bandeiras de cartão aceitam?",
+              "content": "<p>Aceitamos, as bandeiras de cartão Visa, Mastercard, American Express, Elo, Hipercard, Diners, Discovery, Aura e JCB.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Aceita vale refeição?",
+              "content": "<p>No momento não estamos aceitando.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Posso pagar via pix?",
+              "content": "<p>Sim, aceitamos forma de pagamento pix.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Posso pagar com boleto avista?",
+              "content": "<p>Sim, você tem até 5 dias para reservar o seu pedido pagar.&nbsp;</p>"
+            }
+          ]
+        },
+        {
+          "title": "Qual o prazo para postar meu pedido?",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Óculos com lentes de grau ",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">&nbsp;Os pedidos com lentes de grau tem o prazo para fabricação de lentes com a média de 2 a 7 dias úteis,&nbsp; este prazo é informado em cada tipo de lentes no momento da compra. Após o pedido postado terá o prazo do frete escolhido no site.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Lentes de contato",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">As lentes de contato tem o prazo de postagem de 2 a 5 dias úteis. A maioria das lentes esféricas possuem estoque em nossa empresa.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Óculos de sol ou acessórios",
+              "content": "<p>Pedidos de óculos de sol sem grau tem o prazo de 1 dia útil para ser postado. Se tiver lentes de grau no pedido as lentes são fabricadas de 3 a 7 dias úteis, e após ser postado, tem o prazo do frete escolhido na compra para ser entregue.</p>"
+            }
+          ]
+        },
+        {
+          "title": "Lentes e Receita",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Como ler ou preencher minha receita no site?",
+              "content": "<p>Esta com dúvidas para ler sua receita médica, <a data-mce-href=\"https://www.oticaisabeladias.com.br/guias/como-ler-entender-a-receita-de-oculos\" href=\"https://www.oticaisabeladias.com.br/guias/como-ler-entender-a-receita-de-oculos\" data-mce-selected=\"inline-boundary\"><span style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><strong><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\">acesse nosso tutorial completo﻿</span>﻿</strong></span></a></p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Vocês fazem lentes de grau bifocais?",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Ainda não fazemos lentes bifocais. Apenas multifocais que são lentes mais modernas.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Vocês fazem lentes de grau multifocais?",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Sim, fazemos as lentes multifocais, basta escolher uma armação de óculos e clicar no botão \"escolher lentes\" agora escolha a opção \"quero lentes multifocais\" escolha as lentes e finalize a compra. Ficamos a disposição, boas compras! <span style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\"><strong><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/quanto-custa-uma-lente-multifocal\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/quanto-custa-uma-lente-multifocal\" data-mce-selected=\"inline-boundary\" style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\">Caso deseja saber mais sobre as lentes multifocais clique aqui</a></strong></span></p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Vocês fazem lentes de grau ocupacionais?",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Sim, fazemos as lentes ocupacionais, basta escolher uma armação de óculos e clicar no botão \"escolher lentes\" agora escolha a opção \"quero lentes ocupacionais\" escolha as lentes e finalize a compra. Ficamos a disposição, boas compras! <span style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/lentes-ocupacionais\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes/lentes-ocupacionais\" style=\"color: rgb(53, 152, 219);\" data-mce-style=\"color: rgb(53, 152, 219);\"><strong><span style=\"color: rgb(41, 189, 247);\" data-mce-style=\"color: rgb(41, 189, 247);\">Caso deseja saber mais sobre as lentes ocupacionais clique aqu</span></strong>i</a></span></p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Não encontrei o meu grau no site",
+              "content": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\">Vamos fazer de tudo para te atender, se você tentou realizar a comprar em nosso site e não conseguiu encontrar seu grau envie foto da sua receita para um de nossos consultores pelo whatsapp (16) 99181-5926</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Quais tipo de lentes a Ótica Isabela Dias vende?",
+              "content": "<p>Nossas lentes são confeccionadas com a tecnologia <strong>FREE-FORM</strong> a melhor e mais avançada tecnologia de lentes. Garantindo que a sua visão seja mais saudável, trazendo inúmeros benefícios para a sua saúde física e mental. Agora que você ja sabe o tipo da fabricação, é hora de saber que temos os melhores opções tratamentos de lentes, como: antirreflexo, proteção digital, fotossensíveis (escurece no sol), lentes super finas, multifocais, ocupacionais e muito mais. <span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" href=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" title=\"https://www.oticaisabeladias.com.br/dicas-de-lentes\" style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\" data-mce-selected=\"inline-boundary\"><strong>Saiba mais sobre nossas lentes.</strong></a></span></p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Como medir minha DNP?",
+              "content": "<p>Fique tranquilo o nosso sistema digital faz todas as medidas para realizar a fabricação dos seus óculos. Caso necessário alguma informação entramos em contato pelo whatsapp.  <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.oticaisabeladias.com.br/guias/como-medir-a-dnp\"><strong><span style=\"color: rgb(35, 180, 253)\">Para saber mais em veja nosso tutorial&nbsp;</span></strong></a></p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Como utilizar minha receita de óculos para comprar lentes de contato?",
+              "content": "<p>É possível comprar lentes de contato com sua receita de óculos sim, mas precisamos fazer uma conversão. Entre em contato com o nosso atendimento via whatsapp (16) 99181-5926.&nbsp;</p>"
+            }
+          ]
+        },
+        {
+          "title": "Atendimento",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Já comprei e preciso de ajuda",
+              "content": "<p>Se precisa alterar seu pedido, saber sobre sua entrega, clique no ícone do whatsapp aqui em nosso site. Mas se deseja falar sobre devolução ou garantia envie um email para suporte@oticaisabeladias.com</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Dúvidas antes da compra",
+              "content": "<p>Se deseja tirar dúvidas antes da compra ou fazer um orçamento com um de nossos atendentes, clique no ícone do whatsapp em nosso site ou entre em contato pelo número (16) 99181-5926.&nbsp;</p>"
+            }
+          ]
+        },
+        {
+          "title": "Entrega ",
+          "children": [
+            {
+              "type": "accordion",
+              "title": "Quanto tempo demora para entregar meus óculos?",
+              "content": "<p>Normalmente o prazo de fabricação de lentes vária de 1 a 7 dias úteis. Após esse prazo será calculado o prazo de acordo com o frete escolhido.</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Minha entrega esta atrasada ",
+              "content": "<p>Ops, isso não era para ter acontecido. Por favor entre em contato com um dos nossos consultores pelo whatsapp (16) 99181-5926, nos vamos te auxiliar com prioridade. Conte com a gente!</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Quais são as opções de transportadoras para entregar?",
+              "content": "<p>Nós trabalhamos com as melhores transportadoras do Brasil, correios, jadlog.&nbsp;</p>"
+            },
+            {
+              "type": "accordion",
+              "title": "Como eu rastreio os meus óculos?",
+              "content": "<p>Assim que seus óculos for postado nos correios, você receberá o código de rastreio no whatsapp e email. Você também pode acessar a <strong><span style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\"><a data-mce-href=\"https://www.oticaisabeladias.com.br/MinhaConta/Pedidos\" href=\"https://www.oticaisabeladias.com.br/MinhaConta/Pedidos\" title=\"Meu pedido otica isabela dias\" style=\"color: rgb(66, 194, 255);\" data-mce-style=\"color: rgb(66, 194, 255);\">área do cliente pelo nosso site</a></span></strong></p>"
+            }
+          ]
+        }
+      ],
+      "__resolveType": "site/sections/Content/AccordionGroup.tsx"
+    },
+    {
+      "mobile": 32,
+      "desktop": 64,
+      "__resolveType": "site/sections/Content/Spacing.tsx"
+    },
+    {
+      "__resolveType": "Newsletter Otica"
+    },
+    {
+      "__resolveType": "Footer Otica"
+    },
+    {
+      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d1cb68f2-0cdf-4389-89fb-8b34c0421fb5",
+      "title": "Suporte e ajuda | Ótica Isabela Dias",
+      "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
+      "description": "Esta precisando de ajuda? Conte com a ótica Isabela Dias em qualquer etapa da compra dos seus óculos de grau. ",
+      "__resolveType": "website/sections/Seo/Seo.tsx"
+    }
+  ],
+  "__resolveType": "$live/pages/LivePage.tsx"
+}
