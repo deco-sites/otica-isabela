@@ -15,7 +15,26 @@ function BestDailyOffers({ products, customer }: Props) {
     return null;
   }
 
-  const priceValidUntil = null; // TODO: get priceValidUntil from product API
+  // Find the first product with an active promotion
+  const getActivePromotionEndDate = () => {
+    const now = new Date();
+    
+    for (const product of products) {
+      if (product.promotion?.countdown) {
+        const startDate = new Date(product.promotion.countdown.start);
+        const endDate = new Date(product.promotion.countdown.end);
+        
+        // Check if promotion is currently active
+        if (now >= startDate && now <= endDate) {
+          return product.promotion.countdown.end;
+        }
+      }
+    }
+    
+    return null;
+  };
+
+  const priceValidUntil = getActivePromotionEndDate();
 
   if (!priceValidUntil) return null;
 

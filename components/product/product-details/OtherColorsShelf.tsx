@@ -3,36 +3,21 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import Image from "apps/website/components/Image.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import { Product } from "site/packs/v2/types.ts";
-import { withManifest } from "$live/clients/withManifest.ts";
-import type { Manifest } from "../../../manifest.gen.ts";
 import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 interface Props {
   product: Product;
-  relatedProductImages: {
+  relatedProductImages?: ({
     slug: string;
     images: MediasResponseObject[];
-  }[];
+  } | null)[];
 }
-
-// type Variant = ProductLeaf & {
-//   Imagem?: string;
-// };
 
 function OtherColorsShelf({ product, relatedProductImages }: Props) {
   const id = `other-colors-shelf-${useId()}`;
   const { relatedProducts, id: productID } = product;
 
   if (relatedProducts && relatedProducts.length <= 0) return null;
-
-  // const images = relatedProducts
-  //   ?.map((variant) => ({
-  //     image: variant.Imagem,
-  //     alternateName: variant.alternateName,
-  //     url: variant.url,
-  //     sku: variant.sku,
-  //   }))
-  //   .filter((variant) => variant.sku !== productID);
 
   return (
     <div class="mt-10">
@@ -45,24 +30,28 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
       <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-10">
         <div id={id} class="container flex flex-col px-0 sm:px-5">
           <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
-            {relatedProductImages?.map(({ slug, images }, index) => (
-              <div class="flex flex-col">
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full justify-center items-center"
-                >
-                  <a href={`/produto/${slug}`}>
-                    <Image
-                      class="max-w-[260px] md:max-w-[100%]"
-                      src={images[0]?.productImage!}
-                      alt={product.name ?? slug}
-                      width={260}
-                      height={260}
-                    />
-                  </a>
-                </Slider.Item>
-              </div>
-            ))}
+            {relatedProductImages?.map((item, index) => {
+              if (!item) return null;
+              const { slug, images } = item;
+              return (
+                <div class="flex flex-col" key={slug}>
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item w-full justify-center items-center"
+                  >
+                    <a href={`/produto/${slug}`}>
+                      <Image
+                        class="max-w-[260px] md:max-w-[100%]"
+                        src={images[0]?.productImage!}
+                        alt={product.name ?? slug}
+                        width={260}
+                        height={260}
+                      />
+                    </a>
+                  </Slider.Item>
+                </div>
+              );
+            })}
           </Slider>
 
           <SliderJS
@@ -75,7 +64,9 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
 
           {/* Dots */}
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
-            {relatedProductImages?.map((_, index) => <Slider.Dot index={index} />)}
+            {relatedProductImages?.map((_, index) => (
+              <Slider.Dot index={index} />
+            ))}
           </div>
         </div>
       </div>

@@ -80,14 +80,10 @@ export interface Props {
   /** @title Loader */
   page: LoaderReturnType<IsabelaProductListingPage | null>;
   banner?: BannerProps[];
-  /** @title Cores do Filtro */
-  filterColors?: Color[];
   /** @title Icones do filtro de Tipo */
   typeIcons?: Type[];
   /** @title Icones do filtro de Formato */
   shapeIcons?: Shape[];
-  /** @title Esconder Filtros */
-  hideFilters?: string[];
   /** @title Menu de Categorias */
   categories?: CategoryMatcher[];
   /** @title Ativar carossel nos itens da galeria? */
@@ -117,8 +113,6 @@ function Result(
   {
     page,
     banner = [] as BannerProps[],
-    filterColors = [],
-    hideFilters = [],
     typeIcons = [],
     shapeIcons = [],
     categories = [],

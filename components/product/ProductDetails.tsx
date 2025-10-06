@@ -60,10 +60,11 @@ export interface Props {
   priceValidUntil?: string;
   /** @title Informacoes dentro da secão de descricao */
   /** @hide */
-  relatedProductImages: {
+  relatedProductImages?: ({
     slug: string;
     images: MediasResponseObject[];
-  }[];
+  } | null)[];
+  
 }
 function ProductDetails(
   {

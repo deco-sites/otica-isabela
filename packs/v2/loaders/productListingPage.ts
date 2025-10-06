@@ -40,7 +40,8 @@ export interface ProductListingPageProps {
   PageSize?: number;
 
   /** @title Ordenação dos Produtos */
-  OrderBy: "name" | "-name" | "price" | "-price" | string;
+  /** @hide */
+  OrderBy?: "name" | "-name" | "price" | "-price" | string;
 
   /** @title Filtros Dinâmicos */
   Filters?: ProductFilter[];
