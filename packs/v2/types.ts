@@ -43,6 +43,13 @@ export interface ProductInstallment {
   installmentNumber: number;
 }
 
+export interface ProductPromotion {
+  countdown?: {
+    start: string;
+    end: string;
+  };
+}
+
 export interface Product {
   id: number;
   skuId: number;
@@ -62,6 +69,7 @@ export interface Product {
   relatedProducts?: RelatedProduct[];
   descriptions?: ProductDescription[];
   productRating?: number;
+  promotion?: ProductPromotion;
 }
 
 export interface ProductAttribute {

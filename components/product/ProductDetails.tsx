@@ -78,9 +78,22 @@ function ProductDetails(
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
-  // const { offers } = product || {};
-  // const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
+  
+  // Use the new promotion countdown format from v2 types
+  const isPromotionActive = () => {
+    if (!product?.promotion?.countdown) return false;
+    
+    const now = new Date();
+    const startDate = new Date(product.promotion.countdown.start);
+    const endDate = new Date(product.promotion.countdown.end);
+    
+    // Check if current time is within the promotion period
+    return now >= startDate && now <= endDate;
+  };
 
+  // Only set priceValidUntil if promotion is active and within valid date range
+  const priceValidUntil = isPromotionActive() ? product?.promotion?.countdown?.end : undefined;
+  
   return (
     <>
       <div class="lg:bg-gray-scale-100">
@@ -95,7 +108,7 @@ function ProductDetails(
                 stepButtonByCategory={stepButtonByCategory}
                 customer={customer}
                 mobileOptions={mobileOptions}
-                // priceValidUntil={priceValidUntil} // TODO: pegar a data correta
+                priceValidUntil={priceValidUntil}
               />
             )
             : <NotFound />}
@@ -112,7 +125,7 @@ function ProductDetails(
         measurementsImage={measurementsImage!}
       />
 
-      { /* <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */ }
+      {/* <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */}
     </>
   );
 }
@@ -127,9 +140,10 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
   const currentSlugs: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
 
-  const newSlugs = currentSlugs.some((slug) => slug === props.page.product.slug)
-    ? currentSlugs
-    : currentSlugs.concat([props.page.product.slug]);
+  const newSlugs =
+    currentSlugs.some((slug) => slug === props.page?.product.slug)
+      ? currentSlugs
+      : currentSlugs.concat([props.page.product.slug]);
 
   setCookie(ctx.response.headers, {
     name: visitedProductsCookie,

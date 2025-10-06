@@ -257,7 +257,7 @@ function Details({
               <div class="relative">
                 {priceValidUntil && (
                   <BestOffersHeader
-                    priceValidUntil={priceValidUntil!}
+                    priceValidUntil={priceValidUntil}
                     page="details"
                   />
                 )}

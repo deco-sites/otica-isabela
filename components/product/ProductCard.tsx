@@ -328,7 +328,17 @@ function ProductCard({
         class="relative"
         id={`product-card-${productID}-${imageContainerId}`}
       >
-        {isStopwatchEnabled && <Stopwatch targetDate={""} type="card" />}
+        {isStopwatchEnabled && product.promotion?.countdown && (() => {
+          // Check if promotion is currently active
+          const now = new Date();
+          const startDate = new Date(product.promotion.countdown.start);
+          const endDate = new Date(product.promotion.countdown.end);
+          const isActive = now >= startDate && now <= endDate;
+          
+          return isActive ? (
+            <Stopwatch targetDate={product.promotion.countdown.end} type="card" />
+          ) : null;
+        })()}
         {isSliderEnabled ? renderSlider() : renderStaticImage()}
       </a>
 
