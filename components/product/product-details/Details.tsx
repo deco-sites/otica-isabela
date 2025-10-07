@@ -54,7 +54,7 @@ function Details({
   mobileOptions,
   priceValidUntil,
 }: Props) {
-  const { product, breadcrumbList } = page!;
+  const { product } = page!;
   const {
     name,
     id: productID,
@@ -100,7 +100,17 @@ function Details({
     name: name!,
   };
 
-  const currentCategory = breadcrumbList?.itemListElement[0].name;
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { name: product.category?.name ?? "", href: `/${product.category?.slug}` },
+    ...(product.category?.parent?.name
+      ? [{
+        name: product.category?.parent?.name,
+        href: `/${product.category?.slug}/${product.category?.parent?.slug}`,
+      }]
+      : []),
+  ];
+
+  const currentCategory = breadcrumbItems?.[0]?.name;
   const labels = buttonByCategory?.reduce(
     (acc: { [key: string]: string }, curr) => {
       acc[curr.category.toLowerCase()] = curr.label;
@@ -128,17 +138,7 @@ function Details({
     .isLensWithoutPrescription;
   const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
 
-  const isLentes = product?.category?.name?.includes("Lentes de Contato");
-
-  const breadcrumbItems: BreadcrumbItem[] = [
-    { name: product.category?.name ?? "", href: `/${product.category?.slug}` },
-    ...(product.category?.parent?.name
-      ? [{
-        name: product.category?.parent?.name,
-        href: `/${product.category?.slug}/${product.category?.parent?.slug}`,
-      }]
-      : []),
-  ];
+  const isLentes = product?.category?.name?.toLowerCase().trim().includes("lentes de contato");
 
   return (
     <>
@@ -418,6 +418,7 @@ function Details({
             labels={labels}
             stepLabels={stepLabels}
             customer={customer}
+            currentCategory={currentCategory!}
           />
         </div>
       </div>

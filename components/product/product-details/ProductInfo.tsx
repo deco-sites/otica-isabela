@@ -19,14 +19,22 @@ interface Props {
   labels?: Record<string, string>;
   stepLabels?: Record<string, string>;
   customer: LoaderReturnType<AuthData>;
+  currentCategory: string;
 }
 
 function ProductInfo(
-  { page, promotions, labels, stepLabels, customer }: Props,
+  { page, promotions, labels, stepLabels, customer, currentCategory }: Props,
 ) {
-  const { product, breadcrumbList } = page!;
-  const { id: productID, skuId, name, slug, price, priceWithDiscount, installments } =
-    product;
+  const { product } = page!;
+  const {
+    id: productID,
+    skuId,
+    name,
+    slug,
+    price,
+    priceWithDiscount,
+    installments,
+  } = product;
   const chooseLensUrl = `/passo-a-passo/${slug}`;
   const experimenterImage = findProductAttribute("experimentador", product)
     ?.value;
@@ -46,7 +54,6 @@ function ProductInfo(
   const promotion = promotions?.find((current) =>
     current.label.toLowerCase() === promotionFlag
   );
-  const currentCategory = breadcrumbList?.itemListElement[0].name;
 
   const rating = findProductAttribute("rating", product)?.value;
   const ratingValue = rating ? parseFloat(rating) : 0;
@@ -56,16 +63,20 @@ function ProductInfo(
     .isLensWithoutPrescription;
   const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
 
-  const isLentes = product?.category?.name?.includes("Lentes de Contato");
+  const isLentes = product?.category?.name?.toLowerCase().trim().includes(
+    "lentes de contato",
+  );
 
   const handleStepsLabel = () => {
     if (isLensWithoutPrescription) {
-      return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
+      return stepLabels?.[`${currentCategory!.toLowerCase().trim()} sem grau`];
     }
-    return stepLabels?.[currentCategory!.toLowerCase()];
+    return stepLabels?.[currentCategory!.toLowerCase().trim()];
   };
 
   const stepLabel = handleStepsLabel();
+
+  console.log(stepLabel, 'stepLabel!', currentCategory!.toLowerCase().trim());
 
   return (
     <>

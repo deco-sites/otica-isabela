@@ -72,10 +72,10 @@ function CartModalMobile({
 
   const handleStepsLabel = () => {
     if (isLensWithoutPrescription) {
-      return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
+      return stepLabels?.[`${currentCategory!.toLowerCase().trim()} sem grau`];
     }
 
-    return stepLabels?.[currentCategory!.toLowerCase()];
+    return stepLabels?.[currentCategory!.toLowerCase().trim()];
   };
 
   const stepLabel = handleStepsLabel();
@@ -94,12 +94,12 @@ function CartModalMobile({
           />
         </div>
       )}
-      {labels?.[currentCategory.toLowerCase()!]
+      {labels?.[currentCategory.toLowerCase().trim()!]
         ? (
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={labels?.[currentCategory!.toLowerCase()]}
+              label={labels?.[currentCategory!.toLowerCase().trim()]}
             />
           </div>
         )
