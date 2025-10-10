@@ -5302,7 +5302,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -5756,7 +5757,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -5967,7 +5969,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productList.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "productTitle": "Experimente",
                     "__resolveType": "site/sections/Product/SingleProductShelf.tsx",
@@ -6726,7 +6729,8 @@
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
                       "idColecaoProdutos": 3,
-                      "somenteCronometrosAtivos": false
+                      "somenteCronometrosAtivos": false,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -7053,7 +7057,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -7366,7 +7371,8 @@
                       "ordenacao": "ofertas",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -7797,7 +7803,8 @@
                       "ordenacao": "none",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
@@ -8267,7 +8274,8 @@
                       "ordenacao": "ofertas",
                       "__resolveType": "site/loaders/product/productListiningPage.ts",
                       "filtrosDinamicos": [],
-                      "idColecaoProdutos": 3
+                      "idColecaoProdutos": 3,
+                      "isProdutosSimilares": true
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
