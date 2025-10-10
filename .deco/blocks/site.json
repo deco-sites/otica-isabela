@@ -77,5 +77,7 @@
     "framework": "fresh"
   },
   "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
-  "publicUrl": "https://secure.oticaisabeladias.com.br/"
+  "publicUrl": "https://secure.oticaisabeladias.com.br/",
+  "apiBaseUrl": "https://api-oid.oticaisabeladias.com.br",
+  "apiToken": "YydMaqHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoL6ljV1UT9CmJAMoBr6hGglyF5gICjJte9Ql0x9OumIaP6nY4FDCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6adOHixUu1xeaI"
 }

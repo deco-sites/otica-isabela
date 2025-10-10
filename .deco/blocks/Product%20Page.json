@@ -28,7 +28,12 @@
           "param": "slug",
           "__resolveType": "deco-sites/std/functions/requestToParam.ts"
         },
-        "__resolveType": "site/loaders/product/productDetails.ts"
+        "__resolveType": "site/loaders/product/productDetailsV2.ts",
+        "seo": null,
+        "breadcrumbList": {
+          "video": null,
+          "image": null
+        }
       },
       "reviews": {
         "__resolveType": "productTestimonials"
@@ -94,6 +99,10 @@
         {
           "label": "Escolher as Lentes",
           "category": "Óculos De Sol"
+        },
+        {
+          "label": "Escolher as Lentes",
+          "category": "Armação de Óculos"
         },
         {
           "label": "Escolher o Grau",
