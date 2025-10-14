@@ -4884,13 +4884,13 @@
                     "__resolveType": "website/sections/Rendering/Lazy.tsx",
                     "section": {
                       "__resolveType": "site/sections/Content/VideoModal.tsx",
-                      "videoUrl": "https://www.youtube.com/watch?v=j285g5atIt4",
                       "thumbnail": {
                         "src": "https://assets.decocache.com/otica-isabela/5e3e2b1e-dd2a-40e6-add2-d693e2353897/O-impacto-dos-oculos-na-vida-das-criancas.jpg",
                         "alt": "capa",
                         "width": 1920,
                         "height": 1000
-                      }
+                      },
+                      "videoUrl": "https://youtu.be/i-067MKjeHI"
                     }
                   },
                   {
