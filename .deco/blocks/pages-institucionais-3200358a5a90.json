@@ -4888,7 +4888,8 @@
                         "src": "https://assets.decocache.com/otica-isabela/5e3e2b1e-dd2a-40e6-add2-d693e2353897/O-impacto-dos-oculos-na-vida-das-criancas.jpg",
                         "alt": "capa",
                         "width": 1920,
-                        "height": 1000
+                        "height": 1000,
+                        "preload": true
                       },
                       "videoUrl": "https://youtu.be/i-067MKjeHI"
                     }
@@ -5157,9 +5158,10 @@
                         "alt": "reportagem",
                         "width": 1920,
                         "height": 1000,
-                        "src": "https://assets.decocache.com/otica-isabela/d06e03bd-8e80-4407-a335-6ee656868257/Oculos-mudam-a-vida-das-criacas.jpg"
+                        "src": "https://assets.decocache.com/otica-isabela/d06e03bd-8e80-4407-a335-6ee656868257/Oculos-mudam-a-vida-das-criacas.jpg",
+                        "preload": true
                       },
-                      "videoUrl": "https://youtu.be/9eeGKF3jcrw?t=1"
+                      "videoUrl": "https://youtu.be/9eeGKF3jcrw"
                     }
                   }
                 ],
