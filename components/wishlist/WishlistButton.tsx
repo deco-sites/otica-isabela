@@ -6,7 +6,7 @@ import { AuthData } from "$store/packs/types.ts";
 import { useSignal } from "@preact/signals";
 
 interface Props {
-  productID: string;
+  productID: string | number;
   variant?: "icon" | "full";
   customer?: LoaderReturnType<AuthData>;
 }
