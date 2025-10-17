@@ -13,15 +13,15 @@ export const FirstBlock = (
 
   return (
     <section className="w-full bg-blue-300 flex flex-col items-center justify-center  pt-12 gap-y-8">
-      <div class="flex flex-col text-center gap-y-0 lg:gap-y-2">
+      <div class="flex flex-col text-center gap-y-0  lg:gap-y-2  ">
         <span class="text-blue-100 font-semibold text-lg lg:text-[28px]">
           {firstLabel}
         </span>
-        <span class="text-white uppercase font-normal font-outfit text-5xl lg:text-6xl pt-1">
+        <span class="text-white uppercase font-normal font-outfit  text-5xl lg:text-6xl pt-1 ">
           {secondLabel}
         </span>
       </div>
-      <div class="flex flex-row justify-between items-center w-full max-w-[240px] lg:max-w-sm">
+      <div class="flex flex-row justify-between  items-center w-full max-w-[240px] lg:max-w-sm ">
         <a href={instagram} aria-label="Instagram">
           <Icon
             width="50px"

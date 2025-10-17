@@ -36,7 +36,7 @@ const About = ({
       <div class="container px-4 lg:px-0">
         <input type="checkbox" name="see-more" id={id} class="peer hidden" />
         <span
-          class="w-full text-start"
+          class="w-full text-start  "
           dangerouslySetInnerHTML={{
             __html: firstPart ?? "",
           }}

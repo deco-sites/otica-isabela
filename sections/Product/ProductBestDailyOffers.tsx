@@ -1,9 +1,9 @@
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
+import type { Product } from "apps/commerce/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import Section from "../../components/ui/Section.tsx";
-import { Product } from "site/packs/v2/types.ts";
 
 export interface Props {
   products?: Product[] | null;
@@ -15,26 +15,7 @@ function BestDailyOffers({ products, customer }: Props) {
     return null;
   }
 
-  // Find the first product with an active promotion
-  const getActivePromotionEndDate = () => {
-    const now = new Date();
-    
-    for (const product of products) {
-      if (product.promotion?.countdown) {
-        const startDate = new Date(product.promotion.countdown.start);
-        const endDate = new Date(product.promotion.countdown.end);
-        
-        // Check if promotion is currently active
-        if (now >= startDate && now <= endDate) {
-          return product.promotion.countdown.end;
-        }
-      }
-    }
-    
-    return null;
-  };
-
-  const priceValidUntil = getActivePromotionEndDate();
+  const priceValidUntil = products[0]?.offers?.offers.at(0)?.priceValidUntil;
 
   if (!priceValidUntil) return null;
 

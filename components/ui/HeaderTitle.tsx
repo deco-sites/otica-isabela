@@ -103,7 +103,7 @@ export const HeaderTitle = ({
   return (
     <div
       style={{ backgroundColor }}
-      class={`w-full font flex flex-col justify-center items-center pt-10 pb-10`}
+      class={`w-full font flex flex-col justify-center items-center pt-10 pb-10 `}
     >
       <h2
         class={`flex flex-col ${ALIGNMENTS[textAlignment]} justify-center`}

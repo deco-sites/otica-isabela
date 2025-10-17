@@ -41,7 +41,7 @@ function BannerTextButton(
         } `}
       >
         {title && (
-          <h2 class="text-4xl text-blue-300 font-bold lg:mt-6">
+          <h2 class="text-4xl text-blue-300 font-bold lg:mt-6 ">
             {title}
           </h2>
         )}

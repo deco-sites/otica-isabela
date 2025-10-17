@@ -1,10 +1,9 @@
-import { BreadcrumbItem } from "site/packs/v2/types.ts";
-
+import type { BreadcrumbList } from "apps/commerce/types.ts";
 interface Props {
-  items: BreadcrumbItem[];
+  itemListElement: BreadcrumbList["itemListElement"];
 }
 
-function Breadcrumb({ items = [] }: Props) {
+function Breadcrumb({ itemListElement = [] }: Props) {
   return (
     <ul class="text-left">
       <li class="inline align-middle text-left leading-[21px]">
@@ -20,16 +19,17 @@ function Breadcrumb({ items = [] }: Props) {
           ›
         </span>
       </li>
-      {items
-        .map((item, index) => (
+      {itemListElement
+        .filter(({ name, item }) => name && item)
+        .map(({ name, item }, index) => (
           <li class="inline align-middle text-left leading-[21px]">
             <a
               class="font-outfit text-grayscale-700 text-xs capitalize hover:underline"
-              href={item.href}
+              href={item}
             >
-              {item.name.toLocaleLowerCase().trim()}
+              {name?.toLocaleLowerCase().trim()}
             </a>
-            {index < items.length - 1 && (
+            {index < itemListElement.length - 1 && (
               <span class="my-0 mx-[10px] text-sm text-grayscale-700 inline align-middle">
                 ›
               </span>

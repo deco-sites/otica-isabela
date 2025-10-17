@@ -1,9 +1,16 @@
 import type { LoaderReturnType, SectionProps } from "$live/types.ts";
 import ProductGallery from "$store/components/product/ProductGallery.tsx";
+import Filters from "$store/components/search/Filters.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
+import SearchControls from "$store/islands/SearchControls.tsx";
 import Banner from "$store/components/ui/CategoryBanner.tsx";
 import type { Banner as BannerProps } from "$store/components/ui/CategoryBanner.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import ApplyRangeFiltersJS from "$store/islands/ApplyRangeFiltersJS.tsx";
+// import AutoApplyFilters from "$store/islands/AutoApplyFilters.tsx";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import Pagination from "$store/components/search/Pagination.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
@@ -14,15 +21,8 @@ import {
   ISABELA_DIAS_WISHLIST_IDS,
 } from "$store/packs/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
+import { Head } from "$fresh/runtime.ts";
 import { redirect } from "@deco/deco";
-import {
-  BreadcrumbItem,
-  IsabelaProductListingPage,
-} from "site/packs/v2/types.ts";
-import Filters from 'site/islands/Filters.tsx';
-import FiltersMobile from 'site/islands/FiltersMobile.tsx';
-import ActiveFilters from 'site/islands/ActiveFilters.tsx';
-import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -34,7 +34,6 @@ export interface CategoryMatcher {
    * @description Use /feminino/* para mostrar esse menu em todas as categorias filhas de feminino
    */
   label: string;
-  name: string;
   /** @title Itens do Menu */
   categoryItems: CategoryMenuItem[];
 }
@@ -78,12 +77,16 @@ export interface Shape {
 }
 export interface Props {
   /** @title Loader */
-  page: LoaderReturnType<IsabelaProductListingPage | null>;
+  page: LoaderReturnType<ProductListingPage | null>;
   banner?: BannerProps[];
+  /** @title Cores do Filtro */
+  filterColors?: Color[];
   /** @title Icones do filtro de Tipo */
   typeIcons?: Type[];
   /** @title Icones do filtro de Formato */
   shapeIcons?: Shape[];
+  /** @title Esconder Filtros */
+  hideFilters?: string[];
   /** @title Menu de Categorias */
   categories?: CategoryMatcher[];
   /** @title Ativar carossel nos itens da galeria? */
@@ -113,64 +116,90 @@ function Result(
   {
     page,
     banner = [] as BannerProps[],
+    filterColors = [],
+    hideFilters = [],
     typeIcons = [],
     shapeIcons = [],
     categories = [],
     isSliderEnabled,
     customer,
-    url,
   }: Omit<ComponentProps, "page"> & {
-    page: IsabelaProductListingPage;
+    page: ProductListingPage;
     banner?: BannerProps[];
-    url: string;
   },
 ) {
-  const { products, filters, pageInfo, sortOptions, seo } = page;
-  const { pathname } = new URL(url);
-  const categorySlug = pathname.split("/")[1] ?? "";
-  const subCategorySlug = pathname.split("/")[2] ?? "";
-
-  const getCategoryNames = () => {
-    const category = categories.find((c) => c.label === `/${categorySlug}`);
-    if (!category) return ["", ""];
-
-    const subCategoryList = category.categoryItems;
-
-    const subCategory = subCategoryList.find((c) => c.link === pathname);
-
-    return [category.name || "", subCategory?.label || ""];
-  };
-
-  const [categoryName, subCategoryName] = getCategoryNames();
-
-  const breadcrumbItems: BreadcrumbItem[] = [
-    { name: categoryName, href: `/${categorySlug}` },
-    ...(subCategoryName
-      ? [{ name: subCategoryName, href: `/${categorySlug}/${subCategorySlug}` }]
-      : []),
-  ];
-
+  const { products, filters, breadcrumb, pageInfo, sortOptions, seo } = page;
+  // const productCategory = seo?.title.split(" - ")[0].toUpperCase() ??
+  //   (pageName || "");
+  // const isAFilterPage = pageInfo?.nextPage?.includes('?filter.') || pageInfo?.previousPage?.includes('?filter.')
   return (
     <>
+      {
+        /* {isAFilterPage && <Head>
+      <meta name="robots" content="noindex" />
+    </Head>} */
+      }
       <header class="max-w-[1320px] mx-auto w-[95%] flex flex-col bg-white m-0 py-2">
-        <div class="flex w-full flex-row items-center">
-          <Breadcrumb items={breadcrumbItems} />
-        </div>
+        {!breadcrumb?.itemListElement?.length
+          ? null
+          : (
+            <div class="flex w-full flex-row items-center">
+              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            </div>
+          )}
       </header>
 
-      <FiltersMobile facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
+      <SearchControls
+        sortOptions={sortOptions}
+        filters={filters}
+        filterColors={filterColors}
+        breadcrumb={breadcrumb}
+        hideFilters={hideFilters}
+        typeIcons={typeIcons}
+        shapeIcons={shapeIcons}
+      />
 
-      <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
-          <div class="hidden lg:block">
-            <ActiveFilters />
-          </div>
-          <CategoryMenu categories={categories} url={url} />
-      </div>
-
+      <CategoryMenu categories={categories} filters={filters} />
       <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          <Filters facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
-
+          {filters.length
+            ? (
+              <div class="lg:flex mr-10 lg:max-w-[200px] flex-col w-full border-b border-base-200 max-lg:hidden bg-white">
+                <div class="lg:flex flex-col sticky z-[9] top-0">
+                  <Filters
+                    filters={filters}
+                    filterColors={filterColors}
+                    hideFilters={hideFilters}
+                    typeIcons={typeIcons}
+                    shapeIcons={shapeIcons}
+                  />
+                  <div class="mt-5 w-full py-1">
+                    <div class="w-full max-w-[1320px] mx-auto">
+                      {/* <SelectedFilters filters={filters} /> */}
+                      <div class="flex flex-col gap-2">
+                        <button
+                          id="apply-range-filters"
+                          class="hidden max-lg:block uppercase border border-black rounded-[5px] bg-black font-medium text-base text-white cursor-pointer py-[5px] px-[20px] whitespace-nowrap"
+                        >
+                          <span>Aplicar Filtro</span>
+                        </button>
+                        <ApplyRangeFiltersJS
+                          rootId="size-options-container"
+                          buttonId="apply-range-filters"
+                        />
+                        <a
+                          href={breadcrumb?.itemListElement.at(-1)?.item ?? ""}
+                          class="whitespace-nowrap uppercase border border-black font-medium rounded-[5px] py-[5px] px-5 transition-colors duration-300 ease-in-out text-base bg-white text-black hover:text-white hover:bg-black text-center"
+                        >
+                          Limpar Filtro
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+            : null}
           <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
             {banner && banner.map((b) => <Banner banner={b} />)}
             <ProductGallery
@@ -196,25 +225,9 @@ function Result(
             item_list_id: "",
             items: page.products?.map((product) =>
               mapProductToAnalyticsItem({
-                product: {
-                  ...product,
-                  "@type": "Product",
-                  productID: String(product?.id),
-                  sku: product?.code,
-                  category: product?.category?.name || "",
-                },
-                price: product?.priceWithDiscount,
-                listPrice: product?.price,
-                breadcrumbList: {
-                  "@type": "BreadcrumbList",
-                  itemListElement: breadcrumbItems.map((item, index) => ({
-                    "@type": "ListItem",
-                    position: index + 1,
-                    name: item.name,
-                    item: item.href,
-                  })),
-                  numberOfItems: breadcrumbItems.length,
-                },
+                ...useOffer(product.offers),
+                product,
+                breadcrumbList: page.breadcrumb,
               })
             ),
           },
@@ -228,8 +241,10 @@ export const loader = async (
   req: Request,
   ctx: AppContext,
 ) => {
+  const categoryList = categories.find(({ label }) =>
+    new URLPattern({ pathname: label }).test(req.url)
+  );
   const isFavoritos = req.url.includes("meus-favoritos");
-
   if (isFavoritos) {
     const cookies = getCookies(req.headers);
     const wishlistIds = cookies?.[ISABELA_DIAS_WISHLIST_IDS]?.split(",") ?? [];
@@ -238,8 +253,8 @@ export const loader = async (
       redirect(new URL("/identificacao", new URL(req.url)));
     }
     const wishlistProductsPage = await ctx.invoke(
-      "site/loaders/product/productListingPage.ts",
-      // { id: wishlistIds, ordenacao: "none" },
+      "site/loaders/product/productListiningPage.ts",
+      { id: wishlistIds, ordenacao: "none" },
     );
     props.page = wishlistProductsPage;
   }
@@ -250,19 +265,15 @@ export const loader = async (
 
   return {
     banner: matchedBanner ? [matchedBanner] : [],
-    categories,
-    url: req.url,
+    categories: categoryList?.categoryItems ?? [],
     ...props,
   };
 };
-
 type ComponentProps = SectionProps<typeof loader>;
-
 function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
     return <NotFound alert={props.notFoundAlert} />;
   }
   return <Result {...props} page={page} />;
 }
-
 export default SearchResult;

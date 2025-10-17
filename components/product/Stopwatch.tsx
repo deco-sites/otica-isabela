@@ -11,7 +11,7 @@ interface ItemProps {
 }
 
 interface Props {
-  targetDate?: string;
+  targetDate: string;
   type: "card" | "header" | "details";
   page?: "home" | "details";
 }
@@ -84,16 +84,7 @@ function Stopwatch({ targetDate, type, page }: Props) {
   useEffect(() => {
     if (!targetDate) return;
 
-    // Handle ISO date strings (like "2025-10-06T23:00:00+00:00") directly
-    // Don't concatenate with dateGMT since it's already a complete date string
-    const date = new Date(targetDate);
-    
-    // Validate the date is valid
-    if (isNaN(date.getTime())) {
-      console.error('Invalid date provided to Stopwatch:', targetDate);
-      return;
-    }
-
+    const date = new Date(`${targetDate} ${dateGMT}`);
     const interval = setInterval(() => {
       timeRemaining.value = calcRemainingTime(date);
     }, 999);

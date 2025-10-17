@@ -185,7 +185,7 @@ export default function Tutorial({
             {information.list.map((item, index) => (
               <li
                 key={index}
-                class="flex items-center"
+                class="flex  items-center"
                 style={{ gap: `${information.spaceBetweenIconAndContent}px` }}
               >
                 <Icon class="shrink-0" {...item.icon} />

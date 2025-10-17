@@ -1,11 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
+import { Product } from "apps/commerce/types.ts";
 import ProductDetailsMeasurements from "$store/components/product/product-details/Measurements.tsx";
 import LazyIframe from "$store/islands/LazyIframe.tsx";
 import TabJS from "$store/islands/TabJS.tsx";
 import { replaceHtml } from "$store/sdk/replaceHtml.ts";
 import { replaceSpecialCharacters } from "$store/sdk/replaceSpecialCharacters.ts";
-import { Product } from "site/packs/v2/types.ts";
-import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 
 interface Props {
   product: Product;
@@ -13,41 +12,42 @@ interface Props {
 }
 
 function SpecsDesktop({ product, measurementsImage }: Props) {
-  const { descriptions } = product;
+  const { additionalProperty, description } = product;
   const rootId = "tabs-component";
+  const panels = additionalProperty?.filter(
+    (prop) => prop.propertyID === "panel",
+  ) ?? [];
+  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
+    product?.category?.includes("Acessórios");
 
-  const hasNotMeasures =
-    product?.category?.name.includes("Lentes de Contato") ||
-    product?.category?.name.includes("Acessórios");
-
-  const panels = [
-    ...(descriptions
-      ? descriptions.map((description) => ({
-        name: description.title,
-        value: description.description,
-      }))
-      : []),
-  ];
+  panels.unshift(
+    {
+      "@type": "PropertyValue",
+      name: "Descrição",
+      value: description,
+      propertyID: "panel",
+    },
+  );
 
   if (!hasNotMeasures) {
     panels.unshift({
+      "@type": "PropertyValue",
       name: "Medidas",
       value: "Medidas",
+      propertyID: "panel",
     });
   }
 
   const orderedPanels = [...panels].sort((a, b) => {
     const order = ["descricao", "medidas"];
-    const idA = replaceSpecialCharacters(a.name).toLocaleLowerCase().trim()
-      .replaceAll(
-        " ",
-        "-",
-      ).replace(/[?]/g, "");
-    const idB = replaceSpecialCharacters(b.name).toLocaleLowerCase().trim()
-      .replaceAll(
-        " ",
-        "-",
-      ).replace(/[?]/g, "");
+    const idA = replaceSpecialCharacters(a.name).toLocaleLowerCase().replaceAll(
+      " ",
+      "-",
+    ).replace(/[?]/g, "");
+    const idB = replaceSpecialCharacters(b.name).toLocaleLowerCase().replaceAll(
+      " ",
+      "-",
+    ).replace(/[?]/g, "");
 
     const indexA = order.indexOf(idA);
     const indexB = order.indexOf(idB);
@@ -101,11 +101,9 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
             ({ name }, index) => {
               const id = replaceSpecialCharacters(name!)
                 .toLocaleLowerCase()
-                .trim()
                 .replaceAll(" ", "-")
                 .replace(/[?]/g, "");
               const displayName = displayNameMap[id] || name;
-
               return (
                 <a
                   id={`${id}-tab`}
@@ -127,7 +125,6 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
         {orderedPanels?.map(({ name, value }, index) => {
           const id = replaceSpecialCharacters(name!)
             .toLocaleLowerCase()
-            .trim()
             .replaceAll(" ", "-")
             .replace(/[?]/g, "");
 

@@ -157,11 +157,11 @@ export default function (
             <div class="px-4 py-7 flex flex-wrap justify-between gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
               {suggestionProducts?.map((suggestion) => (
                 <a
-                  href={`/produto/${suggestion.slug}`}
+                  href={suggestion.url}
                   class="flex flex-col gap-2 items-center max-w-[120px]"
                 >
                   <Image
-                    src={suggestion.medias?.[0].url ?? ""}
+                    src={suggestion.image?.[0].url ?? ""}
                     alt={suggestion.name}
                     width={100}
                     height={100}
@@ -173,7 +173,7 @@ export default function (
 
                   <span class="text-xs text-blue-200 font-bold mt-1">
                     {formatPrice(
-                      suggestion.price,
+                      suggestion.offers?.highPrice,
                     )}
                   </span>
                 </a>
@@ -280,11 +280,11 @@ export default function (
           <div class="px-4 py-7 grid grid-cols-4 gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
             {suggestionProducts?.map((suggestion) => (
               <a
-                href={`/produto/${suggestion.slug}`}
+                href={suggestion.url}
                 class="flex flex-col gap-2 items-center max-w-[182px]"
               >
                 <Image
-                  src={suggestion.medias?.[0].url ?? ""}
+                  src={suggestion.image?.[0].url ?? ""}
                   alt={suggestion.name}
                   width={182}
                   height={133}
@@ -296,7 +296,7 @@ export default function (
 
                 <span class="text-xs text-blue-200 font-bold mt-1">
                   {formatPrice(
-                    suggestion.price,
+                    suggestion.offers?.highPrice,
                   )}
                 </span>
               </a>

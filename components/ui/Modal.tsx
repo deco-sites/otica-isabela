@@ -115,7 +115,7 @@ const Modal = ({
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
+        class={`w-full   h-full flex bg-transparent  ${sectionStyles[mode]}`}
       >
         <div
           class={`bg-transparent shadow-2xl m-3 flex flex-col${
@@ -123,7 +123,7 @@ const Modal = ({
           }`}
         >
           <header
-            class={`flex justify-between items-center ${headerStyle[mode]}`}
+            class={`flex justify-between items-center  ${headerStyle[mode]}`}
           >
             {title && (
               <div class="flex gap-5 items-center">

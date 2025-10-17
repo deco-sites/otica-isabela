@@ -2,15 +2,17 @@ import Image from "apps/website/components/Image.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { ImageWidget as LiveImage } from "apps/admin/widgets.ts";
 import { useId } from "$store/sdk/useId.ts";
+
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { HeaderTitle } from "../../components/ui/HeaderTitle.tsx";
 import type { Props as HeaderProps } from "../../components/ui/HeaderTitle.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 import ProductShelf from "$store/components/product/ProductShelf.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import Icon from "../../components/ui/Icon.tsx";
+
 import Section from "../../components/ui/Section.tsx";
-import { Product } from "site/packs/v2/types.ts";
 
 export interface BannersProps {
   /** @title Identificação do Banner */
@@ -47,7 +49,7 @@ function ProductBannerShelf({
 
   return (
     <>
-      <div class="w-full flex flex-col mb-4 lg:mb-8">
+      <div class=" w-full flex flex-col mb-4 lg:mb-8">
         {header ? <HeaderTitle {...header} /> : null}
 
         <div

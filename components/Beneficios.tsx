@@ -48,7 +48,7 @@ export default function ({ benefits, noMargin, isMobile }: Props) {
               index={index}
               class="carousel-item !w-[unset] border-r-[1px] border-solid border-slot-primary-500"
             >
-              <div class="group relative w-auto py-0">
+              <div class="group relative w-auto py-0 ">
                 <div class="flex items-center justify-center md:justify-start gap-2 px-7 h-9">
                   <Image
                     src={benefit.icon}
@@ -65,7 +65,7 @@ export default function ({ benefits, noMargin, isMobile }: Props) {
             </Slider.Item>
           ))}
         </Slider>
-        <div class="flex w-full justify-center items-center gap-x-4 mt-5">
+        <div class="flex  w-full justify-center items-center gap-x-4 mt-5">
           {benefits?.map((_, index) => {
             return <Slider.Dot index={index} />;
           })}

@@ -2,7 +2,7 @@ import Stopwatch from "$store/components/product/Stopwatch.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 
 interface Props {
-  priceValidUntil?: string;
+  priceValidUntil: string;
   page: "home" | "details";
 }
 

@@ -1,6 +1,8 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { Props } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
 import ProductInfo from "$store/components/product/product-details/ProductInfo.tsx";
@@ -12,25 +14,20 @@ import ShareButton from "$store/islands/ShareButton.tsx";
 import Image from "apps/website/components/Image.tsx";
 import Video from "apps/website/components/Video.tsx";
 import { useId } from "$store/sdk/useId.ts";
+
 import CartModalMobile from "$store/components/ui/CartModalMobile.tsx";
 import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import ProductInfoColors from "site/islands/ProductInfoColors.tsx";
-import {
-  BreadcrumbItem,
-  IsabelaProductDetailsPage,
-} from "site/packs/v2/types.ts";
-import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 
-const useStableImages = (product: IsabelaProductDetailsPage["product"]) => {
+const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
     const segments = new URL(url).pathname.split("/");
     return segments[segments.length - 1];
   };
 
-  const images = product.medias ?? [];
-
-  const allImages = product.relatedProducts
-    ?.flatMap((p) => p.medias)
+  const images = product.image ?? [];
+  const allImages = product.isVariantOf?.hasVariant
+    .flatMap((p) => p.image)
     .reduce((acc, img) => {
       if (img?.url) {
         acc[imageNameFromURL(img.url)] = img.url;
@@ -54,17 +51,8 @@ function Details({
   mobileOptions,
   priceValidUntil,
 }: Props) {
-  const { product } = page!;
-  const {
-    name,
-    id: productID,
-    skuId,
-    slug,
-    price,
-    priceWithDiscount,
-    productRating: rating,
-    installments,
-  } = product;
+  const { product, breadcrumbList } = page!;
+  const { name, productID, offers, additionalProperty, url, sku } = product;
 
   // Busca a imagem dos acessórios inclusos
   // const accessoriesImage = additionalProperty?.find(
@@ -74,6 +62,7 @@ function Details({
 
   // Converte HTML para extrair a URL da imagem (se existir)
   // const accessoriesImagePath = accessoriesImage?.match(/src="([^"]+)"/)?.[1] ||
+  null;
 
   const {
     discountTagLocation,
@@ -82,35 +71,28 @@ function Details({
     showProductTumbnails,
     displayModalAfter,
   } = mobileOptions;
-
+  const { price, listPrice, installments } = useOffer(offers);
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
-  const chooseLensUrl = `/passo-a-passo/${slug}`;
-  const experimenterImage = findProductAttribute("experimentador", product)
-    ?.value;
-
+  const chooseLensUrl = `/passo-a-passo${url?.split("/produto")[1]}`;
+  const experimenterImage = additionalProperty?.find(
+    (prop) => prop.propertyID === "experimentador",
+  )?.value;
+  // const colorsList = additionalProperty?.filter(
+  //   (prop) => prop.propertyID === "color",
+  // );
+  // const colors = colorsList?.map(({ unitCode }) => unitCode);
+  // const colorsName = colorsList?.map(({ value }) => value);
   const discount = Math.ceil(
-    (((price ?? 0) - (priceWithDiscount ?? 0)) / (price ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
-
   const addToCard = {
     idProduct: Number(productID),
-    sku: Number(skuId),
+    sku: Number(sku),
     price: price!,
     name: name!,
   };
-
-  const breadcrumbItems: BreadcrumbItem[] = [
-    { name: product.category?.name ?? "", href: `/${product.category?.slug}` },
-    ...(product.category?.parent?.name
-      ? [{
-        name: product.category?.parent?.name,
-        href: `/${product.category?.slug}/${product.category?.parent?.slug}`,
-      }]
-      : []),
-  ];
-
-  const currentCategory = breadcrumbItems?.[0]?.name;
+  const currentCategory = breadcrumbList?.itemListElement[0].name;
   const labels = buttonByCategory?.reduce(
     (acc: { [key: string]: string }, curr) => {
       acc[curr.category.toLowerCase()] = curr.label;
@@ -126,19 +108,32 @@ function Details({
     {},
   );
 
-  const promotionFlag = findProductAttribute("flag", product)?.value
-    ?.toLowerCase();
+  const promotionFlag = additionalProperty?.find(
+    (prop) => prop.propertyID === "flag",
+  )?.value?.toLowerCase();
 
   const promotion = promotions?.find(
     (current) => current.label.toLowerCase() === promotionFlag,
   );
 
-  const isAllowedToAddLens = product.lensAttributes?.[0].isAllowedToAddLens;
-  const isLensWithoutPrescription = product.lensAttributes?.[0]
-    .isLensWithoutPrescription;
-  const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
+  const rating = additionalProperty?.find(
+    (prop) => prop.propertyID === "rating",
+  )?.value;
 
-  const isLentes = product?.category?.name?.toLowerCase().trim().includes("lentes de contato");
+  const isAllowedToAddLens = additionalProperty?.some(
+    (prop) => prop.propertyID === "isAllowedToAddLens",
+  );
+
+  const isLensWithoutPrescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "isLensWithoutPrescription",
+  )?.value;
+
+  const lensDescription = additionalProperty?.find(
+    (prop) => prop.propertyID === "lensDescription",
+  )?.value;
+
+  const ratingValue = rating ? parseFloat(rating) : 0;
+  const isLentes = product?.category?.includes("Lentes de Contato");
 
   return (
     <>
@@ -154,13 +149,12 @@ function Details({
           `,
         }}
       />
-
       {/* Breadcrumb - Desktop */}
       <div
         id="breadcrumb"
         class="block mb-[10px] text-center md:text-left px-3 lg:px-0"
       >
-        <Breadcrumb items={breadcrumbItems} />
+        <Breadcrumb itemListElement={breadcrumbList?.itemListElement} />
       </div>
 
       {/* Header - Mobile */}
@@ -170,21 +164,21 @@ function Details({
       >
         {/* Discount Span - Mobile (Header) */}
         {discount > 0 && discountTagLocation === "Header" && (
-          <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5">
+          <span class="flex font-bold bg-[#d92027] gap-x-1 rounded text-sm lg:flex justify-center items-center text-white p-2.5 ">
             <Icon id="ArrowDown" width={9} height={9} />-{discount}%
           </span>
         )}
         <div class="flex items-center">
-          <ShareButton link={`/${slug}`} />
+          <ShareButton link={url!} />
           <WishlistButton productID={productID} customer={customer} />
         </div>
 
         {/* Ratings - Mobile (Header) */}
-        {!!rating &&
+        {!!ratingValue &&
           starsLocation === "Header" &&
           discountTagLocation !== "Header" && (
           <a href="#product-review" aria-label="Veja as avaliações!">
-            <Ratings ratingValue={rating} />
+            <Ratings ratingValue={ratingValue} />
           </a>
         )}
         {!isLentes && experimenterImage
@@ -244,10 +238,10 @@ function Details({
                         class="group-disabled:border-base-300"
                         width={92}
                         height={92}
-                        src={img.isVideo
-                          ? "https://secure.oticaisabeladias.com.br/Content/assets/images/capa-video.jpg"
+                        src={img.additionalType === "video"
+                          ? img?.image?.[0].url!
                           : img.url!}
-                        alt={product.name || "Product Image"}
+                        alt={img.alternateName}
                         loading="lazy"
                       />
                     </Slider.Dot>
@@ -257,7 +251,7 @@ function Details({
               <div class="relative">
                 {priceValidUntil && (
                   <BestOffersHeader
-                    priceValidUntil={priceValidUntil}
+                    priceValidUntil={priceValidUntil!}
                     page="details"
                   />
                 )}
@@ -270,7 +264,7 @@ function Details({
                       index={index}
                       class="carousel-item lg:!w-full items-center"
                     >
-                      {img.isVideo
+                      {img.additionalType === "video"
                         ? (
                           <Video
                             src={img.url}
@@ -285,7 +279,7 @@ function Details({
                           <Image
                             class="w-full h-max"
                             src={img.url!}
-                            alt={product.name || "Product Image"}
+                            alt={img.alternateName}
                             width={350}
                             height={350}
                             preload={index === 0}
@@ -344,14 +338,14 @@ function Details({
             <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
               {promotion.flagText.replace(
                 "%value",
-                formatPrice(price)!,
+                formatPrice(price, offers!.priceCurrency!)!,
               )}
             </div>
           )}
         </div>
 
         {/* Ratings - Mobile (Bottom) */}
-        {!!rating &&
+        {!!ratingValue &&
           (starsLocation === "Bottom" || discountTagLocation === "Header") && (
           <div class="flex flex-col items-center my-8 lg:hidden">
             <a
@@ -359,7 +353,7 @@ function Details({
               class="text-center"
               aria-label="Veja as avaliações!"
             >
-              <Ratings ratingValue={rating} />
+              <Ratings ratingValue={ratingValue} />
               <p class="text-lg font-bold">Veja as avaliações</p>
             </a>
           </div>
@@ -372,19 +366,15 @@ function Details({
 
             <div id="price-mobile-content" class="mt-2">
               {discount > 0 && (
-                <span class="mt-2 line-through font-semibold text-sm text-red-500 lg:text-base">
-                  {formatPrice(price)}
+                <span class="mt-2 line-through font-semibold text-sm  text-red-500 lg:text-base">
+                  {formatPrice(listPrice, offers!.priceCurrency!)}
                 </span>
               )}
               <p class="mt-1 text-blue-200 text-[27px] font-bold">
-                {formatPrice(priceWithDiscount)}
+                {formatPrice(price, offers!.priceCurrency!)}
               </p>
             </div>
-            {installments?.length > 0 && (
-              <p class="text-sm text-base-300 font-bold">
-                {installments?.at(-1)?.installmentText}
-              </p>
-            )}
+            <p class="text-sm text-base-300 font-bold">{installments}</p>
           </div>
         </div>
 
@@ -418,7 +408,6 @@ function Details({
             labels={labels}
             stepLabels={stepLabels}
             customer={customer}
-            currentCategory={currentCategory!}
           />
         </div>
       </div>

@@ -1,22 +1,23 @@
 import { signal } from "@preact/signals";
 import { debounce } from "std/async/debounce.ts";
+import type { Suggestion } from "apps/commerce/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
 import type { Manifest } from "../../manifest.gen.ts";
-import { SuggestionLoaderResponse } from "site/packs/v2/loaders/suggestions.ts";
 
 //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
 const Runtime = withManifest<Manifest>();
-const payload = signal<SuggestionLoaderResponse | null>(null);
+const payload = signal<Suggestion | null>(null);
 const loading = signal<boolean>(false);
 
-const suggestions = Runtime.create("site/loaders/product/suggestions.ts");
+const suggestions = Runtime.create(
+  "site/loaders/product/suggestions.ts",
+);
 
 const setSearch = debounce(async (search: string, count: number) => {
   try {
-    payload.value = await suggestions({ Term: search, PageSize: count });
+    payload.value = await suggestions({ nome: search, offset: count });
   } catch (error) {
-    console.warn("Something went wrong while fetching suggestions \n", error);
-    payload.value = null;
+    console.error("Something went wrong while fetching suggestions \n", error);
   } finally {
     loading.value = false;
   }

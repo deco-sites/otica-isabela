@@ -11,7 +11,7 @@ export interface Props {
   observableElement: ObservableElement;
   isLentes: boolean;
   isAllowedToAddLens: boolean;
-  isLensWithoutPrescription: boolean;
+  isLensWithoutPrescription: string;
 }
 
 interface AddToCart {
@@ -72,10 +72,10 @@ function CartModalMobile({
 
   const handleStepsLabel = () => {
     if (isLensWithoutPrescription) {
-      return stepLabels?.[`${currentCategory!.toLowerCase().trim()} sem grau`];
+      return stepLabels?.[`${currentCategory!.toLowerCase()} sem grau`];
     }
 
-    return stepLabels?.[currentCategory!.toLowerCase().trim()];
+    return stepLabels?.[currentCategory!.toLowerCase()];
   };
 
   const stepLabel = handleStepsLabel();
@@ -94,12 +94,12 @@ function CartModalMobile({
           />
         </div>
       )}
-      {labels?.[currentCategory.toLowerCase().trim()!]
+      {labels?.[currentCategory.toLowerCase()!]
         ? (
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
               {...addToCard}
-              label={labels?.[currentCategory!.toLowerCase().trim()]}
+              label={labels?.[currentCategory!.toLowerCase()]}
             />
           </div>
         )

@@ -67,7 +67,7 @@ function Review({ page, productData, memberImages }: Props) {
                 </div>
               </div>
               {/* Images */}
-              <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16">
+              <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 ">
                 <div id={id} class="container flex flex-col px-0 sm:px-5">
                   <Slider class="carousel carousel-center sm:carousel-end gap-1 md:gap-6 col-span-full row-start-2 row-end-5">
                     {reviews?.map((review, index) => (

@@ -1,7 +1,8 @@
+import { Product } from "apps/commerce/types.ts";
+
 import ProductCard from "$store/islands/ProductCard.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import { Product } from "site/packs/v2/types.ts";
 
 export interface Columns {
   mobile?: number;

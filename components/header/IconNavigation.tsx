@@ -36,7 +36,7 @@ export const IconNavigation = ({ items }: Props) => {
               strokeWidth={icon === "Heart" ? 2 : 0.4}
               class="text-white group-hover:text-blue-200 lg:mb-1"
             />
-            <span class="hidden lg:flex text-white text-xs group-hover:text-blue-200 font-normal whitespace-nowrap">
+            <span class=" hidden lg:flex text-white text-xs group-hover:text-blue-200 font-normal whitespace-nowrap">
               {title}
             </span>
           </a>

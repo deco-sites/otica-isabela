@@ -1,5 +1,6 @@
 import { visitedProductsCookie } from "$store/components/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
+import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { AppContext } from "$store/apps/site.ts";
 import Details from "$store/components/product/product-details/Details.tsx";
 import { NotFound } from "$store/components/product/product-details/NotFound.tsx";
@@ -12,12 +13,10 @@ import type {
 } from "apps/admin/widgets.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { type LoaderReturnType, redirect, type SectionProps } from "@deco/deco";
-import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
 type ButtonLabel = {
   category: string;
   label: string;
 };
-import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 export interface Promotion {
   /** @title Texto */
@@ -46,7 +45,7 @@ export interface MobileOptions {
 }
 export interface Props {
   /** @title Configurações do Loader */
-  page: LoaderReturnType<IsabelaProductDetailsPage | null>;
+  page: LoaderReturnType<ProductDetailsPage | null>;
   /** @title Imagem das Medidas  */
   measurementsImage?: LiveImage;
   /** @title Configurações de Promoções */
@@ -59,12 +58,6 @@ export interface Props {
   customer: LoaderReturnType<AuthData>;
   priceValidUntil?: string;
   /** @title Informacoes dentro da secão de descricao */
-  /** @hide */
-  relatedProductImages?: ({
-    slug: string;
-    images: MediasResponseObject[];
-  } | null)[];
-  
 }
 function ProductDetails(
   {
@@ -75,26 +68,12 @@ function ProductDetails(
     stepButtonByCategory,
     customer,
     mobileOptions,
-    relatedProductImages,
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
-  
-  // Use the new promotion countdown format from v2 types
-  const isPromotionActive = () => {
-    if (!product?.promotion?.countdown) return false;
-    
-    const now = new Date();
-    const startDate = new Date(product.promotion.countdown.start);
-    const endDate = new Date(product.promotion.countdown.end);
-    
-    // Check if current time is within the promotion period
-    return now >= startDate && now <= endDate;
-  };
+  const { offers } = product || {};
+  const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
 
-  // Only set priceValidUntil if promotion is active and within valid date range
-  const priceValidUntil = isPromotionActive() ? product?.promotion?.countdown?.end : undefined;
-  
   return (
     <>
       <div class="lg:bg-gray-scale-100">
@@ -115,60 +94,35 @@ function ProductDetails(
             : <NotFound />}
         </div>
       </div>
-
-      <OtherColorsShelf
-        product={product!}
-        relatedProductImages={relatedProductImages}
-      />
-
+      <OtherColorsShelf product={product!} />
       <SpecsDesktop
         product={product!}
         measurementsImage={measurementsImage!}
       />
-
-      {/* <SpecsMobile product={product!} measurementsImage={measurementsImage!} /> */}
+      <SpecsMobile product={product!} measurementsImage={measurementsImage!} />
     </>
   );
 }
-export async function loader(props: Props, req: Request, ctx: AppContext) {
+export function loader(props: Props, req: Request, ctx: AppContext) {
   if (!props.page?.product) {
     const url = new URL(req.url);
     redirect(url.origin);
     return props;
   }
-
+  const productId: string | undefined = props.page.product.productID;
   const cookies = getCookies(req.headers);
-  const currentSlugs: string[] | undefined =
+  const currentIds: string[] | undefined =
     cookies?.[visitedProductsCookie]?.split(":") ?? [];
-
-  const newSlugs =
-    currentSlugs.some((slug) => slug === props.page?.product.slug)
-      ? currentSlugs
-      : currentSlugs.concat([props.page.product.slug]);
-
+  const newIds = currentIds.some((id) => id === productId)
+    ? currentIds
+    : currentIds.concat([productId]);
   setCookie(ctx.response.headers, {
     name: visitedProductsCookie,
-    value: newSlugs?.join(":"),
+    value: newIds?.join(":"),
     path: "/",
   });
-
-  const relatedProductImages = await Promise.all(
-    (props.page.product.relatedProducts ?? [])
-      .filter((product) => product.slug !== props.page?.product?.slug)
-      .map(async (product) => {
-        const medias = await ctx.invoke(
-          "site/loaders/product/productMedias.ts",
-          { slug: product.slug },
-        );
-        return medias && medias.length > 0
-          ? { slug: product.slug, images: medias }
-          : null;
-      }),
-  ).then((results) => results.filter(Boolean));
-
   return {
     ...props,
-    relatedProductImages,
   };
 }
 export default ProductDetails;

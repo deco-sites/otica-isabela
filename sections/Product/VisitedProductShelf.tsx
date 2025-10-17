@@ -6,6 +6,7 @@ import type { AppContext } from "$store/apps/site.ts";
 import type { SectionProps } from "$live/mod.ts";
 import { getCookies } from "std/http/mod.ts";
 import { visitedProductsCookie } from "$store/components/constants.ts";
+import type { Product } from "apps/commerce/types.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 
@@ -21,40 +22,28 @@ export async function loader(
   ctx: AppContext,
 ) {
   const cookies = getCookies(req.headers);
-  const currentSlugs: string | undefined = cookies?.[visitedProductsCookie];
-  const splitedSlugs = currentSlugs?.split(":");
+  const currentIds: string | undefined = cookies?.[visitedProductsCookie];
+  const splitedIds = currentIds?.split(":");
 
-  if (!splitedSlugs?.length) {
+  if (!splitedIds?.length) {
     return { ...props, products: [] };
   }
 
-  const productResults = await Promise.all(
-    splitedSlugs.map(async (slug) => {
-      try {
-        const page = await ctx.invoke(
-          "site/loaders/product/productDetailsV2.ts",
-          {
-            slug,
-          },
-        );
-        return page?.product;
-      } catch {
-        return undefined;
-      }
-    }),
+  const products = await ctx.invoke(
+    "site/loaders/product/productList.ts",
+    { id: splitedIds, ordenacao: "none" },
   );
 
-  const products = productResults.filter(
-    (product) => product !== undefined,
-  );
-
-  if (!products?.length) {
+  if (!products) {
     return { ...props, products: [] };
   }
 
   return {
     ...props,
-    products: products.reverse(), // Reverse to show the last visited first
+    products: splitedIds
+      .reverse()
+      .map((v) => products.find((p) => p.productID == v ?? null))
+      .filter((item) => item !== null && item !== undefined) as Product[],
   };
 }
 

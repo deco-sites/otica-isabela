@@ -71,8 +71,12 @@
     "__resolveType": "site/loaders/store/auth.ts"
   },
   "products": {
-    "__resolveType": "site/loaders/product/highlight.ts",
-    "collectionId": "3"
+    "id": [],
+    "offset": 9,
+    "ordenacao": "none",
+    "__resolveType": "site/loaders/product/productList.ts",
+    "filtrosDinamicos": [],
+    "idColecaoProdutos": 3
   },
   "__resolveType": "site/sections/Product/ProductBannerShelf.tsx"
 }

@@ -3,7 +3,6 @@ import { StoreProps } from "$store/apps/site.ts";
 import { GetProductProps } from "../types.ts";
 import { stringfyDynamicFilters } from "./utils.ts";
 import { Props as NewsletterProps } from "$store/packs/loaders/newsletter.ts";
-import { ProductListingPageProps } from "site/packs/v2/loaders/productListingPage.ts";
 
 interface GetDynamicFilterProps {
   IdCategoria: number;
@@ -12,22 +11,19 @@ interface GetDynamicFilterProps {
 
 const paths = ({ token, publicUrl }: StoreProps) => {
   const base = `${publicUrl}Api`;
-  const baseV2 = `${publicUrl}/api/v1`;
-
-  const href = (path: string, extraParams?: object, v2: boolean = false) => {
+  const href = (path: string, extraParams?: object) => {
     if (extraParams) {
-      path =
-        path +
+      path = path +
         "&" +
         new URLSearchParams({
           ...Object.fromEntries(
             Object.entries(extraParams).filter(
-              ([_, value]) => value !== undefined && value !== 0
-            )
+              ([_, value]) => value !== undefined && value !== 0,
+            ),
           ),
         });
     }
-    return new URL(path, v2 ? baseV2 : base).href;
+    return new URL(path, base).href;
   };
 
   return {
@@ -37,7 +33,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
     product: {
       getProduct: (props: GetProductProps) => {
         const dynamicFiltersString = stringfyDynamicFilters(
-          props.filtrosDinamicos
+          props.filtrosDinamicos,
         );
 
         return href(`${base}/Produtos?token=${token}${dynamicFiltersString}`, {
@@ -72,7 +68,7 @@ const paths = ({ token, publicUrl }: StoreProps) => {
       getTestimonials: (
         props: Omit<TestimonialProps, "slug"> & {
           idproduto?: number;
-        }
+        },
       ) => href(`${base}/Depoimentos?token=${token}`, props),
     },
     newsletter: {
@@ -94,49 +90,6 @@ const paths = ({ token, publicUrl }: StoreProps) => {
         href(`${base}/DadosFavoritoProduto?token=${token}`, {
           idClienteSessao: clientSession,
         }),
-    },
-
-    // new api
-    v2: {
-      navigation: {
-        withFilters: (
-          props: ProductListingPageProps,
-          CategoryTree: string,
-          filtersQuery?: string
-        ) =>
-          href(
-            `${baseV2}/navigation${CategoryTree}?${filtersQuery}`,
-            { ...props },
-            true
-          ),
-      },
-
-      product: {
-        details: (slug: string) => {
-          return href(`${baseV2}/product/${slug}?`, {}, true);
-        },
-
-        highlight: (id: string) => {
-          return href(`${baseV2}/highlight/?Id=${id}`, {}, true);
-        },
-
-        medias: (slug: string) => {
-          return href(`${baseV2}/product/${slug}/medias?`, {}, true);
-        },
-
-        search: (
-          term: string,
-          orderBy: string,
-          page: number,
-          pageSize: number
-        ) => {
-          return href(
-            `${baseV2}/search?Term=${term}&OrderBy=${orderBy}&Page=${page}&PageSize=${pageSize}`,
-            {},
-            true
-          );
-        },
-      },
     },
   };
 };

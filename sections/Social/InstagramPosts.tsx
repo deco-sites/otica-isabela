@@ -95,7 +95,7 @@ export default function InstagramPosts({
             {item.media_type === "IMAGE"
               ? (
                 <Image
-                  class="max-w-full max-h-full object-cover w-full group-hover:scale-110 transition duration-400 group-hover:brightness-90"
+                  class="max-w-full max-h-full object-cover w-full group-hover:scale-110  transition duration-400 group-hover:brightness-90"
                   src={item.media_url ?? ""}
                   alt="Imagem do instagram"
                   width={350}

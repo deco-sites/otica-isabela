@@ -6,28 +6,25 @@ import Stopwatch from "$store/islands/Stopwatch.tsx";
 import ToExperimentButton from "$store/islands/ToExperimentButton.tsx";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
+import { getDescriptions } from "$store/sdk/getDescriptions.ts";
 import { getAvailableColors } from "$store/sdk/getVariantColors.ts";
+import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "$store/sdk/useId.ts";
 import type { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
-import { Product } from "site/packs/v2/types.ts";
-import { withManifest } from "$live/clients/withManifest.ts";
-import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 interface Props {
   product: Product;
   preload?: boolean;
+  carouselImage?: boolean;
   itemListName?: string;
   isStopwatchEnabled?: boolean;
   isSliderEnabled?: boolean;
   customer?: LoaderReturnType<AuthData>;
   hideExperiment?: boolean;
 }
-
-// Cache global para armazenar as imagens por slug
-const imageCache = new Map<string, MediasResponseObject[]>();
 
 function ProductCard({
   product,
@@ -39,48 +36,77 @@ function ProductCard({
   hideExperiment,
 }: Props) {
   const {
-    id: productID,
+    url,
+    productID,
     name,
-    attributes,
-    medias,
-    descriptions,
-    price,
-    priceWithDiscount,
+    image: images,
+    offers,
+    additionalProperty,
+    isVariantOf,
   } = product;
-  
-  const originalImages = medias?.filter((media) => !media.isVideo);
   const [hoverImage, setHoverImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const [selectedColorSlug, setSelectedColorSlug] = useState<string>(product.slug);
-  const [selectedColorImages, setSelectedColorImages] = useState<MediasResponseObject[]>([]);
-  const [isLoadingImages, setIsLoadingImages] = useState<boolean>(false);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState<
+    number | null
+  >(null);
 
   const imageContainerId = useId();
   const id = `product-card-${productID}`;
-  const [front, _back] = originalImages ?? [];
 
+  const [front] = images ?? [];
+  const { highPrice: listPrice, lowPrice: price } = offers ?? {};
+  const priceValidUntil = offers?.offers.at(0)?.priceValidUntil;
   const discount = Math.ceil(
-    (((price ?? 0) - (priceWithDiscount ?? 0)) / (price ?? 0)) * 100,
+    (((listPrice ?? 0) - (price ?? 0)) / (listPrice ?? 0)) * 100,
   );
-
-  const experimenterImage = attributes?.find(
-    (prop) => prop.type === "experimentador",
+  const promotionFlag = additionalProperty?.find(
+    (prop) => prop.propertyID === "flag",
+  )?.value;
+  const experimenterImage = additionalProperty?.find(
+    (prop) => prop.propertyID === "experimentador",
   )?.value;
 
+  const description = getDescriptions(additionalProperty!);
   const availableColors = getAvailableColors(product);
+  const variantNames = isVariantOf?.hasVariant.map(({ name }) => name) ?? [];
+  const variantImages = isVariantOf?.hasVariant.map(({ Imagem }) => Imagem) ??
+    [];
+  const getVariantImages =
+    isVariantOf?.hasVariant.map(({ Imagens }) =>
+      Imagens.map((img) => img.Imagem)
+    ) ??
+      [];
+
+  const handleColorClick = (colorName: string) => {
+    const index = variantNames.indexOf(colorName);
+    if (index !== -1 && variantImages[index]) {
+      setSelectedImage(variantImages[index]);
+      setSelectedVariantIndex(index);
+      setHoverIndex(null);
+    }
+  };
+
+  const handleColorHover = (colorName: string) => {
+    const index = variantNames.indexOf(colorName);
+    if (index !== -1 && variantImages[index]) {
+      setHoverImage(variantImages[index]);
+    }
+  };
+
+  const handleColorLeave = () => setHoverImage(null);
 
   const getCurrentImages = () => {
-    // Se uma cor diferente foi selecionada e temos imagens para ela, usa as imagens da cor
-    if (selectedColorSlug !== product.slug && selectedColorImages.length > 0) {
-      return selectedColorImages.map(media => media.productImage);
+    if (
+      selectedVariantIndex !== null && getVariantImages[selectedVariantIndex]
+    ) {
+      return getVariantImages[selectedVariantIndex];
     }
-    // Caso contrário, usa as imagens originais
-    return originalImages?.map((img) => img.url) || [];
+    return images?.map((img) => img.url) || [];
   };
 
   const handleImageHover = (index: number) => {
     const currentImages = getCurrentImages();
-
     if (currentImages.length > 1) {
       const nextIndex = (index + 1) % currentImages.length;
       setHoverImage(currentImages[nextIndex]);
@@ -101,114 +127,65 @@ function ProductCard({
       return currentImages[nextIndex];
     }
 
-    return hoverImage || currentImages[0] || front?.url;
-  };
-
-  const handleClickColor = async (slug: string) => {
-    // Se for a mesma cor já selecionada, não faz nada
-    if (slug === selectedColorSlug) return;
-
-    // Verifica se já temos as imagens no cache
-    if (imageCache.has(slug)) {
-      const cachedImages = imageCache.get(slug)!;
-      setSelectedColorSlug(slug);
-      setSelectedColorImages(cachedImages);
-      // Reset hover states
-      setHoverImage(null);
-      setHoverIndex(null);
-      return;
+    if (selectedVariantIndex !== null) {
+      return hoverImage || selectedImage || currentImages[index] || front?.url!;
     }
 
-    // Se não temos no cache, faz a requisição
-    setIsLoadingImages(true);
-    
-    try {
-      //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
-      const Runtime = withManifest<Manifest>();
-
-      const medias = Runtime.create(
-        "site/loaders/product/productMedias.ts",
-      );
-
-      const response: MediasResponseObject[] = await medias({ slug });
-      
-      // Armazena no cache
-      imageCache.set(slug, response);
-      
-      // Atualiza o estado
-      setSelectedColorSlug(slug);
-      setSelectedColorImages(response);
-      
-      // Reset hover states
-      setHoverImage(null);
-      setHoverIndex(null);
-      
-    } catch (error) {
-      console.error("Erro ao buscar imagens da variante:", error);
-      // Em caso de erro, mantém a cor atual
-    } finally {
-      setIsLoadingImages(false);
-    }
+    return hoverImage || selectedImage || front?.url!;
   };
 
-  const renderSlider = () => {
-    const currentImages = getCurrentImages();
-    
-    return (
-      <>
-        <Slider 
-          class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative"
-          key={`slider-${selectedColorSlug}`}
-        >
-          {currentImages.map((imageUrl, index) => {
-            if (imageUrl.toLowerCase() === "/content/assets/images/capa-video.jpg") return null;
-            return (
-              <Slider.Item
-                index={index}
-                key={`${selectedColorSlug}-${index}`}
-                class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
+  const renderSlider = () => (
+    <>
+      <Slider class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative">
+        {getCurrentImages().map((imageUrl, index) => {
+          if (imageUrl === "/Content/assets/images/capa-video.jpg") return null;
+          return (
+            <Slider.Item
+              index={index}
+              key={index}
+              class="carousel-item lg:!w-full max-lg:max-h-[197.77px]"
+            >
+              <div
+                onMouseEnter={() => handleImageHover(index)}
+                onMouseLeave={handleImageLeave}
+                class="hidden lg:block"
               >
-                <div
-                  onMouseEnter={() => handleImageHover(index)}
-                  onMouseLeave={handleImageLeave}
-                  class="hidden lg:block"
-                >
-                  <ProductCardImage
-                    url={getDisplayImage(index)}
-                    alt={product.name ||
-                      `Product image ${index + 1}`}
-                    preload={preload && index === 0}
-                    discount={discount}
-                  />
-                </div>
+                <ProductCardImage
+                  url={getDisplayImage(index)}
+                  alt={images?.[index]?.alternateName ||
+                    `Product image ${index + 1}`}
+                  preload={preload && index === 0}
+                  discount={discount}
+                  promotion={index === 0 ? promotionFlag : ""}
+                />
+              </div>
 
-                <div class="lg:hidden">
-                  <ProductCardImage
-                    url={imageUrl}
-                    alt={product.name ||
-                      `Product image ${index + 1}`}
-                    preload={preload && index === 0}
-                    discount={discount}
-                  />
-                </div>
-              </Slider.Item>
-            );
-          })}
-          {customer && (
-            <div class="absolute top-0 left-0 z-30">
-              <WishlistButton productID={productID} customer={customer} />
-            </div>
-          )}
-          {isLoadingImages && (
-            <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
-              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-            </div>
-          )}
-        </Slider>
-        <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} key={`sliderjs-${selectedColorSlug}`} />
-      </>
-    );
-  };
+              <div
+                onMouseEnter={() => handleImageHover(index)}
+                onMouseLeave={handleImageLeave}
+                class="lg:hidden"
+              >
+                <ProductCardImage
+                  url={imageUrl}
+                  alt={images?.[index]?.alternateName ||
+                    `Product image ${index + 1}`}
+                  preload={preload && index === 0}
+                  discount={discount}
+                  promotion={index === 0 ? promotionFlag : ""}
+                />
+              </div>
+            </Slider.Item>
+          );
+        })}
+        {customer && (
+          <div class="absolute top-0 left-0 z-30">
+            <WishlistButton productID={productID} customer={customer} />
+          </div>
+        )}
+      </Slider>
+      <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} />
+    </>
+  );
 
   const renderStaticImage = () => (
     <div
@@ -218,18 +195,14 @@ function ProductCard({
     >
       <ProductCardImage
         url={getDisplayImage()}
-        alt={product?.name || "Product Image"}
+        alt={front?.alternateName!}
         preload={preload}
         discount={discount}
+        promotion={promotionFlag}
       />
       {customer && (
         <div class="absolute top-0 left-0 z-30">
           <WishlistButton productID={productID} customer={customer} />
-        </div>
-      )}
-      {isLoadingImages && (
-        <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
-          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
         </div>
       )}
     </div>
@@ -239,12 +212,17 @@ function ProductCard({
     <ul class="flex flex-wrap gap-y-1 gap-x-1 items-center w-[90%] h-4 relative max-lg:ml-5">
       {availableColors
         .sort((a, b) => (a.name === name ? -1 : b.name === name ? 1 : 0))
-        .map(({ name, slug, unitCodes }) => {
-          const isSelected = slug === selectedColorSlug;
+        .map(({ name, url, unitCodes }) => {
+          const isSelected = selectedImage
+            ? variantNames[variantImages.indexOf(selectedImage)] === name
+            : name === product.name;
 
           return (
             <li
-              key={slug}
+              key={unitCodes.join()}
+              onClick={() => handleColorClick(name)}
+              onMouseEnter={() => handleColorHover(name)}
+              onMouseLeave={handleColorLeave}
               class={`group cursor-pointer ${
                 isSelected
                   ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full mr-1"
@@ -253,11 +231,7 @@ function ProductCard({
             >
               <a
                 aria-label={name}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClickColor(slug);
-                }}
-                class={`block ${isLoadingImages ? 'pointer-events-none opacity-50' : ''}`}
+                onClick={(e) => e.preventDefault()}
               >
                 <div
                   style={{
@@ -283,10 +257,10 @@ function ProductCard({
       : (
         <button class="border-[1px] border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
           <a
-            href={`/produto/${selectedColorSlug}`}
+            href={url}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
-            {product?.category?.name?.includes("Lentes de Contato")
+            {product.category && product?.category.includes("Lentes de Contato")
               ? "Ver Produto"
               : "Experimentar"}
           </a>
@@ -307,15 +281,9 @@ function ProductCard({
             item_list_name: itemListName,
             items: [
               mapProductToAnalyticsItem({
-                product: {
-                  ...product,
-                  "@type": "Product",
-                  productID: String(product?.id),
-                  sku: product?.code,
-                  category: product?.category?.name || "",
-                },
-                price: priceWithDiscount,
-                listPrice: price,
+                product,
+                price,
+                listPrice,
               }),
             ],
           },
@@ -323,65 +291,49 @@ function ProductCard({
       />
 
       <a
-        href={`/produto/${selectedColorSlug}`}
+        href={url}
         aria-label="view product"
         class="relative"
         id={`product-card-${productID}-${imageContainerId}`}
       >
-        {isStopwatchEnabled && product.promotion?.countdown && (() => {
-          // Check if promotion is currently active
-          const now = new Date();
-          const startDate = new Date(product.promotion.countdown.start);
-          const endDate = new Date(product.promotion.countdown.end);
-          const isActive = now >= startDate && now <= endDate;
-          
-          return isActive ? (
-            <Stopwatch targetDate={product.promotion.countdown.end} type="card" />
-          ) : null;
-        })()}
+        {isStopwatchEnabled && priceValidUntil && (
+          <Stopwatch targetDate={priceValidUntil} type="card" />
+        )}
         {isSliderEnabled ? renderSlider() : renderStaticImage()}
       </a>
 
       <div class="flex flex-col items-center mt-[10px]">
-        <a
-          href={`/produto/${selectedColorSlug}`}
-          aria-label="view product"
-          class="contents"
-        >
+        <a href={url} aria-label="view product" class="contents">
           <div class="flex flex-col w-full">
             <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
-            {/* <div class="min-h-[25px] my-[10px]">
-              {descriptions && descriptions.length > 0 && (
+            <div class="min-h-[25px] my-[10px]">
+              {description.length > 0 && (
                 <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
-                  {descriptions.map(
+                  {description.map(
                     (property, index) =>
-                      `${property?.title}: ${property?.description} ${
-                        index < descriptions.length - 1 ? "/ " : ""
+                      `${property?.value}: ${property?.name}mm ${
+                        index < description.length - 1 ? "/ " : ""
                       }`,
                   )}
                 </p>
               )}
-            </div> */}
+            </div>
           </div>
         </a>
 
         <div class="w-full flex justify-normal items-center my-[10px]">
-          <a
-            href={`/produto/${selectedColorSlug}`}
-            aria-label="view product"
-            class="contents"
-          >
+          <a href={url} aria-label="view product" class="contents">
             <div class="flex w-full justify-between">
               <div class="flex flex-row justify-center items-center gap-2 max-lg:ml-5">
                 {discount > 0 && (
                   <span class="line-through font-semibold text-[#6F6F6F] text-sm">
-                    {formatPrice(price)}
+                    {formatPrice(listPrice, offers!.priceCurrency!)}
                   </span>
                 )}
                 <span class="text-blue-200 text-lg font-bold">
-                  {formatPrice(priceWithDiscount)}
+                  {formatPrice(price, offers!.priceCurrency!)}
                 </span>
               </div>
               {discount > 0 && (
