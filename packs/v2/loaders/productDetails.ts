@@ -1,10 +1,9 @@
 import type { AppContext } from "site/apps/site.ts";
 import paths from "$store/packs/utils/paths.ts";
 import { toProductPage } from "$store/packs/v2/transform.ts";
-import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import { fetchAPI } from "apps/utils/fetch.ts";
 import type { RequestURLParam } from "apps/website/functions/requestToParam.ts";
-import { Product } from "site/packs/v2/types.ts";
+import { Product, IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
 
 export interface Props {
   slug: RequestURLParam;
@@ -18,7 +17,7 @@ const loader = async (
   props: Props,
   req: Request,
   ctx: AppContext
-): Promise<ProductDetailsPage | null> => {
+): Promise<IsabelaProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
   const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
