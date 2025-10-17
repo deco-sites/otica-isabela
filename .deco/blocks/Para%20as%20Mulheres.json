@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/fbc97394-2c8f-468f-87c6-e7b861a351e0/isa-08-fotos-calefe-(288).jpg",
-      "label": "Óculos Retrô",
+      "image": "https://assets.decocache.com/otica-isabela/18db65b5-dbbe-461e-963a-461d2a833455/isa-dias-09-retrato-calefe-(349).jpg",
+      "label": "Óculos METAL",
       "buttonLabel": "ÓCULOS DELICADO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2347-nude-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2402-nude-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/701e87d7-9ab7-43b5-b1bd-ce3442d22849/isa-dias-04-25-fotos-calefe-(62).jpg",
-      "label": "Óculos Aviador",
-      "buttonLabel": "ÓCULOS AVIADOR",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2232-prata-isabela-dias"
-    },
-    {
-      "image": "https://assets.decocache.com/otica-isabela/35751702-b0aa-4abe-a753-0dc6842dd9d3/isa-08-fotos-calefe-(68).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/d5dd85d3-a574-4b9d-9023-2efbdf4b36e5/isa-dias-09-retrato-calefe-(15).jpg",
+      "buttonLabel": "ÓCULOS BICOLOR",
       "label": "Óculos Bicolor",
-      "buttonLabel": "ÓCULOS BICOLOR ",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2365-marrom-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-quadrado-unissex-2392-tartaruga-isabela-dias"
     },
     {
-      "label": "Óculos Metal ",
-      "image": "https://assets.decocache.com/otica-isabela/a6332d68-e082-427e-af9b-45a46f43f850/isa-08-fotos-calefe-(26).jpg",
-      "buttonLabel": "ÓCULOS METAL",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-redondo-feminino-2341-marrom-isabela-dias"
+      "image": "https://assets.decocache.com/otica-isabela/dca5cba7-5445-45cf-9b62-03d5667fb46f/isa-08-fotos-calefe-(297).jpg",
+      "label": "Óculos Retrô",
+      "buttonLabel": "ÓCULOS RETRÔ",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2380-tartaruga-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/8d979a67-311f-4aad-a657-1861a7d008a3/isa-dias-fotos-calefe-(144).jpg",
-      "label": "Óculos Translucido",
-      "buttonLabel": "ÓCULOS TRANSLÚCIDO",
+      "label": "Óculos Traslúcidos",
+      "image": "https://assets.decocache.com/otica-isabela/5220bfeb-8ee4-4b98-9c98-a347207c0024/isa-dias-09-retrato-calefe-(291).jpg",
+      "buttonLabel": "ÓCULOS TRANSLÚCIDOS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2387-perola-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/8748c946-86aa-4eb1-bde6-76c4781d3645/isa-dias-09-retrato-calefe-(39).jpg",
+      "label": "Óculos Retangular",
+      "buttonLabel": "ÓCULOS RETANGULAR",
       "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2189-cinza-isabela-dias"
     },
     {
-      "label": "Óculos Retro ",
-      "buttonLabel": "ÓCULOS RETRÔ",
-      "image": "https://assets.decocache.com/otica-isabela/46aafdae-e999-4f9a-b770-4e7c6d2cd6ea/isa-dias-fotos-calefe-(57).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-rosa-isabela-dias"
+      "label": "Óculos Nude",
+      "buttonLabel": "ÓCULOS GATINHO",
+      "image": "https://assets.decocache.com/otica-isabela/4f075005-0670-4602-b793-66510dfd8d0b/isa-08-fotos-calefe-(32).jpg",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2348-nude-isabela-dias"
     }
   ],
   "customer": {

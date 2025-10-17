@@ -19,23 +19,24 @@ const nameMapping = {
 export const getDescriptions = (properties: PropertyValue[]) => {
   if (!properties.length) return [];
 
-  return targetNames.map((name) => {
-    const match = properties.find((prop) => {
-      try {
-        return prop?.value?.includes?.(name);
-      } catch (e) {
-        console.log({ prop });
-        throw new Error(e);
-      }
-    });
+  return targetNames
+    .map((name) => {
+      const match = properties.find((prop) => {
+        try {
+          return prop?.value?.includes?.(name);
+        } catch (e) {
+          throw new Error(e);
+        }
+      });
 
-    if (!match) return null;
+      if (!match) return null;
 
-    return {
-      ...match,
-      value: nameMapping[match?.value as keyof typeof nameMapping] ||
-        match?.value,
-      name: match?.name,
-    };
-  }).filter((item) => Boolean(item));
+      return {
+        ...match,
+        value:
+          nameMapping[match?.value as keyof typeof nameMapping] || match?.value,
+        name: match?.name,
+      };
+    })
+    .filter((item) => Boolean(item));
 };

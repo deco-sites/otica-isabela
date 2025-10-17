@@ -215,58 +215,68 @@
             }
           },
           {
-            "__resolveType": "website/sections/Rendering/Lazy.tsx",
-            "section": {
-              "__resolveType": "site/sections/Content/RichText.tsx",
-              "text": {
-                "content": "<h2><span style=\"color: rgb(62, 62, 62);\" data-mce-style=\"color: rgb(62, 62, 62);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>",
-                "mobilePadding": {
-                  "top": 0,
-                  "left": 0,
-                  "right": 0,
-                  "bottom": 0
+            "__resolveType": "website/flags/multivariate/section.ts",
+            "variants": [
+              {
+                "value": {
+                  "__resolveType": "website/sections/Rendering/Lazy.tsx",
+                  "section": {
+                    "__resolveType": "site/sections/Content/RichText.tsx",
+                    "text": {
+                      "content": "<h2><span style=\"color: rgb(62, 62, 62);\" data-mce-style=\"color: rgb(62, 62, 62);\"><strong><span style=\"font-size: 24pt;\" data-mce-style=\"font-size: 24pt;\">Ganhamos o Prêmio Reclame Aqui 2024!﻿</span></strong></span></h2><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">Está comprovado que é possível entregar óculos com preço justo, qualidade e </span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><span style=\"font-size: 14pt; color: rgb(62, 62, 62);\" data-mce-style=\"font-size: 14pt; color: rgb(62, 62, 62);\">o melhor atendimento do Brasil.&nbsp;<span class=\"x19la9d6 x1fc57z9 x6ikm8r x10wlt62 x19co3pv x1g5zs5t xfibh0p xiy17q3 x1xsqp64 x1lkfr7t xexx8yu x4uap5 x18d9i69 xkhd6sd\"><span class=\"xrtxmta x1bhl96m\">🏆</span></span></span></p><p style=\"line-height: 1.3;\" data-mce-style=\"line-height: 1.3;\"><br data-mce-bogus=\"1\"></p>",
+                      "mobilePadding": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                      },
+                      "verticalAlign": "center",
+                      "desktopPadding": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                      }
+                    },
+                    "media": {
+                      "tag": null,
+                      "mobile": {
+                        "alt": "atendimento",
+                        "src": "https://assets.decocache.com/otica-isabela/4db4d029-f0e8-4ec6-a48e-2b209395a4fd/Banner-mobile-Trofeu.jpg",
+                        "height": 150,
+                        "width": 200
+                      },
+                      "desktop": {
+                        "alt": "atendimento",
+                        "src": "https://assets.decocache.com/otica-isabela/9e1dc7c4-bb1c-433f-b4cb-5166be88c93f/Banner-Desk-site-Equipe-04.jpg",
+                        "height": 500,
+                        "width": 1100
+                      },
+                      "position": "left",
+                      "thumbnail": {
+                        "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"
+                      }
+                    },
+                    "button": {
+                      "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
+                      "color": "#06a9f5",
+                      "label": "Conte com a gente!",
+                      "style": "filled",
+                      "labelColor": "#ffffff",
+                      "horizontalAlign": "center",
+                      "blank": true
+                    },
+                    "seeMore": null,
+                    "container": false,
+                    "linksGrid": null,
+                    "backgroundColor": "#c9effd"
+                  }
                 },
-                "verticalAlign": "center",
-                "desktopPadding": {
-                  "top": 0,
-                  "left": 0,
-                  "right": 0,
-                  "bottom": 0
+                "rule": {
+                  "__resolveType": "website/matchers/never.ts"
                 }
-              },
-              "media": {
-                "tag": null,
-                "mobile": {
-                  "alt": "atendimento",
-                  "src": "https://assets.decocache.com/otica-isabela/4db4d029-f0e8-4ec6-a48e-2b209395a4fd/Banner-mobile-Trofeu.jpg",
-                  "height": 150,
-                  "width": 200
-                },
-                "desktop": {
-                  "alt": "atendimento",
-                  "src": "https://assets.decocache.com/otica-isabela/9e1dc7c4-bb1c-433f-b4cb-5166be88c93f/Banner-Desk-site-Equipe-04.jpg",
-                  "height": 500,
-                  "width": 1100
-                },
-                "position": "left",
-                "thumbnail": {
-                  "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/otica-isabela/23fa261d-9d87-415d-b172-d2894d6155c0/Banner-Desk.jpg"
-                }
-              },
-              "button": {
-                "href": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-                "color": "#06a9f5",
-                "label": "Conte com a gente!",
-                "style": "filled",
-                "labelColor": "#ffffff",
-                "horizontalAlign": "center",
-                "blank": true
-              },
-              "seeMore": null,
-              "container": false,
-              "linksGrid": null,
-              "backgroundColor": "#c9effd"
-            }
+              }
+            ]
           },
           {
             "__resolveType": "website/sections/Rendering/Lazy.tsx",
