@@ -50,7 +50,7 @@ const ProductShelfAndImage = ({
             : "lg:flex-row-reverse"
         } lg:justify-between lg:items-start mt-14 mb-24 lg:mb-6`}
       >
-        <div class=" w-full lg:w-1/3">
+        <div class="w-full lg:w-1/3">
           <div class="hidden lg:flex">
             <VerticalProductShelf products={products} />
           </div>

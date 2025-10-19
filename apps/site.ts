@@ -6,14 +6,24 @@ type StdApp = ReturnType<typeof std>;
 
 export interface StoreProps extends Props {
   /**
-   * @description Oticas Isabela token, used for API authentication.
+   * @description Oticas Isabela token, used for API authentication. (old version)
    */
-  token: string;
+  token?: string;
   /**
    * @title Public store URL
    * @description Domain that is registered on License Manager (e.g: www.mystore.com.br)
    */
   publicUrl?: string;
+  /**
+   * @title API Base URL
+   * @description Base URL for the store's API endpoints.
+   */
+  apiBaseUrl?: string;
+  /**
+   * @title API Token
+   * @description Token for authenticating API requests.
+   */
+  apiToken?: string;
 }
 
 export default function Site(

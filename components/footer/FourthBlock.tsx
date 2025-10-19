@@ -8,8 +8,8 @@ export const FourthBlock = (
   }
 
   return (
-    <section class="w-full bg-base-500 ">
-      <div class="container pb-5 pt-5 text-white text-center flex flex-col lg:flex-row lg:justify-between items-center text-xs font-bold gap-y-4 ">
+    <section class="w-full bg-base-500">
+      <div class="container pb-5 pt-5 text-white text-center flex flex-col lg:flex-row lg:justify-between items-center text-xs font-bold gap-y-4">
         <span>{socialName}</span>
         <span>{address}</span>
       </div>

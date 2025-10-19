@@ -1,62 +1,57 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import { Product, ProductLeaf } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import { useId } from "$store/sdk/useId.ts";
+import { Product } from "site/packs/v2/types.ts";
+import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
 
 interface Props {
   product: Product;
+  relatedProductImages?: ({
+    slug: string;
+    images: MediasResponseObject[];
+  } | null)[];
 }
 
-type Variant = ProductLeaf & {
-  Imagem?: string;
-};
-
-function OtherColorsShelf({ product }: Props) {
+function OtherColorsShelf({ product, relatedProductImages }: Props) {
   const id = `other-colors-shelf-${useId()}`;
-  const { isVariantOf, productID } = product;
-  const { hasVariant } = isVariantOf || {};
+  const { relatedProducts, id: productID } = product;
 
-  if (hasVariant && hasVariant.length <= 1) return null;
-
-  const images = hasVariant
-    ?.map((variant: Variant) => ({
-      image: variant.Imagem,
-      alternateName: variant.alternateName,
-      url: variant.url,
-      sku: variant.sku,
-    }))
-    .filter((variant) => variant.sku !== productID);
+  if (relatedProducts && relatedProducts.length <= 0) return null;
 
   return (
     <div class="mt-10">
       <h3 class="text-[32px] text-black text-center font-outfit font-bold">
-        {product?.category?.includes("Lentes de Contato") ||
-            product?.category?.includes("Acessórios")
+        {product?.category?.name.includes("Lentes de Contato") ||
+            product?.category?.name.includes("Acessórios")
           ? "Mais opções"
           : "Mais cores"}
       </h3>
       <div class="w-full flex flex-col gap-0 md:gap-12 lg:gap-16 mt-10">
         <div id={id} class="container flex flex-col px-0 sm:px-5">
           <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
-            {images?.map(({ image, alternateName, url }, index) => (
-              <div class="flex flex-col">
-                <Slider.Item
-                  index={index}
-                  class="carousel-item w-full justify-center items-center"
-                >
-                  <a href={url}>
-                    <Image
-                      class="max-w-[260px] md:max-w-[100%]"
-                      src={image!}
-                      alt={alternateName}
-                      width={260}
-                      height={260}
-                    />
-                  </a>
-                </Slider.Item>
-              </div>
-            ))}
+            {relatedProductImages?.map((item, index) => {
+              if (!item) return null;
+              const { slug, images } = item;
+              return (
+                <div class="flex flex-col" key={slug}>
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item w-full justify-center items-center"
+                  >
+                    <a href={`/produto/${slug}`}>
+                      <Image
+                        class="max-w-[260px] md:max-w-[100%]"
+                        src={images[0]?.productImage!}
+                        alt={product.name ?? slug}
+                        width={260}
+                        height={260}
+                      />
+                    </a>
+                  </Slider.Item>
+                </div>
+              );
+            })}
           </Slider>
 
           <SliderJS
@@ -69,7 +64,9 @@ function OtherColorsShelf({ product }: Props) {
 
           {/* Dots */}
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
-            {images?.map((_, index) => <Slider.Dot index={index} />)}
+            {relatedProductImages?.map((_, index) => (
+              <Slider.Dot index={index} />
+            ))}
           </div>
         </div>
       </div>

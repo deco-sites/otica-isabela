@@ -1,5 +1,6 @@
-import { Product, PropertyValue } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
+import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
+import { Product, ProductAttribute } from "site/packs/v2/types.ts";
 
 interface Props {
   product: Product;
@@ -7,47 +8,40 @@ interface Props {
 }
 
 interface DescriptionItem {
-  item: PropertyValue;
+  item: ProductAttribute;
   label?: string;
 }
 
 interface SpecItem {
-  item: PropertyValue;
+  item: ProductAttribute;
   classes?: string;
 }
 
 export function DescriptionItem({ item, label }: DescriptionItem) {
   return (
     <p>
-      <strong>{label || item.value}:</strong> {item.name}mm
+      <strong>{label || item.type}:</strong> {item.value}mm
     </p>
   );
 }
 
 export function SpecItem({ item, classes }: SpecItem) {
   return (
-    <span id={item.value} class={`absolute ${classes}`}>
-      {item?.name}mm
+    <span id={item.type} class={`absolute ${classes}`}>
+      {item?.value}mm
     </span>
   );
 }
 
 function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
-  const { image, additionalProperty } = product;
+  const { medias } = product;
 
-  const getProp = (prop: string) =>
-    additionalProperty?.find((p) => p.value === prop);
-
-  const altura = getProp("Altura da Lente");
-  const largura = getProp("Largura da Lente");
-  const ponte = getProp("Largura da Ponte");
-  const frente_total = getProp("Frente Total");
-  const hastes = getProp("Hastes");
-  const aro = getProp("Aro");
-
-  const measurementsImg = additionalProperty?.find((p) =>
-    p.propertyID === "measurementsImg"
-  )?.value;
+  const altura = findProductAttribute("Altura da Lente", product);
+  const largura = findProductAttribute("Largura da Lente", product);
+  const ponte = findProductAttribute("Largura da Ponte", product);
+  const frente_total = findProductAttribute("Frente Total", product);
+  const hastes = findProductAttribute("Hastes", product);
+  const aro = findProductAttribute("Aro", product);
 
   if (
     !altura ||
@@ -71,7 +65,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           <SpecItem item={largura!} classes="right-[22%] bottom-[8%]" />
         </div>
         <Image
-          src={measurementsImg! || image![0].url!}
+          src={medias![0].url!}
           width={550}
           height={307}
           alt="medidas"
