@@ -179,7 +179,7 @@ function ProductInfo(
         >
           <AddToCartButton
             {...addToCard}
-            label={labels?.[currentCategory!.toLowerCase()]}
+            label={labels?.[currentCategory!.toLowerCase().trim()]}
           />
         </div>
       )}

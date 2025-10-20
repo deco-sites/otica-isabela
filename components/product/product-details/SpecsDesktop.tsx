@@ -17,8 +17,8 @@ function SpecsDesktop({ product, measurementsImage }: Props) {
   const rootId = "tabs-component";
 
   const hasNotMeasures =
-    product?.category?.name.includes("Lentes de Contato") ||
-    product?.category?.name.includes("Acessórios");
+    product?.category?.name.toLowerCase().includes("lentes de contato") ||
+    product?.category?.name.toLowerCase().includes("acessórios");
 
   const panels = [
     ...(descriptions

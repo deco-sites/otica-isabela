@@ -286,7 +286,7 @@ function ProductCard({
             href={`/produto/${selectedColorSlug}`}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
-            {product?.category?.name?.includes("Lentes de Contato")
+            {product?.category?.name?.toLowerCase().includes("lentes de contato")
               ? "Ver Produto"
               : "Experimentar"}
           </a>
