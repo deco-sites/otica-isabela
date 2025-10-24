@@ -63,9 +63,7 @@ function ProductCard({
     (((price ?? 0) - (priceWithDiscount ?? 0)) / (price ?? 0)) * 100,
   );
 
-  const experimenterImage = attributes?.find(
-    (prop) => prop.type === "experimentador",
-  )?.value;
+  const experimenterImage = originalImages.find((img) => img.tryOn)?.url;
 
   const availableColors = getAvailableColors(product);
 

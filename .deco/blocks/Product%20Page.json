@@ -44,7 +44,7 @@
       },
       "promotions": [
         {
-          "label": "Compre com Lentes",
+          "label": "canBuyWithPrescriptionLenses",
           "flagText": "Compre com lentes de grau e pague só %value"
         }
       ],

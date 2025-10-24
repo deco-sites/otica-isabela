@@ -86,8 +86,7 @@ function Details({
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
   const chooseLensUrl = `/passo-a-passo/${slug}`;
-  const experimenterImage = findProductAttribute("experimentador", product)
-    ?.value;
+  const experimenterImage = images.find((img) => img.tryOn)?.url;
 
   const discount = Math.ceil(
     (((price ?? 0) - (priceWithDiscount ?? 0)) / (price ?? 0)) * 100,
@@ -126,19 +125,20 @@ function Details({
     {},
   );
 
-  const promotionFlag = findProductAttribute("flag", product)?.value
-    ?.toLowerCase();
-
-  const promotion = promotions?.find(
-    (current) => current.label.toLowerCase() === promotionFlag,
-  );
+  const promotion = product.canBuyWithPrescriptionLenses
+    ? promotions?.find((current) =>
+      current.label === "canBuyWithPrescriptionLenses"
+    )
+    : undefined;
 
   const isAllowedToAddLens = product.lensAttributes?.[0].isAllowedToAddLens;
   const isLensWithoutPrescription = product.lensAttributes?.[0]
     .isLensWithoutPrescription;
   const lensDescription = product.lensAttributes?.[0].lensQuantityDescription;
 
-  const isLentes = product?.category?.name?.toLowerCase().trim().includes("lentes de contato");
+  const isLentes = product?.category?.name?.toLowerCase().trim().includes(
+    "lentes de contato",
+  );
 
   return (
     <>

@@ -36,8 +36,7 @@ function ProductInfo(
     installments,
   } = product;
   const chooseLensUrl = `/passo-a-passo/${slug}`;
-  const experimenterImage = findProductAttribute("experimentador", product)
-    ?.value;
+  const experimenterImage = product.medias.find((img) => img.tryOn)?.url;
 
   const addToCard = {
     idProduct: Number(productID),
@@ -46,14 +45,11 @@ function ProductInfo(
     name: name!,
   };
 
-  const promotionFlag = findProductAttribute(
-    "flag",
-    product,
-  )?.value?.toLowerCase();
-
-  const promotion = promotions?.find((current) =>
-    current.label.toLowerCase() === promotionFlag
-  );
+  const promotion = product.canBuyWithPrescriptionLenses
+    ? promotions?.find((current) =>
+      current.label === "canBuyWithPrescriptionLenses"
+    )
+    : undefined;
 
   const rating = findProductAttribute("rating", product)?.value;
   const ratingValue = rating ? parseFloat(rating) : 0;
@@ -76,7 +72,7 @@ function ProductInfo(
 
   const stepLabel = handleStepsLabel();
 
-  console.log(stepLabel, 'stepLabel!', currentCategory!.toLowerCase().trim());
+  console.log(stepLabel, "stepLabel!", currentCategory!.toLowerCase().trim());
 
   return (
     <>

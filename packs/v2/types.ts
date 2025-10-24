@@ -13,6 +13,7 @@ export interface IsabelaProductDetailsPage
 export interface Media {
   url: string;
   isVideo: boolean;
+  tryOn: boolean;
 }
 
 export interface CategoryInfo {
@@ -62,6 +63,8 @@ export interface Product {
   price: number;
   priceWithDiscount: number;
   hasDiscount: boolean;
+  canBuyWithPrescriptionLenses?: boolean;
+  tryOn?: boolean;
   isAvailable: boolean;
   installments?: ProductInstallment[];
   attributes: ProductAttribute[];
