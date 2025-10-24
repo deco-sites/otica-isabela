@@ -1,2 +1,41 @@
-{"name":"Search page","path":"/busca","sections":[{"title":"Armação de Óculos - Ótica online Isabela Dias","jsonLD":{"id":[],"offset":9,"ordenacao":"none","__resolveType":"site/loaders/product/productListiningPage.ts","filtrosDinamicos":[]},"favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico","description":"Uma armação de óculos de qualidade faz toda a diferença na hora da utilização. Por isso, saber escolher corretamente é imprescindível.","__resolveType":"commerce/sections/Seo/SeoPLP.tsx","titleTemplate":"%s","descriptionTemplate":"%s"},{"__resolveType":"Header - 01"},{"page":{"id":[],"offset":21,"ordenacao":"nome","__resolveType":"site/loaders/product/productListiningPage.ts","filtrosDinamicos":[]},"columns":{},"variant":"aside","customer":{"__resolveType":"site/loaders/store/auth.ts"},"__resolveType":"site/sections/Product/SearchResult.tsx"},          {"__resolveType": "Newsletter Otica"},
-          {"__resolveType": "Footer Otica"},{"__resolveType":"wpp-cta"}],"__resolveType":"$live/pages/LivePage.tsx"}
+{
+  "name": "Search page",
+  "path": "/busca",
+  "sections": [
+    {
+      "title": "Armação de Óculos - Ótica online Isabela Dias",
+      "jsonLD": {
+        "id": [],
+        "offset": 9,
+        "ordenacao": "none",
+        "__resolveType": "site/loaders/product/productListiningPage.ts",
+        "filtrosDinamicos": []
+      },
+      "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
+      "description": "Uma armação de óculos de qualidade faz toda a diferença na hora da utilização. Por isso, saber escolher corretamente é imprescindível.",
+      "__resolveType": "commerce/sections/Seo/SeoPLP.tsx",
+      "titleTemplate": "%s",
+      "descriptionTemplate": "%s"
+    },
+    {
+      "__resolveType": "Header - 01"
+    },
+    {
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "site/loaders/product/productListingPage.ts",
+        "OrderBy": "name"
+      }
+    },
+    {
+      "__resolveType": "Newsletter Otica"
+    },
+    {
+      "__resolveType": "Footer Otica"
+    },
+    {
+      "__resolveType": "wpp-cta"
+    }
+  ],
+  "__resolveType": "$live/pages/LivePage.tsx"
+}
