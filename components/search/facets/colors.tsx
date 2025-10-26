@@ -21,7 +21,7 @@ export default function ColorFacets({
   const filters = useFilters();
   const colorFacets = facets["facet_attribute_cor"];
 
-  if (!colorFacets || Object.keys(colorFacets).length <= 1) {
+  if (!colorFacets || Object.keys(colorFacets).length <= 0) {
     return null;
   }
 

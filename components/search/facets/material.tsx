@@ -21,7 +21,7 @@ export default function MaterialFacets({
   const filters = useFilters();
   const materialFacets = facets["facet_attribute_material"];
 
-  if (!materialFacets || Object.keys(materialFacets).length <= 1) {
+  if (!materialFacets || Object.keys(materialFacets).length <= 0) {
     return null;
   }
 

@@ -25,7 +25,7 @@ export default function TypeFacets({
   const filters = useFilters();
   const typeFacets = facets["facet_attribute_tipo"];
 
-  if (!typeFacets || Object.keys(typeFacets).length <= 1) {
+  if (!typeFacets || Object.keys(typeFacets).length <= 0) {
     return null;
   }
 

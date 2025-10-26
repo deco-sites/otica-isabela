@@ -3,19 +3,36 @@ import { useFilters } from "site/sdk/useFilters.ts";
 import FormatFacets from "site/components/search/facets/format.tsx";
 import ColorFacets from "site/components/search/facets/colors.tsx";
 import MaterialFacets from "site/components/search/facets/material.tsx";
+import AgeFacets from "site/components/search/facets/age.tsx";
 import StyleFacets from "site/components/search/facets/style.tsx";
 import TypeFacets from "site/components/search/facets/type.tsx";
-import { Shape, Type } from "site/components/search/SearchResult.tsx";
+import LensesFacets from "site/components/search/facets/lenses.tsx";
+import DisposalTypeFacets from "site/components/search/facets/disposalType.tsx";
+import LensesBrandFacets from "site/components/search/facets/lensesBrand.tsx";
+import UseIndicationFacets from "site/components/search/facets/useIndication.tsx";
+import {
+  FilterHideOptions,
+  Shape,
+  Type,
+} from "site/components/search/SearchResult.tsx";
 import SizeFacets from "site/components/search/facets/size.tsx";
 
 interface Props {
   facets: IsabelaProductListingPage["filters"];
   shapeIcons: Shape[];
   typeIcons: Type[];
+  hideFilters?: FilterHideOptions[];
+  url: string;
 }
 
-export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
+export default function Filters(
+  { facets, shapeIcons, typeIcons, hideFilters, url }: Props,
+) {
   const filters = useFilters();
+
+  const hideFiltersList = hideFilters?.find(({ label }) =>
+    new URLPattern({ pathname: label }).test(url)
+  );
 
   const handleFilterChange = (
     key: string,
@@ -59,26 +76,69 @@ export default function Filters({ facets, shapeIcons, typeIcons }: Props) {
     window.location.href = url.toString();
   };
 
+  const shouldShowFilter = (
+    filterName: FilterHideOptions["filtersToHide"][number],
+  ) => {
+    return !hideFiltersList?.filtersToHide.includes(filterName);
+  };
+
   return (
     <div class="hidden lg:flex flex-col mr-10 max-w-[200px] w-full">
       <div class="flex flex-col sticky top-0 z-10">
-        <SizeFacets facets={facets} handleFilterChange={handleFilterChange} />
-        <FormatFacets
-          facets={facets}
-          handleFilterChange={handleFilterChange}
-          shapeIcons={shapeIcons}
-        />
-        <ColorFacets facets={facets} handleFilterChange={handleFilterChange} />
-        <MaterialFacets
-          facets={facets}
-          handleFilterChange={handleFilterChange}
-        />
-        <StyleFacets facets={facets} handleFilterChange={handleFilterChange} />
-        <TypeFacets
-          facets={facets}
-          handleFilterChange={handleFilterChange}
-          typeIcons={typeIcons}
-        />
+        {shouldShowFilter("size") && (
+          <SizeFacets facets={facets} handleFilterChange={handleFilterChange} />
+        )}
+        {shouldShowFilter("format") && (
+          <FormatFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+            shapeIcons={shapeIcons}
+          />
+        )}
+        {shouldShowFilter("color") && (
+          <ColorFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+          />
+        )}
+
+        {shouldShowFilter("material") && (
+          <MaterialFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+          />
+        )}
+        {shouldShowFilter("style") && (
+          <StyleFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+          />
+        )}
+        {shouldShowFilter("lenses") && (
+          <LensesFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+          />
+        )}
+        {shouldShowFilter("type") && (
+          <TypeFacets
+            facets={facets}
+            handleFilterChange={handleFilterChange}
+            typeIcons={typeIcons}
+          />
+        )}
+        {shouldShowFilter("age") && (
+          <AgeFacets facets={facets} handleFilterChange={handleFilterChange} />
+        )}
+        {shouldShowFilter("disposal_type") && (
+          <DisposalTypeFacets facets={facets} handleFilterChange={handleFilterChange} />
+        )}
+        {shouldShowFilter("lenses_brand") && (
+          <LensesBrandFacets facets={facets} handleFilterChange={handleFilterChange} />
+        )}
+        {shouldShowFilter("use_indication") && (
+          <UseIndicationFacets facets={facets} handleFilterChange={handleFilterChange} />
+        )}
 
         <button
           onClick={handleClearFilters}

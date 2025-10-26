@@ -17,6 +17,11 @@ const FILTER_KEY_MAP: Record<string, string> = {
   Material: "facet_attribute_material",
   Tipo: "facet_attribute_tipo",
   Tamanho: "facet_attribute_tamanho",
+  Idade: "facet_attribute_idade",
+  Lentes: "facet_attribute_lentes",
+  "Tipo de Descarte": "facet_attribute_descarte",
+  "Marca Lente": "facet_attribute_marca_da_lente",
+  "Indicação de Uso": "facet_attribute_indicacao_de_uso",
 };
 
 interface ProductFilter {
@@ -92,45 +97,49 @@ const loader = async (
   const headers: HeadersInit = new Headers();
   headers.set("Token", config.token ?? "");
 
-  let response: PLPResponseDTO | null = null;
+  try {
+    let response: PLPResponseDTO | null = null;
 
-  if (isCategoryPage) {
-    response = await fetchAPI<PLPResponseDTO>(
-      path.v2.navigation.withFilters(
-        { ...props, OrderBy, Page: Number(Page) || 1 },
-        categoryTree!,
-        filtersQuery
-      ),
-      {
-        method: "GET",
-        headers,
-      }
-    );
-  } else {
-    const term = url.searchParams.get("termo") ?? "";
+    if (isCategoryPage) {
+      response = await fetchAPI<PLPResponseDTO>(
+        path.v2.navigation.withFilters(
+          { ...props, OrderBy, Page: Number(Page) || 1 },
+          categoryTree!,
+          filtersQuery
+        ),
+        {
+          method: "GET",
+          headers,
+        }
+      );
+    } else {
+      const term = url.searchParams.get("termo") ?? "";
 
-    response = await fetchAPI<PLPResponseDTO>(
-      path.v2.product.search(
-        term,
-        OrderBy,
-        Number(Page) || 1,
-        props.PageSize ?? 12
-      ),
-      {
-        method: "GET",
-        headers,
-      }
-    );
+      response = await fetchAPI<PLPResponseDTO>(
+        path.v2.product.search(
+          term,
+          OrderBy,
+          Number(Page) || 1,
+          props.PageSize ?? 12
+        ),
+        {
+          method: "GET",
+          headers,
+        }
+      );
+    }
+
+    if (!response.data.length) return null;
+
+    return toProductListingPage({
+      dto: response,
+      baseURL: url,
+      pageType: isCategoryPage ? "category" : "search",
+      pageParams: { OrderBy, Page },
+    });
+  } catch {
+    return null;
   }
-
-  if (!response.data.length) return null;
-
-  return toProductListingPage({
-    dto: response,
-    baseURL: url,
-    pageType: isCategoryPage ? "category" : "search",
-    pageParams: { OrderBy, Page },
-  });
 };
 
 export default loader;

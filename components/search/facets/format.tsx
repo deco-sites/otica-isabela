@@ -25,7 +25,7 @@ export default function FormatFacets({
   const filters = useFilters();
   const formatFacets = facets["facet_attribute_formato"];
 
-  if (!formatFacets || Object.keys(formatFacets).length <= 1) {
+  if (!formatFacets || Object.keys(formatFacets).length <= 0) {
     return null;
   }
 

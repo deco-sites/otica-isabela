@@ -139,10 +139,31 @@
               }
             ],
             "hideFilters": [
-              "Altura da Lente",
-              "Largura da Ponte",
-              "Frente Total",
-              "Largura da Lente"
+              {
+                "filtersToHide": [
+                  "size",
+                  "format",
+                  "material",
+                  "style",
+                  "type"
+                ],
+                "label": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil"
+              },
+              {
+                "filtersToHide": [
+                  "color",
+                  "type"
+                ],
+                "label": "/oculos-clip-on"
+              },
+              {
+                "filtersToHide": [
+                  "size",
+                  "color",
+                  "type"
+                ],
+                "label": "/oculos-de-sol"
+              }
             ],
             "filterColors": [
               {

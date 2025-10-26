@@ -3,7 +3,7 @@ import { useId } from "$store/sdk/useId.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 
-interface StyleFacetsProps {
+interface LensesBrandFacetsProps {
   facets: IsabelaProductListingPage["filters"];
   handleFilterChange: (
     key: string,
@@ -13,15 +13,15 @@ interface StyleFacetsProps {
   ) => void;
 }
 
-export default function StyleFacets({
+export default function LensesBrandFacets({
   facets,
   handleFilterChange,
-}: StyleFacetsProps) {
+}: LensesBrandFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const styleFacets = facets["facet_attribute_estilo"];
+  const lensesBrandFacets = facets["facet_attribute_marca_da_lente"];
 
-  if (!styleFacets || Object.keys(styleFacets).length <= 0) {
+  if (!lensesBrandFacets || Object.keys(lensesBrandFacets).length <= 0) {
     return null;
   }
 
@@ -29,10 +29,10 @@ export default function StyleFacets({
     <details class="group">
       <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden hover:text-blue-200">
         <span class="text-sm font-medium">
-          Estilo{" "}
-          {filters.countFilter("Estilo") > 0 && (
+          Marca Lente{" "}
+          {filters.countFilter("Marca Lente") > 0 && (
             <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-              {filters.countFilter("Estilo").toString()}
+              {filters.countFilter("Marca Lente").toString()}
             </span>
           )}
         </span>
@@ -40,41 +40,41 @@ export default function StyleFacets({
       </summary>
 
       <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
-        {Object.entries(styleFacets).slice(0, 10).map((
-          [style, count],
+        {Object.entries(lensesBrandFacets).slice(0, 10).map((
+          [brand, count],
         ) => {
-          const uniqueInputId = `${componentId}-style-${style}`;
+          const uniqueInputId = `${componentId}-brand-${brand}`;
 
           return (
             <label
-              key={style}
+              key={brand}
               htmlFor={uniqueInputId}
               class="flex items-center cursor-pointer"
             >
               <input
                 id={uniqueInputId}
                 type="checkbox"
-                checked={filters.isFilterActive("Estilo", style, "in")}
+                checked={filters.isFilterActive("Marca Lente", brand, "in")}
                 class="hidden"
                 onChange={(e) =>
                   handleFilterChange(
-                    "Estilo",
+                    "Marca Lente",
                     "in",
-                    style,
+                    brand,
                     e.currentTarget.checked,
                   )}
               />
               <span
                 aria-checked={filters.isFilterActive(
-                  "Estilo",
-                  style,
+                  "Marca Lente",
+                  brand,
                   "in",
                 )}
                 class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
               >
               </span>
               <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
-                {style}
+                {brand}
                 <span>({count})</span>
               </span>
             </label>

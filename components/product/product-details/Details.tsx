@@ -237,7 +237,7 @@ function Details({
                   showProductTumbnails ? "" : "max-lg:hidden"
                 }`}
               >
-                {images.map((img, index) => (
+                {images.filter(img => !img.tryOn).map((img, index) => (
                   <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
                     <Slider.Dot index={index}>
                       <Image
@@ -265,7 +265,7 @@ function Details({
                   id={`product-images-${id}`}
                   class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
                 >
-                  {images.map((img, index) => (
+                  {images.filter(img => !img.tryOn).map((img, index) => (
                     <Slider.Item
                       index={index}
                       class="carousel-item lg:!w-full items-center"

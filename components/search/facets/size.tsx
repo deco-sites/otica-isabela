@@ -21,7 +21,7 @@ export default function SizeFacets({
   const filters = useFilters();
   const sizeFacets = facets["facet_attribute_tamanho"];
 
-  if (!sizeFacets || Object.keys(sizeFacets).length <= 1) {
+  if (!sizeFacets || Object.keys(sizeFacets).length <= 0) {
     return null;
   }
 

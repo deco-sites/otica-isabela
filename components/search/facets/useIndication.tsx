@@ -3,7 +3,7 @@ import { useId } from "$store/sdk/useId.ts";
 import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
 
-interface StyleFacetsProps {
+interface UseIndicationFacetsProps {
   facets: IsabelaProductListingPage["filters"];
   handleFilterChange: (
     key: string,
@@ -13,15 +13,15 @@ interface StyleFacetsProps {
   ) => void;
 }
 
-export default function StyleFacets({
+export default function UseIndicationFacets({
   facets,
   handleFilterChange,
-}: StyleFacetsProps) {
+}: UseIndicationFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const styleFacets = facets["facet_attribute_estilo"];
+  const useIndicationFacets = facets["facet_attribute_indicacao_de_uso"];
 
-  if (!styleFacets || Object.keys(styleFacets).length <= 0) {
+  if (!useIndicationFacets || Object.keys(useIndicationFacets).length <= 0) {
     return null;
   }
 
@@ -29,10 +29,10 @@ export default function StyleFacets({
     <details class="group">
       <summary class="flex items-center justify-between py-3.5 border-b border-[#cdcdcd] cursor-pointer marker:hidden [&::-webkit-details-marker]:hidden hover:text-blue-200">
         <span class="text-sm font-medium">
-          Estilo{" "}
-          {filters.countFilter("Estilo") > 0 && (
+          Indicação de Uso{" "}
+          {filters.countFilter("Indicação de Uso") > 0 && (
             <span class="ml-1 bg-blue-200 inline-flex items-center justify-center w-5 h-5 text-center text-white rounded-[50%] text-xs">
-              {filters.countFilter("Estilo").toString()}
+              {filters.countFilter("Indicação de Uso").toString()}
             </span>
           )}
         </span>
@@ -40,41 +40,41 @@ export default function StyleFacets({
       </summary>
 
       <ul class="flex flex-wrap gap-3.5 flex-col mb-6 pt-2.5">
-        {Object.entries(styleFacets).slice(0, 10).map((
-          [style, count],
+        {Object.entries(useIndicationFacets).slice(0, 10).map((
+          [useIndication, count],
         ) => {
-          const uniqueInputId = `${componentId}-style-${style}`;
+          const uniqueInputId = `${componentId}-use-indication-${useIndication}`;
 
           return (
             <label
-              key={style}
+              key={useIndication}
               htmlFor={uniqueInputId}
               class="flex items-center cursor-pointer"
             >
               <input
                 id={uniqueInputId}
                 type="checkbox"
-                checked={filters.isFilterActive("Estilo", style, "in")}
+                checked={filters.isFilterActive("Indicação de Uso", useIndication, "in")}
                 class="hidden"
                 onChange={(e) =>
                   handleFilterChange(
-                    "Estilo",
+                    "Indicação de Uso",
                     "in",
-                    style,
+                    useIndication,
                     e.currentTarget.checked,
                   )}
               />
               <span
                 aria-checked={filters.isFilterActive(
-                  "Estilo",
-                  style,
+                  "Indicação de Uso",
+                  useIndication,
                   "in",
                 )}
                 class="checkbox border relative h-[12px] w-[12px] mr-2.5 rounded-[3px] border-solid border-[#969696]"
               >
               </span>
               <span class="flex items-center gap-2.5 text-sm text-[#6f6f6f] font-medium">
-                {style}
+                {useIndication}
                 <span>({count})</span>
               </span>
             </label>

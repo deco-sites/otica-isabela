@@ -72,8 +72,6 @@ function ProductInfo(
 
   const stepLabel = handleStepsLabel();
 
-  console.log(stepLabel, "stepLabel!", currentCategory!.toLowerCase().trim());
-
   return (
     <>
       {/* Name */}

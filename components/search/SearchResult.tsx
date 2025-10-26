@@ -19,9 +19,9 @@ import {
   BreadcrumbItem,
   IsabelaProductListingPage,
 } from "site/packs/v2/types.ts";
-import Filters from 'site/islands/Filters.tsx';
-import FiltersMobile from 'site/islands/FiltersMobile.tsx';
-import ActiveFilters from 'site/islands/ActiveFilters.tsx';
+import Filters from "site/islands/Filters.tsx";
+import FiltersMobile from "site/islands/FiltersMobile.tsx";
+import ActiveFilters from "site/islands/ActiveFilters.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
@@ -38,6 +38,30 @@ export interface CategoryMatcher {
   /** @title Itens do Menu */
   categoryItems: CategoryMenuItem[];
 }
+
+export interface FilterHideOptions {
+  /**
+   * @title Caminho da URL
+   * @description Use /feminino/* para esconder esses filtros em todas as categorias filhas de feminino
+   */
+  label: string;
+  /** @title Filtros a esconder */
+  filtersToHide:
+    (
+      | "size"
+      | "color"
+      | "type"
+      | "format"
+      | "material"
+      | "style"
+      | "lenses"
+      | "disposal_type"
+      | "use_indication"
+      | "lenses_brand"
+      | "age"
+    )[];
+}
+
 export interface Color {
   /**
    * @title Nome
@@ -86,6 +110,8 @@ export interface Props {
   shapeIcons?: Shape[];
   /** @title Menu de Categorias */
   categories?: CategoryMatcher[];
+  /** @title Esconder Filtros */
+  hideFilters?: FilterHideOptions[];
   /** @title Ativar carossel nos itens da galeria? */
   isSliderEnabled?: boolean;
   /**
@@ -116,6 +142,7 @@ function Result(
     typeIcons = [],
     shapeIcons = [],
     categories = [],
+    hideFilters,
     isSliderEnabled,
     customer,
     url,
@@ -158,18 +185,30 @@ function Result(
         </div>
       </header>
 
-      <FiltersMobile facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
+      <FiltersMobile
+        hideFilters={hideFilters}
+        url={url}
+        facets={filters}
+        shapeIcons={shapeIcons}
+        typeIcons={typeIcons}
+      />
 
       <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
-          <div class="hidden lg:block">
-            <ActiveFilters />
-          </div>
-          <CategoryMenu categories={categories} url={url} />
+        <div class="hidden lg:block">
+          <ActiveFilters />
+        </div>
+        <CategoryMenu categories={categories} url={url} />
       </div>
 
       <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          <Filters facets={filters} shapeIcons={shapeIcons} typeIcons={typeIcons} />
+          <Filters
+            hideFilters={hideFilters}
+            url={url}
+            facets={filters}
+            shapeIcons={shapeIcons}
+            typeIcons={typeIcons}
+          />
 
           <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
             {banner && banner.map((b) => <Banner banner={b} />)}
