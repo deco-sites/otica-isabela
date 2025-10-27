@@ -5,8 +5,7 @@
     "variants": [
       {
         "rule": {
-          "__resolveType": "website/matchers/random.ts",
-          "traffic": 0.5
+          "__resolveType": "$live/matchers/MatchAlways.ts"
         },
         "value": [
           {
