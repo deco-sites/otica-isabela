@@ -48,7 +48,7 @@ function ProductCard({
     priceWithDiscount,
   } = product;
   
-  const originalImages = medias?.filter((media) => !media.isVideo);
+  const originalImages = medias?.filter((media) => !media.isVideo && !media.tryOn);
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [selectedColorSlug, setSelectedColorSlug] = useState<string>(product.slug);
@@ -70,7 +70,7 @@ function ProductCard({
   const getCurrentImages = () => {
     // Se uma cor diferente foi selecionada e temos imagens para ela, usa as imagens da cor
     if (selectedColorSlug !== product.slug && selectedColorImages.length > 0) {
-      return selectedColorImages.map(media => media.productImage);
+      return selectedColorImages.filter(media => !media.tryOn).map(media => media.productImage);
     }
     // Caso contrário, usa as imagens originais
     return originalImages?.map((img) => img.url) || [];

@@ -10,6 +10,7 @@ export interface MediasResponseObject {
   productId: number;
   productSlug: string;
   productImage: string;
+  tryOn: boolean;
 }
 
 /**
