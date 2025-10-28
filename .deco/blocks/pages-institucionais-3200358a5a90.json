@@ -5,8 +5,7 @@
     "variants": [
       {
         "rule": {
-          "__resolveType": "website/matchers/random.ts",
-          "traffic": 0.5
+          "__resolveType": "$live/matchers/MatchAlways.ts"
         },
         "value": [
           {
@@ -4891,7 +4890,7 @@
                         "height": 1000,
                         "preload": true
                       },
-                      "videoUrl": "https://youtu.be/i-067MKjeHI"
+                      "videoUrl": "https://www.youtube.com/embed/i-067MKjeHI"
                     }
                   },
                   {
@@ -5161,7 +5160,7 @@
                         "src": "https://assets.decocache.com/otica-isabela/d06e03bd-8e80-4407-a335-6ee656868257/Oculos-mudam-a-vida-das-criacas.jpg",
                         "preload": true
                       },
-                      "videoUrl": "https://youtu.be/9eeGKF3jcrw"
+                      "videoUrl": "https://www.youtube.com/embed/9eeGKF3jcrw"
                     }
                   }
                 ],
