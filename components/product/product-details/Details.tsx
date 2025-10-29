@@ -7,7 +7,7 @@ import ProductInfo from "$store/components/product/product-details/ProductInfo.t
 import Ratings from "$store/components/product/product-details/Ratings.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+// import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ShareButton from "$store/islands/ShareButton.tsx";
 import Image from "apps/website/components/Image.tsx";
 import Video from "apps/website/components/Video.tsx";
@@ -19,7 +19,7 @@ import {
   BreadcrumbItem,
   IsabelaProductDetailsPage,
 } from "site/packs/v2/types.ts";
-import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
+// import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 
 const useStableImages = (product: IsabelaProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
@@ -176,7 +176,7 @@ function Details({
         )}
         <div class="flex items-center">
           <ShareButton link={`/${slug}`} />
-          <WishlistButton productID={productID} customer={customer} />
+          {/* <WishlistButton productID={productID} customer={customer} /> */}
         </div>
 
         {/* Ratings - Mobile (Header) */}
@@ -237,7 +237,7 @@ function Details({
                   showProductTumbnails ? "" : "max-lg:hidden"
                 }`}
               >
-                {images.filter(img => !img.tryOn).map((img, index) => (
+                {images.filter((img) => !img.tryOn).map((img, index) => (
                   <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
                     <Slider.Dot index={index}>
                       <Image
@@ -265,7 +265,7 @@ function Details({
                   id={`product-images-${id}`}
                   class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
                 >
-                  {images.filter(img => !img.tryOn).map((img, index) => (
+                  {images.filter((img) => !img.tryOn).map((img, index) => (
                     <Slider.Item
                       index={index}
                       class="carousel-item lg:!w-full items-center"

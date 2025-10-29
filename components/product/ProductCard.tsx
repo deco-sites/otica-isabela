@@ -11,7 +11,7 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import { useId } from "$store/sdk/useId.ts";
 import type { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+// import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import { Product } from "site/packs/v2/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
 import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
@@ -35,24 +35,30 @@ function ProductCard({
   itemListName,
   isStopwatchEnabled,
   isSliderEnabled,
-  customer,
+  // customer,
   hideExperiment,
 }: Props) {
   const {
     id: productID,
     name,
-    attributes,
+    // attributes,
     medias,
-    descriptions,
+    // descriptions,
     price,
     priceWithDiscount,
   } = product;
-  
-  const originalImages = medias?.filter((media) => !media.isVideo && !media.tryOn);
+
+  const originalImages = medias?.filter((media) =>
+    !media.isVideo && !media.tryOn
+  );
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const [selectedColorSlug, setSelectedColorSlug] = useState<string>(product.slug);
-  const [selectedColorImages, setSelectedColorImages] = useState<MediasResponseObject[]>([]);
+  const [selectedColorSlug, setSelectedColorSlug] = useState<string>(
+    product.slug,
+  );
+  const [selectedColorImages, setSelectedColorImages] = useState<
+    MediasResponseObject[]
+  >([]);
   const [isLoadingImages, setIsLoadingImages] = useState<boolean>(false);
 
   const imageContainerId = useId();
@@ -70,7 +76,9 @@ function ProductCard({
   const getCurrentImages = () => {
     // Se uma cor diferente foi selecionada e temos imagens para ela, usa as imagens da cor
     if (selectedColorSlug !== product.slug && selectedColorImages.length > 0) {
-      return selectedColorImages.filter(media => !media.tryOn).map(media => media.productImage);
+      return selectedColorImages.filter((media) => !media.tryOn).map((media) =>
+        media.productImage
+      );
     }
     // Caso contrário, usa as imagens originais
     return originalImages?.map((img) => img.url) || [];
@@ -119,7 +127,7 @@ function ProductCard({
 
     // Se não temos no cache, faz a requisição
     setIsLoadingImages(true);
-    
+
     try {
       //@ts-ignore Um erro bizarro acontecendo quando remove o ts-ignore
       const Runtime = withManifest<Manifest>();
@@ -129,18 +137,17 @@ function ProductCard({
       );
 
       const response: MediasResponseObject[] = await medias({ slug });
-      
+
       // Armazena no cache
       imageCache.set(slug, response);
-      
+
       // Atualiza o estado
       setSelectedColorSlug(slug);
       setSelectedColorImages(response);
-      
+
       // Reset hover states
       setHoverImage(null);
       setHoverIndex(null);
-      
     } catch (error) {
       console.error("Erro ao buscar imagens da variante:", error);
       // Em caso de erro, mantém a cor atual
@@ -151,15 +158,17 @@ function ProductCard({
 
   const renderSlider = () => {
     const currentImages = getCurrentImages();
-    
+
     return (
       <>
-        <Slider 
+        <Slider
           class="carousel carousel-center w-full scrollbar-none gap-6 min-h-[170px] relative"
           key={`slider-${selectedColorSlug}`}
         >
           {currentImages.map((imageUrl, index) => {
-            if (imageUrl.toLowerCase() === "/content/assets/images/capa-video.jpg") return null;
+            if (
+              imageUrl.toLowerCase() === "/content/assets/images/capa-video.jpg"
+            ) return null;
             return (
               <Slider.Item
                 index={index}
@@ -192,18 +201,17 @@ function ProductCard({
               </Slider.Item>
             );
           })}
-          {customer && (
-            <div class="absolute top-0 left-0 z-30">
-              <WishlistButton productID={productID} customer={customer} />
-            </div>
-          )}
           {isLoadingImages && (
             <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
-              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900">
+              </div>
             </div>
           )}
         </Slider>
-        <SliderJS rootId={`product-card-${productID}-${imageContainerId}`} key={`sliderjs-${selectedColorSlug}`} />
+        <SliderJS
+          rootId={`product-card-${productID}-${imageContainerId}`}
+          key={`sliderjs-${selectedColorSlug}`}
+        />
       </>
     );
   };
@@ -220,14 +228,10 @@ function ProductCard({
         preload={preload}
         discount={discount}
       />
-      {customer && (
-        <div class="absolute top-0 left-0 z-30">
-          <WishlistButton productID={productID} customer={customer} />
-        </div>
-      )}
       {isLoadingImages && (
         <div class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-20">
-          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900">
+          </div>
         </div>
       )}
     </div>
@@ -255,7 +259,9 @@ function ProductCard({
                   e.preventDefault();
                   handleClickColor(slug);
                 }}
-                class={`block ${isLoadingImages ? 'pointer-events-none opacity-50' : ''}`}
+                class={`block ${
+                  isLoadingImages ? "pointer-events-none opacity-50" : ""
+                }`}
               >
                 <div
                   style={{
@@ -284,7 +290,9 @@ function ProductCard({
             href={`/produto/${selectedColorSlug}`}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
-            {product?.category?.name?.toLowerCase().includes("lentes de contato")
+            {product?.category?.name?.toLowerCase().includes(
+                "lentes de contato",
+              )
               ? "Ver Produto"
               : "Experimentar"}
           </a>
@@ -332,10 +340,15 @@ function ProductCard({
           const startDate = new Date(product.promotion.countdown.start);
           const endDate = new Date(product.promotion.countdown.end);
           const isActive = now >= startDate && now <= endDate;
-          
-          return isActive ? (
-            <Stopwatch targetDate={product.promotion.countdown.end} type="card" />
-          ) : null;
+
+          return isActive
+            ? (
+              <Stopwatch
+                targetDate={product.promotion.countdown.end}
+                type="card"
+              />
+            )
+            : null;
         })()}
         {isSliderEnabled ? renderSlider() : renderStaticImage()}
       </a>
@@ -350,7 +363,8 @@ function ProductCard({
             <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
-            {/* <div class="min-h-[25px] my-[10px]">
+            {
+              /* <div class="min-h-[25px] my-[10px]">
               {descriptions && descriptions.length > 0 && (
                 <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
                   {descriptions.map(
@@ -361,7 +375,8 @@ function ProductCard({
                   )}
                 </p>
               )}
-            </div> */}
+            </div> */
+            }
           </div>
         </a>
 

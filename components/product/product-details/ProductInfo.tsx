@@ -6,7 +6,7 @@ import type { Promotion } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
 import { sendFBEvent } from "$store/components/ultils/facebook.ts";
 import Ratings from "$store/components/product/product-details/Ratings.tsx";
-import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+// import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ChooseLensButton from "$store/islands/ChooseLensButton.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
@@ -91,13 +91,15 @@ function ProductInfo(
             </a>
           )}
         </div>
-        <div class="ml-2">
+        {
+          /* <div class="ml-2">
           <WishlistButton
             variant="icon"
             productID={productID}
             customer={customer}
           />
-        </div>
+        </div> */
+        }
       </div>
       {/* Buy with lens label */}
       {promotion
