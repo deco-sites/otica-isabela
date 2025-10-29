@@ -154,7 +154,7 @@
                   "color",
                   "type"
                 ],
-                "label": "/oculos-clip-on"
+                "label": "/oculos-clip-on*"
               },
               {
                 "filtersToHide": [
