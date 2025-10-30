@@ -54,7 +54,7 @@ export default function SizeFacets({
               <input
                 id={uniqueInputId}
                 type="checkbox"
-                checked={filters.isFilterActive("Material", size, "in")}
+                checked={filters.isFilterActive("Tamanho", size, "in")}
                 class="hidden"
                 onChange={(e) =>
                   handleFilterChange(

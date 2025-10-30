@@ -1,7 +1,5 @@
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { Promotion } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
 import { sendFBEvent } from "$store/components/ultils/facebook.ts";
@@ -12,7 +10,6 @@ import { AuthData } from "$store/packs/types.ts";
 import { type LoaderReturnType } from "@deco/deco";
 import ProductInfoColors from "$store/islands/ProductInfoColors.tsx";
 import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
-import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 interface Props {
   page: LoaderReturnType<IsabelaProductDetailsPage | null>;
   promotions?: Promotion[];
@@ -51,8 +48,8 @@ function ProductInfo(
     )
     : undefined;
 
-  const rating = findProductAttribute("rating", product)?.value;
-  const ratingValue = rating ? parseFloat(rating) : 0;
+  const rating = product.productRating;
+  const ratingValue = rating || 0;
 
   const isAllowedToAddLens = product.lensAttributes?.[0].isAllowedToAddLens;
   const isLensWithoutPrescription = product.lensAttributes?.[0]

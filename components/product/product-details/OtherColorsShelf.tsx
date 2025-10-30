@@ -15,9 +15,8 @@ interface Props {
 
 function OtherColorsShelf({ product, relatedProductImages }: Props) {
   const id = `other-colors-shelf-${useId()}`;
-  const { relatedProducts, id: productID } = product;
 
-  if (relatedProducts && relatedProducts.length <= 0) return null;
+  if (relatedProductImages && relatedProductImages.length <= 0) return null;
 
   return (
     <div class="mt-10">

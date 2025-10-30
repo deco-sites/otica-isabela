@@ -285,13 +285,13 @@ function ProductCard({
     experimenterImage && !hideExperiment
       ? <ToExperimentButton image={experimenterImage} />
       : (
-        <button class="border-[1px] border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
+        <button class="border-[1px] shrink-0 border-black hover:border-slot-primary-500 text-grayscale-700 hover:text-slot-primary-500 py-[5px] max-lg:py-1 px-4 max-lg:px-3 rounded-[17px] text-center">
           <a
             href={`/produto/${selectedColorSlug}`}
             class="w-full font-semibold flex justify-end hover:underline text-sm max-lg:text-xs"
           >
-            {product?.category?.name?.toLowerCase().includes(
-                "lentes de contato",
+            {["lentes de contato", "acessórios"].includes(
+                product?.category?.name?.toLowerCase(),
               )
               ? "Ver Produto"
               : "Experimentar"}
