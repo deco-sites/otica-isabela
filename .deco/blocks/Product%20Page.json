@@ -44,8 +44,8 @@
       },
       "promotions": [
         {
-          "label": "canBuyWithPrescriptionLenses",
-          "flagText": "Compre com lentes de grau e pague só %value"
+          "label": "Compre com Lentes",
+          "flagText": "Compre com lentes de grau e pague só %value na armação"
         }
       ],
       "__resolveType": "site/sections/Product/ProductDetails.tsx",
@@ -53,7 +53,7 @@
         "nameLocation": "Header",
         "starsLocation": "Bottom",
         "discountTagLocation": "Image Bottom",
-        "showProductTumbnails": true,
+        "showProductTumbnails": false,
         "displayModalAfter": "Header"
       },
       "buttonByCategory": [
