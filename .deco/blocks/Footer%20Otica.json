@@ -72,10 +72,6 @@
       "text": "Área do cliente",
       "url": "/identificacao",
       "newTab": true
-    },
-    {
-      "text": "Meus favoritos",
-      "url": "/meus-favoritos"
     }
   ],
   "sobre": [

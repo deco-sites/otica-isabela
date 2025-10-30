@@ -441,13 +441,6 @@
       "icon": "QuestionBox",
       "title": "Como Comprar",
       "mobileVibility": false
-    },
-    {
-      "href": "/",
-      "icon": "Heart",
-      "title": "Favoritos",
-      "mobileVibility": true,
-      "mobileVisibility": true
     }
   ],
   "loginLink": {

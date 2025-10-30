@@ -28,7 +28,12 @@
           "param": "slug",
           "__resolveType": "deco-sites/std/functions/requestToParam.ts"
         },
-        "__resolveType": "site/loaders/product/productDetails.ts"
+        "__resolveType": "site/loaders/product/productDetailsV2.ts",
+        "seo": null,
+        "breadcrumbList": {
+          "video": null,
+          "image": null
+        }
       },
       "reviews": {
         "__resolveType": "productTestimonials"
@@ -54,7 +59,7 @@
       "buttonByCategory": [
         {
           "label": "Comprar Óculos EPI",
-          "category": "Óculos De Proteção Com Grau"
+          "category": "Óculos E.P.I."
         },
         {
           "label": "Comprar Sem Grau",
@@ -62,7 +67,7 @@
         },
         {
           "label": "Comprar só Clipon",
-          "category": "Óculos ClipOn"
+          "category": "Clipon"
         },
         {
           "label": "Comprar só Armação",
@@ -81,11 +86,11 @@
       "stepButtonByCategory": [
         {
           "label": "Escolher as Lentes",
-          "category": "Óculos De Proteção Com Grau"
+          "category": "Óculos E.P.I."
         },
         {
           "label": "Escolher as Lentes",
-          "category": "Óculos ClipOn"
+          "category": "Clipon"
         },
         {
           "label": "Escolher as Lentes",
@@ -94,6 +99,10 @@
         {
           "label": "Escolher as Lentes",
           "category": "Óculos De Sol"
+        },
+        {
+          "label": "Escolher as Lentes",
+          "category": "Armação de Óculos"
         },
         {
           "label": "Escolher o Grau",

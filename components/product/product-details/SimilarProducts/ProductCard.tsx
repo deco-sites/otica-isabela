@@ -1,13 +1,13 @@
 // ProductCard.tsx
 import Slider from "$store/components/ui/Slider.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
-import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
+// import WishlistButton from "$store/components/wishlist/WishlistButton.tsx";
 import ColorSelector from "$store/islands/ColorSelectorSimilar.tsx";
 import type { ProductCardProps } from "./types.ts";
 import { calculateDiscountPercentage } from "./utils.ts";
 
 const ProductCard = ({
-    page,
+    // page,
     similar,
     index,
     displayImage,
@@ -55,14 +55,16 @@ const ProductCard = ({
                     )}
                 </figure>
 
-                {page && (
+                {
+                    /* {page && (
                     <div className="absolute top-0 left-0 z-30">
                         <WishlistButton
                             productID={similar.IdProduct}
                             customer={page}
                         />
                     </div>
-                )}
+                )} */
+                }
 
                 <div className="card-body p-4">
                     <h4 className="text-black text-base leading-none h-[33px]">

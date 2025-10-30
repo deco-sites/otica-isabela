@@ -24,14 +24,9 @@
           {
             "__resolveType": "site/sections/Product/SearchResult.tsx",
             "page": {
-              "__resolveType": "site/loaders/product/productListiningPage.ts",
-              "id": [],
-              "offset": 21,
-              "ordenacao": "ofertas",
-              "filtrosDinamicos": [],
-              "somenteCronometrosAtivos": false,
-              "isProdutosSimilares": false,
-              "ofertasDia": false
+              "__resolveType": "site/loaders/product/productListingPage.ts",
+              "OrderBy": "nome",
+              "PageSize": 21
             },
             "customer": {
               "__resolveType": "site/loaders/store/auth.ts"
@@ -69,7 +64,8 @@
                     "link": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
                     "label": "INFANTIL"
                   }
-                ]
+                ],
+                "name": "Armação"
               },
               {
                 "label": "/oculos-clip-on",
@@ -82,7 +78,8 @@
                     "link": "/oculos-clip-on/clipon-masculino",
                     "label": "MASCULINO"
                   }
-                ]
+                ],
+                "name": "Clipon"
               },
               {
                 "label": "/oculos-de-sol",
@@ -95,7 +92,8 @@
                     "link": "/oculos-de-sol/oculos-de-sol-masculino",
                     "label": "MASCULINO"
                   }
-                ]
+                ],
+                "name": "Óculos de Sol"
               }
             ],
             "shapeIcons": [
@@ -141,10 +139,31 @@
               }
             ],
             "hideFilters": [
-              "Altura da Lente",
-              "Largura da Ponte",
-              "Frente Total",
-              "Largura da Lente"
+              {
+                "filtersToHide": [
+                  "size",
+                  "format",
+                  "material",
+                  "style",
+                  "type"
+                ],
+                "label": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil"
+              },
+              {
+                "filtersToHide": [
+                  "color",
+                  "type"
+                ],
+                "label": "/oculos-clip-on*"
+              },
+              {
+                "filtersToHide": [
+                  "size",
+                  "color",
+                  "type"
+                ],
+                "label": "/oculos-de-sol*"
+              }
             ],
             "filterColors": [
               {

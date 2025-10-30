@@ -68,14 +68,14 @@ export default function FAQ(
 ) {
   return (
     <>
-      <div class="w-full flex justify-center items-center bg-gray-scale-100 px-4 lg:px-0 ">
-        <div class="w-full max-w-xl  text-center">
+      <div class="w-full flex justify-center items-center bg-gray-scale-100 px-4 lg:px-0">
+        <div class="w-full max-w-xl text-center">
           {header ? <HeaderTitle {...header} /> : null}
         </div>
       </div>
 
       <FaqContainer backgroundColor={backgroundColor}>
-        <div class="w-full container flex flex-col lg:flex-row gap-x-3 ">
+        <div class="w-full container flex flex-col lg:flex-row gap-x-3">
           {desktopImage && (
             <div class="w-full hidden lg:flex justify-center items-center lg:w-1/2">
               <Image

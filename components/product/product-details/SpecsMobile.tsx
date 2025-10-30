@@ -17,8 +17,8 @@ function SpecsMobile({ product, measurementsImage }: Props) {
   const panels = additionalProperty?.filter(
     (prop) => prop.propertyID === "panel",
   ) ?? [];
-  const hasNotMeasures = product?.category?.includes("Lentes de Contato") ||
-    product?.category?.includes("Acessórios");
+  const hasNotMeasures = product?.category?.toLowerCase().includes("lentes de contato") ||
+    product?.category?.toLowerCase().includes("acessórios");
 
   if (!hasNotMeasures) {
     panels.unshift({

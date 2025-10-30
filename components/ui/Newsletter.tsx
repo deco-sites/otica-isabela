@@ -106,23 +106,23 @@ export default function Newsletter({
 
   return (
     <>
-      <section class="w-full bg-blue-200  ">
-        <div class="flex flex-col justify-center items-center w-full ">
+      <section class="w-full bg-blue-200">
+        <div class="flex flex-col justify-center items-center w-full">
           {header ? <HeaderTitle {...header} /> : null}
           <form
             action="#"
-            class="flex flex-col gap-3 w-full md:max-w-[600px] p-3 mt-0 md:mt-8 gap-y-7 mb-12  items-center"
+            class="flex flex-col gap-3 w-full md:max-w-[600px] p-3 mt-0 md:mt-8 gap-y-7 mb-12 items-center"
             onSubmit={handleSubmit}
           >
             <input
               name="name"
-              class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
+              class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal"
               type="text"
               placeholder={placeholder?.nameInput ?? ""}
             />
             <input
               name="email"
-              class=" w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal "
+              class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-base-300 placeholder:font-normal"
               type="text"
               placeholder={placeholder?.mailInput ?? ""}
             />
@@ -131,7 +131,7 @@ export default function Newsletter({
               onChange={(e) => {
                 e.currentTarget.value = phoneMask(e.currentTarget.value);
               }}
-              class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal "
+              class="w-full outline-none rounded-none pl-4 h-14 border border-slate-300 focus:border-black placeholder:text-[#757575] placeholder:font-normal"
               type="tel"
               maxLength={15}
               placeholder={placeholder?.foneInput ?? ""}
@@ -145,7 +145,7 @@ export default function Newsletter({
             </button>
 
             {helpText && (
-              <p class="text-[10px] text-white  font-normal text-xs md:text-base text-center  md:max-w-[70%]">
+              <p class="text-[10px] text-white font-normal text-xs md:text-base text-center md:max-w-[70%]">
                 {helpText}
               </p>
             )}

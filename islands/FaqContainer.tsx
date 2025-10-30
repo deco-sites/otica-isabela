@@ -12,7 +12,7 @@ const FaqContainer = (
   return (
     <div
       style={{ backgroundColor: isDesktop ? backgroundColor : "#ffffff" }}
-      class="w-full flex items-center justify-center px-4 lg:px-0  "
+      class="w-full flex items-center justify-center px-4 lg:px-0"
     >
       {children}
     </div>

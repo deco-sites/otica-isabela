@@ -64,7 +64,8 @@ function Navbar({
             </a>
           </div>
 
-          <a
+          {
+            /* <a
             href="/meus-favoritos"
             class="group flex lg:hidden items-center justify-center"
           >
@@ -74,7 +75,8 @@ function Navbar({
               height={24}
               class="text-slot-primary-600"
             />
-          </a>
+          </a> */
+          }
 
           <div class="lg:hidden">
             <Buttons variant="cart" />
@@ -113,7 +115,8 @@ function Navbar({
               <Help ajuda={ajuda.ajuda} />
             </div>
           )}
-          <a
+          {
+            /* <a
             href="/meus-favoritos"
             class="group flex items-center justify-center"
           >
@@ -129,7 +132,8 @@ function Navbar({
               height={24}
               class="text-slot-primary-600 opacity-0 group-hover:opacity-100 transition-opacity absolute"
             />
-          </a>
+          </a> */
+          }
           <IconLoginLink {...loginLink} />
 
           {/* <IconNavigation items={IconNavigationItems} /> */}
