@@ -15,6 +15,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import { Product } from "site/packs/v2/types.ts";
 import { withManifest } from "$live/clients/withManifest.ts";
 import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
+import { findProductAttribute } from "site/sdk/findProductAttribute.ts";
 
 interface Props {
   product: Product;
@@ -72,6 +73,38 @@ function ProductCard({
   const experimenterImage = originalImages.find((img) => img.tryOn)?.url;
 
   const availableColors = getAvailableColors(product);
+
+  // Função para renderizar as medidas do produto
+  const renderMeasurements = () => {
+    const altura = findProductAttribute("Altura da Lente", product);
+    const largura = findProductAttribute("Largura da Lente", product);
+    const ponte = findProductAttribute("Largura da Ponte", product);
+    const frente_total = findProductAttribute("Frente Total", product);
+    const hastes = findProductAttribute("Hastes", product);
+    const aro = findProductAttribute("Aro", product);
+
+    const measurements = [
+      { item: altura, label: "Altura" },
+      { item: largura, label: "Largura" },
+      { item: ponte, label: "Ponte" },
+      { item: hastes, label: "Hastes" },
+      { item: frente_total, label: "Frente" },
+      { item: aro, label: "Aro" },
+    ].filter((m) => m.item); // Remove medidas que não existem
+
+    if (measurements.length === 0) return null;
+
+    return (
+      <div class="text-xs font-normal leading-none text-base-200">
+        {measurements.map(({ item, label }, index) => (
+          <span key={item!.type}>
+            {label}: {item!.value}mm
+            {index < measurements.length - 1 ? " / " : ""}
+          </span>
+        ))}
+      </div>
+    );
+  };
 
   const getCurrentImages = () => {
     // Se uma cor diferente foi selecionada e temos imagens para ela, usa as imagens da cor
@@ -363,20 +396,10 @@ function ProductCard({
             <p class="text-black text-base leading-none h-[33px]">
               {name}
             </p>
-            {
-              /* <div class="min-h-[25px] my-[10px]">
-              {descriptions && descriptions.length > 0 && (
-                <p class="text-xs font-normal leading-none text-base-200 line-clamp-3">
-                  {descriptions.map(
-                    (property, index) =>
-                      `${property?.title}: ${property?.description} ${
-                        index < descriptions.length - 1 ? "/ " : ""
-                      }`,
-                  )}
-                </p>
-              )}
-            </div> */
-            }
+
+            <div class="min-h-[25px] my-[10px]">
+              {renderMeasurements()}
+            </div>
           </div>
         </a>
 
