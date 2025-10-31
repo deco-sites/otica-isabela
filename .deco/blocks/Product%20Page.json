@@ -45,7 +45,7 @@
       "promotions": [
         {
           "label": "canBuyWithPrescriptionLenses",
-          "flagText": "Compre com lentes de grau e pague só %value na armação"
+          "flagText": "Compre com as lentes e pague só %value na armação"
         }
       ],
       "__resolveType": "site/sections/Product/ProductDetails.tsx",
