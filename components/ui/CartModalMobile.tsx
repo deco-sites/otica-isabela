@@ -52,7 +52,7 @@ const setup = ({ value, type }: ObservableElement) => {
           cartElement!.classList.remove("hidden");
         }
       }),
-    { threshold: 0.1 },
+    { threshold: 0.4 },
   );
 
   observer.observe(observableElement);

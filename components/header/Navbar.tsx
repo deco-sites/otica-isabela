@@ -44,17 +44,16 @@ function Navbar({
             navBarSpace ? "gap-1 lg:gap-3" : "gap-3 mb-4"
           }`}
         >
-          <div class="flex lg:hidden">
+          <div class="flex items-center gap-4 lg:hidden">
             <Buttons variant="menu" />
+            <div class="lg:hidden">
+              <Search isMobile />
+            </div>
             <Modals ajuda={ajuda?.ajuda} menuItems={items} />
           </div>
 
-          <div class="lg:hidden">
-            <Search isMobile />
-          </div>
-
           <div
-            class={`flex justify-center p-0 max-w-[120px] lg:max-w-[200px] w-full`}
+            class={`flex justify-center p-0 max-w-[150px] lg:max-w-[200px] w-full`}
           >
             <a href="/" class="hidden lg:block">
               <Icon id="logo" width={165} height={48} />

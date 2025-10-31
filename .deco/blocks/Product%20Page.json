@@ -44,7 +44,7 @@
       },
       "promotions": [
         {
-          "label": "Compre com Lentes",
+          "label": "canBuyWithPrescriptionLenses",
           "flagText": "Compre com lentes de grau e pague só %value na armação"
         }
       ],
@@ -53,7 +53,7 @@
         "nameLocation": "Header",
         "starsLocation": "Bottom",
         "discountTagLocation": "Image Bottom",
-        "showProductTumbnails": false,
+        "showProductTumbnails": true,
         "displayModalAfter": "Header"
       },
       "buttonByCategory": [
@@ -71,7 +71,7 @@
         },
         {
           "label": "Comprar só Armação",
-          "category": "Armação para óculos de Grau"
+          "category": "Armação de óculos"
         },
         {
           "label": "Comprar só Óculos de sol",
