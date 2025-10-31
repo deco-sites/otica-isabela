@@ -21,6 +21,13 @@ function BestDailyOffers({ products, customer }: Props) {
     
     for (const product of products) {
       if (product.promotion?.countdown) {
+        if (
+          product.promotion.allowsCountdown === false &&
+          product.promotion.isDayOffer === false
+        ) {
+          continue;
+        }
+        
         const startDate = new Date(product.promotion.countdown.start);
         const endDate = new Date(product.promotion.countdown.end);
         
