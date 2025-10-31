@@ -83,7 +83,14 @@ function ProductDetails(
   // Use the new promotion countdown format from v2 types
   const isPromotionActive = () => {
     if (!product?.promotion?.countdown) return false;
-    
+
+    if (
+      product.promotion.allowsCountdown === false &&
+      product.promotion.isDayOffer === false
+    ) {
+      return false;
+    }
+
     const now = new Date();
     const startDate = new Date(product.promotion.countdown.start);
     const endDate = new Date(product.promotion.countdown.end);

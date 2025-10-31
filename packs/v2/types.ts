@@ -45,6 +45,8 @@ export interface ProductInstallment {
 }
 
 export interface ProductPromotion {
+  isDayOffer: boolean;
+  allowsCountdown: boolean;
   countdown?: {
     start: string;
     end: string;

@@ -368,6 +368,13 @@ function ProductCard({
         id={`product-card-${productID}-${imageContainerId}`}
       >
         {isStopwatchEnabled && product.promotion?.countdown && (() => {
+          if (
+            product.promotion.allowsCountdown === false &&
+            product.promotion.isDayOffer === false
+          ) {
+            return null;
+          }
+
           // Check if promotion is currently active
           const now = new Date();
           const startDate = new Date(product.promotion.countdown.start);
