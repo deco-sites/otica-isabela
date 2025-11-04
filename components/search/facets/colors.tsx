@@ -19,7 +19,7 @@ export default function ColorFacets({
 }: ColorFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const colorFacets = facets["facet_attribute_cor"];
+  const colorFacets = facets["facet_attribute_cor/attributeValue"];
 
   if (!colorFacets || Object.keys(colorFacets).length <= 0) {
     return null;
