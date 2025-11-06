@@ -155,29 +155,34 @@ export default function (
 
           {hasProducts && (
             <div class="px-4 py-7 flex flex-wrap justify-between gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
-              {suggestionProducts?.map((suggestion) => (
-                <a
-                  href={`/produto/${suggestion.slug}`}
-                  class="flex flex-col gap-2 items-center max-w-[120px]"
-                >
-                  <Image
-                    src={suggestion.medias?.[0].url ?? ""}
-                    alt={suggestion.name}
-                    width={100}
-                    height={100}
-                  />
+              {suggestionProducts?.map((suggestion) => {
+                const imagesFilter = suggestion.medias?.filter((media) =>
+                  !media.tryOn
+                );
+                return (
+                  <a
+                    href={`/produto/${suggestion.slug}`}
+                    class="flex flex-col gap-2 items-center max-w-[120px]"
+                  >
+                    <Image
+                      src={imagesFilter?.[0].url ?? ""}
+                      alt={suggestion.name}
+                      width={100}
+                      height={100}
+                    />
 
-                  <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">
-                    {suggestion.name}
-                  </span>
+                    <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">
+                      {suggestion.name}
+                    </span>
 
-                  <span class="text-xs text-blue-200 font-bold mt-1">
-                    {formatPrice(
-                      suggestion.price,
-                    )}
-                  </span>
-                </a>
-              ))}
+                    <span class="text-xs text-blue-200 font-bold mt-1">
+                      {formatPrice(
+                        suggestion.price,
+                      )}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>
