@@ -154,7 +154,7 @@ export default function (
           </div>
 
           {hasProducts && (
-            <div class="px-4 py-7 flex flex-wrap justify-between gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
+            <div class="px-4 py-7 flex flex-wrap justify-around gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
               {suggestionProducts?.map((suggestion) => {
                 const imagesFilter = suggestion.medias?.filter((media) =>
                   !media.tryOn
@@ -171,7 +171,7 @@ export default function (
                       height={100}
                     />
 
-                    <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">
+                    <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis text-center">
                       {suggestion.name}
                     </span>
 
