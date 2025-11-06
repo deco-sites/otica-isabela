@@ -105,7 +105,7 @@ export interface Facets {
   facet_attribute_estilo?: Record<string, number>;
   facet_attribute_material?: Record<string, number>;
   facet_attribute_tipo?: Record<string, number>;
-  facet_attribute_cor?: Record<string, number>;
+  "facet_attribute_cor/attributeValue"?: Record<string, number>;
   facet_attribute_tamanho?: Record<string, number>;
   facet_attribute_idade?: Record<string, number>;
   facet_attribute_lentes?: Record<string, number>;

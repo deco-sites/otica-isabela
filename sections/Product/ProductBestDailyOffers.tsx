@@ -3,23 +3,23 @@ import { BestOffersHeader } from "$store/components/ui/BestOffersHeader.tsx";
 import { AuthData } from "$store/packs/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import Section from "../../components/ui/Section.tsx";
-import { Product } from "site/packs/v2/types.ts";
+import { DailyOffersResponseDTO } from "site/packs/v2/loaders/dailyOffers.ts";
 
 export interface Props {
-  products?: Product[] | null;
+  offers: DailyOffersResponseDTO | null;
   customer: LoaderReturnType<AuthData>;
 }
 
-function BestDailyOffers({ products, customer }: Props) {
-  if (!products?.length) {
+function BestDailyOffers({ offers, customer }: Props) {
+  if (!offers || offers.data.length === 0) {
     return null;
   }
 
   // Find the first product with an active promotion
   const getActivePromotionEndDate = () => {
     const now = new Date();
-    
-    for (const product of products) {
+
+    for (const product of offers.data) {
       if (product.promotion?.countdown) {
         if (
           product.promotion.allowsCountdown === false &&
@@ -27,17 +27,17 @@ function BestDailyOffers({ products, customer }: Props) {
         ) {
           continue;
         }
-        
+
         const startDate = new Date(product.promotion.countdown.start);
         const endDate = new Date(product.promotion.countdown.end);
-        
+
         // Check if promotion is currently active
         if (now >= startDate && now <= endDate) {
           return product.promotion.countdown.end;
         }
       }
     }
-    
+
     return null;
   };
 
@@ -50,7 +50,7 @@ function BestDailyOffers({ products, customer }: Props) {
       <BestOffersHeader priceValidUntil={priceValidUntil} page={"home"} />
       <ProductShelf
         itemsPerPage={{ desktop: 3, mobile: 1.2 }}
-        products={products}
+        products={offers.data}
         itemListName="Ofertas do dia"
         isStopwatchEnabled
         customer={customer}

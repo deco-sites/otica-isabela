@@ -8,19 +8,20 @@ import * as $$$0 from "./loaders/actions/cart/addItem.ts";
 import * as $$$1 from "./loaders/actions/wishlist/addItem.ts";
 import * as $$$2 from "./loaders/actions/wishlist/removeItem.ts";
 import * as $$$3 from "./loaders/product/cart.ts";
-import * as $$$4 from "./loaders/product/highlight.ts";
-import * as $$$5 from "./loaders/product/productDetails.ts";
-import * as $$$6 from "./loaders/product/productDetailsV2.ts";
-import * as $$$7 from "./loaders/product/productList.ts";
-import * as $$$8 from "./loaders/product/productListingPage.ts";
-import * as $$$9 from "./loaders/product/productListiningPage.ts";
-import * as $$$10 from "./loaders/product/productMedias.ts";
-import * as $$$11 from "./loaders/product/suggestions.ts";
-import * as $$$12 from "./loaders/product/testimonials.ts";
-import * as $$$13 from "./loaders/product/wishlist.ts";
-import * as $$$14 from "./loaders/store/auth.ts";
-import * as $$$15 from "./loaders/store/newsletter.ts";
-import * as $$$16 from "./loaders/store/session.ts";
+import * as $$$4 from "./loaders/product/dailyOffers.ts";
+import * as $$$5 from "./loaders/product/highlight.ts";
+import * as $$$6 from "./loaders/product/productDetails.ts";
+import * as $$$7 from "./loaders/product/productDetailsV2.ts";
+import * as $$$8 from "./loaders/product/productList.ts";
+import * as $$$9 from "./loaders/product/productListingPage.ts";
+import * as $$$10 from "./loaders/product/productListiningPage.ts";
+import * as $$$11 from "./loaders/product/productMedias.ts";
+import * as $$$12 from "./loaders/product/suggestions.ts";
+import * as $$$13 from "./loaders/product/testimonials.ts";
+import * as $$$14 from "./loaders/product/wishlist.ts";
+import * as $$$15 from "./loaders/store/auth.ts";
+import * as $$$16 from "./loaders/store/newsletter.ts";
+import * as $$$17 from "./loaders/store/session.ts";
 import * as $$$$$$0 from "./sections/BannerWithExplanation.tsx";
 import * as $$$$$$1 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryText.tsx";
@@ -78,11 +79,12 @@ import * as $$$$$$53 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$54 from "./sections/Product/SearchResult.tsx";
 import * as $$$$$$55 from "./sections/Product/SingleProductShelf.tsx";
 import * as $$$$$$56 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$57 from "./sections/SetCookies.tsx";
-import * as $$$$$$58 from "./sections/Social/FacebookPixel.tsx";
-import * as $$$$$$59 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$60 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$61 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$57 from "./sections/SeoPLPCustom.tsx";
+import * as $$$$$$58 from "./sections/SetCookies.tsx";
+import * as $$$$$$59 from "./sections/Social/FacebookPixel.tsx";
+import * as $$$$$$60 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$61 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$62 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -90,19 +92,20 @@ const manifest = {
     "site/loaders/actions/wishlist/addItem.ts": $$$1,
     "site/loaders/actions/wishlist/removeItem.ts": $$$2,
     "site/loaders/product/cart.ts": $$$3,
-    "site/loaders/product/highlight.ts": $$$4,
-    "site/loaders/product/productDetails.ts": $$$5,
-    "site/loaders/product/productDetailsV2.ts": $$$6,
-    "site/loaders/product/productList.ts": $$$7,
-    "site/loaders/product/productListingPage.ts": $$$8,
-    "site/loaders/product/productListiningPage.ts": $$$9,
-    "site/loaders/product/productMedias.ts": $$$10,
-    "site/loaders/product/suggestions.ts": $$$11,
-    "site/loaders/product/testimonials.ts": $$$12,
-    "site/loaders/product/wishlist.ts": $$$13,
-    "site/loaders/store/auth.ts": $$$14,
-    "site/loaders/store/newsletter.ts": $$$15,
-    "site/loaders/store/session.ts": $$$16,
+    "site/loaders/product/dailyOffers.ts": $$$4,
+    "site/loaders/product/highlight.ts": $$$5,
+    "site/loaders/product/productDetails.ts": $$$6,
+    "site/loaders/product/productDetailsV2.ts": $$$7,
+    "site/loaders/product/productList.ts": $$$8,
+    "site/loaders/product/productListingPage.ts": $$$9,
+    "site/loaders/product/productListiningPage.ts": $$$10,
+    "site/loaders/product/productMedias.ts": $$$11,
+    "site/loaders/product/suggestions.ts": $$$12,
+    "site/loaders/product/testimonials.ts": $$$13,
+    "site/loaders/product/wishlist.ts": $$$14,
+    "site/loaders/store/auth.ts": $$$15,
+    "site/loaders/store/newsletter.ts": $$$16,
+    "site/loaders/store/session.ts": $$$17,
   },
   "sections": {
     "site/sections/BannerWithExplanation.tsx": $$$$$$0,
@@ -162,11 +165,12 @@ const manifest = {
     "site/sections/Product/SearchResult.tsx": $$$$$$54,
     "site/sections/Product/SingleProductShelf.tsx": $$$$$$55,
     "site/sections/Product/VisitedProductShelf.tsx": $$$$$$56,
-    "site/sections/SetCookies.tsx": $$$$$$57,
-    "site/sections/Social/FacebookPixel.tsx": $$$$$$58,
-    "site/sections/Social/InstagramPosts.tsx": $$$$$$59,
-    "site/sections/Social/WhatsApp.tsx": $$$$$$60,
-    "site/sections/Theme/Theme.tsx": $$$$$$61,
+    "site/sections/SeoPLPCustom.tsx": $$$$$$57,
+    "site/sections/SetCookies.tsx": $$$$$$58,
+    "site/sections/Social/FacebookPixel.tsx": $$$$$$59,
+    "site/sections/Social/InstagramPosts.tsx": $$$$$$60,
+    "site/sections/Social/WhatsApp.tsx": $$$$$$61,
+    "site/sections/Theme/Theme.tsx": $$$$$$62,
   },
   "apps": {
     "site/apps/decohub.ts": $$$$$$$$$$$0,

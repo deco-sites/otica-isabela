@@ -128,10 +128,13 @@ const paths = ({ token, publicUrl }: StoreProps) => {
           term: string,
           orderBy: string,
           page: number,
-          pageSize: number
+          pageSize: number,
+          filtersQuery?: string
         ) => {
           return href(
-            `${baseV2}/search?Term=${term}&OrderBy=${orderBy}&Page=${page}&PageSize=${pageSize}`,
+            `${baseV2}/search?Term=${term}&OrderBy=${orderBy}&Page=${page}&PageSize=${pageSize}${
+              filtersQuery ? `&${filtersQuery}` : ""
+            }`,
             {},
             true
           );
