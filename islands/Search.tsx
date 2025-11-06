@@ -278,29 +278,34 @@ export default function (
 
         {hasProducts && (
           <div class="px-4 py-7 grid grid-cols-4 gap-x-2 gap-y-4 max-h-[515px] overflow-y-auto overscroll-contain">
-            {suggestionProducts?.map((suggestion) => (
-              <a
-                href={`/produto/${suggestion.slug}`}
-                class="flex flex-col gap-2 items-center max-w-[182px]"
-              >
-                <Image
-                  src={suggestion.medias?.[0].url ?? ""}
-                  alt={suggestion.name}
-                  width={182}
-                  height={133}
-                />
+            {suggestionProducts?.map((suggestion) => {
+              const imagesFilter = suggestion.medias?.filter((media) =>
+                !media.tryOn
+              );
+              return (
+                <a
+                  href={`/produto/${suggestion.slug}`}
+                  class="flex flex-col gap-2 items-center max-w-[182px]"
+                >
+                  <Image
+                    src={imagesFilter?.[0].url ?? ""}
+                    alt={suggestion.name}
+                    width={182}
+                    height={133}
+                  />
 
-                <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">
-                  {suggestion.name}
-                </span>
+                  <span class="text-gray-700 hover:underline underline-offset-2 overflow-hidden line-clamp-2 text-ellipsis">
+                    {suggestion.name}
+                  </span>
 
-                <span class="text-xs text-blue-200 font-bold mt-1">
-                  {formatPrice(
-                    suggestion.price,
-                  )}
-                </span>
-              </a>
-            ))}
+                  <span class="text-xs text-blue-200 font-bold mt-1">
+                    {formatPrice(
+                      suggestion.price,
+                    )}
+                  </span>
+                </a>
+              );
+            })}
           </div>
         )}
       </div>

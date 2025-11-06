@@ -32,6 +32,7 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
             {relatedProductImages?.map((item, index) => {
               if (!item) return null;
               const { slug, images } = item;
+              const imagesFilter = images.filter((media) => !media.tryOn);
               return (
                 <div class="flex flex-col" key={slug}>
                   <Slider.Item
@@ -41,7 +42,7 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
                     <a href={`/produto/${slug}`}>
                       <Image
                         class="max-w-[260px] md:max-w-[100%]"
-                        src={images[0]?.productImage!}
+                        src={imagesFilter[0]?.productImage!}
                         alt={product.name ?? slug}
                         width={260}
                         height={260}
