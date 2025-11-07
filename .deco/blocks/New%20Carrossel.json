@@ -7,16 +7,22 @@
       "alt": "Black friday"
     },
     {
+      "alt": "Black em dobro ",
+      "mobile": "https://assets.decocache.com/otica-isabela/0db33a84-882a-468b-a6ff-8b528c6c2082/Banner-Mobile-Black-friday-Lentes-em-dobro.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/5e96ba2f-429c-420c-836f-a87d14012ce9/Banner-Desktop-Black-friday-Lentes-em-dobro.jpg",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
+    },
+    {
       "alt": "Como comprar no site",
       "mobile": "https://assets.decocache.com/otica-isabela/62940956-e307-4e41-8309-aa1b564900e6/Banner-Mobile.jpg",
       "desktop": "https://assets.decocache.com/otica-isabela/88caec2a-1c98-4eda-b8c9-8d12bf205459/Banner-Desktop.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     },
     {
-      "alt": "Reclame aqui ",
-      "mobile": "https://assets.decocache.com/otica-isabela/728380be-9ae4-4384-967d-08cf3f9b5b9d/Banner-Mobile.jpg",
       "desktop": "https://assets.decocache.com/otica-isabela/8c8b12df-59cc-463b-89b8-6e827d3f678d/Banner-Desktop.jpg",
-      "link": "https://reclameaqui.com.br/premio/votacao/moda/oticas-varejo"
+      "mobile": "https://assets.decocache.com/otica-isabela/728380be-9ae4-4384-967d-08cf3f9b5b9d/Banner-Mobile.jpg",
+      "link": "https://reclameaqui.com.br/premio/votacao/moda/oticas-varejo",
+      "alt": "Reclame aqui "
     },
     {
       "desktop": "https://assets.decocache.com/otica-isabela/40b4f26a-8781-45cc-80b8-0a6ab059ef11/Banner-Desktop-Hoya-2025.jpg",
