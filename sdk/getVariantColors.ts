@@ -12,17 +12,17 @@ export const getAvailableColors = (product: Product): Array<Color> => {
 
   if (variants) {
     variants.forEach((variant) => {
-      const colorProp = variant.attributes?.filter(
-        (prop) => prop.type === "Cor"
-      );
+      const colorProp = variant.attributes?.find((prop) => prop.type === "Cor");
 
-      if (!colorProp || colorProp.length === 0) {
+      if (!colorProp) {
         return;
       }
 
-      const validColorCodes = colorProp
-        .map((prop) => prop.color)
-        .filter((color): color is string => typeof color === "string");
+      const validColorCodes = colorProp.value
+        .split(":")[1]
+        .trim()
+        .split("|")
+        .filter((code) => code.trim() !== "");
 
       availableColors.push({
         name: variant.name,
