@@ -25,6 +25,13 @@ export default function ColorFacets({
     return null;
   }
 
+  if (
+    Object.keys(colorFacets).length === 1 &&
+    Object.keys(colorFacets)[0].includes("UNICO")
+  ) {
+    return null;
+  }
+
   const getColorHexes = (color: string) => {
     return color.split(":")[1].trim() || "#ffffff";
   };
@@ -61,6 +68,10 @@ export default function ColorFacets({
           [color, _count],
         ) => {
           const uniqueInputId = `${componentId}-color-${getColorName(color)}`;
+
+          if (getColorName(color).toLowerCase() === "unico") {
+            return null;
+          }
 
           return (
             <label
