@@ -23,7 +23,7 @@ export default function TypeFacets({
 }: TypeFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const typeFacets = facets["facet_attribute_tipo"];
+  const typeFacets = facets["facet_attribute_tipo/attributeValue"];
 
   if (!typeFacets || Object.keys(typeFacets).length <= 0) {
     return null;

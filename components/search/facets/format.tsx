@@ -23,7 +23,7 @@ export default function FormatFacets({
 }: FormatFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const formatFacets = facets["facet_attribute_formato"];
+  const formatFacets = facets["facet_attribute_formato/attributeValue"];
 
   if (!formatFacets || Object.keys(formatFacets).length <= 0) {
     return null;

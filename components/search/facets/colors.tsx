@@ -25,8 +25,17 @@ export default function ColorFacets({
     return null;
   }
 
-  const getColorHex = (color: string) => {
+  const getColorHexes = (color: string) => {
     return color.split(":")[1].trim() || "#ffffff";
+  };
+
+  const getColorStyle = (color: string) => {
+    const hexes = getColorHexes(color);
+    const colorCodes = hexes.split("|").filter((code) => code.trim() !== "");
+    if (colorCodes.length > 1) {
+      return `linear-gradient(${colorCodes.join(", ")})`;
+    }
+    return colorCodes[0];
   };
 
   const getColorName = (color: string) => {
@@ -82,7 +91,7 @@ export default function ColorFacets({
                   )}
               />
               <span
-                style={{ backgroundColor: getColorHex(color) }}
+                style={{ background: getColorStyle(color) }}
                 class="border border-solid w-5 h-5 rounded-full"
               >
               </span>

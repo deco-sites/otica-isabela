@@ -19,7 +19,7 @@ export default function UseIndicationFacets({
 }: UseIndicationFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const useIndicationFacets = facets["facet_attribute_indicacao_de_uso"];
+  const useIndicationFacets = facets["facet_attribute_indicacao_de_uso/attributeValue"];
 
   if (!useIndicationFacets || Object.keys(useIndicationFacets).length <= 0) {
     return null;

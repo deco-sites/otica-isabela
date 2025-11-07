@@ -24,20 +24,24 @@ function ProductInfoColors({ page }: Props) {
       {sortedVariants?.map((variant) => {
         const url = `/produto/${variant.slug}`;
 
-        const colorProp = variant.attributes?.filter((prop) =>
+        const colorProp = variant.attributes?.find((prop) =>
           prop.type === "Cor"
         );
 
-        if (!colorProp || colorProp.length === 0) {
+        if (!colorProp) {
           return null;
         }
 
-        const validColorCodes = colorProp.map((prop) => prop.color);
+        const colorName = colorProp?.value.split(":")[0].trim();
+
+        const validColorCodes = colorProp?.value.split(":")[1].trim().split("|")
+          .filter((code) => code.trim() !== "");
+
         const isCurrent = url === getPathname;
 
         let backgroundStyle = "";
 
-        if (colorProp.length > 1) {
+        if (validColorCodes.length > 1) {
           backgroundStyle = `linear-gradient(${validColorCodes.join(", ")})`;
         } else if (validColorCodes.length === 1) {
           backgroundStyle = validColorCodes[0] ?? "";
@@ -49,7 +53,7 @@ function ProductInfoColors({ page }: Props) {
               class={`!flex gap-2 items-center justify-between md:tooltip md:tooltip-top ${
                 isCurrent ? "ring-1 ring-offset-2 ring-[#aaa] rounded-full" : ""
               }`}
-              data-tip={colorProp[0]?.value}
+              data-tip={colorName}
             >
               <span
                 class="mask mask-circle h-5 w-5 transition-transform"

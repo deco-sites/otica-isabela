@@ -19,7 +19,7 @@ export default function LensesBrandFacets({
 }: LensesBrandFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const lensesBrandFacets = facets["facet_attribute_marca_da_lente"];
+  const lensesBrandFacets = facets["facet_attribute_marca_da_lente/attributeValue"];
 
   if (!lensesBrandFacets || Object.keys(lensesBrandFacets).length <= 0) {
     return null;

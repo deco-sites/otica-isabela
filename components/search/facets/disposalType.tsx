@@ -19,7 +19,7 @@ export default function DisposalTypeFacets({
 }: DisposalTypeFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const disposalTypeFacets = facets["facet_attribute_descarte"];
+  const disposalTypeFacets = facets["facet_attribute_descarte/attributeValue"];
 
   if (!disposalTypeFacets || Object.keys(disposalTypeFacets).length <= 0) {
     return null;

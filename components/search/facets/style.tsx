@@ -19,7 +19,7 @@ export default function StyleFacets({
 }: StyleFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const styleFacets = facets["facet_attribute_estilo"];
+  const styleFacets = facets["facet_attribute_estilo/attributeValue"];
 
   if (!styleFacets || Object.keys(styleFacets).length <= 0) {
     return null;

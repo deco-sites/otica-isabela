@@ -19,7 +19,7 @@ export default function AgeFacets({
 }: AgeFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const ageFacets = facets["facet_attribute_idade"];
+  const ageFacets = facets["facet_attribute_idade/attributeValue"];
 
   if (!ageFacets || Object.keys(ageFacets).length <= 0) {
     return null;

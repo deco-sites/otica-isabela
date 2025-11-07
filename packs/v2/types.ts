@@ -102,17 +102,17 @@ export interface Facets {
   subCategoryName?: Record<string, number>;
   productPriceWithDiscount?: Record<string, number>;
   brandName?: Record<string, number>;
-  facet_attribute_formato?: Record<string, number>;
-  facet_attribute_estilo?: Record<string, number>;
-  facet_attribute_material?: Record<string, number>;
-  facet_attribute_tipo?: Record<string, number>;
+  "facet_attribute_formato/attributeValue"?: Record<string, number>;
+  "facet_attribute_estilo/attributeValue"?: Record<string, number>;
+  "facet_attribute_material/attributeValue"?: Record<string, number>;
+  "facet_attribute_tipo/attributeValue"?: Record<string, number>;
   "facet_attribute_cor/attributeValue"?: Record<string, number>;
-  facet_attribute_tamanho?: Record<string, number>;
-  facet_attribute_idade?: Record<string, number>;
-  facet_attribute_lentes?: Record<string, number>;
-  facet_attribute_descarte?: Record<string, number>;
-  facet_attribute_marca_da_lente?: Record<string, number>;
-  facet_attribute_indicacao_de_uso?: Record<string, number>;
+  "facet_attribute_tamanho/attributeValue"?: Record<string, number>;
+  "facet_attribute_idade/attributeValue"?: Record<string, number>;
+  "facet_attribute_lentes/attributeValue"?: Record<string, number>;
+  "facet_attribute_descarte/attributeValue"?: Record<string, number>;
+  "facet_attribute_marca_da_lente/attributeValue"?: Record<string, number>;
+  "facet_attribute_indicacao_de_uso/attributeValue"?: Record<string, number>;
 }
 
 export interface Category {

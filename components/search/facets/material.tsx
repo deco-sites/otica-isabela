@@ -19,7 +19,7 @@ export default function MaterialFacets({
 }: MaterialFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const materialFacets = facets["facet_attribute_material"];
+  const materialFacets = facets["facet_attribute_material/attributeValue"];
 
   if (!materialFacets || Object.keys(materialFacets).length <= 0) {
     return null;

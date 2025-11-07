@@ -19,7 +19,7 @@ export default function LensesFacets({
 }: LensesFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const lensesFacets = facets["facet_attribute_lentes"];
+  const lensesFacets = facets["facet_attribute_lentes/attributeValue"];
 
   if (!lensesFacets || Object.keys(lensesFacets).length <= 0) {
     return null;

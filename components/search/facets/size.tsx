@@ -19,7 +19,7 @@ export default function SizeFacets({
 }: SizeFacetsProps) {
   const componentId = useId();
   const filters = useFilters();
-  const sizeFacets = facets["facet_attribute_tamanho"];
+  const sizeFacets = facets["facet_attribute_tamanho/attributeValue"];
 
   if (!sizeFacets || Object.keys(sizeFacets).length <= 0) {
     return null;

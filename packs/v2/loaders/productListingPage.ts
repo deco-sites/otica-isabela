@@ -10,18 +10,18 @@ import paths from "$store/packs/utils/paths.ts";
 import { SORT_OPTIONS } from "$store/packs/v2/constants.ts";
 
 const FILTER_KEY_MAP: Record<string, string> = {
-  Formato: "facet_attribute_formato",
-  Estilo: "facet_attribute_estilo",
+  Formato: "facet_attribute_formato/attributeValue",
+  Estilo: "facet_attribute_estilo/attributeValue",
   Preco: "productPrice",
   Cor: "facet_attribute_cor/attributeValue",
-  Material: "facet_attribute_material",
-  Tipo: "facet_attribute_tipo",
-  Tamanho: "facet_attribute_tamanho",
-  Idade: "facet_attribute_idade",
-  Lentes: "facet_attribute_lentes",
-  "Tipo de Descarte": "facet_attribute_descarte",
-  "Marca Lente": "facet_attribute_marca_da_lente",
-  "Indicação de Uso": "facet_attribute_indicacao_de_uso",
+  Material: "facet_attribute_material/attributeValue",
+  Tipo: "facet_attribute_tipo/attributeValue",
+  Tamanho: "facet_attribute_tamanho/attributeValue",
+  Idade: "facet_attribute_idade/attributeValue",
+  Lentes: "facet_attribute_lentes/attributeValue",
+  "Tipo de Descarte": "facet_attribute_descarte/attributeValue",
+  "Marca Lente": "facet_attribute_marca_da_lente/attributeValue",
+  "Indicação de Uso": "facet_attribute_indicacao_de_uso/attributeValue",
 };
 
 interface ProductFilter {
