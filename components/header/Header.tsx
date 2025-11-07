@@ -45,6 +45,11 @@ interface AlertMessages {
   interval: number;
 }
 export interface Props {
+  logotipo?: {
+    width?: number;
+    height?: number;
+    src?: ImageWidget;
+  }
   /**
    * @title Alert Messages
    */
@@ -91,6 +96,7 @@ export interface Props {
   };
 }
 function Header({
+  logotipo,
   alertMessages,
   backgroundHex,
   searchbar,
@@ -126,6 +132,7 @@ function Header({
         )}
         <Navbar
           // IconNavigationItems={IconNavigation}
+          logotipo={logotipo}
           items={navItems}
           searchbar={searchbar}
           loginLink={loginLink}

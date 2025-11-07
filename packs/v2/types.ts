@@ -14,6 +14,7 @@ export interface Media {
   url: string;
   isVideo: boolean;
   tryOn: boolean;
+  isModelMeasurements?: boolean;
 }
 
 export interface CategoryInfo {

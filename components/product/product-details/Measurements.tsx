@@ -36,7 +36,11 @@ export function SpecItem({ item, classes }: SpecItem) {
 function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const { medias } = product;
 
-  const images = medias.filter((media) => !media.tryOn && !media.isVideo);
+  console.log(medias, "medias dentro do measurements");
+
+  const measurementImage = medias.find((media) =>
+    media.isModelMeasurements === true
+  );
 
   const altura = findProductAttribute("Altura da Lente", product);
   const largura = findProductAttribute("Largura da Lente", product);
@@ -51,7 +55,8 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
     !ponte ||
     !frente_total ||
     !hastes ||
-    !aro
+    !aro ||
+    (!measurementImage?.url && !medias[0]?.url)
   ) return null;
 
   return (
@@ -67,7 +72,7 @@ function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
           <SpecItem item={largura!} classes="right-[22%] bottom-[8%]" />
         </div>
         <Image
-          src={images![0].url!}
+          src={measurementImage?.url || medias[0]?.url || ""}
           width={550}
           height={307}
           alt="medidas"

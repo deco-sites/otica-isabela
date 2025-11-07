@@ -13,8 +13,11 @@ import type { NavItemProps } from "./NavItem.tsx";
 import Search from "$store/islands/Search.tsx";
 import Help from "$store/components/header/Ajuda.tsx";
 import type { Props as AjudaProps } from "./Ajuda.tsx";
+import { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 
 function Navbar({
+  logotipo,
   items,
   searchbar,
   // storeLogo,
@@ -24,6 +27,11 @@ function Navbar({
   backgroundHex,
   ajuda,
 }: {
+  logotipo?: {
+    width?: number;
+    height?: number;
+    src?: ImageWidget;
+  };
   items?: NavItemProps[];
   searchbar?: SearchbarProps;
   ajuda?: AjudaProps;
@@ -53,13 +61,20 @@ function Navbar({
           </div>
 
           <div
-            class={`flex justify-center p-0 max-w-[150px] lg:max-w-[200px] w-full`}
+            class={`flex justify-center p-0 max-w-[165px] lg:max-w-[200px] w-full`}
           >
-            <a href="/" class="hidden lg:block">
-              <Icon id="logo" width={165} height={48} />
-            </a>
-            <a href="/" class="lg:hidden">
-              <Icon id="logo" width={150} height={40} />
+            <a href="/" class="block">
+              {logotipo
+                ? (
+                  <Image
+                    src={logotipo.src ?? ""}
+                    alt={"Logotipo Otica Isabela Dias"}
+                    width={logotipo.width ?? 165}
+                    height={logotipo.height ?? 48}
+                    class="text-slot-primary-500"
+                  />
+                )
+                : <Icon id="logo" width={165} height={48} />}
             </a>
           </div>
 

@@ -922,5 +922,8 @@
     },
     "activate": false,
     "activete": true
+  },
+  "logotipo": {
+    "src": "https://assets.decocache.com/otica-isabela/ed4a9f55-423b-402d-957a-2b13ec4abd34/oticaloogaqui2.svg"
   }
 }

@@ -64,7 +64,6 @@ export interface Props {
     slug: string;
     images: MediasResponseObject[];
   } | null)[];
-  
 }
 function ProductDetails(
   {
@@ -79,7 +78,7 @@ function ProductDetails(
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
-  
+
   // Use the new promotion countdown format from v2 types
   const isPromotionActive = () => {
     if (!product?.promotion?.countdown) return false;
@@ -94,14 +93,16 @@ function ProductDetails(
     const now = new Date();
     const startDate = new Date(product.promotion.countdown.start);
     const endDate = new Date(product.promotion.countdown.end);
-    
+
     // Check if current time is within the promotion period
     return now >= startDate && now <= endDate;
   };
 
   // Only set priceValidUntil if promotion is active and within valid date range
-  const priceValidUntil = isPromotionActive() ? product?.promotion?.countdown?.end : undefined;
-  
+  const priceValidUntil = isPromotionActive()
+    ? product?.promotion?.countdown?.end
+    : undefined;
+
   return (
     <>
       <div class="lg:bg-gray-scale-100">

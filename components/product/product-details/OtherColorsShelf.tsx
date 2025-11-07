@@ -30,28 +30,39 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
         <div id={id} class="container flex flex-col px-0 sm:px-5">
           <Slider class="carousel carousel-center sm:carousel-end gap-0 md:gap-6 col-span-full row-start-2 row-end-5">
             {relatedProductImages?.map((item, index) => {
-              if (!item) return null;
+              if (!item || !item.slug || !item.images) return null;
+
               const { slug, images } = item;
-              const imagesFilter = images.filter((media) => !media.tryOn);
+              const imagesFilter = images.filter((media) =>
+                media && !media.tryOn
+              );
+
+              // Se não há imagens válidas, não renderizar
+              if (!imagesFilter || imagesFilter.length === 0) return null;
+
+              const firstImage = imagesFilter[0];
+              if (!firstImage?.productImage) return null;
+
               return (
-                <div class="flex flex-col" key={slug}>
+                <div class="flex flex-col" key={slug || index}>
                   <Slider.Item
                     index={index}
                     class="carousel-item w-full justify-center items-center"
                   >
                     <a href={`/produto/${slug}`}>
                       <Image
-                        class="max-w-[260px] md:max-w-[100%]"
-                        src={imagesFilter[0]?.productImage!}
+                        class="md:max-w-[100%]"
+                        src={firstImage.productImage}
                         alt={product.name ?? slug}
-                        width={260}
-                        height={260}
+                        width={280}
+                        height={280}
+                        loading="lazy"
                       />
                     </a>
                   </Slider.Item>
                 </div>
               );
-            })}
+            }).filter(Boolean)}
           </Slider>
 
           <SliderJS
@@ -64,9 +75,10 @@ function OtherColorsShelf({ product, relatedProductImages }: Props) {
 
           {/* Dots */}
           <div class="flex flex-row w-full gap-x-3 justify-center items-center py-14">
-            {relatedProductImages?.map((_, index) => (
-              <Slider.Dot index={index} />
-            ))}
+            {relatedProductImages?.filter((item) =>
+              item && item.slug && item.images &&
+              item.images.filter((media) => media && !media.tryOn).length > 0
+            ).map((_, index) => <Slider.Dot index={index} key={index} />)}
           </div>
         </div>
       </div>
