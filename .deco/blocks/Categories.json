@@ -159,10 +159,15 @@
               {
                 "filtersToHide": [
                   "size",
-                  "color",
                   "type"
                 ],
                 "label": "/oculos-de-sol*"
+              },
+              {
+                "filtersToHide": [
+                  "color"
+                ],
+                "label": "/lentes-de-contato*"
               }
             ],
             "filterColors": [

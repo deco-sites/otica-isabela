@@ -24,6 +24,10 @@ export const getAvailableColors = (product: Product): Array<Color> => {
         .split("|")
         .filter((code) => code.trim() !== "");
 
+      if (!validColorCodes || validColorCodes.length === 0) {
+        return;
+      }
+      
       availableColors.push({
         name: variant.name,
         slug: variant.slug,
