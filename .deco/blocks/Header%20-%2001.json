@@ -659,6 +659,10 @@
       {
         "text": "<p>Black dos óculos 10ª edição! 🥳</p>",
         "textMobile": "<p>Black dos óculos 10ª edição! 🥳</p>"
+      },
+      {
+        "text": "<p>Lentes de grau em dobro! <span>👓🔥</span></p>",
+        "textMobile": "<p>Lentes de grau em dobro! 👓<span>🔥</span></p>"
       }
     ],
     "interval": 5,
