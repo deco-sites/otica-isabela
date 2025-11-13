@@ -19,6 +19,7 @@
       "__resolveType": "Header - 01"
     },
     {
+      "__resolveType": "site/sections/Product/ProductDetails.tsx",
       "page": {
         "slug": {
           "0": "s",
@@ -48,7 +49,6 @@
           "flagText": "Compre com lentes e pague só %discount na armação"
         }
       ],
-      "__resolveType": "site/sections/Product/ProductDetails.tsx",
       "mobileOptions": {
         "nameLocation": "Header",
         "starsLocation": "Bottom",

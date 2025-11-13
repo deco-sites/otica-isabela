@@ -3,10 +3,11 @@ import { IsabelaProductDetailsPage } from "site/packs/v2/types.ts";
 
 interface Props {
   page: LoaderReturnType<IsabelaProductDetailsPage | null>;
+  pathname: string;
 }
 
-function ProductInfoColors({ page }: Props) {
-  const getPathname = window.location.pathname;
+function ProductInfoColors({ page, pathname }: Props) {
+  const getPathname = pathname;
   const variants = page?.product.relatedProducts;
 
   // Sort variants so the active one is first

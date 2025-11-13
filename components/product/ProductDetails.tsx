@@ -64,6 +64,8 @@ export interface Props {
     slug: string;
     images: MediasResponseObject[];
   } | null)[];
+  /** @hide true */
+  pathname?: string;
 }
 function ProductDetails(
   {
@@ -75,6 +77,7 @@ function ProductDetails(
     customer,
     mobileOptions,
     relatedProductImages,
+    pathname,
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
@@ -118,6 +121,7 @@ function ProductDetails(
                 customer={customer}
                 mobileOptions={mobileOptions}
                 priceValidUntil={priceValidUntil}
+                pathname={pathname}
               />
             )
             : <NotFound />}
@@ -139,10 +143,11 @@ function ProductDetails(
   );
 }
 export async function loader(props: Props, req: Request, ctx: AppContext) {
+  const url = new URL(req.url);
+  const pathname = url.pathname;
   if (!props.page?.product) {
-    const url = new URL(req.url);
     redirect(url.origin);
-    return props;
+    return { ...props, pathname };
   }
 
   const cookies = getCookies(req.headers);
@@ -177,6 +182,7 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
   return {
     ...props,
     relatedProductImages,
+    pathname,
   };
 }
 export default ProductDetails;

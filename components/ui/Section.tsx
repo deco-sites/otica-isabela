@@ -175,6 +175,153 @@ function PlaceholderShelf({
   );
 }
 
+export function PlaceholderProductDetails({
+  class: _class,
+}: {
+  class?: string;
+}) {
+  return (
+    <div class={clx("lg:bg-gray-scale-100", _class)}>
+      <div class="max-w-[1320px] w-[95%] mx-auto py-[10px] lg:py-[20px]">
+        {/* Breadcrumb - Desktop */}
+        <div class="hidden lg:block mb-[10px]">
+          <div class="h-4 bg-gray-200 rounded animate-pulse w-48" />
+        </div>
+
+        {/* Header - Mobile */}
+        <div class="flex items-center justify-between lg:hidden mb-4">
+          <div class="h-8 w-8 bg-gray-200 rounded animate-pulse" />
+          <div class="flex gap-2">
+            <div class="h-8 w-8 bg-gray-200 rounded-full animate-pulse" />
+            <div class="h-8 w-8 bg-gray-200 rounded-full animate-pulse" />
+          </div>
+        </div>
+
+        {/* Product Name - Mobile */}
+        <div class="mt-4 mb-4 text-center px-8 lg:hidden">
+          <div class="h-6 bg-gray-200 rounded animate-pulse w-3/4 mx-auto mb-2" />
+          <div class="h-4 bg-gray-200 rounded animate-pulse w-1/2 mx-auto" />
+        </div>
+
+        {/* Main Content - Image & Info */}
+        <div class="lg:flex lg:justify-center lg:gap-12">
+          {/* Image Section */}
+          <div class="relative flex flex-col items-center text-center w-full mt-2 lg:mt-0">
+            <div class="relative lg:w-full">
+              <div class="relative flex flex-col-reverse lg:justify-end lg:flex-row gap-2">
+                {/* Thumbnails - Desktop */}
+                <div class="hidden lg:flex lg:flex-col lg:gap-2 lg:max-w-[540px]">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                      key={i}
+                      class="w-20 h-20 bg-gray-200 rounded animate-pulse"
+                    />
+                  ))}
+                </div>
+
+                {/* Main Image */}
+                <div class="relative">
+                  <div class="w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px] aspect-square bg-gray-200 rounded-lg animate-pulse" />
+                  
+                  {/* Discount Tag Skeleton */}
+                  <div class="absolute top-2 right-4 lg:right-2.5">
+                    <div class="h-6 w-16 bg-gray-200 rounded animate-pulse" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Product Name - Mobile (Bottom) */}
+              <div class="mt-4 mb-4 text-center px-8 lg:hidden">
+                <div class="h-6 bg-gray-200 rounded animate-pulse w-3/4 mx-auto" />
+              </div>
+            </div>
+
+            {/* Buy with lens label - Mobile */}
+            <div class="bg-gray-200 rounded-[2.5px] h-8 w-[90%] my-[10px] lg:hidden animate-pulse" />
+          </div>
+
+          {/* Ratings - Mobile */}
+          <div class="flex flex-col items-center my-8 lg:hidden">
+            <div class="flex gap-1 mb-2">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} class="h-5 w-5 bg-gray-200 rounded animate-pulse" />
+              ))}
+            </div>
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-32" />
+          </div>
+
+          {/* Price & Color - Mobile */}
+          <div class="lg:hidden px-3 flex items-center justify-between mt-4 mb-6">
+            <div class="flex flex-col gap-2">
+              {/* Colors */}
+              <div class="flex gap-2">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-8 w-8 rounded-full bg-gray-200 animate-pulse"
+                  />
+                ))}
+              </div>
+              {/* Price */}
+              <div class="flex flex-col gap-1">
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-20" />
+                <div class="h-8 bg-gray-200 rounded animate-pulse w-32" />
+                <div class="h-3 bg-gray-200 rounded animate-pulse w-40" />
+              </div>
+            </div>
+          </div>
+
+          {/* Product Details - Desktop */}
+          <div class="hidden lg:block pl-4 pr-4 w-full max-w-[480px]">
+            {/* Name */}
+            <div class="mb-4">
+              <div class="h-7 bg-gray-200 rounded animate-pulse w-3/4 mb-2" />
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-1/2 mb-3" />
+              {/* Ratings */}
+              <div class="flex gap-1 mb-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} class="h-4 w-4 bg-gray-200 rounded animate-pulse" />
+                ))}
+              </div>
+            </div>
+
+            {/* Buy with lens label - Desktop */}
+            <div class="bg-gray-200 rounded-[2.5px] h-8 w-full my-[10px] animate-pulse" />
+
+            {/* Prices */}
+            <div class="flex items-center justify-between lg:mt-6 mb-4">
+              <div class="flex flex-col gap-2">
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-24" />
+                <div class="h-8 bg-gray-200 rounded animate-pulse w-32" />
+                <div class="h-3 bg-gray-200 rounded animate-pulse w-48" />
+              </div>
+            </div>
+
+            {/* Colors */}
+            <div class="mb-6">
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-20 mb-3" />
+              <div class="flex gap-2 flex-wrap">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-10 w-10 rounded-full bg-gray-200 animate-pulse"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div class="flex flex-col gap-3">
+              <div class="h-12 bg-gray-200 rounded-full animate-pulse w-full" />
+              <div class="h-12 bg-gray-200 rounded-full animate-pulse w-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Section() {}
 
 Section.Container = Container;
@@ -182,5 +329,6 @@ Section.Header = Header;
 Section.Tabbed = Tabbed;
 Section.Placeholder = Placeholder;
 Section.PlaceholderShelf = PlaceholderShelf;
+Section.PlaceholderProductDetails = PlaceholderProductDetails;
 
 export default Section;

@@ -17,10 +17,12 @@ interface Props {
   stepLabels?: Record<string, string>;
   customer: LoaderReturnType<AuthData>;
   currentCategory: string;
+  /**@hide true */
+  pathname: string;
 }
 
 function ProductInfo(
-  { page, promotions, labels, stepLabels, customer, currentCategory }: Props,
+  { page, promotions, labels, stepLabels, customer, currentCategory, pathname }: Props,
 ) {
   const { product } = page!;
   const {
@@ -114,7 +116,7 @@ function ProductInfo(
       {/* Prices */}
       <div class="flex items-normal justify-between lg:mt-6">
         <div class="flex flex-col gap-2">
-          <ProductInfoColors page={page} />
+          <ProductInfoColors page={page} pathname={pathname} />
           {price !== priceWithDiscount && (
             <p class="line-through font-semibold text-sm text-red-500 lg:text-base">
               {formatPrice(price)}

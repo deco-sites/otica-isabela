@@ -5,7 +5,7 @@ interface Props {
 }
 
 function ShareButton({ link }: Props) {
-  if (!window || typeof window === "undefined") return null;
+  if (!globalThis.window || typeof globalThis.window === "undefined") return null;
 
   return (
     <button
