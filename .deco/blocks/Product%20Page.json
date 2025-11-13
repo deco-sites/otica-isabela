@@ -19,122 +19,125 @@
       "__resolveType": "Header - 01"
     },
     {
-      "__resolveType": "site/sections/Product/ProductDetails.tsx",
-      "page": {
-        "slug": {
-          "0": "s",
-          "1": "l",
-          "2": "u",
-          "3": "g",
-          "param": "slug",
-          "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductDetails.tsx",
+        "page": {
+          "slug": {
+            "0": "s",
+            "1": "l",
+            "2": "u",
+            "3": "g",
+            "param": "slug",
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+          },
+          "__resolveType": "site/loaders/product/productDetailsV2.ts",
+          "seo": null,
+          "breadcrumbList": {
+            "video": null,
+            "image": null
+          }
         },
-        "__resolveType": "site/loaders/product/productDetailsV2.ts",
-        "seo": null,
-        "breadcrumbList": {
-          "video": null,
-          "image": null
-        }
-      },
-      "reviews": {
-        "__resolveType": "productTestimonials"
-      },
-      "variant": "slider",
-      "customer": {
-        "__resolveType": "site/loaders/store/auth.ts"
-      },
-      "promotions": [
-        {
-          "label": "canBuyWithPrescriptionLenses",
-          "flagText": "Compre com lentes e pague só %discount na armação"
-        }
-      ],
-      "mobileOptions": {
-        "nameLocation": "Header",
-        "starsLocation": "Bottom",
-        "discountTagLocation": "Image Bottom",
-        "showProductTumbnails": true,
-        "displayModalAfter": "Header"
-      },
-      "buttonByCategory": [
-        {
-          "label": "Comprar Óculos EPI",
-          "category": "Óculos E.P.I."
+        "reviews": {
+          "__resolveType": "productTestimonials"
         },
-        {
-          "label": "Comprar Sem Grau",
-          "category": "Óculos Gamer"
+        "variant": "slider",
+        "customer": {
+          "__resolveType": "site/loaders/store/auth.ts"
         },
-        {
-          "label": "Comprar só Clipon",
-          "category": "Clipon"
+        "promotions": [
+          {
+            "label": "canBuyWithPrescriptionLenses",
+            "flagText": "Compre com lentes e pague só %discount na armação"
+          }
+        ],
+        "mobileOptions": {
+          "nameLocation": "Header",
+          "starsLocation": "Bottom",
+          "discountTagLocation": "Image Bottom",
+          "showProductTumbnails": true,
+          "displayModalAfter": "Header"
         },
-        {
-          "label": "Comprar só Armação",
-          "category": "Armação de óculos"
-        },
-        {
-          "label": "Comprar só Óculos de sol",
-          "category": "Óculos De Sol"
-        },
-        {
-          "label": "Adicionar ao Carrinho",
-          "category": "Acessórios"
-        }
-      ],
-      "measurementsImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d06c224a-92f8-4a73-9a3f-ac25a8ee9880",
-      "stepButtonByCategory": [
-        {
-          "label": "Escolher as Lentes",
-          "category": "Óculos E.P.I."
-        },
-        {
-          "label": "Escolher as Lentes",
-          "category": "Clipon"
-        },
-        {
-          "label": "Escolher as Lentes",
-          "category": "Armação para óculos de Grau"
-        },
-        {
-          "label": "Escolher as Lentes",
-          "category": "Óculos De Sol"
-        },
-        {
-          "label": "Escolher as Lentes",
-          "category": "Armação de Óculos"
-        },
-        {
-          "label": "Escolher o Grau",
-          "category": "Lentes de Contato"
-        },
-        {
-          "label": "Escolher a Cor",
-          "category": "Lentes de Contato Sem Grau"
-        }
-      ],
-      "items": [
-        {
-          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/64e4ee16-4ef0-4f1c-8746-f3091e0fa6f7",
-          "title": "A melhor Ótica do Brasil",
-          "description": "Ganhamos o prêmio Reclame aqui 2024"
-        },
-        {
-          "title": "As Melhores promoções",
-          "description": "7 dias para Devolução Grátis",
-          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/b3371f62-999f-43b1-835a-67097b39d239"
-        },
-        {
-          "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/f903733b-4fb1-4e83-9009-02352c33b512",
-          "title": "Suporte Humanizado",
-          "description": "Conte conosco a qualquer momento! "
-        },
-        {
-          "icon": "https://assets.decocache.com/otica-isabela/f1a0b720-625d-4adc-9295-9c1ada4c507c/Illustrations-Diferences.png",
-          "title": "Óculos de Qualidade com preço baixo",
-          "description": "Chega de pagar caro!"
-        }
-      ]
+        "buttonByCategory": [
+          {
+            "label": "Comprar Óculos EPI",
+            "category": "Óculos E.P.I."
+          },
+          {
+            "label": "Comprar Sem Grau",
+            "category": "Óculos Gamer"
+          },
+          {
+            "label": "Comprar só Clipon",
+            "category": "Clipon"
+          },
+          {
+            "label": "Comprar só Armação",
+            "category": "Armação de óculos"
+          },
+          {
+            "label": "Comprar só Óculos de sol",
+            "category": "Óculos De Sol"
+          },
+          {
+            "label": "Adicionar ao Carrinho",
+            "category": "Acessórios"
+          }
+        ],
+        "measurementsImage": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d06c224a-92f8-4a73-9a3f-ac25a8ee9880",
+        "stepButtonByCategory": [
+          {
+            "label": "Escolher as Lentes",
+            "category": "Óculos E.P.I."
+          },
+          {
+            "label": "Escolher as Lentes",
+            "category": "Clipon"
+          },
+          {
+            "label": "Escolher as Lentes",
+            "category": "Armação para óculos de Grau"
+          },
+          {
+            "label": "Escolher as Lentes",
+            "category": "Óculos De Sol"
+          },
+          {
+            "label": "Escolher as Lentes",
+            "category": "Armação de Óculos"
+          },
+          {
+            "label": "Escolher o Grau",
+            "category": "Lentes de Contato"
+          },
+          {
+            "label": "Escolher a Cor",
+            "category": "Lentes de Contato Sem Grau"
+          }
+        ],
+        "items": [
+          {
+            "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/64e4ee16-4ef0-4f1c-8746-f3091e0fa6f7",
+            "title": "A melhor Ótica do Brasil",
+            "description": "Ganhamos o prêmio Reclame aqui 2024"
+          },
+          {
+            "title": "As Melhores promoções",
+            "description": "7 dias para Devolução Grátis",
+            "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/b3371f62-999f-43b1-835a-67097b39d239"
+          },
+          {
+            "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10972/f903733b-4fb1-4e83-9009-02352c33b512",
+            "title": "Suporte Humanizado",
+            "description": "Conte conosco a qualquer momento! "
+          },
+          {
+            "icon": "https://assets.decocache.com/otica-isabela/f1a0b720-625d-4adc-9295-9c1ada4c507c/Illustrations-Diferences.png",
+            "title": "Óculos de Qualidade com preço baixo",
+            "description": "Chega de pagar caro!"
+          }
+        ]
+      }
     },
     {
       "items": [
