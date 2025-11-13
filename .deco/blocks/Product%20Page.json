@@ -170,109 +170,118 @@
       "__resolveType": "site/sections/Product/Details/ProductDetailsAdditionalInfo.tsx"
     },
     {
-      "page": {
-        "0": {},
-        "__resolveType": "productTestimonials"
-      },
-      "productData": {
-        "slug": {
-          "param": "slug",
-          "__resolveType": "deco-sites/std/functions/requestToParam.ts"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "page": {
+          "0": {},
+          "__resolveType": "productTestimonials"
         },
-        "__resolveType": "site/loaders/product/productDetails.ts"
-      },
-      "memberImages": [
-        {
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3e8e37de-b383-4201-a9e3-a6f907bade35",
-          "label": "vip",
-          "level": "vip"
-        },
-        {
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/30dcb737-89a2-43fa-b790-ec6baca2ef80",
-          "label": "gold",
-          "level": "gold"
-        },
-        {
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a4df33d9-adc2-4251-87e9-01425e533e6c",
-          "label": "diamond",
-          "level": "diamond"
-        }
-      ],
-      "__resolveType": "site/sections/Product/Details/ProductReviews.tsx"
-    },
-    {
-      "__resolveType": "site/sections/Product/VisitedProductShelf.tsx",
-      "header": {
-        "icon": "QuestionMarkCircle",
-        "hideIcon": true,
-        "firstLine": {
-          "text": "Produtos Visitados",
-          "color": "#000000",
-          "fontSize": {
-            "mobile": "pequeno",
-            "desktop": "normal"
+        "productData": {
+          "slug": {
+            "param": "slug",
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts"
           },
-          "fontFamily": "Outfit",
-          "fontWeight": "bold"
+          "__resolveType": "site/loaders/product/productDetails.ts"
         },
-        "secondLine": {
-          "fontSize": {
-            "mobile": "grande",
-            "desktop": "muito grande"
+        "memberImages": [
+          {
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/3e8e37de-b383-4201-a9e3-a6f907bade35",
+            "label": "vip",
+            "level": "vip"
           },
-          "fontFamily": "Outfit",
-          "fontWeight": "bold"
-        },
-        "textAlignment": "começo",
-        "backgroundColor": "#ffffff"
-      },
-      "customer": {
-        "__resolveType": "site/loaders/store/auth.ts"
-      },
-      "isStopwatchEnabled": true
-    },
-    {
-      "__resolveType": "site/sections/Product/Details/SimilarProducts.tsx",
-      "product": {
-        "video": null,
-        "image": null,
-        "isAccessoryOrSparePartFor": null,
-        "offers": {
-          "hasMerchantReturnPolicy": {
-            "video": null
+          {
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/30dcb737-89a2-43fa-b790-ec6baca2ef80",
+            "label": "gold",
+            "level": "gold"
+          },
+          {
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/a4df33d9-adc2-4251-87e9-01425e533e6c",
+            "label": "diamond",
+            "level": "diamond"
           }
-        }
-      },
-      "header": {
-        "icon": "QuestionMarkCircle",
-        "hideIcon": true,
-        "firstLine": {
-          "text": "Produtos",
-          "color": "#42c3ff",
-          "fontSize": {
-            "mobile": "pequeno",
-            "desktop": "normal"
+        ],
+        "__resolveType": "site/sections/Product/Details/ProductReviews.tsx"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/VisitedProductShelf.tsx",
+        "header": {
+          "icon": "QuestionMarkCircle",
+          "hideIcon": true,
+          "firstLine": {
+            "text": "Produtos Visitados",
+            "color": "#000000",
+            "fontSize": {
+              "mobile": "pequeno",
+              "desktop": "normal"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "bold"
           },
-          "fontFamily": "Outfit",
-          "fontWeight": "medium"
-        },
-        "secondLine": {
-          "text": "SIMILARES",
-          "fontSize": {
-            "mobile": "normal",
-            "desktop": "muito grande"
+          "secondLine": {
+            "fontSize": {
+              "mobile": "grande",
+              "desktop": "muito grande"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "bold"
           },
-          "fontFamily": "Outfit",
-          "fontWeight": "bold"
+          "textAlignment": "começo",
+          "backgroundColor": "#ffffff"
         },
-        "textAlignment": "começo",
-        "backgroundColor": "#f8f8f8"
-      },
-      "page": {
-        "__resolveType": "site/loaders/product/productDetails.ts",
-        "slug": {
-          "__resolveType": "deco-sites/std/functions/requestToParam.ts",
-          "param": "slug"
+        "customer": {
+          "__resolveType": "site/loaders/store/auth.ts"
+        },
+        "isStopwatchEnabled": true
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/Details/SimilarProducts.tsx",
+        "product": {
+          "video": null,
+          "image": null,
+          "isAccessoryOrSparePartFor": null,
+          "offers": {
+            "hasMerchantReturnPolicy": {
+              "video": null
+            }
+          }
+        },
+        "header": {
+          "icon": "QuestionMarkCircle",
+          "hideIcon": true,
+          "firstLine": {
+            "text": "Produtos",
+            "color": "#42c3ff",
+            "fontSize": {
+              "mobile": "pequeno",
+              "desktop": "normal"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "medium"
+          },
+          "secondLine": {
+            "text": "SIMILARES",
+            "fontSize": {
+              "mobile": "normal",
+              "desktop": "muito grande"
+            },
+            "fontFamily": "Outfit",
+            "fontWeight": "bold"
+          },
+          "textAlignment": "começo",
+          "backgroundColor": "#f8f8f8"
+        },
+        "page": {
+          "__resolveType": "site/loaders/product/productDetails.ts",
+          "slug": {
+            "__resolveType": "deco-sites/std/functions/requestToParam.ts",
+            "param": "slug"
+          }
         }
       }
     },

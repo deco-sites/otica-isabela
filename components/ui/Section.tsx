@@ -322,6 +322,128 @@ export function PlaceholderProductDetails({
   );
 }
 
+function PlaceholderSearchResult({
+  class: _class,
+}: {
+  class?: string;
+}) {
+  return (
+    <div class={clx("w-full py-6", _class)}>
+      {/* Header com Breadcrumb */}
+      <header class="max-w-[1320px] mx-auto w-[95%] flex flex-colm-0 py-2">
+        <div class="flex w-full flex-row items-center">
+          <div class="h-4 bg-gray-200 rounded animate-pulse w-48" />
+        </div>
+      </header>
+
+      {/* Filters Mobile */}
+      <div class="lg:hidden max-w-[1320px] w-[95%] mx-auto mt-4">
+        <div class="h-10 bg-gray-200 rounded animate-pulse w-full" />
+      </div>
+
+      {/* Active Filters e Category Menu - Desktop */}
+      <div class="hidden lg:flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
+        <div class="h-6 bg-gray-200 rounded animate-pulse w-32" />
+        <div class="h-6 bg-gray-200 rounded animate-pulse w-48" />
+      </div>
+
+      {/* Main Content */}
+      <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
+        <div class="flex flex-row">
+          {/* Filters Sidebar - Desktop */}
+          <div class="hidden lg:flex flex-col mr-10 max-w-[200px] w-full">
+            <div class="flex flex-col sticky top-0 z-10 gap-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} class="flex flex-col gap-2">
+                  <div class="h-5 bg-gray-200 rounded animate-pulse w-24" />
+                  <div class="flex flex-col gap-2">
+                    {Array.from({ length: 3 }).map((_, j) => (
+                      <div
+                        key={j}
+                        class="h-4 bg-gray-200 rounded animate-pulse w-full"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <div class="h-10 bg-gray-200 rounded animate-pulse w-full mt-2" />
+            </div>
+          </div>
+
+          {/* Content Area */}
+          <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
+            {/* Banner (opcional) */}
+            <div class="h-32 md:h-48 bg-gray-200 rounded animate-pulse w-full" />
+
+            {/* Product Grid */}
+            <div class="grid grid-cols-1 gap-10 lg:gap-y-12 xs:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div
+                  key={index}
+                  class="card card-compact w-full flex flex-col"
+                >
+                  {/* Imagem do produto */}
+                  <div class="relative w-full aspect-square bg-gray-200 rounded-lg animate-pulse overflow-hidden" />
+
+                  {/* Conteúdo do card */}
+                  <div class="flex flex-col items-center mt-[10px] w-full">
+                    {/* Nome do produto */}
+                    <div class="w-full mb-2 text-center">
+                      <div class="h-4 bg-gray-200 rounded animate-pulse mb-1 mx-auto w-full max-w-[200px]" />
+                      <div class="h-3 bg-gray-200 rounded animate-pulse mx-auto w-3/4 max-w-[150px]" />
+                    </div>
+
+                    {/* Medidas */}
+                    <div class="w-full min-h-[25px] my-[10px] text-center">
+                      <div class="h-3 bg-gray-200 rounded animate-pulse mx-auto w-2/3 max-w-[180px]" />
+                    </div>
+
+                    {/* Preço e desconto */}
+                    <div class="w-full flex justify-between items-center my-[10px] px-2">
+                      <div class="flex flex-row gap-2 items-center">
+                        <div class="h-4 bg-gray-200 rounded animate-pulse w-16" />
+                        <div class="h-5 bg-gray-200 rounded animate-pulse w-20" />
+                      </div>
+                      <div class="h-4 bg-gray-200 rounded animate-pulse w-14" />
+                    </div>
+
+                    {/* Cores e botão */}
+                    <div class="w-full flex items-center justify-between px-2">
+                      {/* Swatches de cores */}
+                      <div class="flex gap-1 items-center">
+                        {Array.from({ length: 3 }).map((_, i) => (
+                          <div
+                            key={i}
+                            class="h-4 w-4 rounded-full bg-gray-200 animate-pulse"
+                          />
+                        ))}
+                      </div>
+                      {/* Botão */}
+                      <div class="h-8 bg-gray-200 rounded-full animate-pulse w-24" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination e Contador */}
+            <div class="flex max-lg:flex-col gap-2 justify-normal my-4">
+              <div class="flex gap-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-10 w-10 bg-gray-200 rounded animate-pulse"
+                  />
+                ))}
+              </div>
+              <div class="h-6 bg-gray-200 rounded animate-pulse w-32 max-lg:mx-auto" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 function Section() {}
 
 Section.Container = Container;
@@ -330,5 +452,6 @@ Section.Tabbed = Tabbed;
 Section.Placeholder = Placeholder;
 Section.PlaceholderShelf = PlaceholderShelf;
 Section.PlaceholderProductDetails = PlaceholderProductDetails;
+Section.PlaceholderSearchResult = PlaceholderSearchResult;
 
 export default Section;
