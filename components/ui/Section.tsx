@@ -96,7 +96,7 @@ function PlaceholderShelf({
       </div>
       <div class="container flex flex-col px-0 sm:px-5 relative ">
         {/* Carousel container - mobile mostra 1.2 items, desktop mostra 3 */}
-        <div class="flex gap-4 md:gap-6 overflow-x-auto sm:overflow-visible scrollbar-none sm:px-0 px-2.5 snap-x snap-mandatory">
+        <div class="flex gap-4 md:gap-6 overflow-x-auto sm:overflow-visible scrollbar-none sm:px-0 px-2.5 snap-x snap-mandatory justify-center">
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
@@ -222,7 +222,7 @@ export function PlaceholderProductDetails({
                 {/* Main Image */}
                 <div class="relative">
                   <div class="w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px] aspect-square bg-gray-200 rounded-lg animate-pulse" />
-                  
+
                   {/* Discount Tag Skeleton */}
                   <div class="absolute top-2 right-4 lg:right-2.5">
                     <div class="h-6 w-16 bg-gray-200 rounded animate-pulse" />
@@ -244,7 +244,10 @@ export function PlaceholderProductDetails({
           <div class="flex flex-col items-center my-8 lg:hidden">
             <div class="flex gap-1 mb-2">
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} class="h-5 w-5 bg-gray-200 rounded animate-pulse" />
+                <div
+                  key={i}
+                  class="h-5 w-5 bg-gray-200 rounded animate-pulse"
+                />
               ))}
             </div>
             <div class="h-4 bg-gray-200 rounded animate-pulse w-32" />
@@ -280,7 +283,10 @@ export function PlaceholderProductDetails({
               {/* Ratings */}
               <div class="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} class="h-4 w-4 bg-gray-200 rounded animate-pulse" />
+                  <div
+                    key={i}
+                    class="h-4 w-4 bg-gray-200 rounded animate-pulse"
+                  />
                 ))}
               </div>
             </div>
@@ -444,6 +450,239 @@ function PlaceholderSearchResult({
     </div>
   );
 }
+
+function PlaceholderProductReviews({
+  class: _class,
+}: {
+  class?: string;
+}) {
+  return (
+    <div class={clx("w-full", _class)}>
+      {/* Overview Section */}
+      <div id="product-review" class="mt-12">
+        <div class="max-w-[1320px] mx-auto">
+          <div id="title-and-rating" class="py-5">
+            {/* Título */}
+            <div class="px-[15px] md:text-2xl lg:w-[75%] lg:mx-auto lg:mb-[20px]">
+              <div class="h-8 md:h-10 bg-gray-200 rounded animate-pulse w-full max-w-[600px] mx-auto mb-4" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Feedbacks Section */}
+      <div
+        id="reviews"
+        class="flex flex-col gap-4 my-6 p-[15px] max-w-[1320px] mx-auto"
+      >
+        {/* First Review */}
+        <div class="flex flex-col gap-4 bg-[#f8f8f8] rounded-lg p-[15px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col md:flex-row w-full md:items-center gap-1.5">
+              {/* Ratings */}
+              <div class="flex gap-1 mb-2 md:mb-0">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-4 w-4 bg-gray-200 rounded animate-pulse"
+                  />
+                ))}
+              </div>
+              {/* Rating details */}
+              <div class="flex flex-col md:w-2/4 gap-1.5 md:items-center w-full md:flex-row">
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-32" />
+                <div class="hidden md:block w-1 h-1 bg-gray-200 rounded-full" />
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-36" />
+                <div class="hidden md:block w-1 h-1 bg-gray-200 rounded-full" />
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-40" />
+              </div>
+            </div>
+            {/* Author */}
+            <div class="flex items-center gap-2">
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-24" />
+              <div class="h-12 w-12 bg-gray-200 rounded-full animate-pulse" />
+            </div>
+          </div>
+          {/* Review phrase */}
+          <div class="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
+          {/* Review description */}
+          <div class="space-y-2">
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-full" />
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-4/6" />
+          </div>
+          {/* Additional image */}
+          <div class="h-24 w-24 bg-gray-200 rounded-[9px] animate-pulse" />
+        </div>
+
+        {/* Second Review */}
+        <div class="flex flex-col gap-4 bg-[#f8f8f8] rounded-lg p-[15px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col md:flex-row w-full md:items-center gap-1.5">
+              <div class="flex gap-1 mb-2 md:mb-0">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-4 w-4 bg-gray-200 rounded animate-pulse"
+                  />
+                ))}
+              </div>
+              <div class="flex flex-col md:w-2/4 gap-1.5 md:items-center w-full md:flex-row">
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-32" />
+                <div class="hidden md:block w-1 h-1 bg-gray-200 rounded-full" />
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-36" />
+                <div class="hidden md:block w-1 h-1 bg-gray-200 rounded-full" />
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-40" />
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-24" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-full" />
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
+          </div>
+        </div>
+
+        {/* Third Review */}
+        <div class="flex flex-col gap-4 bg-[#f8f8f8] rounded-lg p-[15px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col md:flex-row w-full md:items-center gap-1.5">
+              <div class="flex gap-1 mb-2 md:mb-0">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    class="h-4 w-4 bg-gray-200 rounded animate-pulse"
+                  />
+                ))}
+              </div>
+              <div class="flex flex-col md:w-2/4 gap-1.5 md:items-center w-full md:flex-row">
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-32" />
+                <div class="hidden md:block w-1 h-1 bg-gray-200 rounded-full" />
+                <div class="h-4 bg-gray-200 rounded animate-pulse w-36" />
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-24" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-full" />
+            <div class="h-4 bg-gray-200 rounded animate-pulse w-4/6" />
+          </div>
+        </div>
+
+        {/* Show more button */}
+        <div class="text-center">
+          <div class="h-5 bg-gray-200 rounded animate-pulse w-40 mx-auto" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PlaceholderTestimonials({
+  class: _class,
+}: {
+  class?: string;
+}) {
+  return (
+    <div class={clx("w-full", _class)}>
+      {/* Header Title Skeleton (opcional) */}
+      <div class="w-full flex flex-col justify-center items-center pt-10 pb-10 ">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div class="h-8 md:h-10 bg-gray-200 rounded animate-pulse w-64 md:w-80" />
+          <div class="h-10 md:h-12 bg-gray-200 rounded animate-pulse w-80 md:w-96" />
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div class="w-full max-w-[1320px] mx-auto px-4 py-8 flex flex-col gap-14 lg:gap-20 lg:py-10 lg:px-0">
+        <div class="relative w-full">
+          {/* Slider Container */}
+          <div class="flex gap-4 lg:gap-8 w-full py-2.5 overflow-x-auto scrollbar-none">
+            {Array.from({ length: 2 }).map((_, index) => (
+              <div
+                key={index}
+                class="flex-shrink-0 w-full max-w-[580px] flex flex-col gap-4"
+              >
+                {/* Testimonial Card */}
+                <div class="flex border shadow-[1px_3px_8px_rgba(0,0,0,0.25)] rounded-lg box-border px-3 py-5 md:py-8 lg:px-7">
+                  <div class="flex justify-around gap-x-9 w-full">
+                    {/* Left Column - Image and Location */}
+                    <div class="flex flex-col h-full items-center justify-center">
+                      {/* Additional Image */}
+                      <div class="rounded-xl h-[205px] xxxs:min-w-[152px] sm:min-w-[197px] lg:min-w-[152px] bg-gray-200 animate-pulse" />
+
+                      {/* Location and User Info (Mobile) */}
+                      <div class="flex flex-col items-start mt-3">
+                        {/* Location */}
+                        <div class="flex items-center justify-center gap-x-2 mb-3">
+                          <div class="h-4 w-4 bg-gray-200 rounded animate-pulse" />
+                          <div class="h-4 bg-gray-200 rounded animate-pulse w-24" />
+                        </div>
+
+                        {/* User Info (Mobile) */}
+                        <div class="flex lg:hidden flex-col w-full">
+                          <div class="h-5 bg-gray-200 rounded animate-pulse w-32 mb-2" />
+                          <div class="flex gap-1">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <div
+                                key={i}
+                                class="h-5 w-5 bg-gray-200 rounded animate-pulse"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Column - User Info, Review, Product */}
+                    <div class="flex flex-col items-center flex-1">
+                      {/* User Info (Desktop) */}
+                      <div class="hidden lg:flex w-full flex-col mb-4">
+                        <div class="h-5 bg-gray-200 rounded animate-pulse w-32 mb-2" />
+                        <div class="flex gap-1">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <div
+                              key={i}
+                              class="h-5 w-5 bg-gray-200 rounded animate-pulse"
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Review Description */}
+                      <div class="text-start w-full min-h-[95px] pb-8 mb-2.5">
+                        <div class="space-y-2">
+                          <div class="h-4 bg-gray-200 rounded animate-pulse w-full" />
+                          <div class="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
+                          <div class="h-4 bg-gray-200 rounded animate-pulse w-4/6" />
+                          <div class="h-4 bg-gray-200 rounded animate-pulse w-3/6" />
+                        </div>
+                        <div class="h-4 bg-gray-200 rounded animate-pulse w-24 mt-2" />
+                      </div>
+
+                      {/* Product Link */}
+                      <div class="flex flex-col lg:h-[196px] lg:gap-5 justify-center items-center w-full">
+                        {/* Product Image */}
+                        <div class="w-full lg:w-[200px] lg:max-h-[70px] h-16 lg:h-14 bg-gray-200 rounded animate-pulse" />
+                        {/* Product Name */}
+                        <div class="h-5 bg-gray-200 rounded animate-pulse w-32 mt-1 mb-4" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Section() {}
 
 Section.Container = Container;
@@ -453,5 +692,7 @@ Section.Placeholder = Placeholder;
 Section.PlaceholderShelf = PlaceholderShelf;
 Section.PlaceholderProductDetails = PlaceholderProductDetails;
 Section.PlaceholderSearchResult = PlaceholderSearchResult;
+Section.PlaceholderProductReviews = PlaceholderProductReviews;
+Section.PlaceholderTestimonials = PlaceholderTestimonials;
 
 export default Section;
