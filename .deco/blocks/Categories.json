@@ -22,283 +22,280 @@
             "__resolveType": "Header - 01"
           },
           {
-            "__resolveType": "website/sections/Rendering/Lazy.tsx",
-            "section": {
-              "__resolveType": "site/sections/Product/SearchResult.tsx",
-              "page": {
-                "__resolveType": "site/loaders/product/productListingPage.ts",
-                "OrderBy": "nome",
-                "PageSize": 21
+            "__resolveType": "site/sections/Product/SearchResult.tsx",
+            "page": {
+              "__resolveType": "site/loaders/product/productListingPage.ts",
+              "OrderBy": "nome",
+              "PageSize": 21
+            },
+            "customer": {
+              "__resolveType": "site/loaders/store/auth.ts"
+            },
+            "typeIcons": [
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d50b8c26-9757-4cbb-9c7b-ddac183af453",
+                "label": "Aro Fechado",
+                "height": 29
               },
-              "customer": {
-                "__resolveType": "site/loaders/store/auth.ts"
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4507d4bf-2a44-4dea-8dea-60c29f06826d",
+                "label": "Fio de Nylon",
+                "height": 29
               },
-              "typeIcons": [
-                {
-                  "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/d50b8c26-9757-4cbb-9c7b-ddac183af453",
-                  "label": "Aro Fechado",
-                  "height": 29
-                },
-                {
-                  "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/4507d4bf-2a44-4dea-8dea-60c29f06826d",
-                  "label": "Fio de Nylon",
-                  "height": 29
-                },
-                {
-                  "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/cbfa7072-ffcc-47aa-a71c-feb24d205a2c",
-                  "label": "Sem Aro | Balgriff",
-                  "height": 29
-                }
-              ],
-              "categories": [
-                {
-                  "label": "/armacao-para-oculos-de-grau",
-                  "categoryItems": [
-                    {
-                      "link": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
-                      "label": "FEMININO"
-                    },
-                    {
-                      "link": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
-                      "label": "MASCULINO"
-                    },
-                    {
-                      "link": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
-                      "label": "INFANTIL"
-                    }
-                  ],
-                  "name": "Armação"
-                },
-                {
-                  "label": "/oculos-clip-on",
-                  "categoryItems": [
-                    {
-                      "link": "/oculos-clip-on/clipon-feminino",
-                      "label": "FEMININO"
-                    },
-                    {
-                      "link": "/oculos-clip-on/clipon-masculino",
-                      "label": "MASCULINO"
-                    }
-                  ],
-                  "name": "Clipon"
-                },
-                {
-                  "label": "/oculos-de-sol",
-                  "categoryItems": [
-                    {
-                      "link": "/oculos-de-sol/oculos-de-sol-feminino",
-                      "label": "FEMININO"
-                    },
-                    {
-                      "link": "/oculos-de-sol/oculos-de-sol-masculino",
-                      "label": "MASCULINO"
-                    }
-                  ],
-                  "name": "Óculos de Sol"
-                }
-              ],
-              "shapeIcons": [
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/2ce0cc72-064a-40fe-b6a4-e88f678f416a/eyeglasses-02.png",
-                  "label": "Hexagonal",
-                  "height": 18
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/c200fab5-ae6c-45c0-88b8-d97467d18c89/sun-glasses.png",
-                  "label": "Aviador",
-                  "height": 19.5
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/34d7074c-c2de-4ee7-bc39-668af0044b8f/glasses-(1).png",
-                  "label": "ClubMaster",
-                  "height": 28
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/d2ce40f4-bd0b-4734-9ac2-2b3056f4db40/reading-eyeglasses.png",
-                  "label": "Quadrado",
-                  "height": 35
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/9995b253-70db-4246-89b5-4c30be963b55/glasses-(2).png",
-                  "label": "Redondo",
-                  "height": 20
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/bd165619-7c2e-4859-bb2e-044f684c0e55/eye-glasses.png",
-                  "label": "Esportivo",
-                  "height": 17
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/99a24434-fe04-4b59-b092-335b3d4529d6/oculos-gatinho.png",
-                  "label": "Gatinho",
-                  "height": 19
-                },
-                {
-                  "image": "https://assets.decocache.com/otica-isabela/571ce455-03d2-40c5-86ca-2e4dadac39de/rectangular-eyeglass-frame.png",
-                  "label": "Retangular",
-                  "height": 25
-                }
-              ],
-              "hideFilters": [
-                {
-                  "filtersToHide": [
-                    "size",
-                    "format",
-                    "material",
-                    "style",
-                    "type"
-                  ],
-                  "label": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil"
-                },
-                {
-                  "filtersToHide": [
-                    "color",
-                    "type"
-                  ],
-                  "label": "/oculos-clip-on*"
-                },
-                {
-                  "filtersToHide": [
-                    "size",
-                    "type"
-                  ],
-                  "label": "/oculos-de-sol*"
-                },
-                {
-                  "filtersToHide": [
-                    "color"
-                  ],
-                  "label": "/lentes-de-contato*"
-                }
-              ],
-              "filterColors": [
-                {
-                  "hex": "#003994",
-                  "label": "Azul",
-                  "hex2": "#005ef5"
-                },
-                {
-                  "hex": "#82d6fa",
-                  "label": "Azul Bebe"
-                },
-                {
-                  "hex": "#002b70",
-                  "label": "Azul Marinho"
-                },
-                {
-                  "hex": "#f2f2f2",
-                  "label": "Branco",
-                  "hex2": "#ededed"
-                },
-                {
-                  "hex": "#d3d3d3",
-                  "label": "Cinza"
-                },
-                {
-                  "hex": "#e2b75a",
-                  "label": "Dourado",
-                  "hex2": "#a57203"
-                },
-                {
-                  "hex": "#d076ac",
-                  "label": "Lilas",
-                  "hex2": "#c85698"
-                },
-                {
-                  "hex": "#8b4513",
-                  "label": "Marrom"
-                },
-                {
-                  "hex": "#e6bf64",
-                  "label": "Nude"
-                },
-                {
-                  "hex": "#d5d5d5",
-                  "label": "Prata",
-                  "hex2": "#b8b8b8",
-                  "hex3": "#a3a3a3"
-                },
-                {
-                  "hex": "#000000",
-                  "label": "Preto"
-                },
-                {
-                  "hex": "#ffb6c1",
-                  "label": "Rosa Bebe"
-                },
-                {
-                  "hex": "#f4a4cb",
-                  "label": "Rosa"
-                },
-                {
-                  "hex": "#e8adaa",
-                  "label": "Rose",
-                  "hex2": "#f49690"
-                },
-                {
-                  "hex": "#993399",
-                  "label": "Roxo"
-                },
-                {
-                  "hex": "#000000",
-                  "label": "Tartaruga",
-                  "hex2": "#544221",
-                  "hex3": "#c84209"
-                },
-                {
-                  "hex": "#e2725b",
-                  "label": "Terracota"
-                },
-                {
-                  "hex": "#e0e0e0",
-                  "label": "Transparente ",
-                  "hex2": "#e6e6e6"
-                },
-                {
-                  "hex": "#63ede9",
-                  "label": "Verde Água"
-                },
-                {
-                  "hex": "#78866b",
-                  "label": "Verde Militar"
-                },
-                {
-                  "hex": "#28c635",
-                  "label": "Verde"
-                },
-                {
-                  "hex": "#ff0000",
-                  "label": "Vermelho"
-                },
-                {
-                  "hex": "#80000f",
-                  "label": "Vinho",
-                  "hex2": "#750000",
-                  "hex3": "#330000"
-                },
-                {
-                  "hex": "#ffffeb",
-                  "label": "âmbar"
-                },
-                {
-                  "label": "Pérola",
-                  "hex": "#f7d473"
-                },
-                {
-                  "label": "Amarelo",
-                  "hex": "#ffd70f",
-                  "hex2": "#ffdc2e",
-                  "hex3": "#ffe45c"
-                },
-                {
-                  "label": "Bege",
-                  "hex": "#ffea9e",
-                  "hex2": "#e2cf8d"
-                }
-              ],
-              "isSliderEnabled": true
-            }
+              {
+                "icon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1803/cbfa7072-ffcc-47aa-a71c-feb24d205a2c",
+                "label": "Sem Aro | Balgriff",
+                "height": 29
+              }
+            ],
+            "categories": [
+              {
+                "label": "/armacao-para-oculos-de-grau",
+                "categoryItems": [
+                  {
+                    "link": "/armacao-para-oculos-de-grau/oculos-de-grau-feminina",
+                    "label": "FEMININO"
+                  },
+                  {
+                    "link": "/armacao-para-oculos-de-grau/oculos-de-grau-masculino",
+                    "label": "MASCULINO"
+                  },
+                  {
+                    "link": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil",
+                    "label": "INFANTIL"
+                  }
+                ],
+                "name": "Armação"
+              },
+              {
+                "label": "/oculos-clip-on",
+                "categoryItems": [
+                  {
+                    "link": "/oculos-clip-on/clipon-feminino",
+                    "label": "FEMININO"
+                  },
+                  {
+                    "link": "/oculos-clip-on/clipon-masculino",
+                    "label": "MASCULINO"
+                  }
+                ],
+                "name": "Clipon"
+              },
+              {
+                "label": "/oculos-de-sol",
+                "categoryItems": [
+                  {
+                    "link": "/oculos-de-sol/oculos-de-sol-feminino",
+                    "label": "FEMININO"
+                  },
+                  {
+                    "link": "/oculos-de-sol/oculos-de-sol-masculino",
+                    "label": "MASCULINO"
+                  }
+                ],
+                "name": "Óculos de Sol"
+              }
+            ],
+            "shapeIcons": [
+              {
+                "image": "https://assets.decocache.com/otica-isabela/2ce0cc72-064a-40fe-b6a4-e88f678f416a/eyeglasses-02.png",
+                "label": "Hexagonal",
+                "height": 18
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/c200fab5-ae6c-45c0-88b8-d97467d18c89/sun-glasses.png",
+                "label": "Aviador",
+                "height": 19.5
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/34d7074c-c2de-4ee7-bc39-668af0044b8f/glasses-(1).png",
+                "label": "ClubMaster",
+                "height": 28
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/d2ce40f4-bd0b-4734-9ac2-2b3056f4db40/reading-eyeglasses.png",
+                "label": "Quadrado",
+                "height": 35
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/9995b253-70db-4246-89b5-4c30be963b55/glasses-(2).png",
+                "label": "Redondo",
+                "height": 20
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/bd165619-7c2e-4859-bb2e-044f684c0e55/eye-glasses.png",
+                "label": "Esportivo",
+                "height": 17
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/99a24434-fe04-4b59-b092-335b3d4529d6/oculos-gatinho.png",
+                "label": "Gatinho",
+                "height": 19
+              },
+              {
+                "image": "https://assets.decocache.com/otica-isabela/571ce455-03d2-40c5-86ca-2e4dadac39de/rectangular-eyeglass-frame.png",
+                "label": "Retangular",
+                "height": 25
+              }
+            ],
+            "hideFilters": [
+              {
+                "filtersToHide": [
+                  "size",
+                  "format",
+                  "material",
+                  "style",
+                  "type"
+                ],
+                "label": "/armacao-para-oculos-de-grau/oculos-de-grau-infantil"
+              },
+              {
+                "filtersToHide": [
+                  "color",
+                  "type"
+                ],
+                "label": "/oculos-clip-on*"
+              },
+              {
+                "filtersToHide": [
+                  "size",
+                  "type"
+                ],
+                "label": "/oculos-de-sol*"
+              },
+              {
+                "filtersToHide": [
+                  "color"
+                ],
+                "label": "/lentes-de-contato*"
+              }
+            ],
+            "filterColors": [
+              {
+                "hex": "#003994",
+                "label": "Azul",
+                "hex2": "#005ef5"
+              },
+              {
+                "hex": "#82d6fa",
+                "label": "Azul Bebe"
+              },
+              {
+                "hex": "#002b70",
+                "label": "Azul Marinho"
+              },
+              {
+                "hex": "#f2f2f2",
+                "label": "Branco",
+                "hex2": "#ededed"
+              },
+              {
+                "hex": "#d3d3d3",
+                "label": "Cinza"
+              },
+              {
+                "hex": "#e2b75a",
+                "label": "Dourado",
+                "hex2": "#a57203"
+              },
+              {
+                "hex": "#d076ac",
+                "label": "Lilas",
+                "hex2": "#c85698"
+              },
+              {
+                "hex": "#8b4513",
+                "label": "Marrom"
+              },
+              {
+                "hex": "#e6bf64",
+                "label": "Nude"
+              },
+              {
+                "hex": "#d5d5d5",
+                "label": "Prata",
+                "hex2": "#b8b8b8",
+                "hex3": "#a3a3a3"
+              },
+              {
+                "hex": "#000000",
+                "label": "Preto"
+              },
+              {
+                "hex": "#ffb6c1",
+                "label": "Rosa Bebe"
+              },
+              {
+                "hex": "#f4a4cb",
+                "label": "Rosa"
+              },
+              {
+                "hex": "#e8adaa",
+                "label": "Rose",
+                "hex2": "#f49690"
+              },
+              {
+                "hex": "#993399",
+                "label": "Roxo"
+              },
+              {
+                "hex": "#000000",
+                "label": "Tartaruga",
+                "hex2": "#544221",
+                "hex3": "#c84209"
+              },
+              {
+                "hex": "#e2725b",
+                "label": "Terracota"
+              },
+              {
+                "hex": "#e0e0e0",
+                "label": "Transparente ",
+                "hex2": "#e6e6e6"
+              },
+              {
+                "hex": "#63ede9",
+                "label": "Verde Água"
+              },
+              {
+                "hex": "#78866b",
+                "label": "Verde Militar"
+              },
+              {
+                "hex": "#28c635",
+                "label": "Verde"
+              },
+              {
+                "hex": "#ff0000",
+                "label": "Vermelho"
+              },
+              {
+                "hex": "#80000f",
+                "label": "Vinho",
+                "hex2": "#750000",
+                "hex3": "#330000"
+              },
+              {
+                "hex": "#ffffeb",
+                "label": "âmbar"
+              },
+              {
+                "label": "Pérola",
+                "hex": "#f7d473"
+              },
+              {
+                "label": "Amarelo",
+                "hex": "#ffd70f",
+                "hex2": "#ffdc2e",
+                "hex3": "#ffe45c"
+              },
+              {
+                "label": "Bege",
+                "hex": "#ffea9e",
+                "hex2": "#e2cf8d"
+              }
+            ],
+            "isSliderEnabled": true
           },
           {
             "categories": [

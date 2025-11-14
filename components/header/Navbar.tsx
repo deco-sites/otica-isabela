@@ -70,8 +70,8 @@ function Navbar({
                     src={logotipo.src ?? ""}
                     alt={"Logotipo Otica Isabela Dias"}
                     width={logotipo.width ?? 165}
-                    height={logotipo.height ?? 48}
-                    class="text-slot-primary-500"
+                    height={logotipo.height ?? 47}
+                    class="text-slot-primary-500 w-full h-full object-contain"
                   />
                 )
                 : <Icon id="logo" width={165} height={48} />}
