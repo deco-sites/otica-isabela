@@ -119,4 +119,4 @@ function ProductBannerShelf({
 
 export default ProductBannerShelf;
 
-export const LoadingFallback = () => <Section.Placeholder height="600px" />;
+export const LoadingFallback = () => <Section.PlaceholderShelfWithHeader class="bg-gray-scale-100" />;

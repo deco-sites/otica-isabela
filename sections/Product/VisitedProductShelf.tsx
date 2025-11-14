@@ -84,4 +84,4 @@ function VisitedProductShelf({
 
 export default VisitedProductShelf;
 
-export const LoadingFallback = () => <Section.PlaceholderShelf  class="bg-gray-100" />;
+export const LoadingFallback = () => <Section.PlaceholderShelf  class="bg-gray-scale-100" />;

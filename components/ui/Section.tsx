@@ -303,18 +303,6 @@ export function PlaceholderProductDetails({
               </div>
             </div>
 
-            {/* Colors */}
-            <div class="mb-6">
-              <div class="h-4 bg-gray-200 rounded animate-pulse w-20 mb-3" />
-              <div class="flex gap-2 flex-wrap">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <div
-                    key={i}
-                    class="h-10 w-10 rounded-full bg-gray-200 animate-pulse"
-                  />
-                ))}
-              </div>
-            </div>
 
             {/* Buttons */}
             <div class="flex flex-col gap-3">
@@ -683,6 +671,58 @@ function PlaceholderTestimonials({
   );
 }
 
+function PlaceholderShelfWithHeader({
+  class: _class,
+}: {
+  class?: string;
+}) {
+  return (
+    <div class={clx("w-full", _class)}>
+      {/* Header Skeleton (opcional) */}
+      <div class="w-full flex flex-col justify-center items-center pt-10 pb-10 mb-4 lg:mb-8">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <div class="h-8 md:h-10 bg-gray-200 rounded animate-pulse w-64 md:w-80" />
+          <div class="h-10 md:h-12 bg-gray-200 rounded animate-pulse w-80 md:w-96" />
+        </div>
+      </div>
+
+      {/* Banner Slider */}
+      <div class="relative container h-full flex flex-col gap-8 lg:gap-10 text-base-content py-10">
+        <div class="flex gap-4 lg:gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              class={clx(
+                "flex-shrink-0 flex flex-col",
+                // Mobile: cada banner ocupa ~83% da largura (1.2 items visíveis)
+                "w-[83%] min-w-[83%]",
+                // Desktop: 3 banners por vez (33.333% cada)
+                "lg:w-[calc(33.333%-1.5rem)] lg:min-w-[calc(33.333%-1.5rem)]",
+                index === 0 && "ml-8 lg:ml-0"
+              )}
+            >
+              <div class="relative">
+                {/* Banner Image */}
+                <div class="rounded-3xl w-[350px] h-[350px] bg-gray-200 animate-pulse" />
+                {/* Button Skeleton (opcional) */}
+                <div class="absolute translate-x-[-50%] left-[50%] bottom-[1rem]">
+                  <div class="h-10 bg-gray-200 rounded-md animate-pulse w-32" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Product Shelf Skeleton */}
+      <div class="mb-14">
+        <PlaceholderShelf class="bg-gray-scale-100" />
+      </div>
+    </div>
+  );
+}
+
 function Section() {}
 
 Section.Container = Container;
@@ -694,5 +734,6 @@ Section.PlaceholderProductDetails = PlaceholderProductDetails;
 Section.PlaceholderSearchResult = PlaceholderSearchResult;
 Section.PlaceholderProductReviews = PlaceholderProductReviews;
 Section.PlaceholderTestimonials = PlaceholderTestimonials;
+Section.PlaceholderShelfWithHeader = PlaceholderShelfWithHeader;
 
 export default Section;

@@ -296,25 +296,16 @@
             }
           },
           {
-            "__resolveType": "website/sections/Rendering/Lazy.tsx",
-            "section": {
-              "__resolveType": "FAQ - 02"
-            }
+            "__resolveType": "FAQ - 02"
           },
           {
-            "__resolveType": "website/sections/Rendering/Lazy.tsx",
-            "section": {
-              "__resolveType": "Sobre a Loja"
-            }
+            "__resolveType": "Sobre a Loja"
           },
           {
             "__resolveType": "wpp-cta"
           },
           {
-            "__resolveType": "website/sections/Rendering/Lazy.tsx",
-            "section": {
-              "__resolveType": "Newsletter Otica"
-            }
+            "__resolveType": "Newsletter Otica"
           },
           {
             "__resolveType": "Footer Otica"
