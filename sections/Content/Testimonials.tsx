@@ -76,4 +76,4 @@ export default function Testimonials(
   );
 }
 
-export const LoadingFallback = () => <Section.Placeholder height="600px" />;
+export const LoadingFallback = () => <Section.PlaceholderTestimonials class="bg-gray-scale-100" />;

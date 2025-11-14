@@ -1,5 +1,5 @@
 import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/components/ui/SliderJS.tsx";
+import SliderJS from "$store/islands/SliderJS.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import type { Props } from "$store/components/product/ProductDetails.tsx";
 import ToExperimentButton from "$store/components/product/ToExperimentButton.tsx";
@@ -53,7 +53,8 @@ function Details({
   customer,
   mobileOptions,
   priceValidUntil,
-}: Props) {
+  pathname,
+}: Props & { pathname: string }) {
   const { product } = page!;
   const {
     name,
@@ -290,6 +291,7 @@ function Details({
                             height={350}
                             preload={index === 0}
                             loading={index === 0 ? "eager" : "lazy"}
+                            fetchPriority={index === 0 ? "high" : "low"}
                           />
                         )}
                     </Slider.Item>
@@ -421,6 +423,7 @@ function Details({
             stepLabels={stepLabels}
             customer={customer}
             currentCategory={currentCategory!}
+            pathname={pathname}
           />
         </div>
       </div>
