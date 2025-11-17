@@ -14,7 +14,7 @@ const ProductCardImage = ({
 }: Props) => {
   return (
     <figure
-      class="relative mb-[10px] pt-4 max-lg:max-h-full rounded-[20px]"
+      class="relative mb-[10px] pt-4 max-lg:max-h-full rounded-[20px] w-full"
       style={{ aspectRatio: `${306} / ${170}` }}
     >
       <Image

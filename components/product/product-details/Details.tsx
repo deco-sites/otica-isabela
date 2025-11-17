@@ -271,6 +271,7 @@ function Details({
                       index={index}
                       class="carousel-item lg:!w-full items-center"
                     >
+                      {console.log("img", img)}
                       {img.isVideo
                         ? (
                           <Video
@@ -278,7 +279,7 @@ function Details({
                             loading="lazy"
                             width={350}
                             height={350}
-                            class="w-full"
+                            class="w-full h-max"
                             controls
                           />
                         )

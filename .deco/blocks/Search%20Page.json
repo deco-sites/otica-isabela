@@ -28,6 +28,25 @@
       },
       "customer": {
         "__resolveType": "site/loaders/store/auth.ts"
+      },
+      "notFoundProps": {
+        "title": "Oops! Página não encontrada.",
+        "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+        "ctaLabel": "Voltar para home",
+        "ctaUrl": "/",
+        "subtitle": "<p>• Verifique senão há erro de digitação.</p><p>• Tente utilizar uma única palavra.</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+        "vitrine": {
+          "__resolveType": "site/sections/Product/ProductBestDailyOffers.tsx",
+          "customer": {
+            "__resolveType": "site/loaders/store/auth.ts"
+          },
+          "products": {
+            "__resolveType": "site/loaders/product/dailyOffers.ts"
+          },
+          "offers": {
+            "__resolveType": "site/loaders/product/dailyOffers.ts"
+          }
+        }
       }
     },
     {
