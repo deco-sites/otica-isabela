@@ -36,7 +36,7 @@ export default function NotFound(
           <h1 class="text-2xl font-bold">{title}</h1>
           <div class="flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: subtitle || "" }} />
           {ctaLabel && ctaUrl && (
-            <a href={ctaUrl} class="btn rounded-md text-white w-max bg-[#00a7f5] hover:bg-[#00a7f5]/80">
+            <a href={ctaUrl} class="btn rounded-md text-white w-max bg-[#00a7f5] hover:bg-[#00a7f5]/80 text-trans">
               {ctaLabel}
             </a>
           )}

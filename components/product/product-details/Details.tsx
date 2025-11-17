@@ -65,6 +65,7 @@ function Details({
     priceWithDiscount,
     productRating: rating,
     installments,
+    isAvailable,
   } = product;
 
   // Busca a imagem dos acessórios inclusos
@@ -279,13 +280,13 @@ function Details({
                             loading="lazy"
                             width={350}
                             height={350}
-                            class="w-full h-max"
+                            class="w-full h-auto"
                             controls
                           />
                         )
                         : (
                           <Image
-                            class="w-full h-max"
+                            class="w-full h-auto"
                             src={img.url!}
                             alt={product.name || "Product Image"}
                             width={350}
@@ -403,6 +404,7 @@ function Details({
           currentCategory={currentCategory!}
           isAllowedToAddLens={!!isAllowedToAddLens}
           isLensWithoutPrescription={isLensWithoutPrescription!}
+          isAvailable={isAvailable}
           observableElement={displayModalAfter === "Header"
             ? { type: "Tag", value: "header" }
             : {

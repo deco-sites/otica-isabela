@@ -2,7 +2,6 @@ import { visitedProductsCookie } from "$store/components/constants.ts";
 import { AuthData } from "$store/packs/types.ts";
 import type { AppContext } from "$store/apps/site.ts";
 import Details from "$store/components/product/product-details/Details.tsx";
-import { NotFound } from "$store/components/product/product-details/NotFound.tsx";
 import OtherColorsShelf from "$store/components/product/product-details/OtherColorsShelf.tsx";
 import SpecsDesktop from "$store/components/product/product-details/SpecsDesktop.tsx";
 import SpecsMobile from "$store/components/product/product-details/SpecsMobile.tsx";
@@ -18,6 +17,9 @@ type ButtonLabel = {
   label: string;
 };
 import { MediasResponseObject } from "$store/packs/v2/loaders/productMedias.ts";
+import NotFound, {
+  Props as NotFoundProps,
+} from "$store/components/NotFound.tsx";
 
 export interface Promotion {
   /** @title Texto */
@@ -66,6 +68,7 @@ export interface Props {
   } | null)[];
   /** @hide true */
   pathname?: string;
+  notFoundProps?: NotFoundProps;
 }
 function ProductDetails(
   {
@@ -78,9 +81,14 @@ function ProductDetails(
     mobileOptions,
     relatedProductImages,
     pathname,
+    notFoundProps,
   }: SectionProps<typeof loader>,
 ) {
   const { product } = page || {};
+
+  if(!product) {
+    return <NotFound {...(notFoundProps as NotFoundProps)} />;
+  }
 
   // Use the new promotion countdown format from v2 types
   const isPromotionActive = () => {
@@ -111,8 +119,6 @@ function ProductDetails(
       <div class="lg:bg-gray-scale-100">
         {/* Stopwatch */}
         <div class="max-w-[1320px] w-[95%] mx-auto py-[10px] lg:py-[20px]">
-          {page
-            ? (
               <Details
                 page={page}
                 promotions={promotions}
@@ -123,8 +129,6 @@ function ProductDetails(
                 priceValidUntil={priceValidUntil}
                 pathname={pathname}
               />
-            )
-            : <NotFound />}
         </div>
       </div>
 
@@ -145,6 +149,11 @@ function ProductDetails(
 export async function loader(props: Props, req: Request, ctx: AppContext) {
   const url = new URL(req.url);
   const pathname = url.pathname;
+
+  if(!props.page?.product) {
+    ctx.response.status = 404;
+  }
+
   if (!props.page?.product) {
     redirect(url.origin);
     return { ...props, pathname };
@@ -183,6 +192,7 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
     ...props,
     relatedProductImages,
     pathname,
+    notFoundProps: props.notFoundProps,
   };
 }
 export default ProductDetails;

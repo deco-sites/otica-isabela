@@ -12,6 +12,7 @@ export interface Props {
   isLentes: boolean;
   isAllowedToAddLens: boolean;
   isLensWithoutPrescription: boolean;
+  isAvailable: boolean;
 }
 
 interface AddToCart {
@@ -67,6 +68,7 @@ function CartModalMobile({
   observableElement,
   isAllowedToAddLens,
   isLensWithoutPrescription,
+  isAvailable,
 }: Props) {
   useEffect(() => setup(observableElement), [observableElement]);
 
@@ -85,7 +87,7 @@ function CartModalMobile({
       class="fixed bottom-0 left-0 w-full p-4 z-10 bg-white border border-gray-600 lg:hidden animate-fadeIn 0.2s ease-in-out hidden"
       id="cart-modal-mobile"
     >
-      {stepLabel && isAllowedToAddLens && (
+      {isAvailable && stepLabel && isAllowedToAddLens && (
         <div class="mt-2 lg:max-w-[80%] w-full mx-auto">
           <ChooseLensButton
             {...addToCard}
@@ -94,7 +96,7 @@ function CartModalMobile({
           />
         </div>
       )}
-      {labels?.[currentCategory.toLowerCase().trim()!]
+      {isAvailable && labels?.[currentCategory.toLowerCase().trim()!]
         ? (
           <div class="mt-4 lg:max-w-[80%] w-full flex items-center mx-auto">
             <AddToCartButton
@@ -104,6 +106,13 @@ function CartModalMobile({
           </div>
         )
         : null}
+      {!isAvailable && (
+        <div class="mb-6 w-full flex items-center justify-center">
+          <span class="text-base text-base-300 text-center bg-gray-scale-100 rounded-md py-3 w-full border border-base-300 ">
+            Produto sem estoque no momento
+          </span>
+        </div>
+      )}
     </div>
   );
 }

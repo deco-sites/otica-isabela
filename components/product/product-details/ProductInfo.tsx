@@ -33,6 +33,7 @@ function ProductInfo(
     price,
     priceWithDiscount,
     installments,
+    isAvailable,
   } = product;
   const chooseLensUrl = `/passo-a-passo/${slug}`;
   const experimenterImage = product.medias.find((img) => img.tryOn)?.url;
@@ -147,7 +148,7 @@ function ProductInfo(
       </div>
 
       {/* Choose Lens */}
-      {stepLabel && isAllowedToAddLens && (
+      {isAvailable && stepLabel && isAllowedToAddLens && (
         <div class="mt-[11px] lg:mt-6 w-full">
           <ChooseLensButton
             {...addToCard}
@@ -158,7 +159,7 @@ function ProductInfo(
       )}
 
       {/* Add To Cart & Whislist */}
-      {!isLentes && (
+      {!isLentes && isAvailable && (
         <div
           onClick={() => {
             sendFBEvent("AddToCart", {
@@ -175,6 +176,13 @@ function ProductInfo(
             {...addToCard}
             label={labels?.[currentCategory!.toLowerCase().trim()]}
           />
+        </div>
+      )}
+      {!isAvailable && (
+        <div class="mt-6 w-full flex items-center justify-center">
+          <span class="text-base text-base-300 text-center bg-gray-scale-100 rounded-md py-3 w-full border border-base-300 ">
+            Produto sem estoque no momento
+          </span>
         </div>
       )}
 
