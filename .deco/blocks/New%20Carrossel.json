@@ -13,10 +13,16 @@
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
     },
     {
-      "alt": "Como comprar no site",
-      "mobile": "https://assets.decocache.com/otica-isabela/62940956-e307-4e41-8309-aa1b564900e6/Banner-Mobile.jpg",
+      "alt": "óculos clipon",
+      "mobile": "https://assets.decocache.com/otica-isabela/7f2c687f-2e12-43be-ba05-c916b22b6008/Banner-Mobile-Black-friday-oculos-clipon.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/581737ef-f4b2-4524-b1c4-a68dbc91f649/Banner-Desktop-Black-friday-Oculos-clipon.jpg",
+      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on"
+    },
+    {
       "desktop": "https://assets.decocache.com/otica-isabela/88caec2a-1c98-4eda-b8c9-8d12bf205459/Banner-Desktop.jpg",
-      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
+      "mobile": "https://assets.decocache.com/otica-isabela/62940956-e307-4e41-8309-aa1b564900e6/Banner-Mobile.jpg",
+      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
+      "alt": "Como comprar no site"
     },
     {
       "desktop": "https://assets.decocache.com/otica-isabela/40b4f26a-8781-45cc-80b8-0a6ab059ef11/Banner-Desktop-Hoya-2025.jpg",
@@ -35,12 +41,6 @@
       "mobile": "https://assets.decocache.com/otica-isabela/d455535e-f62a-4392-a0c8-e1418e722bc9/Banner-Mobile-Oculos-de-sol-com-grau.jpg",
       "link": "https://www.oticaisabeladias.com.br/oculos-de-sol",
       "alt": "Oculos de sol "
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/581737ef-f4b2-4524-b1c4-a68dbc91f649/Banner-Desktop-Black-friday-Oculos-clipon.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/7f2c687f-2e12-43be-ba05-c916b22b6008/Banner-Mobile-Black-friday-oculos-clipon.jpg",
-      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on",
-      "alt": "óculos clipon"
     }
   ],
   "benefits": [
