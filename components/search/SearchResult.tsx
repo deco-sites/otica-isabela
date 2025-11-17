@@ -23,6 +23,9 @@ import Filters from "site/islands/Filters.tsx";
 import FiltersMobile from "site/islands/FiltersMobile.tsx";
 import ActiveFilters from "site/islands/ActiveFilters.tsx";
 import CategoryMenu from "$store/components/ui/CategoryMenu.tsx";
+import NotFound, {
+  Props as NotFoundProps,
+} from "$store/components/NotFound.tsx";
 export type CategoryMenuItem = {
   /** @title Categoria filha */
   label: string;
@@ -46,20 +49,19 @@ export interface FilterHideOptions {
    */
   label: string;
   /** @title Filtros a esconder */
-  filtersToHide:
-    (
-      | "size"
-      | "color"
-      | "type"
-      | "format"
-      | "material"
-      | "style"
-      | "lenses"
-      | "disposal_type"
-      | "use_indication"
-      | "lenses_brand"
-      | "age"
-    )[];
+  filtersToHide: (
+    | "size"
+    | "color"
+    | "type"
+    | "format"
+    | "material"
+    | "style"
+    | "lenses"
+    | "disposal_type"
+    | "use_indication"
+    | "lenses_brand"
+    | "age"
+  )[];
 }
 
 export interface Color {
@@ -125,16 +127,9 @@ export interface Props {
    */
   notFoundAlert?: string;
   customer: LoaderReturnType<AuthData>;
+  notFoundProps: NotFoundProps;
 }
-function NotFound({ alert }: {
-  alert?: string;
-}) {
-  return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>{alert ? alert : "Não encontrado!"}</span>
-    </div>
-  );
-}
+
 function Result(
   {
     page,
@@ -287,6 +282,10 @@ export const loader = async (
     new URLPattern({ pathname: matcher }).test(req.url)
   );
 
+  if (!props.page || props.page.products.length === 0) {
+    ctx.response.status = 404;
+  }
+
   return {
     banner: matchedBanner ? [matchedBanner] : [],
     categories,
@@ -299,7 +298,7 @@ type ComponentProps = SectionProps<typeof loader>;
 
 function SearchResult({ page, ...props }: ComponentProps) {
   if (!page) {
-    return <NotFound alert={props.notFoundAlert} />;
+    return <NotFound {...props.notFoundProps || {}} />;
   }
   return <Result {...props} page={page} />;
 }
