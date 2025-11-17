@@ -206,7 +206,7 @@ function ProductCard({
               <Slider.Item
                 index={index}
                 key={`${selectedColorSlug}-${index}`}
-                class="carousel-item lg:!w-full max-lg:max-h-[197.77px] justify-center"
+                class="carousel-item lg:!w-full max-lg:max-h-[197.77px] justify-center "
               >
                 <div
                   onMouseEnter={() => handleImageHover(index)}
