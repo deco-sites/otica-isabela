@@ -3,19 +3,6 @@
   "path": "/produto/:slug",
   "sections": [
     {
-      "jsonLD": {
-        "slug": {
-          "param": "slug",
-          "__resolveType": "deco-sites/std/functions/requestToParam.ts"
-        },
-        "__resolveType": "site/loaders/product/productDetails.ts"
-      },
-      "favicon": "https://assets.decocache.com/otica-isabela/3abed53e-11e1-46a9-b6c9-961d9d7b097b/favicon.ico",
-      "__resolveType": "commerce/sections/Seo/SeoPDP.tsx",
-      "titleTemplate": "%s",
-      "descriptionTemplate": "%s"
-    },
-    {
       "__resolveType": "Header - 01"
     },
     {
@@ -134,37 +121,47 @@
           "title": "Óculos de Qualidade com preço baixo",
           "description": "Chega de pagar caro!"
         }
-      ]
+      ],
+      "notFoundProps": {
+        "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+        "title": "Oops! Produto não encontrada.",
+        "subtitle": "<p>• Verifique senão há erro de digitação.</p><p>• Tente utilizar uma única palavra.</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+        "ctaLabel": "Voltar para a pagina inicial",
+        "ctaUrl": "/",
+        "vitrine": {
+          "__resolveType": "Visited Products"
+        }
+      }
     },
     {
+      "__resolveType": "site/sections/Product/Details/ProductDetailsAdditionalInfo.tsx",
       "items": [
         {
           "icon": "Message",
-          "label": "Suporte Premium",
-          "description": "Você tem todo o acompanhamento incrível de nossa equipe, estamos preparados para te atender em qualquer situação."
+          "description": "Você tem todo o acompanhamento incrível de nossa equipe, estamos preparados para te atender em qualquer situação.",
+          "label": "Suporte Premium"
         },
         {
+          "description": "Com a nossa garantia, você pode ter a tranquilidade de saber que o seu produto está protegido e que estamos comprometidos em garantir a sua satisfação.",
           "icon": "GarantiaDoProduto",
-          "label": "Garantia",
-          "description": "Com a nossa garantia, você pode ter a tranquilidade de saber que o seu produto está protegido e que estamos comprometidos em garantir a sua satisfação."
+          "label": "Garantia"
         },
         {
           "icon": "RecebaComLentes",
-          "label": "Recebe seus óculos pronto!",
-          "description": "Conforto e praticidade: agora você pode receber seus óculos com as lentes de grau na sua casa. Compre online na nossa ótica e receba seu óculos pronto para uso, sem sair de casa."
+          "description": "Conforto e praticidade: agora você pode receber seus óculos com as lentes de grau na sua casa. Compre online na nossa ótica e receba seu óculos pronto para uso, sem sair de casa.",
+          "label": "Recebe seus óculos pronto!"
         },
         {
           "icon": "ProvadorOnline",
-          "label": "Provador Online",
-          "description": "Com nossa tecnologia de provador virtual, você pode experimentar seus óculos pelo celular antes de comprar, garantindo a escolha perfeita para você."
+          "description": "Com nossa tecnologia de provador virtual, você pode experimentar seus óculos pelo celular antes de comprar, garantindo a escolha perfeita para você.",
+          "label": "Provador Online"
         },
         {
           "icon": "Star",
           "label": "+300 mil clientes",
           "description": "Faça como milhares de clientes satisfeitos, sua alegria é a nossa motivação de vender!"
         }
-      ],
-      "__resolveType": "site/sections/Product/Details/ProductDetailsAdditionalInfo.tsx"
+      ]
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -238,16 +235,6 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/Details/SimilarProducts.tsx",
-        "product": {
-          "video": null,
-          "image": null,
-          "isAccessoryOrSparePartFor": null,
-          "offers": {
-            "hasMerchantReturnPolicy": {
-              "video": null
-            }
-          }
-        },
         "header": {
           "icon": "QuestionMarkCircle",
           "hideIcon": true,
@@ -262,16 +249,26 @@
             "fontWeight": "medium"
           },
           "secondLine": {
-            "text": "SIMILARES",
             "fontSize": {
               "mobile": "normal",
               "desktop": "muito grande"
             },
             "fontFamily": "Outfit",
-            "fontWeight": "bold"
+            "fontWeight": "bold",
+            "text": "SIMILARES"
           },
           "textAlignment": "começo",
           "backgroundColor": "#f8f8f8"
+        },
+        "product": {
+          "video": null,
+          "image": null,
+          "isAccessoryOrSparePartFor": null,
+          "offers": {
+            "hasMerchantReturnPolicy": {
+              "video": null
+            }
+          }
         },
         "page": {
           "__resolveType": "site/loaders/product/productDetails.ts",
@@ -298,5 +295,12 @@
       "__resolveType": "wpp-cta"
     }
   ],
-  "__resolveType": "$live/pages/LivePage.tsx"
+  "__resolveType": "$live/pages/LivePage.tsx",
+  "seo": {
+    "__resolveType": "commerce/sections/Seo/SeoPDPV2.tsx",
+    "jsonLD": {
+      "__resolveType": "site/loaders/product/productDetails.ts",
+      "slug": "slug"
+    }
+  }
 }
