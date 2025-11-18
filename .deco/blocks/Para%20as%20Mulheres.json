@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/1a79b61b-e772-46b5-87b9-d8a6884be212/1815-GELO.jpg",
-      "label": "Óculos Criativo ",
-      "buttonLabel": "ÓCULOS CRIATIVO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-de-oculos-gatinho-feminino-gelo-1815"
+      "image": "https://assets.decocache.com/otica-isabela/463a0d80-84d4-4f52-a38c-6a2b396573af/isa-dias-04-25-fotos-calefe-(327).jpg",
+      "label": "Óculos Gatinho",
+      "buttonLabel": "ÓCULOS GATINHO",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2255-marrom"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/9efdf2e1-ad62-4c26-a14a-feea667d1609/isa-dias-09-retrato-calefe-(54).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/0ec699b2-09e7-4768-b3d4-94b2f834079e/isa-dias-09-retrato-calefe-(81).jpg",
       "buttonLabel": "ÓCULOS AVIADOR",
-      "label": "Óculos aviador",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2423-cinza-isabela-dias"
+      "label": "Óculos Aviador",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2434-cinza-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/1b0b60c4-c48c-4aa7-b35b-9f16c89a3ca2/isa-dias-09-retrato-calefe-(245).jpg",
+      "image": "https://assets.decocache.com/otica-isabela/950c4fae-6d70-4826-97f7-93af88a39e89/isa-dias-09-retrato-calefe-(384).jpg",
+      "label": "Óculos Três peças",
+      "buttonLabel": "ÓCULOS TRÊS PEÇAS",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2389-prata-isabela-dias"
+    },
+    {
+      "label": "Óculos Hexagonal",
+      "image": "https://assets.decocache.com/otica-isabela/ac2978de-8d5b-4301-9987-53e4a0f43668/isa-dias-fotos-calefe-(349).jpg",
+      "buttonLabel": "ÓCULOS HEXAGONAL",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-hexagonal-feminino-2303-dourado-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/e6c9219c-3200-483b-bc45-4ff09008c056/isa-dias-09-retrato-calefe-(66).jpg",
+      "label": "Óculos fio de nylon",
+      "buttonLabel": "ÓCULOS INTELECTUAL",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2417-azul-isabela-dias"
+    },
+    {
       "label": "Óculos Bicolor",
-      "buttonLabel": "ÓCULOS BICOLOR",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-2421-rosa-isabela-dias"
-    },
-    {
-      "label": "Óculos Quadrado",
-      "image": "https://assets.decocache.com/otica-isabela/e8441601-4bae-4d50-b1ce-41d2c52143c8/isa-dias-fotos-calefe-(28).jpg",
-      "buttonLabel": "ÓCULOS QUADRADO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-feminino-2115-preto"
-    },
-    {
-      "image": "https://assets.decocache.com/otica-isabela/8dd72ac1-67bf-4992-b913-dc44df798c5b/isa-dias-04-25-fotos-calefe-(13).jpg",
-      "label": "Óculos esportivo",
-      "buttonLabel": "ÓCULOS ESPORTIVO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-prata-2227-isabela-dias"
-    },
-    {
-      "label": "Óculos Delicado",
-      "buttonLabel": "ÓCULOS DELICADO",
-      "image": "https://assets.decocache.com/otica-isabela/b37a3347-e742-4072-ae98-f3b9358564af/isa-dias-fotos-calefe-(66).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2327-dourado-isabela-dias"
+      "buttonLabel": "ÓCULOS BICOLOR ",
+      "image": "https://assets.decocache.com/otica-isabela/04a94fa6-6389-4d40-8449-d7fbb8d772a8/isa-08-fotos-calefe-(68).jpg",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2365-marrom-isabela-dias"
     }
   ],
   "customer": {
