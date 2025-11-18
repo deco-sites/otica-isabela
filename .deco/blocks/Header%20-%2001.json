@@ -637,8 +637,24 @@
   "alertMessages": {
     "texts": [
       {
-        "text": "<p><strong><span style=\"color: rgb(252, 252, 252); font-size: 16px\">⚠️ </span>Uma instabilidade global afetou o nosso site, em breve retornaremos!</strong></p>",
-        "textMobile": "<p><strong><span style=\"color: rgb(252, 252, 252); font-size: 16px\">⚠️ </span>Uma instabilidade global afetou o nosso site, em breve retornaremos!</strong></p>"
+        "text": "<p><strong>Black dos óculos 10º edição 🔥</strong></p>",
+        "textMobile": "<p><strong>Black dos óculos 10º edição 🔥</strong></p>"
+      },
+      {
+        "text": "<p>As melhores ofertas do ano 🔥</p>",
+        "textMobile": "<p>As melhores ofertas do ano 🔥</p>"
+      },
+      {
+        "text": "<p>Promoção lentes em dobro com até 80% OFF 🔥</p>",
+        "textMobile": "<p>Promoção lentes em dobro com até 80% OFF 🔥</p>"
+      },
+      {
+        "text": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>",
+        "textMobile": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>"
+      },
+      {
+        "text": "<p>Seleção de armações grátis, liberado! 🟢</p>",
+        "textMobile": "<p>Seleção de armações grátis, liberado! 🟢</p>"
       }
     ],
     "interval": 5,
