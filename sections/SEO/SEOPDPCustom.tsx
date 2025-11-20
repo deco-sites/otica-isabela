@@ -49,8 +49,6 @@ export function loader(_props: Props, _req: Request, ctx: AppContext) {
     ignoreStructuredData,
   } = props;
 
-  console.log(props);
-
   const { product } = page!;
 
   const title = renderTemplateString(
@@ -67,7 +65,39 @@ export function loader(_props: Props, _req: Request, ctx: AppContext) {
 
   const jsonLDs = (ignoreStructuredData && !ctx.isBot) || !product
     ? []
-    : [product];
+    : [{
+        "@type": "Product",
+        "name": product.name,
+        "description": product.descriptions?.[0]?.description || product.name,
+        "image": product.medias?.map(media => media.url) || [],
+        "sku": product.code,
+        "productID": product.id.toString(),
+        "brand": {
+          "@type": "Brand",
+          "name": product.attributes?.find(attr => attr.type.toLowerCase() === "marca")?.value || "Ótica Isabela"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": url.origin + product.slug,
+          "priceCurrency": "BRL",
+          "price": product.hasDiscount ? product.priceWithDiscount : product.price,
+          "availability": product.isAvailable 
+            ? "https://schema.org/InStock" 
+            : "https://schema.org/OutOfStock",
+          "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        ...(product.productRating && {
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": product.productRating,
+            // "ratingCount": 
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }),
+        "category": product.category?.name
+      }];
 
   return {
     ...seoSiteProps,
