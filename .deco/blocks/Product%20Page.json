@@ -2,6 +2,7 @@
   "name": "Product page",
   "path": "/produto/:slug",
   "sections": [
+    
     {
       "__resolveType": "Header - 01"
     },
@@ -297,10 +298,17 @@
   ],
   "__resolveType": "$live/pages/LivePage.tsx",
   "seo": {
-    "__resolveType": "commerce/sections/Seo/SeoPDPV2.tsx",
+    "__resolveType": "site/sections/SEO/SEOPDPCustom.tsx",
     "jsonLD": {
       "__resolveType": "site/loaders/product/productDetails.ts",
       "slug": "slug"
+    },
+    "page": {
+      "__resolveType": "site/loaders/product/productDetailsV2.ts",
+      "slug": {
+        "__resolveType": "deco-sites/std/functions/requestToParam.ts",
+        "param": "slug"
+      }
     }
   }
 }

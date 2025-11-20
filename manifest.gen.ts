@@ -79,12 +79,13 @@ import * as $$$$$$53 from "./sections/Product/ProductShelfAndImage.tsx";
 import * as $$$$$$54 from "./sections/Product/SearchResult.tsx";
 import * as $$$$$$55 from "./sections/Product/SingleProductShelf.tsx";
 import * as $$$$$$56 from "./sections/Product/VisitedProductShelf.tsx";
-import * as $$$$$$57 from "./sections/SeoPLPCustom.tsx";
-import * as $$$$$$58 from "./sections/SetCookies.tsx";
-import * as $$$$$$59 from "./sections/Social/FacebookPixel.tsx";
-import * as $$$$$$60 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$61 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$62 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$57 from "./sections/SEO/SEOPDPCustom.tsx";
+import * as $$$$$$58 from "./sections/SeoPLPCustom.tsx";
+import * as $$$$$$59 from "./sections/SetCookies.tsx";
+import * as $$$$$$60 from "./sections/Social/FacebookPixel.tsx";
+import * as $$$$$$61 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$62 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$63 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -165,12 +166,13 @@ const manifest = {
     "site/sections/Product/SearchResult.tsx": $$$$$$54,
     "site/sections/Product/SingleProductShelf.tsx": $$$$$$55,
     "site/sections/Product/VisitedProductShelf.tsx": $$$$$$56,
-    "site/sections/SeoPLPCustom.tsx": $$$$$$57,
-    "site/sections/SetCookies.tsx": $$$$$$58,
-    "site/sections/Social/FacebookPixel.tsx": $$$$$$59,
-    "site/sections/Social/InstagramPosts.tsx": $$$$$$60,
-    "site/sections/Social/WhatsApp.tsx": $$$$$$61,
-    "site/sections/Theme/Theme.tsx": $$$$$$62,
+    "site/sections/SEO/SEOPDPCustom.tsx": $$$$$$57,
+    "site/sections/SeoPLPCustom.tsx": $$$$$$58,
+    "site/sections/SetCookies.tsx": $$$$$$59,
+    "site/sections/Social/FacebookPixel.tsx": $$$$$$60,
+    "site/sections/Social/InstagramPosts.tsx": $$$$$$61,
+    "site/sections/Social/WhatsApp.tsx": $$$$$$62,
+    "site/sections/Theme/Theme.tsx": $$$$$$63,
   },
   "apps": {
     "site/apps/decohub.ts": $$$$$$$$$$$0,
