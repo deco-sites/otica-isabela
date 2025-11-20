@@ -27,7 +27,6 @@ const wasm = () => {
 
 function App(props: AppProps) {
   const isHome = props.url.href === (props.url.origin + "/");
-  console.log("isHome", isHome);
 
   return (
     <>
