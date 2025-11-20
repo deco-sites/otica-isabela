@@ -6,6 +6,7 @@
   .bebas {
     font-family: "Bebas Neue", sans-serif;
   }
+
   /* Allow changing font family via CMS */
   html {
     font-family: "Outfit", "sans-serif";
@@ -52,6 +53,7 @@
 }
 
 @layer utilities {
+
   /** Remove scrollbar from overflow-auto */
   .scrollbar-none {
     scrollbar-width: none;
@@ -126,4 +128,61 @@
   to {
     --dot-progress: 100%;
   }
+}
+
+.contentTextSeo h1 {
+  /* pt em rem?*/
+  font-size: 1.75rem;  
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contentTextSeo h2 {
+  font-size: 1.5rem;  
+  line-height: 1.2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contentTextSeo h3 {
+  font-size: 1.25rem;  
+  line-height: 1.2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contentTextSeo p {
+  font-size: 1rem;  
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.contentTextSeo strong {
+  font-weight: bold;
+}
+
+.contentTextSeo a {
+  color: #1ab6ff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contentTextSeo a:hover {
+  text-decoration: underline;
+}
+
+.contentTextSeo ul,
+ol {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.contentTextSeo ul li {
+  list-style-type: disc;
+}
+.contentTextSeo hr {
+  border: 0;
+  margin: 10px 0;
 }

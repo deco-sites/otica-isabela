@@ -51,6 +51,8 @@ function ProductInfo(
     )
     : undefined;
 
+  console.log("'promotion", promotion);
+
   const rating = product.productRating;
   const ratingValue = rating || 0;
 

@@ -97,7 +97,7 @@ function CategoryText({ category }: SectionProps<ReturnType<typeof loader>>) {
           `,
         }}
       />
-      <div class="max-w-[1320px] mx-auto w-[95%] my-8">
+      <div class="max-w-[1320px] mx-auto w-[95%] my-8 contentTextSeo">
         {!!html && (
           <>
             <div
