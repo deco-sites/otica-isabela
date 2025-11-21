@@ -6832,21 +6832,21 @@ details.collapse summary::-webkit-details-marker {
 
 .contentTextSeo h1 {
   /* pt em rem?*/
-  font-size: 1.8rem;  
+  font-size: 1.75rem;  
   line-height: 1.2;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 .contentTextSeo h2 {
-  font-size: 1.6rem;  
+  font-size: 1.5rem;  
   line-height: 1.2;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .contentTextSeo h3 {
-  font-size: 1.4rem;  
+  font-size: 1.25rem;  
   line-height: 1.2;
   margin-top: 10px;
   margin-bottom: 10px;
