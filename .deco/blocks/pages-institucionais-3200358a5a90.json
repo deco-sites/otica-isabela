@@ -532,7 +532,7 @@
                     "__resolveType": "website/sections/Rendering/Lazy.tsx",
                     "section": {
                       "page": {
-                        "__resolveType": "site/loaders/product/productListiningPage.ts",
+                        "__resolveType": "site/loaders/product/productListingPage.ts",
                         "PageSize": 9,
                         "id": [],
                         "offset": 9,
@@ -551,14 +551,33 @@
                           "image": null,
                           "video": null
                         },
-                        "seo": null
+                        "PageHref": "/oculos-de-sol"
                       },
                       "customer": {
                         "__resolveType": "site/loaders/store/auth.ts"
                       },
                       "__resolveType": "site/sections/Product/SearchResult.tsx",
                       "pageName": "3",
-                      "notFoundAlert": "3"
+                      "notFoundAlert": "3",
+                      "notFoundProps": {
+                        "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                        "ctaLabel": "Voltar para pagina inicial",
+                        "ctaUrl": "/",
+                        "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+                        "title": "Oops! Estamos enfrentando uma instabilidade! ",
+                        "vitrine": {
+                          "__resolveType": "site/sections/Product/ProductBestDailyOffers.tsx",
+                          "customer": {
+                            "__resolveType": "site/loaders/store/auth.ts"
+                          },
+                          "products": {
+                            "__resolveType": "site/loaders/product/dailyOffers.ts"
+                          },
+                          "offers": {
+                            "__resolveType": "site/loaders/product/dailyOffers.ts"
+                          }
+                        }
+                      }
                     }
                   }
                 ],
@@ -1053,12 +1072,24 @@
                       "filtrosDinamicos": [],
                       "idColecaoProdutos": 3,
                       "isProdutosSimilares": true,
-                      "OrderBy": "name"
+                      "OrderBy": "name",
+                      "PageHref": "/oculos-de-sol",
+                      "pageInfo": {
+                        "nextPage": null,
+                        "previousPage": null,
+                        "records": null,
+                        "recordPerPage": null
+                      },
+                      "seo": null,
+                      "breadcrumb": {
+                        "image": null
+                      }
                     },
                     "customer": {
                       "__resolveType": "site/loaders/store/auth.ts"
                     },
-                    "__resolveType": "site/sections/Product/SearchResult.tsx"
+                    "__resolveType": "site/sections/Product/SearchResult.tsx",
+                    "notFoundProps": {}
                   }
                 ],
                 "navigations": [],
@@ -5348,11 +5379,10 @@
           {
             "__resolveType": "wpp-cta"
           }
-        
-      ]
-    }
-  ],
-  "__resolveType": "website/flags/multivariate.ts"
-},
-"__resolveType": "$live/pages/LivePage.tsx"
+        ]
+      }
+    ],
+    "__resolveType": "website/flags/multivariate.ts"
+  },
+  "__resolveType": "$live/pages/LivePage.tsx"
 }

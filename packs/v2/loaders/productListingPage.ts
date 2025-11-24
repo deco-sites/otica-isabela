@@ -48,6 +48,11 @@ export interface ProductListingPageProps {
   /** @hide */
   OrderBy?: "name" | "-name" | "price" | "-price" | string;
 
+  /**
+   *  @description sobrepõe a URL atual para forçar uma página de categoria
+   */
+  PageHref?: string;
+
   /** @title Filtros Dinâmicos */
   Filters?: ProductFilter[];
 }
@@ -74,7 +79,9 @@ const loader = async (
 ): Promise<IsabelaProductListingPage | null> => {
   const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
   const path = paths(config!);
-  const url = new URL(req.url);
+  const url = props.PageHref
+    ? new URL(new URL(req.url).origin + `/${props.PageHref}`)
+    : new URL(req.url);
 
   const hasSearchParam =
     url.pathname.includes("busca") && url.searchParams.has("termo");
