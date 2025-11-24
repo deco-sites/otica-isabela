@@ -112,6 +112,12 @@ export interface Props {
   shapeIcons?: Shape[];
   /** @title Menu de Categorias */
   categories?: CategoryMatcher[];
+  /**
+   * @title Esconder todos os filtros
+   * @description Esconde a seção de filtros completamente
+   */
+  hideAllFilters?: boolean;
+
   /** @title Esconder Filtros */
   hideFilters?: FilterHideOptions[];
   /** @title Ativar carossel nos itens da galeria? */
@@ -137,6 +143,7 @@ function Result(
     typeIcons = [],
     shapeIcons = [],
     categories = [],
+    hideAllFilters,
     hideFilters,
     isSliderEnabled,
     customer,
@@ -180,30 +187,36 @@ function Result(
         </div>
       </header>
 
-      <FiltersMobile
-        hideFilters={hideFilters}
-        url={url}
-        facets={filters}
-        shapeIcons={shapeIcons}
-        typeIcons={typeIcons}
-      />
+      {!hideAllFilters && (
+        <FiltersMobile
+          hideFilters={hideFilters}
+          url={url}
+          facets={filters}
+          shapeIcons={shapeIcons}
+          typeIcons={typeIcons}
+        />
+      )}
 
-      <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
-        <div class="hidden lg:block">
-          <ActiveFilters />
+      {!hideAllFilters && (
+        <div class="flex justify-between max-w-[1320px] w-[95%] mx-auto mt-4">
+          <div class="hidden lg:block">
+            <ActiveFilters />
+          </div>
+          <CategoryMenu categories={categories} url={url} />
         </div>
-        <CategoryMenu categories={categories} url={url} />
-      </div>
+      )}
 
       <div class="max-w-[1320px] mx-auto mt-4 w-[95%]">
         <div class="flex flex-row">
-          <Filters
-            hideFilters={hideFilters}
-            url={url}
-            facets={filters}
-            shapeIcons={shapeIcons}
-            typeIcons={typeIcons}
-          />
+          {!hideAllFilters && (
+            <Filters
+              hideFilters={hideFilters}
+              url={url}
+              facets={filters}
+              shapeIcons={shapeIcons}
+              typeIcons={typeIcons}
+            />
+          )}
 
           <div class="flex-grow w-full flex flex-col max-lg:gap-6 gap-10">
             {banner && banner.map((b) => <Banner banner={b} />)}
