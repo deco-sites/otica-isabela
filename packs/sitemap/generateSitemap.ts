@@ -49,7 +49,8 @@ export async function searchAllProducts(
         "*",
         orderBy,
         currentPage,
-        pageSize
+        pageSize,
+        "function=siteMapGeneration"
       );
 
       console.log(`📄 Buscando página ${currentPage}/${totalPages}...`);
