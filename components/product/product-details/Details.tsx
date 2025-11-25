@@ -239,23 +239,24 @@ function Details({
                   showProductTumbnails ? "" : "max-lg:hidden"
                 }`}
               >
-                {images.filter((img) => !img.tryOn).map((img, index) => 
-                  !img.isModelMeasurements &&(
-                  <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
-                    <Slider.Dot index={index}>
-                      <Image
-                        class="group-disabled:border-base-300"
-                        width={92}
-                        height={92}
-                        src={img.isVideo
-                          ? "https://secure.oticaisabeladias.com.br/Content/assets/images/capa-video.jpg"
-                          : img.url!}
-                        alt={product.name || "Product Image"}
-                        loading="lazy"
-                      />
-                    </Slider.Dot>
-                  </li>
-                ))}
+                {images.filter((img) => !img.tryOn).map((img, index) =>
+                  !img.isModelMeasurements && (
+                    <li class="min-w-[20%] flex items-center px-1 bg-white border-black">
+                      <Slider.Dot index={index}>
+                        <Image
+                          class="group-disabled:border-base-300"
+                          width={92}
+                          height={92}
+                          src={img.isVideo
+                            ? "https://secure.oticaisabeladias.com.br/Content/assets/images/capa-video.jpg"
+                            : img.url!}
+                          alt={product.name || "Product Image"}
+                          loading="lazy"
+                        />
+                      </Slider.Dot>
+                    </li>
+                  )
+                )}
               </ul>
               <div class="relative">
                 {priceValidUntil && (
@@ -268,37 +269,38 @@ function Details({
                   id={`product-images-${id}`}
                   class="carousel carousel-center gap-6 bg-white w-[95vw] sm:w-[30vw] md:w-[60vw] lg:w-[540px]"
                 >
-                  {images.filter((img) => !img.tryOn).map((img, index) => 
-                  !img.isModelMeasurements && (
-                    <Slider.Item
-                      index={index}
-                      class="carousel-item lg:!w-full items-center"
-                    >
-                      {img.isVideo
-                        ? (
-                          <Video
-                            src={img.url}
-                            loading="lazy"
-                            width={350}
-                            height={350}
-                            class="w-full h-auto"
-                            controls
-                          />
-                        )
-                        : (
-                          <Image
-                            class="w-full h-auto"
-                            src={img.url!}
-                            alt={product.name || "Product Image"}
-                            width={350}
-                            height={350}
-                            preload={index === 0}
-                            loading={index === 0 ? "eager" : "lazy"}
-                            fetchPriority={index === 0 ? "high" : "low"}
-                          />
-                        )}
-                    </Slider.Item>
-                  ))}
+                  {images.filter((img) => !img.tryOn).map((img, index) =>
+                    !img.isModelMeasurements && (
+                      <Slider.Item
+                        index={index}
+                        class="carousel-item lg:!w-full items-center"
+                      >
+                        {img.isVideo
+                          ? (
+                            <Video
+                              src={img.url}
+                              loading="lazy"
+                              width={350}
+                              height={350}
+                              class="w-full h-auto"
+                              controls
+                            />
+                          )
+                          : (
+                            <Image
+                              class="w-full h-auto"
+                              src={img.url!}
+                              alt={product.name || "Product Image"}
+                              width={350}
+                              height={350}
+                              preload={index === 0}
+                              loading={index === 0 ? "eager" : "lazy"}
+                              fetchPriority={index === 0 ? "high" : "low"}
+                            />
+                          )}
+                      </Slider.Item>
+                    )
+                  )}
                 </Slider>
               </div>
               <div class="flex lg:hidden items-center justify-between absolute left-1/2 top-[20vh] -translate-x-1/2 -translate-y-1/2 w-[98%] pointer-events-none">
@@ -344,17 +346,28 @@ function Details({
             )}
           </div>
 
+{console.log("priceValidUntil", priceValidUntil)}
           {/* Buy with lens label */}
-          {promotion && (
-            <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
-              {promotion.flagText
-                .replace("%value", formatPrice(price) ?? "")
-                .replace(
-                  "%discount",
-                  formatPrice(priceWithDiscount) ?? "",
-                )}
-            </div>
-          )}
+          {promotion
+            ? (
+              <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
+                {promotion.flagText
+                  .replace("%value", formatPrice(price) ?? "")
+                  .replace(
+                    "%discount",
+                    formatPrice(priceWithDiscount) ?? "",
+                  )}
+              </div>
+            )
+            : priceValidUntil && priceWithDiscount !== price
+            ? (
+              <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px] w-[90%] lg:hidden leading-6">
+                <span>
+                  {`Compre com lentes e pague só R$ ${formatPrice(price)} na armação`}
+                </span>
+              </div>
+            )
+            : null}
         </div>
 
         {/* Ratings - Mobile (Bottom) */}
@@ -428,6 +441,7 @@ function Details({
             customer={customer}
             currentCategory={currentCategory!}
             pathname={pathname}
+            priceValidUntil={priceValidUntil}
           />
         </div>
       </div>

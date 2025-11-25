@@ -19,10 +19,12 @@ interface Props {
   currentCategory: string;
   /**@hide true */
   pathname: string;
+  /** @hide true */
+  priceValidUntil?: string;
 }
 
 function ProductInfo(
-  { page, promotions, labels, stepLabels, customer, currentCategory, pathname }: Props,
+  { page, promotions, labels, stepLabels, customer, currentCategory, pathname, priceValidUntil }: Props,
 ) {
   const { product } = page!;
   const {
@@ -114,7 +116,13 @@ function ProductInfo(
             </span>
           </div>
         )
-        : null}
+        : priceValidUntil && priceWithDiscount !== price ? (
+          <div class="bg-[#a8e3ff] rounded-[2.5px] text-[13px] text-center p-[2.5px] my-[10px]">
+            <span>
+              {`Compre com lentes e pague só R$ ${formatPrice(priceWithDiscount)} na armação`}
+            </span>
+          </div>
+        ) : null}
 
       {/* Prices */}
       <div class="flex items-normal justify-between lg:mt-6">
