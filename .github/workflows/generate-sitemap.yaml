@@ -1,0 +1,48 @@
+name: Generate Sitemap
+
+on:
+  # Executa todos os dias à meia-noite (UTC)
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # Permite execução manual via interface do GitHub
+  workflow_dispatch:
+
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      
+      - name: 🦕 Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      
+      - name: 🗺️  Generate Sitemap
+        env:
+          STORE_TOKEN: ${{ secrets.STORE_TOKEN }}
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+          BASE_URL: https://www.oticaisabeladias.com.br
+        run: |
+          deno run --allow-all packs/sitemap/generateAllSitemap.ts
+      
+      - name: 💾 Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/sitemap.xml static/products.xml static/categories.xml
+          
+          if git diff --staged --quiet; then
+            echo "✨ Nenhuma mudança nos sitemaps"
+          else
+            git commit -m "chore: atualiza sitemaps [skip ci]"
+            git push
+            echo "✅ Sitemaps atualizados!"
+          fi
+

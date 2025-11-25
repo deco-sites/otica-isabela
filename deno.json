@@ -58,7 +58,10 @@
     "bundle": "deno run -A jsr:@deco/deco/scripts/bundle deco-sites/otica-isabela",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
-    "reload": "deno cache -r https://deco.cx/run"
+    "reload": "deno cache -r https://deco.cx/run",
+    "sitemap": "deno run --allow-all packs/sitemap/generateAllSitemap.ts",
+    "sitemap:products": "deno run --allow-all packs/sitemap/generateSitemap.ts",
+    "sitemap:categories": "deno run --allow-read --allow-write packs/sitemap/extractRelativeUrls.ts '.deco/blocks/Header%20-%2001.json' --save --sitemap"
   },
   "githooks": {
     "pre-commit": "check"
