@@ -641,8 +641,8 @@
         "textMobile": "<p><strong>Black dos óculos 10º edição 🔥</strong></p>"
       },
       {
-        "text": "<p>As melhores ofertas do ano 🔥</p>",
-        "textMobile": "<p>As melhores ofertas do ano 🔥</p>"
+        "text": "<p>Lentes com grau Blue Light R$ 99 🔥</p>",
+        "textMobile": "<p>Lentes com grau Blue Light R$ 99 🔥</p>"
       },
       {
         "text": "<p>Promoção lentes em dobro com até 80% OFF 🔥</p>",
@@ -655,6 +655,9 @@
       {
         "text": "<p>Seleção de armações grátis, liberado! 🟢</p>",
         "textMobile": "<p>Seleção de armações grátis, liberado! 🟢</p>"
+      },
+      {
+        "text": "<p>Últimas horas⏰</p>"
       }
     ],
     "interval": 5,
