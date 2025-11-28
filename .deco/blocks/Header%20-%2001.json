@@ -657,7 +657,8 @@
         "textMobile": "<p>Seleção de armações grátis, liberado! 🟢</p>"
       },
       {
-        "text": "<p>Últimas horas⏰</p>"
+        "text": "<p>Últimas horas ⏰</p>",
+        "textMobile": "<p>Últimas horas ⏰</p>"
       }
     ],
     "interval": 5,
