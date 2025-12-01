@@ -637,28 +637,24 @@
   "alertMessages": {
     "texts": [
       {
-        "text": "<p><strong>Black dos óculos 10º edição 🔥</strong></p>",
-        "textMobile": "<p><strong>Black dos óculos 10º edição 🔥</strong></p>"
+        "text": "<p><strong>Black dos óculos PRORROGADA 🔥</strong></p>",
+        "textMobile": "<p><strong>Black dos óculos PRORROGADA 🔥</strong></p>"
       },
       {
-        "text": "<p>Lentes com grau Blue Light R$ 99 🔥</p>",
-        "textMobile": "<p>Lentes com grau Blue Light R$ 99 🔥</p>"
-      },
-      {
-        "text": "<p>Promoção lentes em dobro com até 80% OFF 🔥</p>",
-        "textMobile": "<p>Promoção lentes em dobro com até 80% OFF 🔥</p>"
+        "text": "<p>Óculos clipon, sol e grau HOJE por R$99! ⚠️</p>",
+        "textMobile": "<p>Óculos clipon, sol e grau HOJE por R$99! ⚠️</p>"
       },
       {
         "text": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>",
         "textMobile": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>"
       },
       {
-        "text": "<p>Seleção de armações grátis, liberado! 🟢</p>",
-        "textMobile": "<p>Seleção de armações grátis, liberado! 🟢</p>"
+        "text": "<p>Últimas armações por R$49! 🚨</p>",
+        "textMobile": "<p>Últimas armações por R$49! 🚨</p>"
       },
       {
-        "text": "<p>Últimas horas ⏰</p>",
-        "textMobile": "<p>Últimas horas ⏰</p>"
+        "text": "<p>Compre seus óculos de grau e receba em casa! <span>👓</span></p>",
+        "textMobile": "<p>Compre seus óculos de grau e receba em casa! <span>👓</span></p>"
       }
     ],
     "interval": 5,
