@@ -5103,6 +5103,17 @@
                 },
                 "videoUrl": "https://www.youtube.com/embed/9eeGKF3jcrw"
               }
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name"
+                },
+                "notFoundProps": {}
+              }
             }
           ],
           "label": "Projeto Social",
