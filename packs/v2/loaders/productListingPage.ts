@@ -77,7 +77,7 @@ const loader = async (
   req: Request,
   ctx: AppContext
 ): Promise<IsabelaProductListingPage | null> => {
-  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
+  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
   const path = paths(config!);
   const url = props.PageHref
     ? new URL(new URL(req.url).origin + `/${props.PageHref}`)

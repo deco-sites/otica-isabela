@@ -16,7 +16,7 @@ const loader = async (
   _req: Request,
   ctx: AppContext
 ): Promise<Product[] | null> => {
-  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
+  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
 
   const { collectionId } = props;
 

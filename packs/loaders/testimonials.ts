@@ -37,7 +37,7 @@ const loader = async (
   req: Request,
   ctx: AppContext
 ): Promise<Review[] | null> => {
-  const config = { token: ctx.token?.get?.() ?? "", publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const { slug, ordenacao, offset, somenteFoto, tipo } = props;
   const url = new URL(req.url);

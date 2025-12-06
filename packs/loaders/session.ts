@@ -20,7 +20,7 @@ const loader = async (
   _req: Request,
   ctx: AppContext,
 ): Promise<Session> => {
-  const config = { token: ctx.token?.get?.() ?? "", publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const sessionToken = props.sessionToken;
 

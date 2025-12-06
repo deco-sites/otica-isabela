@@ -39,7 +39,7 @@ const loader = async (
   _req: Request,
   ctx: AppContext
 ): Promise<SuggestionLoaderResponse | null> => {
-  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
+  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
   const path = paths(config!);
 
   const { Term, Page, PageSize, OrderBy } = props;

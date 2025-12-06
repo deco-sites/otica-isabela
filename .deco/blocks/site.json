@@ -76,22 +76,10 @@
   "flavor": {
     "framework": "fresh"
   },
-  "token": {
-    "__resolveType": "website/loaders/secret.ts",
-    "encrypted": "e405cc63a1f12f9ff2e335b41c1cd7789daa223c974dfaf7ac3348083775378ce0a9c1c7aba8f97e9c6586de15bd7a48b669fd8e067f13d467c9ad587d3def53142a668ddcaaf80e6797afb91ac4bd1c6dd6a481e479d5c26850f023b700ca8926f7e069c44b57a92465611444a54e39e5f372af169e73927c3ffa1814f73f8f554e0ae2f7deba8e7d8d08fd488f70b0",
-    "name": "TOKEN"
-  },
+  "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
   "publicUrl": "https://secure.oticaisabeladias.com.br/",
-  "apiBaseUrl": {
-    "__resolveType": "website/loaders/secret.ts",
-    "name": "API_BASE_URL",
-    "encrypted": "9d8401588820cb0e49eba79ebd06fd02166413461f0051f2d5be0e76cf696cd2eccbef9825571ba6fcf5e66bde545f7a"
-  },
-  "apiToken": {
-    "__resolveType": "website/loaders/secret.ts",
-    "name": "API_TOKEN",
-    "encrypted": "266a8617bec89a12866709117adbf374824a4fd7260e02b0af48a15377ce2281b335785ec74d7ffa4d319804983495a95639b2e166764b8a9799fbca2b91f38a7e388176a96304f48aa2bbbf666f66dc3718c49a2bbb65cb11c41a608dc9ed177958351b80c14e757cce517667f8c6ca0bbd5bf57d98fc0854efaf84cb9e3127dfd32eace9439b600bd29330944952dab83b5d7765026e2ce681d9c62824ebcb03f9c2dcd7a7dcfc222e835c6bb2503fec5d36638391c6772b75442ce2cc7d01"
-  },
+  "apiBaseUrl": "https://api.oticaisabeladias.com.br",
+  "apiToken": "YydMaqHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoL6ljV1UT9CmJAMoBr6hGglyF5gICjJte9Ql0x9OumIaP6nY4FDCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6adOHixUu1xeaI",
   "whilelistURLs": [],
   "whitelistPatterns": []
 }
