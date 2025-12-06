@@ -21,7 +21,6 @@ export default async function loader(
   const path = paths(config!);
   const customerToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
 
-  console.log("Customer Token:", customerToken);
   
   if (!customerToken) {
     return [];

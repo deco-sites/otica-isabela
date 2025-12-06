@@ -36,7 +36,6 @@ export function SpecItem({ item, classes }: SpecItem) {
 function ProductDetailsMeasurements({ product, measurementsImage }: Props) {
   const { medias } = product;
 
-  console.log(medias, "medias dentro do measurements");
 
   const measurementImage = medias.find((media) =>
     media.isModelMeasurements === true

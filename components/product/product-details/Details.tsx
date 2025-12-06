@@ -346,7 +346,6 @@ function Details({
             )}
           </div>
 
-{console.log("priceValidUntil", priceValidUntil)}
           {/* Buy with lens label */}
           {promotion
             ? (
