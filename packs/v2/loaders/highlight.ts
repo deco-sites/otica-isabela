@@ -16,12 +16,12 @@ const loader = async (
   _req: Request,
   ctx: AppContext
 ): Promise<Product[] | null> => {
-  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
 
   const { collectionId } = props;
 
   const headers: HeadersInit = new Headers();
-  headers.set("Token", config.token ?? "");
+  headers.set("Token", config.token);
 
   const products = await fetchAPI<Product[]>(
     paths(config!).v2.product.highlight(collectionId),

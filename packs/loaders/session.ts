@@ -20,9 +20,12 @@ const loader = async (
   _req: Request,
   ctx: AppContext,
 ): Promise<Session> => {
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token?.get?.() ?? "", publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const sessionToken = props.sessionToken;
+
+  console.log("config", config);
+  console.log("sessionToken", sessionToken);
 
   const sessionAPI = await fetchAPI<Session>(path.session.initSession(), {
     method: "POST",
@@ -33,6 +36,7 @@ const loader = async (
     },
   });
 
+  console.log("sessionAPI", sessionAPI);
   return sessionAPI;
 };
 

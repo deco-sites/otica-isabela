@@ -1,6 +1,7 @@
 import { type App, type AppContext as AC } from "@deco/deco";
 import std, { Props } from "apps/compat/std/mod.ts";
 import manifest, { Manifest } from "../manifest.gen.ts";
+import { Secret } from "apps/website/loaders/secret.ts";
 
 type StdApp = ReturnType<typeof std>;
 
@@ -8,7 +9,7 @@ export interface StoreProps extends Props {
   /**
    * @description Oticas Isabela token, used for API authentication. (old version)
    */
-  token?: string;
+  token?: Secret;
   /**
    * @title Public store URL
    * @description Domain that is registered on License Manager (e.g: www.mystore.com.br)
@@ -18,12 +19,12 @@ export interface StoreProps extends Props {
    * @title API Base URL
    * @description Base URL for the store's API endpoints.
    */
-  apiBaseUrl?: string;
+  apiBaseUrl?: Secret;
   /**
    * @title API Token
    * @description Token for authenticating API requests.
    */
-  apiToken?: string;
+  apiToken?: Secret;
 }
 
 export default function Site(

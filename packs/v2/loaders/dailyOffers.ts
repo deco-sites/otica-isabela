@@ -27,10 +27,10 @@ const loader = async (
   _req: Request,
   ctx: AppContext
 ): Promise<DailyOffersResponseDTO | null> => {
-  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? ""};
 
   const headers: HeadersInit = new Headers();
-  headers.set("Token", config.token ?? "");
+  headers.set("Token", config.token);
 
   const filtersQuery =
     "Filters[0].Key=isDayOffer&Filters[0].Operator=equals&Filters[0].Values=True&function=ofertasDoDia";

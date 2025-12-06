@@ -76,10 +76,22 @@
   "flavor": {
     "framework": "fresh"
   },
-  "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
+  "token": {
+    "__resolveType": "website/loaders/secret.ts",
+    "name": "API_TOKEN",
+    "encrypted": "093e17a45e032e9798a6eea206b0bb74351b28e7217014a75d1871a465fe75fbda8b600d55fe17f6ec58b8ba41abffcdf855559ad742afb9e9bc5281e6f724097ccf5b614ef59e21bcd5695d451556138dd49c51ba0ebd418f66953c38c5dfbfa8881a884d85b14fa90eecba07492e761223b3540e71bbba5ff0649d4d26a93f29f0ba0c4a367f1ecf57fa62f6dde06a7a6d2f7db9b08443e28a0be12fb3be2e245c286ad03a98b6a66f27fb9a98f12d4f8e6cd07066955f1a3caf96c418b790"
+  },
   "publicUrl": "https://secure.oticaisabeladias.com.br/",
-  "apiBaseUrl": "https://api.oticaisabeladias.com.br",
-  "apiToken": "YydMaqHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoL6ljV1UT9CmJAMoBr6hGglyF5gICjJte9Ql0x9OumIaP6nY4FDCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6adOHixUu1xeaI",
+  "apiBaseUrl": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "da612ec19a25c803b395d377aac13c35bda929f3f0c19866b89aa05aa62e557d1587014c4d9ddcafca15664a6da34a3a",
+    "name": "API_BASE_URL"
+  },
+  "apiToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "name": "API_TOKEN",
+    "encrypted": "093e17a45e032e9798a6eea206b0bb74351b28e7217014a75d1871a465fe75fbda8b600d55fe17f6ec58b8ba41abffcdf855559ad742afb9e9bc5281e6f724097ccf5b614ef59e21bcd5695d451556138dd49c51ba0ebd418f66953c38c5dfbfa8881a884d85b14fa90eecba07492e761223b3540e71bbba5ff0649d4d26a93f29f0ba0c4a367f1ecf57fa62f6dde06a7a6d2f7db9b08443e28a0be12fb3be2e245c286ad03a98b6a66f27fb9a98f12d4f8e6cd07066955f1a3caf96c418b790"
+  },
   "whilelistURLs": [],
   "whitelistPatterns": []
 }

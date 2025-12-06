@@ -22,12 +22,12 @@ const loader = async (
   _req: Request,
   ctx: AppContext
 ): Promise<MediasResponseObject[] | null> => {
-  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
 
   const { slug } = props;
 
   const headers: HeadersInit = new Headers();
-  headers.set("Token", config.token ?? "");
+  headers.set("Token", config.token);
 
   const medias = await fetchAPI<MediasResponseObject[]>(
     paths(config!).v2.product.medias(slug),

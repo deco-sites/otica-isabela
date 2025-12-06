@@ -18,7 +18,7 @@ export default async function loader(
   req: Request,
   ctx: AppContext
 ): Promise<OrderForm> {
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const clientToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
 

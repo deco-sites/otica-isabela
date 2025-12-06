@@ -20,12 +20,12 @@ const loader = async (
 ): Promise<IsabelaProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
-  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
 
   if (!slug) return null;
 
   const headers: HeadersInit = new Headers();
-  headers.set("Token", config.token ?? "");
+  headers.set("Token", config.token);
 
   const product = await fetchAPI<Product>(
     paths(config!).v2.product.details(slug),
