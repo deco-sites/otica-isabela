@@ -20,7 +20,7 @@ const loader = async (
 ): Promise<IsabelaProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
-  const config = { token: ctx.apiToken, publicUrl: ctx.apiBaseUrl };
+  const config = { token: ctx.apiToken?.get?.() ?? "", publicUrl: ctx.apiBaseUrl?.get?.() ?? "" };
 
   if (!slug) return null;
 
