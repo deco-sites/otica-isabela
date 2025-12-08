@@ -1,4 +1,4 @@
-# Atualização de cache - Forçando novo deploy 
+# Atualização de cache - Forçando novo deploy
 # Fashion starter by deco.cx
 
 
