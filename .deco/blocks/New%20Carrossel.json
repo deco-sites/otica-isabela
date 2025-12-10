@@ -1,40 +1,28 @@
 {
   "images": [
     {
-      "mobile": "https://assets.decocache.com/otica-isabela/7c0ab052-7af2-4460-acf3-969fbb733ed6/Banner-Mobile-Black-friday-Armacao-Gratis.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/80bb4089-7adc-430a-b082-4251fdf22275/Banner-Desktop-Black-friday-oculos-49.jpg",
+      "mobile": "https://assets.decocache.com/otica-isabela/dc8fb7bb-08e7-4a63-9ef8-6e605728f895/Banner-mobile-oculos-completos.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/e12aa733-d2fa-43e8-8ac4-28915626394d/Banner-Desk-Oculos-completos.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Black friday"
+      "alt": "Óculo completos Natal"
     },
     {
       "alt": "óculos clipon",
-      "mobile": "https://assets.decocache.com/otica-isabela/3d6c8a57-57b0-4c8d-b541-9453718f2237/Banner-Mobile-Black-friday-oculos-clipon.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/6c3a24d1-7e4c-480d-ae96-aae2e13f14d2/Banner-Desktop-Black-friday-Oculos-clipon.jpg",
+      "mobile": "https://assets.decocache.com/otica-isabela/02b7377e-52bb-4120-93b6-14bff02bd0b5/Banner-mobile-oculos-clipon.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/f4cd84d5-16fa-4c95-bdc1-6bcdc34a12b2/Banner-Desk-oculos-clipon.jpg",
       "link": "https://www.oticaisabeladias.com.br/oculos-clip-on"
     },
     {
-      "alt": "Como comprar no site",
-      "mobile": "https://assets.decocache.com/otica-isabela/62940956-e307-4e41-8309-aa1b564900e6/Banner-Mobile.jpg",
+      "alt": "Oculos de sol ",
+      "mobile": "https://assets.decocache.com/otica-isabela/5cbaf9c2-7a18-476e-b5b0-592f2267de58/Banner-mobile-oculos-de-sol.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/4c308d39-bd28-41a7-a71e-d5b55e47ca27/Banner-Desk-Oculos-de-sol.jpg",
+      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol"
+    },
+    {
       "desktop": "https://assets.decocache.com/otica-isabela/88caec2a-1c98-4eda-b8c9-8d12bf205459/Banner-Desktop.jpg",
-      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/40b4f26a-8781-45cc-80b8-0a6ab059ef11/Banner-Desktop-Hoya-2025.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/d7da9457-5c99-42b0-944b-987411755d50/Banner-Mobile-Hoya-2025.jpg",
+      "mobile": "https://assets.decocache.com/otica-isabela/62940956-e307-4e41-8309-aa1b564900e6/Banner-Mobile.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Hoya"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/525336f5-0218-40f5-802f-22ff800e280d/Banner-Desktop-Oculos-retro.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/0d6d8282-149f-40b2-9377-c653d1c279fa/Banner-Mobile-oculos-retro.jpg",
-      "link": "https://www.oticaisabeladias.com.br/busca?termo=milu",
-      "alt": "Banner óculos Milu"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/9b54766a-e838-4193-a9a0-1b129576f9c9/Banner-Desktop-Oculos-de-sol-com-grau.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/d455535e-f62a-4392-a0c8-e1418e722bc9/Banner-Mobile-Oculos-de-sol-com-grau.jpg",
-      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol",
-      "alt": "Oculos de sol "
+      "alt": "Como comprar no site"
     }
   ],
   "benefits": [

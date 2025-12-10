@@ -637,24 +637,20 @@
   "alertMessages": {
     "texts": [
       {
-        "text": "<p><strong>Black dos óculos ÚLTIMO DIA!</strong><span>🚨</span></p>",
-        "textMobile": "<p><strong>Black dos óculos ÚLTIMO DIA!</strong>🚨</p>"
+        "text": "<p><strong>Natal de óculos novos! 🎄</strong></p>",
+        "textMobile": "<p><strong>Natal de óculos novos! 🎄</strong></p>"
       },
       {
-        "text": "<p>Óculos clipon, sol e grau HOJE por R$99! ⚠️</p>",
-        "textMobile": "<p>Óculos clipon, sol e grau HOJE por R$99! ⚠️</p>"
+        "text": "<p><strong>Óculos completos, lentes + Armação R$199 🎁</strong></p>",
+        "textMobile": "<p><strong>Óculos completos, lentes + Armação R$199 🎁</strong></p><p></p>"
       },
       {
-        "text": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>",
-        "textMobile": "<p>A Ótica mais bem avaliada do Brasil 🔥</p>"
+        "text": "<p><strong>Experimente online! 👓</strong></p>",
+        "textMobile": "<p><strong>Experimente online! 👓</strong></p>"
       },
       {
-        "text": "<p>Últimas armações por R$49! 🚨</p>",
-        "textMobile": "<p>Últimas armações por R$49! 🚨</p>"
-      },
-      {
-        "text": "<p>Compre seus óculos de grau e receba em casa! <span>👓</span></p>",
-        "textMobile": "<p>Compre seus óculos de grau e receba em casa! <span>👓</span></p>"
+        "text": "<p><strong>Lentes multifocais R$299</strong></p>",
+        "textMobile": "<p><strong>Lentes multifocais R$299</strong></p>"
       }
     ],
     "interval": 5,
