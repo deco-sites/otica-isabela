@@ -641,16 +641,20 @@
         "textMobile": "<p><strong>Natal de óculos novos! 🎄</strong></p>"
       },
       {
-        "text": "<p><strong>Óculos completos, lentes + Armação R$199 🎁</strong></p>",
-        "textMobile": "<p><strong>Óculos completos, lentes + Armação R$199 🎁</strong></p><p></p>"
-      },
-      {
         "text": "<p><strong>Experimente online! 👓</strong></p>",
         "textMobile": "<p><strong>Experimente online! 👓</strong></p>"
       },
       {
+        "text": "<p><strong>Óculos de sol com grau 🕶️</strong></p>",
+        "textMobile": "<p><strong>Óculos de sol com grau 🕶️</strong></p>"
+      },
+      {
         "text": "<p><strong>Lentes multifocais R$299</strong></p>",
         "textMobile": "<p><strong>Lentes multifocais R$299</strong></p>"
+      },
+      {
+        "text": "<p><strong>Compre sem sair de casa! 🏡</strong></p><p></p>",
+        "textMobile": "<p><strong>Compre sem sair de casa! 🏡</strong></p><p></p>"
       }
     ],
     "interval": 5,
