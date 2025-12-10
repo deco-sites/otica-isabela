@@ -24,7 +24,7 @@ const loader = async (
 ): Promise<ProductDetailsPage | null> => {
   const url = new URL(req.url);
   const { slug } = props;
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token.get?.() ?? "", publicUrl: ctx.publicUrl };
 
   if (!slug) return null;
 

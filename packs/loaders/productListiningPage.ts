@@ -40,7 +40,7 @@ const loaders = async (
   req: Request,
   ctx: AppContext
 ): Promise<ProductListingPage | null> => {
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token.get?.() ?? "", publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const url = new URL(req.url);
 
