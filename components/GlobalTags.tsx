@@ -105,12 +105,6 @@ function GlobalTags() {
         crossorigin="anonymous"
       >
       </script>
-      <script
-        src="//collect.vendavalida.com.br/push.js"
-        async
-        type="text/javascript"
-      >
-      </script>
     </Head>
   );
 }

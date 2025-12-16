@@ -29,7 +29,7 @@ const loader = async (
   _req: Request,
   ctx: AppContext,
 ): Promise<Suggestion | null> => {
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token.get?.() ?? "", publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const {
     nome,

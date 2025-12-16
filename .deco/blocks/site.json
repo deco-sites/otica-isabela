@@ -76,10 +76,22 @@
   "flavor": {
     "framework": "fresh"
   },
-  "token": "YydMa_qHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6a-dOHixUu1xeaI",
+  "token": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "da66b7e954ce22520294487a1cfd42f345edc5f4f4ed14e38537c118e0e3bc3c5d205d4c2caebce04228dad76275e563808e8013402a12a1f45cda5fd7068036ecb1786a632d046b54e17128271a6424a4a6275ab28e4c250e450fe2286ae910abb0f645267a15d31c88b73c651e9db01b40fe8e5afcf5d145aaf104a1a8e046621ee9b40084c795f978b2282b06f762",
+    "name": "TOKEN"
+  },
   "publicUrl": "https://secure.oticaisabeladias.com.br/",
-  "apiBaseUrl": "https://api.oticaisabeladias.com.br",
-  "apiToken": "YydMaqHuvzlOgE3HngsDq1m7oXbFNBRqQLxbvpN4tnoL6ljV1UT9CmJAMoBr6hGglyF5gICjJte9Ql0x9OumIaP6nY4FDCungSRaK9UQozSZ25Qp6azNPWvPziTLcFeuxyy24E3xiNeuFhsRa8Noko6eBysw0w8oLq6adOHixUu1xeaI",
+  "apiBaseUrl": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "675caf73ba6311629c872f7af21d4de1f6b945660a7b33fed2036931782fe90564f687704a46cacfd48ea3b8b9d3df9e",
+    "name": "API_BASE_URL"
+  },
+  "apiToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "28efd534b663f7854635ad0dceffbf46685be6c6e75bf828a80afead50b093def9bebaff4b636c68393459c35f6667a0a5821ef923333c0debcfafdc0e62d03ec9cf231a20e5823fbdd4a80802fbdb6111148bdd2d99fb53638a16ab0a062e0828c7d32d95c70838140b909f49bab36e0972795aadd4a70eccd99ea41eb6997e895ed9076c02d338a7fcc6a8dd0a24997b02e50fcdd8fbbad7982b4b2d5488a111532d044b526fdbd1b2c5a770d5a28152d257fea257197921aa128dc98b99a5",
+    "name": "API_TOKEN"
+  },
   "whilelistURLs": [],
   "whitelistPatterns": []
 }

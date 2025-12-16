@@ -17,11 +17,10 @@ export default async function loader(
   req: Request,
   ctx: AppContext,
 ): Promise<WishlistItem[]> {
-  const config = { token: ctx.token, publicUrl: ctx.publicUrl };
+  const config = { token: ctx.token.get?.() ?? "", publicUrl: ctx.publicUrl };
   const path = paths(config!);
   const customerToken = getCookies(req.headers)[ISABELA_DIAS_CLIENT_COOKIE];
 
-  console.log("Customer Token:", customerToken);
   
   if (!customerToken) {
     return [];
