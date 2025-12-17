@@ -206,7 +206,7 @@ export default function RichText({
   const id = useId();
 
   return (
-    <Wrapper style={{ backgroundColor }}>
+    <Wrapper style={{ backgroundColor }} class="contentTextSeo">
       <div
         style={{
           backgroundColor,
@@ -246,7 +246,7 @@ export default function RichText({
           ? <ResponsiveImage {...media} />
           : null}
         <div
-          class={"py-4 md:p-0 flex flex-col gap-3" +
+          class={"py-4 md:p-0 flex flex-col gap-3 contentTextSeo" +
             (media
               ? media.position === "right" ? " -order-1" : ""
               : " col-span-2") +

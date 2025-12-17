@@ -67,9 +67,9 @@ const ProductCard = ({
                 }
 
                 <div className="card-body p-4">
-                    <h4 className="text-black text-base leading-none h-[33px]">
+                    <h3 className="text-black text-base leading-none h-[33px]">
                         {similar.value}
-                    </h4>
+                    </h3>
 
                     <div className="min-h-[25px] my-[10px]">
                         {getProperties[index]?.length > 0 && (

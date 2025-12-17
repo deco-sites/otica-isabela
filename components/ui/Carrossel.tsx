@@ -141,7 +141,7 @@ export default function Carrossel(
                 class="w-full md:w-[unset] lg:rounded-[20px]"
                 src={desktop}
                 alt={alt}
-                loading="eager"
+                loading={index === 0 ? "eager" : "lazy"}
                 {...{ fetchpriority: index === 0 ? "high" : "auto" }}
               />
             </Picture>

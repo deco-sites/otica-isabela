@@ -1,10 +1,10 @@
 import Seo, {
   renderTemplateString,
   SEOSection,
-} from "apps/website/components/Seo.tsx";
+} from "$store/components/SEO/SEO.tsx";
 import { canonicalFromBreadcrumblist } from "apps/commerce/utils/canonical.ts";
 import { AppContext } from "apps/commerce/mod.ts";
-import { IsabelaProductListingPage } from "site/packs/v2/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 
 export interface ConfigJsonLD {
   /**
@@ -21,7 +21,7 @@ export interface ConfigJsonLD {
 
 export interface Props {
   /** @title Data Source */
-  jsonLD: IsabelaProductListingPage | null;
+  jsonLD: ProductListingPage | null;
   /** @title Title Override */
   title?: string;
   /** @title Description Override */
@@ -38,6 +38,9 @@ export interface Props {
 
 export function loader(_props: Props, _req: Request, ctx: AppContext) {
   const props = _props as Partial<Props>;
+  const url = new URL(_req.url);
+  const isSearch= url.search !== "";
+
   const {
     titleTemplate = "",
     descriptionTemplate = "",
@@ -50,14 +53,10 @@ export function loader(_props: Props, _req: Request, ctx: AppContext) {
     configJsonLD,
   } = props;
 
-  const title = renderTemplateString(
-    titleTemplate,
-    titleProp || jsonLD?.seo?.title || ctx.seo?.title || "",
-  );
-  const description = renderTemplateString(
-    descriptionTemplate,
-    descriptionProp || jsonLD?.seo?.description || ctx.seo?.description || "",
-  );
+  const title = titleProp || jsonLD?.seo?.title || ctx.seo?.title || "";
+
+  const description = descriptionProp || jsonLD?.seo?.description || ctx.seo?.description || "";
+
   const canonical = props.canonical
     ? props.canonical
     : jsonLD?.seo?.canonical
@@ -91,6 +90,7 @@ export function loader(_props: Props, _req: Request, ctx: AppContext) {
     canonical,
     jsonLDs,
     noIndexing,
+    isSearch,
   };
 }
 

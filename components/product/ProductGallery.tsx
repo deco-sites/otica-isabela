@@ -12,6 +12,7 @@ export interface Props {
   products: Product[] | null;
   isSliderEnabled?: boolean;
   customer: LoaderReturnType<AuthData>;
+  variant?: "shelf" | "PLP";
 }
 
 function ProductGallery({ products, isSliderEnabled, customer }: Props) {
@@ -25,6 +26,7 @@ function ProductGallery({ products, isSliderEnabled, customer }: Props) {
           customer={customer}
           isStopwatchEnabled
           hideExperiment
+          variant="PLP"
         />
       ))}
     </div>
