@@ -25,6 +25,8 @@ interface Props {
   isSliderEnabled?: boolean;
   customer?: LoaderReturnType<AuthData>;
   hideExperiment?: boolean;
+  /**@hide true */
+  variant?: "shelf" | "PLP";
 }
 
 // Cache global para armazenar as imagens por slug
@@ -38,6 +40,7 @@ function ProductCard({
   isSliderEnabled,
   // customer,
   hideExperiment,
+  variant = "shelf",
 }: Props) {
   const {
     id: productID,
@@ -400,9 +403,15 @@ function ProductCard({
           class="contents"
         >
           <div class="flex flex-col w-full">
-            <p class="text-black text-base leading-none h-[33px]">
+            {variant === "shelf" ? (
+              <h3 class="text-black text-base leading-none h-[33px]">
               {name}
-            </p>
+            </h3>
+            ) : (
+              <h2 class="text-black text-base leading-none h-[33px]">
+                {name}
+              </h2>
+            )}
 
             <div class="min-h-[25px] my-[10px]">
               {renderMeasurements()}

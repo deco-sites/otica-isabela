@@ -68,6 +68,7 @@ function ProductShelf({
                 itemListName={itemListName}
                 isStopwatchEnabled={isStopwatchEnabled}
                 customer={customer}
+                variant="shelf"
               />
             </Slider.Item>
           ))}
