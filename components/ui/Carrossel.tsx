@@ -162,7 +162,7 @@ export default function Carrossel(
             }}
           >
             <Icon
-              id="chevron-right"
+              id="chevron-right" 
               size={24}
               class="text-white rotate-180"
             />

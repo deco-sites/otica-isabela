@@ -6233,6 +6233,10 @@ details.collapse summary::-webkit-details-marker {
 .font-roboto {
   font-family: Roboto, sans-serif;
 }
+.\!text-base {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;

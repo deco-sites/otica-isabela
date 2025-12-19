@@ -404,11 +404,11 @@ function ProductCard({
         >
           <div class="flex flex-col w-full">
             {variant === "shelf" ? (
-              <h3 class="text-black text-base leading-none h-[33px]">
+              <h3 class="text-black !text-base leading-none h-[33px]">
               {name}
             </h3>
             ) : (
-              <h2 class="text-black text-base leading-none h-[33px]">
+              <h2 class="text-black !text-base leading-none h-[33px]">
                 {name}
               </h2>
             )}
