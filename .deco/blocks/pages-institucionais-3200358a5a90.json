@@ -1058,13 +1058,33 @@
               "spaceBetweenTextAndMedia": 12,
               "backgroundBypassContainer": false,
               "spaceBetweenTextAndMediaMobile": 12
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
           "breadcrumbLabel": "Como medir a DNP"
         },
         {
-          "href": "/guias/provador-de-oculos-online",
           "label": "Provador de óculos online",
           "content": [
             {
@@ -1600,10 +1620,32 @@
                 "bottom": 32
               },
               "backgroundColor": "#f2f2f2"
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
-          "breadcrumbLabel": "Provador de óculos online"
+          "breadcrumbLabel": "Provador de óculos online",
+          "href": "/guias/provador-de-oculos-online"
         },
         {
           "href": "/guias/como-ler-entender-a-receita-de-oculos",
@@ -2014,6 +2056,27 @@
               "__resolveType": "website/sections/Seo/Seo.tsx",
               "titleTemplate": "Como ler e entender a receita de óculos",
               "descriptionTemplate": "A receita de óculos possui termos técnicos e costuma gerar muitas dúvidas, fique tranquilo, hoje você vai entender a receita médica do seu óculos"
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p><p></p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
@@ -2336,6 +2399,26 @@
               "description": "Está com dúvida sobre a qualidade do óculos? Você sabe qual o mais confortável? Qual combina com seu estilo? Descubra qual é o ideal para você",
               "titleTemplate": "Qual o Melhor Material de Armação de Óculos?",
               "descriptionTemplate": "Está com dúvida sobre a qualidade do óculos? Você sabe qual o mais confortável? Qual combina com seu estilo? Descubra qual é o ideal para você"
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": " /armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
@@ -2625,6 +2708,27 @@
                 "bottom": 10
               },
               "backgroundColor": "#f9f9f9"
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
@@ -3085,6 +3189,27 @@
               "spaceBetweenTextAndMedia": 12,
               "backgroundBypassContainer": false,
               "spaceBetweenTextAndMediaMobile": 12
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p><p></p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
@@ -3498,6 +3623,26 @@
                 "bottom": 10
               },
               "backgroundColor": "#f9f9f9"
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p><p></p>"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": [],
@@ -4068,6 +4213,26 @@
               "__resolveType": "deco-sites/std/sections/SEO.tsx",
               "titleTemplate": "Qual óculos ideal para cada formato de rosto?",
               "descriptionTemplate": "Descubra seu formato de rosto de uma vez e aprende a escolher os oculos certos que harmonizam com seu rosto e imagem pessoal."
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p><p></p>"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": []
@@ -4570,6 +4735,26 @@
               "__resolveType": "deco-sites/std/sections/SEO.tsx",
               "titleTemplate": "Cores de óculos que rejuvenescem - Ótica Isabela Dias",
               "descriptionTemplate": "Quais são as cores de óculos que rejuvenescem? Descubra como valorizar sua imagem pessoal usando óculos que contribuem com a mensagem que você deseja transmitir."
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p><p></p>"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
+              }
             }
           ],
           "navigations": []
@@ -5102,6 +5287,27 @@
                   "preload": true
                 },
                 "videoUrl": "https://www.youtube.com/embed/9eeGKF3jcrw"
+              }
+            },
+            {
+              "__resolveType": "website/sections/Rendering/Lazy.tsx",
+              "section": {
+                "__resolveType": "site/sections/Product/SearchResult.tsx",
+                "page": {
+                  "__resolveType": "site/loaders/product/productListingPage.ts",
+                  "OrderBy": "name",
+                  "PageSize": 9,
+                  "PageHref": "/armacao-para-oculos-de-grau"
+                },
+                "notFoundProps": {
+                  "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
+                  "subtitle": "<p>• O servidor do site pode estar fora do ar</p><p>• Confira a palavra ou código utilizado na busca</p><p>• Tente buscar por termos menos específicos e posteriormente use os filtros da busca.</p><p>• Procure utilizar sinônimos ao termo desejado.</p>",
+                  "ctaLabel": "Voltar para pagina inicial"
+                },
+                "customer": {
+                  "customerName": "3",
+                  "customerImage": "3"
+                }
               }
             }
           ],
