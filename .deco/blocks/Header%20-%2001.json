@@ -637,8 +637,12 @@
   "alertMessages": {
     "texts": [
       {
-        "text": "<p><strong>Natal de óculos novos! 🎄</strong></p>",
-        "textMobile": "<p><strong>Natal de óculos novos! 🎄</strong></p>"
+        "text": "<p><strong>Lentes multifocais a partir de R$ 299 </strong><span>👓</span></p>",
+        "textMobile": "<p><strong>Lentes multifocais a partir de R$ 299 </strong>👓</p>"
+      },
+      {
+        "text": "<p><strong>2026 de óculos novos! 🍾🎉</strong></p>",
+        "textMobile": "<p><strong>2026 de óculos novos! 🍾🎉</strong></p>"
       },
       {
         "text": "<p><strong>Experimente online! 👓</strong></p>",
@@ -647,10 +651,6 @@
       {
         "text": "<p><strong>Óculos de sol com grau 🕶️</strong></p>",
         "textMobile": "<p><strong>Óculos de sol com grau 🕶️</strong></p>"
-      },
-      {
-        "text": "<p><strong>Lentes multifocais R$299</strong></p>",
-        "textMobile": "<p><strong>Lentes multifocais R$299</strong></p>"
       },
       {
         "text": "<p><strong>Compre sem sair de casa! 🏡</strong></p><p></p>",

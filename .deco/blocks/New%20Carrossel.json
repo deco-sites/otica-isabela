@@ -1,28 +1,22 @@
 {
   "images": [
     {
-      "mobile": "https://assets.decocache.com/otica-isabela/dc8fb7bb-08e7-4a63-9ef8-6e605728f895/Banner-mobile-oculos-completos.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/e12aa733-d2fa-43e8-8ac4-28915626394d/Banner-Desk-Oculos-completos.jpg",
+      "mobile": "https://assets.decocache.com/otica-isabela/8e73554d-2faa-457a-b618-3e72d1aa2e38/Banner-Mobile-Provador-online.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/8a8a3cc4-c38a-4fc9-96d9-baec41d174e8/Banner-Desk-Provador-online.jpg",
       "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Óculo completos Natal"
+      "alt": "Provador online"
     },
     {
-      "alt": "óculos clipon",
-      "mobile": "https://assets.decocache.com/otica-isabela/02b7377e-52bb-4120-93b6-14bff02bd0b5/Banner-mobile-oculos-clipon.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/f4cd84d5-16fa-4c95-bdc1-6bcdc34a12b2/Banner-Desk-oculos-clipon.jpg",
-      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on"
+      "mobile": "https://assets.decocache.com/otica-isabela/6d8733e1-b081-4f90-aa12-e6390c78a6be/Banner-mobile-Oculos-infantis.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/ef0cbd2d-65fb-4d15-ba83-37179281e498/Banner-Desk-Oculos-infantis.jpg",
+      "link": "https://www.oticaisabeladias.com.br/oculos-clip-on",
+      "alt": "Seleção de óculos infantis"
     },
     {
-      "alt": "Oculos de sol ",
-      "mobile": "https://assets.decocache.com/otica-isabela/ff2b5581-f9d2-4b9a-939e-d09d423fb974/Banner-mobile-oculos-de-sol.jpg",
-      "desktop": "https://assets.decocache.com/otica-isabela/faade0bd-c46d-452b-aaa0-746203f3a594/Banner-Desk-Oculos-de-sol.jpg",
-      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol"
-    },
-    {
-      "desktop": "https://assets.decocache.com/otica-isabela/be9f3537-027a-4d65-9da3-938eebb5431f/Banner-Desktop-como-comprar.jpg",
-      "mobile": "https://assets.decocache.com/otica-isabela/f604342f-254f-4046-9c1d-a4a0fb67db16/Banner-mobile-como-comprar.jpg",
-      "link": "https://www.oticaisabeladias.com.br/armacao-para-oculos-de-grau",
-      "alt": "Como comprar no site"
+      "mobile": "https://assets.decocache.com/otica-isabela/1299cf21-6d41-4103-b050-4d6fdb7e091a/Banner-mobile-Lentes-de-contaro.jpg",
+      "desktop": "https://assets.decocache.com/otica-isabela/dffa5158-6208-42b5-8c73-fc56b2c21bab/Banner-Desk-Lentes-de-contato.jpg",
+      "link": "https://www.oticaisabeladias.com.br/oculos-de-sol",
+      "alt": "Lentes de contato"
     }
   ],
   "benefits": [
