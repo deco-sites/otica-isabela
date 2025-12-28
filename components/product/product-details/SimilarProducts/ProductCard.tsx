@@ -67,7 +67,7 @@ const ProductCard = ({
                 }
 
                 <div className="card-body p-4">
-                    <h3 className="text-black !text-base leading-none h-[33px]">
+                    <h3 className="text-black !text-base !leading-none h-[33px]">
                         {similar.value}
                     </h3>
 

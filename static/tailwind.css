@@ -6346,6 +6346,9 @@ details.collapse summary::-webkit-details-marker {
 .normal-case {
   text-transform: none;
 }
+.\!leading-none {
+  line-height: 1 !important;
+}
 .leading-4 {
   line-height: 1rem;
 }

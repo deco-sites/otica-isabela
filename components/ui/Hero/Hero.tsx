@@ -98,7 +98,7 @@ export default function Hero({
     >
       <div
         style={{ gap }}
-        class={"flex flex-col" + (container ? " container" : "")}
+        class={"contentTextSeo flex flex-col" + (container ? " container" : "")}
       >
         {breadcrumbs && <BreadCrumb {...breadcrumbs} />}
         <div>

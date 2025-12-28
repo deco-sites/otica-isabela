@@ -235,7 +235,7 @@ export default function RichText({
           "--t-d-pb": `${text.desktopPadding?.bottom ?? 0}px`,
           "--t-d-pl": `${text.desktopPadding?.left ?? 0}px`,
         }}
-        class={"grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
+        class={"contentTextSeo grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-[var(--m-gap)] md:gap-[var(--d-gap)]" +
           " pt-[var(--m-pt)] pr-[var(--m-pr)] pb-[var(--m-pb)] pl-[var(--m-pl)]" +
           " md:pt-[var(--d-pt)] md:pr-[var(--d-pr)] md:pb-[var(--d-pb)] md:pl-[var(--d-pl)]" +
           (container ? " container" : "")}

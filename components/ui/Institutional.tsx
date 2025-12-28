@@ -135,7 +135,7 @@ export default function Institutional(
             />
           </div>
         )}
-        <div class="w-full contentTextSeo">
+        <div class="w-full">
           {navigation?.content.map((section) => (
             <section.Component {...section.props} />
           ))}
