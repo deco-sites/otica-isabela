@@ -1077,7 +1077,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -1639,7 +1642,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -2075,7 +2081,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -2417,7 +2426,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -2727,7 +2739,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -3208,7 +3223,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -3641,7 +3659,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -4231,7 +4252,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
@@ -4753,7 +4777,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "isSliderEnabled": true,
+                "hideAllFilters": true,
+                "pageName": "3"
               }
             }
           ],
@@ -5307,7 +5334,10 @@
                 "customer": {
                   "customerName": "3",
                   "customerImage": "3"
-                }
+                },
+                "hideAllFilters": true,
+                "isSliderEnabled": true,
+                "pageName": "3"
               }
             }
           ],
