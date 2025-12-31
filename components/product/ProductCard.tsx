@@ -379,9 +379,9 @@ function ProductCard({
           }
 
           // Check if promotion is currently active
-          const now = new Date();
-          const startDate = new Date(product.promotion.countdown.start);
-          const endDate = new Date(product.promotion.countdown.end);
+          const now = Date.now();
+          const startDate = Date.parse(product.promotion.countdown.start);
+          const endDate = Date.parse(product.promotion.countdown.end);
           const isActive = now >= startDate && now <= endDate;
 
           return isActive
