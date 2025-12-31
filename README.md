@@ -225,3 +225,4 @@ Check performance best practices on [deco.cx's docs](https://www.deco.cx/docs).
 <a href="https://github.com/$store/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=deco-sites/fashion" />
 </a>
+
