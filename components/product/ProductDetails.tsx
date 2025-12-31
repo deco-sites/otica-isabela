@@ -101,7 +101,10 @@ function ProductDetails(
       return false;
     }
 
+    //menos 3 horas da hora atual e retorna o timestamp em milissegundos
     const now = new Date();
+    now.setHours(now.getHours() - 3);
+    const nowTimestamp = now.getTime();
     const startDate = new Date(product.promotion.countdown.start);
     const endDate = new Date(product.promotion.countdown.end);
 

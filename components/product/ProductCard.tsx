@@ -379,10 +379,13 @@ function ProductCard({
           }
 
           // Check if promotion is currently active
+          //menos 3 horas da hora atual e retorna o timestamp em milissegundos
           const now = new Date();
-          const startDate = new Date(product.promotion.countdown.start);
-          const endDate = new Date(product.promotion.countdown.end);
-          const isActive = now >= startDate && now <= endDate;
+          now.setHours(now.getHours() - 3);
+          const nowTimestamp = now.getTime();
+          const startDate = Date.parse(product.promotion.countdown.start);
+          const endDate = Date.parse(product.promotion.countdown.end);
+          const isActive = nowTimestamp >= startDate && nowTimestamp <= endDate;
 
           return isActive
             ? (
