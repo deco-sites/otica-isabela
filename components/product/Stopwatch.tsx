@@ -86,6 +86,7 @@ function Stopwatch({ targetDate, type, page }: Props) {
 
     // Handle ISO date strings (like "2025-10-06T23:00:00+00:00") directly
     // Don't concatenate with dateGMT since it's already a complete date string
+
     const date = new Date(targetDate);
     
     // Validate the date is valid
