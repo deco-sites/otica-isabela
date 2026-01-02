@@ -2417,7 +2417,7 @@
                   "__resolveType": "site/loaders/product/productListingPage.ts",
                   "OrderBy": "name",
                   "PageSize": 9,
-                  "PageHref": " /armacao-para-oculos-de-grau"
+                  "PageHref": "/armacao-para-oculos-de-grau"
                 },
                 "notFoundProps": {
                   "image": "https://assets.decocache.com/otica-isabela/e3d04c60-4bdc-47a6-865f-76781ed79dd9/404-Error-rafiki.png",
