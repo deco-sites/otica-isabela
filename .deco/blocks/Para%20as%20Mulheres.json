@@ -31,40 +31,40 @@
   },
   "banners": [
     {
-      "image": "https://assets.decocache.com/otica-isabela/463a0d80-84d4-4f52-a38c-6a2b396573af/isa-dias-04-25-fotos-calefe-(327).jpg",
-      "label": "Óculos Gatinho",
-      "buttonLabel": "ÓCULOS GATINHO",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2255-marrom"
+      "image": "https://assets.decocache.com/otica-isabela/e631b048-3b97-4e64-8df5-f62a49352ee5/isa-dias-fotos-calefe-(16).jpg",
+      "label": "Óculos oval transparente",
+      "buttonLabel": "OVAL TRANSPARENTE",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2481-transparente-isabela-dias"
     },
     {
-      "image": "https://assets.decocache.com/otica-isabela/0ec699b2-09e7-4768-b3d4-94b2f834079e/isa-dias-09-retrato-calefe-(81).jpg",
-      "buttonLabel": "ÓCULOS AVIADOR",
-      "label": "Óculos Aviador",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2434-cinza-isabela-dias"
-    },
-    {
-      "image": "https://assets.decocache.com/otica-isabela/950c4fae-6d70-4826-97f7-93af88a39e89/isa-dias-09-retrato-calefe-(384).jpg",
-      "label": "Óculos Três peças",
-      "buttonLabel": "ÓCULOS TRÊS PEÇAS",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2389-prata-isabela-dias"
-    },
-    {
-      "label": "Óculos Hexagonal",
-      "image": "https://assets.decocache.com/otica-isabela/ac2978de-8d5b-4301-9987-53e4a0f43668/isa-dias-fotos-calefe-(349).jpg",
-      "buttonLabel": "ÓCULOS HEXAGONAL",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-hexagonal-feminino-2303-dourado-isabela-dias"
-    },
-    {
-      "image": "https://assets.decocache.com/otica-isabela/e6c9219c-3200-483b-bc45-4ff09008c056/isa-dias-09-retrato-calefe-(66).jpg",
-      "label": "Óculos fio de nylon",
-      "buttonLabel": "ÓCULOS INTELECTUAL",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-retangular-masculino-2417-azul-isabela-dias"
-    },
-    {
+      "image": "https://assets.decocache.com/otica-isabela/78cee909-48d0-4ede-b840-ccc8442fa45d/isa-dias-09-retrato-calefe-(72).jpg",
+      "buttonLabel": "ÓCULOS BICOLOR",
       "label": "Óculos Bicolor",
-      "buttonLabel": "ÓCULOS BICOLOR ",
-      "image": "https://assets.decocache.com/otica-isabela/04a94fa6-6389-4d40-8449-d7fbb8d772a8/isa-08-fotos-calefe-(68).jpg",
-      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2365-marrom-isabela-dias"
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-quadrado-masculino-2390-pretoc-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/6d991f56-ed5a-4dd5-b925-f87b8383a33e/isa-dias-fotos-calefe-(79).jpg",
+      "label": "Óculos oval tartaruga",
+      "buttonLabel": "OVAL TARTARUGA",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-oval-feminino-2481-tartaruga-isabela-dias"
+    },
+    {
+      "label": "Óculos Redondo",
+      "image": "https://assets.decocache.com/otica-isabela/65a810c2-366b-4e8a-bcc1-669f96725bc8/isa-dias-fotos-calefe-(73).jpg",
+      "buttonLabel": "ÓCULOS REDONDO",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-redondo-feminino-2457-preto-isabela-dias"
+    },
+    {
+      "image": "https://assets.decocache.com/otica-isabela/1a7a8e27-31af-49bc-8b5c-3d5116cfa477/isa-dias-09-retrato-calefe-(54).jpg",
+      "label": "Óculos Aviador ",
+      "buttonLabel": "ÓCULOS AVIADOR",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-aviador-masculino-2423-cinza-isabela-dias"
+    },
+    {
+      "label": "Óculos três peças",
+      "buttonLabel": "ÓCULOS TRÊS PEÇAS",
+      "image": "https://assets.decocache.com/otica-isabela/cbf67888-0ed7-4156-8ef3-dfec32fb63f0/isa-dias-fotos-calefe-(28).jpg",
+      "href": "https://www.oticaisabeladias.com.br/produto/armacao-oculos-gatinho-feminino-2484-prata-isabela-dias"
     }
   ],
   "customer": {
