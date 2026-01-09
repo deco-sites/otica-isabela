@@ -26,7 +26,7 @@
             },
             "content": {
               "title": {
-                "text": "<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Suporte &amp; Ajuda</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>",
+                "text": "<h1 style=\"text-align: center\"><strong><span style=\"font-size: 41pt\">Ajuda &amp; Suporte</span></strong></h1><p style=\"text-align: center\">COMO POSSO TE AJUDAR?</p>",
                 "color": "#ffffff",
                 "onHover": null
               },
@@ -44,7 +44,7 @@
                 },
                 {
                   "name": "Suporte e ajuda",
-                  "label": "<p style=\"line-height: 1.4;\" data-mce-style=\"line-height: 1.4;\"><span style=\"color: #ffffff;\"><span style=\"font-size: 13.3333px;\" data-mce-style=\"font-size: 13.3333px;\">Suporte e ajuda</span></span></p>"
+                  "label": "<p><span style=\"font-size: 13.3333px\">Suporte e ajuda</span></p>"
                 }
               ],
               "textStyle": {
@@ -81,7 +81,7 @@
             },
             "content": {
               "title": {
-                "text": "<h1 class=\"faq_title__89hRY\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\"><strong><span style=\"font-size: 36pt;\" data-mce-style=\"font-size: 36pt;\"><a href=\"https://www.eyebuydirect.com/faq\" data-mce-href=\"https://www.eyebuydirect.com/faq\">Ajuda &amp; Suporte</a></span></strong></h1><p class=\"faq_txt__MAP8Y\" style=\"text-align: center; line-height: 1.4;\" data-mce-style=\"text-align: center; line-height: 1.4;\">COMO POSSO TE AJUDAR?</p>",
+                "text": "<p style=\"text-align: center\"><strong><span style=\"font-size: 32pt\">Ajuda &amp; Suporte</span></strong></p><p style=\"text-align: center\"></p><p style=\"text-align: center\">COMO POSSO TE AJUDAR?</p>",
                 "color": "#ffffff",
                 "onHover": null
               },
